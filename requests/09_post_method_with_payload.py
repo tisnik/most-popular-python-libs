@@ -12,8 +12,8 @@ payload = {
     "question": None,
     "correct": True}
 
-# poslani HTTP dotazu typu POST se specifikaci hodnot formulare
-response = requests.post(URL, data=payload)
+# poslani HTTP dotazu typu POST s telem
+response = requests.post(URL, json=payload)
 
 # vypis tela odpovedi v plain textu
 print(response.text)
