@@ -6,7 +6,7 @@ import requests
 # adresa s testovaci REST API sluzbou
 URL = "https://httpbin.org/post"
 
-# poslani HTTP dotazu typu GET
+# poslani HTTP dotazu typu POST
 response = requests.post(URL)
 
 # vypis odpovedi v plain textu
