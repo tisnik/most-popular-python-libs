@@ -1,0 +1,1084 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Užitečné knihovny a moduly pro Python: knihovna Pillow určená pro manipulaci s rastrovými obrázky</title>
+<meta name="Author" content="Pavel Tisnovsky" />
+<meta name="Generator" content="vim" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+         body {color:#000000; background:#ffffff;}
+         h1  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#c00000; text-align:center; padding-left:1em}
+         h2  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#0000c0; padding-left:1em; text-align:left}
+         h3  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#c0c0c0; padding-left:1em; text-align:left}
+         h4  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#e0e0e0; padding-left:1em; text-align:left}
+         a   {font-family: arial, helvetica, sans-serif;}
+         li  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ol  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ul  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         p   {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify;}
+         pre {background:#e0e0e0}
+</style>
+</head>
+
+<body>
+
+<h1>Užitečné knihovny a moduly pro Python: knihovna Pillow určená pro manipulaci s rastrovými obrázky</h1>
+
+<h3>Pavel Tišnovský</h3>
+
+<p></p>
+
+<h1>Úvodník</h1>
+
+<p>Ve třetím článku o populárních a často využívaných knihovnách určených pro vývojáře používající programovací jazyk Python se seznámíme se základními vlastnostmi knihovny Pillow, která vznikla z&nbsp;dnes již nevyvíjené knihovny PIL (Python Imaging Library). Knihovna Pillow umožňuje práci s&nbsp;rastrovými obrázky uloženými v&nbsp;mnoha podporovaných formátech, aplikaci různých filtrů na obrázky, manipulaci s&nbsp;jednotlivými pixely, kreslení základních geometrických tvarů i textů do obrázků apod.</p><!--more-->
+
+
+
+<h2>Obsah</h2>
+
+<p><a href="#k01">1. Užitečné knihovny a moduly pro Python: knihovna Pillow určená pro manipulaci s&nbsp;rastrovými obrázky</a></p>
+<p><a href="#k02">2. Podporované formáty souborů s&nbsp;rastrovými obrázky</a></p>
+<p><a href="#k03">3. Instalace knihovny Pillow</a></p>
+<p><a href="#k04">4. Získání testovacího obrázku používaného demonstračními příklady</a></p>
+<p><a href="#k05">5. Základní příklad &ndash; načtení testovacího obrázku do operační paměti</a></p>
+<p><a href="#k06">6. Získání základních informací o načteném obrázku</a></p>
+<p><a href="#k07">7. Uložení testovacího obrázku do různých formátů</a></p>
+<p><a href="#k08">8. Zobrazení načteného a/nebo modifikovaného obrázku</a></p>
+<p><a href="#k09">9. Vytvoření náhledu na obrázek, zobrazení náhledu</a></p>
+<p><a href="#k10">10. Obrazové filtry nabízené knihovnou Pillow</a></p>
+<p><a href="#k11">11. Aplikace jednoduchého filtru typu Blur</a></p>
+<p><a href="#k12">12. Aplikace dalších filtrů nabízených knihovnou Pillow</a></p>
+<p><a href="#k13">13. Modul pro aplikaci složitějších konverzních funkcí</a></p>
+<p><a href="#k14">14. Konverze obrázku na stupně šedi</a></p>
+<p><a href="#k15">15. Konverze obrázku na černobílou bitmapu s&nbsp;využitím ditheringu</a></p>
+<p><a href="#k16">16. Automatická úprava kontrastu</a></p>
+<p><a href="#k17">17. Snížení počtu bitů v&nbsp;každém barvovém kanálu</a></p>
+<p><a href="#k18">18. Obsah následující části seriálu</a></p>
+<p><a href="#k19">19. Repositář s&nbsp;demonstračními příklady</a></p>
+<p><a href="#k20">20. Odkazy na Internetu</a></p>
+
+
+
+<p><a name="k01"></a></p>
+<h2 id="k01">1. Užitečné knihovny a moduly pro Python: knihovna Pillow určená pro manipulaci s&nbsp;rastrovými obrázky</h2>
+
+<p>V&nbsp;dnešní části seriálu věnovaném populárním knihovnám určeným pro programovací jazyk Python si popíšeme knihovnu pojmenovanou <i>Pillow</i> vytvořenou Alexem Clarkem a dalšími přispěvateli. Tato poměrně často využívaná knihovna vznikla tzv.&nbsp;přátelským forkem dnes již nevyvíjené knihovny nazvané <i>PIL</i> neboli <i>Python Imaging Library</i> jejímž autorem je Fredrik Lundh a která byla původně vyvinuta pro potřeby postaršího Pythonu 2.x (ostatně i při pohledu na <a href="http://www.pythonware.com/products/pil/">domácí stránku projektu PIL</a> je zřejmé, že se provádí jen základní údržba; porovnejte se <a href="https://python-pillow.org/">stránkou projektu Pillow</a>). Většinu informací, které si dnes řekneme, je sice možné aplikovat i na původní knihovnu <i>PIL</i>, ovšem pokud máte možnost volby, je lepší začít všude používat již novější a lépe podporovanou knihovnu <i>Pillow</i> (původní PIL se stále používá v&nbsp;některých starších aplikacích naprogramovaných v&nbsp;Pythonu 2).</p>
+
+<p>Poznámka: všechny demonstrační příklady, s&nbsp;nimiž se v&nbsp;dnešním článku seznámíme, byly otestovány na Fedoře 27/28 s&nbsp;Pythonem 3. Převod příkladů na starší Python 2 a původní knihovnu PIL je samozřejmě možný a většinou se obejde bez větších zásahů do zdrojových kódů. Z&nbsp;tohoto důvodu existují všechny dnes popisované zdrojové kódy ve dvou variantách, což je ostatně patrné i při pohledu na <a href="#k19">dvě tabulky uvedené v&nbsp;devatenácté kapitole</a>.</p>
+
+
+
+<p><a name="k02"></a></p>
+<h2 id="k02">2. Podporované formáty souborů s&nbsp;rastrovými obrázky</h2>
+
+<p>Jedním z&nbsp;důvodů poměrně velké popularity knihovny <i>Pillow</i> je podpora poměrně velkého množství <a href="https://www.root.cz/serialy/graficke-formaty">formátů souborů s&nbsp;rastrovými obrázky</a>. Podporovány jsou všechny důležité formáty, tj.&nbsp;zejména GIF, JPEG, PNG i WebP. Ovšem v&nbsp;případě potřeby je možné pracovat i s&nbsp;dalšími formáty, mezi něž patří ICO, varianty PPM, TIFF (některé varianty) a dokonce i PSD (pro čtení) a v&nbsp;omezené míře i PDF.</p>
+
+<p>Mezi podporované formáty patří například:</p>
+
+<table>
+<tr><th>Formát/zkratka</th><th>Stručný popis</th></tr>
+<tr><td>GIF </td><td><a href="https://www.root.cz/serialy/graficky-format-gif/">formát umožňující i uložení jednoduchých animací</a></td></tr>
+<tr><td>PNG </td><td><a href="https://www.root.cz/clanky/png-is-not-gif/">Portable Network Graphics</a></td></tr>
+<tr><td>JPEG</td><td><a href="https://www.root.cz/clanky/jpeg-kral-rastrovych-grafickych-formatu/">populární formát se ztrátovou kompresí</a></td></tr>
+<tr><td>JPEG 2000</td><td>formát založený na vlnkové transformaci</td></tr>
+<tr><td>WebP</td><td>formát určený nejenom pro webové aplikace vyvíjený Googlem</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>BMP </td><td><a href="https://www.root.cz/clanky/graficky-format-bmp-pouzivany-a-pritom-neoblibeny/">formát používaný ve Windows, bez komprese i s&nbsp;kompresí</a></td></tr>
+<tr><td>PCX </td><td><a href="https://www.root.cz/clanky/graficky-format-pcx-vylet-do-historie-pc/">postarší formát pro PC s&nbsp;jednoduchou RLE kompresí</a></td></tr>
+<tr><td>PPM </td><td><a href="https://www.root.cz/clanky/graficke-formaty-ve-znameni-unixu/">unixový PPM a jeho varianty</a></td></tr>
+<tr><td>TIFF</td><td>Tagged Image File Format, pro zápis</td></tr>
+<tr><td>TGA</td><td><a href="https://www.root.cz/clanky/graficky-format-tga-jednoduchy-oblibeny-pouzivany/">jednoduchý formát fy.Targa</a></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>EPS </td><td>Encapsulated PostScript, pro čtení vyžaduje Ghostscript</td></tr>
+<tr><td>MSP </td><td>starý formát MS Paintu</td></tr>
+<tr><td>ICO </td><td>ikony</td></tr>
+<tr><td>PIXAR</td><td>jen pro čtení</td></tr>
+<tr><td>PSD </td><td>jen pro čtení</td></tr>
+<tr><td>PDF </td><td>pouze pro zápis</td></tr>
+</table>
+
+
+
+<p><a name="k03"></a></p>
+<h2 id="k03">3. Instalace knihovny Pillow</h2>
+
+<p>Instalace knihovny <i>Pillow</i> je stejně snadná, jako instalace většiny balíčků určených pro programovací jazyk Python. Instalaci provedeme nástrojem <strong>pip</strong>, zde konkrétně jeho variantou nazvanou <strong>pip3</strong>, která je určena pro Python 3. Při instalaci, přesněji řečeno při volání <strong>pip3</strong>, je použit přepínač <strong>--user</strong>, který zajistí, že se knihovna nainstaluje do podadresáře <strong>.local/lib/python3.x</strong> (například v&nbsp;našem případě <strong>.local/lib/python3.6</strong>) umístěného v&nbsp;domovském adresáři přihlášeného uživatele. Z&nbsp;tohoto důvodu není nutné mít práva administrátora (roota) ani se žádným způsobem nezmění obsah <strong>/usr</strong>:</p>
+
+<pre>
+$ <strong>pip3 install --user pillow</strong>
+</pre>
+
+<p>Průběh samotné instalace vypadá takto:</p>
+
+<pre>
+Collecting pillow
+  Downloading https://files.pythonhosted.org/packages/d1/24/f53ff6b61b3d728b90934bddb4f03f8ab584a7f49299bf3bde56e2952612/Pillow-5.2.0-cp36-cp36m-manylinux1_x86_64.whl (2.0MB)
+    100% |████████████████████████████████| 2.0MB 387kB/s 
+Installing collected packages: pillow
+Successfully installed pillow-5.2.0
+</pre>
+
+<p>Po instalaci si ještě pro jistotu ověříme, jestli je možné knihovnu <i>Pillow</i> skutečně v&nbsp;Pythonu použít. Spustíme tedy interpret jazyka Python 3:</p>
+
+<pre>
+$ <strong>python3</strong>
+
+Python 3.6.6 (default, Jul 19 2018, 16:29:00) 
+[GCC 7.3.1 20180303 (Red Hat 7.3.1-5)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+</pre>
+
+<p>Po zobrazení výzvy (<i>prompt</i>) se pokusíme o import knihovny <i>Pillow</i>. Pokud je knihovna nainstalována korektně, nedojde k&nbsp;zobrazení žádné chyby:</p>
+
+<pre>
+&gt;&gt;&gt; <strong>from PIL import Image</strong>
+</pre>
+
+<p>V&nbsp;případě, že při instalaci došlo k&nbsp;nějaké neočekávané chybě, nebo není knihovna <i>Pillow</i> z&nbsp;nějakého důvodu nalezena, vypíše se chybová zpráva:</p>
+
+<pre>
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+ImportError: No module named 'PIL'
+</pre>
+
+<p>Povšimněte si přitom, že se název této knihovny (Pillow) odlišuje od jména modulu použitého v&nbsp;příkazu <strong>from</strong>. Je tomu tak z&nbsp;toho důvodu, aby byla do co největší míry zajištěna zpětná kompatibilita s&nbsp;původní knihovnou <strong>PIL</strong>.</p>
+
+<p>Jakmile byl import (doufejme, že bezchybně) proveden, můžeme si zobrazit nápovědu ke knihovně:</p>
+
+<pre>
+&gt;&gt;&gt; <strong>help("PIL")</strong>
+</pre>
+
+<p>Po zadání výše uvedeného příkladu by se měla vypsat úvodní obrazovka poměrně rozsáhlé nápovědy:</p>
+
+<pre>
+Help on package PIL:
+
+NAME
+    PIL - Pillow 5.2.0 (Fork of the Python Imaging Library)
+
+DESCRIPTION
+    Pillow is the friendly PIL fork by Alex Clark and Contributors.
+        https://github.com/python-pillow/Pillow/
+    
+    Pillow is forked from PIL 1.1.7.
+    
+    PIL is the Python Imaging Library by Fredrik Lundh and Contributors.
+    Copyright (c) 1999 by Secret Labs AB.
+    
+    Use PIL.__version__ for this Pillow version.
+    PIL.VERSION is the old PIL version and will be removed in the future.
+    
+    ;-)
+</pre>
+
+<p>Pro zajímavost se podívejme na výstup, který získáme při použití původní knihovny PIL a dnes již vlastně historického Pythonu 2.7.5:</p>
+
+<pre>
+$ <strong>python</strong>
+Python 2.7.5 (default, Nov  3 2014, 14:33:39) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-7)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+</pre>
+
+<p>Následně po zobrazení výzvy zadáme příkaz:</p>
+
+<pre>
+&gt;&gt;&gt; <strong>help("PIL")</strong>
+</pre>
+
+<p>S&nbsp;přibližně následujícím výsledkem:</p>
+
+<pre>
+Help on package PIL:
+
+NAME
+    PIL
+
+FILE
+    /usr/lib64/python2.7/site-packages/PIL/__init__.py
+
+DESCRIPTION
+    # The Python Imaging Library.
+    # $Id$
+    #
+    # package placeholder
+    #
+    # Copyright (c) 1999 by Secret Labs AB.
+    #
+    # See the README file for information on usage and redistribution.
+    #
+</pre>
+
+
+
+<p><a name="k04"></a></p>
+<h2 id="k04">4. Získání testovacího obrázku používaného demonstračními příklady</h2>
+
+<p>Před popisem jednotlivých operací, které knihovna Pillow podporuje, a před spuštěním demonstračních příkladů je nutné získat testovací obrázek, který bude do příkladů načítán a dále zpracováván. Vzhledem k&nbsp;tomu, že si budeme mj.&nbsp;popisovat i různé konvoluční filtry aplikované na rastrové obrázky, použijeme testovací obrázek s&nbsp;fotkou Lenny (Leny), který se v&nbsp;oblasti počítačové grafiky a zpracování obrazu používá již několik desetiletí, konkrétně od roku 1973 (více viz stránka <a href="https://web.archive.org/web/20121204075055/http://www.ee.cityu.edu.hk/~lmpo/lenna/Lenna97.html">Lenna 97: A Complete Story of Lenna</a>).</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/01_Lenna.png"><img class="alignnone size-thumbnail wp-image-10402" src="https://mojefedora.cz/wp-content/uploads/2018/08/01_Lenna-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 1: Testovací obrázek Lenny použitý ve všech dnešních demonstračních příkladech.</i></p>
+
+<p>Testovací obrázek, který má dnes již &bdquo;klasické&ldquo; rozlišení 512&times;512 pixelů, je možné získat například z&nbsp;Wikipedie, a to následujícím jednoduchým skriptem. Skript je vhodné spustit ve stejném adresáři, kde se nachází i demonstrační příklady získané z&nbsp;repositáře popsaného <a href="#k19">v&nbsp;devatenácté kapitole</a>:</p>
+
+<pre>
+original_image_address="https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png"
+  
+wget -v -O Lenna.png $original_image_address
+</pre>
+
+<p>Po spuštění tohoto skriptu by se měl v&nbsp;pracovním adresáři objevit nový soubor nazvaný <strong>Lenna.png</strong>. O tom se samozřejmě můžeme velmi snadno přesvědčit pomocí příkazů <strong>ls</strong> a <strong>file</strong>:</p>
+
+<pre>
+$ <strong>ls -l Lenna.png</strong>
+
+-rw-rw-r--. 1 ptisnovs ptisnovs 473831 10. kvě 17.16 Lenna.png
+</pre>
+
+<pre>
+$ <strong>file Lenna.png</strong>
+
+Lenna.png: PNG image data, 512 x 512, 8-bit/color RGB, non-interlaced
+</pre>
+
+
+
+<p><a name="k05"></a></p>
+<h2 id="k05">5. Základní příklad &ndash; načtení testovacího obrázku do operační paměti</h2>
+
+<p>Podívejme se nyní na pravděpodobně zcela <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/01_basic_usage.py">nejjednodušší demonstrační příklad</a>, na němž si ukážeme základní vlastnost knihovny <i>Pillow</i>. V&nbsp;tomto příkladu se pokusíme o načtení testovacího obrázku, který jsme získali skriptem zmíněným <a href="#k04">v&nbsp;předchozí kapitole</a>. Pro načtení rastrového obrázku slouží funkce <strong>Image.open()</strong>, které je nutné předat jméno souboru s&nbsp;rastrovým obrázkem a volitelně taktéž režim přístupu k&nbsp;souboru (implicitně &bdquo;r&ldquo; &ndash; značící režim čtení). Ze jména souboru a především pak z&nbsp;jeho hlavičky si knihovna <i>Pillow</i> odvodí formát souboru a použije příslušnou specializovanou třídu pro načtení a dekódování obrazových dat:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+test_image = Image.open(filename)
+test_image.load()
+print(test_image)
+</pre></code>
+
+<p>Po spuštění tohoto příkladu by se měly pouze vypsat informace o vytvořené instanci třídy <strong>Image</strong> reprezentující rastrový obrázek:</p>
+
+<pre>
+&lt;PIL.PngImagePlugin.PngImageFile image mode=RGB size=512x512 at 0x7F31EE799198&gt;
+</pre>
+
+<p>Pokud ovšem dojde k&nbsp;nějaké chybě při načítání nebo dekódování obrazových dat, nebude náš první skript na tuto skutečnost nijak připraven a skonči s&nbsp;chybou. Pokud například načítaný soubor neexistuje:</p>
+
+<pre>
+Traceback (most recent call last):
+  File "./01_basic_usage.py", line 8, in <module>
+    test_image = Image.open(filename)
+  File "/usr/lib64/python3.6/site-packages/PIL/Image.py", line 2410, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'Lenna.png'
+</pre>
+
+<p>Chyba, i když jiného typu, vznikne i ve chvíli, kdy není možné rastrový obrázek z&nbsp;nějakého důvodu dekódovat:</p>
+
+<pre>
+Traceback (most recent call last):
+  File "./01_basic_usage.py", line 9, in <module>
+    test_image.load()
+  File "/usr/lib64/python3.6/site-packages/PIL/ImageFile.py", line 253, in load
+    raise_ioerror(err_code)
+  File "/usr/lib64/python3.6/site-packages/PIL/ImageFile.py", line 59, in raise_ioerror
+    raise IOError(message + " when reading image file")
+OSError: unrecognized data stream contents when reading image file
+</pre>
+
+<p>Reakci na chyby je samozřejmě možné do skriptu přidat; typicky s&nbsp;využitím programové konstrukce <strong>try-except</strong>. Podívejme se na <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/02_error_handling.py">upravenou variantu skriptu</a>, která již dokáže na chybu zareagovat adekvátně, tj.&nbsp;bez přímého pádu (ve skutečnosti prozatím na chybu nijak adekvátně zareagovat nedokážeme, ovšem alespoň zabráníme okamžitému pádu aplikace). Tato upravená varianta bude použita jako základ pro všechny další demonstrační příklady:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    print(test_image)
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k06"></a></p>
+<h2 id="k06">6. Získání základních informací o načteném obrázku</h2>
+
+<p>Ve chvíli, kdy je obrázek úspěšně načten a dekódován, je ve skriptu reprezentován objektem typu <strong>Image</strong>. To mj.&nbsp;znamená, že máme přístup ke všem metodám tohoto objektu, resp.&nbsp;přesněji řečeno k&nbsp;metodám deklarovaným přímo ve třídě <strong>Image.</strong>. Kromě toho lze přistupovat i k&nbsp;atributům objektu typu <strong>Image</strong>, přičemž tyto atributy nesou základní informace o zpracovávaném obrázku. V&nbsp;dalším demonstračním příkladu, jehož úplný zdrojový kód naleznete na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/03_image_info.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/03_image_info.py</a>, je ukázáno použití atributů pojmenovaných <strong>format</strong>, <strong>size</strong> a <strong>mode</strong>.</p>
+
+<p>Atribut <strong>format</strong> obsahuje formát souboru, ze kterého byl obrázek načten, popř.&nbsp;hodnotu <strong>None</strong> pro obrázky vzniklé programově. V&nbsp;atributu <strong>size</strong> jsou uloženy rozměry obrázku a jelikož jsou rastrové obrázky dvourozměrné, je hodnotou atributu <strong>size</strong> dvojice (<i>tuple</i>) obsahující horizontální rozlišení (tj.&nbsp;počet pixelů na obrazovém řádku) a rozlišení vertikální (tj.&nbsp;počet obrazových řádků). A konečně atribut <strong>mode</strong> obsahuje informaci o tom, jaký barvový prostor je použit (&bdquo;L&ldquo;, &bdquo;RGB&ldquo; atd.):</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    print("Image loaded")
+    print("Format:     {fmt}".format(fmt=test_image.format))
+
+    size = test_image.size
+    print("Resolution: {width}x{height} px".format(width=size[0],
+                                                   height=size[1]))
+
+    print("Mode:       {mode}".format(mode=test_image.mode))
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<p>Po spuštění tohoto demonstračního příkladu by se na konzoli/terminálu měly zobrazit následující základní informace o načteném obrázku:</p>
+
+<pre>
+Image loaded
+Format:     PNG
+Resolution: 512x512 px
+Mode:       RGB
+</pre>
+
+
+
+<p><a name="k07"></a></p>
+<h2 id="k07">7. Uložení testovacího obrázku do různých formátů</h2>
+
+<p>Kromě načítání rastrových obrázků v&nbsp;různých formátech je možné obrázky i ukládat a to opět s&nbsp;možností volby vhodného formátu. Pro tento účel se používá metoda <strong>Image.save()</strong>, které se předá jméno souboru, do něhož se má obrázek uložit. Na základě koncovky souboru (&bdquo;.png&ldquo;, &bdquo;.gif&ldquo; atd.) se určí formát rastrových souborů, který se má použít. Pokud budete z&nbsp;nějakého důvodu potřebovat, aby se obrázek uložil ve formátu, který neodpovídá koncovce souboru, můžete při volání metody <strong>Image.save()</strong> použít nepovinný parametr pojmenovaný <strong>format</strong>. Ukažme si nyní, jak testovací obrázek Lenny postupně uložíme do formátů JPEG, BMP a TIFF. Zdrojový kód tohoto demonstračního příkladu naleznete na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/04_save_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/04_save_image.py</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+
+    test_image.save("Lenna.jpg")
+    test_image.save("Lenna.bmp")
+    test_image.save("Lenna.tiff")
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<p>Informace o výsledných souborech opět získáme s&nbsp;využitím nástrojů <strong>ls</strong> a <strong>file</strong>:</p>
+
+<pre>
+$ <strong>ls -l Lenna.*</strong>
+
+-rw-rw-r--. 1 ptisnovs ptisnovs 786486 13. srp 13.51 Lenna.bmp
+-rw-rw-r--. 1 ptisnovs ptisnovs  37788 13. srp 13.51 Lenna.jpg
+-rw-rw-r--. 1 ptisnovs ptisnovs 473831 10. kvě 17.16 Lenna.png
+-rw-rw-r--. 1 ptisnovs ptisnovs 786572 13. srp 13.51 Lenna.tiff
+</pre>
+
+<pre>
+$ <strong>file Lenna*</strong>
+
+Lenna.bmp:  PC bitmap, Windows 3.x format, 512 x 512 x 24
+Lenna.jpg:  JPEG image data, JFIF standard 1.01, aspect ratio, density 1x1, segment length 16, baseline, precision 8, 512x512, frames 3
+Lenna.png:  PNG image data, 512 x 512, 8-bit/color RGB, non-interlaced
+Lenna.tiff: TIFF image data, little-endian, direntries=10, height=512, bps=134, compression=none, PhotometricIntepretation=RGB, width=512
+</pre>
+
+
+
+<p><a name="k08"></a></p>
+<h2 id="k08">8. Zobrazení načteného a/nebo modifikovaného obrázku</h2>
+
+<p>Pro usnadnění ladění aplikací, které pracují s&nbsp;rastrovými obrázky, existuje velmi užitečná metoda pojmenovaná <strong>Image.show()</strong>. Jak již název této metody naznačuje, slouží k&nbsp;zobrazení právě zpracovávaného obrázku v&nbsp;samostatném okně. <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/05_show_image.py">Demonstrační příklad</a>, který nejprve načte testovací obrázek Lenny ze souboru typu PNG a posléze ho zobrazí, je ve skutečnosti velmi jednoduchý:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k09"></a></p>
+<h2 id="k09">9. Vytvoření náhledu na obrázek, zobrazení náhledu</h2>
+
+<p>V&nbsp;případě, že je zapotřebí vytvořit (zmenšený) náhled na zpracovávaný obrázek, je možné k&nbsp;tomuto účelu použít metodu <strong>Image.thumbnail</strong>. Této metodě se předá n-tice (konkrétně dvojice) s&nbsp;požadovaným rozměrem náhledu. <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/06_show_thumbnail.py">V&nbsp;dalším demonstračním příkladu</a> je zvolena velikost náhledu 128&times;128 pixelů. Podívejme se nyní na zdrojový kód tohoto příkladu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+thumbnail_size = 128, 128
+
+
+def print_image_info(image):
+    print("Format:     {fmt}".format(fmt=image.format))
+    size = image.size
+
+    print("Resolution: {width}x{height} px".format(width=size[0],
+                                                   height=size[1]))
+
+    print("Mode:       {mode}".format(mode=image.mode))
+
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+
+    print("Original:")
+    print_image_info(test_image)
+    print()
+
+    test_image.thumbnail(thumbnail_size)
+
+    print("Thumbnail:")
+    print_image_info(test_image)
+
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<p>Náhledový obrázek má samozřejmě zcela stejné vlastnosti a možnosti, jako jakýkoli jiný obrázek načtený knihovnou <i>Pillow</i>. To mj.&nbsp;znamená, že je možné takový obrázek uložit na disk, což je ukázáno <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/07_save_thumbnail.py">v&nbsp;následujícím příkladu</a>, v&nbsp;němž vytvoříme nový soubor &bdquo;thumbnail.png&ldquo; s&nbsp;obrázkem o rozměrech pouhých 128&times;128 pixelů:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+thumbnail_size = 128, 128
+
+
+def print_image_info(image):
+    print("Format:     {fmt}".format(fmt=image.format))
+
+    size = image.size
+    print("Resolution: {width}x{height} px".format(width=size[0],
+                                                   height=size[1]))
+
+    print("Mode:       {mode}".format(mode=image.mode))
+
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+
+    print("Original:")
+    print_image_info(test_image)
+    print()
+
+    test_image.thumbnail(thumbnail_size)
+
+    print("Thumbnail:")
+    print_image_info(test_image)
+
+    test_image.save("thumbnail.png")
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/02_Lenna_thumbnail.png"><img class="alignnone size-full wp-image-10403" src="https://mojefedora.cz/wp-content/uploads/2018/08/02_Lenna_thumbnail.png" alt="" width="128" height="128" /></a>
+<p><i>Obrázek 2: Náhledový obrázek vytvořený předchozím demonstračním příkladem.</i></p>
+
+
+
+<p><a name="k10"></a></p>
+<h2 id="k10">10. Obrazové filtry nabízené knihovnou Pillow</h2>
+
+<p>Knihovna <i>Pillow</i> obsahuje poměrně velké množství (konvolučních) filtrů, které je možné aplikovat na upravované rastrové obrázky. Popišme si nyní ten nejjednodušší filtr: při úpravách fotografií nebo naskenovaných obrázků se poměrně často můžeme setkat s&nbsp;požadavkem na odstranění šumu z&nbsp;obrazu nebo z&nbsp;jeho vybrané části. Nejjednodušším a taktéž nejrychlejším filtrem, který dokáže odstranit vysoké frekvence v&nbsp;obrazu a tím i šum (bohužel spolu s&nbsp;ostrými hranami) je filtr nazvaný příznačně <strong>Blur</strong>. Tento filtr pracuje velmi jednoduše &ndash; spočítá průměrnou hodnotu sousedních pixelů tvořících pravidelný blok a tuto hodnotu uloží do pixelu ležícího přesně uprostřed bloku (operace je samozřejmě provedena pro všechny pixely v&nbsp;obrazu). Výsledkem je sice obraz s&nbsp;odstraněným vysokofrekvenčním šumem, ale současně s&nbsp;potlačením šumu došlo k&nbsp;rozmazání všech jednopixelových hran na přechody široké minimálně tři pixely.</p>
+
+
+
+<p><a name="k11"></a></p>
+<h2 id="k11">11. Aplikace jednoduchého filtru typu Blur</h2>
+
+<p>Filtr typu Blur zmíněný v&nbsp;předchozí kapitole, se na již načtený obrázek aplikuje velmi jednoduše s&nbsp;tím, že výsledkem aplikace filtru bude nový (rozmazaný) obrázek:</p>
+
+<pre>
+blurred_image = test_image.filter(ImageFilter.BLUR)
+</pre>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/03_Lenna_blur.png"><img class="alignnone size-thumbnail wp-image-10404" src="https://mojefedora.cz/wp-content/uploads/2018/08/03_Lenna_blur-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 3: Výsledek aplikace filtru typu Blur.</i></p>
+
+<p>Úplný zdrojový kód demonstračního příkladu, který načte obrázek Lenny a následně na něj aplikuje rozmazávací filtr, naleznete na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/08_simple_filter.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/08_simple_filter.py</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image, ImageFilter
+
+filename = "Lenna.png"
+
+
+def print_image_info(image):
+    print("Format:     {fmt}".format(fmt=image.format))
+    size = image.size
+
+    print("Resolution: {width}x{height} px".format(width=size[0],
+                                                   height=size[1]))
+
+    print("Mode:       {mode}".format(mode=image.mode))
+
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+
+    print("Original:")
+    print_image_info(test_image)
+    print()
+
+    blurred_image = test_image.filter(ImageFilter.BLUR)
+
+    print("Filtered image:")
+    print_image_info(blurred_image)
+
+    test_image.show()
+    blurred_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k12"></a></p>
+<h2 id="k12">12. Aplikace dalších filtrů nabízených knihovnou Pillow</h2>
+
+<p>Ve skutečnosti v&nbsp;knihovně <i>Pillow</i> nalezneme větší množství konvolučních filtrů, z&nbsp;nichž některé provádí rozmazání, další naopak zaostření, zvýraznění hran, vytvoření &bdquo;plastického&ldquo; otisku atd. Jedná se o následující filtry, které můžeme použít popř.&nbsp;libovolným způsobem kombinovat:</p>
+
+<pre>
+ImageFilter.BLUR
+ImageFilter.CONTOUR
+ImageFilter.DETAIL
+ImageFilter.EDGE_ENHANCE
+ImageFilter.EDGE_ENHANCE_MORE
+ImageFilter.EMBOSS
+ImageFilter.FIND_EDGES
+ImageFilter.SHARPEN
+ImageFilter.SMOOTH
+ImageFilter.SMOOTH_MOR
+</pre>
+
+<p>Základní možnosti těchto filtrů <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/09_other_filters.py">jsou ukázány v&nbsp;devátém demonstračním příkladu</a>, jehož zdrojový kód je vypsán pod tímto odstavcem:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image, ImageFilter
+
+filename = "Lenna.png"
+
+IMAGE_FILTERS = (
+    ImageFilter.BLUR,
+    ImageFilter.CONTOUR,
+    ImageFilter.DETAIL,
+    ImageFilter.EDGE_ENHANCE,
+    ImageFilter.EDGE_ENHANCE_MORE,
+    ImageFilter.EMBOSS,
+    ImageFilter.FIND_EDGES,
+    ImageFilter.SHARPEN,
+    ImageFilter.SMOOTH,
+    ImageFilter.SMOOTH_MORE
+)
+
+
+def print_image_info(image):
+    print("Format:     {fmt}".format(fmt=image.format))
+    size = image.size
+
+    print("Resolution: {width}x{height} px".format(width=size[0],
+                                                   height=size[1]))
+
+    print("Mode:       {mode}".format(mode=image.mode))
+
+
+def apply_filter_and_save_image(image, prefix, image_filter):
+    filter_name = image_filter.__name__.lower()
+    print("Applying filter {filter_name}".format(filter_name=filter_name))
+
+    filename = "{prefix}{filter_name}.png".format(prefix=prefix, filter_name=filter_name)
+
+    filtered_image = image.filter(image_filter)
+    filtered_image.save(filename)
+
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+
+    print("Original:")
+    print_image_info(test_image)
+
+    for image_filter in IMAGE_FILTERS:
+        apply_filter_and_save_image(test_image, "Lenna_", image_filter)
+
+except Exception as e:
+    print("An exception:")
+    print(e)
+</pre></code>
+
+<p>Podívejme se na výsledky produkované zmíněnými filtry:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/04_Lenna_contour.png"><img class="alignnone size-thumbnail wp-image-10405" src="https://mojefedora.cz/wp-content/uploads/2018/08/04_Lenna_contour-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 4: Filtr typu <strong>CONTOUR</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/05_Lenna_detail.png"><img class="alignnone size-thumbnail wp-image-10406" src="https://mojefedora.cz/wp-content/uploads/2018/08/05_Lenna_detail-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 5: Filtr typu <strong>DETAIL</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/06_Lenna_edge_enhance.png"><img class="alignnone size-thumbnail wp-image-10407" src="https://mojefedora.cz/wp-content/uploads/2018/08/06_Lenna_edge_enhance-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 6: Filtr typu <strong>EDGE_ENHANCE</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/07_Lenna_edge_enhance_more.png"><img class="alignnone size-thumbnail wp-image-10408" src="https://mojefedora.cz/wp-content/uploads/2018/08/07_Lenna_edge_enhance_more-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 7: Filtr typu <strong>EDGE_ENHANCE_MORE</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/08_Lenna_emboss.png"><img class="alignnone size-thumbnail wp-image-10409" src="https://mojefedora.cz/wp-content/uploads/2018/08/08_Lenna_emboss-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 8: Filtr typu <strong>EMBOSS</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/09_Lenna_find_edges.png"><img class="alignnone size-thumbnail wp-image-10410" src="https://mojefedora.cz/wp-content/uploads/2018/08/09_Lenna_find_edges-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 9: Filtr typu <strong>FIND_EDGES</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/10_Lenna_sharpen.png"><img class="alignnone size-thumbnail wp-image-10411" src="https://mojefedora.cz/wp-content/uploads/2018/08/10_Lenna_sharpen-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 10: Filtr typu <strong>SHARPEN</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/11_Lenna_smooth.png"><img class="alignnone size-thumbnail wp-image-10412" src="https://mojefedora.cz/wp-content/uploads/2018/08/11_Lenna_smooth-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 11: Filtr typu <strong>SMOOTH</strong>.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/12_Lenna_smooth_more.png"><img class="alignnone size-thumbnail wp-image-10413" src="https://mojefedora.cz/wp-content/uploads/2018/08/12_Lenna_smooth_more-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 12: Filtr typu <strong>SMOOTH_MORE</strong>.</i></p>
+
+
+
+<p><a name="k13"></a></p>
+<h2 id="k13">13. Modul pro aplikaci složitějších konverzních funkcí</h2>
+
+<p>V&nbsp;knihovně <i>Pillow</i> nalezneme i velmi zajímavý a pravděpodobně ne tak často používaný modul nazvaný <strong>ImageMath</strong>, jehož možnosti jsou popsány na stránce <a href="https://pillow.readthedocs.io/en/5.2.x/reference/ImageMath.html">https://pillow.readthedocs.io/en/5.2.x/reference/ImageMath.html</a>. V&nbsp;tomto modulu jsou definovány obecnější funkce pro operace prováděné nad jedním obrázkem či současně nad několika rastrovými obrázky. Tyto operace jsou skutečně definovány velmi obecně takovým způsobem, aby je bylo možné modifikovat uživatelem-programátorem a aplikovat tak na obrázek i operace, s&nbsp;nimiž tvůrci knihovny <i>Pillow</i> nepočítali. Dnes se seznámíme jen s&nbsp;naprostými základy nabízenými tímto modulem.</p>
+
+
+
+<p><a name="k14"></a></p>
+<h2 id="k14">14. Konverze obrázku na stupně šedi</h2>
+
+<p><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/10_convert_image_to_grayscale.py">V&nbsp;desátém demonstračním příkladu</a> je ukázán převod rastrového obrázku na stupně šedi s&nbsp;využitím univerzální konverzní funkce <strong>ImageMath.eval()</strong>. Této funkci se předá volání &bdquo;convert(src, 'L')&ldquo; znamenající konverzi obrázku do barvového prostoru &bdquo;luminance&ldquo;:</p>
+
+<pre><code>
+modified_image = ImageMath.eval("convert(src, 'L')", src=test_image)
+</pre></code>
+
+<p>Výsledek aplikace této konverzní funkce:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/13_Lenna_grayscale.png"><img class="alignnone size-thumbnail wp-image-10414" src="https://mojefedora.cz/wp-content/uploads/2018/08/13_Lenna_grayscale-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 13: Převod obrázku na stupně šedi.</i></p>
+
+<p>Zdrojový kód tohoto demonstračního příkladu vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageMath
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    modified_image = ImageMath.eval("convert(src, 'L')", src=test_image)
+
+    test_image.show()
+    modified_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k15"></a></p>
+<h2 id="k15">15. Konverze obrázku na černobílou bitmapu s&nbsp;využitím ditheringu</h2>
+
+<p>V&nbsp;některých případech, například při konstrukcích masky pro další rastrové operace atd., se používají čistě černobílé bitmapy, přičemž slovo &bdquo;bitmapa&ldquo; je zde použito v&nbsp;původním významu &ndash; každý pixel je představován jediným bitem. Konverze na černobílou bitmapu využívá algoritmu <i>ditheringu</i> a provede se tímto příkazem:</p>
+
+<pre><code>
+modified_image = ImageMath.eval("convert(src, '1')", src=test_image)
+</pre></code>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/14_Lenna_BW.png"><img class="alignnone size-thumbnail wp-image-10415" src="https://mojefedora.cz/wp-content/uploads/2018/08/14_Lenna_BW-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 14: Převod obrázku na černobílou bitmapu.</i></p>
+
+<p>Zdrojový kód <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/11_convert_image_to_black_white.py">tohoto demonstračního příkladu</a> vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageMath
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    modified_image = ImageMath.eval("convert(src, '1')", src=test_image)
+
+    test_image.show()
+    modified_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k16"></a></p>
+<h2 id="k16">16. Automatická úprava kontrastu</h2>
+
+<p>Zajímavá a potenciálně užitečná může být funkce pro automatickou úpravu (typicky zvětšení) kontrastu, která se zavolá takto:</p>
+
+<pre><code>
+modified_image = ImageOps.autocontrast(test_image)
+</pre></code>
+
+<p>S&nbsp;výsledkem:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/15_Lenna_autocontrast.png"><img class="alignnone size-thumbnail wp-image-10416" src="https://mojefedora.cz/wp-content/uploads/2018/08/15_Lenna_autocontrast-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 15: Automatické zvýšení kontrastu.</i></p>
+
+<p>Celý příklad, který automatické zvýšení kontrastu provede, vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageOps
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    modified_image = ImageOps.autocontrast(test_image)
+
+    test_image.show()
+    modified_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<p>U funkce <strong>ImageOps.autocontrast()</strong> lze zadat i hodnotu určující, kolik procent krajních hodnot z&nbsp;histogramu je odříznuto, aby se zbylá část histogramu v&nbsp;barvovém spektru roztáhla a zvýšila tak kontrast:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/16_Lenna_autocontrast_cutoff_0.png"><img class="alignnone size-thumbnail wp-image-10417" src="https://mojefedora.cz/wp-content/uploads/2018/08/16_Lenna_autocontrast_cutoff_0-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 16: Automatické zvýšení kontrastu, hodnota cutoff=0.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/17_Lenna_autocontrast_cutoff_50.png"><img class="alignnone size-thumbnail wp-image-10418" src="https://mojefedora.cz/wp-content/uploads/2018/08/17_Lenna_autocontrast_cutoff_50-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 17: Automatické zvýšení kontrastu, hodnota cutoff=25.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/18_Lenna_autocontrast_cutoff_75.png"><img class="alignnone size-thumbnail wp-image-10419" src="https://mojefedora.cz/wp-content/uploads/2018/08/18_Lenna_autocontrast_cutoff_75-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 18: Automatické zvýšení kontrastu, hodnota cutoff=75.</i></p>
+
+<p>Příklad, který vygeneroval předchozí tři obrázky, vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageOps
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    modified_image_1 = ImageOps.autocontrast(test_image, cutoff=0)
+    modified_image_2 = ImageOps.autocontrast(test_image, cutoff=50)
+    modified_image_3 = ImageOps.autocontrast(test_image, cutoff=75)
+
+    test_image.show()
+    modified_image_1.show()
+    modified_image_2.show()
+    modified_image_3.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k17"></a></p>
+<h2 id="k17">17. Snížení počtu bitů v&nbsp;každém barvovém kanálu</h2>
+
+<p>U plnobarevných (truecolor) rastrových obrázků lze snížit počet bitů pro každý barvový kanál a tak postupně snižovat počet barev až na limitních osm barev. Tato operace se provede funkcí <strong>ImageOps.posterize()</strong>, které se kromě vstupního obrázku předá i počet bitů na barvový kanál s&nbsp;výsledkem:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/19_Lenna_posterize_4.png"><img class="alignnone size-thumbnail wp-image-10420" src="https://mojefedora.cz/wp-content/uploads/2018/08/19_Lenna_posterize_4-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 19: Počet bitů na barvový kanál=4, celkový počet barev=4096.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/20_Lenna_posterize_3.png"><img class="alignnone size-thumbnail wp-image-10421" src="https://mojefedora.cz/wp-content/uploads/2018/08/20_Lenna_posterize_3-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 20: Počet bitů na barvový kanál=3, celkový počet barev=512.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/21_Lenna_posterize_2.png"><img class="alignnone size-thumbnail wp-image-10422" src="https://mojefedora.cz/wp-content/uploads/2018/08/21_Lenna_posterize_2-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 21: Počet bitů na barvový kanál=2, celkový počet barev=64.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/22_Lenna_posterize_1.png"><img class="alignnone size-thumbnail wp-image-10423" src="https://mojefedora.cz/wp-content/uploads/2018/08/22_Lenna_posterize_1-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 22: Počet bitů na barvový kanál=1, celkový počet barev=8.</i></p>
+
+<p>Tyto obrázky byly vytvořeny příkladem:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageOps
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    test_image.show()
+
+    for bits in range(8, 0, -1):
+        modified_image = ImageOps.posterize(test_image, bits)
+        modified_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+<p>Tutéž operaci je možné provést i s&nbsp;obrázkem převedeným na stupně šedi:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/23_Lenna_grayscale_posterize_4.png"><img class="alignnone size-thumbnail wp-image-10424" src="https://mojefedora.cz/wp-content/uploads/2018/08/23_Lenna_grayscale_posterize_4-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 23: Počet bitů na barvový kanál=4, celkový počet barev=16.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/24_Lenna_grayscale_posterize_3.png"><img class="alignnone size-thumbnail wp-image-10425" src="https://mojefedora.cz/wp-content/uploads/2018/08/24_Lenna_grayscale_posterize_3-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 24: Počet bitů na barvový kanál=3, celkový počet barev=8.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/25_Lenna_grayscale_posterize_2.png"><img class="alignnone size-thumbnail wp-image-10426" src="https://mojefedora.cz/wp-content/uploads/2018/08/25_Lenna_grayscale_posterize_2-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 25: Počet bitů na barvový kanál=2, celkový počet barev=4.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/26_Lenna_grayscale_posterize_1.png"><img class="alignnone size-thumbnail wp-image-10427" src="https://mojefedora.cz/wp-content/uploads/2018/08/26_Lenna_grayscale_posterize_1-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 26: Počet bitů na barvový kanál=1, celkový počet barev=2.</i></p>
+
+<p>Dnešní poslední demonstrační příklad, který vytvořil předchozí čtyři obrázky, má tvar:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageMath
+from PIL import ImageOps
+
+filename = "Lenna.png"
+
+try:
+    test_image = Image.open(filename)
+    test_image.load()
+    test_image.show()
+    grayscale_image = ImageMath.eval("convert(src, 'L')", src=test_image)
+
+    for bits in range(8, 0, -1):
+        modified_image = ImageOps.posterize(grayscale_image, bits)
+        modified_image.show()
+
+except Exception as e:
+    print(e)
+</pre></code>
+
+
+
+<p><a name="k18"></a></p>
+<h2 id="k18">18. Obsah následující části seriálu</h2>
+
+<p>V&nbsp;navazující části seriálu věnovaného populárním knihovnám určeným pro programovací jazyk Python si ukážeme další možnosti nabízené knihovnou <i>Pillow</i>. Popíšeme si zejména moduly nazvané <strong>ImageMath</strong> (o tomto modulu jsme se dnes zmínili jen krátce), modul <strong>ImagePath</strong> (vektorová grafika), <strong>ImageMorph</strong> a navíc pak i třídu <strong>PixelAccess</strong>, která zajišťuje přístup k&nbsp;rastrovým obrázkům na úrovni jednotlivých pixelů.</p>
+
+
+
+<p><a name="k19"></a></p>
+<h2 id="k19">19. Repositář s&nbsp;demonstračními příklady</h2>
+
+<p>Zdrojové kódy všech dnes popsaných demonstračních příkladů určených pro programovací jazyk Python 3 a knihovnu <i>Pillow</i> byly uloženy do Git repositáře dostupného na adrese <a href="https://github.com/tisnik/most-popular-python-libs">https://github.com/tisnik/most-popular-python-libs</a> (stále na GitHubu :-). V&nbsp;případě, že nebudete chtít klonovat celý repositář (ten je ovšem stále velmi malý, dnes má doslova několik kilobajtů), můžete namísto toho použít odkazy na jednotlivé příklady, které naleznete v&nbsp;následujících dvou tabulkách.</p>
+
+<h3>Příklady pro jazyk Python 3 a knihovnu Pillow:</h3>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>01_basic_usage.py</td><td>načtení rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/01_basic_usage.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/01_basic_usage.py</a></td></tr>
+<tr><td> 2</td><td>02_error_handling.py</td><td>reakce na chyby, které mohou při načítání obrázku nastat</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/02_error_handling.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/02_error_handling.py</a></td></tr>
+<tr><td> 3</td><td>03_image_info.py</td><td>získání základních informací o načteném obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/03_image_info.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/03_image_info.py</a></td></tr>
+<tr><td> 4</td><td>04_save_image.py</td><td>uložení rastrového obrázku s&nbsp;využitím zvolených formátů</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/04_save_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/04_save_image.py</a></td></tr>
+<tr><td> 5</td><td>05_show_image.py</td><td>zobrazení načteného obrázku v&nbsp;samostatném okně</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/05_show_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/05_show_image.py</a></td></tr>
+<tr><td> 6</td><td>06_show_thumbnail.py</td><td>vytvoření a zobrazení náhledu na obrázek</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/06_show_thumbnail.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/06_show_thumbnail.py</a></td></tr>
+<tr><td> 7</td><td>07_save_thumbnail.py</td><td>uložení (zmenšeného) náhledu na obrázek</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/07_save_thumbnail.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/07_save_thumbnail.py</a></td></tr>
+<tr><td> 8</td><td>08_simple_filter.py</td><td>aplikace jednoduchého konvolučního filtru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/08_simple_filter.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/08_simple_filter.py</a></td></tr>
+<tr><td> 9</td><td>09_other_filters.py</td><td>aplikace dalších filtrů z&nbsp;knihovny Pillow</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/09_other_filters.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/09_other_filters.py</a></td></tr>
+<tr><td>10</td><td>10_convert_image_to_grayscale.py</td><td>konverze do obrázku ve stupních šedi</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/10_convert_image_to_grayscale.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/10_convert_image_to_grayscale.py</a></td></tr>
+<tr><td>11</td><td>11_convert_image_to_black_white.py</td><td>konverze do čistě černobílé bitmapy</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/11_convert_image_to_black_white.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/11_convert_image_to_black_white.py</a></td></tr>
+<tr><td>12</td><td>12_image_ops_autocontrast.py</td><td>automatická úprava kontrastu rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/12_image_ops_autocontrast.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/12_image_ops_autocontrast.py</a></td></tr>
+<tr><td>13</td><td>13_image_ops_autocontrast_cutoff.py</td><td>automatická úprava kontrastu rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/13_image_ops_autocontrast_cutoff.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/13_image_ops_autocontrast_cutoff.py</a></td></tr>
+<tr><td>14</td><td>14_image_ops_posterize.py</td><td>posterizace původně plnobarevného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/14_image_ops_posterize.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/14_image_ops_posterize.py</a></td></tr>
+<tr><td>15</td><td>15_image_ops_posterize_grayscale.py</td><td>posterizace obrázku ve stupních šedi</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/15_image_ops_posterize_grayscale.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/15_image_ops_posterize_grayscale.py</a></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>16</td><td></td><td>skript pro stažení testovacího obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/</a></td></tr>
+</table>
+
+<h3>Příklady pro jazyk Python 2 a knihovnu PIL:</h3>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>01_basic_usage.py</td><td>načtení rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/01_basic_usage.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/01_basic_usage.py</a></td></tr>
+<tr><td> 2</td><td>02_error_handling.py</td><td>reakce na chyby, které mohou při načítání obrázku nastat</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/02_error_handling.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/02_error_handling.py</a></td></tr>
+<tr><td> 3</td><td>03_image_info.py</td><td>získání základních informací o načteném obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/03_image_info.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/03_image_info.py</a></td></tr>
+<tr><td> 4</td><td>04_save_image.py</td><td>uložení rastrového obrázku s&nbsp;využitím zvolených formátů</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/04_save_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/04_save_image.py</a></td></tr>
+<tr><td> 5</td><td>05_show_image.py</td><td>zobrazení načteného obrázku v&nbsp;samostatném okně</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/05_show_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/05_show_image.py</a></td></tr>
+<tr><td> 6</td><td>06_show_thumbnail.py</td><td>vytvoření a zobrazení náhledu na obrázek</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/06_show_thumbnail.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/06_show_thumbnail.py</a></td></tr>
+<tr><td> 7</td><td>07_save_thumbnail.py</td><td>uložení (zmenšeného) náhledu na obrázek</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/07_save_thumbnail.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/07_save_thumbnail.py</a></td></tr>
+<tr><td> 8</td><td>08_simple_filter.py</td><td>aplikace jednoduchého konvolučního filtru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/08_simple_filter.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/08_simple_filter.py</a></td></tr>
+<tr><td> 9</td><td>09_other_filters.py</td><td>aplikace dalších filtrů z&nbsp;knihovny Pillow</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/09_other_filters.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/09_other_filters.py</a></td></tr>
+<tr><td>10</td><td>10_convert_image_to_grayscale.py</td><td>konverze do obrázku ve stupních šedi</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/10_convert_image_to_grayscale.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/10_convert_image_to_grayscale.py</a></td></tr>
+<tr><td>11</td><td>11_convert_image_to_black_white.py</td><td>konverze do čistě černobílé bitmapy</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/11_convert_image_to_black_white.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/11_convert_image_to_black_white.py</a></td></tr>
+<tr><td>12</td><td>12_image_ops_autocontrast.py</td><td>automatická úprava kontrastu rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/12_image_ops_autocontrast.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/12_image_ops_autocontrast.py</a></td></tr>
+<tr><td>13</td><td>13_image_ops_autocontrast_cutoff.py</td><td>automatická úprava kontrastu rastrového obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/13_image_ops_autocontrast_cutoff.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/13_image_ops_autocontrast_cutoff.py</a></td></tr>
+<tr><td>14</td><td>14_image_ops_posterize.py</td><td>posterizace původně plnobarevného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/14_image_ops_posterize.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/14_image_ops_posterize.py</a></td></tr>
+<tr><td>15</td><td>15_image_ops_posterize_grayscale.py</td><td>posterizace obrázku ve stupních šedi</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/15_image_ops_posterize_grayscale.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/15_image_ops_posterize_grayscale.py</a></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>16</td><td></td><td>skript pro stažení testovacího obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/</a></td></tr>
+</table>
+
+
+
+<p><a name="k20"></a></p>
+<h2 id="k20">20. Odkazy na Internetu</h2>
+
+<ol>
+
+<li>PIL: The friendly PIL fork (home page)<br />
+<a href="https://python-pillow.org/">https://python-pillow.org/</a>
+</li>
+
+<li>Python Imaging Library (PIL), (home page)<br />
+<a href="http://www.pythonware.com/products/pil/">http://www.pythonware.com/products/pil/</a>
+</li>
+
+<li>PIL 1.1.6 na PyPi<br />
+<a href="https://pypi.org/project/PIL/">https://pypi.org/project/PIL/</a>
+</li>
+
+<li>Pillow 5.2.0 na PyPi<br />
+<a href="https://pypi.org/project/Pillow/">https://pypi.org/project/Pillow/</a>
+</li>
+
+<li>Python Imaging Library na Wikipedii<br />
+<a href="https://en.wikipedia.org/wiki/Python_Imaging_Library">https://en.wikipedia.org/wiki/Python_Imaging_Library</a>
+</li>
+
+<li>Pillow na GitHubu<br />
+<a href="https://github.com/python-pillow/Pillow">https://github.com/python-pillow/Pillow</a>
+</li>
+
+<li>Pillow - dokumentace na readthedocs.io<br />
+<a href="http://pillow.readthedocs.io/en/5.2.x/">http://pillow.readthedocs.io/en/5.2.x/</a>
+</li>
+
+<li>How to use Pillow, a fork of PIL<br />
+<a href="https://www.pythonforbeginners.com/gui/how-to-use-pillow">https://www.pythonforbeginners.com/gui/how-to-use-pillow</a>
+</li>
+
+<li>Lenna (Wikipedia)<br />
+<a href="https://en.wikipedia.org/wiki/Lenna">https://en.wikipedia.org/wiki/Lenna</a>
+</li>
+
+<li>Seriál Grafický formát GIF<br />
+<a href="https://www.root.cz/serialy/graficky-format-gif/">https://www.root.cz/serialy/graficky-format-gif/</a>
+</li>
+
+<li>PNG is Not GIF<br />
+<a href="https://www.root.cz/clanky/png-is-not-gif/">https://www.root.cz/clanky/png-is-not-gif/</a>
+</li>
+
+<li>JPEG - král rastrových grafických formátů?<br />
+<a href="https://www.root.cz/clanky/jpeg-kral-rastrovych-grafickych-formatu/">https://www.root.cz/clanky/jpeg-kral-rastrovych-grafickych-formatu/</a>
+</li>
+
+<li>Grafický formát BMP - používaný a přitom neoblíbený<br />
+<a href="https://www.root.cz/clanky/graficky-format-bmp-pouzivany-a-pritom-neoblibeny/">https://www.root.cz/clanky/graficky-format-bmp-pouzivany-a-pritom-neoblibeny/</a>
+</li>
+
+<li>Grafický formát PCX - výlet do historie PC<br />
+<a href="https://www.root.cz/clanky/graficky-format-pcx-vylet-do-historie-pc/">https://www.root.cz/clanky/graficky-format-pcx-vylet-do-historie-pc/</a>
+</li>
+
+<li>Grafické formáty ve znamení Unixu<br />
+<a href="https://www.root.cz/clanky/graficke-formaty-ve-znameni-unixu/">https://www.root.cz/clanky/graficke-formaty-ve-znameni-unixu/</a>
+</li>
+
+<li>Grafický formát TGA - jednoduchý, oblíbený, používaný<br />
+<a href="https://www.root.cz/clanky/graficky-format-tga-jednoduchy-oblibeny-pouzivany/">https://www.root.cz/clanky/graficky-format-tga-jednoduchy-oblibeny-pouzivany/</a>
+</li>
+
+</ol>
+
+
+
+<p></p><p></p>
+<p><small>Autor: <a href="http://www.fit.vutbr.cz/~tisnovpa">Pavel Tišnovský</a> &nbsp; 2018</small></p>
+</body>
+</html>
+
+<!--
+2018-08-11: 1 hod
+2018-08-12: 1 hod
+2018-08-13: 1 hod
+2018-08-14: 1 hod
+2018-08-15: 1 hod
+2018-08-16: 1 hod
+publikace:  0 hod
+-----------------
+            6 hod
+-->
