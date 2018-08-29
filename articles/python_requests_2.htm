@@ -1,0 +1,1259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Užitečné knihovny a moduly pro Python: další možnosti nabízené knihovnou Requests</title>
+<meta name="Author" content="Pavel Tisnovsky" />
+<meta name="Generator" content="vim" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+         body {color:#000000; background:#ffffff;}
+         h1  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#c00000; text-align:center; padding-left:1em}
+         h2  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#0000c0; padding-left:1em; text-align:left}
+         h3  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#c0c0c0; padding-left:1em; text-align:left}
+         h4  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#e0e0e0; padding-left:1em; text-align:left}
+         a   {font-family: arial, helvetica, sans-serif;}
+         li  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ol  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ul  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         p   {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify;}
+         pre {background:#e0e0e0}
+</style>
+</head>
+
+<body>
+
+<h1>Užitečné knihovny a moduly pro Python: další možnosti nabízené knihovnou Requests</h1>
+
+<h3>Pavel Tišnovský</h3>
+
+<p></p>
+
+<h1>Úvodník</h1>
+
+<p>Ve druhé části seriálu o nejpopulárnějších a nejužitečnějších knihovnách určených pro vývojáře používající programovací jazyk Python dokončíme popis možností nabízených knihovnou <strong>Requests</strong>. Zaměříme se především na poněkud složitější dennodenně používané techniky &ndash;, čtení binárních dat, práci s&nbsp;cookies, využití session atd. Uvidíme, že tato knihovna většinu těchto operací přímo podporuje, a to takovým způsobem, aby bylo její použití pro vývojáře přímočaré a jednoduché (zejména v&nbsp;porovnání s&nbsp;některými dalšími knihovnami s&nbsp;podobným zaměřením).</p><!--more-->
+
+
+
+<h2>Obsah</h2>
+
+<p><a href="#k01">1. Užitečné knihovny a moduly pro Python: další možnosti nabízené knihovnou Requests</a></p>
+<p><a href="#k02">2. Přečtení nezpracovaného těla odpovědi při práci s&nbsp;binárními daty</a></p>
+<p><a href="#k03">3. První demonstrační příklad &ndash; přečtení bloku binárních dat z&nbsp;odpovědi serveru</a></p>
+<p><a href="#k04">4. Získání a uložení rastrového obrázku typu <strong>image/png</strong> a <strong>image/jpeg</strong></a></p>
+<p><a href="#k05">5. Využití hlavičky <strong>accept</strong> posílané v&nbsp;požadavku serveru pro určení formátu dat</a></p>
+<p><a href="#k06">6. CRUD operace a jejich obdoba v&nbsp;HTTP metodách</a></p>
+<p><a href="#k07">7. Požadavek využívající metodu <strong>PATCH</strong></a></p>
+<p><a href="#k08">8. Požadavek využívající metodu <strong>PUT</strong></a></p>
+<p><a href="#k09">9. Požadavek využívající metodu <strong>OPTIONS</strong></a></p>
+<p><a href="#k10">10. Základy práce s&nbsp;cookies</a></p>
+<p><a href="#k11">11. Poslání cookies v&nbsp;GET požadavku</a></p>
+<p><a href="#k12">12. Objekt typu <strong>Session</strong> a jeho využití pro uložení stavu mezi dotazy</a></p>
+<p><a href="#k13">13. Příklad na použití objektu typu <strong>Session</strong></a></p>
+<p><a href="#k14">14. Úprava testovacího HTTP serveru takovým způsobem, aby vypisoval hlavičky posílané klientem</a></p>
+<p><a href="#k15">15. Nová podoba testovacího HTTP serveru</a></p>
+<p><a href="#k16">16. Skript pro volání testovacího HTTP serveru s&nbsp;hlavičkou <strong>Set-Cookie</strong></a></p>
+<p><a href="#k17">17. Spuštění skriptu, ukázka celého tvaru požadavku a formát odpovědi serveru</a></p>
+<p><a href="#k18">18. Obsah další části seriálu</a></p>
+<p><a href="#k19">19. Repositář s&nbsp;demonstračními příklady</a></p>
+<p><a href="#k20">20. Odkazy na Internetu</a></p>
+
+
+
+<p><a name="k01"></a></p>
+<h2 id="k01">1. Užitečné knihovny a moduly pro Python: další možnosti nabízené knihovnou Requests</h2>
+
+<p>V&nbsp;dnešním článku si ukážeme některé další možnosti nabízené knihovnou <i>Requests</i>, s&nbsp;jejímž základním použitím jsme se seznámili <a href="https://mojefedora.cz/uzitecne-knihovny-pro-python-requests-1/">v&nbsp;článku předchozím</a>. Nejprve si řekneme, jak lze <a href="#k02">přečíst binární data</a> poslaná serverem (typicky se bude jednat o <a href="#k03">rastrové obrázky</a>, audio data atd.), použijeme <a href="#k06">HTTP metody</a> pojmenované <strong>PATCH</strong>, <strong>PUT</strong> a <strong>OPTIONS</strong> a dále se seznámíme <a href="#09">s&nbsp;konceptem takzvaných <i>cookies</i></a> a ukážeme si, jakým způsobem je <a href="#k12">možné využít objekt typu <strong>Session</strong></a>, díky němuž je možné s&nbsp;cookies (a obecně se &bdquo;sezeními&ldquo;) velmi snadno a rychle pracovat &ndash; právě zde se ostatně ukáže snadnost použití knihovny <strong>Requests</strong> v&nbsp;porovnání s&nbsp;jinými knihovnami a nástroji.</p>
+
+
+
+<p><a name="k02"></a></p>
+<h2 id="k02">2. Přečtení nezpracovaného těla odpovědi při práci s&nbsp;binárními daty</h2>
+
+<p>Při vývoji některých aplikací využívajících REST API popř.&nbsp;při přímém přístupu k&nbsp;prostředkům (obrázkům, animacím, ...) nabízeným na HTTP serverech se někdy setkáme s&nbsp;nutností zpracování binárních dat vrácených serverem pomocí protokolu HTTP. V&nbsp;takovém případě je možné (a také vhodné) obejít většinu funkcí nabízených knihovnou <strong>Requests</strong> a přečíst binární data vlastními prostředky &ndash; bajt po bajtu nebo blok po bloku. Ve skutečnosti je to relativně jednoduché. Nejdříve musíme zjistit typ dat (pro jistotu) a taktéž jejich délku, kterou by měl HTTP server poslat v&nbsp;hlavičce:</p>
+
+<pre><code>
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetoveho media
+print("Typ dat:", headers.get("content-type"))
+
+# výpis delky dat predanych v tele
+print("Delka dat:", headers.get("content-length"))
+</code></pre>
+
+<p>Dále již jen využijeme zjištěnou délku a použijeme metodu <strong>response.raw.read(délka)</strong> pro postupné přečtení binárních dat z&nbsp;těla odpovědi. Zde pro jednoduchost budeme číst data po bajtu, i když výhodnější by bylo čtení po delších blocích:</p>
+
+<pre><code>
+# délka dat předaných v těle odpovědi
+length = int(headers.get("content-length"))
+
+# přečtení těla odpovědi bajt po bajtu
+for i in range(length):
+    byte = response.raw.read(1)
+    print(hex(byte[0]))
+</code></pre>
+
+<p>Poznámka: metodě <strong>read</strong> je možné předat požadavek na přečtení delšího bloku, ovšem stále si hlídejte celkovou délku předaných dat.</p>
+
+
+
+<p><a name="k03"></a></p>
+<h2 id="k03">3. První demonstrační příklad &ndash; přečtení bloku binárních dat z&nbsp;odpovědi serveru</h2>
+
+<p>V&nbsp;dnešním prvním demonstračním příkladu využijeme službu dostupnou na adrese <a href="https://httpbin.org/bytes/_počet_bajtů_">https://httpbin.org/bytes/_počet_bajtů_</a>, která v&nbsp;těle odpovědi vrátí požadovaný počet bajtů (ty budou mít náhodnou hodnotu!). Konkrétně budeme vyžadovat sto náhodných bajtů, takže požadavek bude směřován na adresu <a href="https://httpbin.org/bytes/100">https://httpbin.org/bytes/100</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/bytes/100"
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, stream=True)
+
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetového media
+print("Typ dat:", headers.get("content-type"))
+
+# výpis délky dat předaných v těle odpovědi
+print("Delka dat:", headers.get("content-length"))
+
+length = int(headers.get("content-length"))
+
+# přečtení těla odpovědi bajt po bajtu
+for i in range(length):
+    byte = response.raw.read(1)
+    print(hex(byte[0]))
+</code></pre>
+
+<p>Po spuštění příkladu by měl začátek zpráv vypisovaných na terminál začínat takto:</p>
+
+<pre>
+$ <strong>./11_get_binary_data.py</strong>
+&nbsp;
+Typ dat: application/octet-stream
+Delka dat: 100
+</pre>
+
+<p>Následuje výpis hexadecimálních hodnot stovky bajtů, které byly poslány serverem v&nbsp;odpovědi:</p>
+
+<pre>
+0x20
+0xc1
+0x34
+0xe6
+0x6b
+0x0
+0x35
+0x12
+0xf4
+0xae
+0xed
+0xc7
+0xe9
+0xc5
+0x86
+0xba
+0x94
+0x1f
+0x4e
+</pre>
+
+
+
+<p><a name="k04"></a></p>
+<h2 id="k04">4. Získání a uložení rastrového obrázku typu <strong>image/png</strong> a <strong>image/jpeg</strong></h2>
+
+<p>Ve druhém demonstračním příkladu si ukážeme způsob zpracování rastrového obrázku typu PNG předaného v&nbsp;binární podobě po poslání HTTP metody GET na adresu <a href="https://httpbin.org/image/png">https://httpbin.org/image/png</a>. Obrázek je možné uložit do (binárního) souboru po blocích, jejichž délku jsme nastavili na 128 bajtů (lze samozřejmě použít i kratší či naopak delší bloky). Namísto metody <strong>response.raw.read()</strong> použijeme alternativní přístup přes metodu <strong>response.iter_content()</strong>, která navíc správně vyřeší i délku posledního bloku (délka samozřejmě může být menší než 128 bajtů):</p>
+
+<pre><code>
+with open("test1.png", 'wb') as fout:
+    for block in response.iter_content(chunk_size=128):
+        fout.write(block)
+</code></pre>
+
+<p>Úplný zdrojový kód tohoto příkladu vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/image/png"
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL)
+
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetového média
+print("Typ dat:", headers.get("content-type"))
+
+# výpis délky dat předaných v těle odpovědi
+print("Delka dat:", headers.get("content-length"))
+
+print(response.raw)
+
+with open("test1.png", 'wb') as fout:
+    for block in response.iter_content(chunk_size=128):
+        fout.write(block)
+</code></pre>
+
+<p>Zcela stejným způsobem můžeme přečíst a uložit rastrový obrázek typu JPEG, který je testovací REST API službou vrácen při poslání HTTP metody GET na adresu <a href="https://httpbin.org/image/jpeg">https://httpbin.org/image/jpeg</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/image/jpeg"
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL)
+
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetového média
+print("Typ dat:", headers.get("content-type"))
+
+# výpis délky dat předaných v těle odpovědi
+print("Delka dat:", headers.get("content-length"))
+
+print(response.raw)
+
+with open("test1.jpg", 'wb') as fout:
+    for block in response.iter_content(chunk_size=128):
+        fout.write(block)
+</code></pre>
+
+
+
+<p><a name="k05"></a></p>
+<h2 id="k05">5. Využití hlavičky <strong>accept</strong> posílané v&nbsp;požadavku serveru pro určení formátu dat</h2>
+
+<p>Testovací REST API služba, kterou používáme ve většině demonstračních příkladů, nabízí i možnost výběru formátu rastrových dat. Výběr se přitom provádí nastavením hlavičky se jménem <strong>accept</strong> v&nbsp;požadavku (<i>request</i>) poslaném na server. Na základě obsahu (tedy hodnoty) této hlavičky server připraví data v&nbsp;požadovaném formátu a pošle je (v&nbsp;binární podobě) zpět klientovi. Příslušná adresa, na kterou je nutné požadavek s&nbsp;hlavičkou <strong>accept</strong> poslat, je <a href="https://httpbin.org/image">https://httpbin.org/image</a>.</p>
+
+<p>Jedním z&nbsp;podporovaných formátů je i &bdquo;image/png&ldquo;, takže další demonstrační příklad přečte obrázek ve formátu PNG a uloží ho do souboru &bdquo;test.png&ldquo;:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/image"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'image/png'}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers)
+
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetového média
+print("Typ dat:", headers.get("content-type"))
+
+# výpis délky dat předaných v těle odpovědi
+print("Delka dat:", headers.get("content-length"))
+
+print(response.raw)
+
+with open("test2.png", 'wb') as fout:
+    for block in response.iter_content(chunk_size=128):
+        fout.write(block)
+</code></pre>
+
+<p>Dalším podporovaným formátem dat testovací služby dostupné na adrese <a href="https://httpbin.org/image">https://httpbin.org/image</a> je <strong>image/jpeg</strong>, který pochopitelně vrací rastrový obrázek uložený ve formátu JPEG:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/image"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'image/jpeg'}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers)
+
+# přečtení hlaviček
+headers = response.headers
+
+# výpis typu internetového média
+print("Typ dat:", headers.get("content-type"))
+
+# výpis délky dat předaných v těle odpovědi
+print("Delka dat:", headers.get("content-length"))
+
+print(response.raw)
+
+with open("test2.jpg", 'wb') as fout:
+    for block in response.iter_content(chunk_size=128):
+        fout.write(block)
+</code></pre>
+
+
+
+<p><a name="k06"></a></p>
+<h2 id="k06">6. CRUD operace a jejich obdoba v&nbsp;HTTP metodách</h2>
+
+<p><a href="https://mojefedora.cz/uzitecne-knihovny-pro-python-requests-1/">Již minule</a> jsme si popsali dvě základní HTTP metody nazvané <strong>GET</strong> a <strong>POST</strong>. Kromě těchto metod však existují i metody další. Některé z&nbsp;nich (například metoda <strong>OPTIONS</strong>) hrají spíše pomocnou roli související se samotným síťovým protokolem, ovšem metody pojmenované <strong>PUT</strong> a <strong>DELETE</strong> a částečně i metoda <strong>PATCH</strong> hrají důležitou roli v&nbsp;takzvaných <i>CRUD</i> operacích. V&nbsp;tabulce vypsané pod tímto odstavcem jsou vypsány všechny čtyři základní operace typu <i>CRUD</i> neboli <i>Create</i>, <i>Read</i>, <i>Update</i> a <i>Delete</i> používanými při práci s&nbsp;daty uloženými v&nbsp;nějakém perzistentním úložišti, například v&nbsp;databázi umístěné na serveru (je vcelku jedno, o jakou databázi se jedná, zda o relační, dokumentovou atd.). Tyto operace mají své sémantické protějšky ve čtyřech HTTP metodách, které nalezneme ve druhém sloupci:</p>
+
+<table>
+<tr><th>Operace</th><th>HTTP metoda</th></tr>
+<tr><td>Create</td><td>POST</td></tr>
+<tr><td>Read (Retrieve)</td><td>GET</td></tr>
+<tr><td>Update (Modify)</td><td>PUT</td></tr>
+<tr><td>Delete (Destroy)</td><td>DELETE</td></tr>
+</table>
+
+<p>Poznámka: částečný Update zaměřený pouze na modifikaci některých atributů je představován HTTP metodou <strong>PATCH</strong>, o níž se ve stručnosti zmíníme <a href="#k07">v&nbsp;sedmé kapitole</a>.</p>
+
+
+
+<p><a name="k07"></a></p>
+<h2 id="k07">7. Požadavek využívající metodu <strong>PATCH</strong></h2>
+
+<p>V&nbsp;dalším demonstračním skriptu, jehož úplný zdrojový kód naleznete na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/16_patch_method.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/16_patch_method.py</a>, je ukázán základní způsob použití HTTP metody nazvané <strong>PATCH</strong>. Tato metoda se prozatím nepoužívá příliš často, a to ani v&nbsp;některých REST API službách, ovšem její sémantika předurčuje tuto metodu použít ve chvíli, kdy je nutné modifikovat nějaký již existující zdroj (<i>resource</i>) uložený na serveru (popř.&nbsp;v&nbsp;relační databázi apod.). Pokud by se například jednalo o úpravu jediného atributu, bude požadavek používající metodu <strong>PATCH</strong> kratší a provedený rychleji, než úplný požadavek založený na metodě <strong>PUT</strong> (<strong>POST</strong> má naproti tomu dosti odlišnou sémantiku &ndash; slouží k&nbsp;vytvoření nového zdroje):</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+import json
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/patch"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json'}
+
+# poslání HTTP dotazu typu PATCH
+response = requests.patch(URL, headers=headers)
+
+# přečtení hlaviček odpovědi
+headers = response.headers
+
+# výpis všech hlaviček odpovědi
+print("Headers:")
+
+for header_name, header_value in headers.items():
+    print("{:40s} {}".format(header_name, header_value))
+
+print("-" * 60)
+
+print("Content:")
+
+# zpracování odpovědi, která přišla ve formátu JSON
+data = response.json()
+
+print(json.dumps(data, indent=4, sort_keys=True))
+</code></pre>
+
+<p>Ve skriptu je metoda <strong>PATCH</strong> použita pro přístup na adresu <a href="https://httpbin.org/patch">https://httpbin.org/patch</a> sloužící k&nbsp;jejímu základnímu otestování. Odpověď vrácená serverem by měla vypadat přibližně následovně (vypsány jsou napřed hlavičky a poté i tělo odpovědi ve formátu JSON):</p>
+
+<pre>
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:28 GMT
+Content-Type                             application/json
+Content-Length                           373
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {},
+    "headers": {
+        "Accept": "application/json",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "close",
+        "Content-Length": "0",
+        "Host": "httpbin.org",
+        "User-Agent": "python-requests/2.13.0"
+    },
+    "json": null,
+    "origin": "213.175.37.10",
+    "url": "https://httpbin.org/patch"
+}
+</pre>
+
+
+
+<p><a name="k08"></a></p>
+<h2 id="k08">8. Požadavek využívající metodu <strong>PUT</strong></h2>
+
+<p>Požadavek používající HTTP metodu <strong>PUT</strong> vypadá velmi podobně jako požadavek <strong>POST</strong> popsaný minule. Liší se však sémantika (přibližně řečeno logický význam) těchto metod, protože zatímco <strong>POST</strong> typicky slouží k&nbsp;založení nového zdroje (<i>resource</i>) na serveru, je <strong>PUT</strong> použit k&nbsp;přepisu již existujících údajů. Rozdíl je v&nbsp;některých případech patrný i při pohledu na URL (adresu), protože u metody <strong>PUT</strong> by se mělo odkazovat přímo na konkrétní resource, kdežto u metody <strong>POST</strong> se odkazuje spíše na obecnější funkci (můžeme dokonce říci, že na konstruktor), která nový resource vytvoří a vrátí jeho identifikátor v&nbsp;odpovědi serveru. Podívejme se nyní v&nbsp;rychlosti na způsob použití metody <strong>PUT</strong>, kde opět použijeme testovací službu <a href="https://httpbin.org/">https://httpbin.org/</a>, konkrétně URL/adresu <a href="https://httpbin.org/put">https://httpbin.org/put</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+import json
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/put"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json'}
+
+# posláni HTTP dotazu typu PUT
+response = requests.put(URL, headers=headers)
+
+# přečtení hlaviček odpovědi
+headers = response.headers
+
+# výpis všech hlaviček odpovědi
+print("Headers:")
+
+for header_name, header_value in headers.items():
+    print("{:40s} {}".format(header_name, header_value))
+
+print("-" * 60)
+
+print("Content:")
+
+# zpracování odpovědi, která přišla ve formátu JSON
+data = response.json()
+
+print(json.dumps(data, indent=4, sort_keys=True))
+</code></pre>
+
+<p>Po spuštění tohoto skriptu dostaneme následující odpověď (vypsány jsou opět jak hlavičky poslané serverem, tak i tělo odpovědi):</p>
+
+<pre>
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:38 GMT
+Content-Type                             application/json
+Content-Length                           371
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "args": {},
+    "data": "",
+    "files": {},
+    "form": {},
+    "headers": {
+        "Accept": "application/json",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "close",
+        "Content-Length": "0",
+        "Host": "httpbin.org",
+        "User-Agent": "python-requests/2.13.0"
+    },
+    "json": null,
+    "origin": "213.175.37.10",
+    "url": "https://httpbin.org/put"
+}
+</pre>
+
+
+
+<p><a name="k09"></a></p>
+<h2 id="k09">9. Požadavek využívající metodu <strong>OPTIONS</strong></h2>
+
+<p>Poslední HTTP metoda, kterou si v&nbsp;dnešním článku alespoň ve stručnosti popíšeme, se jmenuje <strong>OPTIONS</strong>. Tato metoda se používá pro zjištění všech operací, které server na dané adrese podporuje. Operacemi jsou přitom v&nbsp;tomto kontextu myšleny HTTP metody. V&nbsp;případě, že pošleme serveru HTTP požadavek typu <strong>OPTIONS</strong>, bude odpověď typicky prázdná (tj.&nbsp;nebude mít žádné tělo), ovšem v&nbsp;hlavičkách odpovědi nalezneme i hlavičku <strong>Allow</strong> se seznamem podporovaných HTTP metod platných pro danou adresu. Hodnota této hlavičky může vypadat následovně:</p>
+
+<pre>
+Allow                                    OPTIONS, GET, HEAD
+</pre>
+
+<p>Opět se podívejme na příklad, který metodu <strong>OPTIONS</strong> použije, tentokrát na nám již známou adresu <a href="https://httpbin.org/get">https://httpbin.org/get</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+import json
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/get"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json'}
+
+# poslání HTTP dotazu typu OPTIONS
+response = requests.options(URL, headers=headers)
+
+# přečtení hlaviček odpovědi
+headers = response.headers
+
+# výpis všech hlaviček odpovědi
+print("Headers:")
+
+for header_name, header_value in headers.items():
+    print("{:40s} {}".format(header_name, header_value))
+
+print("-" * 60)
+
+print("Content:")
+
+# výpis těla odpovědi
+print("Plain text:")
+print("-" * 60)
+print(response.text)
+print("-" * 60)
+</code></pre>
+
+<p>Povšimněte si, že tělo odpovědi je skutečně prázdné a všechny (meta)informace tedy musíme získat z&nbsp;hlaviček:</p>
+
+<pre>
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 19:31:01 GMT
+Content-Type                             text/html; charset=utf-8
+Allow                                    OPTIONS, GET, HEAD
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Access-Control-Allow-Methods             GET, POST, PUT, DELETE, PATCH, OPTIONS
+Access-Control-Max-Age                   3600
+Content-Length                           0
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+Plain text:
+------------------------------------------------------------
+
+------------------------------------------------------------
+</pre>
+
+
+
+<p><a name="k10"></a></p>
+<h2 id="k10">10. Základy práce s&nbsp;cookies</h2>
+
+<p>Ve druhé části článku si ukážeme základy práce s&nbsp;takzvanými <i>cookies</i>. Jedná se o <a href="https://en.wikipedia.org/wiki/HTTP_cookie">technologii používanou webovými servery</a> založenými na protokolu HTTP. Samotné cookie je (většinou) malé množství dat, které HTTP server pošle klientovi. Klient si může taková data uložit u sebe, a to buď na delší dobu (cookie jsou ukládány do souboru) nebo po dobu trvání jednoho sezení (<i>session</i>). Cookie mohou sloužit skutečně pouze pro identifikaci sezení (session) a potom je jejich obsah krátký &ndash; jen jednoznačný identifikátor session (například <strong>JSESSIONID</strong> atd.) nebo je možné do cookie uložit i větší množství dat; například obsah nákupního košíku apod. U cookies je možné specifikovat jak dobu jejich trvání, tak i adresu/adresy, pro něž je cookie platná (cookie je totiž nutné poslat zpět serveru a potřebujeme zamezit takzvanému kradení cookies). Knihovna <strong>Requests</strong> samozřejmě práci s&nbsp;cookies umožňuje a obsahuje i třídu <strong>Session</strong>, která je využitelná pro udržení kontextu mezi jednotlivými dotazy, které jsou směřovány na HTTP server.</p>
+
+
+
+<p><a name="k11"></a></p>
+<h2 id="k11">11. Poslání cookies v&nbsp;GET požadavku</h2>
+
+<p>Metodu <strong>Requests.get()</strong> jsme si již vyzkoušeli v&nbsp;předchozím článku, takže víme, že kromě adresy, která je povinná, je možné této metodě předat i další nepovinné údaje, z&nbsp;nichž se následně sestaví požadavek. Jedním z&nbsp;těchto nepovinných údajů je informace o hlavičkách (známe) a taktéž informace o <i>cookies</i>, které klient předává serveru. Tento parametr se jmenuje přímo <strong>cookies</strong> a předává se v&nbsp;něm buď slovník obsahující dvojice jméno_cookie+hodnota_cookie nebo objekt typu <strong>CookieJar</strong>. V&nbsp;dalším příkladu je ukázáno, jak se reprezentují cookies formou slovníku, což je samozřejmě (alespoň v&nbsp;Pythonu) nejjednodušší řešení:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+import json
+
+# adresa s testovací REST API službou
+URL = "https://httpbin.org/cookies"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json'}
+
+# příprava cookies
+cookies = {'key1': 'value1',
+           'key2': 'value2',
+           'key3': 'value3'}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers, cookies=cookies)
+
+# přečtení hlaviček
+headers = response.headers
+
+print("-" * 60)
+
+# výpis všech hlaviček
+print("Headers:")
+
+for header_name, header_value in headers.items():
+    print("{:40s} {}".format(header_name, header_value))
+
+print("-" * 60)
+
+print("Content:")
+
+# zpracování odpovědi, která přišla ve formátu JSON
+data = response.json()
+
+print(json.dumps(data, indent=4, sort_keys=True))
+
+print("-" * 60)
+
+print("Cookies:")
+print(response.cookies.get_dict())
+</code></pre>
+
+<p>Server odpoví následujícím způsobem &ndash; cookies, které získal, nám vrátí v&nbsp;těle odpovědi, což je praktické zejména s&nbsp;ohledem na ladění aplikací:</p>
+
+<pre>
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:42 GMT
+Content-Type                             application/json
+Content-Length                           90
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "key1": "value1",
+        "key2": "value2",
+        "key3": "value3"
+    }
+}
+------------------------------------------------------------
+Cookies:
+{}
+</pre>
+
+
+
+<p><a name="k12"></a></p>
+<h2 id="k12">12. Objekt typu <strong>Session</strong> a jeho využití pro uložení stavu mezi dotazy</h2>
+
+<p>Jak jsme si již řekli v&nbsp;předchozích dvou kapitolách, používají se cookies kromě dalších věcí i ve chvíli, kdy je zapotřebí si nějakým způsobem zapamatovat stav nějaké sekvence operací. Typickým příkladem je webový obchod, u něhož si samozřejmě musíme pamatovat přihlášeného uživatele, obsah jeho košíku, zda již bylo za zboží zaplaceno atd. Ve chvíli, kdy je klientská část naprogramována s&nbsp;využitím knihovny <strong>Requests</strong>, je možné celý <i>stav</i> (možná lépe řečeno &bdquo;sezení&ldquo;) reprezentovat objektem typu <strong>Session</strong>. Požadavky na server se pak posílají odlišně &ndash; nikoli pomocí <strong>request._http_metoda_</strong>, ale <strong>session._http_metoda_</strong>:</p>
+
+<pre><code>
+session = requests.Session()
+URL = "..."
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json'}
+
+# poslání HTTP dotazu typu GET
+return session.get(URL, headers=headers)
+
+# poslání HTTP dotazu typu POST
+return session.post(URL, headers=headers)
+</pre></code>
+
+<p>atd. atd.</p>
+
+<p>Příklad, který objekt typu <strong>Session</strong> používá, si ukážeme v&nbsp;navazující kapitole.</p>
+
+
+
+<p><a name="k13"></a></p>
+<h2 id="k13">13. Příklad na použití objektu typu <strong>Session</strong></h2>
+
+<p>Další příklad je již poněkud komplikovanější, protože v&nbsp;něm využíváme objekt typu <strong>Session</strong>, který si pamatuje stav požadavků (nebo možná lépe řečeno kontext, v&nbsp;jehož rámci se požadavky posílají a zpracovávají). V&nbsp;tomto příkladu voláme dvojici endpointů testovací HTTP služby <a href="https://httpbin.org/">https://httpbin.org/</a> pro nastavení nových cookies popř.&nbsp;pro jejich odstranění ze sezení (session):</p>
+
+<ol>
+<li><a href="https://httpbin.org/cookies/set/{name}/{value}">https://httpbin.org/cookies/set/{name}/{value}</a> pro nastavení cookie se zadaným jménem a hodnotou</li>
+<li><a href="https://httpbin.org/cookies/delete?{name}">https://httpbin.org/cookies/delete?{name}</a> pro vymazání cookie specifikovaného jména</li>
+<li><a href=""></a></li>
+</ol>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+import json
+
+
+def set_cookie(session, name, value):
+    # adresa s testovací REST API službou
+    URL = "https://httpbin.org/cookies/set/{name}/{value}".format(name=name, value=value)
+
+    # hlavička posílaná v dotazu
+    headers = {'accept': 'application/json'}
+
+    # poslani HTTP dotazu typu GET
+    return session.get(URL, headers=headers)
+
+
+def delete_cookie(session, name):
+    # adresa s testovací REST API službou
+    URL = "https://httpbin.org/cookies/delete?{name}=".format(name=name)
+
+    # hlavička posílaná v dotazu
+    headers = {'accept': 'application/json'}
+
+    # poslani HTTP dotazu typu GET
+    return session.get(URL, headers=headers)
+
+
+def print_response(response):
+    # přečtení hlaviček
+    headers = response.headers
+
+    print("-" * 60)
+
+    # výpis hlavicek
+    print("Headers:")
+
+    for header_name, header_value in headers.items():
+        print("{:40s} {}".format(header_name, header_value))
+
+    print("-" * 60)
+
+    print("Content:")
+
+    # zpracovani odpovedi, ktera prisla ve formatu JSON
+    data = response.text
+
+    # zpracovani odpovedi, ktera prisla ve formatu JSON
+    data = response.json()
+
+    print(json.dumps(data, indent=4, sort_keys=True))
+
+    print("-" * 60)
+
+
+def print_session_cookies(session):
+    cookies = session.cookies
+    print("Session cookies:")
+
+    for cookie_name, cookie_value in cookies.items():
+        print("{:40s} {}".format(cookie_name, cookie_value))
+
+    print("-" * 60)
+
+
+session = requests.Session()
+
+print("*** set cookie 'foo'=6 ***")
+response = set_cookie(session, "foo", "6")
+print_response(response)
+print_session_cookies(session)
+print()
+
+print("*** set cookie 'bar'=7 ***")
+response = set_cookie(session, "bar", "7")
+print_response(response)
+print_session_cookies(session)
+print()
+
+print("*** set cookie 'foo'=42 ***")
+response = set_cookie(session, "foo", "42")
+print_response(response)
+print_session_cookies(session)
+print()
+
+print("*** delete cookie 'foo' ***")
+response = delete_cookie(session, "foo")
+print_response(response)
+print_session_cookies(session)
+print()
+
+print("*** delete cookie 'baz' ***")
+response = delete_cookie(session, "baz")
+print_response(response)
+print_session_cookies(session)
+print()
+</code></pre>
+
+<p>Podívejme se nyní na výsledky. Jsou poněkud delší, protože ukazují, jak se dá zcela jednoduše měnit stav sezení:</p>
+
+<pre>
+*** set cookie 'foo'=6 ***
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:57 GMT
+Content-Type                             application/json
+Content-Length                           38
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "foo": "6"
+    }
+}
+------------------------------------------------------------
+Session cookies:
+foo                                      6
+------------------------------------------------------------
+
+*** set cookie 'bar'=7 ***
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:57 GMT
+Content-Type                             application/json
+Content-Length                           55
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "bar": "7",
+        "foo": "6"
+    }
+}
+------------------------------------------------------------
+Session cookies:
+bar                                      7
+foo                                      6
+------------------------------------------------------------
+
+*** set cookie 'foo'=42 ***
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:57 GMT
+Content-Type                             application/json
+Content-Length                           56
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "bar": "7",
+        "foo": "42"
+    }
+}
+------------------------------------------------------------
+Session cookies:
+bar                                      7
+foo                                      42
+------------------------------------------------------------
+
+*** delete cookie 'foo' ***
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:57 GMT
+Content-Type                             application/json
+Content-Length                           38
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "bar": "7"
+    }
+}
+------------------------------------------------------------
+Session cookies:
+bar                                      7
+------------------------------------------------------------
+
+*** delete cookie 'baz' ***
+------------------------------------------------------------
+Headers:
+Connection                               keep-alive
+Server                                   gunicorn/19.9.0
+Date                                     Wed, 08 Aug 2018 15:25:58 GMT
+Content-Type                             application/json
+Content-Length                           38
+Access-Control-Allow-Origin              *
+Access-Control-Allow-Credentials         true
+Via                                      1.1 vegur
+------------------------------------------------------------
+Content:
+{
+    "cookies": {
+        "bar": "7"
+    }
+}
+------------------------------------------------------------
+Session cookies:
+bar                                      7
+------------------------------------------------------------
+</pre>
+
+
+
+<p><a name="k14"></a></p>
+<h2 id="k14">14. Úprava testovacího HTTP serveru takovým způsobem, aby vypisoval hlavičky posílané klientem</h2>
+
+<p>Na závěr si ukážeme, v&nbsp;jakém formátu se vlastně informace o cookies přenáší na server a jak je server dokáže zpracovat. Již dopředu si řekněme, že je vše řízeno dvěma hlavičkami se jmény <strong>Cookie</strong> a <strong>Set-Cookie</strong>. Abychom si ukázali způsob předávání těchto hlaviček, upravíme náš původní lokální (testovací) HTTP server, jehož první variantu naleznete na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py</a> a upravenou variantu na adrese <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server_2.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server_2.py</a>. Úprava bude spočívat v&nbsp;tom, že server bude vypisovat všechny hlavičky požadavků, a to nezávisle na tom, jaká HTTP metoda byla pro poslání požadavku použita.</p>
+
+
+
+<p><a name="k15"></a></p>
+<h2 id="k15">15. Nová podoba testovacího HTTP serveru</h2>
+
+<p>Podoba <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server_2.py">zdrojového kódu</a> nové varianty testovacího HTTP serveru je vypsána pod tímto odstavcem. Oproti <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py">původní variantě</a> byly přidány pomocné metody <strong>send_headers()</strong> a <strong>print_request_content()</strong>. Server bude otestován skriptem popsaným v&nbsp;navazující kapitole:</p>
+
+<pre><code>
+#!/usr/bin/python3
+# vim: set fileencoding=utf-8
+
+# Original (slightly buggy) code:
+# see https://gist.github.com/bradmontgomery/2219997
+
+
+import socket
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+hostName = ""
+hostPort = 8000
+
+
+class SimpleServer(BaseHTTPRequestHandler):
+
+    def print_uri(self):
+        print("URI: {uri}".format(uri=self.path))
+
+    def send_headers(self):
+        # příprava hlavicky odpovedi
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+
+    def print_request_content(self):
+        # přečtení těla HTTP požadavku
+        print(self.headers)
+        if "Content-Length" in self.headers:
+            content_length = int(self.headers['Content-Length'])
+            print("content length: {len}".format(len=content_length))
+
+            content = self.rfile.read(content_length)
+            print("content value:  {content}".format(content=content))
+
+    def do_GET(self):
+        self.print_uri()
+        self.print_request_content()
+
+        # odpověď serveru klientovi
+        self.send_headers()
+        self.wfile.write("*** get ***".encode("utf-8"))
+
+    def do_POST(self):
+        self.print_uri()
+        self.print_request_content()
+
+        # odpověď serveru klientovi
+        self.send_headers()
+        self.wfile.write("*** post ***".encode("utf-8"))
+
+
+simpleServer = HTTPServer((hostName, hostPort), SimpleServer)
+
+try:
+    simpleServer.serve_forever()
+except KeyboardInterrupt:
+    pass
+
+simpleServer.server_close()
+</code></pre>
+
+
+
+<p><a name="k16"></a></p>
+<h2 id="k16">16. Skript pro volání testovacího HTTP serveru s&nbsp;hlavičkou <strong>Set-Cookie</strong></h2>
+
+<p>Podívejme se nyní na jednoduchý skript, který zavolá náš testovací HTTP server. Použije přitom metodu <strong>GET</strong> (koncovka adresy je libovolná) a předá serveru tři cookies:</p>
+
+<pre><code>
+# příprava cookies
+cookies = {'key1': 'value1',
+           'key2': 'value2',
+           'key3': 'value3'}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers, cookies=cookies)
+</code></pre>
+
+<p>Navíc ještě předá přímo v&nbsp;hlavičkách požadavku hlavička pojmenovaná <strong>Set-Cookie</strong> se jménem a hodnotou <i>cookie</i>, která by se měla zapamatovat (a většinou poslat zpět klientovi):</p>
+
+<pre><code>
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json',
+           'Set-Cookie': "x=y"}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers, cookies=cookies)
+</code></pre>
+
+<p><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/20_cookies_test_against_local_server.py">Úplný zdrojový kód</a> tohoto skriptu vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovací REST API službou
+URL = "http://localhost:8000"
+
+# hlavička posílaná v dotazu
+headers = {'accept': 'application/json',
+           'Set-Cookie': "x=y"}
+
+# příprava cookies
+cookies = {'key1': 'value1',
+           'key2': 'value2',
+           'key3': 'value3'}
+
+# poslání HTTP dotazu typu GET
+response = requests.get(URL, headers=headers, cookies=cookies)
+
+# přečtení hlaviček
+headers = response.headers
+
+print("-" * 60)
+
+# výpis všech hlaviček
+print("Headers:")
+
+for header_name, header_value in headers.items():
+    print("{:40s} {}".format(header_name, header_value))
+
+print("-" * 60)
+
+print("Content:")
+
+# zpracování odpovědi, která přišla ve formátu JSON
+data = response.text
+
+print(data)
+
+print("-" * 60)
+
+print("Cookies:")
+print(response.cookies.get_dict())
+</code></pre>
+
+
+
+<p><a name="k17"></a></p>
+<h2 id="k17">17. Spuštění skriptu, ukázka celého tvaru požadavku a formát odpovědi serveru</h2>
+
+<p>Před otestováním skriptu popsaného <a href="#k16">v&nbsp;předchozí kapitole</a> je nutné spustit náš testovací HTTP server v&nbsp;samostatném terminálu (aby bylo vidět jeho výstup). To se provede jednoduše příkazem (skript se serverem je spustitelný):</p>
+
+<pre>
+$ <strong>./simple_server_2.py</strong>
+</pre>
+
+<p>Nyní již můžeme (opět v&nbsp;jiném terminálu) spustit zmíněný skript:</p>
+
+<pre>
+$ <strong>./21_cookies_test_against_local_server.py </strong>
+</pre>
+
+<p>Tento skript by měl poslat požadavek na testovací HTTP server, získat od něj odpověď a následně vypsat přibližně následující údaje (může se samozřejmě lišit čas, konkrétní verze interpretru Pythonu atd.). Povšimněte si, že server podle všech předpokladů nevrátil žádné cookies:</p>
+
+<pre>
+------------------------------------------------------------
+Headers:
+Server                                   BaseHTTP/0.6 Python/3.6.3
+Date                                     Thu, 09 Aug 2018 12:11:39 GMT
+Content-type                             text/plain
+------------------------------------------------------------
+Content:
+*** get ***
+------------------------------------------------------------
+Cookies:
+{}
+</pre>
+
+<p>Zajímavější bude pohled na zprávu vypsanou serverem ve chvíli, kdy přijme dotaz od demonstračního skriptu. Povšimněte si především dvou hlaviček nazvaných <strong>Cookie</strong> a <strong>Set-Cookie</strong>. V&nbsp;hlavičce <strong>Cookie</strong> jsou v&nbsp;textové podobě jména a hodnoty všech předaných cookies, v&nbsp;hlavičce <strong>Set-Cookie</strong> pak přesný opis textu, který jsme předali v&nbsp;požadavku (což je logické, ovšem je patrné, že zde máme velkou volnost zápisu, tj.&nbsp;serveru lze například předat data, která nebude schopen zpracovat):</p>
+
+<pre>
+Cookie: key1=value1; key2=value2; key3=value3
+Set-Cookie: x=y
+</pre>
+
+<pre>
+URI: /
+Host: localhost:8000
+User-Agent: python-requests/2.13.0
+Accept-Encoding: gzip, deflate
+accept: application/json
+Connection: keep-alive
+Set-Cookie: x=y
+Cookie: key1=value1; key2=value2; key3=value3
+
+
+127.0.0.1 - - [09/Aug/2018 14:11:39] "GET / HTTP/1.1" 200 -
+</pre>
+
+
+
+<p><a name="k18"></a></p>
+<h2 id="k18">18. Obsah další části seriálu</h2>
+
+<p>V&nbsp;navazující části seriálu o nejpopulárnějších a nejužitečnějších knihovnách určených pro vývojáře používající programovací jazyk Python (především Python 3.x) se budeme zabývat další často využívanou a poměrně populární knihovnou. Tato knihovna se jmenuje <i>Pillow</i> a jedná se o fork dnes již poněkud postarší knihovny nazvané <i>Python Imaging Library</i> neboli zkráceně <i>PIL</i>. Jak <i>Python Imaging Library</i> tak i <i>Pillow</i> dokážou pracovat s&nbsp;rastrovými obrázky různých formátů (včetně těch nejpopulárnějších), takže se s&nbsp;těmito knihovnami setkáme například i u webových služeb, které potřebují generovat nějaké grafy či mapy apod.</p>
+
+
+
+<p><a name="k19"></a></p>
+<h2 id="k19">19. Repositář s&nbsp;demonstračními příklady</h2>
+
+<p>Zdrojové kódy všech jedenácti dnes popsaných demonstračních příkladů a testovacího HTTP serveru určeného pro Python 3 a knihovnu Requests byly uloženy do Git repositáře dostupného na adrese <a href="https://github.com/tisnik/most-popular-python-libs">https://github.com/tisnik/most-popular-python-libs</a> (stále na GitHubu :-). V&nbsp;případě, že nebudete chtít klonovat celý repositář (ten je ovšem stále velmi malý, dnes má doslova několik kilobajtů), můžete namísto toho použít odkazy na jednotlivé příklady, které naleznete v&nbsp;následující tabulce:</p>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>11_get_binary_data.py</td><td>použití HTTP metody GET pro získání binárních dat</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/11_get_binary_data.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/11_get_binary_data.py</a></td></tr>
+<tr><td> 2</td><td>12_binary_data_png_image.py</td><td>přečtení a uložení obrázku typu PNG</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/12_binary_data_png_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/12_binary_data_png_image.py</a></td></tr>
+<tr><td> 3</td><td>13_binary_data_jpeg_image.py</td><td>přečtení a uložení obrázku typu JPEG</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/13_binary_data_jpeg_image.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/13_binary_data_jpeg_image.py</a></td></tr>
+<tr><td> 4</td><td>14_binary_data_by_header_png.py</td><td>specifikace požadovaného typu/formátu dat v&nbsp;hlavičce</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/14_binary_data_by_header_png.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/14_binary_data_by_header_png.py</a></td></tr>
+<tr><td> 5</td><td>15_binary_data_by_header_jpeg.py</td><td>specifikace požadovaného typu/formátu dat v&nbsp;hlavičce</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/15_binary_data_by_header_jpeg.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/15_binary_data_by_header_jpeg.py</a></td></tr>
+<tr><td> 6</td><td>16_patch_method.py</td><td>použití HTTP metody PATCH</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/16_patch_method.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/16_patch_method.py</a></td></tr>
+<tr><td> 7</td><td>17_put_method.py</td><td>použití HTTP metody PUT</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/17_put_method.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/17_put_method.py</a></td></tr>
+<tr><td> 8</td><td>18_options_method.py</td><td>použití HTTP metody OPTIONS</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/18_options_method.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/18_options_method.py</a></td></tr>
+<tr><td> 9</td><td>19_cookies.py</td><td>poslání cookies společně s&nbsp;požadavkem</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/19_cookies.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/19_cookies.py</a></td></tr>
+<tr><td>10</td><td>20_session_cookie.py</td><td>využití objektu typu Session</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/20_session_cookie.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/20_session_cookie.py</a></td></tr>
+<tr><td>11</td><td>21_cookies_test_against_local_server.py</td><td>skript, který se má spustit oproti testovacímu HTTP serveru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/21_cookies_test_against_local_server.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/21_cookies_test_against_local_server.py</a></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>12</td><td>simple_server_2.py</td><td>testovací HTTP server s&nbsp;výpisem hlaviček požadavků</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server_2.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server_2.py</a></td></tr>
+</table>
+
+
+
+<p><a name="k20"></a></p>
+<h2 id="k20">20. Odkazy na Internetu</h2>
+
+<ol>
+
+<li>Requests: HTTP for Humans (dokumentace)<br />
+<a href="http://docs.python-requests.org/en/master/">http://docs.python-requests.org/en/master/</a>
+</li>
+
+<li>Requests: Introduction<br />
+<a href="http://docs.python-requests.org/en/latest/user/intro/">http://docs.python-requests.org/en/latest/user/intro/</a>
+</li>
+
+<li>Requests na GitHubu<br />
+<a href="https://github.com/requests/requests">https://github.com/requests/requests</a>
+</li>
+
+<li>Requests (software) na Wikipedii<br />
+<a href="https://en.wikipedia.org/wiki/Requests_%28software%29">https://en.wikipedia.org/wiki/Requests_%28software%29</a>
+</li>
+
+<li>Pip (dokumentace)<br />
+<a href="https://pip.pypa.io/en/stable/">https://pip.pypa.io/en/stable/</a>
+</li>
+
+<li>20 Python libraries you can’t live without<br />
+<a href="https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/">https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/</a>
+</li>
+
+<li>What are the top 10 most useful and influential Python libraries and frameworks?<br />
+<a href="https://www.quora.com/What-are-the-top-10-most-useful-and-influential-Python-libraries-and-frameworks">https://www.quora.com/What-are-the-top-10-most-useful-and-influential-Python-libraries-and-frameworks</a>
+</li>
+
+<li>Python: useful modules<br />
+<a href="https://wiki.python.org/moin/UsefulModules">https://wiki.python.org/moin/UsefulModules</a>
+</li>
+
+<li>Top 15 most popular Python libraries<br />
+<a href="https://keyua.org/blog/most-popular-python-libraries/">https://keyua.org/blog/most-popular-python-libraries/</a>
+</li>
+
+<li>Hypertext Transfer Protocol<br />
+<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a>
+</li>
+
+<li>List of HTTP header fields<br />
+<a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a>
+</li>
+
+<li>List of HTTP status codes<br />
+<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">https://en.wikipedia.org/wiki/List_of_HTTP_status_codes</a>
+</li>
+
+<li>Python requests deep dive<br />
+<a href="https://medium.com/@anthonypjshaw/python-requests-deep-dive-a0a5c5c1e093">https://medium.com/@anthonypjshaw/python-requests-deep-dive-a0a5c5c1e093</a>
+</li>
+
+<li>The awesome requests module<br />
+<a href="https://www.pythonforbeginners.com/requests/the-awesome-requests-module">https://www.pythonforbeginners.com/requests/the-awesome-requests-module</a>
+</li>
+
+<li>Send HTTP Requests in Python<br />
+<a href="https://code-maven.com/http-requests-in-python">https://code-maven.com/http-requests-in-python</a>
+</li>
+
+<li>Introducing JSON<br />
+<a href="http://json.org/">http://json.org/</a>
+</li>
+
+<li>HTTP Request Methods<br />
+<a href="https://www.w3schools.com/tags/ref_httpmethods.asp">https://www.w3schools.com/tags/ref_httpmethods.asp</a>
+</li>
+
+<li>POST (HTTP)<br />
+<a href="https://en.wikipedia.org/wiki/POST_(HTTP)">https://en.wikipedia.org/wiki/POST_(HTTP)</a>
+</li>
+
+<li>The HTTP OPTIONS method and potential for self-describing RESTful APIs<br />
+<a href="http://zacstewart.com/2012/04/14/http-options-method.html">http://zacstewart.com/2012/04/14/http-options-method.html</a>
+</li>
+
+<li>What is the function of "HTTP OPTIONS method"?<br />
+<a href="https://www.quora.com/What-is-the-function-of-HTTP-OPTIONS-method">https://www.quora.com/What-is-the-function-of-HTTP-OPTIONS-method</a>
+</li>
+
+<li>Create, read, update and delete<br />
+<a href="https://en.wikipedia.org/wiki/Create%2C_read%2C_update_and_delete">https://en.wikipedia.org/wiki/Create%2C_read%2C_update_and_delete</a>
+</li>
+
+<li>CRUD<br />
+<a href="https://cs.wikipedia.org/wiki/CRUD">https://cs.wikipedia.org/wiki/CRUD</a>
+</li>
+
+<li>Representational State Transfer (Wikipedia)<br />
+<a href="https://cs.wikipedia.org/wiki/Representational_State_Transfer">https://cs.wikipedia.org/wiki/Representational_State_Transfer</a>
+</li>
+
+</ol>
+
+
+
+<p></p><p></p>
+<p><small>Autor: <a href="http://www.fit.vutbr.cz/~tisnovpa">Pavel Tišnovský</a> &nbsp; 2018</small></p>
+</body>
+</html>
+
+<!--
+2018-08-06: 1 hod
+2018-08-07: 1 hod
+2018-08-08: 1 hod
+2018-08-09: 1 hod
+2018-08-10: 1 hod
+publikace:  1 hod
+-----------------
+            6 hod
+-->
