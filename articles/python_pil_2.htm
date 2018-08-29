@@ -1,0 +1,1211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Užitečné knihovny a moduly pro Python: kreslení a pokročilé manipulace s obrázky v knihovně Pillow</title>
+<meta name="Author" content="Pavel Tisnovsky" />
+<meta name="Generator" content="vim" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+         body {color:#000000; background:#ffffff;}
+         h1  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#c00000; text-align:center; padding-left:1em}
+         h2  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#0000c0; padding-left:1em; text-align:left}
+         h3  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#c0c0c0; padding-left:1em; text-align:left}
+         h4  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#e0e0e0; padding-left:1em; text-align:left}
+         a   {font-family: arial, helvetica, sans-serif;}
+         li  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ol  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ul  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         p   {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify;}
+         pre {background:#e0e0e0}
+</style>
+</head>
+
+<body>
+
+<h1>Užitečné knihovny a moduly pro Python: kreslení a pokročilé manipulace s obrázky v knihovně Pillow</h1>
+
+<h3>Pavel Tišnovský</h3>
+
+<p></p>
+
+<h1>Úvodník</h1>
+
+<p>Ve druhém článku o knihovně Pillow určené programátorům, kteří potřebují manipulovat s&nbsp;rastrovými obrázky ve skriptech  nebo i rozsáhlejších aplikacích psaných v&nbsp;Pythonu, si ukážeme některé pokročilejší operace nabízené touto knihovnou. Nejprve si představíme modul nazvaný ImageEnhance určený pro manipulaci se základními charakteristikami rastrových obrázků. Dále si řekneme jak je možné získat základní statistické informace o obrázku, a to včetně histogramu. Druhá polovina článku bude věnována popisu vybraných kreslicích operací, způsobu specifikace barev kreslení apod.</p><!--more-->
+
+
+
+<h2>Obsah</h2>
+
+<p><a href="#k01">1. Užitečné knihovny a moduly pro Python: kreslení a pokročilé manipulace s&nbsp;obrázky v&nbsp;knihovně Pillow</a></p>
+<p><a href="#k02">2. Modul <strong>ImageEnhance</strong> určený pro manipulace se základními charakteristikami rastrových obrázků</a></p>
+<p><a href="#k03">3. Zaostření nebo rozostření obrázku</a></p>
+<p><a href="#k04">4. Zvýšení a snížení kontrastu</a></p>
+<p><a href="#k05">5. Zvýšení a snížení jasu</a></p>
+<p><a href="#k06">6. Změna sytosti barev</a></p>
+<p><a href="#k07">7. Získání základních statistik o rastrovém obrázku</a></p>
+<p><a href="#k08">8. Výpočet histogramu</a></p>
+<p><a href="#k09">9. Operace pro manipulaci s&nbsp;jednotlivými pixely v&nbsp;rastrovém obrázku</a></p>
+<p><a href="#k10">10. Vykreslení RGB palety</a></p>
+<p><a href="#k11">11. Vykreslení HSL palety</a></p>
+<p><a href="#k12">12. Kreslicí operace využívající modul <strong>ImageDraw</strong></a></p>
+<p><a href="#k13">13. Nakreslení mřížky do načteného obrázku</a></p>
+<p><a href="#k14">14. Vykreslení různobarevných čtverců</a></p>
+<p><a href="#k15">15. Použití polyčar (lomených čar) pro tvorbu složitějších obrazců</a></p>
+<p><a href="#k16">16. Vykreslení obrazce složeného z&nbsp;kružnic</a></p>
+<p><a href="#k17">17. Základy práce s&nbsp;textem: rasterizace a vykreslení textu do obrázku</a></p>
+<p><a href="#k18">18. Obsah následující části seriálu</a></p>
+<p><a href="#k19">19. Repositář s&nbsp;demonstračními příklady</a></p>
+<p><a href="#k20">20. Odkazy na Internetu</a></p>
+
+
+
+<p><a name="k01"></a></p>
+<h2 id="k01">1. Užitečné knihovny a moduly pro Python: kreslení a pokročilé manipulace s&nbsp;obrázky v&nbsp;knihovně Pillow</h2>
+
+<p><a href="https://mojefedora.cz/uzitecne-knihovny-a-moduly-pro-python-knihovna-pillow-urcena-pro-manipulaci-s-rastrovymi-obrazky/">V&nbsp;předchozím článku</a> seriálu o užitečných modulech určených pro programovací jazyk Python jsme si ve stručnosti představili knihovnu <i>Pillow</i> určenou pro manipulaci s&nbsp;rastrovými obrázky přímo v&nbsp;Pythonu. Připomeňme si, že tato knihovna dokáže načítat a ukládat rastrové obrázky v&nbsp;mnoha formátech, samozřejmě včetně většiny nejpopulárnějších rastrových grafických formátů, mezi něž patří především formáty GIF, JPEG, PNG, TIFF (různé varianty) a například i WebP či BMP. Do určité míry jsou podporovány i formáty PSD a dokonce i PDF, což samozřejmě není čistý rastrový formát. Tato knihovna však dokáže provádět i další operace, z&nbsp;nichž některé si popíšeme v&nbsp;dnešním článku. Především se jedná o manipulaci se základními charakteristikami rastrových obrázků (zaostření, kontrast, ...) a taktéž o vykreslování do obrázků, buď na úrovni jednotlivých pixelu či s&nbsp;využitím vysokoúrovňových 2D operací.</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/01_Lenna-1.png"><img class="alignnone size-thumbnail wp-image-10443" src="https://mojefedora.cz/wp-content/uploads/2018/08/01_Lenna-1-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 1: Testovací obrázek Lenny použitý ve většině dnešních demonstračních příkladů.</i></p>
+
+
+
+<p><a name="k02"></a></p>
+<h2 id="k02">2. Modul <strong>ImageEnhance</strong> určený pro manipulace se základními charakteristikami rastrových obrázků</h2>
+
+<p>První modul, s&nbsp;nímž se dnes seznámíme, se jmenuje <strong>ImageEnhance</strong>. Tento modul slouží pro manipulaci se základními charakteristikami rastrového obrázku. Jedná se především o zaostření popř.&nbsp;naopak o rozostření (rozmazání) obrázku, změnu kontrastu, změnu jasu a změnu barevného podání (resp.&nbsp;poněkud nepřesně řečeno barevného kontrastu). Všechny tyto operace jsou globální, tj.&nbsp;mají dopad na všechny pixely rastrového obrázku (na rozdíl od operací kreslení, které jsou omezeny na přesně vymezenou oblast). Modul <strong>ImageEnhance</strong> se používá zhruba následovně:</p>
+
+<p>Nejprve obrázek, který potřebujeme modifikovat, samozřejmě načteme:</p>
+
+<pre><code>
+# načtení originálního obrázku Leny
+test_image = Image.open(filename)
+test_image.load()
+</code></pre>
+
+<p>Dále je zapotřebí provést inicializaci modulu <strong>ImageEnhance</strong>. To se provádí nepřímo &ndash; zavoláním některého ze speciálních konstruktorů, které přímo popisují, jaká operace se provede. Například při snaze o zaostření nebo rozostření obrázku použijeme konstruktor <strong>ImageEnhance.Sharpness</strong>, kterému předáme obrázek, na který se má operace aplikovat:</p>
+
+<pre><code>
+# inicializace "vylepšovače" obrázků
+enhancer = ImageEnhance.Sharpness(test_image)
+</code></pre>
+
+<p>Ve chvíli, kdy je objekt typu <strong>ImageEnhance</strong> zkonstruován, můžeme zavolat jeho metodu <strong>enhance()</strong>, které se předává kladné reálné číslo. To zhruba odpovídá otočení ovladače na starém analogovém televizoru &ndash; hodnoty pod 1,0 odpovídají snížení úrovně (zde úrovně zaostření), hodnoty větší než 1,0 naopak zvýšení úrovně. Většinou není stanovena horní mez, tu si však můžete vyzkoušet sami:</p>
+
+<pre>
+sharper_image = enhancer.enhance(5.0)
+</pre>
+
+<p>Výsledkem zavolání metody <strong>enhance()</strong> je nový rastrový obrázek, který si můžeme uložit, zobrazit ho, aplikovat na něj další operaci atd.:</p>
+
+<pre>
+# uložení upraveneného obrázku
+sharper_image.save("enhancer_sharpness_sharper.png")
+
+# zobrazení upraveného obrázku
+sharper_image.show()
+blurred_image.show()
+</pre>
+
+<p>Poznámka: z&nbsp;technologického hlediska jsou všechny operace v&nbsp;modulu <strong>ImageEnhance</strong> implementovány formou takzvaných parametrizovatelných <i>konvolučních filtrů</i>, s&nbsp;jejichž jednoduchými obdobami jsme se již setkali v&nbsp;předchozím článku.</p>
+
+
+
+<p><a name="k03"></a></p>
+<h2 id="k03">3. Zaostření nebo rozostření obrázku</h2>
+
+<p>V&nbsp;dnešním prvním demonstračním příkladu je ukázán způsob aplikace zaostření popř.&nbsp;rozostření s&nbsp;využitím filtru <strong>ImageEnhance.Sharpness</strong>. Výsledky dvou aplikací tohoto filtru jsou zobrazeny na následujících dvou obrázcích:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/02_enhancer_sharpness_sharper.png"><img class="alignnone size-thumbnail wp-image-10444" src="https://mojefedora.cz/wp-content/uploads/2018/08/02_enhancer_sharpness_sharper-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 2: Výsledek operace zaostření (koeficient=5,0).</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/03_enhancer_sharpness_blurred.png"><img class="alignnone size-thumbnail wp-image-10445" src="https://mojefedora.cz/wp-content/uploads/2018/08/03_enhancer_sharpness_blurred-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 3: Výsledek operace rozostření (koeficient=0,5).</i></p>
+
+<p>Úplný <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/16_image_enhance_sharpness.py">zdrojový kód tohoto příkladu</a> vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageEnhance
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # inicializace "vylepšovače" obrázků
+    enhancer = ImageEnhance.Sharpness(test_image)
+
+    # vytvoření "vylepšených" i "zhoršených" obrázků
+    sharper_image = enhancer.enhance(5.0)
+    blurred_image = enhancer.enhance(0.5)
+
+    # uložení upravených obrázků
+    sharper_image.save("enhancer_sharpness_sharper.png")
+    blurred_image.save("enhancer_sharpness_blurred.png")
+
+    # zobrazení originálu i upravených obrázků
+    test_image.show()
+    sharper_image.show()
+    blurred_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k04"></a></p>
+<h2 id="k04">4. Zvýšení a snížení kontrastu</h2>
+
+<p>Druhý demonstrační příklad je podobný příkladu prvnímu, ovšem namísto zaostřování a rozostřování rastrového obrázku zde upravujeme jeho kontrast:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/04_enhancer_contrast_more.png"><img class="alignnone size-thumbnail wp-image-10446" src="https://mojefedora.cz/wp-content/uploads/2018/08/04_enhancer_contrast_more-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 4: Výsledek operace zvýšení kontrastu (koeficient=2,0).</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/05_enhancer_contrast_less.png"><img class="alignnone size-thumbnail wp-image-10447" src="https://mojefedora.cz/wp-content/uploads/2018/08/05_enhancer_contrast_less-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 5: Výsledek operace snížení kontrastu (koeficient=0,5).</i></p>
+
+<p>Opět se podívejme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/17_image_enhance_contrast.py">na úplný zdrojový kód</a> tohoto příkladu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageEnhance
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # inicializace "vylepšovače" obrázků
+    enhancer = ImageEnhance.Contrast(test_image)
+
+    # vytvoření "vylepšených" i "zhoršených" obrázků
+    more_contrast_image = enhancer.enhance(2.0)
+    less_contrast_image = enhancer.enhance(0.5)
+
+    # uložení upravených obrázků
+    more_contrast_image.save("enhancer_contrast_more.png")
+    less_contrast_image.save("enhancer_contrast_less.png")
+
+    # zobrazení originálu i upravených obrázků
+    test_image.show()
+    more_contrast_image.show()
+    less_contrast_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k05"></a></p>
+<h2 id="k05">5. Zvýšení a snížení jasu</h2>
+
+<p>Pokud modul <strong>ImageEnhance</strong> dokáže měnit kontrast, asi každého čtenáře napadne, že podobně tomu bude i v&nbsp;případě jasu. A skutečně &ndash; pomocí filtru <strong>ImageEnhance.Brightness</strong> můžeme velmi snadno manipulovat i s&nbsp;jasem celého obrázku s&nbsp;následujícími výsledky:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/06_enhancer_brightness_more.png"><img class="alignnone size-thumbnail wp-image-10448" src="https://mojefedora.cz/wp-content/uploads/2018/08/06_enhancer_brightness_more-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 6: Výsledek operace zvýšení jasu (koeficient=2,0).</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/07_enhancer_brightness_less.png"><img class="alignnone size-thumbnail wp-image-10449" src="https://mojefedora.cz/wp-content/uploads/2018/08/07_enhancer_brightness_less-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 7: Výsledek operace snížení jasu (koeficient=0,5).</i></p>
+
+<p>Opět si pro úplnost ukažme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/18_image_enhance_brightness.py">úplný zdrojový kód</a> tohoto dnešního v&nbsp;pořadí již třetího příkladu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageEnhance
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # inicializace "vylepšovače" obrázků
+    enhancer = ImageEnhance.Brightness(test_image)
+
+    # vytvoření "vylepšených" i "zhoršených" obrázků
+    more_brightness_image = enhancer.enhance(2.0)
+    less_brightness_image = enhancer.enhance(0.5)
+
+    # uložení upravených obrázků
+    more_brightness_image.save("enhancer_brightness_more.png")
+    less_brightness_image.save("enhancer_brightness_less.png")
+
+    # zobrazení originálu i upravených obrázků
+    test_image.show()
+    more_brightness_image.show()
+    less_brightness_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k06"></a></p>
+<h2 id="k06">6. Změna sytosti barev</h2>
+
+<p>Posledním filtrem podporovaným modulem <strong>ImageEnhance</strong> je filtr pro změnu sytosti barev (někdy se setkáme i s&nbsp;termínem <i>barevný kontrast</i> a skutečně jsme mohli podobný ovládací prvek u starších barevných televizí nalézt). Pro tento účel slouží filtr nazvaný <strong>Color</strong> a výsledky jeho aplikace můžeme vidět na dalších dvou screenshotech:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/08_enhancer_color_more.png"><img class="alignnone size-thumbnail wp-image-10450" src="https://mojefedora.cz/wp-content/uploads/2018/08/08_enhancer_color_more-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 8: Výsledek operace zvýšení barevného kontrastu (koeficient=2,0).</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/09_enhancer_color_less.png"><img class="alignnone size-thumbnail wp-image-10451" src="https://mojefedora.cz/wp-content/uploads/2018/08/09_enhancer_color_less-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 9: Výsledek operace snížení barevného kontrastu (koeficient=0,5).</i></p>
+
+<p>Úplný <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/19_image_enhance_color.py">zdrojový kód tohoto příkladu</a> čtvrtého demonstračního příkladu vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageEnhance
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # inicializace "vylepšovače" obrázků
+    enhancer = ImageEnhance.Color(test_image)
+
+    # vytvoření "vylepšených" i "zhoršených" obrázků
+    more_colored_image = enhancer.enhance(2.0)
+    less_colored_image = enhancer.enhance(0.5)
+
+    # uložení upravených obrázků
+    more_colored_image.save("enhancer_color_more.png")
+    less_colored_image.save("enhancer_color_less.png")
+
+    # zobrazení originálu i upravených obrázků
+    test_image.show()
+    more_colored_image.show()
+    less_colored_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k07"></a></p>
+<h2 id="k07">7. Získání základních statistik o rastrovém obrázku</h2>
+
+<p>Další oblastí, v&nbsp;níž je možné v&nbsp;případě potřeby využít možnosti nabízené knihovnou <strong>Pillow</strong>, je výpočet základních statistických informací o rastrových obrázcích. Především se jedná o zjištění maximální, minimální, průměrné atd. úrovně jednotlivých pixelů, standardní odchylky apod. Výpočty těchto hodnot do značné míry závisí na použitém barvovém modelu. U černobílých obrázků a obrázků reprezentovaných ve stupních šedi je většina statistických informací vrácena ve formě skalární hodnoty uložené do jednoprvkového seznamu, ovšem u obrázků, v&nbsp;nichž se používá barvový model RGB, je každá statistická hodnota vypočtena a vrácena formou trojice hodnot v&nbsp;seznamu &ndash; každý prvek seznamu odpovídá jednomu barvovému kanálu R (red), G (green), B (blue). Z&nbsp;obrázku se získají statistické informace následovně:</p>
+
+<pre>
+# inicializace třídy se statistikami o obrázku
+stat = ImageStat.Stat(test_image)
+</pre>
+
+<p>Výpočet se provede automaticky, takže jen můžeme přistoupit ke čtení atributů objektu <strong>stat</strong>:</p>
+
+<pre>
+pocet_pixelu = cnt=stat.count
+prumerne_hodnoty = stat.mean
+median = stat.median
+odchylka = stat.var
+</pre>
+
+<p>Nepatrně složitější je zjištění minimálních a maximálních hodnot všech barvových složek &ndash; ty je nutné vyčíst z&nbsp;jedné n-tice obsahující dvojici (min, max), tedy minimální a maximální hodnoty dané barvové složky:</p>
+
+<pre>
+min = [v[0] for v in stat.extrema]
+max = [v[1] for v in stat.extrema]
+</pre>
+
+<p>Podívejme se nejdříve na způsob získání statistických informací o klasickém obrázku Leny používajícím barvový prostor RGB. Nejdříve si uvedeme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/20_image_statistic.py">zdrojový kód tohoto příkladu</a>, který vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageStat
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # inicializace třídy se statistikami o obrázku
+    stat = ImageStat.Stat(test_image)
+
+    # zobrazení statistických informací o obrázku
+    print("Pixel count:           {cnt}".format(cnt=stat.count))
+    print("Min values:            {min}".format(min=[v[0] for v in stat.extrema]))
+    print("Max values:            {max}".format(max=[v[1] for v in stat.extrema]))
+    print("Average values:        {val}".format(val=stat.mean))
+    print("Median values:         {med}".format(med=stat.median))
+    print("Variance:              {var}".format(var=stat.var))
+    print("Std.deviation values:  {stddev}".format(stddev=stat.stddev))
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p>Výsledky se zjištěnými statistickými informacemi by měly vypadat takto:</p>
+
+<pre>
+Pixel count:           [262144, 262144, 262144]
+Min values:            [54, 3, 8]
+Max values:            [255, 248, 225]
+Average values:        [180.22365951538086, 99.05121612548828, 105.41025161743164]
+Median values:         [197, 97, 100]
+Variance:              [2405.7822785146855, 2796.0318388835876, 1159.9422168342717]
+Std.deviation values:  [49.04877448534964, 52.87751732904626, 34.05792443520702]
+</pre>
+
+<p>Povšimněte si, že se skutečně vrací trojice hodnot, tj.&nbsp;například odchylka v&nbsp;barvovém kanálu Red, odchylka v&nbsp;kanálu Green a nakonec odchylka v&nbsp;barvovém kanálu Blue.</p>
+
+<p>Pro zajímavost si ještě <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/21_bw_image_statistic.py">v&nbsp;dalším demonstračním příkladu</a> ukážeme tentýž výpočet, ovšem pro čistě černobílý obrázek, který získáme operací:</p>
+
+<pre><code>
+# převod na černobílý obrázek
+modified_image = ImageMath.eval("convert(src, '1')", src=test_image)
+</code></pre>
+
+<p>Příklad vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageMath
+from PIL import ImageStat
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # převod na černobílý obrázek
+    modified_image = ImageMath.eval("convert(src, '1')", src=test_image)
+
+    # inicializace třídy se statistikami o obrázku
+    stat = ImageStat.Stat(modified_image)
+
+    # zobrazení statistických informací o obrázku
+    print("Pixel count:          {cnt}".format(cnt=stat.count))
+    print("Min value:            {min}".format(min=[v[0] for v in stat.extrema]))
+    print("Max value:            {max}".format(max=[v[1] for v in stat.extrema]))
+    print("Average value:        {val}".format(val=stat.mean))
+    print("Median value:         {med}".format(med=stat.median))
+    print("Variance:             {var}".format(var=stat.var))
+    print("Std.deviation value:  {stddev}".format(stddev=stat.stddev))
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p>Výsledky tentokrát obsahují vždy jen jednu hodnotu, i když stále uloženou do (jednoprvkového) seznamu:</p>
+
+<pre>
+Pixel count:          [262144]
+Min value:            [0]
+Max value:            [255]
+Average value:        [123.50492477416992]
+Median value:         [0]
+Variance:             [16240.289373939959]
+Std.deviation value:  [127.43739393890617]
+</pre>
+
+
+
+<p><a name="k08"></a></p>
+<h2 id="k08">8. Výpočet histogramu</h2>
+
+<p>Velmi často se setkáme s&nbsp;potřebou vypočítat <a href="https://en.wikipedia.org/wiki/Histogram">histogram</a> nějakého rastrového obrázku. Ten je opět získán pro jednotlivé barvové složky, tj.&nbsp;ve skutečnosti se při použití barvového modelu RGB vypočítají tři histogramy &ndash; první pro červenou barvovou složku, druhý pro složku zelenou a konečně třetí pro složku modrou. Pro černobílé obrázky popř.&nbsp;pro obrázky ve stupních šedi se samozřejmě vypočte jen jediný histogram, který navíc pro černobílé obrázky bude obsahovat pouze dvě hodnoty. Histogram se získá velmi snadno &ndash; použitím metody <strong>Image.histogram</strong>:</p>
+
+<pre><code>
+# načtení originálního obrázku Leny
+test_image = Image.open(filename)
+test_image.load()
+
+histogram = test_image.histogram()
+</code></pre>
+
+<p>Pro obrázky ve stupních šedi se vrátí seznam 256 hodnot, pro RGB obrázky se vrátí 768 hodnot, které je nutné rozdělit na třetiny:</p>
+
+<pre><code>
+h1 = histogram[0:255]
+h2 = histogram[256:511]
+h3 = histogram[512:767]
+</code></pre>
+
+<p>Podívejme se nyní na <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/22_histogram.py">demonstrační příklad</a>, který načte obrázek Leny a zobrazí pro něj histogram:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    histogram = test_image.histogram()
+
+    print(histogram[0:255])
+    print()
+    print(histogram[256:511])
+    print()
+    print(histogram[512:767])
+    print()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p>Výsledek (notně zkrácený) by měl vypadat zhruba takto (obrázek je podle očekávání barevně nevyvážený):</p>
+
+<pre>
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...  357, 313, 302, 242, 178, 67]
+
+[0, 0, 0, 11, 65, 111, 164, 261, 308, 431, 537, 682, 846, ... 1, 0, 0, 0, 0, 0, 0]
+
+[0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, ... 0, 0, 0, 0, 0, 0, 0]
+</pre>
+
+
+
+<p><a name="k09"></a></p>
+<h2 id="k09">9. Operace pro manipulaci s&nbsp;jednotlivými pixely v&nbsp;rastrovém obrázku</h2>
+
+<p>Mezi nízkoúrovňové operace, které knihovna <i>Pillow</i> programátorům nabízí, patří samozřejmě operace umožňující manipulovat s&nbsp;jednotlivými pixely načteného rastrového obrázku &ndash; jedná se o čtení hodnoty pixelu a o zápis nové barvy do pixelu. Teoreticky by se celé vykreslování a modifikace obrázků mohla realizovat pouze dvěma operacemi typu <strong>putpixel()</strong> a <strong>getpixel()</strong>; prakticky je to však zbytečně pracné a jak uvidíme dále, i poměrně pomalé. Popišme si nejprve nízkoúrovňovou &bdquo;kreslicí&ldquo; operaci <strong>putpixel()</strong>. Ta je programátorům dostupná ve formě metody pojmenované příhodně <strong>Image.putpixel()</strong>. Této metodě se typicky předává dvojice se souřadnicemi pixelu (x,y) a dále trojice celočíselných hodnot reprezentujících barvu pixelu v&nbsp;barvovém prostoru RGB.</p>
+
+<p>Nejjednodušší příklad, který načte testovací obrázek a do jeho prostředního pixelu (resp.&nbsp;do pixelu nejblíže středu) vykreslí čistě červenou barvu, by vypadal následovně:</p>
+
+<pre><code>
+test_image_1 = Image.new("RGB", (256, 256))
+
+color_rgb = (255, 0, 0)
+test_image_1.putpixel((127, 127), color_rgb)
+</code></pre>
+
+<p>Povšimněte si, jakým způsobem je reprezentována souřadnice pixelu i zapisovaná barva.</p>
+
+
+
+<p><a name="k10"></a></p>
+<h2 id="k10">10. Vykreslení RGB palety</h2>
+
+<p>V&nbsp;dalším demonstračním příkladu si ukážeme, jakým způsobem je možné vytvořit prázdné obrázky a vykreslit do nich RGB paletu, resp.&nbsp;přesněji řečeno barevnou škálu, v&nbsp;níž se postupně mění červená a modrá barvová složka. Složka zelená bude u prvního obrázku nastavena na 0, u druhého obrázku naopak na maximální hodnotu 255:</p>
+
+<pre><code>
+# vykreslení různobarevných pixelů
+for y in range(0, height):
+    for x in range(0, width):
+        color_rgb = (x, 0, y)
+        test_image_1.putpixel((x, y), color_rgb)
+        color_rgb = (x, 255, y)
+        test_image_2.putpixel((x, y), color_rgb)
+</code></pre>
+
+<p>Výsledky by měly vypadat takto:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/10_rgb_palette_1.png"><img class="alignnone size-thumbnail wp-image-10452" src="https://mojefedora.cz/wp-content/uploads/2018/08/10_rgb_palette_1-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 10: Část barevné škály se všemi kombinacemi červené a modré barvové složky. Zelená složka je nastavena na minimální hodnotu 0.</i></p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/11_rgb_palette_2.png"><img class="alignnone size-thumbnail wp-image-10453" src="https://mojefedora.cz/wp-content/uploads/2018/08/11_rgb_palette_2-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 11: Část barevné škály se všemi kombinacemi červené a modré barvové složky. Zelená složka je nastavena na minimální hodnotu 255.</i></p>
+
+<p>Následuje výpis <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/23_rgb_palette.py">úplného zdrojového kódu</a> tohoto demonstračního příkladu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageColor
+
+try:
+    # vytvoření prázdných obrázků
+    test_image_1 = Image.new("RGB", (256, 256))
+    test_image_2 = Image.new("RGB", (256, 256))
+
+    # rozměry obrázku
+    width = test_image_1.size[0]
+    height = test_image_2.size[1]
+
+    # vykreslení různobarevných pixelů
+    for y in range(0, height):
+        for x in range(0, width):
+            color_rgb = (x, 0, y)
+            test_image_1.putpixel((x, y), color_rgb)
+            color_rgb = (x, 255, y)
+            test_image_2.putpixel((x, y), color_rgb)
+
+    # uložení upraveného obrázku
+    test_image_1.save("rgb_palette_1.png")
+    test_image_2.save("rgb_palette_2.png")
+
+    # zobrazení upraveného obrázku
+    test_image_1.show()
+    test_image_2.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k11"></a></p>
+<h2 id="k11">11. Vykreslení HSL palety</h2>
+
+<p>Programátoři používající knihovnu <i>Pillow</i> mohou do jisté míry využívat i barvový prostor <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSL</a> využívaný v&nbsp;některých typech GUI dialogů pro výběr barvy. Existuje totiž funkce nazvaná <strong>ImageColor.getrgb()</strong>, které je možné předat řetězec ve formátu (i s&nbsp;příslušnými procenty):</p>
+
+<pre>
+hsl(hue, saturation%, lightness%)
+</pre>
+
+<p>Tento řetězec je následně zparsován a na základě jeho obsahu jsou hodnoty <i>hue</i>, <i>saturation</i> a <i>lightness</i> převedeny do barvy v&nbsp;barvovém prostoru RGB. A takovou barvu již dokážeme snadno vykreslit (resp.&nbsp;přesněji řečeno zapsat do pixelu v&nbsp;obrázku):</p>
+
+<pre><code>
+# vykreslení různobarevných pixelů
+for saturation in range(0, height):
+    for hue in range(0, width):
+        color_hsl = "hsl({hue}, {saturation}%, 50%)".format(hue=hue, saturation=saturation//2)
+        color = ImageColor.getrgb(color_hsl)
+        test_image.putpixel((hue, saturation), color)
+</code></pre>
+
+<p>Poznámka: na 50% světlosti je dostupné celé spektrum barev; naopak u 0% a 100% máme k&nbsp;dispozici jen čistě černou resp.&nbsp;čistě bílou barvu.</p>
+
+<p>Jedinou nevýhodou je relativně malá rychlost převodu barvy HSL &rarr; RGB, což je ovšem pochopitelné (ovšem knihovna <i>Pillow</i> není určena pro tvorbu her ani pro podobné účely, v&nbsp;nichž je rychlost vykreslování prioritou).</p>
+
+<p>Výsledek aplikace předchozího úryvku kódu by měl vypadat takto:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/12_hsl_palette.png"><img class="alignnone size-thumbnail wp-image-10454" src="https://mojefedora.cz/wp-content/uploads/2018/08/12_hsl_palette.png" alt="" width="360" height="200" /></a>
+<p><i>Obrázek 12: Vykreslení barvové škály HSL s&nbsp;nastavením světlosti všech pixelů přesně na 50%.</i></p>
+
+<p>Opět následuje výpis <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/24_hsl_palette.py">úplného zdrojového kódu příkladu</a>, kterým byl předchozí obrázek vykreslen:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageColor
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("RGB", (360, 200))
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    # vykreslení různobarevných pixelů
+    for saturation in range(0, height):
+        for hue in range(0, width):
+            color_hsl = "hsl({hue}, {saturation}%, 50%)".format(hue=hue, saturation=saturation//2)
+            color = ImageColor.getrgb(color_hsl)
+            test_image.putpixel((hue, saturation), color)
+
+    # uložení upraveného obrázku
+    test_image.save("hsl_palette.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k12"></a></p>
+<h2 id="k12">12. Kreslicí operace využívající modul <strong>ImageDraw</strong></h2>
+
+<p>Po popisu nízkoúrovňových kreslicích operací se podívejme na způsob vykreslování základních dvourozměrných entit, tj.&nbsp;především úseček, kružnic, oblouků, ale například i textu. Tyto operace jsou realizovány přes objekt získaný zavoláním konstruktoru <strong>ImageDraw.Draw()</strong>, kterému předáme referenci na již existující rastrový obrázek. Obrázek nejprve načteme tak, jak jsme již zvyklí:</p>
+
+<pre><code>
+test_image = Image.open(filename)
+test_image.load()
+</code></pre>
+
+<p>Následně zavoláme konstruktor <strong>ImageDraw.Draw()</strong>:</p>
+
+<pre><code>
+# objekt umožňující kreslení do obrázku
+draw = ImageDraw.Draw(test_image)
+</code></pre>
+
+<p>Po tomto řádku je již možné vykreslovat všechny podporované 2D entity. A po vykreslení je vhodné (i když nikoli nutné) objekt explicitně uvolnit z&nbsp;paměti:</p>
+
+<pre><code>
+# explicitní vymazání objektu umožňujícího kreslení
+del draw
+</code></pre>
+
+<p>Tuto poslední operaci se doporučuje používat ve chvíli, kdy celý program zpracovává desítky a stovky obrázků.</p>
+
+
+
+<p><a name="k13"></a></p>
+<h2 id="k13">13. Nakreslení mřížky do načteného obrázku</h2>
+
+<p>Základní vysokoúrovňovou kreslicí operací je operace určená pro nakreslení obyčejné úsečky. Tato operace je realizována metodou <strong>line</strong>, které se typicky předává n-tice obsahující koncové prvky úsečky, tedy body [x1, y1] a [x2, y2]:</p>
+
+<pre>
+(x1, y1, x2, y2)
+</pre>
+
+<p>Dále se typicky této metodě předává barva úsečky, a to přes nepovinný (pojmenovaný) parametr <strong>fill</strong>. Hodnotou tohoto parametru je trojice představující barvu v&nbsp;RGB prostoru:</p>
+
+<pre>
+draw.line((x1, y1, x2, y2), fill=(255, 255, 255))
+</pre>
+
+<p>Pro nakreslení úsečky se používá klasický Bresenhamův algoritmus, který ovšem (ve své původní podobě) nedokáže využít antialiasing. To nám ovšem nebude vadit v&nbsp;prvním demonstračním příkladu, v&nbsp;němž budeme vykreslovat mřížku složenou pouze z&nbsp;vodorovných a svislých úseček. Nejprve vytvoříme objekt typu <strong>Draw</strong> a následně zjistíme rozměry obrázku přečtením atributu <strong>Image.size</strong>:</p>
+
+<pre><code>
+# objekt umožňující kreslení do obrázku
+draw = ImageDraw.Draw(test_image)
+
+# rozměry obrázku
+width = test_image.size[0]
+height = test_image.size[1]
+</code></pre>
+
+<p>Následně již můžeme ve dvou programových smyčkách vykreslit všechny svislé úsečky a poté všechny úsečky vodorovné:</p>
+
+<pre><code>
+# vertikální úsečky
+for x in range(0, width, 30):
+    draw.line((x, 0, x, height-1), fill=(255, 255, 255))
+
+# horizontální úsečky
+for y in range(0, height, 30):
+    draw.line((0, y, width-1, y), fill=(255, 255, 255))
+</code></pre>
+
+<p>Výsledek by měl vypadat takto:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/13_grid.png"><img class="alignnone size-thumbnail wp-image-10455" src="https://mojefedora.cz/wp-content/uploads/2018/08/13_grid-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 13: Obrázek Leny, do něhož jsme následně zakreslili mřížku (sekvenci vertikálních a horizontálních úseček).</i></p>
+
+<p>Opět si ukažme, jak vypadá <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/25_draw_grid.py">úplný zdrojový kód</a> demonstračního příkladu pro vykreslení bílé mřížky popsaného v&nbsp;této kapitole:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageDraw
+
+filename = "Lenna.png"
+
+try:
+    # načtení originálního obrázku Leny
+    test_image = Image.open(filename)
+    test_image.load()
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    # vertikální úsečky
+    for x in range(0, width, 30):
+        draw.line((x, 0, x, height-1), fill=(255, 255, 255))
+
+    # horizontální úsečky
+    for y in range(0, height, 30):
+        draw.line((0, y, width-1, y), fill=(255, 255, 255))
+
+    # uložení upraveného obrázku
+    test_image.save("grid.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k14"></a></p>
+<h2 id="k14">14. Vykreslení různobarevných čtverců</h2>
+
+<p>Další kreslicí funkcí, která může být v&nbsp;některých případech užitečná, je funkce určená pro nakreslení osově orientovaného obdélníka nebo čtverce. Velikost obdélníka/čtverce se specifikuje opět čtveřicí číselných hodnot, které určují dva krajní body [x1, y1] a [x2, y2] (ty leží na koncích úhlopříčky). Vzhledem k&nbsp;tomu, že se jedná o uzavřené obrazce (s&nbsp;plochou uvnitř), je možné specifikovat jak barvu obrysu pomocí parametru <strong>outline</strong>, tak i barvu vyplněné plochy s&nbsp;využitím parametru <strong>fill</strong> (pokud chcete výplň realizovat):</p>
+
+<pre>
+draw.rectangle((x1, y1, x2, y2), outline=(255, 255, 255), fill=(x, 255, y))
+</pre>
+
+<p>Následující úryvek programového kódu vykreslí do obrázku mřížku vytvořenou ze čtverců (obdélníků se stejnou délkou všech stran), přičemž každý čtverec bude mít bílý okraj a proměnnou barvu výplně:</p>
+
+<pre><code>
+# vykreslení různobarevných čtverců
+for y in range(0, height, 32):
+    for x in range(0, width, 32):
+        draw.rectangle((x+1, y+1, x+28, y+28), outline=(255, 255, 255), fill=(x, 255, y))
+</code></pre>
+
+<p>Výsledkem by měl být následující obrázek:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/14_color_rectangles.png"><img class="alignnone size-thumbnail wp-image-10456" src="https://mojefedora.cz/wp-content/uploads/2018/08/14_color_rectangles-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 14: Prázdná plocha, do které byla vykreslena mřížka čtverců s&nbsp;různou barvou výplně.</i></p>
+
+<p><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/26_colors_rgb.py">Zdrojový kód</a> příkladu pro vykreslení různobarevných čtverců vypadá takto:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageDraw
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("RGB", (512, 512))
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    # vykreslení různobarevných čtverců
+    for y in range(0, height, 32):
+        for x in range(0, width, 32):
+            draw.rectangle((x+1, y+1, x+28, y+28), outline=(255, 255, 255), fill=(x, 255, y))
+
+    # uložení upraveného obrázku
+    test_image.save("color_rectangles.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k15"></a></p>
+<h2 id="k15">15. Použití polyčar (lomených čar) pro tvorbu složitějších obrazců</h2>
+
+<p>Poměrně neobvyklé, ale o to užitečnější je chování metody <strong>line</strong> ve chvíli, kdy této metodě nepředáme pouze dva koncové body, ale bodů více. V&nbsp;takovém případě se vykreslí lomená čára neboli polyčára (<i>polyline</i>). Ukažme si toto chování na příkladě, po jehož spuštění se vykreslí známý &bdquo;domeček jedním tahem&ldquo; (mimochodem &ndash; je použit čistě černobílý obrázek):</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from PIL import Image
+from PIL import ImageDraw
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("1", (512, 512))
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    endpoints = [100, 500,
+                 400, 200,
+                 100, 200,
+                 250,  50,
+                 400, 200,
+                 400, 500,
+                 100, 200,
+                 100, 500,
+                 400, 500]
+
+    draw.line(endpoints, fill=255)
+
+    # uložení upraveného obrázku
+    test_image.save("house.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p>Následuje ovšem nepatrně složitější příklad, v&nbsp;němž se koncové body polyčáry počítají programově, a to konkrétně následujícím způsobem:</p>
+
+<pre><code>
+def f(angle):
+    return width/2 + width * 0.4 * math.cos(angle * 3)
+
+def g(angle):
+    return height/2 + height * 0.4 * math.sin(angle * 2)
+
+endpoints = list(chain.from_iterable((f(angle), g(angle)) for angle in range(0, 360)))
+
+draw.line(endpoints, fill=(255, 255, 256))
+</code></pre>
+
+<p>Výsledkem bude tento obrazec:</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/15_polyline.png"><img class="alignnone size-thumbnail wp-image-10457" src="https://mojefedora.cz/wp-content/uploads/2018/08/15_polyline-254x254.png" alt="" width="254" height="254" /></a>
+<p><i>Obrázek 15: Složitější obrazec vykreslený jedinou polyčárou (polyline).</i></p>
+
+<p>Opět se podívejme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/27_polyline.py">na úplný zdrojový kód</a> tohoto demonstračního příkladu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import math
+
+from PIL import Image
+from PIL import ImageDraw
+
+from itertools import chain
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("RGB", (512, 512))
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    def f(angle):
+        return width/2 + width * 0.4 * math.cos(angle * 3)
+
+    def g(angle):
+        return height/2 + height * 0.4 * math.sin(angle * 2)
+
+    endpoints = list(chain.from_iterable((f(angle), g(angle)) for angle in range(0, 360)))
+
+    draw.line(endpoints, fill=(255, 255, 256))
+
+    # uložení upraveného obrázku
+    test_image.save("polyline.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k16"></a></p>
+<h2 id="k16">16. Vykreslení obrazce složeného z&nbsp;kružnic</h2>
+
+<p>V&nbsp;dnešním předposledním demonstračním příkladu si ukážeme použití metody <strong>ellipse</strong> pro vykreslení kružnic nebo elips. Tato metoda akceptuje stejné parametry jako výše zmíněná metoda pro vykreslení obdélníků, tj.&nbsp;lze zadat krajní body obdélníku, do kterého se elipsa vepíše. Pokud zadáme krajní body tvořící čtverec, samozřejmě se vykreslí kružnice. A opět platí &ndash; neprovádí se žádný antialiasing, takže výsledky nemusí odpovídat představám autora. Tento problém se někdy dá obejít takzvaný <i>supersamplingem</i>, který si popíšeme příště.</p>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/16_circle.png"><img src="https://mojefedora.cz/wp-content/uploads/2018/08/16_circle-254x254.png" alt="" width="254" height="254" class="alignnone size-thumbnail wp-image-10459" /></a>
+<p><i>Obrázek 16: Složitější obrazec vykreslený z&nbsp;kružnic.</i></p>
+
+<p>Opět následuje <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/28_circles.py">zdrojový kód</a> příkladu, v&nbsp;němž se vykreslí obrazec složený pouze z&nbsp;kružnic. Jediné volání metody <strong>rectangle</strong> slouží k&nbsp;vykreslení bílého pozadí obrázku:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import math
+
+from PIL import Image
+from PIL import ImageDraw
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("RGBA", (512, 512))
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    draw.rectangle((0, 0, width, height), fill=(255, 255, 255))
+
+    green = 255
+    for i, r, red, blue in zip(range(0, 128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)):
+        a = i / 12.0
+        b = i + 80.0
+        x = width / 2 + b * math.cos(a)
+        y = height / 2 + b * math.sin(a)
+        draw.ellipse((x - r, y - r, x + r, y + r), fill=(red, green, blue), outline="black")
+
+    # uložení upraveného obrázku
+    test_image.save("circle_pattern.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+
+
+<p><a name="k17"></a></p>
+<h2 id="k17">17. Základy práce s&nbsp;textem: rasterizace a vykreslení textu do obrázku</h2>
+
+<p>Na závěr si &ndash; prozatím bez podrobnějšího vysvětlení &ndash; ukažme, jakým způsobem je možné do rastrového obrázku vložit nějaký text. Pro vykreslení (rasterizaci) textu se používá metoda <strong>text</strong>, ovšem ještě před jejím použitím je nutné vytvořit instanci třídy <strong>ImageFont</strong>. V&nbsp;současné verzi podporuje knihovna <i>Pillow</i> jak bitmapové fonty, tak i fonty definované obrysem vytvořeným Bézierovými křivkami (TrueType). S&nbsp;podrobnostmi o této relativně obsáhlé problematice se seznámíme příště, takže si dnes jen ukažme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/29_text.py">zdrojový kód</a> příkladu pro vykreslení jednoduchého textu:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import math
+
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
+try:
+    # vytvoření prázdného obrázku
+    test_image = Image.new("RGBA", (512, 512))
+
+    # objekt umožňující kreslení do obrázku
+    draw = ImageDraw.Draw(test_image)
+
+    # rozměry obrázku
+    width = test_image.size[0]
+    height = test_image.size[1]
+
+    # načtení fontu
+    font = ImageFont.truetype('FreeMono.ttf', 72)
+
+    # vykreslení jednoduchého textu
+    draw.text((50, height/2 - 36), "Pillow", font=font, fill=(255, 128, 128))
+
+    # uložení upraveného obrázku
+    test_image.save("text.png")
+
+    # zobrazení upraveného obrázku
+    test_image.show()
+
+except Exception as e:
+    print(e)
+</code></pre>
+
+<a href="https://mojefedora.cz/wp-content/uploads/2018/08/17_text.png"><img src="https://mojefedora.cz/wp-content/uploads/2018/08/17_text-254x254.png" alt="" width="254" height="254" class="alignnone size-thumbnail wp-image-10460" /></a>
+<p><i>Obrázek 17: Text vykreslený do původně prázdného obrázku.</i></p>
+
+
+
+<p><a name="k18"></a></p>
+<h2 id="k18">18. Obsah následující části seriálu</h2>
+
+<p>V&nbsp;následující části tohoto seriálu popis knihovny <i>Pillow</i> dokončíme. Zabývat se budeme především modulem nazvaným <strong>ImageMath</strong>, který uživatelům nabízí nejvíce možností (ovšem je také nejsložitější na pochopení). Ovšem nezapomeneme ani na popis některých dalších modulů, které mohou být v&nbsp;praxi velmi užitečné. Jedná se například o moduly se jmény <strong>ImageMorph</strong>, <strong>ImageOps</strong> (dokončení, již jsme si některé jeho možnosti popsali) či o modul <strong>ImagePath</strong>.</p>
+
+
+
+<p><a name="k19"></a></p>
+<h2 id="k19">19. Repositář s&nbsp;demonstračními příklady</h2>
+
+<p>Zdrojové kódy všech dnes popsaných demonstračních příkladů určených pro Python 3 a knihovnu <i>Pillow</i> i pro Python 2 a starší knihovnu <i>PIL</i> byly uloženy do Git repositáře dostupného na adrese <a href="https://github.com/tisnik/most-popular-python-libs">https://github.com/tisnik/most-popular-python-libs</a> (stále na GitHubu :-). V&nbsp;případě, že nebudete chtít klonovat celý repositář (ten je ovšem stále velmi malý, dnes má doslova několik kilobajtů), můžete namísto toho použít odkazy na jednotlivé příklady, které naleznete v&nbsp;následující dvojici tabulek:</p>
+
+<h3>Příklady pro jazyk Python 3 a knihovnu Pillow:</h3>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>16_image_enhance_sharpness.py</td><td>zaostření a rozostření obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/16_image_enhance_sharpness.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/16_image_enhance_sharpness.py</a></td></tr>
+<tr><td> 2</td><td>17_image_enhance_contrast.py</td><td>zvýšení a snížení kontrastu obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/17_image_enhance_contrast.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/17_image_enhance_contrast.py</a></td></tr>
+<tr><td> 3</td><td>18_image_enhance_brightness.py</td><td>změna světlosti</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/18_image_enhance_brightness.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/18_image_enhance_brightness.py</a></td></tr>
+<tr><td> 4</td><td>19_image_enhance_color.py</td><td>změna barevného podání</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/19_image_enhance_color.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/19_image_enhance_color.py</a></td></tr>
+<tr><td> 5</td><td>20_image_statistic.py</td><td>čtení základních statistických informací u barevného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/20_image_statistic.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/20_image_statistic.py</a></td></tr>
+<tr><td> 6</td><td>21_bw_image_statistic.py</td><td>čtení základních statistických informací u černobílého obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/21_bw_image_statistic.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/21_bw_image_statistic.py</a></td></tr>
+<tr><td> 7</td><td>22_histogram.py</td><td>získání histogramu obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/22_histogram.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/22_histogram.py</a></td></tr>
+<tr><td> 8</td><td>23_rgb_palette.py</td><td>vykreslení RGB palety</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/23_rgb_palette.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/23_rgb_palette.py</a></td></tr>
+<tr><td> 9</td><td>24_hsl_palette.py</td><td>vykreslení HSL palety</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/24_hsl_palette.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/24_hsl_palette.py</a></td></tr>
+<tr><td>10</td><td>25_draw_grid.py</td><td>vykreslení mřížky do načteného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/25_draw_grid.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/25_draw_grid.py</a></td></tr>
+<tr><td>11</td><td>26_colors_rgb.py</td><td>použití definice RGB barev při kreslení</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/26_colors_rgb.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/26_colors_rgb.py</a></td></tr>
+<tr><td>12</td><td>27_polyline.py</td><td>vykreslení obrazce tvořeného lomenou čarou</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/27_polyline.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/27_polyline.py</a></td></tr>
+<tr><td>13</td><td>28_circles.py</td><td>vykreslení obrazce z&nbsp;několika kružnic</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/28_circles.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/28_circles.py</a></td></tr>
+<tr><td>14</td><td>29_text.py</td><td>vykreslení jednoduchého textu</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/29_text.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pillow/29_text.py</a></td></tr>
+</table>
+
+<h3>Příklady pro jazyk Python 2 a knihovnu PIL:</h3>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>16_image_enhance_sharpness.py</td><td>zaostření a rozostření obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/16_image_enhance_sharpness.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/16_image_enhance_sharpness.py</a></td></tr>
+<tr><td> 2</td><td>17_image_enhance_contrast.py</td><td>zvýšení a snížení kontrastu obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/17_image_enhance_contrast.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/17_image_enhance_contrast.py</a></td></tr>
+<tr><td> 3</td><td>18_image_enhance_brightness.py</td><td>změna světlosti</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/18_image_enhance_brightness.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/18_image_enhance_brightness.py</a></td></tr>
+<tr><td> 4</td><td>19_image_enhance_color.py</td><td>změna barevného podání</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/19_image_enhance_color.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/19_image_enhance_color.py</a></td></tr>
+<tr><td> 5</td><td>20_image_statistic.py</td><td>čtení základních statistických informací u barevného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/20_image_statistic.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/20_image_statistic.py</a></td></tr>
+<tr><td> 6</td><td>21_bw_image_statistic.py</td><td>čtení základních statistických informací u černobílého obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/21_bw_image_statistic.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/21_bw_image_statistic.py</a></td></tr>
+<tr><td> 7</td><td>22_histogram.py</td><td>získání histogramu obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/22_histogram.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/22_histogram.py</a></td></tr>
+<tr><td> 8</td><td>23_rgb_palette.py</td><td>vykreslení RGB palety</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/23_rgb_palette.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/23_rgb_palette.py</a></td></tr>
+<tr><td> 9</td><td>24_hsl_palette.py</td><td>vykreslení HSL palety</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/24_hsl_palette.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/24_hsl_palette.py</a></td></tr>
+<tr><td>10</td><td>25_draw_grid.py</td><td>vykreslení mřížky do načteného obrázku</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/25_draw_grid.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/25_draw_grid.py</a></td></tr>
+<tr><td>11</td><td>26_colors_rgb.py</td><td>použití definice RGB barev při kreslení</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/26_colors_rgb.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/26_colors_rgb.py</a></td></tr>
+<tr><td>12</td><td>27_polyline.py</td><td>vykreslení obrazce tvořeného lomenou čarou</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/27_polyline.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/27_polyline.py</a></td></tr>
+<tr><td>13</td><td>28_circles.py</td><td>vykreslení obrazce z&nbsp;několika kružnic</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/28_circles.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/28_circles.py</a></td></tr>
+<tr><td>14</td><td>29_text.py</td><td>vykreslení jednoduchého textu</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/pil/29_text.py">https://github.com/tisnik/most-popular-python-libs/blob/master/pil/29_text.py</a></td></tr>
+</table>
+
+
+
+<p><a name="k20"></a></p>
+<h2 id="k20">20. Odkazy na Internetu</h2>
+
+<ol>
+
+<li>PIL: The friendly PIL fork (home page)<br />
+<a href="https://python-pillow.org/">https://python-pillow.org/</a>
+</li>
+
+<li>Python Imaging Library (PIL), (home page)<br />
+<a href="http://www.pythonware.com/products/pil/">http://www.pythonware.com/products/pil/</a>
+</li>
+
+<li>PIL 1.1.6 na PyPi<br />
+<a href="https://pypi.org/project/PIL/">https://pypi.org/project/PIL/</a>
+</li>
+
+<li>Pillow 5.2.0 na PyPi<br />
+<a href="https://pypi.org/project/Pillow/">https://pypi.org/project/Pillow/</a>
+</li>
+
+<li>Python Imaging Library na Wikipedii<br />
+<a href="https://en.wikipedia.org/wiki/Python_Imaging_Library">https://en.wikipedia.org/wiki/Python_Imaging_Library</a>
+</li>
+
+<li>Pillow na GitHubu<br />
+<a href="https://github.com/python-pillow/Pillow">https://github.com/python-pillow/Pillow</a>
+</li>
+
+<li>Pillow - dokumentace na readthedocs.io<br />
+<a href="http://pillow.readthedocs.io/en/5.2.x/">http://pillow.readthedocs.io/en/5.2.x/</a>
+</li>
+
+<li>How to use Pillow, a fork of PIL<br />
+<a href="https://www.pythonforbeginners.com/gui/how-to-use-pillow">https://www.pythonforbeginners.com/gui/how-to-use-pillow</a>
+</li>
+
+<li>Lenna (Wikipedia)<br />
+<a href="https://en.wikipedia.org/wiki/Lenna">https://en.wikipedia.org/wiki/Lenna</a>
+</li>
+
+<li>Seriál Grafický formát GIF<br />
+<a href="https://www.root.cz/serialy/graficky-format-gif/">https://www.root.cz/serialy/graficky-format-gif/</a>
+</li>
+
+<li>PNG is Not GIF<br />
+<a href="https://www.root.cz/clanky/png-is-not-gif/">https://www.root.cz/clanky/png-is-not-gif/</a>
+</li>
+
+<li>JPEG - král rastrových grafických formátů?<br />
+<a href="https://www.root.cz/clanky/jpeg-kral-rastrovych-grafickych-formatu/">https://www.root.cz/clanky/jpeg-kral-rastrovych-grafickych-formatu/</a>
+</li>
+
+<li>Grafický formát BMP - používaný a přitom neoblíbený<br />
+<a href="https://www.root.cz/clanky/graficky-format-bmp-pouzivany-a-pritom-neoblibeny/">https://www.root.cz/clanky/graficky-format-bmp-pouzivany-a-pritom-neoblibeny/</a>
+</li>
+
+<li>Grafický formát PCX - výlet do historie PC<br />
+<a href="https://www.root.cz/clanky/graficky-format-pcx-vylet-do-historie-pc/">https://www.root.cz/clanky/graficky-format-pcx-vylet-do-historie-pc/</a>
+</li>
+
+<li>Grafické formáty ve znamení Unixu<br />
+<a href="https://www.root.cz/clanky/graficke-formaty-ve-znameni-unixu/">https://www.root.cz/clanky/graficke-formaty-ve-znameni-unixu/</a>
+</li>
+
+<li>Grafický formát TGA - jednoduchý, oblíbený, používaný<br />
+<a href="https://www.root.cz/clanky/graficky-format-tga-jednoduchy-oblibeny-pouzivany/">https://www.root.cz/clanky/graficky-format-tga-jednoduchy-oblibeny-pouzivany/</a>
+</li>
+
+<li>Konvoluce<br />
+<a href="https://cs.wikipedia.org/wiki/Konvoluce">https://cs.wikipedia.org/wiki/Konvoluce</a>
+</li>
+
+<li>Počítačová grafika<br />
+<a href="https://cs.wikipedia.org/wiki/Kategorie:Po%C4%8D%C3%ADta%C4%8Dov%C3%A1_grafika">https://cs.wikipedia.org/wiki/Kategorie:Po%C4%8D%C3%ADta%C4%8Dov%C3%A1_grafika</a>
+</li>
+
+<li>Pixel<br />
+<a href="https://cs.wikipedia.org/wiki/Pixel">https://cs.wikipedia.org/wiki/Pixel</a>
+</li>
+
+<li>Rastrová grafika<br />
+<a href="https://cs.wikipedia.org/wiki/Rastrov%C3%A1_grafika">https://cs.wikipedia.org/wiki/Rastrov%C3%A1_grafika</a>
+</li>
+
+<li>Pixel art aneb umění práce s body<br />
+<a href="https://www.root.cz/clanky/pixel-art-aneb-umeni-prace-s-body/">https://www.root.cz/clanky/pixel-art-aneb-umeni-prace-s-body/</a>
+</li>
+
+<li>Jak se dělá pixel art?<br />
+<a href="https://www.root.cz/clanky/jak-se-dela-pixel-art/">https://www.root.cz/clanky/jak-se-dela-pixel-art/</a>
+</li>
+
+<li>Nástroje pro pixel art<br />
+<a href="https://www.root.cz/clanky/nastroje-pro-pixel-art/">https://www.root.cz/clanky/nastroje-pro-pixel-art/</a>
+</li>
+
+<li>RGB color model<br />
+<a href="https://en.wikipedia.org/wiki/RGB_color_model">https://en.wikipedia.org/wiki/RGB_color_model</a>
+</li>
+
+<li>HSL and HSV<br />
+<a href="https://en.wikipedia.org/wiki/HSL_and_HSV">https://en.wikipedia.org/wiki/HSL_and_HSV</a>
+</li>
+
+<li>Color picker<br />
+<a href="https://en.wikipedia.org/wiki/Color_picker">https://en.wikipedia.org/wiki/Color_picker</a>
+</li>
+
+<li>HCL color space<br />
+<a href="https://en.wikipedia.org/wiki/HCL_color_space">https://en.wikipedia.org/wiki/HCL_color_space</a>
+</li>
+
+</ol>
+
+
+
+<p></p><p></p>
+<p><small>Autor: <a href="http://www.fit.vutbr.cz/~tisnovpa">Pavel Tišnovský</a> &nbsp; 2018</small></p>
+</body>
+</html>
+
+<!--
+2018-08-17: 1 hod
+2018-08-18: 1 hod
+2018-08-19: 1 hod
+2018-08-20: 1 hod
+2018-08-21: 1 hod
+2018-08-22: 1 hod
+publikace:  1 hod
+-----------------
+            1 hod
+-->
