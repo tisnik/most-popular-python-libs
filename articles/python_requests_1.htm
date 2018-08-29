@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>Užitečné knihovny a moduly pro Python: knihovna Requests</title>
+<meta name="Author" content="Pavel Tisnovsky" />
+<meta name="Generator" content="vim" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+         body {color:#000000; background:#ffffff;}
+         h1  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#c00000; text-align:center; padding-left:1em}
+         h2  {font-family: arial, helvetica, sans-serif; color:#ffffff; background-color:#0000c0; padding-left:1em; text-align:left}
+         h3  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#c0c0c0; padding-left:1em; text-align:left}
+         h4  {font-family: arial, helvetica, sans-serif; color:#000000; background-color:#e0e0e0; padding-left:1em; text-align:left}
+         a   {font-family: arial, helvetica, sans-serif;}
+         li  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ol  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         ul  {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify; width:450px;}
+         p   {font-family: arial, helvetica, sans-serif; color:#000000; text-align:justify;}
+         pre {background:#e0e0e0}
+</style>
+</head>
+
+<body>
+
+<h1>Užitečné knihovny a moduly pro Python: knihovna Requests</h1>
+
+<h3>Pavel Tišnovský</h3>
+
+<p></p>
+
+<h1>Úvodník</h1>
+
+<p>V novém seriálu, který ode dneška začíná na serveru mojefedora.cz vycházet, se postupně seznámíme s&nbsp;nejpopulárnějšími a současně i nejužitečnějšími knihovnami dostupnými vývojářům používajícím programovací jazyk Python. První velmi známou a užitečnou knihovnou je knihovna nazvaná <strong>Requests</strong>.</p><!--more-->
+
+
+
+<h2>Obsah</h2>
+
+<p><a href="#k01">1. Užitečné knihovny a moduly pro Python: knihovna Requests</a></p>
+<p><a href="#k02">2. Instalace knihovny Requests pro přihlášeného uživatele</a></p>
+<p><a href="#k03">3. Kontrola instalace knihovny Requests</a></p>
+<p><a href="#k04">4. Základ protokolu HTTP: metody a stavové kódy</a></p>
+<p><a href="#k05">5. Nejjednodušší příklad &ndash; poslání požadavku GET na zvolenou adresu</a></p>
+<p><a href="#k06">6. Základní atributy objektu typu <strong>Response</strong>: stavový kód a indikátor korektní odpovědi</a></p>
+<p><a href="#k07">7. Přečtení vybrané hlavičky z&nbsp;odpovědi HTTP serveru</a></p>
+<p><a href="#k08">8. Předání informací (parametrů) serveru přímo v&nbsp;URL</a></p>
+<p><a href="#k09">9. Přečtení těla odpovědi serveru v&nbsp;původní textové podobě</a></p>
+<p><a href="#k10">10. Získání metainformací o poslaných datech (typ a délka)</a></p>
+<p><a href="#k11">11. Zpracování odpovědi, která byla vrácena ve formátu JSON</a></p>
+<p><a href="#k12">12. Použití HTTP metody POST</a></p>
+<p><a href="#k13">13. Předání dat serveru ve &bdquo;formuláři&ldquo;</a></p>
+<p><a href="#k14">14. Předání dat serveru v&nbsp;těle požadavku</a></p>
+<p><a href="#k15">15. Vlastní jednoduchý testovací HTTP server</a></p>
+<p><a href="#k16">16. Implementace HTTP serveru</a></p>
+<p><a href="#k17">17. Volání vlastního HTTP serveru s&nbsp;využitím knihovny <strong>Requests</strong></a></p>
+<p><a href="#k18">18. Obsah druhé části seriálu</a></p>
+<p><a href="#k19">19. Repositář s&nbsp;demonstračními příklady</a></p>
+<p><a href="#k20">20. Odkazy na Internetu</a></p>
+
+
+
+<p><a name="k01"></a></p>
+<h2 id="k01">1. Užitečné knihovny a moduly pro Python: knihovna Requests</h2>
+
+<p>S&nbsp;knihovnou pojmenovanou <strong>Requests</strong>, kterou je možné použít v&nbsp;Pythonu 2.x i (a to především) v&nbsp;Pythonu 3.x, se pravděpodobně někteří čtenáři tohoto článku již setkali. Jedná se o knihovnu určenou pro práci s&nbsp;protokolem <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>, tj. (poněkud zjednodušeně řečeno) k&nbsp;posílání HTTP požadavků na nějaký server s&nbsp;využitím některé HTTP metody (<strong>GET</strong>, <strong>POST</strong> atd.). Podobných knihoven existuje i pro Python několik, ovšem knihovna <strong>Requests</strong> se stala populární především díky její velmi snadné použitelnosti, protože i relativně složité operace je možné provést poměrně jednoduchým způsobem. Dnes se seznámíme pouze se základními vlastnostmi této knihovny, ovšem v&nbsp;navazujícím článku budou popsány i některé pokročilejší možnosti, například správa sezení (<i>session</i>), použití <i>cookies</i>, autentikace, použití SSL apod.</p>
+
+<p>Důležitá poznámka: všechny dále uvedené demonstrační příklady jsou určeny pro Python 3.x. Většina příkladů bude pracovat korektně i v&nbsp;Pythonu 2.x, ovšem implementace jednoduchého HTTP serveru si vyžádá úpravy &ndash; odlišné importy atd.</p>
+
+
+
+<p><a name="k02"></a></p>
+<h2 id="k02">2. Instalace knihovny Requests pro přihlášeného uživatele</h2>
+
+<p>Instalace knihovny <strong>Requests</strong> je velmi jednoduchá a použijeme pro ni nástroj <strong>pip3</strong>, tj.&nbsp;<i>pip installer</i> určený pro Python 3. Instalaci provedeme s&nbsp;volbou <strong>--user</strong>, čímž zajistíme, že se všechny soubory nainstalují do adresáře <strong>.local</strong> a pro instalaci tak nebude zapotřebí mít práva superuživatele:</p>
+
+<pre>
+$ <strong>pip3 install --user requests</strong>
+</pre>
+
+<p>Průběh instalace může vypadat následovně (jedná se o čistě nainstalovanou Fedoru 27 Server):</p>
+
+<pre>
+Collecting requests
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+    100% |████████████████████████████████| 92kB 296kB/s 
+Collecting chardet&lt;3.1.0,&gt;=3.0.2 (from requests)
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+    100% |████████████████████████████████| 143kB 898kB/s 
+Collecting idna&lt;2.8,&gt;=2.5 (from requests)
+  Downloading https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl (58kB)
+    100% |████████████████████████████████| 61kB 1.8MB/s 
+Collecting urllib3&lt;1.24,&gt;=1.21.1 (from requests)
+  Downloading https://files.pythonhosted.org/packages/bd/c9/6fdd990019071a4a32a5e7cb78a1d92c53851ef4f56f62a3486e6a7d8ffb/urllib3-1.23-py2.py3-none-any.whl (133kB)
+    100% |████████████████████████████████| 143kB 1.8MB/s 
+Collecting certifi&gt;=2017.4.17 (from requests)
+  Downloading https://files.pythonhosted.org/packages/7c/e6/92ad559b7192d846975fc916b65f667c7b8c3a32bea7372340bfe9a15fa5/certifi-2018.4.16-py2.py3-none-any.whl (150kB)
+    100% |████████████████████████████████| 153kB 976kB/s 
+Installing collected packages: chardet, idna, urllib3, certifi, requests
+Successfully installed certifi-2018.4.16 chardet-3.0.4 idna-2.7 requests-2.19.1 urllib3-1.23
+</pre>
+
+<p>Pokud je již knihovna <strong>Requests</strong> nainstalována, bude celý proces mnohem kratší:</p>
+
+<pre>
+$ <strong>pip3 install --user requests</strong>
+Requirement already satisfied (use --upgrade to upgrade): requests in /usr/lib/python3/dist-packages
+Cleaning up...
+</pre>
+
+<p>Alternativně je samozřejmě možné knihovnu nainstalovat do systémových adresářů, takže bude dostupná pro všechny uživatele:</p>
+
+<pre>
+$ <strong>sudo pip3 install requests</strong>
+</pre>
+
+
+
+<p><a name="k03"></a></p>
+<h2 id="k03">3. Kontrola instalace knihovny Requests</h2>
+
+<p>Po instalaci si můžeme ověřit, zda je knihovna <strong>Requests</strong> skutečně korektně nainstalována a zda k&nbsp;ní má interpret Pythonu přístup. Nejprve běžným způsobem spustíme interpret Pythonu:</p>
+
+<pre>
+$ <strong>python3</strong>
+Python 3.6.6 (default, Jul 19 2018, 16:29:00) 
+[GCC 7.3.1 20180303 (Red Hat 7.3.1-5)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+</pre>
+
+<p>Následně se pokusíme naimportovat knihovnu <strong>Requests</strong> a pro jistotu zobrazit i její dokumentaci:</p>
+
+<pre>
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; help("requests")
+</pre>
+
+<p>V&nbsp;případě, že instalace proběhla v&nbsp;pořádku, měl by výstup vypadat přibližně následovně:</p>
+
+<pre>
+Help on package requests:
+
+NAME
+    requests
+
+DESCRIPTION
+    Requests HTTP Library
+    ~~~~~~~~~~~~~~~~~~~~~
+    
+    Requests is an HTTP library, written in Python, for human beings. Basic GET
+    usage:
+    
+       &gt;&gt;&gt; import requests
+       &gt;&gt;&gt; r = requests.get('https://www.python.org')
+       &gt;&gt;&gt; r.status_code
+       200
+       &gt;&gt;&gt; 'Python is a programming language' in r.content
+       True
+    
+    ... or POST:
+    
+       &gt;&gt;&gt; payload = dict(key1='value1', key2='value2')
+       &gt;&gt;&gt; r = requests.post('http://httpbin.org/post', data=payload)
+       &gt;&gt;&gt; print(r.text)
+       {
+         ...
+         "form": {
+           "key2": "value2",
+           "key1": "value1"
+         },
+         ...
+       }
+    
+    The other HTTP methods are supported - see `requests.api`. Full documentation
+    is at &lt;http://python-requests.org&gt;.
+    
+    :copyright: (c) 2017 by Kenneth Reitz.
+    :license: Apache 2.0, see LICENSE for more details.
+</pre>
+
+
+
+<p><a name="k04"></a></p>
+<h2 id="k04">4. Základ protokolu HTTP: metody a stavové kódy</h2>
+
+<p>Protokol HTTP neboli <i>Hypertext Transfer Protocol</i> byl původně navržen pro přenos hypertextových dokumentů napsaných ve formátu/jazyku HTML. Dnes se ovšem používá i pro mnohé další účely; například ho využívají REST API služby atd. Protokol HTTP pracuje způsobem dotaz-odpověď neboli <i>request-response</i> (ostatně právě zde můžeme vysledovat původ názvu knihovny <strong>Requests</strong>). Jak dotaz, tak i odpověď, jsou reprezentovány formátovaným textem, kde jednotlivé řádky mají předem známý význam. Protokolem HTTP je samozřejmě možné přenášet i data; ostatně pro tento účel slouží pojmenované metody s&nbsp;předem specifikovaným významem (viz tabulku pod tímto odstavcem). Specifikace protokolu HTTP rovněž obsahuje popis takzvaných stavových kódů, kterými server předává klientovi výsledek zpracování dotazu.</p>
+
+<p>V&nbsp;následující tabulce je uveden přehled všech <i>metod</i> HTTP protokolu, přičemž nejpoužívanější jsou první dvě metody <strong>GET</strong> a <strong>POST</strong>, s&nbsp;jejichž použitím se seznámíme v&nbsp;demonstračních příkladech popsaných v&nbsp;navazujících kapitolách:</p>
+
+<table>
+<tr><th>Metoda</th><th>Příklad použití</th></tr>
+<tr><td>GET</td><td>Základní metoda sloužící k&nbsp;získání dat ze serveru. Může se například jednat o HTML stránku, statický obrázek, ale i výsledek volání REST API služby.</td></tr>
+<tr><td>POST</td><td>Metoda používaná pro odesílání dat na server. Teoreticky je sice možné použít i metodu GET, ovšem sémanticky je vhodnější použít tuto metodu (a REST API služby sémantiku operace většinou dodržují).</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>PUT</td><td>Tato metoda slouží k&nbsp;nahrání dat na server. S&nbsp;touto metodou se setkáme u některých REST API služeb.</td></tr>
+<tr><td>DELETE</td><td>Slouží ke smazání dat ze serveru. Opět platí &ndash; s&nbsp;touto metodou se setkáme méně často u některých REST API služeb.</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>HEAD</td><td>Tato metoda se částečně podobá metodě GET, ovšem server nevrátí požadovaná data, ale pouze metadata (čas změny, velikost dat, typ/formát dat apod.). Obecně je možné říci, že se tento dotaz zpracuje rychleji než GET.</td></tr>
+<tr><td>CONNECT</td><td>Používá se při použití TCP/IP tunelování.</td></tr>
+<tr><td>OPTIONS</td><td>Poslání dotazu na server, které metody podporuje.</td></tr>
+<tr><td>TRACE</td><td>Server by měl klientovi odeslat požadavek zpět, čehož se používá pro zjištění, které údaje se mění na přenosové cestě.</td></tr>
+<tr><td>PATCH</td><td>Umožňuje změnu dat na serveru, má tady jinou sémantiku než DELETE+PUT.</td></tr>
+</table>
+
+<p>Stavový kód odpovědi serveru je reprezentován celým číslem, přičemž z&nbsp;první číslice (stovky) lze odvodit základní vlastnost stavu (úspěch, chyba, přesměrování...):</p>
+
+<table>
+<tr><th>Skupina stavových kódů</th><th>Význam</th></tr>
+<tr><td>1xx</td><td>informační, potvrzení atd. (ovšem požadavek se prozatím nevykonal)</td></tr>
+<tr><td>2xx</td><td>úspěšné vyřízení požadavku popř.&nbsp;jeho akceptace serverem (202)</td></tr>
+<tr><td>3xx</td><td>přesměrování požadavku, informace o tom, že se objekt nezměnil atd.</td></tr>
+<tr><td>4xx</td><td>různé typy chyb typicky zaviněných klientem (bohužel nejrozsáhlejší skupina)</td></tr>
+<tr><td>5xx</td><td>různé chyby na serveru</td></tr>
+</table>
+
+
+
+<p><a name="k05"></a></p>
+<h2 id="k05">5. Nejjednodušší příklad &ndash; poslání požadavku GET na zvolenou adresu</h2>
+
+<p>V&nbsp;dnešním <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/01_basic_usage.py">prvním demonstračním příkladu</a> si ukážeme, jakým způsobem je možné použít základní HTTP metodu GET pro poslání požadavku na server. Použijeme přitom server dostupný na adrese <a href="https://httpbin.org/">https://httpbin.org/</a>, který je možné využít pro otestování základních HTTP metod i jednoduchých REST API služeb. Konkrétně pošleme požadavek na adresu <a href="https://httpbin.org/get">https://httpbin.org/get</a>; v&nbsp;samotném požadavku nebudou předány žádné parametry. Dále se pokusíme stejný požadavek odeslat na neexistující URL <a href="https://httpbin.org/neexistuje">https://httpbin.org/neexistuje</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis objektu, ktery se vrati
+print(response)
+
+
+
+# nyni vyzkousime neexistujici endpoint:
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/neexistuje"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis objektu, ktery se vrati
+print(response)
+</code></pre>
+
+<p>Po spuštění tohoto příkladu by se na standardním výstupu (tj.&nbsp;na konzoli či na emulátoru terminálu) měly objevit pouhé dva řádky. První z&nbsp;nich by měl obsahovat textovou podobu prvního objektu typu <strong>Response</strong>, který představuje úspěšnou odpověď serveru s&nbsp;HTTP kódem 200. Druhý řádek by měl obsahovat textovou podobu objektu typu <strong>Response</strong> s&nbsp;HTTP kódem 404, což je ovšem pochopitelné, protože jsme se snažili přistoupit k&nbsp;neexistující URL:</p>
+
+<pre>
+&lt;Response [200]&gt;
+
+&lt;Response [404]&gt;
+</pre>
+
+<p>Poznámka: povšimněte si, že je možné bez problémů použít i protokol HTTPS namísto pouhého HTTP. Od této skutečnosti je programátor využívající knihovnu <strong>Requests</strong> většinou odstíněn.</p>
+
+
+
+<p><a name="k06"></a></p>
+<h2 id="k06">6. Základní atributy objektu typu <strong>Response</strong>: stavový kód a indikátor korektní odpovědi</h2>
+
+<p>Ve <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/02_check_status.py">druhém demonstračním příkladu</a>, který bude opět velmi jednoduchý, si ukážeme, jakým způsobem je možné zjistit stav (<i>HTTP status</i>) předaný v&nbsp;odpovědi. Z&nbsp;předchozích kapitol, ale i z&nbsp;běžných zkušeností s&nbsp;browserem, víme, že stavový kód HTTP je představován celým číslem doplněným o textový popisek stavu. V&nbsp;objektu typu <strong>Response</strong> představujícího odpověď serveru je číselný kód stavu uložen v&nbsp;atributu pojmenovaném <strong>status_code</strong>. Kromě toho existuje ještě atribut nazvaný <strong>ok</strong>, který obsahuje pravdivostní hodnotu <strong>True</strong> v&nbsp;případě, že je číselný kód stavu menší než 400 a hodnotu <strong>False</strong> v&nbsp;opačném případě. Použití tohoto atributu tedy může být poněkud problematické, protože například některé stavy 3xx je možné v&nbsp;kontextu vyvíjené aplikace považovat za chybové stavy:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis stavu odpovedi
+print(response.status_code)
+print(response.ok)
+
+
+
+# nyni vyzkousime neexistujici endpoint:
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/neexistuje"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis stavu odpovedi
+print(response.status_code)
+print(response.ok)
+</code></pre>
+
+<p>Podívejme se, jaké hodnoty se vypíšou pro korektní URL <a href="https://httpbin.org/get">https://httpbin.org/get</a> a jaké hodnoty pro nekorektní URL <a href="https://httpbin.org/neexistuje">https://httpbin.org/neexistuje</a>. Pro korektní URL získáme podle očekávání stavový kód 200 a atribut <strong>ok</strong> bude mít hodnotu <strong>True</strong>:</p>
+
+<pre>
+200
+True
+</pre>
+
+<p>Pro nekorektní URL je stavový kód HTTP roven 404 a tím pádem je i atribut <strong>ok</strong> nastaven na hodnotu <strong>False</strong>:</p>
+
+<pre>
+404
+False
+</pre>
+
+
+
+<p><a name="k07"></a></p>
+<h2 id="k07">7. Přečtení vybrané hlavičky z&nbsp;odpovědi HTTP serveru</h2>
+
+<p>Odpověď serveru ve formě pouhého HTTP stavu (číselného kódu) samozřejmě většinou není příliš přínosná (kromě dotazů na to, zda se nějaký zdroj nezměnil), protože serveru posíláme dotaz za účelem získání nějakých dat.  Protokol HTTP je navržen takovým způsobem, že dokáže přenášet data v&nbsp;různých formátech, přičemž formát se rozpozná na základě hodnoty uložené do hlavičky <strong>content-type</strong> (opět viz předchozí kapitoly s&nbsp;popisem této hlavičky). Údaje ze všech hlaviček získaných z&nbsp;odpovědi serveru je samozřejmě možné získat, protože objekt typu <strong>Response</strong> obsahuje mj.&nbsp;i atribut <strong>headers</strong>, ve kterém jsou všechny hlavičky uloženy ve formě slovníku (jméno hlavičky:hodnota). V&nbsp;dnešním <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/03_content_type.py">třetím demonstračním příkladu</a> je ukázáno, jakým způsobem se přistupuje právě k&nbsp;hlavičce <strong>content-type</strong> obsahující typ/formát dat, které server odeslal klientovi:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# precteni hlavicek
+headers = response.headers
+
+# vypis typu internetoveho media
+print(headers.get("content-type"))
+</code></pre>
+
+<p>Webová služba dostupná na adrese <a href="https://httpbin.org/get">https://httpbin.org/get</a> vrací hodnoty uložené v&nbsp;těle odpovědi, přičemž tyto hodnoty jsou reprezentovány ve známém a velmi často využívaném <a href="http://json.org/">formátu JSON</a>. Služba je tedy správně nakonfigurována takovým způsobem, že vrací typ dat:</p>
+
+<pre>
+application/json
+</pre>
+
+
+
+<p><a name="k08"></a></p>
+<h2 id="k08">8. Předání informací (parametrů) serveru přímo v&nbsp;URL</h2>
+
+<p>Serveru, jehož služby potřebujeme přes knihovnu <strong>Requests</strong> využívat, je samozřejmě možné předat nějaká data. Protokol HTTP podporuje dva základní způsoby předání dat. Pokud se jedná o několik parametrů s&nbsp;relativně malým (krátkým) obsahem, je možné takové parametry předat přímo v&nbsp;URL (v&nbsp;prohlížeči přes adresní řádek). Zápis URL by v&nbsp;takovém případě měl vypadat následovně:</p>
+
+<pre>
+protokol://adresa.serveru/endpoint?parametr1=hodnota1&amp;parametr2=hodnota2&amp;parametr2=hodnota2
+</pre>
+
+<p>Konkrétně v&nbsp;našem případě, kdy používáme testovací server <a href="https://httpbin.org/">https://httpbin.org/</a>:</p>
+
+<pre>
+https://httpbin.org/get?x=6&amp;y=7&amp;answer=42
+</pre>
+
+<p>Tento způsob přináší některá omezení. Zejména je nutné zajistit, aby se ve jménech a hodnotách parametrů nevyskytovaly některé znaky, které slouží jako oddělovače ve vlastní URL. Touto problematikou, kterou lze opět řešit automaticky, se budeme zabývat příště. Také je nutné zajistit (a zjistit), zda server neomezuje délku URL, například na 1024 znaků atd.</p>
+
+<p>Příklad, který serveru předá parametry přes URL, se prakticky žádným způsobem neodlišuje od <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/01_basic_usage.py">prvního příkladu</a>, takže jen ve stručnosti:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis objektu, ktery se vrati
+print(response)
+</code></pre>
+
+
+
+<p><a name="k09"></a></p>
+<h2 id="k09">9. Přečtení těla odpovědi serveru v&nbsp;původní textové podobě</h2>
+
+<p>Ve chvíli, kdy serveru předáme nějaká data (či parametry), server typicky odpoví tak, že klientovi pošle zpět vyžadované údaje. V&nbsp;tomto případě není možné tyto údaje předat v&nbsp;URL (ta je jen součástí dotazu, nikoli odpovědi), takže všechna vyžadovaná data server pošle v&nbsp;těle odpovědi a popř.&nbsp;do hlaviček doplní potřebná metadata (například již zmíněný <i>content-type</i> apod.). V&nbsp;odpovědi, která je v&nbsp;knihovně <strong>Requests</strong> reprezentována objektem typu <strong>Response</strong>, lze k&nbsp;nezpracovaným datům přistupovat přes atribut <strong>text</strong>:</p>
+
+<pre>
+response = requests.get(URL)
+data = response.text
+</pre>
+
+<p>Opět se podívejme na <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/05_response_json.py">jednoduchý demonstrační příklad</a>, který testovacímu serveru pošle tři parametry <strong>x=6</strong>, <strong>y=7</strong> a <strong>answer=42</strong> a následně zobrazí odpověď serveru:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis tela odpovedi
+print("Plain text:")
+print("-" * 60)        # horizontalni oddelovac
+print(response.text)
+print("-" * 60)        # horizontalni oddelovac
+</code></pre>
+
+<p>Příklad odpovědi:</p>
+
+<pre>
+Plain text:
+------------------------------------------------------------
+{
+  "args": {
+    "answer": "42", 
+    "x": "6", 
+    "y": "7"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Connection": "close", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.13.0"
+  }, 
+  "origin": "213.175.37.10", 
+  "url": "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+}
+
+------------------------------------------------------------
+</pre>
+
+<p>Poznámka: povšimněte si, že testovací server nám vlastně jen vrací údaje, které od nás získal, což je dobře, protože ho skutečně budeme moci použít pro další pokusy.</p>
+
+
+
+<p><a name="k10"></a></p>
+<h2 id="k10">10. Získání metainformací o poslaných datech (typ a délka)</h2>
+
+<p>Zajímavé a v&nbsp;některých případech i užitečné bude zjištění základních metainformací o údajích, které nám server zaslal ve své odpovědi. Tyto metainformace se předávají formou hlaviček, a to zejména hlavičky <strong>content-type</strong> (typ/formát dat, již známe), <strong>content-length</strong> (délka dat) a popř.&nbsp;i <strong>date</strong> (datum vygenerování dat). Údaje z&nbsp;těchto hlaviček získáme velmi jednoduše, což je ostatně ukázáno i <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/05_response_content_and_headers.py">v&nbsp;pořadí již pátém demonstračním příkladu</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# precteni hlavicek
+headers = response.headers
+
+print("Metadata:")
+print("-" * 60)
+
+# vypis typu internetoveho media
+print("Typ dat:", headers.get("content-type"))
+
+# vypis delky dat predanych v tele
+print("Delka dat:", headers.get("content-length"))
+
+# vypis delky dat predanych v tele
+print("Datum:", headers.get("date"))
+
+print("-" * 60)
+
+# vypis tela odpovedi
+print("Plain text:")
+print("-" * 60)
+print(response.text)
+print("-" * 60)
+</code></pre>
+
+<p>Po spuštění tohoto demonstračního příkladu získáme přibližně následující výstup (ve vašem konkrétním případě bude odlišné datum a popř.&nbsp;i hlavička <strong>User-Agent</strong>):</p>
+
+<pre>
+Metadata:
+------------------------------------------------------------
+Typ dat: application/json
+Delka dat: 385
+Datum: Sat, 04 Aug 2018 07:26:26 GMT
+------------------------------------------------------------
+Plain text:
+------------------------------------------------------------
+{
+  "args": {
+    "answer": "42", 
+    "x": "6", 
+    "y": "7"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate, compress", 
+    "Connection": "close", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.2.1 CPython/3.4.3 Linux/3.13.0-139-lowlatency"
+  }, 
+  "origin": "37.48.1.40", 
+  "url": "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+}
+
+------------------------------------------------------------
+</pre>
+
+
+
+<p><a name="k11"></a></p>
+<h2 id="k11">11. Zpracování odpovědi, která byla vrácena ve formátu JSON</h2>
+
+<p>Mnoho webových služeb, především těch, které jsou postaveny na architektuře REST (Representational state transfer), vrací údaje ve formátu JSON. Přesněji řečeno &ndash; odpovědi serveru obsahují stavovou informaci, všechny potřebné hlavičky s&nbsp;metainformacemi a taktéž tělo představující data serializovaná právě do formátu JSON. Ve skutečnosti je zpracování těchto dat velmi jednoduché, protože lze využít metodu <strong>json()</strong> objektu typu <strong>Response</strong>. V&nbsp;případě, že server skutečně odeslal data ve formátu JSON, jsou tato data deserializována a vrácena programu ve formě seznamu či (častěji) slovníku. Následně je možné tato data zpracovat. V&nbsp;případě, že data nejsou ve formátu JSON, vyvolá se výjimka <strong>ValueError</strong>:</p>
+
+<pre><code>
+# zpracovani odpovedi, ktera prisla ve formatu JSON
+data = response.json()
+
+# celý desrializovaný obsah JSONu
+print(data)
+
+# vybraná část
+args = data["args"]
+print(args)
+
+print("x =", args["x"])
+print("y =", args["y"])
+print("answer =", args["answer"])
+</code></pre>
+
+<p>Zpracování údajů vrácených testovacím serverem <a href="https://httpbin.org/">https://httpbin.org/</a> je ukázáno <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/06_response_json.py">v&nbsp;dnešním šestém demonstračním příkladu</a>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/get?x=6&amp;y=7&amp;answer=42"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# zpracovani odpovedi, ktera prisla ve formatu JSON
+data = response.json()
+
+print(data)
+
+args = data["args"]
+print(args)
+
+print("x =", args["x"])
+print("y =", args["y"])
+print("answer =", args["answer"])
+</code></pre>
+
+<p>Po spuštění tohoto příkladu by se nejprve měl vypsat obsah celého těla odpovědi (deserializovaný z&nbsp;JSONu):</p>
+
+<pre>
+{'args': {'answer': '42', 'x': '6', 'y': '7'}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Connection': 'close', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.13.0'}, 'origin': '213.175.37.10', 'url': 'https://httpbin.org/get?x=6&amp;y=7&amp;answer=42'}
+</pre>
+
+<p>Následně by se měly vypsat jen vybrané údaje:</p>
+
+<pre>
+{'answer': '42', 'x': '6', 'y': '7'}
+x = 6
+y = 7
+answer = 42
+</pre>
+
+
+
+<p><a name="k12"></a></p>
+<h2 id="k12">12. Použití HTTP metody POST</h2>
+
+<p>Kromě metody <strong>GET</strong> protokolu HTTP je samozřejmě možné použít i metodu <strong>POST</strong>. Tato metoda se typicky používá ve chvíli, kdy je zapotřebí předat serveru větší množství parametrů a/nebo rozsáhlejších dat. Existuje několik způsobů, jak tato data předávat, ovšem <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/07_post_method.py">v&nbsp;prvním příkladu</a>, v&nbsp;němž metodu <strong>POST</strong> použijeme, se žádná data prozatím předávat nebudou. Úplný zdrojový kód tohoto příkladu vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/post"
+
+# poslani HTTP dotazu typu POST
+response = requests.post(URL)
+
+# vypis odpovedi v plain textu
+print(response.text)
+</code></pre>
+
+<p>Zajímavá je odpověď serveru. Povšimněte si především toho, že nám server vrátil klíč <strong>form</strong> a <strong>json</strong>. K&nbsp;těmto klíčům se dostaneme později:</p>
+
+<pre>
+{
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Connection": "close", 
+    "Content-Length": "0", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.13.0"
+  }, 
+  "json": null, 
+  "origin": "213.175.37.10", 
+  "url": "https://httpbin.org/post"
+}
+</pre>
+
+
+
+<p><a name="k13"></a></p>
+<h2 id="k13">13. Předání dat serveru ve &bdquo;formuláři&ldquo;</h2>
+
+<p>První metoda poslání parametrů od klienta na server používá takzvané &bdquo;formulářové položky&ldquo;. Tento poněkud nepřesný název je odvozen od toho, že se podobným způsobem posílají data z&nbsp;HTML formuláře (bez použití JavaScriptu, pouze čistě HTML prostředky). Pokud budeme chtít simulovat posílání dat tímto způsobem, můžeme použít nepovinný parametr <strong>data</strong> funkce <strong>requests.post()</strong>:</p>
+
+<pre>
+payload = {
+    "klic": "hodnota",
+    "answer": 42,
+    "question": None,
+    "correct": True}
+
+# poslani HTTP dotazu typu POST se specifikaci hodnot formulare
+response = requests.post(URL, data=payload)
+</pre>
+
+<p>Tento způsob je použit i v&nbsp;dnešním <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/08_post_method_with_payload.py">osmém demonstračním příkladu</a>, jehož úplný zdrojový kód vypadá následovně:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/post"
+
+payload = {
+    "klic": "hodnota",
+    "answer": 42,
+    "question": None,
+    "correct": True}
+
+# poslani HTTP dotazu typu POST se specifikaci hodnot formulare
+response = requests.post(URL, data=payload)
+
+# vypis tela odpovedi v plain textu
+print(response.text)
+</code></pre>
+
+<p>Odpověď serveru opět obsahuje položku <strong>form</strong>. Povšimněte si, že server získal a následně vrátil pouze tři hodnoty &ndash; chybí zde ovšem hodnota <strong>question=None</strong>, která se ve skutečnosti ve formulářových datech nepředala (neexistuje zde totiž ekvivalent pro speciální hodnoty <strong>None</strong> či <strong>null</strong>):</p>
+
+<pre>
+{
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {
+    "answer": "42", 
+    "correct": "True", 
+    "klic": "hodnota"
+  }, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Connection": "close", 
+    "Content-Length": "35", 
+    "Content-Type": "application/x-www-form-urlencoded", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.13.0"
+  }, 
+  "json": null, 
+  "origin": "213.175.37.10", 
+  "url": "https://httpbin.org/post"
+}
+</pre>
+
+
+
+<p><a name="k14"></a></p>
+<h2 id="k14">14. Předání dat serveru v&nbsp;těle požadavku</h2>
+
+<p>Pokud budeme chtít serveru předat větší množství dat, a to potenciálně včetně speciálních hodnot, je lepší takové údaje předat přímo v&nbsp;těle požadavku. Pro tento účel se ve funkci <strong>requests.post()</strong> použije nepovinný parametr nazvaný <strong>json</strong> a nikoli parametr pojmenovaný <strong>data</strong> (jako tomu bylo v&nbsp;příkladu předchozím). Opět se podívejme <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/09_post_method_with_payload.py">na jednoduchý demonstrační příklad</a>, který se od příkladu předchozího odlišuje pouze v&nbsp;jediném detailu &ndash; nepovinném parametru funkce <strong>requests.post()</strong>:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa s testovaci REST API sluzbou
+URL = "https://httpbin.org/post"
+
+payload = {
+    "klic": "hodnota",
+    "answer": 42,
+    "question": None,
+    "correct": True}
+
+# poslani HTTP dotazu typu POST s telem
+response = requests.post(URL, json=payload)
+
+# vypis tela odpovedi v plain textu
+print(response.text)
+</code></pre>
+
+<p>Odpověď serveru nyní vypadá odlišně, protože nám testovací server v&nbsp;odpovědi říká, jak parametry získal (resp.&nbsp;jak mu byly předány). Povšimněte si, že nyní je pod klíčem <strong>form</strong> uložen prázdný slovník, ovšem naše parametry jsou nyní předány pod klíčem <strong>data</strong> a současně i ve zpracované podobě pod klíčem <strong>json</strong>:</p>
+
+<pre>
+{
+  "args": {}, 
+  "data": "{\"klic\": \"hodnota\", \"answer\": 42, \"question\": null, \"correct\": true}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Connection": "close", 
+    "Content-Length": "68", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "User-Agent": "python-requests/2.13.0"
+  }, 
+  "json": {
+    "answer": 42, 
+    "correct": true, 
+    "klic": "hodnota", 
+    "question": null
+  }, 
+  "origin": "213.175.37.10", 
+  "url": "https://httpbin.org/post"
+}
+</pre>
+
+
+
+<p><a name="k15"></a></p>
+<h2 id="k15">15. Vlastní jednoduchý testovací HTTP server</h2>
+
+<p>Aby bylo možné zjistit, jak přesně vlastně vypadá požadavek posílaný z&nbsp;klienta na server pomocí metody <strong>GET</strong> nebo <strong>POST</strong>, vytvoříme si vlastní velmi jednoduchou implementaci HTTP serveru založenou na existující (velmi užitečné) třídě <strong>BaseHTTPRequestHandler</strong>. Ta samozřejmě nebude v&nbsp;žádném případě určena pro produkční nasazení, protože například nijak neřeší HTTPS, souběžné zpracování většího množství požadavků, zabezpečení, autorizaci, kontrolu korektnosti požadavků atd. Server pouze velmi jednoduše zpracuje všechny požadavky typu <strong>GET</strong> a <strong>POST</strong>; klientovi přitom vrátí odpověď se stavem <strong>200 OK</strong> a jednořádkovou (plain textovou) zprávou, která klienta pouze informuje o tom, jakou HTTP metodu při volání serveru použil. Zcela základní implementace serveru by tedy mohla vypadat následovně (bez importů, spuštění atd.):</p>
+
+<pre><code>
+class SimpleServer(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        # priprava hlavicky odpovedi
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+
+        # odpoved serveru klientovi
+        self.wfile.write("*** get ***".encode("utf-8"))
+
+    def do_POST(self):
+        # priprava hlavicky odpovedi
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+
+        # odpoved serveru klientovi
+        self.wfile.write("*** post ***".encode("utf-8"))
+</code></pre>
+
+
+
+<p><a name="k16"></a></p>
+<h2 id="k16">16. Implementace HTTP serveru</h2>
+
+<p>Ve skutečnosti bude implemetace našeho testovacího serveru nepatrně komplikovanější, protože budeme potřebovat, aby se u metody <strong>POST</strong> získalo i tělo požadavku, které může obsahovat data poslaná klientem. To se dá provést relativně jednoduše &ndash; nejprve zjistíme délku obsahu (v&nbsp;bajtech) a posléze tento obsah načteme metodou <strong>rfile.read()</strong>, které se předá délka těla požadavku:</p>
+
+<pre><code>
+content_length = int(self.headers['Content-Length'])
+print("content length: {len}".format(len=content_length))
+
+content = self.rfile.read(content_length)
+</code></pre>
+
+<p>Následně může server tato data zobrazit ve svém terminálu či do logovacího souboru, což je přesně to, co potřebujeme &ndash; získat nezpracovaný formát požadavku vytvořený knihovnou <strong>Requests</strong>.</p>
+
+<p>Úplná implementace <a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py">našeho HTTP serveru</a> je založena na zdrojovém kódu, který byl poslán na <a href="https://gist.github.com/bradmontgomery/2219997">https://gist.github.com/bradmontgomery/2219997</a>, ovšem provedl jsem v&nbsp;něm několik úprav a oprav. Výsledek je použitelný s&nbsp;Pythonem 3.x:</p>
+
+<pre><code>
+#!/usr/bin/python3
+# vim: set fileencoding=utf-8
+
+# Original (slightly buggy) code:
+# see https://gist.github.com/bradmontgomery/2219997
+
+
+import socket
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+hostName = ""
+hostPort = 8000
+
+
+class SimpleServer(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        # priprava hlavicky odpovedi
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+
+        # odpoved serveru klientovi
+        self.wfile.write("*** get ***".encode("utf-8"))
+
+    def do_POST(self):
+        print("URI: {uri}".format(uri=self.path))
+
+        # precteni tela HTTP pozadavku
+        content_length = int(self.headers['Content-Length'])
+        print("content length: {len}".format(len=content_length))
+
+        content = self.rfile.read(content_length)
+        print("content value:  {content}".format(content=content))
+
+        # priprava hlavicky odpovedi
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+
+        # odpoved serveru klientovi
+        self.wfile.write("*** post ***".encode("utf-8"))
+
+
+simpleServer = HTTPServer((hostName, hostPort), SimpleServer)
+
+try:
+    simpleServer.serve_forever()
+except KeyboardInterrupt:
+    pass
+
+simpleServer.server_close()
+</code></pre>
+
+
+
+<p><a name="k17"></a></p>
+<h2 id="k17">17. Volání vlastního HTTP serveru s&nbsp;využitím knihovny <strong>Requests</strong></h2>
+
+<p>Výše popsaný HTTP server zavoláme celkem třikrát &ndash; jednou se použije metoda <strong>GET</strong>, podruhé metoda <strong>POST</strong> s&nbsp;předáním &bdquo;formulářových dat&ldquo; a nakonec se opět použije metoda <strong>POST</strong>, ovšem tentokrát se data předají v&nbsp;těle požadavku s&nbsp;využitím formátu JSON:</p>
+
+<pre><code>
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import requests
+
+# adresa lokalne beziciho serveru
+URL = "http://localhost:8000"
+
+# poslani HTTP dotazu typu GET
+response = requests.get(URL)
+
+# vypis zakladnich informaci ziskanych z odpovedi
+print(response)
+print(response.status_code)
+print(response.ok)
+print(response.text)
+
+payload = {
+    "klic": "hodnota",
+    "answer": 42,
+    "question": None,
+    "correct": True}
+
+# poslani dat jako hodnot formulare
+response = requests.post(URL, data=payload)
+
+print(response.text)
+
+# poslani dat v tele dotazu
+response = requests.post(URL, json=payload)
+
+print(response.text)
+</code></pre>
+
+<p>Na konzoli, ze které spouštíme testovací skript, se vypíšou tyto údaje. První čtyři řádky platí pro první volání <strong>GET</strong>, další dva pro volání <strong>POST</strong>:</p>
+
+<pre>
+&lt;Response [200]&gt;
+200
+True
+*** get ***
+*** post ***
+*** post ***
+</pre>
+
+<p>Na konzoli serveru (ovšem nikoli na konzoli, kde spouštíme testovací skript!) by se měly vypsat následující řádky, z&nbsp;nichž je patrný jak formát požadavku typu <strong>GET</strong>, tak i formát požadavku typu <strong>POST</strong> při předávání údajů přes formulářová data a nakonec formát požadavku předaného v&nbsp;těle (JSON):</p>
+
+<pre>
+127.0.0.1 - - [03/Aug/2018 13:57:57] "GET / HTTP/1.1" 200 -
+URI: /
+content length: 35
+content value:  b'klic=hodnota&amp;answer=42&amp;correct=True'
+127.0.0.1 - - [03/Aug/2018 13:57:57] "POST / HTTP/1.1" 200 -
+URI: /
+content length: 68
+content value:  b'{"klic": "hodnota", "answer": 42, "question": null, "correct": true}'
+127.0.0.1 - - [03/Aug/2018 13:57:57] "POST / HTTP/1.1" 200 -
+</pre>
+
+
+
+<p><a name="k18"></a></p>
+<h2 id="k18">18. Obsah druhé části seriálu</h2>
+
+<p>Ve druhé části seriálu o nejpopulárnějších a nejužitečnějších knihovnách určených pro vývojáře používající programovací jazyk Python dokončíme popis možností nabízených knihovnou <strong>Requests</strong>. Zaměříme se především na poněkud složitější techniky &ndash; autorizaci, využití session atd. Uvidíme, že tato knihovna většinu těchto operací přímo podporuje, a to takovým způsobem, aby bylo její použití pro vývojáře přímočaré a jednoduché (v&nbsp;porovnání s&nbsp;některými dalšími knihovnami s&nbsp;podobným zaměřením).</p>
+
+
+
+<p><a name="k19"></a></p>
+<h2 id="k19">19. Repositář s&nbsp;demonstračními příklady</h2>
+
+<p>Zdrojové kódy všech dnes popsaných demonstračních příkladů určených pro Python 3 a knihovnu Requests byly uloženy do Git repositáře dostupného na adrese <a href="https://github.com/tisnik/most-popular-python-libs">https://github.com/tisnik/most-popular-python-libs</a> (stále na GitHubu :-). V&nbsp;případě, že nebudete chtít klonovat celý repositář (ten je ovšem stále velmi malý, dnes má doslova několik kilobajtů), můžete namísto toho použít odkazy na jednotlivé příklady, které naleznete v&nbsp;následující tabulce:</p>
+
+<table>
+<tr><th> #</th><th>Demonstrační příklad</th><th>Popis</th><th>Cesta</th></tr>
+<tr><td> 1</td><td>01_basic_usage.py</td><td>použití metody GET pro komunikaci se serverem</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/01_basic_usage.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/01_basic_usage.py</a></td></tr>
+<tr><td> 2</td><td>02_check_status.py</td><td>kontrola stavového kódu odpovědi serveru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/02_check_status.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/02_check_status.py</a></td></tr>
+<tr><td> 3</td><td>03_content_type.py</td><td>získání typu/formátu odpovědi serveru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/03_content_type.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/03_content_type.py</a></td></tr>
+<tr><td> 4</td><td>04_response_content.py</td><td>získání obsahu odpovědi serveru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/04_response_content.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/04_response_content.py</a></td></tr>
+<tr><td> 5</td><td>05_response_content_and_headers.py</td><td>získání obsahu odpovědi serveru včetně hlaviček</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/05_response_content_and_headers.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/05_response_content_and_headers.py</a></td></tr>
+<tr><td> 6</td><td>06_response_json.py</td><td>práce s&nbsp;odpovědí ve formátu JSON</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/06_response_json.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/06_response_json.py</a></td></tr>
+<tr><td> 7</td><td>07_post_method.py</td><td>použití metody POST pro komunikaci se serverem</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/07_post_method.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/07_post_method.py</a></td></tr>
+<tr><td> 8</td><td>08_post_method_with_payload.py</td><td>metoda POST a data poslaná ve formuláři</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/08_post_method_with_payload.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/08_post_method_with_payload.py</a></td></tr>
+<tr><td> 9</td><td>09_post_method_with_payload.py</td><td>metoda POST a data poslaná v&nbsp;těle zprávy</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/09_post_method_with_payload.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/09_post_method_with_payload.py</a></td></tr>
+<tr><td>10</td><td>10_against_test_local_server.py</td><td>test metod GET a POST vůči lokálnímu serveru</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/10_against_test_local_server.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/10_against_test_local_server.py</a></td></tr>
+<tr><td>11</td><td>simple_server.py</td><td>velmi jednoduchý lokální HTTP server</td><td><a href="https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py">https://github.com/tisnik/most-popular-python-libs/blob/master/requests/simple_server.py</a></td></tr>
+</table>
+
+
+
+<p><a name="k20"></a></p>
+<h2 id="k20">20. Odkazy na Internetu</h2>
+
+<ol>
+
+<li>Requests: HTTP for Humans (dokumentace)<br />
+<a href="http://docs.python-requests.org/en/master/">http://docs.python-requests.org/en/master/</a>
+</li>
+
+<li>Requests: Introduction<br />
+<a href="http://docs.python-requests.org/en/latest/user/intro/">http://docs.python-requests.org/en/latest/user/intro/</a>
+</li>
+
+<li>Requests na GitHubu<br />
+<a href="https://github.com/requests/requests">https://github.com/requests/requests</a>
+</li>
+
+<li>Requests (software) na Wikipedii<br />
+<a href="https://en.wikipedia.org/wiki/Requests_%28software%29">https://en.wikipedia.org/wiki/Requests_%28software%29</a>
+</li>
+
+<li>Pip (dokumentace)<br />
+<a href="https://pip.pypa.io/en/stable/">https://pip.pypa.io/en/stable/</a>
+</li>
+
+<li>20 Python libraries you can’t live without<br />
+<a href="https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/">https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/</a>
+</li>
+
+<li>What are the top 10 most useful and influential Python libraries and frameworks?<br />
+<a href="https://www.quora.com/What-are-the-top-10-most-useful-and-influential-Python-libraries-and-frameworks">https://www.quora.com/What-are-the-top-10-most-useful-and-influential-Python-libraries-and-frameworks</a>
+</li>
+
+<li>Python: useful modules<br />
+<a href="https://wiki.python.org/moin/UsefulModules">https://wiki.python.org/moin/UsefulModules</a>
+</li>
+
+<li>Top 15 most popular Python libraries<br />
+<a href="https://keyua.org/blog/most-popular-python-libraries/">https://keyua.org/blog/most-popular-python-libraries/</a>
+</li>
+
+<li>Hypertext Transfer Protocol<br />
+<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a>
+</li>
+
+<li>List of HTTP header fields<br />
+<a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">https://en.wikipedia.org/wiki/List_of_HTTP_header_fields</a>
+</li>
+
+<li>List of HTTP status codes<br />
+<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">https://en.wikipedia.org/wiki/List_of_HTTP_status_codes</a>
+</li>
+
+<li>Python requests deep dive<br />
+<a href="https://medium.com/@anthonypjshaw/python-requests-deep-dive-a0a5c5c1e093">https://medium.com/@anthonypjshaw/python-requests-deep-dive-a0a5c5c1e093</a>
+</li>
+
+<li>The awesome requests module<br />
+<a href="https://www.pythonforbeginners.com/requests/the-awesome-requests-module">https://www.pythonforbeginners.com/requests/the-awesome-requests-module</a>
+</li>
+
+<li>Send HTTP Requests in Python<br />
+<a href="https://code-maven.com/http-requests-in-python">https://code-maven.com/http-requests-in-python</a>
+</li>
+
+<li>Introducing JSON<br />
+<a href="http://json.org/">http://json.org/</a>
+</li>
+
+</ol>
+
+
+
+<p></p><p></p>
+<p><small>Autor: <a href="http://www.fit.vutbr.cz/~tisnovpa">Pavel Tišnovský</a> &nbsp; 2018</small></p>
+</body>
+</html>
+
+<!--
+2018-08-01: 1 hod
+2018-08-02: 1 hod
+2018-08-03: 1 hod
+2018-08-04: 1 hod
+2018-08-05: 1 hod
+publikace:  1 hod
+-----------------
+            6 hod
+-->
