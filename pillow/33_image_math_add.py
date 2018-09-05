@@ -24,18 +24,26 @@ def create_second_image(width, height):
 
 
 try:
+    # načtení originálního obrázku Leny
     original_image = Image.open(filename)
     original_image.load()
 
+    # převod na úrovně šedi
     grayscale_image = ImageMath.eval("convert(src, 'L')", src=original_image)
 
+    # vytvoření druhého obrázku s maskou
     second_image = create_second_image(512, 512)
 
+    # aplikace operace
     result_image = ImageMath.eval("first+second", first=grayscale_image, second=second_image)
+
+    # další převod výsledku na stupně šedi
     result_image = ImageMath.eval("convert(src, 'L')", src=result_image)
 
+    # zobrazení výsledného obrázku uživateli
     result_image.show()
 
+    # uložení výsledného obrázku
     result_image.save("33_image_math_add.png")
 
 except Exception as e:

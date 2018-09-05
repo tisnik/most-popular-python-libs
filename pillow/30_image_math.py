@@ -24,17 +24,22 @@ def create_second_image(width, height):
 
 
 try:
+    # načtení originálního obrázku Leny
     original_image = Image.open(filename)
     original_image.load()
 
+    # převod na úrovně šedi
     grayscale_image = ImageMath.eval("convert(src, 'L')", src=original_image)
 
+    # vytvoření druhého obrázku s maskou
     second_image = create_second_image(512, 512)
 
+    # zobrazení všech tří obrázků
     original_image.show()
     grayscale_image.show()
     second_image.show()
 
+    # uložení všech tří obrázků
     original_image.save("30_original.png")
     grayscale_image.save("30_grayscale.png")
     second_image.save("30_second_image.png")
