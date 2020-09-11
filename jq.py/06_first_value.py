@@ -4,6 +4,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Přečtení první hodnoty ze získané sekvence."""
+
 import jq
 import json
 
