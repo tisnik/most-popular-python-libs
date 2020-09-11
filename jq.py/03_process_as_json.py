@@ -4,6 +4,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Zpracovnání vstupu ve formě JSONu (předparsování vstupu)."""
+
 import jq
 import json
 
