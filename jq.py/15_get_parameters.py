@@ -11,5 +11,6 @@ from pprint import pprint
 with open("openapi.json") as fin:
     content = json.load(fin)
 
-    for parameters in jq.compile('.paths."/client/cluster/search".get.parameters').input(content).all():
+    query = '.paths."/client/cluster/search".get.parameters'
+    for parameters in jq.compile(query).input(content).all():
         pprint(parameters)
