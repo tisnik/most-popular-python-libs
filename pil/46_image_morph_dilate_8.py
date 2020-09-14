@@ -27,14 +27,15 @@ try:
     # vykreslení jednoduchého textu
     draw.text((70, height/2 - 50), "Pillow", font=font, fill=255)
 
+    # parametry filtru realizujícího morfologické operace
     patterns = ['4:(... .0. .1.)->1',
                 '4:(... .0. ..1)->1']
     # vytvoření objektu pro morfologické operace
     lutBuilder = ImageMorph.LutBuilder(patterns = patterns)
     lut = lutBuilder.build_lut()
     morphOp = ImageMorph.MorphOp(lut=lut)
-    
-    # aplikace morfologické operace
+
+    # aplikace morfologické operace dilatace na původní testovací obrázek
     pixels, dilated_image = morphOp.apply(test_image)
     print(pixels)
 
