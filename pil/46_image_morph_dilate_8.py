@@ -37,8 +37,8 @@ try:
     # aplikace morfologické operace
     pixels, dilated_image = morphOp.apply(test_image)
     print(pixels)
-    
-    # aplikace morfologické operace
+
+    # aplikace morfologické operace dilatace na již upravený rastrový obrázek
     pixels, more_dilated_image = morphOp.apply(dilated_image)
     print(pixels)
 
