@@ -7,6 +7,7 @@ from PIL import ImageFont
 from PIL import ImageMath
 from PIL import ImageMorph
 
+# jméno zdrojového testovacího rastrového obrázku
 filename = "Lenna.png"
 
 
@@ -33,7 +34,7 @@ try:
     # vytvoření objektu pro morfologické operace
     lut = lutBuilder.build_lut()
     morphOp = ImageMorph.MorphOp(lut=lut)
-    
+
     # aplikace morfologické operace
     pixels, eroded_image = morphOp.apply(test_image)
     print(pixels)
