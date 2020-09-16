@@ -7,6 +7,7 @@ from PIL import ImageFont
 from PIL import ImageMath
 from PIL import ImageMorph
 
+# jméno zdrojového testovacího rastrového obrázku
 filename = "Lenna.png"
 
 
@@ -27,7 +28,7 @@ try:
     # vykreslení jednoduchého textu
     draw.text((70, height/2 - 50), "Pillow", font=font, fill=255)
 
-    lutBuilder = ImageMorph.LutBuilder(patterns = ["4:(... .0. .1.)->1"])
+    lutBuilder = ImageMorph.LutBuilder(patterns=["4:(... .0. .1.)->1"])
 
     # vytvoření objektu pro morfologické operace
     lut = lutBuilder.build_lut()
