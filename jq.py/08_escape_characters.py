@@ -16,6 +16,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Problematika speciálních znaků v DSL nástroje jq."""
+
 import jq
 import json
 
