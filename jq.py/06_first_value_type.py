@@ -16,7 +16,7 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
-"""Zpracování již deserializovaných vstupních dat, zpracovává se seznam."""
+"""Získání typu prvního výsledku dotazu."""
 
 import jq
 import json
