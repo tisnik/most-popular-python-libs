@@ -16,6 +16,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Chování v případě, že dotaz nenalezl žádnou hodnotu."""
+
 import jq
 import json
 
