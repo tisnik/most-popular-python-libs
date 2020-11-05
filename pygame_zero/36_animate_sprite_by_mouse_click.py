@@ -18,4 +18,4 @@ def on_key_down(key, mod, unicode):
 
 
 def on_mouse_down(pos, button):
-    animation = animate(sprite, pos=pos)
+    animate(sprite, pos=pos)
