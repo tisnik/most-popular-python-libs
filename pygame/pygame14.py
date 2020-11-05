@@ -70,7 +70,8 @@ for i in range(1,12):
 
 
 # Načtení a konverze obrázku
-image_surface = (pygame.image.load(os.path.join('images', 'gnome-globe.png')).convert_alpha())
+image_name = os.path.join('images', 'gnome-globe.png')
+image_surface = (pygame.image.load(image_name).convert_alpha())
 
 # Vykreslení obrázku, použití různých operací při vykreslování
 display.blit(image_surface, ( 25,  25), special_flags=BLEND_ADD)
