@@ -15,6 +15,7 @@ from pygame.locals import *
 WIDTH = 320
 HEIGHT = 240
 
+
 # Třída představující sprite zobrazený jako jednobarevný čtverec.
 class BlockySprite(pygame.sprite.Sprite):
     # Konstruktor
