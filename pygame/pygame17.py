@@ -24,7 +24,7 @@ class BlockySprite(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         # Vytvoření obrázku představujícího vizuální obraz spritu:
-        self.image = pygame.Surface([size,size])
+        self.image = pygame.Surface([size, size])
         self.image.fill(color)
 
         # Vytvoření obalového obdélníku
