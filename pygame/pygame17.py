@@ -6,7 +6,10 @@
 # Příklad číslo 17: použití spritů
 
 
-import pygame, sys, os, math
+import sys
+import os
+import math
+import pygame
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
@@ -47,9 +50,9 @@ display = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('Pygame test #17')
 
 # Konstanty s n-ticemi představujícími základní barvy
-BLACK = (0,   0,   0)
-RED = (255,   0,   0)
-BLUE = (0,   0,   255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
 
 # Vyplnění plochy okna černou barvou
 display.fill(BLACK)
