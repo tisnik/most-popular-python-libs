@@ -72,7 +72,6 @@ all_sprites.add(sprite2)
 all_sprites.draw(display)
 
 
-
 # Hlavní herní smyčka
 while True:
     # Načtení a zpracování všech událostí z fronty
