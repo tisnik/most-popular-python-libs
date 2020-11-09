@@ -6,7 +6,10 @@
 # Příklad číslo 15: použití TrueType fontů
 
 
-import pygame, sys, os, math
+import sys
+import os
+import math
+import pygame
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
