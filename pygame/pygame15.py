@@ -85,7 +85,6 @@ font_surface = font.render("mojefedora.cz", False, WHITE)
 display.blit(font_surface, ( 25,  125))
 
 
-
 # Hlavní herní smyčka
 while True:
     # Načtení a zpracování všech událostí z fronty
