@@ -82,7 +82,7 @@ font = pygame.font.Font("fonts/FreeSans.ttf", 40)
 font_surface = font.render("mojefedora.cz", False, WHITE)
 
 # Vykreslení obrázku s nápisem do bufferu
-display.blit(font_surface, ( 25,  125))
+display.blit(font_surface, (25,  125))
 
 
 # Hlavní herní smyčka
