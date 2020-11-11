@@ -74,7 +74,7 @@ image_name = os.path.join('images', 'gnome-globe.png')
 image_surface = (pygame.image.load(image_name).convert_alpha())
 
 # Vykreslení obrázku, použití různých operací při vykreslování
-display.blit(image_surface, ( 25,  25), special_flags=BLEND_ADD)
+display.blit(image_surface, (25,  25), special_flags=BLEND_ADD)
 display.blit(image_surface, (125,  25), special_flags=BLEND_SUB)
 display.blit(image_surface, (225,  25), special_flags=BLEND_MULT)
 display.blit(image_surface, (25, 125), special_flags=BLEND_MIN)
