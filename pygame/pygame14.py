@@ -65,7 +65,7 @@ for i in range(1, 90, 5):
         pygame.draw.line(display, WHITE, (WIDTH-1, 0), (WIDTH-x, y))
 
 # Vykreslení čar různou šířkou
-for i in range(1,12):
+for i in range(1, 12):
     pygame.draw.line(display, WHITE, (10 + i*15, 90), (10 + i*15, 230), i)
 
 
