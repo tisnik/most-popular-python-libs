@@ -7,7 +7,10 @@
 #                   Operace s alfa kanálem.
 
 
-import pygame, sys, os, math
+import pygame
+import sys
+import os
+import math
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
