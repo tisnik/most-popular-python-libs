@@ -83,7 +83,6 @@ display.blit(font_surface1, (25, 90), special_flags=BLEND_ADD)
 display.blit(font_surface1, (25, 150))
 
 
-
 # Hlavní herní smyčka
 while True:
     # Načtení a zpracování všech událostí z fronty
