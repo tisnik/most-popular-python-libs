@@ -29,12 +29,12 @@ pygame.display.set_caption('Pygame test #13')
 
 # Konstanty s n-ticemi představujícími základní barvy
 BLACK = (0, 0, 0)
-BLUE = (0,   0, 255)
+BLUE = (0, 0, 255)
 CYAN = (0, 255, 255)
-GREEN = (0, 255,   0)
-YELLOW = (255, 255,   0)
-RED = (255,   0,   0)
-MAGENTA = (255,   0, 255)
+GREEN = (0, 255, 0)
+YELLOW = (255, 255, 0)
+RED = (255, 0, 0)
+MAGENTA = (255, 0, 255)
 WHITE = (255, 255, 255)
 
 # Vyplnění plochy okna černou barvou
@@ -49,7 +49,7 @@ pygame.draw.line(display, RED,     (10, 50), (160, 50))
 pygame.draw.line(display, MAGENTA, (10, 60), (160, 60))
 
 # Vykreslení čar s různým sklonem
-for i in range(1,90,5):
+for i in range(1, 90,5):
     # převod ze stupňů na radiány
     angle = math.radians(i)
     radius = 150
