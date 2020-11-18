@@ -79,8 +79,8 @@ font = pygame.font.Font("fonts/FreeSans.ttf", 40)
 font_surface1 = font.render("mojefedora.cz", True, WHITE, RED)
 
 # Vykreslení obrázku s nápisem do bufferu
-display.blit(font_surface1, (25,  90), special_flags=BLEND_ADD)
-display.blit(font_surface1, ( 25,  150))
+display.blit(font_surface1, (25, 90), special_flags=BLEND_ADD)
+display.blit(font_surface1, (25, 150))
 
 
 
