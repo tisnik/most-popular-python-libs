@@ -49,7 +49,7 @@ pygame.draw.line(display, RED,     (10, 50), (160, 50))
 pygame.draw.line(display, MAGENTA, (10, 60), (160, 60))
 
 # Vykreslení čar s různým sklonem
-for i in range(1, 90,5):
+for i in range(1, 90, 5):
     # převod ze stupňů na radiány
     angle = math.radians(i)
     radius = 150
