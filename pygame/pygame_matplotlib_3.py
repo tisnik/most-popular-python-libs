@@ -2,7 +2,7 @@
 # vim: set fileencodings=utf-8
 
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use("Agg")  # noqa: E402
 import matplotlib.pyplot as plt
 import numpy as np
 import pygame
