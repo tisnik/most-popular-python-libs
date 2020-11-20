@@ -62,7 +62,7 @@ GRAY    = (128, 128, 128)
 all_sprites = pygame.sprite.Group()
 
 # Vytvoření dvojice spritů - zdi a hráče
-wall   = BlockySprite(GRAY, 50, 10, 10)
+wall = BlockySprite(GRAY, 50, 10, 10)
 player = BlockySprite(RED,  25, WIDTH/2, HEIGHT/2)
 
 # Přidání dvojice spritů do seznamu
