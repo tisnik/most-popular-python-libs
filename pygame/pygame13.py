@@ -74,7 +74,8 @@ for i in range(1, 10):
 # Načtení bitmapy a její okamžitá konverze do formátu kompatibilního s
 # framebufferem
 # Při konverzi se zachová i alfa kanál
-image_surface = (pygame.image.load(os.path.join('images', 'gnome-globe.png')).convert_alpha())
+path = os.path.join('images', 'gnome-globe.png')
+image_surface = (pygame.image.load(path).convert_alpha())
 
 # Výpočet souřadnic pro umístění obrázku přesně doprostřed okna
 center_x = (display.get_width() - image_surface.get_width()) / 2
