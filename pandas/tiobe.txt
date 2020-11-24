@@ -1,0 +1,21 @@
+Sep 2020            Sep 2019            Change              Language            Ratings             Changep
+1                   2                   change              C                   15.95               +0.74
+2                   1                   change              Java                13.48               -3.18
+3                   3                                       Python              10.47               +0.59
+4                   4                                       C++                 7.11                +1.48
+5                   5                                       C#                  4.58                +1.18
+6                   6                                       Visual Basic        4.12                +0.83
+7                   7                                       JavaScript          2.54                +0.41
+8                   9                   change              PHP                 2.49                +0.62
+9                   19                  change              R                   2.37                +1.33
+10                  8                   change              SQL                 1.76                -0.19
+11                  14                  change              Go                  1.46                +0.24
+12                  16                  change              Swift               1.38                +0.28
+13                  20                  change              Perl                1.30                +0.26
+14                  12                  change              Assembly language   1.30                -0.08
+15                  15                                      Ruby                1.24                +0.03
+16                  18                  change              MATLAB              1.10                +0.04
+17                  11                  change              Groovy              0.99                -0.52
+18                  33                  change              Rust                0.92                +0.55
+19                  10                  change              Objective-C         0.85                -0.99
+20                  24                  change              Dart                0.77                +0.13
