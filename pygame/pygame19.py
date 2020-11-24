@@ -54,7 +54,7 @@ display = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('Pygame test #19')
 
 # Konstanty s n-ticemi představujícími základní barvy
-BLACK   = (  0,   0,   0)
+BLACK   = (0, 0, 0)
 RED     = (255,   0,   0)
 GRAY    = (128, 128, 128)
 
