@@ -5,7 +5,7 @@
 
 import pandas
 
-df = pandas.read_csv("missing_integer_values.csv", dtype={"Time to read":"Int64"})
+df = pandas.read_csv("missing_integer_values.csv", dtype={"Time to read": "Int64"})
 
 print("Data frame")
 print("---------------------------")
