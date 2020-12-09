@@ -16,6 +16,7 @@ if len(sys.argv) < 2:
 # First command line argument should contain name of input CSV.
 input_csv = sys.argv[1]
 
+# Try to open the CSV file specified.
 df = pd.read_csv(input_csv)
 
 print(df.info())
