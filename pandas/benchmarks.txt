@@ -1,0 +1,13 @@
+#	Interpret/runtime	Varianta	real	user	sys
+1	GNU Guile	interpret	4.858	5.212	0.058
+2	Chicken Scheme	interpret	8.137	7.738	0.318
+3	Gambit (gsi)	interpret	46.689	46.610	0.007
+4	Gambit (gsi)	interpret (flonum)	8.188	8.169	0.008
+5	Gambit (gsc)	přeložený	37.454	37.390	0.008
+6	Gambit (gsc)	přeložený (flonum)	0.153	0.141	0.011
+7	Gambit (gsc)	přeložený (vlákna)	36.867	36.800	0.013
+8	Gambit (gsc)	přeložený (vlákna+flonum)	0.159	0.150	0.009
+9	Clojure	interpret	14.925	16.365	0.515
+10	Clojure	bajtkód	6.107	7.177	0.394
+11	Clojure	interpret. vlákna	10.684	18.007	0.634
+12	Clojure	bajtkód. vlákna	3.691	8.765	0.491
