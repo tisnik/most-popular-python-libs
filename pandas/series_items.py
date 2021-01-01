@@ -11,6 +11,7 @@ df.set_index("Language", inplace=True)
 
 # pro jistotu si datový rámec zobrazíme
 print(df)
+print()
 
 # konstrukce datové struktury Series z datového rámce
 s = pandas.Series(df["Ratings"])
