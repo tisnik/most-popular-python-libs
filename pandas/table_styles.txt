@@ -1,0 +1,649 @@
+
+****************************************
+*                plain                 *
+****************************************
+
+Language             Sep 2020    Sep 2019  Change      Ratings    Changep
+C                           1           2  change        15.95       0.74
+Java                        2           1  change        13.48      -3.18
+Python                      3           3  nan           10.47       0.59
+C++                         4           4  nan            7.11       1.48
+C#                          5           5  nan            4.58       1.18
+Visual Basic                6           6  nan            4.12       0.83
+JavaScript                  7           7  nan            2.54       0.41
+PHP                         8           9  change         2.49       0.62
+R                           9          19  change         2.37       1.33
+SQL                        10           8  change         1.76      -0.19
+Go                         11          14  change         1.46       0.24
+Swift                      12          16  change         1.38       0.28
+Perl                       13          20  change         1.3        0.26
+Assembly language          14          12  change         1.3       -0.08
+Ruby                       15          15  nan            1.24       0.03
+MATLAB                     16          18  change         1.1        0.04
+Groovy                     17          11  change         0.99      -0.52
+Rust                       18          33  change         0.92       0.55
+Objective-C                19          10  change         0.85      -0.99
+Dart                       20          24  change         0.77       0.13
+
+****************************************
+*                simple                *
+****************************************
+
+Language             Sep 2020    Sep 2019  Change      Ratings    Changep
+-----------------  ----------  ----------  --------  ---------  ---------
+C                           1           2  change        15.95       0.74
+Java                        2           1  change        13.48      -3.18
+Python                      3           3  nan           10.47       0.59
+C++                         4           4  nan            7.11       1.48
+C#                          5           5  nan            4.58       1.18
+Visual Basic                6           6  nan            4.12       0.83
+JavaScript                  7           7  nan            2.54       0.41
+PHP                         8           9  change         2.49       0.62
+R                           9          19  change         2.37       1.33
+SQL                        10           8  change         1.76      -0.19
+Go                         11          14  change         1.46       0.24
+Swift                      12          16  change         1.38       0.28
+Perl                       13          20  change         1.3        0.26
+Assembly language          14          12  change         1.3       -0.08
+Ruby                       15          15  nan            1.24       0.03
+MATLAB                     16          18  change         1.1        0.04
+Groovy                     17          11  change         0.99      -0.52
+Rust                       18          33  change         0.92       0.55
+Objective-C                19          10  change         0.85      -0.99
+Dart                       20          24  change         0.77       0.13
+
+****************************************
+*                github                *
+****************************************
+
+| Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep |
+|-------------------|------------|------------|----------|-----------|-----------|
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
+
+****************************************
+*                 grid                 *
+****************************************
+
++-------------------+------------+------------+----------+-----------+-----------+
+| Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep |
++===================+============+============+==========+===========+===========+
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
++-------------------+------------+------------+----------+-----------+-----------+
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
++-------------------+------------+------------+----------+-----------+-----------+
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
++-------------------+------------+------------+----------+-----------+-----------+
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
++-------------------+------------+------------+----------+-----------+-----------+
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
++-------------------+------------+------------+----------+-----------+-----------+
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
++-------------------+------------+------------+----------+-----------+-----------+
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
++-------------------+------------+------------+----------+-----------+-----------+
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
++-------------------+------------+------------+----------+-----------+-----------+
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
++-------------------+------------+------------+----------+-----------+-----------+
+
+****************************************
+*              fancy_grid              *
+****************************************
+
+╒═══════════════════╤════════════╤════════════╤══════════╤═══════════╤═══════════╕
+│ Language          │   Sep 2020 │   Sep 2019 │ Change   │   Ratings │   Changep │
+╞═══════════════════╪════════════╪════════════╪══════════╪═══════════╪═══════════╡
+│ C                 │          1 │          2 │ change   │     15.95 │      0.74 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Java              │          2 │          1 │ change   │     13.48 │     -3.18 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Python            │          3 │          3 │ nan      │     10.47 │      0.59 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ C++               │          4 │          4 │ nan      │      7.11 │      1.48 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ C#                │          5 │          5 │ nan      │      4.58 │      1.18 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Visual Basic      │          6 │          6 │ nan      │      4.12 │      0.83 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ JavaScript        │          7 │          7 │ nan      │      2.54 │      0.41 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ PHP               │          8 │          9 │ change   │      2.49 │      0.62 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ R                 │          9 │         19 │ change   │      2.37 │      1.33 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ SQL               │         10 │          8 │ change   │      1.76 │     -0.19 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Go                │         11 │         14 │ change   │      1.46 │      0.24 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Swift             │         12 │         16 │ change   │      1.38 │      0.28 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Perl              │         13 │         20 │ change   │      1.3  │      0.26 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Assembly language │         14 │         12 │ change   │      1.3  │     -0.08 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Ruby              │         15 │         15 │ nan      │      1.24 │      0.03 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ MATLAB            │         16 │         18 │ change   │      1.1  │      0.04 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Groovy            │         17 │         11 │ change   │      0.99 │     -0.52 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Rust              │         18 │         33 │ change   │      0.92 │      0.55 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Objective-C       │         19 │         10 │ change   │      0.85 │     -0.99 │
+├───────────────────┼────────────┼────────────┼──────────┼───────────┼───────────┤
+│ Dart              │         20 │         24 │ change   │      0.77 │      0.13 │
+╘═══════════════════╧════════════╧════════════╧══════════╧═══════════╧═══════════╛
+
+****************************************
+*                 pipe                 *
+****************************************
+
+| Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep |
+|:------------------|-----------:|-----------:|:---------|----------:|----------:|
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
+
+****************************************
+*                orgtbl                *
+****************************************
+
+| Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep |
+|-------------------+------------+------------+----------+-----------+-----------|
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
+
+****************************************
+*                 jira                 *
+****************************************
+
+|| Language          ||   Sep 2020 ||   Sep 2019 || Change   ||   Ratings ||   Changep ||
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
+
+****************************************
+*                presto                *
+****************************************
+
+ Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep
+-------------------+------------+------------+----------+-----------+-----------
+ C                 |          1 |          2 | change   |     15.95 |      0.74
+ Java              |          2 |          1 | change   |     13.48 |     -3.18
+ Python            |          3 |          3 | nan      |     10.47 |      0.59
+ C++               |          4 |          4 | nan      |      7.11 |      1.48
+ C#                |          5 |          5 | nan      |      4.58 |      1.18
+ Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83
+ JavaScript        |          7 |          7 | nan      |      2.54 |      0.41
+ PHP               |          8 |          9 | change   |      2.49 |      0.62
+ R                 |          9 |         19 | change   |      2.37 |      1.33
+ SQL               |         10 |          8 | change   |      1.76 |     -0.19
+ Go                |         11 |         14 | change   |      1.46 |      0.24
+ Swift             |         12 |         16 | change   |      1.38 |      0.28
+ Perl              |         13 |         20 | change   |      1.3  |      0.26
+ Assembly language |         14 |         12 | change   |      1.3  |     -0.08
+ Ruby              |         15 |         15 | nan      |      1.24 |      0.03
+ MATLAB            |         16 |         18 | change   |      1.1  |      0.04
+ Groovy            |         17 |         11 | change   |      0.99 |     -0.52
+ Rust              |         18 |         33 | change   |      0.92 |      0.55
+ Objective-C       |         19 |         10 | change   |      0.85 |     -0.99
+ Dart              |         20 |         24 | change   |      0.77 |      0.13
+
+****************************************
+*                pretty                *
+****************************************
+
++-------------------+----------+----------+--------+---------+---------+
+|     Language      | Sep 2020 | Sep 2019 | Change | Ratings | Changep |
++-------------------+----------+----------+--------+---------+---------+
+|         C         |    1     |    2     | change |  15.95  |  0.74   |
+|       Java        |    2     |    1     | change |  13.48  |  -3.18  |
+|      Python       |    3     |    3     |  nan   |  10.47  |  0.59   |
+|        C++        |    4     |    4     |  nan   |  7.11   |  1.48   |
+|        C#         |    5     |    5     |  nan   |  4.58   |  1.18   |
+|   Visual Basic    |    6     |    6     |  nan   |  4.12   |  0.83   |
+|    JavaScript     |    7     |    7     |  nan   |  2.54   |  0.41   |
+|        PHP        |    8     |    9     | change |  2.49   |  0.62   |
+|         R         |    9     |    19    | change |  2.37   |  1.33   |
+|        SQL        |    10    |    8     | change |  1.76   |  -0.19  |
+|        Go         |    11    |    14    | change |  1.46   |  0.24   |
+|       Swift       |    12    |    16    | change |  1.38   |  0.28   |
+|       Perl        |    13    |    20    | change |   1.3   |  0.26   |
+| Assembly language |    14    |    12    | change |   1.3   |  -0.08  |
+|       Ruby        |    15    |    15    |  nan   |  1.24   |  0.03   |
+|      MATLAB       |    16    |    18    | change |   1.1   |  0.04   |
+|      Groovy       |    17    |    11    | change |  0.99   |  -0.52  |
+|       Rust        |    18    |    33    | change |  0.92   |  0.55   |
+|    Objective-C    |    19    |    10    | change |  0.85   |  -0.99  |
+|       Dart        |    20    |    24    | change |  0.77   |  0.13   |
++-------------------+----------+----------+--------+---------+---------+
+
+****************************************
+*                 psql                 *
+****************************************
+
++-------------------+------------+------------+----------+-----------+-----------+
+| Language          |   Sep 2020 |   Sep 2019 | Change   |   Ratings |   Changep |
+|-------------------+------------+------------+----------+-----------+-----------|
+| C                 |          1 |          2 | change   |     15.95 |      0.74 |
+| Java              |          2 |          1 | change   |     13.48 |     -3.18 |
+| Python            |          3 |          3 | nan      |     10.47 |      0.59 |
+| C++               |          4 |          4 | nan      |      7.11 |      1.48 |
+| C#                |          5 |          5 | nan      |      4.58 |      1.18 |
+| Visual Basic      |          6 |          6 | nan      |      4.12 |      0.83 |
+| JavaScript        |          7 |          7 | nan      |      2.54 |      0.41 |
+| PHP               |          8 |          9 | change   |      2.49 |      0.62 |
+| R                 |          9 |         19 | change   |      2.37 |      1.33 |
+| SQL               |         10 |          8 | change   |      1.76 |     -0.19 |
+| Go                |         11 |         14 | change   |      1.46 |      0.24 |
+| Swift             |         12 |         16 | change   |      1.38 |      0.28 |
+| Perl              |         13 |         20 | change   |      1.3  |      0.26 |
+| Assembly language |         14 |         12 | change   |      1.3  |     -0.08 |
+| Ruby              |         15 |         15 | nan      |      1.24 |      0.03 |
+| MATLAB            |         16 |         18 | change   |      1.1  |      0.04 |
+| Groovy            |         17 |         11 | change   |      0.99 |     -0.52 |
+| Rust              |         18 |         33 | change   |      0.92 |      0.55 |
+| Objective-C       |         19 |         10 | change   |      0.85 |     -0.99 |
+| Dart              |         20 |         24 | change   |      0.77 |      0.13 |
++-------------------+------------+------------+----------+-----------+-----------+
+
+****************************************
+*                 rst                  *
+****************************************
+
+=================  ==========  ==========  ========  =========  =========
+Language             Sep 2020    Sep 2019  Change      Ratings    Changep
+=================  ==========  ==========  ========  =========  =========
+C                           1           2  change        15.95       0.74
+Java                        2           1  change        13.48      -3.18
+Python                      3           3  nan           10.47       0.59
+C++                         4           4  nan            7.11       1.48
+C#                          5           5  nan            4.58       1.18
+Visual Basic                6           6  nan            4.12       0.83
+JavaScript                  7           7  nan            2.54       0.41
+PHP                         8           9  change         2.49       0.62
+R                           9          19  change         2.37       1.33
+SQL                        10           8  change         1.76      -0.19
+Go                         11          14  change         1.46       0.24
+Swift                      12          16  change         1.38       0.28
+Perl                       13          20  change         1.3        0.26
+Assembly language          14          12  change         1.3       -0.08
+Ruby                       15          15  nan            1.24       0.03
+MATLAB                     16          18  change         1.1        0.04
+Groovy                     17          11  change         0.99      -0.52
+Rust                       18          33  change         0.92       0.55
+Objective-C                19          10  change         0.85      -0.99
+Dart                       20          24  change         0.77       0.13
+=================  ==========  ==========  ========  =========  =========
+
+****************************************
+*              mediawiki               *
+****************************************
+
+{| class="wikitable" style="text-align: left;"
+|+ <!-- caption -->
+|-
+! Language          !! align="right"|   Sep 2020 !! align="right"|   Sep 2019 !! Change   !! align="right"|   Ratings !! align="right"|   Changep
+|-
+| C                 || align="right"|          1 || align="right"|          2 || change   || align="right"|     15.95 || align="right"|      0.74
+|-
+| Java              || align="right"|          2 || align="right"|          1 || change   || align="right"|     13.48 || align="right"|     -3.18
+|-
+| Python            || align="right"|          3 || align="right"|          3 || nan      || align="right"|     10.47 || align="right"|      0.59
+|-
+| C++               || align="right"|          4 || align="right"|          4 || nan      || align="right"|      7.11 || align="right"|      1.48
+|-
+| C#                || align="right"|          5 || align="right"|          5 || nan      || align="right"|      4.58 || align="right"|      1.18
+|-
+| Visual Basic      || align="right"|          6 || align="right"|          6 || nan      || align="right"|      4.12 || align="right"|      0.83
+|-
+| JavaScript        || align="right"|          7 || align="right"|          7 || nan      || align="right"|      2.54 || align="right"|      0.41
+|-
+| PHP               || align="right"|          8 || align="right"|          9 || change   || align="right"|      2.49 || align="right"|      0.62
+|-
+| R                 || align="right"|          9 || align="right"|         19 || change   || align="right"|      2.37 || align="right"|      1.33
+|-
+| SQL               || align="right"|         10 || align="right"|          8 || change   || align="right"|      1.76 || align="right"|     -0.19
+|-
+| Go                || align="right"|         11 || align="right"|         14 || change   || align="right"|      1.46 || align="right"|      0.24
+|-
+| Swift             || align="right"|         12 || align="right"|         16 || change   || align="right"|      1.38 || align="right"|      0.28
+|-
+| Perl              || align="right"|         13 || align="right"|         20 || change   || align="right"|      1.3  || align="right"|      0.26
+|-
+| Assembly language || align="right"|         14 || align="right"|         12 || change   || align="right"|      1.3  || align="right"|     -0.08
+|-
+| Ruby              || align="right"|         15 || align="right"|         15 || nan      || align="right"|      1.24 || align="right"|      0.03
+|-
+| MATLAB            || align="right"|         16 || align="right"|         18 || change   || align="right"|      1.1  || align="right"|      0.04
+|-
+| Groovy            || align="right"|         17 || align="right"|         11 || change   || align="right"|      0.99 || align="right"|     -0.52
+|-
+| Rust              || align="right"|         18 || align="right"|         33 || change   || align="right"|      0.92 || align="right"|      0.55
+|-
+| Objective-C       || align="right"|         19 || align="right"|         10 || change   || align="right"|      0.85 || align="right"|     -0.99
+|-
+| Dart              || align="right"|         20 || align="right"|         24 || change   || align="right"|      0.77 || align="right"|      0.13
+|}
+
+****************************************
+*               moinmoin               *
+****************************************
+
+|| ''' Language          ''' ||<style="text-align: right;"> '''   Sep 2020 ''' ||<style="text-align: right;"> '''   Sep 2019 ''' || ''' Change   ''' ||<style="text-align: right;"> '''   Ratings ''' ||<style="text-align: right;"> '''   Changep ''' ||
+||  C                  ||<style="text-align: right;">           1  ||<style="text-align: right;">           2  ||  change    ||<style="text-align: right;">      15.95  ||<style="text-align: right;">       0.74  ||
+||  Java               ||<style="text-align: right;">           2  ||<style="text-align: right;">           1  ||  change    ||<style="text-align: right;">      13.48  ||<style="text-align: right;">      -3.18  ||
+||  Python             ||<style="text-align: right;">           3  ||<style="text-align: right;">           3  ||  nan       ||<style="text-align: right;">      10.47  ||<style="text-align: right;">       0.59  ||
+||  C++                ||<style="text-align: right;">           4  ||<style="text-align: right;">           4  ||  nan       ||<style="text-align: right;">       7.11  ||<style="text-align: right;">       1.48  ||
+||  C#                 ||<style="text-align: right;">           5  ||<style="text-align: right;">           5  ||  nan       ||<style="text-align: right;">       4.58  ||<style="text-align: right;">       1.18  ||
+||  Visual Basic       ||<style="text-align: right;">           6  ||<style="text-align: right;">           6  ||  nan       ||<style="text-align: right;">       4.12  ||<style="text-align: right;">       0.83  ||
+||  JavaScript         ||<style="text-align: right;">           7  ||<style="text-align: right;">           7  ||  nan       ||<style="text-align: right;">       2.54  ||<style="text-align: right;">       0.41  ||
+||  PHP                ||<style="text-align: right;">           8  ||<style="text-align: right;">           9  ||  change    ||<style="text-align: right;">       2.49  ||<style="text-align: right;">       0.62  ||
+||  R                  ||<style="text-align: right;">           9  ||<style="text-align: right;">          19  ||  change    ||<style="text-align: right;">       2.37  ||<style="text-align: right;">       1.33  ||
+||  SQL                ||<style="text-align: right;">          10  ||<style="text-align: right;">           8  ||  change    ||<style="text-align: right;">       1.76  ||<style="text-align: right;">      -0.19  ||
+||  Go                 ||<style="text-align: right;">          11  ||<style="text-align: right;">          14  ||  change    ||<style="text-align: right;">       1.46  ||<style="text-align: right;">       0.24  ||
+||  Swift              ||<style="text-align: right;">          12  ||<style="text-align: right;">          16  ||  change    ||<style="text-align: right;">       1.38  ||<style="text-align: right;">       0.28  ||
+||  Perl               ||<style="text-align: right;">          13  ||<style="text-align: right;">          20  ||  change    ||<style="text-align: right;">       1.3   ||<style="text-align: right;">       0.26  ||
+||  Assembly language  ||<style="text-align: right;">          14  ||<style="text-align: right;">          12  ||  change    ||<style="text-align: right;">       1.3   ||<style="text-align: right;">      -0.08  ||
+||  Ruby               ||<style="text-align: right;">          15  ||<style="text-align: right;">          15  ||  nan       ||<style="text-align: right;">       1.24  ||<style="text-align: right;">       0.03  ||
+||  MATLAB             ||<style="text-align: right;">          16  ||<style="text-align: right;">          18  ||  change    ||<style="text-align: right;">       1.1   ||<style="text-align: right;">       0.04  ||
+||  Groovy             ||<style="text-align: right;">          17  ||<style="text-align: right;">          11  ||  change    ||<style="text-align: right;">       0.99  ||<style="text-align: right;">      -0.52  ||
+||  Rust               ||<style="text-align: right;">          18  ||<style="text-align: right;">          33  ||  change    ||<style="text-align: right;">       0.92  ||<style="text-align: right;">       0.55  ||
+||  Objective-C        ||<style="text-align: right;">          19  ||<style="text-align: right;">          10  ||  change    ||<style="text-align: right;">       0.85  ||<style="text-align: right;">      -0.99  ||
+||  Dart               ||<style="text-align: right;">          20  ||<style="text-align: right;">          24  ||  change    ||<style="text-align: right;">       0.77  ||<style="text-align: right;">       0.13  ||
+
+****************************************
+*               youtrack               *
+****************************************
+
+||  Language           ||    Sep 2020  ||    Sep 2019  ||  Change    ||    Ratings  ||    Changep  ||
+|  C                  |           1  |           2  |  change    |      15.95  |       0.74  |
+|  Java               |           2  |           1  |  change    |      13.48  |      -3.18  |
+|  Python             |           3  |           3  |  nan       |      10.47  |       0.59  |
+|  C++                |           4  |           4  |  nan       |       7.11  |       1.48  |
+|  C#                 |           5  |           5  |  nan       |       4.58  |       1.18  |
+|  Visual Basic       |           6  |           6  |  nan       |       4.12  |       0.83  |
+|  JavaScript         |           7  |           7  |  nan       |       2.54  |       0.41  |
+|  PHP                |           8  |           9  |  change    |       2.49  |       0.62  |
+|  R                  |           9  |          19  |  change    |       2.37  |       1.33  |
+|  SQL                |          10  |           8  |  change    |       1.76  |      -0.19  |
+|  Go                 |          11  |          14  |  change    |       1.46  |       0.24  |
+|  Swift              |          12  |          16  |  change    |       1.38  |       0.28  |
+|  Perl               |          13  |          20  |  change    |       1.3   |       0.26  |
+|  Assembly language  |          14  |          12  |  change    |       1.3   |      -0.08  |
+|  Ruby               |          15  |          15  |  nan       |       1.24  |       0.03  |
+|  MATLAB             |          16  |          18  |  change    |       1.1   |       0.04  |
+|  Groovy             |          17  |          11  |  change    |       0.99  |      -0.52  |
+|  Rust               |          18  |          33  |  change    |       0.92  |       0.55  |
+|  Objective-C        |          19  |          10  |  change    |       0.85  |      -0.99  |
+|  Dart               |          20  |          24  |  change    |       0.77  |       0.13  |
+
+****************************************
+*                 html                 *
+****************************************
+
+<table>
+<thead>
+<tr><th>Language         </th><th style="text-align: right;">  Sep 2020</th><th style="text-align: right;">  Sep 2019</th><th>Change  </th><th style="text-align: right;">  Ratings</th><th style="text-align: right;">  Changep</th></tr>
+</thead>
+<tbody>
+<tr><td>C                </td><td style="text-align: right;">         1</td><td style="text-align: right;">         2</td><td>change  </td><td style="text-align: right;">    15.95</td><td style="text-align: right;">     0.74</td></tr>
+<tr><td>Java             </td><td style="text-align: right;">         2</td><td style="text-align: right;">         1</td><td>change  </td><td style="text-align: right;">    13.48</td><td style="text-align: right;">    -3.18</td></tr>
+<tr><td>Python           </td><td style="text-align: right;">         3</td><td style="text-align: right;">         3</td><td>nan     </td><td style="text-align: right;">    10.47</td><td style="text-align: right;">     0.59</td></tr>
+<tr><td>C++              </td><td style="text-align: right;">         4</td><td style="text-align: right;">         4</td><td>nan     </td><td style="text-align: right;">     7.11</td><td style="text-align: right;">     1.48</td></tr>
+<tr><td>C#               </td><td style="text-align: right;">         5</td><td style="text-align: right;">         5</td><td>nan     </td><td style="text-align: right;">     4.58</td><td style="text-align: right;">     1.18</td></tr>
+<tr><td>Visual Basic     </td><td style="text-align: right;">         6</td><td style="text-align: right;">         6</td><td>nan     </td><td style="text-align: right;">     4.12</td><td style="text-align: right;">     0.83</td></tr>
+<tr><td>JavaScript       </td><td style="text-align: right;">         7</td><td style="text-align: right;">         7</td><td>nan     </td><td style="text-align: right;">     2.54</td><td style="text-align: right;">     0.41</td></tr>
+<tr><td>PHP              </td><td style="text-align: right;">         8</td><td style="text-align: right;">         9</td><td>change  </td><td style="text-align: right;">     2.49</td><td style="text-align: right;">     0.62</td></tr>
+<tr><td>R                </td><td style="text-align: right;">         9</td><td style="text-align: right;">        19</td><td>change  </td><td style="text-align: right;">     2.37</td><td style="text-align: right;">     1.33</td></tr>
+<tr><td>SQL              </td><td style="text-align: right;">        10</td><td style="text-align: right;">         8</td><td>change  </td><td style="text-align: right;">     1.76</td><td style="text-align: right;">    -0.19</td></tr>
+<tr><td>Go               </td><td style="text-align: right;">        11</td><td style="text-align: right;">        14</td><td>change  </td><td style="text-align: right;">     1.46</td><td style="text-align: right;">     0.24</td></tr>
+<tr><td>Swift            </td><td style="text-align: right;">        12</td><td style="text-align: right;">        16</td><td>change  </td><td style="text-align: right;">     1.38</td><td style="text-align: right;">     0.28</td></tr>
+<tr><td>Perl             </td><td style="text-align: right;">        13</td><td style="text-align: right;">        20</td><td>change  </td><td style="text-align: right;">     1.3 </td><td style="text-align: right;">     0.26</td></tr>
+<tr><td>Assembly language</td><td style="text-align: right;">        14</td><td style="text-align: right;">        12</td><td>change  </td><td style="text-align: right;">     1.3 </td><td style="text-align: right;">    -0.08</td></tr>
+<tr><td>Ruby             </td><td style="text-align: right;">        15</td><td style="text-align: right;">        15</td><td>nan     </td><td style="text-align: right;">     1.24</td><td style="text-align: right;">     0.03</td></tr>
+<tr><td>MATLAB           </td><td style="text-align: right;">        16</td><td style="text-align: right;">        18</td><td>change  </td><td style="text-align: right;">     1.1 </td><td style="text-align: right;">     0.04</td></tr>
+<tr><td>Groovy           </td><td style="text-align: right;">        17</td><td style="text-align: right;">        11</td><td>change  </td><td style="text-align: right;">     0.99</td><td style="text-align: right;">    -0.52</td></tr>
+<tr><td>Rust             </td><td style="text-align: right;">        18</td><td style="text-align: right;">        33</td><td>change  </td><td style="text-align: right;">     0.92</td><td style="text-align: right;">     0.55</td></tr>
+<tr><td>Objective-C      </td><td style="text-align: right;">        19</td><td style="text-align: right;">        10</td><td>change  </td><td style="text-align: right;">     0.85</td><td style="text-align: right;">    -0.99</td></tr>
+<tr><td>Dart             </td><td style="text-align: right;">        20</td><td style="text-align: right;">        24</td><td>change  </td><td style="text-align: right;">     0.77</td><td style="text-align: right;">     0.13</td></tr>
+</tbody>
+</table>
+
+****************************************
+*                latex                 *
+****************************************
+
+\begin{tabular}{lrrlrr}
+\hline
+ Language          &   Sep 2020 &   Sep 2019 & Change   &   Ratings &   Changep \\
+\hline
+ C                 &          1 &          2 & change   &     15.95 &      0.74 \\
+ Java              &          2 &          1 & change   &     13.48 &     -3.18 \\
+ Python            &          3 &          3 & nan      &     10.47 &      0.59 \\
+ C++               &          4 &          4 & nan      &      7.11 &      1.48 \\
+ C\#                &          5 &          5 & nan      &      4.58 &      1.18 \\
+ Visual Basic      &          6 &          6 & nan      &      4.12 &      0.83 \\
+ JavaScript        &          7 &          7 & nan      &      2.54 &      0.41 \\
+ PHP               &          8 &          9 & change   &      2.49 &      0.62 \\
+ R                 &          9 &         19 & change   &      2.37 &      1.33 \\
+ SQL               &         10 &          8 & change   &      1.76 &     -0.19 \\
+ Go                &         11 &         14 & change   &      1.46 &      0.24 \\
+ Swift             &         12 &         16 & change   &      1.38 &      0.28 \\
+ Perl              &         13 &         20 & change   &      1.3  &      0.26 \\
+ Assembly language &         14 &         12 & change   &      1.3  &     -0.08 \\
+ Ruby              &         15 &         15 & nan      &      1.24 &      0.03 \\
+ MATLAB            &         16 &         18 & change   &      1.1  &      0.04 \\
+ Groovy            &         17 &         11 & change   &      0.99 &     -0.52 \\
+ Rust              &         18 &         33 & change   &      0.92 &      0.55 \\
+ Objective-C       &         19 &         10 & change   &      0.85 &     -0.99 \\
+ Dart              &         20 &         24 & change   &      0.77 &      0.13 \\
+\hline
+\end{tabular}
+
+****************************************
+*              latex_raw               *
+****************************************
+
+\begin{tabular}{lrrlrr}
+\hline
+ Language          &   Sep 2020 &   Sep 2019 & Change   &   Ratings &   Changep \\
+\hline
+ C                 &          1 &          2 & change   &     15.95 &      0.74 \\
+ Java              &          2 &          1 & change   &     13.48 &     -3.18 \\
+ Python            &          3 &          3 & nan      &     10.47 &      0.59 \\
+ C++               &          4 &          4 & nan      &      7.11 &      1.48 \\
+ C#                &          5 &          5 & nan      &      4.58 &      1.18 \\
+ Visual Basic      &          6 &          6 & nan      &      4.12 &      0.83 \\
+ JavaScript        &          7 &          7 & nan      &      2.54 &      0.41 \\
+ PHP               &          8 &          9 & change   &      2.49 &      0.62 \\
+ R                 &          9 &         19 & change   &      2.37 &      1.33 \\
+ SQL               &         10 &          8 & change   &      1.76 &     -0.19 \\
+ Go                &         11 &         14 & change   &      1.46 &      0.24 \\
+ Swift             &         12 &         16 & change   &      1.38 &      0.28 \\
+ Perl              &         13 &         20 & change   &      1.3  &      0.26 \\
+ Assembly language &         14 &         12 & change   &      1.3  &     -0.08 \\
+ Ruby              &         15 &         15 & nan      &      1.24 &      0.03 \\
+ MATLAB            &         16 &         18 & change   &      1.1  &      0.04 \\
+ Groovy            &         17 &         11 & change   &      0.99 &     -0.52 \\
+ Rust              &         18 &         33 & change   &      0.92 &      0.55 \\
+ Objective-C       &         19 &         10 & change   &      0.85 &     -0.99 \\
+ Dart              &         20 &         24 & change   &      0.77 &      0.13 \\
+\hline
+\end{tabular}
+
+****************************************
+*            latex_booktabs            *
+****************************************
+
+\begin{tabular}{lrrlrr}
+\toprule
+ Language          &   Sep 2020 &   Sep 2019 & Change   &   Ratings &   Changep \\
+\midrule
+ C                 &          1 &          2 & change   &     15.95 &      0.74 \\
+ Java              &          2 &          1 & change   &     13.48 &     -3.18 \\
+ Python            &          3 &          3 & nan      &     10.47 &      0.59 \\
+ C++               &          4 &          4 & nan      &      7.11 &      1.48 \\
+ C\#                &          5 &          5 & nan      &      4.58 &      1.18 \\
+ Visual Basic      &          6 &          6 & nan      &      4.12 &      0.83 \\
+ JavaScript        &          7 &          7 & nan      &      2.54 &      0.41 \\
+ PHP               &          8 &          9 & change   &      2.49 &      0.62 \\
+ R                 &          9 &         19 & change   &      2.37 &      1.33 \\
+ SQL               &         10 &          8 & change   &      1.76 &     -0.19 \\
+ Go                &         11 &         14 & change   &      1.46 &      0.24 \\
+ Swift             &         12 &         16 & change   &      1.38 &      0.28 \\
+ Perl              &         13 &         20 & change   &      1.3  &      0.26 \\
+ Assembly language &         14 &         12 & change   &      1.3  &     -0.08 \\
+ Ruby              &         15 &         15 & nan      &      1.24 &      0.03 \\
+ MATLAB            &         16 &         18 & change   &      1.1  &      0.04 \\
+ Groovy            &         17 &         11 & change   &      0.99 &     -0.52 \\
+ Rust              &         18 &         33 & change   &      0.92 &      0.55 \\
+ Objective-C       &         19 &         10 & change   &      0.85 &     -0.99 \\
+ Dart              &         20 &         24 & change   &      0.77 &      0.13 \\
+\bottomrule
+\end{tabular}
+
+****************************************
+*               textile                *
+****************************************
+
+|_.  Language          |_.   Sep 2020 |_.   Sep 2019 |_. Change   |_.   Ratings |_.   Changep |
+|<. C                  |>.          1 |>.          2 |<. change   |>.     15.95 |>.      0.74 |
+|<. Java               |>.          2 |>.          1 |<. change   |>.     13.48 |>.     -3.18 |
+|<. Python             |>.          3 |>.          3 |<. nan      |>.     10.47 |>.      0.59 |
+|<. C++                |>.          4 |>.          4 |<. nan      |>.      7.11 |>.      1.48 |
+|<. C#                 |>.          5 |>.          5 |<. nan      |>.      4.58 |>.      1.18 |
+|<. Visual Basic       |>.          6 |>.          6 |<. nan      |>.      4.12 |>.      0.83 |
+|<. JavaScript         |>.          7 |>.          7 |<. nan      |>.      2.54 |>.      0.41 |
+|<. PHP                |>.          8 |>.          9 |<. change   |>.      2.49 |>.      0.62 |
+|<. R                  |>.          9 |>.         19 |<. change   |>.      2.37 |>.      1.33 |
+|<. SQL                |>.         10 |>.          8 |<. change   |>.      1.76 |>.     -0.19 |
+|<. Go                 |>.         11 |>.         14 |<. change   |>.      1.46 |>.      0.24 |
+|<. Swift              |>.         12 |>.         16 |<. change   |>.      1.38 |>.      0.28 |
+|<. Perl               |>.         13 |>.         20 |<. change   |>.      1.3  |>.      0.26 |
+|<. Assembly language  |>.         14 |>.         12 |<. change   |>.      1.3  |>.     -0.08 |
+|<. Ruby               |>.         15 |>.         15 |<. nan      |>.      1.24 |>.      0.03 |
+|<. MATLAB             |>.         16 |>.         18 |<. change   |>.      1.1  |>.      0.04 |
+|<. Groovy             |>.         17 |>.         11 |<. change   |>.      0.99 |>.     -0.52 |
+|<. Rust               |>.         18 |>.         33 |<. change   |>.      0.92 |>.      0.55 |
+|<. Objective-C        |>.         19 |>.         10 |<. change   |>.      0.85 |>.     -0.99 |
+|<. Dart               |>.         20 |>.         24 |<. change   |>.      0.77 |>.      0.13 |
+
+****************************************
+*                 tsv                  *
+****************************************
+
+Language         	  Sep 2020	  Sep 2019	Change  	  Ratings	  Changep
+C                	         1	         2	change  	    15.95	     0.74
+Java             	         2	         1	change  	    13.48	    -3.18
+Python           	         3	         3	nan     	    10.47	     0.59
+C++              	         4	         4	nan     	     7.11	     1.48
+C#               	         5	         5	nan     	     4.58	     1.18
+Visual Basic     	         6	         6	nan     	     4.12	     0.83
+JavaScript       	         7	         7	nan     	     2.54	     0.41
+PHP              	         8	         9	change  	     2.49	     0.62
+R                	         9	        19	change  	     2.37	     1.33
+SQL              	        10	         8	change  	     1.76	    -0.19
+Go               	        11	        14	change  	     1.46	     0.24
+Swift            	        12	        16	change  	     1.38	     0.28
+Perl             	        13	        20	change  	     1.3 	     0.26
+Assembly language	        14	        12	change  	     1.3 	    -0.08
+Ruby             	        15	        15	nan     	     1.24	     0.03
+MATLAB           	        16	        18	change  	     1.1 	     0.04
+Groovy           	        17	        11	change  	     0.99	    -0.52
+Rust             	        18	        33	change  	     0.92	     0.55
+Objective-C      	        19	        10	change  	     0.85	    -0.99
+Dart             	        20	        24	change  	     0.77	     0.13
