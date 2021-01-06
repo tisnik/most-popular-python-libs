@@ -1,0 +1,248 @@
+Hash|Date|Author|Commit message
+2bf9d6d|2020-08-26|Pavel Tisnovsky|Sheets with one boolean and one real value
+e9b3b65|2020-08-26|Pavel Tisnovsky|Sheet with just one integer value
+9cabc4c|2020-08-25|Pavel Tisnovsky|Date, time, and datetime formats
+d829b47|2020-08-25|Pavel Tisnovsky|Styles shared between cells
+bf7a438|2020-08-25|Pavel Tisnovsky|Style usages
+24d9f3a|2020-08-25|Pavel Tisnovsky|Hyperlinks in cells
+f5e68a3|2020-08-25|Pavel Tisnovsky|Formula usage
+767b2fa|2020-08-25|Pavel Tisnovsky|Formatting numbers
+2e25247|2020-07-17|Pavel Tisnovsky|Example #33: graph serialization
+4ca539c|2020-07-17|Pavel Tisnovsky|Example #32: third serialization formats comparison
+b03c99b|2020-07-17|Pavel Tisnovsky|Example #31: second serialization formats comparison
+03d07f4|2020-07-17|Pavel Tisnovsky|Example #30: first serialization formats comparison
+488a1d1|2020-07-17|Pavel Tisnovsky|Marshalling into XML
+51c1306|2020-07-16|Pavel Tisnovsky|Updated .gitignore file
+ea0d8cf|2020-07-14|Pavel Tisnovsky|Max value computation
+cb2284d|2020-07-14|Pavel Tisnovsky|Reduce method for anonymous type
+e49bdf1|2020-07-14|Pavel Tisnovsky|Sort method for anonymous type
+92671d5|2020-07-14|Pavel Tisnovsky|Map method for anonymous type
+cce5f77|2020-07-14|Pavel Tisnovsky|Filter method for anonymous type
+1f2fc4f|2020-07-13|Pavel Tisnovsky|Example #20: Reduce method
+5992500|2020-07-13|Pavel Tisnovsky|Example #19: Improper combination of more stream manipulators
+c975f68|2020-07-13|Pavel Tisnovsky|Example #18: Combination of more stream manipulators
+c195f07|2020-07-13|Pavel Tisnovsky|Example #17: Reverse method and streams
+bd058bb|2020-07-13|Pavel Tisnovsky|Example #16: Sort method and streams
+9844102|2020-05-25|Pavel Tišnovský|Merge pull request #107 from dmvolod/fix-lesson6-slide16
+afa3d48|2020-05-25|Pavel Tišnovský|Merge pull request #106 from dmvolod/fix-lesson6-slide5
+98462af|2020-05-25|Dmitry Volodin|Use const for addr
+7f02499|2020-05-25|Dmitry Volodin|lesson6 slide 16: Fix display to fit Run button
+f1c6411|2020-05-25|Dmitry Volodin|Fix lesson6 slide5 code and display
+7adea2c|2020-05-14|Pavel Tišnovský|Merge pull request #105 from dmvolod/lecture3-slide41-mprints
+a145e0c|2020-05-14|Dmitry Volodin|lecture3 slide 41 missprint fix
+95b12e7|2020-05-13|Pavel Tišnovský|Merge pull request #104 from dmvolod/fix-lesson3-slide-27-comment
+b6ecf81|2020-05-13|Dmitry Volodin|Fix not used math package
+4055a25|2020-05-13|Dmitry Volodin|Fix missprint in example comment
+60648d3|2020-05-13|Pavel Tišnovský|Merge pull request #103 from dmvolod/fix-display-lesson3-slide24
+5cb5d45|2020-05-13|Dmitry Volodin|Fix display code in lesson3 slide 24
+fd1c28f|2020-05-13|Pavel Tišnovský|Merge pull request #100 from dmvolod/fix-struct-comp-display
+8eb4c66|2020-05-13|Pavel Tišnovský|Merge pull request #101 from dmvolod/fix-lesson2-slide39-display
+289802a|2020-05-13|Dmitry Volodin|Fix italic format in lesson2 slide 39
+e8ed9e9|2020-05-13|Pavel Tisnovsky|nil is an implicit value for pointer
+4bdb282|2020-05-13|Pavel Tisnovsky|nil is an implicit value for pointer
+a197959|2020-05-13|Dmitry Volodin|Fix display boundaries in comparison of whole structs
+dece7e7|2020-05-13|Pavel Tisnovsky|Zero values are implicit
+d883b86|2019-12-11|Pavel Tisnovsky|Better naming
+482bae3|2019-12-11|José Luis Segura Lucas|Minor error on lesson 2 about map deleting
+1affa06|2019-12-10|Pavel Tisnovsky|Map string->int
+a0259b5|2019-12-10|Pavel Tisnovsky|Better name for pointer
+548d97a|2019-12-10|Pavel Tisnovsky|Updated date
+774e452|2019-12-09|Pavel Tisnovsky|Pi computation benchmark
+bebd42f|2019-12-09|Pavel Tisnovsky|Mandelbrot benchmark
+e161f62|2019-12-09|Pavel Tisnovsky|Fixed: exported function Factorial should have comment or be unexported
+c306a26|2019-12-09|Pavel Tisnovsky|Fixed: exported function Factorial should have comment or be unexported
+8b2ae30|2019-12-09|Pavel Tisnovsky|Don't use underscores in variable names
+a06c28e|2019-12-09|Pavel Tisnovsky|Overall picture
+2dabc44|2019-12-06|Pavel Tisnovsky|Don't use underscores
+f13e69a|2019-12-06|Pavel Tisnovsky|Reformatted code
+44397d2|2019-12-06|Pavel Tisnovsky|Check all errors
+3463342|2019-12-06|Pavel Tisnovsky|Fixed typos
+a92c4d5|2019-12-06|Pavel Tisnovsky|Proper name for ID
+cf91b0c|2019-12-06|Pavel Tisnovsky|Proper name for pointer
+d20c949|2019-12-06|Pavel Tisnovsky|if block ends with a return statement, so drop this else and outdent its block
+776b7e7|2019-12-05|Pavel Tisnovsky|Fixed all wrong regexp
+c07274c|2019-12-05|Pavel Tisnovsky|Info about Unicode
+374dcdd|2019-12-05|Pavel Tisnovsky|Hello world in Russian
+4edbd1a|2019-12-05|Pavel Tisnovsky|Collections testing
+e862005|2019-12-05|Pavel Tisnovsky|Maps testing
+7a7286e|2019-12-05|Pavel Tisnovsky|Factorial tests #5
+58bc748|2019-12-05|Pavel Tisnovsky|Factorial tests #4
+4a281f4|2019-12-05|Pavel Tisnovsky|Factorial tests #3
+556ee22|2019-12-05|Pavel Tisnovsky|Factorial tests #2, now using the Omega function
+7c1d1c3|2019-12-05|Pavel Tisnovsky|Factorial tests #2
+5b0da4d|2019-12-05|Pavel Tisnovsky|Factorial tests #1
+448542d|2019-12-04|Pavel Tisnovsky|Dierctory for Gomega examples
+ba37836|2019-12-04|Pavel Tisnovsky|Info about all expect-like libraries
+e6e2af0|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 7th iteration
+a807662|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 6th iteration
+5aef8fb|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 5th iteration
+7c2c0b5|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 4th iteration
+e54d76f|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 3rd iteration
+17d0b63|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 2nd iteration
+bdb4040|2019-12-03|Pavel Tisnovsky|Ginkgo + Omega: 1st iteration
+6f763f3|2019-12-02|Pavel Tisnovsky|Homework - factorial with error checking
+b6b89dc|2019-12-02|Pavel Tisnovsky|Homework - factorial, the easiest implementation
+3c4f7eb|2019-12-02|Pavel Tisnovsky|Oglematchers - presentation
+87a5f8f|2019-12-02|Pavel Tisnovsky|Improved GCD homework test a bit
+d0766c7|2019-12-02|Pavel Tisnovsky|Mention 'Line of sight' rule
+a2c0b1c|2019-12-02|Pavel Tisnovsky|Added link to another video - Things in Go I Never Use by Mat Ryer
+674cda5|2019-11-28|Pavel Tisnovsky|Example #9: Python interpreter math check as unit test
+a0baff3|2019-11-28|Pavel Tisnovsky|Example #8: Python interpreter interop as unit test
+46cc81b|2019-11-28|Pavel Tisnovsky|Example #7: Python interpreter interop, better variant
+b2db1c2|2019-11-28|Pavel Tisnovsky|Example #6: Python interpreter interop
+6870562|2019-11-28|Pavel Tisnovsky|Example #5: login into telnet game, better variant
+fc93e2c|2019-11-28|Pavel Tisnovsky|Example #4: login into telnet game, initial variant
+c2cab6d|2019-11-28|Pavel Tisnovsky|Example #3: check CURL output
+a242d2c|2019-11-28|Pavel Tisnovsky|Example #2: simple check for uname (improper one)
+ca56858|2019-11-28|Pavel Tisnovsky|Example #1: simple check for uname
+2963268|2019-11-28|Pavel Tisnovsky|Useful links section
+8f75239|2019-11-27|Pavel Tisnovsky|Example #8: Arithmetic expression checks
+ff3f7b4|2019-11-27|Pavel Tisnovsky|Example #7: Communication with Python interpreter
+8bcd4f3|2019-11-27|Pavel Tisnovsky|Example #6: New example with timeouts
+73e8a10|2019-11-27|Pavel Tisnovsky|Example #5: Python interpreter
+33e04cc|2019-11-27|Pavel Tisnovsky|Example #4: Python interpreter
+76dbdde|2019-11-27|Pavel Tisnovsky|Example #3: login into telnet game
+87a5655|2019-11-27|Pavel Tisnovsky|Example #2: check CURL output
+fd10fc3|2019-11-27|Pavel Tisnovsky|Example #1: simple check for uname
+8bc1f7f|2019-11-27|Pavel Tisnovsky|Example #15: error channel checking as unit test
+a1a5fc1|2019-11-27|Pavel Tisnovsky|Example #14: error channel checking as unit test
+01a7d36|2019-11-27|Pavel Tisnovsky|Example #13: Python interpreter cooperation as unit test
+4be2e1e|2019-11-26|Pavel Tisnovsky|Example 12: using error channel
+eee58e6|2019-11-26|Pavel Tisnovsky|Example 11: using error channel
+de798c0|2019-11-26|Pavel Tisnovsky|Example 10: Caser struct and other improvements
+f5fe151|2019-11-26|Pavel Tisnovsky|Example 9: Caser struct
+708dfb6|2019-11-26|Pavel Tisnovsky|Example 8: checking Python version
+3de8576|2019-11-26|Pavel Tisnovsky|Example 7: controlling Python interpreter
+0cfd356|2019-11-26|Pavel Tisnovsky|Example 6: controlling game over telnet, third variant
+1a02a14|2019-11-26|Pavel Tisnovsky|Example 5: controlling game over telnet, second variant
+597bc1d|2019-11-26|Pavel Tisnovsky|Example 4: controlling game over telnet, the first variant
+c22ca27|2019-11-26|Pavel Tisnovsky|Example 3: check output of 'uname' command
+2924311|2019-11-26|Pavel Tisnovsky|Example 2: better variant of previous example
+9fb4a1d|2019-11-26|Pavel Tisnovsky|Example 1: check output of 'uname' command
+5c65c15|2019-11-25|Pavel Tisnovsky|Put all godog examples into correct subdirectory
+799a58a|2019-11-25|Pavel Tisnovsky|Put all oglematchers examples into correct subdirectory
+67f3e01|2019-11-25|Pavel Tisnovsky|First homework: GCD computation
+fffee7e|2019-11-25|Pavel Tisnovsky|Mention expect-like Go frameworks and libraries
+d68bb90|2019-11-22|Pavel Tisnovsky|GoConvey, new links, testing pyramid explanation
+1b51641|2019-11-21|Pavel Tisnovsky|Moved go-convey examples into its own directory
+a9671c1|2019-11-21|Pavel Tisnovsky|Moved assertions examples into its own directory
+f8504a7|2019-11-21|Pavel Tisnovsky|Moved ogletest examples into its own directory
+e1ce062|2019-11-21|Pavel Tisnovsky|Updated links to code examples
+d37bf5a|2019-11-21|Pavel Tisnovsky|Fixed several things on slides
+78988b6|2019-11-21|Pavel Tisnovsky|All unit tests bases on testing package moved to correct subdirectory
+667d489|2019-11-20|Pavel Tisnovsky|Removed whitespace
+553b973|2019-11-20|Pavel Tisnovsky|Fixed wrong formatting
+4bb3cc8|2019-11-20|Pavel Tisnovsky|Fixed imports
+ac18c83|2019-11-20|Pavel Tisnovsky|Proper imports
+57d1130|2019-11-20|Pavel Tisnovsky|Trimmed whitespaces
+eafaf64|2019-11-20|Pavel Tisnovsky|Trimmed whitespace
+68a176b|2019-11-19|Pavel Tisnovsky|Don't use underscores in Go names
+0d4a233|2019-11-19|Pavel Tisnovsky|Don't use underscores in Go names
+5d62bc6|2019-11-19|Pavel Tisnovsky|Don't use underscores in Go names
+d371049|2019-11-19|Pavel Tisnovsky|Don't use underscores in Go names
+61e08a2|2019-11-18|Stanislav Kozina|Fix gofmt
+5b4ff42|2019-11-18|Pavel Tisnovsky|Added Go report card
+477327e|2019-11-18|Pavel Tisnovsky|Use proper function name
+46f2184|2019-11-18|Pavel Tisnovsky|Use proper variable name
+f2ddf91|2019-11-18|Pavel Tisnovsky|Use proper function name
+d819277|2019-11-18|Pavel Tisnovsky|Simplified code using gofmt
+e207c30|2019-11-18|Pavel Tisnovsky|Simplified code using gofmt
+962f773|2019-11-18|Pavel Tisnovsky|Simplified code using gofmt
+513c092|2019-11-18|Pavel Tisnovsky|Info about coverage reporting
+e3759c0|2019-11-18|Pavel Tisnovsky|Example of go-carpet coverage report
+b7429d9|2019-11-18|Pavel Tisnovsky|Example of coverage report
+533c4e9|2019-11-15|Pavel Tisnovsky|More examples how to use Goblin package
+a2d87ac|2019-11-15|Pavel Tisnovsky|Usage of method Goblin.Before
+fb7b4bb|2019-11-15|Pavel Tisnovsky|Usage of method Goblin.Before
+7979590|2019-11-15|Pavel Tisnovsky|Behaviour of Goblin when some test fails
+d70bfe5|2019-11-15|Pavel Tisnovsky|Behaviour of Goblin when some test fails
+842814c|2019-11-15|Pavel Tisnovsky|Tests splitted into more functions
+a674bf5|2019-11-15|Pavel Tisnovsky|Nested 'Describe' blocks in one test function
+e825e45|2019-11-15|Pavel Tisnovsky|Nested 'Describe' blocks in one test function
+40edbf9|2019-11-15|Pavel Tisnovsky|Example of all test steps that are passing
+13a15ba|2019-11-15|Pavel Tisnovsky|Example of all test steps that are passing
+e2c2742|2019-11-15|Pavel Tisnovsky|More 'It' blocks in one 'Describe' block
+54c2421|2019-11-15|Pavel Tisnovsky|Checking behaviour of + operator
+cd4526d|2019-11-15|Pavel Tisnovsky|Stub for test based on Goblin
+548a63b|2019-11-15|Pavel Tisnovsky|Goblin examples
+7d1a484|2019-11-12|Pavel Tisnovsky|Check content
+860bea4|2019-11-12|Pavel Tisnovsky|POSTing JSON to REST API
+5dbc3ff|2019-11-12|Pavel Tisnovsky|Updated previous example
+6b63142|2019-11-12|Pavel Tisnovsky|POSTing data to REST API
+6bbb296|2019-11-12|Pavel Tisnovsky|Frisby + REST API testing, basic examples
+1fe535e|2019-11-12|Pavel Tisnovsky|Checking headers, variant that fails
+710af5a|2019-11-12|Pavel Tisnovsky|Checking headers
+e33ea39|2019-11-12|Pavel Tisnovsky|Some tests that fail
+a1340f4|2019-11-12|Pavel Tisnovsky|Reporting similar to unit tests output
+022fc7d|2019-11-12|Pavel Tisnovsky|The same example, but without fluent API direct usage
+bdff763|2019-11-12|Pavel Tisnovsky|Basic usage of Frisby - GET method
+b404b68|2019-11-11|Pavel Tisnovsky|Ogletest-based tests #2
+e82930a|2019-11-11|Pavel Tisnovsky|Ogletest-based tests #1
+4c4ad24|2019-11-11|Pavel Tisnovsky|Oglematchers-based tests #2
+696acf9|2019-11-11|Pavel Tisnovsky|Oglematchers-based tests #1
+de33eaf|2019-11-11|Pavel Tisnovsky|Go-convey tests #3
+645a64f|2019-11-11|Pavel Tisnovsky|Assertions-based tests #3
+37939d3|2019-11-11|Pavel Tisnovsky|Assertions-based tests #2
+450997d|2019-11-11|Pavel Tisnovsky|Assertions-based tests #1
+d64b118|2019-11-11|Pavel Tisnovsky|Testing in Go workshop: 6th version (REST API testing + Frisby)
+3f28196|2019-11-08|Pavel Tisnovsky|Fixed some common errors
+7f292c5|2019-11-08|Pavel Tisnovsky|Testing in Go workshop: 5th version (testify)
+45d6142|2019-11-07|Pavel Tisnovsky|Testing in Go workshop: 4th version (BDD + Gherkin)
+b81055f|2019-11-06|Stanislav Kozina|Notes on concurrency
+e7d5fca|2019-11-06|Stanislav Kozina|Fix typo
+e7a6b5a|2019-11-06|Stanislav Kozina|Note on resources and IDE (VS Code)
+cf0f58c|2019-11-06|Pavel Tisnovsky|Go Convey-based BDD test #2
+7e18b59|2019-11-06|Pavel Tisnovsky|Testing in Go workshop: 3rd version
+709aeec|2019-11-05|Pavel Tisnovsky|Simple test based on 'testing' package
+6198c43|2019-11-05|Pavel Tisnovsky|Go Convey-based BDD test
+753512f|2019-11-05|Pavel Tisnovsky|Testing in Go workshop: 2nd version
+38ff2f0|2019-10-17|Ivan Nečas|lesson6: update title
+81642da|2019-10-17|Ivan Nečas|lesson6: http and friends
+53fc80b|2019-10-09|Jakub Čajka|lesson5: Initilal version of lesson5 with examples
+093c0cc|2019-10-04|Stanislav Kozina|Add sample TCP server code
+3ea65d8|2019-09-23|Pavel Tisnovsky|Fixed typo
+a9445d2|2019-09-13|Martin Styk|Fix typo in word Better
+e0faf16|2019-09-06|Stanislav Kozina|GOPATH, workspaces
+366541a|2019-09-05|Pavel Tišnovský|Merge pull request #1 from jnovy/typofix
+8679bad|2019-09-05|Jindrich Novy|Fix typo.
+7f9a153|2019-08-12|Stanislav Kozina|More on concurency
+1c02e6f|2019-06-05|Stanislav Kozina|more on channels lesson4
+623b2eb|2019-05-21|Pavel Tisnovsky|Fixed slide ends
+126a97d|2019-05-21|Pavel Tisnovsky|Example #20: three nil interfaces
+fb46ca0|2019-05-20|Stanislav Kozina|Channels
+6fb3ecf|2019-05-17|Stanislav Kozina|Lesson4
+921274d|2019-05-16|Pavel Tisnovsky|Info for users
+44ae42b|2019-05-16|Pavel Tisnovsky|Example 16B: two dimensional arrays etc.
+04b9f19|2019-05-16|Pavel Tisnovsky|Defer func, second variant
+e74390c|2019-05-16|Pavel Tisnovsky|Example #14: missing interface implementation
+33a2754|2019-05-15|Pavel Tisnovsky|Example #33: for range loop
+878a16e|2019-05-15|Pavel Tisnovsky|Renamed, sorted slides
+17ff504|2019-05-14|Stanislav Kozina|Finishing lesson1
+0e6bbcf|2019-05-14|Pavel Tisnovsky|Example #11: methodds with parameters and receiver pointer
+3ad5605|2019-05-14|Pavel Tisnovsky|Example #10: methods with parameters
+c246190|2019-05-14|Pavel Tisnovsky|Example #9: methods
+08f2615|2019-05-14|Pavel Tisnovsky|Example #8: sort-by implementation
+af2e744|2019-05-14|Pavel Tisnovsky|Example #7: Sort() with closure
+bcddc75|2019-05-14|Pavel Tisnovsky|Example #6: usage of Sort()
+c1dcfbb|2019-05-14|Pavel Tisnovsky|Example #5: function type
+f3a52df|2019-05-10|Pavel Tisnovsky|Example 14: comparison of two structures
+ba726ac|2019-05-10|Pavel Tisnovsky|Example 13: better structure initialization
+8976086|2019-05-10|Pavel Tisnovsky|Example 12: structure initialization
+4b91bcf|2019-05-10|Pavel Tisnovsky|Example 11: structures (records)
+0ee8a95|2019-05-10|Pavel Tisnovsky|Fixed typo
+046cb93|2019-05-09|Stanislav Kozina|Most of lesson1 (still missing conditions, switch and goto statements, _ idiom)
+4ab056c|2019-05-09|Pavel Tisnovsky|Slide titles for lesson #3
+bbccd23|2019-05-09|Pavel Tisnovsky|Slide titles for lesson #2
+6191d73|2019-05-09|Pavel Tisnovsky|Example 10: defer and function return values
+f9389c4|2019-05-09|Pavel Tisnovsky|Example 9: practical usage of defer
+5b8a0e7|2019-05-09|Pavel Tisnovsky|Example 8: practical usage of defer
+4a0646d|2019-05-09|Pavel Tisnovsky|Example 7: defer in all returns
+ffa1de4|2019-05-09|Pavel Tisnovsky|Example 6: argument evaluation in defer
+66407ff|2019-05-09|Pavel Tisnovsky|Example 5: argument evaluation in defer
+058c09a|2019-05-09|Pavel Tisnovsky|Example 4: more defers defined in one function
+4a02ecb|2019-05-09|Pavel Tisnovsky|Example 3: defer and parameters passed to deferred function
+a5a7be1|2019-05-09|Pavel Tisnovsky|Example 2: defer with function
+fcebed0|2019-05-09|Pavel Tisnovsky|Example 1: defer statement
+d33146d|2019-05-06|Pavel Tisnovsky|Outlines for lesson #2 and #3
+0eb454b|2019-05-02|Pavel Tisnovsky|Fixed typo
+8bab20a|2019-05-02|Jakub Čajka|Initial commit
