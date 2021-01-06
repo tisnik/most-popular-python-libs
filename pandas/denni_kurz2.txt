@@ -1,0 +1,67 @@
+země|měna|množství|kód|datum|kurz
+Austrálie|dolar|1|AUD|2021-01-05|16,463
+Brazílie|real|1|BRL|2021-01-05|4,002
+Bulharsko|lev|1|BGN|2021-01-05|13,408
+Čína|žen-min-pi|1|CNY|2021-01-05|3,306
+Dánsko|koruna|1|DKK|2021-01-05|3,525
+EMU|euro|1|EUR|2021-01-05|26,225
+Filipíny|peso|100|PHP|2021-01-05|44,429
+Hongkong|dolar|1|HKD|2021-01-05|2,756
+Chorvatsko|kuna|1|HRK|2021-01-05|3,469
+Indie|rupie|100|INR|2021-01-05|29,181
+Indonesie|rupie|1000|IDR|2021-01-05|1,536
+Island|koruna|100|ISK|2021-01-05|16,800
+Izrael|nový šekel|1|ILS|2021-01-05|6,677
+Japonsko|jen|100|JPY|2021-01-05|20,770
+Jižní Afrika|rand|1|ZAR|2021-01-05|1,424
+Kanada|dolar|1|CAD|2021-01-05|16,759
+Korejská republika|won|100|KRW|2021-01-05|1,963
+Maďarsko|forint|100|HUF|2021-01-05|7,279
+Malajsie|ringgit|1|MYR|2021-01-05|5,320
+Mexiko|peso|1|MXN|2021-01-05|1,066
+MMF|ZPČ|1|XDR|2021-01-05|30,959
+Norsko|koruna|1|NOK|2021-01-05|2,505
+Nový Zéland|dolar|1|NZD|2021-01-05|15,392
+Polsko|zlotý|1|PLN|2021-01-05|5,767
+Rumunsko|leu|1|RON|2021-01-05|5,382
+Rusko|rubl|100|RUB|2021-01-05|28,611
+Singapur|dolar|1|SGD|2021-01-05|16,206
+Švédsko|koruna|1|SEK|2021-01-05|2,608
+Švýcarsko|frank|1|CHF|2021-01-05|24,273
+Thajsko|baht|100|THB|2021-01-05|71,292
+Turecko|lira|1|TRY|2021-01-05|2,891
+USA|dolar|1|USD|2021-01-05|21,369
+Velká Británie|libra|1|GBP|2021-01-05|29,030
+Austrálie|dolar|1|AUD|2020-11-20|16,231
+Brazílie|real|1|BRL|2020-11-20|4,160
+Bulharsko|lev|1|BGN|2020-11-20|13,467
+Čína|žen-min-pi|1|CNY|2020-11-20|3,381
+Dánsko|koruna|1|DKK|2020-11-20|3,536
+EMU|euro|1|EUR|2020-11-20|26,340
+Filipíny|peso|100|PHP|2020-11-20|46,038
+Hongkong|dolar|1|HKD|2020-11-20|2,864
+Chorvatsko|kuna|1|HRK|2020-11-20|3,481
+Indie|rupie|100|INR|2020-11-20|29,950
+Indonesie|rupie|1000|IDR|2020-11-20|1,567
+Island|koruna|100|ISK|2020-11-20|16,330
+Izrael|nový šekel|1|ILS|2020-11-20|6,649
+Japonsko|jen|100|JPY|2020-11-20|21,383
+Jižní Afrika|rand|1|ZAR|2020-11-20|1,445
+Kanada|dolar|1|CAD|2020-11-20|17,011
+Korejská republika|won|100|KRW|2020-11-20|1,990
+Maďarsko|forint|100|HUF|2020-11-20|7,328
+Malajsie|ringgit|1|MYR|2020-11-20|5,425
+Mexiko|peso|1|MXN|2020-11-20|1,104
+MMF|ZPČ|1|XDR|2020-11-20|31,598
+Norsko|koruna|1|NOK|2020-11-20|2,471
+Nový Zéland|dolar|1|NZD|2020-11-20|15,416
+Polsko|zlotý|1|PLN|2020-11-20|5,900
+Rumunsko|leu|1|RON|2020-11-20|5,405
+Rusko|rubl|100|RUB|2020-11-20|29,180
+Singapur|dolar|1|SGD|2020-11-20|16,530
+Švédsko|koruna|1|SEK|2020-11-20|2,577
+Švýcarsko|frank|1|CHF|2020-11-20|24,363
+Thajsko|baht|100|THB|2020-11-20|73,313
+Turecko|lira|1|TRY|2020-11-20|2,911
+USA|dolar|1|USD|2020-11-20|22,201
+Velká Británie|libra|1|GBP|2020-11-20|29,464
