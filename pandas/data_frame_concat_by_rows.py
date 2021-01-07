@@ -11,7 +11,7 @@ df2 = pandas.read_csv("tiobeD.tsv", sep="\t")
 df1.set_index("Language", inplace=True)
 df2.set_index("Language", inplace=True)
 
-# datové rámce zobrazíme
+# oba datové rámce zobrazíme
 print(df1)
 print()
 print(df2)
