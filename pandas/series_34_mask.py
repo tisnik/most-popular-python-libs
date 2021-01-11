@@ -11,6 +11,7 @@ df.set_index("Language", inplace=True)
 
 # pro jistotu si datový rámec zobrazíme
 print(df)
+print()
 
 # konstrukce datové struktury Series (datové řady) z datového rámce
 s = pandas.Series(df["Ratings"])
@@ -25,6 +26,7 @@ results = s.mask(s > 10)
 # tisk výsledku
 print("Masked (max)")
 print(results)
+print()
 
 # maskování hodnot
 results = results.mask(s < 2)
