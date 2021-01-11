@@ -11,6 +11,7 @@ df.set_index("Language", inplace=True)
 
 # pro jistotu si datový rámec zobrazíme
 print(df)
+print()
 
 # konstrukce datové struktury Series (datové řady) z datového rámce
 s = pandas.Series(df["Ratings"])
@@ -25,6 +26,7 @@ results = s.combine(10, min)
 # tisk výsledku
 print("Bound (max)")
 print(results)
+print()
 
 # omezení hodnot
 results = results.combine(2, max)
