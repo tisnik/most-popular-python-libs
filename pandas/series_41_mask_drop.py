@@ -11,6 +11,7 @@ df.set_index("Language", inplace=True)
 
 # pro jistotu si datový rámec zobrazíme
 print(df)
+print()
 
 # konstrukce datové struktury Series (datové řady) z datového rámce
 s = pandas.Series(df["Ratings"])
@@ -24,6 +25,7 @@ results = s.mask(s < 10)
 
 # tisk výsledku
 print(results)
+print()
 
 results = results.dropna()
 

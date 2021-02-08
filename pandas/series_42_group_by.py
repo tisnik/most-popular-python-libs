@@ -11,6 +11,7 @@ df.set_index("Language", inplace=True)
 
 # pro jistotu si datový rámec zobrazíme
 print(df)
+print()
 
 # konstrukce datové struktury Series (datové řady) z datového rámce
 s = pandas.Series(df["Ratings"])
@@ -19,7 +20,7 @@ s = pandas.Series(df["Ratings"])
 print(s)
 print()
 
-# maskování hodnot
+# rozdělení hodnot
 results = s.groupby(s > 10)
 
 # tisk výsledku
