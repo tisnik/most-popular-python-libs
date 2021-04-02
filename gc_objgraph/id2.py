@@ -1,6 +1,6 @@
 """Použití funkce id()."""
 
-x = [1,2,3]
+x = [1, 2,3]
 print(id(x))
 
 y = x
