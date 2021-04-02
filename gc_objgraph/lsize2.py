@@ -1,10 +1,10 @@
 import sys
 
-l = []
+test_list = []
 
 for i in range(31):
-    l.append(i)
+    test_list.append(i)
 
 for i in range(31):
-    print(len(l), sys.getsizeof(l))
-    del l[-1]
+    print(len(l), sys.getsizeof(test_list))
+    del test_list[-1]
