@@ -25,7 +25,6 @@ response = requests.get(URL)
 print(response)
 
 
-
 # nyni vyzkousime neexistujici endpoint:
 
 # adresa s testovaci REST API sluzbou
