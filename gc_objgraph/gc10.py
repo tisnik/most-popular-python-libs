@@ -10,6 +10,7 @@ def foo(ref):
 def bar(ref):
     print(sys.getrefcount(ref))
 
+
 # reference na řetězec
 x = "Test!"
 print(sys.getrefcount(x))
