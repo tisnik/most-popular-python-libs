@@ -2,6 +2,7 @@
 
 import objgraph
 
+
 class A():
     def __init__(self, other):
         self.other = other
