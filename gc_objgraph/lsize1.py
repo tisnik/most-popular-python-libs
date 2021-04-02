@@ -1,7 +1,7 @@
 import sys
 
-l = []
+test_list = []
 
 for i in range(31):
-    print(len(l), sys.getsizeof(l))
-    l.append(i)
+    print(len(test_list), sys.getsizeof(test_list))
+    test_list.append(i)
