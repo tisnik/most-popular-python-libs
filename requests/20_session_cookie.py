@@ -107,4 +107,3 @@ response = delete_cookie(session, "baz")
 print_response(response)
 print_session_cookies(session)
 print()
-
