@@ -10,7 +10,7 @@ class A():
 x = A(None)
 y = A(x)
 z = A(y)
-x.other=z
+x.other = z
 
 # cyklické reference mezi objekty
 objgraph.show_backrefs([x, y, z], filename='objgraph7_backrefs.png')
