@@ -6,6 +6,7 @@ class A():
     def __init__(self, other):
         self.other = other
 
+
 # tři objekty, které na sebe navzájem ukazují
 x = A(None)
 y = A(x)
