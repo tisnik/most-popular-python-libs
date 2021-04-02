@@ -2,6 +2,7 @@
 
 import objgraph
 
+
 class A():
     def __init__(self, other):
         self.other = other
@@ -13,5 +14,5 @@ y = A(x)
 z = A(y)
 x.other = z
 
-# cyklické reference mezi objekty
+# zobrazení cyklické reference mezi objekty
 objgraph.show_refs([x, y, z], filename='objgraph7.png')
