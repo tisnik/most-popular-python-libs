@@ -34,7 +34,7 @@ class Example9App(pygubu.TkApplication):
         vars["checkbutton_b"].set("no")
         vars["checkbutton_c"].set("no")
 
-        root.bind('<Control-q>', lambda event: self.on_button_exit_click())
+        root.bind('<Control-q>', lambda event: self.on_quit_button_click())
 
     def on_quit_button_click(self):
         root.destroy()

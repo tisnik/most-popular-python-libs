@@ -32,7 +32,7 @@ class Example10App(pygubu.TkApplication):
         vars = self.builder.tkvariables
         vars["input_text"].set("")
 
-        root.bind('<Control-q>', lambda event: self.on_button_exit_click())
+        root.bind('<Control-q>', lambda event: self.on_quit_button_click())
 
     def on_quit_button_click(self):
         root.destroy()
