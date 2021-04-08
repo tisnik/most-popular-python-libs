@@ -3,6 +3,7 @@ HEIGHT = 480
 
 BORDER = 20
 
+
 def draw():
     screen.fill("white")
 
