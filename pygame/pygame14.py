@@ -85,7 +85,6 @@ display.blit(image_surface, (125, 125), special_flags=BLEND_MAX)
 display.blit(image_surface, (225, 125))
 
 
-
 # Hlavní herní smyčka
 while True:
     # Načtení a zpracování všech událostí z fronty
