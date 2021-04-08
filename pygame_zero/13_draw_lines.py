@@ -3,6 +3,7 @@ HEIGHT = 480
 
 BORDER = 20
 
+
 def draw():
     screen.fill("darkgreen")
     screen.draw.line((BORDER, BORDER), (WIDTH-BORDER, BORDER), (255, 255, 255))
