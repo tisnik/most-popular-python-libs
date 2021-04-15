@@ -27,6 +27,7 @@ def set_cookie(session, name, value):
     # poslani HTTP dotazu typu GET
     return session.get(URL, headers=headers)
 
+
 def delete_cookie(session, name):
     # adresa s testovaci REST API sluzbou
     URL = "https://httpbin.org/cookies/delete?{name}=".format(name=name)
