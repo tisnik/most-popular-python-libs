@@ -18,7 +18,8 @@ dy = 0
 
 def draw_sprite_pos(which, sprite, pos_x, pos_y, color):
     screen.draw.text(which + ":", (pos_x, pos_y), color=color)
-    msg = "left: {}  right: {}  top: {}  bottom: {}".format(int(sprite.left), int(sprite.right), int(sprite.top), int(sprite.bottom))
+    msg = "left: {}  right: {}  top: {}  bottom: {}".format(
+            int(sprite.left), int(sprite.right), int(sprite.top), int(sprite.bottom))
     screen.draw.text(msg, (pos_x+100, pos_y), color=color)
 
 
