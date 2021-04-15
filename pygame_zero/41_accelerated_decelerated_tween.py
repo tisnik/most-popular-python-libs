@@ -47,5 +47,3 @@ def on_key_down(key, mod, unicode):
         animate(sprite, x=WIDTH, duration=1, tween="decelerate")
     if key == keys.B:
         animate(sprite, x=WIDTH, duration=1, tween="accel_decel")
-
-
