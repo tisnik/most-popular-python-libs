@@ -18,7 +18,7 @@ input_csv = sys.argv[1]
 
 df = pd.read_csv(input_csv)
 
-df['SMA_20'] = df.iloc[:,1].rolling(window=20).mean()
+df['SMA_20'] = df.iloc[:, 1].rolling(window=20).mean()
 
 print(df)
 print(df.info())
