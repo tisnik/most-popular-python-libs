@@ -20,7 +20,7 @@ print()
 gb = df.groupby(["kód"])
 
 # nový sloupec
-df["rozdíl"]=gb["kurz"].transform(lambda x: x.max()-x.min())
+df["rozdíl"]=gb["kurz"].transform(lambda x: x.max() - x.min())
 
 print(df[0:10])
 print()
