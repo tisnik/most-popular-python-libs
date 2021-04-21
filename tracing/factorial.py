@@ -1,5 +1,6 @@
 """Výpočet faktoriálu."""
 
+
 def factorial(n):
     """Rekurzivní výpočet faktoriálu."""
     assert isinstance(n, int), "Integer expected"
