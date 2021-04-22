@@ -42,7 +42,7 @@ try:
     patterns = ['4:(... .0. .1.)->1',
                 '4:(... .0. ..1)->1']
     # vytvoření objektu pro morfologické operace
-    lutBuilder = ImageMorph.LutBuilder(patterns = patterns)
+    lutBuilder = ImageMorph.LutBuilder(patterns= patterns)
     lut = lutBuilder.build_lut()
     morphOp = ImageMorph.MorphOp(lut=lut)
     
