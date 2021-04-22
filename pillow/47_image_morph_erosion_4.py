@@ -45,7 +45,7 @@ try:
     # vytvoření objektu pro morfologické operace
     lut = lutBuilder.build_lut()
     morphOp = ImageMorph.MorphOp(lut=lut)
-    
+
     # aplikace morfologické operace
     pixels, eroded_image = morphOp.apply(test_image)
     print(pixels)
