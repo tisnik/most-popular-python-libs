@@ -4,6 +4,8 @@ import objgraph
 
 
 class A():
+    """An object with one attribute containing reference to some (other) object."""
+
     def __init__(self, other):
         self.other = other
 
