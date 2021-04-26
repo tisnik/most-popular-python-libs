@@ -4,6 +4,7 @@ import pprint
 
 
 def foo(ref):
+    """Function called during test."""
     bar(ref)
 
 
