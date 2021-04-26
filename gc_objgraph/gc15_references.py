@@ -9,6 +9,7 @@ def foo(ref):
 
 
 def bar(ref):
+    """Function that retrieves and prints reference counts."""
     print(sys.getrefcount(ref))
     pprint.pprint(len(gc.get_referrers(ref)))
     pprint.pprint(gc.get_referrers(ref))
