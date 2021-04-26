@@ -1,15 +1,17 @@
+"""Example that retrieves and prints reference counts."""
+
 import gc
 import sys
 import pprint
 
 
 def foo(ref):
-    """Function called during test."""
+    """Call function bar during test."""
     bar(ref)
 
 
 def bar(ref):
-    """Function that retrieves and prints reference counts."""
+    """Retrieve and print reference counts."""
     print(sys.getrefcount(ref))
     pprint.pprint(len(gc.get_referrers(ref)))
     pprint.pprint(gc.get_referrers(ref))
