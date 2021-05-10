@@ -33,7 +33,7 @@ fig = df.plot.bar(x="Systém/varianta", y=["real", "user", "sys"], grid=True)
 plt.tight_layout()
 
 # uložení grafu
-plt.savefig("benchmarks.png", dpi = (200))
+plt.savefig("benchmarks.png", dpi=(200))
 
 # Try to show the plot on screen
 plt.show()
