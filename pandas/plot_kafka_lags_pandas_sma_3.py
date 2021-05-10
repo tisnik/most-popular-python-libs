@@ -19,7 +19,8 @@ input_csv = sys.argv[1]
 df = pd.read_csv(input_csv)
 
 for i in range(0, df.shape[0]-2):
-    df.loc[df.index[i+2], 'SMA_3'] = np.round(((df.iloc[i,1] + df.iloc[i + 1,1] + df.iloc[i + 2, 1]) / 3),1)
+    df.loc[df.index[i+2], 'SMA_3'] = \
+        np.round(((df.iloc[i, 1] + df.iloc[i + 1, 1] + df.iloc[i + 2, 1]) / 3), 1)
 
 print(df)
 print(df.info())
