@@ -8,7 +8,7 @@ import pandas
 url = "https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt"
 df = pandas.read_csv(url, sep="|", skiprows=1)
 
-df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(',','.'), errors='coerce')
+df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(',', '.'), errors='coerce')
 
 print("Data frame")
 print("---------------------------")
