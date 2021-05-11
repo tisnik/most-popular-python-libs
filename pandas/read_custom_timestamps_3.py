@@ -8,7 +8,8 @@ import datetime
 
 
 df = pandas.read_csv("custom_timestamps.csv",
-                     date_parser=lambda raw_data: datetime.datetime.strptime(raw_data, "%Y/%m/%d %H-%M-%S"),
+                     date_parser=lambda raw_data: datetime.datetime.strptime(raw_data,
+                                                                             "%Y/%m/%d %H-%M-%S"),
                      parse_dates=["Timestamp"])
 
 
