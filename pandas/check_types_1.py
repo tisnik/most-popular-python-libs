@@ -9,6 +9,7 @@ from voluptuous import Invalid
 
 
 def print_data_frame(df):
+    """Print the whole data frame."""
     print("Data frame")
     print("---------------------------")
     print(df)
