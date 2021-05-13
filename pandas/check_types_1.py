@@ -31,6 +31,7 @@ def validate_item(schema, data):
 
 
 def validate_data_frame(data_frame):
+    """Validate the whole data frame."""
     print()
 
     print("Validation")
