@@ -39,6 +39,7 @@ def posint(value):
 
 
 def posfloat(value):
+    """Validate if the value is positive floating point number."""
     if type(value) is not float or value <= 0:
         raise Invalid("positive float value expected, but got {v} instead".format(v=value))
 
