@@ -20,6 +20,7 @@ def print_data_frame(df):
 
 
 def validate_item(schema, data):
+    """Validate one item from data frame."""
     try:
         print("\n\n")
         print(schema)
