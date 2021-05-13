@@ -1,3 +1,5 @@
+"""Investigation of basic properties of float16 floating point numbers."""
+
 import numpy as np
 
 h1 = np.float16(0)
