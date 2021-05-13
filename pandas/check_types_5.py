@@ -5,7 +5,6 @@
 
 
 import pandas
-import math
 from voluptuous import Schema
 from voluptuous import Invalid
 from voluptuous import Any
