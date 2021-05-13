@@ -11,6 +11,7 @@ from voluptuous import Invalid
 
 
 def print_data_frame(df):
+    """Print the whole data frame."""
     print("Data frame")
     print("---------------------------")
     print(df)
@@ -22,6 +23,7 @@ def print_data_frame(df):
 
 
 def validate_item(schema, data):
+    """Validate one item from data frame."""
     try:
         print("\n\n")
         print(schema)
@@ -33,6 +35,7 @@ def validate_item(schema, data):
 
 
 def pos(value):
+    """Validate if the value is positive integer number."""
     if type(value) is not int or value <= 0:
         raise Invalid("positive integer value expected, but got {v} instead".format(v=value))
 
