@@ -1,0 +1,23 @@
+import napkin
+
+
+@napkin.seq_diagram()
+def request_response_5(c):
+    client = c.object('Client')
+    frontend = c.object('"Front end"')
+    backend = c.object('"Back end"')
+
+    with c.group("Successful login"):
+        with client:
+            with frontend.request("login='foo'", "password='bar'"):
+                with backend.try_login("'foo'", "'bar'"):
+                    c.ret("login ok")
+                c.ret("login ok")
+
+    with c.group("Failed login"):
+        with client:
+            with frontend.request("login='foo'", "password='xyzzy'"):
+                with c.loop():
+                    with backend.try_login("'foo'", "'bar'"):
+                        c.ret("login failed")
+                    c.ret("login failed")
