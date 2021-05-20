@@ -2,6 +2,7 @@ from pycrunch_trace.client.api import trace
 
 """Výpočet faktoriálu."""
 
+
 @trace
 def factorial(n):
     """Rekurzivní výpočet faktoriálu."""
