@@ -31,4 +31,3 @@ results = results.dropna()
 
 # tisk nového výsledku
 print(results)
-
