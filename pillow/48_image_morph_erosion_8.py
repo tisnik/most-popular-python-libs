@@ -49,7 +49,7 @@ try:
     # aplikace morfologické operace
     pixels, eroded_image = morphOp.apply(test_image)
     print(pixels)
-    
+
     # aplikace morfologické operace
     pixels, more_eroded_image = morphOp.apply(eroded_image)
     print(pixels)
