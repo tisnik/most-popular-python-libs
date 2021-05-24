@@ -1,0 +1,483 @@
+ --- modulename: factorial, funcname: <module>
+factorial.py(1): """Výpočet faktoriálu."""
+factorial.py(4): def factorial(n):
+factorial.py(18): def main():
+factorial.py(23): if __name__ == "__main__":
+factorial.py(24):     main()
+ --- modulename: factorial, funcname: main
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+0 1
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+1 1
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+2 2
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+3 6
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+4 24
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+5 120
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+6 720
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+7 5040
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+8 40320
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+9 362880
+factorial.py(19):     for n in range(0, 11):
+factorial.py(20):         print(n, factorial(n))
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(12):     result = n * factorial(n-1)
+ --- modulename: factorial, funcname: factorial
+factorial.py(6):     assert isinstance(n, int), "Integer expected"
+factorial.py(8):     if n < 0:
+factorial.py(10):     if n == 0:
+factorial.py(11):         return 1
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+factorial.py(14):     assert isinstance(result, int), "Internal error in factorial computation"
+factorial.py(15):     return result
+10 3628800
+factorial.py(19):     for n in range(0, 11):
+ --- modulename: trace, funcname: _unsettrace
+trace.py(77):         sys.settrace(None)

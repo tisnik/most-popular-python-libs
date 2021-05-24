@@ -1,0 +1,22 @@
+@startuml
+participant Client
+participant "Front end"
+participant "Back end"
+
+Client -> "Front end" : request(login='foo', password='bar')
+activate "Front end"
+"Front end" -> "Back end" : try_login('foo', 'bar')
+activate "Back end"
+"Front end" <-- "Back end": login ok
+deactivate "Back end"
+Client <-- "Front end": login ok
+deactivate "Front end"
+Client -> "Front end" : request(login='foo', password='xyzzy')
+activate "Front end"
+"Front end" -> "Back end" : try_login('foo', 'bar')
+activate "Back end"
+"Front end" <-- "Back end": login failed
+deactivate "Back end"
+Client <-- "Front end": login failed
+deactivate "Front end"
+@enduml

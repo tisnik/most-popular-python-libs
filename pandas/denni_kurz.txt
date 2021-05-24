@@ -1,0 +1,35 @@
+20.11.2020 #224
+země|měna|množství|kód|kurz
+Austrálie|dolar|1|AUD|16,231
+Brazílie|real|1|BRL|4,160
+Bulharsko|lev|1|BGN|13,467
+Čína|žen-min-pi|1|CNY|3,381
+Dánsko|koruna|1|DKK|3,536
+EMU|euro|1|EUR|26,340
+Filipíny|peso|100|PHP|46,038
+Hongkong|dolar|1|HKD|2,864
+Chorvatsko|kuna|1|HRK|3,481
+Indie|rupie|100|INR|29,950
+Indonesie|rupie|1000|IDR|1,567
+Island|koruna|100|ISK|16,330
+Izrael|nový šekel|1|ILS|6,649
+Japonsko|jen|100|JPY|21,383
+Jižní Afrika|rand|1|ZAR|1,445
+Kanada|dolar|1|CAD|17,011
+Korejská republika|won|100|KRW|1,990
+Maďarsko|forint|100|HUF|7,328
+Malajsie|ringgit|1|MYR|5,425
+Mexiko|peso|1|MXN|1,104
+MMF|ZPČ|1|XDR|31,598
+Norsko|koruna|1|NOK|2,471
+Nový Zéland|dolar|1|NZD|15,416
+Polsko|zlotý|1|PLN|5,900
+Rumunsko|leu|1|RON|5,405
+Rusko|rubl|100|RUB|29,180
+Singapur|dolar|1|SGD|16,530
+Švédsko|koruna|1|SEK|2,577
+Švýcarsko|frank|1|CHF|24,363
+Thajsko|baht|100|THB|73,313
+Turecko|lira|1|TRY|2,911
+USA|dolar|1|USD|22,201
+Velká Británie|libra|1|GBP|29,464

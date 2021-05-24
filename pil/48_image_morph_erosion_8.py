@@ -1,12 +1,25 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8
 
+#
+#  (C) Copyright 2020  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageMath
 from PIL import ImageMorph
 
+# jméno zdrojového testovacího rastrového obrázku
 filename = "Lenna.png"
 
 
@@ -34,12 +47,12 @@ try:
     # vytvoření objektu pro morfologické operace
     lut = lutBuilder.build_lut()
     morphOp = ImageMorph.MorphOp(lut=lut)
-    
+
     # aplikace morfologické operace
     pixels, eroded_image = morphOp.apply(test_image)
     print(pixels)
-    
-    # aplikace morfologické operace
+
+    # opakovaná aplikace morfologické operace na již upravený rastrový obrázek
     pixels, more_eroded_image = morphOp.apply(eroded_image)
     print(pixels)
 

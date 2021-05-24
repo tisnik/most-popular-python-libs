@@ -1,0 +1,10 @@
+@startuml
+participant Client
+participant Server
+
+Client -> Server : SYN()
+activate Server
+Client <-- Server: SYN_ACK
+deactivate Server
+Client -> Server : ACK()
+@enduml

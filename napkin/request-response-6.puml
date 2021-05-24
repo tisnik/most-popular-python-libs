@@ -1,0 +1,36 @@
+@startuml
+participant Client
+participant "Front end"
+participant "Back end"
+
+note over Client : Web client
+note over "Front end" : Web front end (JS)
+note over "Back end" : Back end (Go)
+group Successful login
+note over Client : Login with proper name and password
+Client -> "Front end" : request(login='foo', password='bar')
+note right : Correct password
+activate "Front end"
+"Front end" -> "Back end" : try_login('foo', 'bar')
+activate "Back end"
+"Front end" <-- "Back end": login ok
+deactivate "Back end"
+Client <-- "Front end": login ok
+deactivate "Front end"
+end
+group Failed login
+note over Client : Login with improper name and password
+Client -> "Front end" : request(login='foo', password='xyzzy')
+note right : Bad password
+activate "Front end"
+loop
+"Front end" -> "Back end" : try_login('foo', 'bar')
+activate "Back end"
+"Front end" <-- "Back end": login failed
+deactivate "Back end"
+note over "Front end" : Trying again ... is meaningless
+end
+Client <-- "Front end": login failed
+deactivate "Front end"
+end
+@enduml

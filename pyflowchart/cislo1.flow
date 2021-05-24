@@ -1,0 +1,9 @@
+op139761666391960=>operation: x = int(input('x='))
+cond139761665941856=>condition: if (x > 0)
+sub139761665942248=>subroutine: print('Kladne')
+sub139761665942360=>subroutine: print('Nulove nebo zaporne')
+
+op139761666391960->cond139761665941856
+cond139761665941856(yes)->sub139761665942248
+cond139761665941856(no)->sub139761665942360
+

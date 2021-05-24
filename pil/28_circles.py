@@ -1,6 +1,18 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8
 
+#
+#  (C) Copyright 2020  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
 import math
 
 from PIL import Image
@@ -20,7 +32,10 @@ try:
     draw.rectangle((0, 0, width, height), fill=(255, 255, 255))
 
     green = 255
-    for i, r, red, blue in zip(range(0, 128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)):
+    for i, r, red, blue in zip(range(0, 128),
+                               range(128, 0, -1),
+                               range(255, 0, -2),
+                               range(0, 256, 2)):
         a = i / 12.0
         b = i + 80.0
         x = width / 2 + b * math.cos(a)

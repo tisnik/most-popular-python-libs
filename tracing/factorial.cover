@@ -1,0 +1,24 @@
+    1: """Výpočet faktoriálu."""
+       
+       
+    1: def factorial(n):
+           """Rekurzivní výpočet faktoriálu."""
+   66:     assert isinstance(n, int), "Integer expected"
+       
+   66:     if n < 0:
+               return None
+   66:     if n == 0:
+   11:         return 1
+   55:     result = n * factorial(n-1)
+       
+   55:     assert isinstance(result, int), "Internal error in factorial computation"
+   55:     return result
+       
+       
+    1: def main():
+   12:     for n in range(0, 11):
+   11:         print(n, factorial(n))
+       
+       
+    1: if __name__ == "__main__":
+    1:     main()

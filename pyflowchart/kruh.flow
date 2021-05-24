@@ -1,0 +1,9 @@
+op140390441087272=>operation: import math
+op140390441087328=>operation: r = float(input('Polomer= '))
+op140390441087440=>operation: obvod = ((2 * math.pi) * r)
+sub140390441087944=>subroutine: print('Obvod=', obvod)
+
+op140390441087272->op140390441087328
+op140390441087328->op140390441087440
+op140390441087440->sub140390441087944
+

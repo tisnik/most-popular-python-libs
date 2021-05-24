@@ -1,0 +1,6 @@
+@startuml
+participant Client
+participant Server
+
+Client -> Server : SYN()
+@enduml
