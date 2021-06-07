@@ -11,7 +11,7 @@
 #
 
 from plotnine.data import mpg
-from plotnine import ggplot, aes, facet_grid, labs, geom_point, stat_smooth
+from plotnine import ggplot, aes, facet_grid, labs, geom_point
 
 g = (ggplot(mpg)
      + facet_grid(facets="year~class")
