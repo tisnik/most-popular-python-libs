@@ -16,6 +16,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Zpracování dat uložených ve formátu JSON knihovnou jq.py."""
+
 import jq
 import json
 
