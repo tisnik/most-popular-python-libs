@@ -22,4 +22,5 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    """Implement handler for the / endpoint."""
     return 'Hello, World!\n'
