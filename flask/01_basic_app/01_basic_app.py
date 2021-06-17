@@ -13,6 +13,8 @@
 #      Pavel Tisnovsky
 #
 
+"""Simplest Flask-based application."""
+
 from flask import Flask
 
 app = Flask(__name__)
