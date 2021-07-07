@@ -1,3 +1,5 @@
+"""Usage of color names to change background color."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,6 +14,7 @@
 
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 terminal.number_of_colors = 1 << 24
