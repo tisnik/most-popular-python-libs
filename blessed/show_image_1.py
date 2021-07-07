@@ -1,3 +1,5 @@
+"""Image viewer working in terminal."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -13,6 +15,7 @@
 from PIL import Image
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 terminal.number_of_colors = 1 << 24
