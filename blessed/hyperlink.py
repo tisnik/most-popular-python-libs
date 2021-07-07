@@ -1,3 +1,5 @@
+"""Displays active hyperlink on terminal."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,6 +14,7 @@
 
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 print(f"Odkaz: {terminal.link('https://www.root.cz', 'Stránky Root.cz')}")
