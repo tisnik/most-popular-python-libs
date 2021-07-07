@@ -1,3 +1,5 @@
+"""Display eight basic background colors with bold attribute."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,6 +14,7 @@
 
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 print(f"{terminal.bold_on_black}black background{terminal.normal}")
