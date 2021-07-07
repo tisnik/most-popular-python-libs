@@ -1,3 +1,5 @@
+"""Retrieving basic terminal info."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,6 +14,7 @@
 
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 print("Resolution: {}x{} characters".format(terminal.width, terminal.height))
