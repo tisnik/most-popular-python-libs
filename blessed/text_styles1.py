@@ -1,3 +1,5 @@
+"""Changing text styles."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,6 +14,7 @@
 
 import blessed
 
+# initialize terminal
 terminal = blessed.Terminal()
 
 print(terminal.normal + "normal text")
