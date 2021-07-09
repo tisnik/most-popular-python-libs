@@ -16,6 +16,8 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou jq.py
 
+"""Ukázka dotazovacího jazyka použitého v nástroji jq."""
+
 import jq
 import json
 from pprint import pprint
