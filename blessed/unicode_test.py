@@ -20,6 +20,7 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# print Unicode characters
 print("""
   STARGΛ̊TE SG-1, a = v̇ = r̈, a⃑ ⊥ b⃑
                                                                       ▉
