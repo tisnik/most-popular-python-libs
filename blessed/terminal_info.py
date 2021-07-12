@@ -17,5 +17,6 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# display basic information about terminal
 print("Resolution: {}x{} characters".format(terminal.width, terminal.height))
 print("Number of colors: {}".format(terminal.number_of_colors))
