@@ -17,6 +17,7 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# display text using different styles
 print(terminal.normal + "normal text")
 print(terminal.bold + "bold text" + terminal.normal)
 print(terminal.underline + "underlined text" + terminal.normal)
