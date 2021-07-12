@@ -17,9 +17,13 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# enter raw mode
 with terminal.raw():
     while True:
+        # read one key
         key = terminal.inkey()
         if key == 'q':
             break
+
+        # display key
         print(key)
