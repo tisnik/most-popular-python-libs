@@ -14,7 +14,6 @@
 
 # example1.py
 
-import tkinter as tk
 import pygubu
 
 
