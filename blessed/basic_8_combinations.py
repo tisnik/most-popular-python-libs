@@ -17,6 +17,7 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# text foreground colors
 textColors = (
         terminal.black,
         terminal.red,
@@ -28,6 +29,7 @@ textColors = (
         terminal.white,
 )
 
+# text background colors
 backgroundColors = (
         terminal.on_black,
         terminal.on_red,
@@ -39,7 +41,9 @@ backgroundColors = (
         terminal.on_white,
 )
 
+# use all combinations of foreground and background colors
 for textColor in textColors:
     for backgroundColor in backgroundColors:
         print(f"{textColor}{backgroundColor}XXXXX{terminal.normal} ", end="")
+    # next line
     print()
