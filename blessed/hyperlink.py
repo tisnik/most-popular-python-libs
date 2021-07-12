@@ -17,4 +17,5 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# display text containing active hyperlink (on most terminals)
 print(f"Odkaz: {terminal.link('https://www.root.cz', 'Stránky Root.cz')}")
