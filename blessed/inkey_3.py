@@ -17,9 +17,13 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# enter cbreak mode (rare mode)
 with terminal.cbreak():
     while True:
+        # read one key
         key = terminal.inkey()
+
+        # display key or key sequence
         if key.is_sequence:
             print("got sequence: {0}.".format(key.name, key.code, (str(key))))
         else:
