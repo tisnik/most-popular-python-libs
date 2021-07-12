@@ -17,8 +17,10 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# force terminal to use 24bit colors if possible
 terminal.number_of_colors = 1 << 24
 
+# all background color names used in this example
 colors = (
     terminal.on_aliceblue,
     terminal.on_antiquewhite,
@@ -697,6 +699,7 @@ colors = (
     terminal.on_yellow4,
     terminal.on_yellowgreen)
 
+# display text on all background colors
 for color in colors:
     print(color + "test")
 
