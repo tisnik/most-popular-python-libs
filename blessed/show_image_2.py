@@ -18,16 +18,22 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# force terminal to use true colors if possible
 terminal.number_of_colors = 1 << 24
 
+# name of test image
 filename = "fruits.png"
+
+# load test image
 img = Image.open(filename)
 
+# display text image onto terminal
 for j in range(0, img.height, 2):
     for i in range(img.width):
         red, green, blue = img.getpixel((i, j))
         print(f"{terminal.on_color_rgb(red, green, blue)}.", end="")
     print()
 
+# end of image
 print()
 print(f"{terminal.normal}DONE")
