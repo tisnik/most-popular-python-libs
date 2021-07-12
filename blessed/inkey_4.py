@@ -17,10 +17,13 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# enter cbreak mode (rare mode)
 with terminal.cbreak():
     while True:
+        # read one key with specified timeout
         key = terminal.inkey(timeout=0.3)
 
+        # display key or sequence
         if str(key) == "":
             print("Nothing... try again")
         elif key.is_sequence:
