@@ -17,7 +17,11 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# enter cbreak mode (rare mode)
 with terminal.cbreak():
     while True:
+        # read one key
         key = terminal.inkey()
+
+        # display key
         print(key)
