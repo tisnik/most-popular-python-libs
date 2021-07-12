@@ -17,6 +17,7 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# print text onto terminal using selected background colors
 print(f"{terminal.on_black}black background{terminal.normal}")
 print(f"{terminal.on_red}red background{terminal.normal}")
 print(f"{terminal.on_green}green background{terminal.normal}")
