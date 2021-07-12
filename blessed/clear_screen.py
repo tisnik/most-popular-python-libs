@@ -17,4 +17,5 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# clear terminal window
 print(terminal.clear)
