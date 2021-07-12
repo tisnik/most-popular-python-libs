@@ -17,11 +17,14 @@ import blessed
 # initialize terminal
 terminal = blessed.Terminal()
 
+# force terminal to use 24bit colors if possible
 terminal.number_of_colors = 1 << 24
 
+# subset from the whole color space
 for red in range(0, 256, 16):
     for green in range(0, 256, 16):
         for blue in range(0, 256, 16):
+            # display text using selected background color
             hex_triplet = "#{:02x}{:02x}{:02x}".format(red, green, blue)
             print(terminal.on_color_rgb(red, green, blue) + hex_triplet, end=" ")
         print()
