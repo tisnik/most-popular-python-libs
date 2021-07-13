@@ -16,14 +16,15 @@ from diagrams.aws.integration import SQS
 
 # novy graf s urcenim jeho zakladnich vlastnosti
 with Diagram("AWS", show=True, direction="TB"):
-    # definice uzlu
+    # definice uzlu - konzument
     consumer = SQS("input stream")
 
-    # rozvetveni
+    # rozvetveni - vetsi mnozstvi workeru
     workers = [EC2("worker #1"),
                EC2("worker #2"),
                EC2("worker #3")]
 
+    # definice uzlu - producent
     producer = SQS("output stream")
 
     # propojeni uzlu grafu orientovanymi hranami
