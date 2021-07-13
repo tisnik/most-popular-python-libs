@@ -17,6 +17,8 @@ from diagrams.programming.flowchart import StartEnd
 with Diagram("Flow chart #1", show=False):
     # definice uzlu grafu
     start = StartEnd("Start")
+
+    # definice uzlu grafu
     end = StartEnd("End")
 
     # propojeni uzlu grafu orientovanymi hranami
