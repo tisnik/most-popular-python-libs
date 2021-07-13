@@ -16,11 +16,13 @@ from diagrams.programming.language import Go
 
 # novy graf s urcenim jeho zakladnich vlastnosti
 with Diagram("OnPrem #1", show=True):
-    # definice uzlu
+    # definice uzlu - konzument
     consumer = Kafka("input stream")
 
+    # definice uzlu - worker
     worker = Go("worker")
 
+    # definice uzlu - producent
     producer = Rabbitmq("output stream")
 
     # propojeni uzlu grafu orientovanymi hranami
