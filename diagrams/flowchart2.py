@@ -20,6 +20,8 @@ with Diagram("Flow chart #2", show=False):
     # definice uzlu
     start = StartEnd("Start")
     input = InputOutput("radius=")
+
+    # slozitejsi text v uzlu
     computation = Action("area=pi*radius^2")
     display = InputOutput("circle area=area")
     end = StartEnd("End")
