@@ -16,6 +16,7 @@ from diagrams.onprem.queue import Kafka, ActiveMQ
 from diagrams.programming.language import Go, Rust
 from diagrams.aws.database import RDS
 
+# definice diagramu se specifikaci jeho zakladnich vlastnosti
 with Diagram("Clusters #4", show=True, direction="LR"):
     # definice clusteru
     with Cluster("Input processor"):
@@ -29,11 +30,13 @@ with Diagram("Clusters #4", show=True, direction="LR"):
                         Go("worker #2"),
                         Go("worker #3")]
 
+        # definice uzlu
         db = RDS("storage")
 
     # definice uzlu mimo cluster
     buffer = ActiveMQ("buffer")
 
+    # definice clusteru
     with Cluster("Output processor"):
         # definice clusteru uvnitr cluster
         with Cluster("Worker group B"):
@@ -42,8 +45,11 @@ with Diagram("Clusters #4", show=True, direction="LR"):
                         Rust("worker #2"),
                         Rust("worker #3")]
 
+        # definice uzlu
         producer = Kafka("output stream")
 
     # propojeni uzlu grafu orientovanymi hranami
     consumer >> workersA >> buffer >> workersB >> producer
+
+    # dalsi propojeni orientovanymi hranami
     db >> workersA
