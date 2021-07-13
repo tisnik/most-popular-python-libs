@@ -14,22 +14,25 @@ from diagrams import Diagram
 from diagrams.onprem.queue import Kafka, ActiveMQ
 from diagrams.programming.language import Go, Rust
 
+# definice diagramu se specifikaci jeho zakladnich vlastnosti
 with Diagram("OnPrem #4", show=True, direction="TB"):
-    # definice uzlu
+    # definice uzlu - konzument
     consumer = Kafka("input stream")
 
-    # rozvetveni
+    # rozvetveni - vetsi mnozstvi workeru
     workersA = [Go("worker #1"),
                 Go("worker #2"),
                 Go("worker #3")]
 
+    # buffer vlozeny mezi skupiny workeru
     buffer = ActiveMQ("buffer")
 
-    # rozvetveni
+    # rozvetveni - vetsi mnozstvi workeru
     workersB = [Rust("worker #1"),
                 Rust("worker #2"),
                 Rust("worker #3")]
 
+    # definice uzlu - producent
     producer = Kafka("output stream")
 
     # propojeni uzlu grafu orientovanymi hranami
