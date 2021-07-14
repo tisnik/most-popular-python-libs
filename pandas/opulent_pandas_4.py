@@ -6,7 +6,6 @@
 
 import pandas
 import numpy as np
-import math
 from opulent_pandas import Schema, Required, BaseValidator, TypeValidator, Error, Any
 
 
