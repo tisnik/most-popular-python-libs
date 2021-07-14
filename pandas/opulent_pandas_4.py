@@ -6,7 +6,7 @@
 
 import pandas
 import numpy as np
-from opulent_pandas import Schema, Required, BaseValidator, Error, Any
+from opulent_pandas import Schema, Required, BaseValidator, Error
 
 
 def print_data_frame(df):
