@@ -2,7 +2,6 @@
 
 import sys
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 # Check if command line argument is specified (it is mandatory).
