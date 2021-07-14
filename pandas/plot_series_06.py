@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
-import numpy as np
 import pandas
 import matplotlib.pyplot as plt
 
