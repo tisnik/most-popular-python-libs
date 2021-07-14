@@ -5,7 +5,6 @@
 # see https://gist.github.com/bradmontgomery/2219997
 
 
-import socket
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 hostName = ""
