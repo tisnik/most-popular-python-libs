@@ -14,7 +14,6 @@
 #
 
 import requests
-import json
 
 # adresa s testovaci REST API sluzbou
 URL = "https://httpbin.org/get"
