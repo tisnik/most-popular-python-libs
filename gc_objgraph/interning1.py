@@ -1,5 +1,3 @@
-import sys
-
 last_letter = "d"
 
 a = "Hello World"
