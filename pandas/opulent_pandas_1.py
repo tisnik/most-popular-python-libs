@@ -5,7 +5,6 @@
 
 
 import pandas
-import math
 from opulent_pandas import Schema, TypeValidator, Required
 
 
