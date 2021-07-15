@@ -19,6 +19,7 @@ objgraph.get_new_ids()
 
 
 def foo():
+    """Foo function called during IDs counting."""
     x = Exception()
     y = queue.Queue()
     z = queue.LifoQueue()
