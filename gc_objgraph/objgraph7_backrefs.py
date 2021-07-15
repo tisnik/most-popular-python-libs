@@ -5,6 +5,7 @@ import objgraph
 
 class A():
     def __init__(self, other):
+        """Constructor."""
         self.other = other
 
 
