@@ -1,3 +1,5 @@
+"""String interning machinery."""
+
 last_letter = "d"
 
 a = "Hello World"
