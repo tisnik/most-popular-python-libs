@@ -1,3 +1,5 @@
+"""String interning machinery."""
+
 import sys
 
 last_letter = "d"
