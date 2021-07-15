@@ -16,6 +16,7 @@ import sys
 
 
 def foo(ref):
+    """Function called during reference counting."""
     print(sys.getrefcount(ref))
 
 
