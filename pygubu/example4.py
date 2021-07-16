@@ -1,4 +1,4 @@
-"""Pygubu and Tkinter: main menu in main window, callback functions, tearoff menu (working example)."""
+"""Pygubu and Tkinter: menu in main window, callback functions, tearoff menu (working example)."""
 
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
