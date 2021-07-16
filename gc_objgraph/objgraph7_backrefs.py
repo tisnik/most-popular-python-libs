@@ -4,6 +4,8 @@ import objgraph
 
 
 class A():
+    """Tested class."""
+
     def __init__(self, other):
         """Constructor."""
         self.other = other
