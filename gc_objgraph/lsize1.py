@@ -1,3 +1,5 @@
+"""Retrieving list size."""
+
 import sys
 
 test_list = []
