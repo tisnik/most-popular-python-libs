@@ -14,7 +14,6 @@
 #
 
 from PIL import Image
-from PIL import ImageColor
 
 try:
     # vytvoření prázdných obrázků
