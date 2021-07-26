@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Simple tool to convert structured data from EDN format to JSON format."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -32,6 +34,7 @@ filename = sys.argv[1]
 
 # Taken from https://github.com/swaroopch/edn_format/issues/76#issuecomment-749618312
 def edn_to_map(x):
+    """Convert an edn-like data structure into regular Python map."""
     if isinstance(x, edn_format.ImmutableDict):
         return {edn_to_map(k): edn_to_map(v) for k, v in x.items()}
     elif isinstance(x, edn_format.ImmutableList):
