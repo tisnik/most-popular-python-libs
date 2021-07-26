@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Simple tool to convert structured data from JSON format to EDN format."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
