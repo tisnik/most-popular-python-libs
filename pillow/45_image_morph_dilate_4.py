@@ -16,7 +16,6 @@
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-from PIL import ImageMath
 from PIL import ImageMorph
 
 filename = "Lenna.png"
