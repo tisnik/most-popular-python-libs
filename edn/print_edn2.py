@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Simple tool to display content of EDN file."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -12,7 +14,7 @@
 #      Pavel Tisnovsky
 #
 
-# Converts structured data from EDN format into JSON format.
+# Converts structured data from EDN format into printable format.
 
 import sys
 import edn_format
