@@ -10,7 +10,7 @@ print(m)
 print()
 
 # zobrazení dalších informací o matici
-print("Dimensios:", m.ndim)
+print("Dimensions:", m.ndim)
 print("Data type:", m.dtype)
 print("Item size:", m.itemsize, "bytes")
 print("Array size:", m.size, "items")
