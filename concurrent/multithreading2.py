@@ -16,5 +16,3 @@ def worker(threadName, delay, n):
 threading.Thread(target=worker, args=("Thread-1", 0.5, 10)).start()
 threading.Thread(target=worker, args=("Thread-2", 1.0, 10)).start()
 threading.Thread(target=worker, args=("Thread-3", 1.5, 10)).start()
-
-time.sleep(100)
