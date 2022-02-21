@@ -13,9 +13,9 @@ q = queue.Queue()
 def consumer():
     while True:
         job = q.get()
-        print(f'Starting consuming {job}')
+        print(f"Starting consuming {job}")
         time.sleep(0.4)
-        print(f'Consumed {job}')
+        print(f"Consumed {job}")
         q.task_done()
 
 
@@ -24,9 +24,9 @@ threading.Thread(target=consumer, daemon=True, name="první").start()
 
 # vytvoření úloh v producentovi
 for job in range(10):
-    print(f'Producing {job}')
+    print(f"Producing {job}")
     q.put(job)
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
