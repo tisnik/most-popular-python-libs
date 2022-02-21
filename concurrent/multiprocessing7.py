@@ -17,7 +17,7 @@ def main():
     ps = []
 
     for name in ("foo", "bar", "baz", "other"):
-        p = Process(target=worker, args=(name,d))
+        p = Process(target=worker, args=(name, d))
         p.start()
         ps.append(p)
 
@@ -27,6 +27,6 @@ def main():
     print(d)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
