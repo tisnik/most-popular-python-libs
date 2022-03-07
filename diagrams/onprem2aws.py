@@ -20,9 +20,7 @@ with Diagram("AWS", show=True, direction="TB"):
     consumer = SQS("input stream")
 
     # rozvetveni - vetsi mnozstvi workeru
-    workers = [EC2("worker #1"),
-               EC2("worker #2"),
-               EC2("worker #3")]
+    workers = [EC2("worker #1"), EC2("worker #2"), EC2("worker #3")]
 
     # definice uzlu - producent
     producer = SQS("output stream")
