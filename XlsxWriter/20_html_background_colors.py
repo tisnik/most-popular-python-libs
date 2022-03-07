@@ -6,32 +6,32 @@
 import xlsxwriter
 
 # vytvoření objektu reprezentujícího celý sešit
-with xlsxwriter.Workbook('example20.xlsx') as workbook:
+with xlsxwriter.Workbook("example20.xlsx") as workbook:
     # vložení nového listu do sešitu
     worksheet = workbook.add_worksheet()
 
     # nastavení šířky sloupců
-    worksheet.set_column('A:A', 20)
+    worksheet.set_column("A:A", 20)
 
     # barvy buněk
     colors = (
-            '#000000',
-            '#0000ff',
-            '#800000',
-            '#00ffff',
-            '#808080',
-            '#008000',
-            '#00ff00',
-            '#ff00ff',
-            '#000080',
-            '#ff6600',
-            '#ff00ff',
-            '#800080',
-            '#ff0000',
-            '#c0c0c0',
-            '#ffffff',
-            '#ffff00',
-            )
+        "#000000",
+        "#0000ff",
+        "#800000",
+        "#00ffff",
+        "#808080",
+        "#008000",
+        "#00ff00",
+        "#ff00ff",
+        "#000080",
+        "#ff6600",
+        "#ff00ff",
+        "#800080",
+        "#ff0000",
+        "#c0c0c0",
+        "#ffffff",
+        "#ffff00",
+    )
 
     # buňky s řetězci a různou barvou pozadí buněk
     for x, color in enumerate(colors):
