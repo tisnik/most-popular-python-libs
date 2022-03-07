@@ -20,9 +20,7 @@ with Diagram("OnPrem #2", show=True):
     consumer = Kafka("input stream")
 
     # rozvetveni - vetsi mnozstvi workeru
-    workers = [Go("worker #1"),
-               Go("worker #2"),
-               Go("worker #3")]
+    workers = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
     # definice uzlu - producent
     producer = Rabbitmq("output stream")
