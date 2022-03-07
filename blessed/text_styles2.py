@@ -27,7 +27,9 @@ print()
 print(f"{terminal.bold}bold{terminal.underline} and underlined{terminal.normal} text")
 print()
 
-print(f"{terminal.underline}underlined {terminal.reverse}and reversed{terminal.normal} text")
+print(
+    f"{terminal.underline}underlined {terminal.reverse}and reversed{terminal.normal} text"
+)
 print()
 
 print(f"{terminal.reverse}reversed {terminal.bold}and bold{terminal.normal} text")
