@@ -697,7 +697,8 @@ colors = (
     terminal.yellow2,
     terminal.yellow3,
     terminal.yellow4,
-    terminal.yellowgreen)
+    terminal.yellowgreen,
+)
 
 # display text using all colors
 for color in colors:
