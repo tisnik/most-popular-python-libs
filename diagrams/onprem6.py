@@ -24,17 +24,13 @@ with Diagram("OnPrem #6", show=True, direction="TB"):
     db = RDS("storage")
 
     # rozvetveni - vetsi mnozstvi workeru
-    workersA = [Go("worker #1"),
-                Go("worker #2"),
-                Go("worker #3")]
+    workersA = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
     # buffer vlozeny mezi skupiny workeru
     buffer = ActiveMQ("buffer")
 
     # rozvetveni - vetsi mnozstvi workeru
-    workersB = [Rust("worker #1"),
-                Rust("worker #2"),
-                Rust("worker #3")]
+    workersB = [Rust("worker #1"), Rust("worker #2"), Rust("worker #3")]
 
     # definice uzlu - producent
     producer = Kafka("output stream")
