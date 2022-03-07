@@ -6,12 +6,12 @@
 import xlsxwriter
 
 # vytvoření objektu reprezentujícího celý sešit
-with xlsxwriter.Workbook('example16.xlsx') as workbook:
+with xlsxwriter.Workbook("example16.xlsx") as workbook:
     # vložení nového listu do sešitu
     worksheet = workbook.add_worksheet()
 
     # nastavení šířky sloupců
-    worksheet.set_column('A:A', 20)
+    worksheet.set_column("A:A", 20)
 
     # buňky s numerickými hodnotami a různou velikostí textu
     for x in range(1, 21):
