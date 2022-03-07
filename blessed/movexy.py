@@ -25,7 +25,7 @@ with terminal.cbreak():
         print(f"{terminal.move_xy(x, terminal.height-1)}-", end="", flush=True)
 
     # perform move_xy command and display part of frame
-    for y in range(terminal.height-1):
+    for y in range(terminal.height - 1):
         print(f"{terminal.move_xy(0, y)}|", end="", flush=True)
         print(f"{terminal.move_xy(terminal.width-1, y)}|", end="", flush=True)
 
