@@ -697,7 +697,8 @@ colors = (
     terminal.on_yellow2,
     terminal.on_yellow3,
     terminal.on_yellow4,
-    terminal.on_yellowgreen)
+    terminal.on_yellowgreen,
+)
 
 # display text on all background colors
 for color in colors:
