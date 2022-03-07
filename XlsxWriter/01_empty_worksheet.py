@@ -6,7 +6,7 @@
 import xlsxwriter
 
 # vytvoření objektu reprezentujícího celý sešit
-workbook = xlsxwriter.Workbook('example01.xlsx')
+workbook = xlsxwriter.Workbook("example01.xlsx")
 
 # vložení nového listu do sešitu
 worksheet = workbook.add_worksheet()
