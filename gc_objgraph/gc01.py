@@ -15,4 +15,4 @@
 import sys
 
 # počet referencí na řetězec 'Test!'
-print(sys.getrefcount('Test!'))
+print(sys.getrefcount("Test!"))
