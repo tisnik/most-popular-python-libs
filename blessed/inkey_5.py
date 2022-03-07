@@ -22,7 +22,7 @@ with terminal.raw():
     while True:
         # read one key
         key = terminal.inkey()
-        if key == 'q':
+        if key == "q":
             break
 
         # display key
