@@ -24,9 +24,7 @@ with Diagram("Clusters #3", show=True, direction="LR"):
         consumer = Kafka("input stream")
 
         # rozvetveni
-        workersA = [Go("worker #1"),
-                    Go("worker #2"),
-                    Go("worker #3")]
+        workersA = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
         # definice uzlu
         db = RDS("storage")
@@ -37,9 +35,7 @@ with Diagram("Clusters #3", show=True, direction="LR"):
     # definice clusteru
     with Cluster("Output processor"):
         # rozvetveni
-        workersB = [Rust("worker #1"),
-                    Rust("worker #2"),
-                    Rust("worker #3")]
+        workersB = [Rust("worker #1"), Rust("worker #2"), Rust("worker #3")]
 
         # definice uzlu
         producer = Kafka("output stream")
