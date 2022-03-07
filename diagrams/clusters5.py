@@ -28,9 +28,7 @@ with Diagram("Clusters #5", show=True, direction="LR"):
             # definice clusteru uvnitr cluster
             with Cluster("Worker group A"):
                 # rozvetveni
-                workersA = [Go("worker #1"),
-                            Go("worker #2"),
-                            Go("worker #3")]
+                workersA = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
             # definice uzlu
             db = RDS("storage")
@@ -43,9 +41,7 @@ with Diagram("Clusters #5", show=True, direction="LR"):
             # definice clusteru uvnitr cluster
             with Cluster("Worker group B"):
                 # rozvetveni
-                workersB = [Rust("worker #1"),
-                            Rust("worker #2"),
-                            Rust("worker #3")]
+                workersB = [Rust("worker #1"), Rust("worker #2"), Rust("worker #3")]
 
             # definice uzlu
             producer = Kafka("output stream")
