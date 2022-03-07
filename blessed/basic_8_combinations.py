@@ -19,26 +19,26 @@ terminal = blessed.Terminal()
 
 # text foreground colors
 textColors = (
-        terminal.black,
-        terminal.red,
-        terminal.green,
-        terminal.yellow,
-        terminal.blue,
-        terminal.magenta,
-        terminal.cyan,
-        terminal.white,
+    terminal.black,
+    terminal.red,
+    terminal.green,
+    terminal.yellow,
+    terminal.blue,
+    terminal.magenta,
+    terminal.cyan,
+    terminal.white,
 )
 
 # text background colors
 backgroundColors = (
-        terminal.on_black,
-        terminal.on_red,
-        terminal.on_green,
-        terminal.on_yellow,
-        terminal.on_blue,
-        terminal.on_magenta,
-        terminal.on_cyan,
-        terminal.on_white,
+    terminal.on_black,
+    terminal.on_red,
+    terminal.on_green,
+    terminal.on_yellow,
+    terminal.on_blue,
+    terminal.on_magenta,
+    terminal.on_cyan,
+    terminal.on_white,
 )
 
 # use all combinations of foreground and background colors
