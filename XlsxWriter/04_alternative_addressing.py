@@ -6,12 +6,12 @@
 import xlsxwriter
 
 # vytvoření objektu reprezentujícího celý sešit
-with xlsxwriter.Workbook('example04.xlsx') as workbook:
+with xlsxwriter.Workbook("example04.xlsx") as workbook:
     # vložení nového listu do sešitu
     worksheet = workbook.add_worksheet()
 
     # buňka s textem
-    worksheet.write(0, 0, 'www.root.cz')
+    worksheet.write(0, 0, "www.root.cz")
 
     # buňky s numerickými hodnotami
     worksheet.write(1, 0, 6)
