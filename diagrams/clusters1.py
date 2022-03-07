@@ -24,17 +24,13 @@ with Diagram("Clusters #1", show=True, direction="LR"):
     db = RDS("storage")
 
     # rozvetveni
-    workersA = [Go("worker #1"),
-                Go("worker #2"),
-                Go("worker #3")]
+    workersA = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
     # definice uzlu
     buffer = ActiveMQ("buffer")
 
     # rozvetveni
-    workersB = [Rust("worker #1"),
-                Rust("worker #2"),
-                Rust("worker #3")]
+    workersB = [Rust("worker #1"), Rust("worker #2"), Rust("worker #3")]
 
     # definice uzlu
     producer = Kafka("output stream")
