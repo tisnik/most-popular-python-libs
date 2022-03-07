@@ -21,7 +21,8 @@ import blessed
 terminal = blessed.Terminal()
 
 # print Unicode characters
-print("""
+print(
+    """
   STARGΛ̊TE SG-1, a = v̇ = r̈, a⃑ ⊥ b⃑
                                                                       ▉
   ╔══╦══╗  ┌──┬──┐  ╭──┬──╮  ╭──┬──╮  ┏━━┳━━┓  ┎┒┏┑   ╷  ╻ ┏┯┓ ┌┰┐    ▊ ╱╲╱╲╳╳╳
@@ -43,4 +44,5 @@ print("""
   ⊥ < a ≠ b ≡ c ≤ d ≪ ⊤ ⇒ (⟦A⟧ ⇔ ⟪B⟫),      ⎪⎢⎜ ⎲     ⎟⎥⎪
                                             ⎪⎢⎜ ⎳aⁱ-bⁱ⎟⎥⎪
   2H₂ + O₂ ⇌ 2H₂O, R = 4.7 kΩ, ⌀ 200 mm     ⎩⎣⎝i=1    ⎠⎦⎭
-""")
+"""
+)
