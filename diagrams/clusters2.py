@@ -24,9 +24,7 @@ with Diagram("Clusters #2", show=True, direction="LR"):
         consumer = Kafka("input stream")
 
         # rozvetveni
-        workersA = [Go("worker #1"),
-                    Go("worker #2"),
-                    Go("worker #3")]
+        workersA = [Go("worker #1"), Go("worker #2"), Go("worker #3")]
 
         db = RDS("storage")
 
@@ -34,9 +32,7 @@ with Diagram("Clusters #2", show=True, direction="LR"):
     buffer = ActiveMQ("buffer")
 
     # rozvetveni
-    workersB = [Rust("worker #1"),
-                Rust("worker #2"),
-                Rust("worker #3")]
+    workersB = [Rust("worker #1"), Rust("worker #2"), Rust("worker #3")]
 
     # definice uzlu
     producer = Kafka("output stream")
