@@ -20,10 +20,12 @@ def print_data_frame(df):
 
 
 def validate_data_frame(data_frame):
-    schema = Schema({
-        Required('Block size'): [TypeValidator(int)],
-        Required('Time to read'): [TypeValidator(int)],
-        })
+    schema = Schema(
+        {
+            Required("Block size"): [TypeValidator(int)],
+            Required("Time to read"): [TypeValidator(int)],
+        }
+    )
 
     schema.validate(data_frame)
 
