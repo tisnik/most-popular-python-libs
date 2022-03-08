@@ -17,4 +17,4 @@ e["next"] = f
 f["next"] = a
 
 # cyklické reference mezi objekty
-objgraph.show_refs([a, b, c, d, e, f], filename='objgraph8.png')
+objgraph.show_refs([a, b, c, d, e, f], filename="objgraph8.png")
