@@ -7,6 +7,6 @@ import pandas
 
 df = pandas.read_csv("denni_kurz.txt", sep="|", skiprows=1)
 
-df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(',', '.'), errors='coerce')
+df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(",", "."), errors="coerce")
 
 print(df.describe().info())
