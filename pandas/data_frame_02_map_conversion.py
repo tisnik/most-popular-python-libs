@@ -10,7 +10,7 @@ df = pandas.read_csv("tiobe.tsv", sep="\t")
 df.set_index("Language", inplace=True)
 
 # převod na skutečný poměr <0, 1>
-df["Ratings as ratio"] = df["Ratings"].map(lambda x: x/100.0)
+df["Ratings as ratio"] = df["Ratings"].map(lambda x: x / 100.0)
 
 # datový rámec zobrazíme
 print(df)
