@@ -37,13 +37,17 @@ def validate_item(schema, data):
 def posint(value):
     """Validate if the value is positive integer number."""
     if type(value) is not int or value <= 0:
-        raise Invalid("positive integer value expected, but got {v} instead".format(v=value))
+        raise Invalid(
+            "positive integer value expected, but got {v} instead".format(v=value)
+        )
 
 
 def posfloat(value):
     """Validate if the value is positive floating point number."""
     if type(value) is not float or value <= 0:
-        raise Invalid("positive float value expected, but got {v} instead".format(v=value))
+        raise Invalid(
+            "positive float value expected, but got {v} instead".format(v=value)
+        )
 
 
 def validate_data_frame(data_frame):
@@ -53,15 +57,17 @@ def validate_data_frame(data_frame):
     print("Validation")
     print("---------------------------")
 
-    schema = Schema({
-        "Index": int,
-        "_1": posint,
-        "_2": posint,
-        "Change": Any(str, float),
-        "Language": str,
-        "Ratings": posfloat,
-        "Changep": float,
-        })
+    schema = Schema(
+        {
+            "Index": int,
+            "_1": posint,
+            "_2": posint,
+            "Change": Any(str, float),
+            "Language": str,
+            "Ratings": posfloat,
+            "Changep": float,
+        }
+    )
 
     for record in df.itertuples():
         validate_item(schema, record)
