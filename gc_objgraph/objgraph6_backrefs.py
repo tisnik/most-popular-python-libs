@@ -20,4 +20,4 @@ z["->y"] = y
 z["->z"] = z
 
 # graf s cyklickými referencemi
-objgraph.show_backrefs([x, y, z], filename='objgraph6_backrefs.png')
+objgraph.show_backrefs([x, y, z], filename="objgraph6_backrefs.png")
