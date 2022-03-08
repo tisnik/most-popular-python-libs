@@ -15,7 +15,7 @@ import napkin
 
 @napkin.seq_diagram()
 def request_response_4(c):
-    client = c.object('Client')
+    client = c.object("Client")
     frontend = c.object('"Front end"')
     backend = c.object('"Back end"')
 
