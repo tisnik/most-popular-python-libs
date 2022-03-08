@@ -3,7 +3,7 @@
 import objgraph
 
 
-class A():
+class A:
     """Tested class."""
 
     def __init__(self, other):
@@ -18,4 +18,4 @@ z = A(y)
 x.other = z
 
 # cyklické reference mezi objekty
-objgraph.show_backrefs([x, y, z], filename='objgraph7_backrefs.png')
+objgraph.show_backrefs([x, y, z], filename="objgraph7_backrefs.png")
