@@ -18,9 +18,14 @@ print(df2)
 print()
 
 # spojení obou datových rámců
-merged = pandas.merge(df1, df2, left_index=True, right_index=True,
-                      how="left",
-                      on=["Change", "Ratings", "Changep"])
+merged = pandas.merge(
+    df1,
+    df2,
+    left_index=True,
+    right_index=True,
+    how="left",
+    on=["Change", "Ratings", "Changep"],
+)
 
 # výpis výsledku
 print(merged)
