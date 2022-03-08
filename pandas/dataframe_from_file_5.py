@@ -3,11 +3,13 @@
 import numpy as np
 import pandas as pd
 
-dt = np.dtype([
-    ("i", "<u4"),
-    ("x", "<f4"),
-    ("type", "S4"),
-    ])
+dt = np.dtype(
+    [
+        ("i", "<u4"),
+        ("x", "<f4"),
+        ("type", "S4"),
+    ]
+)
 
 np_data = np.fromfile("binary_df_2.bin", dtype=dt)
 print(np_data)
