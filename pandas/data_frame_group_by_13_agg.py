@@ -7,7 +7,7 @@ import pandas
 df = pandas.read_csv("denni_kurz2.txt", sep="|", skiprows=0)
 
 # převod číselných hodnot
-df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(',', '.'), errors='coerce')
+df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(",", "."), errors="coerce")
 
 df["datum"] = pandas.to_datetime(df["datum"])
 
