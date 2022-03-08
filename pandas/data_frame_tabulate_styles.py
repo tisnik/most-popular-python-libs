@@ -12,28 +12,28 @@ df.set_index("Language", inplace=True)
 
 # jména stylů
 table_styles = (
-        "plain",
-        "simple",
-        "github",
-        "grid",
-        "fancy_grid",
-        "pipe",
-        "orgtbl",
-        "jira",
-        "presto",
-        "pretty",
-        "psql",
-        "rst",
-        "mediawiki",
-        "moinmoin",
-        "youtrack",
-        "html",
-        "latex",
-        "latex_raw",
-        "latex_booktabs",
-        "textile",
-        "tsv"
-        )
+    "plain",
+    "simple",
+    "github",
+    "grid",
+    "fancy_grid",
+    "pipe",
+    "orgtbl",
+    "jira",
+    "presto",
+    "pretty",
+    "psql",
+    "rst",
+    "mediawiki",
+    "moinmoin",
+    "youtrack",
+    "html",
+    "latex",
+    "latex_raw",
+    "latex_booktabs",
+    "textile",
+    "tsv",
+)
 
 for table_style in table_styles:
     # oddělovač
