@@ -28,4 +28,4 @@ with open("openapi.json") as fin:
     print("-----------------------------")
     print(jq.compile('".paths./"').input(content).first())
     print("-----------------------------")
-    print(jq.compile('.paths./').input(content).first())
+    print(jq.compile(".paths./").input(content).first())
