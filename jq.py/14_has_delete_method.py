@@ -24,7 +24,7 @@ import json
 with open("openapi.json") as fin:
     content = json.load(fin)
 
-    for endpoint in jq.compile('.paths[]').input(content).all():
+    for endpoint in jq.compile(".paths[]").input(content).all():
         print(",".join(endpoint.keys()))
 
     print("-------------------------")
