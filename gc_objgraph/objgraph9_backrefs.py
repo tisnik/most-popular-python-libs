@@ -6,4 +6,4 @@ x = {}
 y = {}
 
 # reference mezi objekty
-objgraph.show_backrefs(globals(), filename='objgraph9_backrefs.png')
+objgraph.show_backrefs(globals(), filename="objgraph9_backrefs.png")
