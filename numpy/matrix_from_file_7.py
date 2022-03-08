@@ -23,7 +23,9 @@ print("count=", count, "items")
 print()
 
 # načtení prvků matice z binárního souboru a konstrukce matice
-m = np.fromfile("matrix3.bin", dtype="i", offset=offset, count=count).reshape(last_row-first_row, columns)
+m = np.fromfile("matrix3.bin", dtype="i", offset=offset, count=count).reshape(
+    last_row - first_row, columns
+)
 
 # výpis obsahu právě zkonstruované matice
 print(m)
