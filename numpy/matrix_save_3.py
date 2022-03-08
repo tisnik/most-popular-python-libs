@@ -7,7 +7,7 @@ rows = 1000
 columns = 5
 
 # matice obsahující celočíselné hodnoty typu integer
-m = np.linspace(1, rows*columns, rows*columns, dtype="i").reshape(rows, columns)
+m = np.linspace(1, rows * columns, rows * columns, dtype="i").reshape(rows, columns)
 
 # tisk obsahu zkonstruované matice
 print(m)
