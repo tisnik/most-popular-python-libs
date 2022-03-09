@@ -6,7 +6,7 @@ import pandas
 import matplotlib.pyplot as plt
 
 # hodnoty na x-ové ose
-r = np.linspace(0, 2*np.pi, 100)
+r = np.linspace(0, 2 * np.pi, 100)
 
 # konstrukce datové struktury Series
 s = pandas.Series(data=np.sin(r), index=r)
