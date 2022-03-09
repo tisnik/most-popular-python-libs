@@ -29,7 +29,7 @@ class PosintValidator(BaseValidator):
 class IntOrNAValidator(BaseValidator):
     def validate(self, values):
         for value in values:
-            if (type(value) == np.int64):
+            if type(value) == np.int64:
                 return
             if not (pandas.isna(value)):
                 raise Error("Int value or NA expected")
@@ -37,10 +37,12 @@ class IntOrNAValidator(BaseValidator):
 
 def validate_data_frame(data_frame):
 
-    schema = Schema({
-        Required('Block size'): [PosintValidator()],
-        Required('Time to read'): [IntOrNAValidator()],
-        })
+    schema = Schema(
+        {
+            Required("Block size"): [PosintValidator()],
+            Required("Time to read"): [IntOrNAValidator()],
+        }
+    )
 
     schema.validate(data_frame)
 
