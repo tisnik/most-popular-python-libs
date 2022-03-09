@@ -35,10 +35,12 @@ class NotNaNValidator(BaseValidator):
 
 def validate_data_frame(data_frame):
 
-    schema = Schema({
-        Required('Block size'): [PosintValidator()],
-        Required('Time to read'): [NotNaNValidator()],
-        })
+    schema = Schema(
+        {
+            Required("Block size"): [PosintValidator()],
+            Required("Time to read"): [NotNaNValidator()],
+        }
+    )
 
     schema.validate(data_frame)
 
