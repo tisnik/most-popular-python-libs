@@ -3,7 +3,7 @@
 
 import pandas
 
-s = pandas.Series((1, 2, None, 4, 5, 6), ('a', 'b', 'c', 'd', 'e', 'f'))
+s = pandas.Series((1, 2, None, 4, 5, 6), ("a", "b", "c", "d", "e", "f"))
 
 print("sum", s.sum(), sep="\t")
 print("prod", s.prod(), sep="\t")
