@@ -5,14 +5,13 @@ import pandas
 import numpy as np
 
 # přečtení zdrojových dat
-s = pandas.Series(['cat', 'dog', np.nan, 'rabbit'])
+s = pandas.Series(["cat", "dog", np.nan, "rabbit"])
 
 # tisk obsahu původní datové řady
 print(s)
 print()
 
-mapping = {'cat': 'kitten',
-           'dog': 'puppy'}
+mapping = {"cat": "kitten", "dog": "puppy"}
 
 # mapování hodnot
 s2 = s.map(mapping)
