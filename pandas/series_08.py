@@ -3,7 +3,7 @@
 
 import pandas
 
-s = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+s = pandas.Series(range(1, 7), ("a", "b", "c", "d", "e", "f"))
 
 print("Series:")
 print(s)
@@ -17,7 +17,7 @@ print("Values:")
 print(s.values)
 print()
 
-s = s.reindex(['d', 'a', 'b', 'c', 'd', 'a', 'a', 'a'])
+s = s.reindex(["d", "a", "b", "c", "d", "a", "a", "a"])
 
 print("Reindexed:")
 print()
