@@ -24,8 +24,7 @@ try:
     print("Format:     {fmt}".format(fmt=test_image.format))
 
     size = test_image.size
-    print("Resolution: {width}x{height} px".format(width=size[0],
-                                                   height=size[1]))
+    print("Resolution: {width}x{height} px".format(width=size[0], height=size[1]))
 
     print("Mode:       {mode}".format(mode=test_image.mode))
 
