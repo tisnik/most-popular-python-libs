@@ -18,11 +18,21 @@ input_file = sys.argv[1]
 df = pd.read_csv(input_file, sep="\t")
 
 df = df[5:10]
-data_columns = ["ANSI C", "Cython #1", "Cython #2", "Cython #3",
-                "Numba #1/interpret", "Numba #2", "Numba #3", "Numba #4"]
+data_columns = [
+    "ANSI C",
+    "Cython #1",
+    "Cython #2",
+    "Cython #3",
+    "Numba #1/interpret",
+    "Numba #2",
+    "Numba #3",
+    "Numba #4",
+]
 
 for data_column in data_columns:
-    df[data_column] = pd.to_numeric(df[data_column].str.replace(',', '.'), errors='coerce')
+    df[data_column] = pd.to_numeric(
+        df[data_column].str.replace(",", "."), errors="coerce"
+    )
 
 print(df)
 print()
