@@ -29,7 +29,9 @@ def create_second_image(width, height):
     # vykreslení čtverců
     for y in range(0, height, 32):
         for x in range(0, width, 32):
-            draw.rectangle((x+0, y+0, x+29, y+29), outline=255, fill=x/4 + y/4)
+            draw.rectangle(
+                (x + 0, y + 0, x + 29, y + 29), outline=255, fill=x / 4 + y / 4
+            )
 
     del draw
     return second_image
