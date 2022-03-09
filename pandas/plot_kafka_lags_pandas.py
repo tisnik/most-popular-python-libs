@@ -32,7 +32,7 @@ coef = np.polyfit(x, messages, 1)
 poly1d_fn = np.poly1d(coef)
 
 # Create new histogram graph
-plt.plot(messages, "b", poly1d_fn(np.arange(0, len(messages))), 'y--')
+plt.plot(messages, "b", poly1d_fn(np.arange(0, len(messages))), "y--")
 
 # Title of a graph
 plt.title("Messages in Kafka")
