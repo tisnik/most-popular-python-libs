@@ -3,7 +3,7 @@
 
 import pandas
 
-s1 = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+s1 = pandas.Series(range(1, 7), ("a", "b", "c", "d", "e", "f"))
 
 s1 = s1 * 2
 
