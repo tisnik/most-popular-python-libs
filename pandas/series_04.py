@@ -3,7 +3,7 @@
 
 import pandas
 
-s = pandas.Series(range(1, 10), ('a', 'b', 'c'))
+s = pandas.Series(range(1, 10), ("a", "b", "c"))
 
 print("Series:")
 print(s)
