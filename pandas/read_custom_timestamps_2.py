@@ -11,9 +11,9 @@ def datetime_parser(raw_data):
     return datetime.datetime.strptime(raw_data, "%Y/%m/%d %H-%M-%S")
 
 
-df = pandas.read_csv("custom_timestamps.csv",
-                     date_parser=datetime_parser,
-                     parse_dates=["Timestamp"])
+df = pandas.read_csv(
+    "custom_timestamps.csv", date_parser=datetime_parser, parse_dates=["Timestamp"]
+)
 
 
 pandas.to_datetime(df.Timestamp)
