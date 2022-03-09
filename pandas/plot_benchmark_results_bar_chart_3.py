@@ -21,7 +21,9 @@ df = df[10:]
 data_columns = df.columns[1:]
 
 for data_column in data_columns:
-    df[data_column] = pd.to_numeric(df[data_column].str.replace(',', '.'), errors='coerce')
+    df[data_column] = pd.to_numeric(
+        df[data_column].str.replace(",", "."), errors="coerce"
+    )
 
 print(df)
 print()
