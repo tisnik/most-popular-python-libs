@@ -8,7 +8,7 @@ print(s.dtypes)
 print(s)
 print()
 
-s = s.astype('float16')
+s = s.astype("float16")
 print(s.dtypes)
 print(s)
 print()
