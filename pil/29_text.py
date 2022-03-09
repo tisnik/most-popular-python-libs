@@ -29,10 +29,10 @@ try:
     height = test_image.size[1]
 
     # načtení fontu
-    font = ImageFont.truetype('FreeMono.ttf', 72)
+    font = ImageFont.truetype("FreeMono.ttf", 72)
 
     # vykreslení jednoduchého textu
-    draw.text((50, height/2 - 36), "Pillow", font=font, fill=(255, 128, 128))
+    draw.text((50, height / 2 - 36), "Pillow", font=font, fill=(255, 128, 128))
 
     # uložení upraveného obrázku
     test_image.save("text.png")
