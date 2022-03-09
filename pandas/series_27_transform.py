@@ -23,7 +23,7 @@ print(s)
 print()
 
 # převod na skutečný poměr <0, 1>
-s2 = s.transform([lambda x: x, lambda x: x/100.0, np.round])
+s2 = s.transform([lambda x: x, lambda x: x / 100.0, np.round])
 
 # tisk obsahu nové datové řady
 print("In percents and also as ratios")
