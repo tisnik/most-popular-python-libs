@@ -4,13 +4,13 @@
 import pandas
 
 input_data = {
-        "f": 6,
-        "e": 5,
-        "d": 4,
-        "c": 3,
-        "b": 2,
-        "a": 1,
-        }
+    "f": 6,
+    "e": 5,
+    "d": 4,
+    "c": 3,
+    "b": 2,
+    "a": 1,
+}
 
 print("Input data:")
 print(input_data)
