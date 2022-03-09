@@ -30,7 +30,11 @@ try:
     # vykreslení různobarevných čtverců
     for y in range(0, height, 32):
         for x in range(0, width, 32):
-            draw.rectangle((x+1, y+1, x+28, y+28), outline=(255, 255, 255), fill=(x, 255, y))
+            draw.rectangle(
+                (x + 1, y + 1, x + 28, y + 28),
+                outline=(255, 255, 255),
+                fill=(x, 255, y),
+            )
 
     # uložení upraveného obrázku
     test_image.save("color_rectangles.png")
