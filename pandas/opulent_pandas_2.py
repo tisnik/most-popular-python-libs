@@ -27,10 +27,12 @@ class PosintValidator(BaseValidator):
 
 def validate_data_frame(data_frame):
 
-    schema = Schema({
-        Required('Block size'): [PosintValidator()],
-        Required('Time to read'): [PosintValidator()],
-        })
+    schema = Schema(
+        {
+            Required("Block size"): [PosintValidator()],
+            Required("Time to read"): [PosintValidator()],
+        }
+    )
 
     schema.validate(data_frame)
 
