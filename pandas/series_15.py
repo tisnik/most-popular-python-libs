@@ -8,11 +8,11 @@ print(s.dtypes)
 print(s)
 print()
 
-s = s.astype('int32')
+s = s.astype("int32")
 print(s.dtypes)
 print(s)
 print()
 
-s = s.astype('int8')
+s = s.astype("int8")
 print(s.dtypes)
 print(s)
