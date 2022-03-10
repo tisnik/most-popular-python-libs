@@ -33,13 +33,12 @@ try:
     height = test_image.size[1]
 
     # načtení fontu
-    font = ImageFont.truetype('FreeMono.ttf', 100)
+    font = ImageFont.truetype("FreeMono.ttf", 100)
 
     # vykreslení jednoduchého textu
-    draw.text((70, height/2 - 50), "Pillow", font=font, fill=255)
+    draw.text((70, height / 2 - 50), "Pillow", font=font, fill=255)
 
-    patterns = ['4:(... .0. .1.)->1',
-                '4:(... .0. ..1)->1']
+    patterns = ["4:(... .0. .1.)->1", "4:(... .0. ..1)->1"]
     # vytvoření objektu pro morfologické operace
     lutBuilder = ImageMorph.LutBuilder(patterns=patterns)
     lut = lutBuilder.build_lut()
