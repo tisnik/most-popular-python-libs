@@ -23,15 +23,26 @@ try:
     # objekt umožňující kreslení do obrázku
     draw = ImageDraw.Draw(test_image)
 
-    endpoints = [100, 500,
-                 400, 200,
-                 100, 200,
-                 250,  50,
-                 400, 200,
-                 400, 500,
-                 100, 200,
-                 100, 500,
-                 400, 500]
+    endpoints = [
+        100,
+        500,
+        400,
+        200,
+        100,
+        200,
+        250,
+        50,
+        400,
+        200,
+        400,
+        500,
+        100,
+        200,
+        100,
+        500,
+        400,
+        500,
+    ]
 
     draw.line(endpoints, fill=255)
 
