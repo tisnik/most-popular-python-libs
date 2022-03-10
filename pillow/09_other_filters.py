@@ -27,7 +27,7 @@ IMAGE_FILTERS = (
     ImageFilter.FIND_EDGES,
     ImageFilter.SHARPEN,
     ImageFilter.SMOOTH,
-    ImageFilter.SMOOTH_MORE
+    ImageFilter.SMOOTH_MORE,
 )
 
 
@@ -35,8 +35,7 @@ def print_image_info(image):
     print("Format:     {fmt}".format(fmt=image.format))
     size = image.size
 
-    print("Resolution: {width}x{height} px".format(width=size[0],
-                                                   height=size[1]))
+    print("Resolution: {width}x{height} px".format(width=size[0], height=size[1]))
 
     print("Mode:       {mode}".format(mode=image.mode))
 
@@ -45,7 +44,9 @@ def apply_filter_and_save_image(image, prefix, image_filter):
     filter_name = image_filter.__name__.lower()
     print("Applying filter {filter_name}".format(filter_name=filter_name))
 
-    filename = "{prefix}{filter_name}.png".format(prefix=prefix, filter_name=filter_name)
+    filename = "{prefix}{filter_name}.png".format(
+        prefix=prefix, filter_name=filter_name
+    )
 
     filtered_image = image.filter(image_filter)
     filtered_image.save(filename)
