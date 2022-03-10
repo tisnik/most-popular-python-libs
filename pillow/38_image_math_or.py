@@ -27,10 +27,10 @@ def create_second_image(width, height):
     draw = ImageDraw.Draw(second_image)
 
     # vykreslení čtverců
-    draw.rectangle((0, 0, width/2, height/2), fill=0)
-    draw.rectangle((width/2, 0, width, height/2), fill=127)
-    draw.rectangle((0, height/2, width/2, height), fill=128)
-    draw.rectangle((width/2, height/2, width, height), fill=255)
+    draw.rectangle((0, 0, width / 2, height / 2), fill=0)
+    draw.rectangle((width / 2, 0, width, height / 2), fill=127)
+    draw.rectangle((0, height / 2, width / 2, height), fill=128)
+    draw.rectangle((width / 2, height / 2, width, height), fill=255)
 
     del draw
     return second_image
@@ -48,7 +48,9 @@ try:
     second_image = create_second_image(512, 512)
 
     # aplikace operace
-    result_image = ImageMath.eval("first | second", first=grayscale_image, second=second_image)
+    result_image = ImageMath.eval(
+        "first | second", first=grayscale_image, second=second_image
+    )
 
     # další převod výsledku na stupně šedi
     result_image = ImageMath.eval("convert(src, 'L')", src=result_image)
