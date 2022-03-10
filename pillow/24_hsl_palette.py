@@ -27,7 +27,9 @@ try:
     # vykreslení různobarevných pixelů
     for saturation in range(0, height):
         for hue in range(0, width):
-            color_hsl = "hsl({hue}, {saturation}%, 50%)".format(hue=hue, saturation=saturation//2)
+            color_hsl = "hsl({hue}, {saturation}%, 50%)".format(
+                hue=hue, saturation=saturation // 2
+            )
             color = ImageColor.getrgb(color_hsl)
             test_image.putpixel((hue, saturation), color)
 
