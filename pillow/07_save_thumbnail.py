@@ -24,8 +24,7 @@ def print_image_info(image):
     print("Format:     {fmt}".format(fmt=image.format))
 
     size = image.size
-    print("Resolution: {width}x{height} px".format(width=size[0],
-                                                   height=size[1]))
+    print("Resolution: {width}x{height} px".format(width=size[0], height=size[1]))
 
     print("Mode:       {mode}".format(mode=image.mode))
 
