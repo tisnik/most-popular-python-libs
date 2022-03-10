@@ -33,12 +33,15 @@ try:
 
     green = 255
     for i, r, red, blue in zip(
-            range(0, 128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)):
+        range(0, 128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)
+    ):
         a = i / 12.0
         b = i + 80.0
         x = width / 2 + b * math.cos(a)
         y = height / 2 + b * math.sin(a)
-        draw.ellipse((x - r, y - r, x + r, y + r), fill=(red, green, blue), outline="black")
+        draw.ellipse(
+            (x - r, y - r, x + r, y + r), fill=(red, green, blue), outline="black"
+        )
 
     # uložení upraveného obrázku
     test_image.save("circle_pattern.png")
