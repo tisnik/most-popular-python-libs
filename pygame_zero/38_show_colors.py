@@ -29,12 +29,9 @@ def draw():
             y = 12 + j * 40
             color_name, color_value = random.choice(list(colors.items()))
 
-            rect = Rect((x, y-8), (140, 30))
+            rect = Rect((x, y - 8), (140, 30))
             screen.draw.filled_rect(rect, color_value)
 
-            screen.draw.text(color_name,
-                             (x, y),
-                             owidth=1,
-                             fontsize=24,
-                             ocolor="white",
-                             color="black")
+            screen.draw.text(
+                color_name, (x, y), owidth=1, fontsize=24, ocolor="white", color="black"
+            )
