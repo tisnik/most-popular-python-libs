@@ -49,7 +49,8 @@ print()
 
 # import Javovské třídy
 from py4j.java_gateway import java_import
-java_import(gateway.jvm,'java.util.*')
+
+java_import(gateway.jvm, "java.util.*")
 
 # rozdílné oproti předchozímu příkladu
 lst = gateway.jvm.ArrayList()
