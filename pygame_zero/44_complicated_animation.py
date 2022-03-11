@@ -19,16 +19,16 @@ TEXT_LEFT = 10
 TEXT_HEIGHT = 16
 
 MESSAGES = (
-        "F - fast animation",
-        "R - reset animation",
-        "",
-        "W - walk around screen",
-        "Esc - exit"
-        )
+    "F - fast animation",
+    "R - reset animation",
+    "",
+    "W - walk around screen",
+    "Esc - exit",
+)
 
 sprite = Actor("sprite1.png")
-BORDER = sprite.width/2 - 5
-sprite.pos = (BORDER, HEIGHT/2)
+BORDER = sprite.width / 2 - 5
+sprite.pos = (BORDER, HEIGHT / 2)
 
 
 def draw():
@@ -46,19 +46,19 @@ def on_key_down(key, mod, unicode):
         exit()
     if key == keys.R:
         sprite.x = BORDER
-        sprite.y = HEIGHT/2
+        sprite.y = HEIGHT / 2
     if key == keys.F:
-        animate(sprite, x=WIDTH-BORDER)
+        animate(sprite, x=WIDTH - BORDER)
     if key == keys.W:
         animate(sprite, x=BORDER, y=BORDER, on_finished=a1)
 
 
 def a1():
-    animate(sprite, x=WIDTH-BORDER, on_finished=a2)
+    animate(sprite, x=WIDTH - BORDER, on_finished=a2)
 
 
 def a2():
-    animate(sprite, y=HEIGHT-BORDER, on_finished=a3)
+    animate(sprite, y=HEIGHT - BORDER, on_finished=a3)
 
 
 def a3():
