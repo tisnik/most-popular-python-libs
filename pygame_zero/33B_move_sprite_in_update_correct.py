@@ -32,11 +32,11 @@ def update():
 
 
 directions = {
-        keys.UP: (0, -1),
-        keys.DOWN: (0, 1),
-        keys.LEFT: (-1, 0),
-        keys.RIGHT: (1, 0),
-        }
+    keys.UP: (0, -1),
+    keys.DOWN: (0, 1),
+    keys.LEFT: (-1, 0),
+    keys.RIGHT: (1, 0),
+}
 
 
 def on_key_down(key, mod, unicode):
