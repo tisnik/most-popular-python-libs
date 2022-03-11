@@ -18,12 +18,7 @@ TEXT_COLOR = "Orange"
 TEXT_LEFT = 10
 TEXT_HEIGHT = 16
 
-MESSAGES = (
-        "F - fast animation",
-        "R - reset animation",
-        "",
-        "Esc - exit"
-        )
+MESSAGES = ("F - fast animation", "R - reset animation", "", "Esc - exit")
 
 sprite = Actor("sprite1.png")
 sprite.pos = (0, 240)
