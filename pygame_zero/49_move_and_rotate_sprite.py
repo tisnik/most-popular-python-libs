@@ -33,8 +33,8 @@ def draw():
 def update():
     global speed, angle, speed_delta
     angle += angle_delta
-    sprite.top -= speed*cos(radians(angle))
-    sprite.left -= speed*sin(radians(angle))
+    sprite.top -= speed * cos(radians(angle))
+    sprite.left -= speed * sin(radians(angle))
     sprite.angle = angle
     speed += speed_delta
     speed *= 0.95
@@ -47,8 +47,8 @@ def on_key_down(key, mod, unicode):
     if key == keys.R:
         speed_delta = 0
         speed = 0
-        sprite.x = WIDTH/2
-        sprite.y = HEIGHT/2
+        sprite.x = WIDTH / 2
+        sprite.y = HEIGHT / 2
     if key == keys.UP:
         speed_delta = 1.5
     if key == keys.DOWN:
