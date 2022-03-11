@@ -23,14 +23,16 @@ sprite.pos = (240, 0)
 
 
 def a1():
-    sprite.x = WIDTH/2 + randrange(-X_SPREAD, X_SPREAD)
+    sprite.x = WIDTH / 2 + randrange(-X_SPREAD, X_SPREAD)
     sprite.y = -10
-    animate(sprite,
-            x=WIDTH/2 + randrange(-X_SPREAD, X_SPREAD),
-            y=HEIGHT,
-            on_finished=a1,
-            duration=5,
-            tween="accelerate")
+    animate(
+        sprite,
+        x=WIDTH / 2 + randrange(-X_SPREAD, X_SPREAD),
+        y=HEIGHT,
+        on_finished=a1,
+        duration=5,
+        tween="accelerate",
+    )
 
 
 def draw():
