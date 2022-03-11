@@ -33,8 +33,8 @@ yellow_sprite.dy = 0
 
 def draw_sprite_pos(which, sprite, pos_x, pos_y, color):
     screen.draw.text(which + ":", (pos_x, pos_y), color=color)
-    screen.draw.text(str(int(sprite.x)), (pos_x+70, pos_y), color=color)
-    screen.draw.text(str(int(sprite.y)), (pos_x+110, pos_y), color=color)
+    screen.draw.text(str(int(sprite.x)), (pos_x + 70, pos_y), color=color)
+    screen.draw.text(str(int(sprite.y)), (pos_x + 110, pos_y), color=color)
 
 
 def draw_sprite_col(sprite, other_sprites, pos_x, pos_y, color):
