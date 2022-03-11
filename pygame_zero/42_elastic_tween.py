@@ -19,16 +19,16 @@ TEXT_LEFT = 10
 TEXT_HEIGHT = 16
 
 MESSAGES = (
-        "F - fast animation",
-        "S - slow animation",
-        "R - reset animation",
-        "",
-        "I - fast animation, elastic @ in tween",
-        "O - fast animation, elastic @ out tween",
-        "B - fast animation, elastic @ both sides tween",
-        "",
-        "Esc - exit"
-        )
+    "F - fast animation",
+    "S - slow animation",
+    "R - reset animation",
+    "",
+    "I - fast animation, elastic @ in tween",
+    "O - fast animation, elastic @ out tween",
+    "B - fast animation, elastic @ both sides tween",
+    "",
+    "Esc - exit",
+)
 
 sprite = Actor("sprite1.png")
 sprite.pos = (0, 240)
