@@ -14,6 +14,7 @@
 #
 
 import matplotlib
+
 matplotlib.use("Agg")  # noqa: E402
 import matplotlib.pyplot as plt
 import numpy as np
@@ -38,7 +39,7 @@ FRAMEBUFFER_DEVICE = "/dev/fb0"
 # Vytvoreni grafu
 def create_graph():
     fig = plt.figure()
-    x = np.linspace(0, 2*np.pi, 100)
+    x = np.linspace(0, 2 * np.pi, 100)
     y = np.sin(x)
     plt.plot(x, y)
     plt.xlabel("x")
@@ -48,8 +49,13 @@ def create_graph():
 
 # Ulozeni grafu do souboru
 def save_graph(fig, imageFile):
-    plt.savefig(imageFile, facecolor=fig.get_facecolor(), bbox_inches='tight',
-                dpi=80, pad_inches=0.03)
+    plt.savefig(
+        imageFile,
+        facecolor=fig.get_facecolor(),
+        bbox_inches="tight",
+        dpi=80,
+        pad_inches=0.03,
+    )
 
 
 # Inicializace knihovny Pygame, inicializace video systemu a otevreni
