@@ -31,15 +31,17 @@ def init_sprites():
 
 
 def a1(sprite):
-    sprite.x = WIDTH/2 + randrange(-X_SPREAD, X_SPREAD)
+    sprite.x = WIDTH / 2 + randrange(-X_SPREAD, X_SPREAD)
     sprite.y = 0 - randrange(Y_SPREAD)
-    animate(sprite,
-            x=WIDTH/2 + randrange(-X_SPREAD, X_SPREAD),
-            y=HEIGHT + randrange(Y_SPREAD),
-            angle=randrange(360),
-            on_finished=lambda: a1(sprite),
-            duration=randrange(2, 7),
-            tween="accelerate")
+    animate(
+        sprite,
+        x=WIDTH / 2 + randrange(-X_SPREAD, X_SPREAD),
+        y=HEIGHT + randrange(Y_SPREAD),
+        angle=randrange(360),
+        on_finished=lambda: a1(sprite),
+        duration=randrange(2, 7),
+        tween="accelerate",
+    )
 
 
 def draw():
