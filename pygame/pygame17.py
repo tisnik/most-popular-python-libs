@@ -58,7 +58,7 @@ clock = pygame.time.Clock()
 display = pygame.display.set_mode([WIDTH, HEIGHT])
 
 # Nastavení titulku okna
-pygame.display.set_caption('Pygame test #17')
+pygame.display.set_caption("Pygame test #17")
 
 # Konstanty s n-ticemi představujícími základní barvy
 BLACK = (0, 0, 0)
@@ -72,7 +72,7 @@ display.fill(BLACK)
 all_sprites = pygame.sprite.Group()
 
 # Vytvoření dvojice spritů
-sprite1 = BlockySprite(RED,  50, 10, 10)
+sprite1 = BlockySprite(RED, 50, 10, 10)
 sprite2 = BlockySprite(BLUE, 25, 50, 10)
 
 # Přidání dvojice spritů do seznamu
