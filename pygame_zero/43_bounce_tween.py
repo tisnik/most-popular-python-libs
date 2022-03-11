@@ -19,19 +19,19 @@ TEXT_LEFT = 10
 TEXT_HEIGHT = 16
 
 MESSAGES = (
-        "F - fast animation",
-        "S - slow animation",
-        "R - reset animation",
-        "",
-        "T - fast animation, bounce @ start tween",
-        "E - fast animation, bounce @ end tween",
-        "B - fast animation, bounce @ both sides tween",
-        "",
-        "Esc - exit"
-        )
+    "F - fast animation",
+    "S - slow animation",
+    "R - reset animation",
+    "",
+    "T - fast animation, bounce @ start tween",
+    "E - fast animation, bounce @ end tween",
+    "B - fast animation, bounce @ both sides tween",
+    "",
+    "Esc - exit",
+)
 
 sprite = Actor("sprite1.png")
-BORDER = sprite.width/2 - 5
+BORDER = sprite.width / 2 - 5
 sprite.pos = (BORDER, 240)
 
 
@@ -51,12 +51,12 @@ def on_key_down(key, mod, unicode):
     if key == keys.R:
         sprite.x = BORDER
     if key == keys.F:
-        animate(sprite, x=WIDTH-BORDER, duration=1)
+        animate(sprite, x=WIDTH - BORDER, duration=1)
     if key == keys.S:
-        animate(sprite, x=WIDTH-BORDER, duration=5)
+        animate(sprite, x=WIDTH - BORDER, duration=5)
     if key == keys.T:
-        animate(sprite, x=WIDTH-BORDER, duration=2, tween="bounce_start")
+        animate(sprite, x=WIDTH - BORDER, duration=2, tween="bounce_start")
     if key == keys.E:
-        animate(sprite, x=WIDTH-BORDER, duration=2, tween="bounce_end")
+        animate(sprite, x=WIDTH - BORDER, duration=2, tween="bounce_end")
     if key == keys.B:
-        animate(sprite, x=WIDTH-BORDER, duration=2, tween="bounce_start_end")
+        animate(sprite, x=WIDTH - BORDER, duration=2, tween="bounce_start_end")
