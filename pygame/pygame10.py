@@ -37,7 +37,7 @@ clock = pygame.time.Clock()
 display = pygame.display.set_mode([WIDTH, HEIGHT])
 
 # Nastavení titulku okna
-pygame.display.set_caption('Pygame test #10')
+pygame.display.set_caption("Pygame test #10")
 
 # Konstanty s n-ticemi představujícími základní barvy
 BLACK = (0, 0, 0)
@@ -46,7 +46,7 @@ BLACK = (0, 0, 0)
 display.fill(BLACK)
 
 
-image_surface = pygame.image.load(os.path.join('images', 'gnome-globe.png'))
+image_surface = pygame.image.load(os.path.join("images", "gnome-globe.png"))
 
 display.blit(image_surface, (0, 0))
 display.blit(image_surface, (100, 100))
