@@ -32,6 +32,6 @@ print("Delka dat:", headers.get("content-length"))
 
 print(response.raw)
 
-with open("test1.png", 'wb') as fout:
+with open("test1.png", "wb") as fout:
     for block in response.iter_content(chunk_size=128):
         fout.write(block)
