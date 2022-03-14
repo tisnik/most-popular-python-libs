@@ -20,7 +20,7 @@ import json
 URL = "https://httpbin.org/put"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'application/json'}
+headers = {"accept": "application/json"}
 
 # poslani HTTP dotazu typu PUT
 response = requests.put(URL, headers=headers)
