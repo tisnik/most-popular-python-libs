@@ -19,13 +19,10 @@ import requests
 URL = "http://localhost:8000"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'application/json',
-           'Set-Cookie': "x=y"}
+headers = {"accept": "application/json", "Set-Cookie": "x=y"}
 
 # priprava cookies
-cookies = {'key1': 'value1',
-           'key2': 'value2',
-           'key3': 'value3'}
+cookies = {"key1": "value1", "key2": "value2", "key3": "value3"}
 
 # poslani HTTP dotazu typu GET
 response = requests.get(URL, headers=headers, cookies=cookies)
