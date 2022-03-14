@@ -19,7 +19,7 @@ import requests
 URL = "https://httpbin.org/image"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'image/png'}
+headers = {"accept": "image/png"}
 
 # poslani HTTP dotazu typu GET
 response = requests.get(URL, headers=headers)
@@ -35,6 +35,6 @@ print("Delka dat:", headers.get("content-length"))
 
 print(response.raw)
 
-with open("test2.png", 'wb') as fout:
+with open("test2.png", "wb") as fout:
     for block in response.iter_content(chunk_size=128):
         fout.write(block)
