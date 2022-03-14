@@ -19,7 +19,7 @@ import requests
 URL = "https://httpbin.org/get"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'application/json'}
+headers = {"accept": "application/json"}
 
 # poslani HTTP dotazu typu OPTIONS
 response = requests.options(URL, headers=headers)
