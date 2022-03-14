@@ -12,11 +12,10 @@ hostPort = 8000
 
 
 class SimpleServer(BaseHTTPRequestHandler):
-
     def do_GET(self):
         # priprava hlavicky odpovedi
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header("Content-type", "text/plain")
         self.end_headers()
 
         # odpoved serveru klientovi
@@ -26,7 +25,7 @@ class SimpleServer(BaseHTTPRequestHandler):
         print("URI: {uri}".format(uri=self.path))
 
         # precteni tela HTTP pozadavku
-        content_length = int(self.headers['Content-Length'])
+        content_length = int(self.headers["Content-Length"])
         print("content length: {len}".format(len=content_length))
 
         content = self.rfile.read(content_length)
@@ -34,7 +33,7 @@ class SimpleServer(BaseHTTPRequestHandler):
 
         # priprava hlavicky odpovedi
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header("Content-type", "text/plain")
         self.end_headers()
 
         # odpoved serveru klientovi
