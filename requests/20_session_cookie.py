@@ -19,10 +19,12 @@ import json
 
 def set_cookie(session, name, value):
     # adresa s testovaci REST API sluzbou
-    URL = "https://httpbin.org/cookies/set/{name}/{value}".format(name=name, value=value)
+    URL = "https://httpbin.org/cookies/set/{name}/{value}".format(
+        name=name, value=value
+    )
 
     # hlavicka posilana v dotazu
-    headers = {'accept': 'application/json'}
+    headers = {"accept": "application/json"}
 
     # poslani HTTP dotazu typu GET
     return session.get(URL, headers=headers)
@@ -33,7 +35,7 @@ def delete_cookie(session, name):
     URL = "https://httpbin.org/cookies/delete?{name}=".format(name=name)
 
     # hlavicka posilana v dotazu
-    headers = {'accept': 'application/json'}
+    headers = {"accept": "application/json"}
 
     # poslani HTTP dotazu typu GET
     return session.get(URL, headers=headers)
