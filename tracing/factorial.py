@@ -21,7 +21,7 @@ def factorial(n):
         return None
     if n == 0:
         return 1
-    result = n * factorial(n-1)
+    result = n * factorial(n - 1)
 
     assert isinstance(result, int), "Internal error in factorial computation"
     return result
