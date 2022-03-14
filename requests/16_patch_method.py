@@ -20,7 +20,7 @@ import json
 URL = "https://httpbin.org/patch"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'application/json'}
+headers = {"accept": "application/json"}
 
 # poslani HTTP dotazu typu PATCH
 response = requests.patch(URL, headers=headers)
