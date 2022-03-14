@@ -27,11 +27,7 @@ print(response.status_code)
 print(response.ok)
 print(response.text)
 
-payload = {
-    "klic": "hodnota",
-    "answer": 42,
-    "question": None,
-    "correct": True}
+payload = {"klic": "hodnota", "answer": 42, "question": None, "correct": True}
 
 # poslani dat jako hodnot formulare
 response = requests.post(URL, data=payload)
