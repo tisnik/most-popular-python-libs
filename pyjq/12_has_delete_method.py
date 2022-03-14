@@ -22,7 +22,7 @@ import json
 with open("openapi.json") as fin:
     content = json.load(fin)
 
-    for endpoint in pyjq.compile('.paths[]').all(content):
+    for endpoint in pyjq.compile(".paths[]").all(content):
         print(",".join(endpoint.keys()))
 
     print("-------------------------")
