@@ -26,4 +26,4 @@ with open("openapi.json") as fin:
     print("-----------------------------")
     print(pyjq.compile('".paths./"').first(content))
     print("-----------------------------")
-    print(pyjq.compile('.paths./').first(content))
+    print(pyjq.compile(".paths./").first(content))
