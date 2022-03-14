@@ -22,10 +22,12 @@ from pprint import pprint
 
 with open("openapi.json") as fin:
     content = json.load(fin)
-    search = pyjq.compile(".paths.\"/client/cluster/search\"").first(content)
+    search = pyjq.compile('.paths."/client/cluster/search"').first(content)
     pprint(search)
 
-    print("----------------------------------------------------------------------------")
+    print(
+        "----------------------------------------------------------------------------"
+    )
 
     search = pyjq.compile('.paths."/client/cluster/search"').first(content)
     pprint(search)
