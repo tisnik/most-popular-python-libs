@@ -20,12 +20,10 @@ import json
 URL = "https://httpbin.org/cookies"
 
 # hlavicka posilana v dotazu
-headers = {'accept': 'application/json'}
+headers = {"accept": "application/json"}
 
 # priprava cookies
-cookies = {'key1': 'value1',
-           'key2': 'value2',
-           'key3': 'value3'}
+cookies = {"key1": "value1", "key2": "value2", "key3": "value3"}
 
 # poslani HTTP dotazu typu GET
 response = requests.get(URL, headers=headers, cookies=cookies)
