@@ -17,7 +17,10 @@ def worker(threadName, delay, n):
 workers = 10
 
 with ThreadPoolExecutor(max_workers=3) as executor:
-    results = [executor.submit(worker, "Thread-{}".format(w + 1), 0.5 + w / 10.0, 10) for w in range(workers)]
+    results = [
+        executor.submit(worker, "Thread-{}".format(w + 1), 0.5 + w / 10.0, 10)
+        for w in range(workers)
+    ]
 
 print("Computing finished")
 
