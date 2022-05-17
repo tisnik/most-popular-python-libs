@@ -17,7 +17,7 @@ async def producer(id, send_channel):
 
 async def consumer(id, receive_channel):
     while True:
-        with trio.fail_after(1):
+        with trio.fail_after(consumer_timeout):
             value = await receive_channel.receive()
             print(f"Consumer #{id}: received{value!r}")
             await trio.sleep(1)
