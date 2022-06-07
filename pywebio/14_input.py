@@ -7,10 +7,10 @@ import pywebio.output as out
 
 # Body Mass Index calculator
 
-info = inp.input_group("Entry",[
-  inp.input("Mass (kg)", name="mass"),
-  inp.input("Height (cm)", name="height")
-])
+info = inp.input_group(
+    "Entry",
+    [inp.input("Mass (kg)", name="mass"), inp.input("Height (cm)", name="height")],
+)
 
 mass = float(info["mass"])
 height = float(info["height"])
