@@ -17,10 +17,11 @@ async def main():
         await queue.put(i)
 
     await asyncio.gather(
-            asyncio.create_task(task(1, queue)),
-            asyncio.create_task(task(2, queue)),
-            asyncio.create_task(task(3, queue)),
-            asyncio.create_task(task(4, queue)))
+        asyncio.create_task(task(1, queue)),
+        asyncio.create_task(task(2, queue)),
+        asyncio.create_task(task(3, queue)),
+        asyncio.create_task(task(4, queue)),
+    )
 
 
 asyncio.run(main())
