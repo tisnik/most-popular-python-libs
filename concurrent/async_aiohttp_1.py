@@ -23,13 +23,13 @@ async def main():
         "http://seznam.com",
         "https://www.root.cz/programovaci-jazyky/",
         "https://www.root.cz/clanky/soubezne-a-paralelne-bezici-ulohy-naprogramovane-v-pythonu/",
-        "https://github.com/"
+        "https://github.com/",
     ):
         await queue.put(url)
 
     await asyncio.gather(
-            asyncio.create_task(download(1, queue)),
-            asyncio.create_task(download(2, queue)))
+        asyncio.create_task(download(1, queue)), asyncio.create_task(download(2, queue))
+    )
 
 
 asyncio.run(main())
