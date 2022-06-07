@@ -4,6 +4,15 @@
 import pywebio.output as out
 
 
-for color in ('primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'):
+for color in (
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "light",
+    "dark",
+):
     out.put_text(color, color)
-    out.put_loading(shape='border', color=color)
+    out.put_loading(shape="border", color=color)
