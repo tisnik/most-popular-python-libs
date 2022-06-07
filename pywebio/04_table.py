@@ -4,6 +4,6 @@
 import pywebio.output as out
 
 
-values = [(x, "{:5.3f}".format(1.0/x)) for x in range(1, 20)]
+values = [(x, "{:5.3f}".format(1.0 / x)) for x in range(1, 20)]
 
 out.put_table(values)
