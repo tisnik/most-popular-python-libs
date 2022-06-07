@@ -27,4 +27,4 @@ with Diagram("Flow chart #2", show=False):
     end = StartEnd("End")
 
     # propojeni uzlu grafu orientovanymi hranami
-     >> input >> computation >> display >> end
+    start >> input >> computation >> display >> end
