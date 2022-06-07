@@ -8,8 +8,17 @@ import time
 
 i = 0
 
-for color in ('primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'):
-    with out.put_loading(shape='border', color=color):
+for color in (
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+    "light",
+    "dark",
+):
+    with out.put_loading(shape="border", color=color):
         time.sleep(1)
         out.put_text(i)
         i += 1
