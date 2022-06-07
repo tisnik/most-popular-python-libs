@@ -6,17 +6,18 @@ import pywebio.output as out
 
 
 cities = (
-        "Praha",
-        "Brno",
-        "Ostrava",
-        "Plzeň",
-        "Liberec",
-        "Olomouc",
-        "České Budějovice",
-        "Hradec Králové",
-        "Ústí nad Labem",
-        "Pardubice"
-        )
+    "Praha",
+    "Brno",
+    "Ostrava",
+    "Plzeň",
+    "Liberec",
+    "Olomouc",
+    "České Budějovice",
+    "Hradec Králové",
+    "Ústí nad Labem",
+    "Pardubice",
+)
+
 
 def check_postal_code(value):
     if value <= 10000:
@@ -31,16 +32,23 @@ def check_city(name):
 
 
 # vstupní údaje
-info = inp.input_group("Adresa",[
-  inp.input("Jméno", name="name", type=inp.TEXT),
-  inp.input("Příjmení", name="surname", type=inp.TEXT),
-  inp.input("Ulice", name="street", type=inp.TEXT),
-  inp.input("ČP", name="conscription_number", type=inp.NUMBER),
-  inp.input("Město", name="city", type=inp.TEXT, validate=check_city),
-  inp.input("PSČ", name="postal_code", type=inp.NUMBER, validate=check_postal_code)
-])
+info = inp.input_group(
+    "Adresa",
+    [
+        inp.input("Jméno", name="name", type=inp.TEXT),
+        inp.input("Příjmení", name="surname", type=inp.TEXT),
+        inp.input("Ulice", name="street", type=inp.TEXT),
+        inp.input("ČP", name="conscription_number", type=inp.NUMBER),
+        inp.input("Město", name="city", type=inp.TEXT, validate=check_city),
+        inp.input(
+            "PSČ", name="postal_code", type=inp.NUMBER, validate=check_postal_code
+        ),
+    ],
+)
 
 # výpis výsledků
 out.put_info("Zakázka bude poslána na adresu")
 
-out.put_info(f"{info['name']} {info['surname']}\n{info['street']} {info['conscription_number']}\n{info['postal_code']} {info['city']}")
+out.put_info(
+    f"{info['name']} {info['surname']}\n{info['street']} {info['conscription_number']}\n{info['postal_code']} {info['city']}"
+)
