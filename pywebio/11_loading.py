@@ -6,6 +6,6 @@ import pywebio.output as out
 import time
 
 
-with out.put_loading(shape='border', color='primary'):
+with out.put_loading(shape="border", color="primary"):
     time.sleep(5)
     out.put_text("Done")
