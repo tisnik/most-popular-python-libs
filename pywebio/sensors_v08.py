@@ -14,24 +14,25 @@ minio_address = "localhost:9000"
 minio_access_key = "tester"
 minio_secret_key = "tester01"
 
-client = Minio(
-    minio_address,
-    minio_access_key,
-    minio_secret_key,
-    secure=False
-)
+client = Minio(minio_address, minio_access_key, minio_secret_key, secure=False)
 
 
 def show_data(sensor):
-    popup(f"Data ze senzoru {sensor}", [
-        put_text(f"Data ze senzoru {sensor}"),
-    ])
+    popup(
+        f"Data ze senzoru {sensor}",
+        [
+            put_text(f"Data ze senzoru {sensor}"),
+        ],
+    )
 
 
 def show_graph(sensor):
-    popup(f"Graf pro senzor {sensor}", [
-        put_text(f"Graf pro senzor {sensor}"),
-    ])
+    popup(
+        f"Graf pro senzor {sensor}",
+        [
+            put_text(f"Graf pro senzor {sensor}"),
+        ],
+    )
 
 
 def main():
@@ -43,13 +44,15 @@ def main():
 
     objects = client.list_objects(bucket_name, recursive=False)
 
-    table = [['Senzor', 'Datum', 'Graf', 'Info']]
+    table = [["Senzor", "Datum", "Graf", "Info"]]
 
     for obj in objects:
-        row = [obj.object_name,
-               obj.last_modified,
-               put_button("Graf", onclick=partial(show_graph, sensor=obj.object_name)),
-               put_button("Data", onclick=partial(show_data, sensor=obj.object_name))]
+        row = [
+            obj.object_name,
+            obj.last_modified,
+            put_button("Graf", onclick=partial(show_graph, sensor=obj.object_name)),
+            put_button("Data", onclick=partial(show_data, sensor=obj.object_name)),
+        ]
         table.append(row)
 
     put_table(table)
