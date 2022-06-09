@@ -1,8 +1,8 @@
 from sympy import singularities, symbols, pprint, sin
-  
-a, b, c, d, e, x = symbols('a,b,c,d,e,x')
 
-f = 1/(sin(x)-x**2)
+a, b, c, d, e, x = symbols("a,b,c,d,e,x")
+
+f = 1 / (sin(x) - x ** 2)
 
 pprint(f)
 
