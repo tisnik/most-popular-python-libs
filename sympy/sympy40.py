@@ -1,8 +1,8 @@
 from sympy import diff, symbols, pprint
 
-x, y, z, w = symbols('x, y, z, w')
+x, y, z, w = symbols("x, y, z, w")
 
-f = 4*x**2 + 3*y**2 + 1/z
+f = 4 * x ** 2 + 3 * y ** 2 + 1 / z
 
 pprint(f)
 
