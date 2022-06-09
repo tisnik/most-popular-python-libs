@@ -17,10 +17,12 @@ y1 = np.sin(x)
 y2 = np.cos(x)
 
 # plocha pro graf
-p = figure(title="sin(x) a cos(x)", x_axis_label='x', y_axis_label='sin(x) a cos(x)')
+p = figure(title="sin(x) a cos(x)", x_axis_label="x", y_axis_label="sin(x) a cos(x)")
 
 # vykreslení průběhu
-p.vbar(x, top=y1, bottom=y2, width=0.01, legend_label="sin(x)", line_width=2, color="blue")
+p.vbar(
+    x, top=y1, bottom=y2, width=0.01, legend_label="sin(x)", line_width=2, color="blue"
+)
 
 # vykreslení grafu do plochy webové stránky
 show(p)
