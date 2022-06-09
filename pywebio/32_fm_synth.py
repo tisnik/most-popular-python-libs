@@ -45,11 +45,14 @@ def main():
         out.put_image(image)
 
         # vstupní údaje
-        info = inp.input_group("FM synthesis",[
-          inp.slider(label="a", name="a", value=a, min_value=1, max_value=100),
-          inp.slider(label="b", name="b", value=b, min_value=1, max_value=50),
-          inp.slider(label="c", name="c", value=c, min_value=1, max_value=100),
-        ])
+        info = inp.input_group(
+            "FM synthesis",
+            [
+                inp.slider(label="a", name="a", value=a, min_value=1, max_value=100),
+                inp.slider(label="b", name="b", value=b, min_value=1, max_value=50),
+                inp.slider(label="c", name="c", value=c, min_value=1, max_value=100),
+            ],
+        )
 
         a = info["a"]
         b = info["b"]
