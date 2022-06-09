@@ -2,9 +2,9 @@ from sympy import solve, symbols, pprint, init_printing
 
 init_printing(use_unicode=True)
 
-x = symbols('x')
+x = symbols("x")
 
-f = 5*x**2 + 5*x + 5
+f = 5 * x ** 2 + 5 * x + 5
 
 pprint(f)
 
