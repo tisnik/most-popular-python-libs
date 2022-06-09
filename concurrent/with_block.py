@@ -1,4 +1,4 @@
-class Context():
+class Context:
     def __init__(self):
         print("Context: init")
 
