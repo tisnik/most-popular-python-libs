@@ -15,7 +15,7 @@ y1 = np.sin(t)
 y2 = np.cos(t)
 
 # plocha pro graf
-p = figure(title="Circle", x_axis_label='x', y_axis_label='y')
+p = figure(title="Circle", x_axis_label="x", y_axis_label="y")
 
 # vykreslení průběhu
 p.line(y1, y2, line_width=2, color="blue")
