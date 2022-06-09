@@ -13,7 +13,7 @@ async def task2():
 
 async def task3():
     x = 0
-    return 1/x
+    return 1 / x
 
 
 async def main():
