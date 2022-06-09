@@ -3,9 +3,9 @@ from sympy import Interval, is_decreasing
 
 init_printing(use_unicode=True)
 
-x = symbols('x')
+x = symbols("x")
 
-f = x**3 - 2*x**2
+f = x ** 3 - 2 * x ** 2
 
 pprint(f)
 
