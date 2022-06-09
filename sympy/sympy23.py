@@ -1,8 +1,8 @@
 from sympy import *
 
-a, b, c, d, e, x, y = symbols('a,b,c,d,e,x,y')
+a, b, c, d, e, x, y = symbols("a,b,c,d,e,x,y")
 
-f = a*sin(x**2) / b*cos(y**2) + c*sqrt(x+y*d) + e
+f = a * sin(x ** 2) / b * cos(y ** 2) + c * sqrt(x + y * d) + e
 
 pprint(f)
 
