@@ -11,20 +11,20 @@ import numpy as np
 points = 150
 
 # úhel v polárním grafu
-theta = np.linspace(0.01, 8*np.pi, points)
+theta = np.linspace(0.01, 8 * np.pi, points)
 
 # koeficient spirály
 k = 0.15
 
 # funkce: vzdálenost od středu
-radius = np.exp(k*theta)
+radius = np.exp(k * theta)
 
-y1 = radius*np.sin(theta)
+y1 = radius * np.sin(theta)
 
-y2 = radius*np.cos(theta)
+y2 = radius * np.cos(theta)
 
 # plocha pro graf
-p = figure(title="Spiral", x_axis_label='x', y_axis_label='y', width=400, height=400)
+p = figure(title="Spiral", x_axis_label="x", y_axis_label="y", width=400, height=400)
 
 # vykreslení průběhu
 p.line(y1, y2, line_width=2, color="blue", legend_label="Spira mirabilis")
