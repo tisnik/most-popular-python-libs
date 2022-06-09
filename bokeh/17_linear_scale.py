@@ -23,7 +23,7 @@ y3 = x ** 3
 y4 = 2 ** x
 
 # plocha pro graf
-p = figure(title="Functions", x_axis_label='x', y_axis_label='Functions')
+p = figure(title="Functions", x_axis_label="x", y_axis_label="Functions")
 
 # vykreslení průběhu
 p.line(x, y1, legend_label="x", line_width=2, color="#00a0a0")
