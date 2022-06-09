@@ -1,7 +1,7 @@
 import trio
 
 
-class AsyncContext():
+class AsyncContext:
     def __init__(self):
         print("Context: init")
 
