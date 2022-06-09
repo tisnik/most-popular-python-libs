@@ -2,7 +2,7 @@ from sympy import solve, solveset, symbols, pprint, init_printing
 
 init_printing(use_unicode=True)
 
-x = symbols('x')
+x = symbols("x")
 
 f1 = x > 10
 f2 = x < 20
