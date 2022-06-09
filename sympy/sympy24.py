@@ -1,8 +1,8 @@
 from sympy import integrate, symbols, pprint
 
-a, b, x = symbols('a,b,x')
+a, b, x = symbols("a,b,x")
 
-f = a*x + b
+f = a * x + b
 
 pprint(f)
 
