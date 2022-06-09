@@ -14,7 +14,7 @@ x = np.linspace(0, 2 * np.pi, 100)
 y = np.sin(x)
 
 # plocha pro graf
-p = figure(title="sin(x)", x_axis_label='x', y_axis_label='sin(x)')
+p = figure(title="sin(x)", x_axis_label="x", y_axis_label="sin(x)")
 
 # vykreslení průběhu
 p.line(x, y, legend_label="sin(x)", line_width=2)
