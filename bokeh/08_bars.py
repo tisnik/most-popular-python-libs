@@ -7,7 +7,7 @@ x = range(10)
 y = [1, 2, 7, 7, 4, 5, -5, 0, 2, 1]
 
 # plocha pro graf
-p = figure(title="Naměřené hodnoty", x_axis_label='x', y_axis_label='y')
+p = figure(title="Naměřené hodnoty", x_axis_label="x", y_axis_label="y")
 
 # vykreslení průběhu naměřených hodnoy
 p.vbar(x, top=y, legend_label="Napětí", line_width=2)
