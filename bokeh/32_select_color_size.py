@@ -38,7 +38,9 @@ for i in range(n - 1):
     z[i + 1] = z[i] + z_dot * dt
 
 # plocha pro graf
-p = figure(title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=500, height=500)
+p = figure(
+    title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=500, height=500
+)
 
 # vykreslení průběhu
 scatter = p.scatter(x, z, size=1, color="blue")
@@ -48,7 +50,7 @@ picker = ColorPicker(title="Color")
 picker.js_link("color", scatter.glyph, "line_color")
 
 # posuvník
-slider = Slider(start=0, end=10, value=1, step=.1, title="Splatter size")
+slider = Slider(start=0, end=10, value=1, step=0.1, title="Splatter size")
 slider.js_link("value", scatter.glyph, "size")
 
 # vykreslení grafu do plochy webové stránky
