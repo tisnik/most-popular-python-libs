@@ -38,7 +38,9 @@ for i in range(n - 1):
     z[i + 1] = z[i] + z_dot * dt
 
 # plocha pro graf
-p = figure(title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=500, height=500)
+p = figure(
+    title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=500, height=500
+)
 
 # vykreslení průběhu
 scatter = p.scatter(x, z, size=1, color="blue")
