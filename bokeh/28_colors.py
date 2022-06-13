@@ -24,7 +24,7 @@ n = 100000
 l = np.linspace(0, 255, num=n)
 
 # barvová paleta
-colors = ["#%02x%02x%02x" % (255-int(value), 0, int(value)) for value in l]
+colors = ["#%02x%02x%02x" % (255 - int(value), 0, int(value)) for value in l]
 
 # prozatím prázdné pole připravené pro výpočet
 x = np.zeros((n,))
