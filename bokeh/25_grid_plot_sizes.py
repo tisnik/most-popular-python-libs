@@ -37,19 +37,25 @@ for i in range(n - 1):
     z[i + 1] = z[i] + z_dot * dt
 
 # plocha pro první graf
-p1 = figure(title="Lorenz attractor", x_axis_label="x", y_axis_label="y", width=300, height=300)
+p1 = figure(
+    title="Lorenz attractor", x_axis_label="x", y_axis_label="y", width=300, height=300
+)
 
 # vykreslení průběhu
 p1.scatter(x, y, size=0.5, color="blue")
 
 # plocha pro druhý graf
-p2 = figure(title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=300, height=300)
+p2 = figure(
+    title="Lorenz attractor", x_axis_label="x", y_axis_label="z", width=300, height=300
+)
 
 # vykreslení průběhu
 p2.scatter(x, z, size=0.5, color="darkred")
 
 # plocha pro třetí graf
-p3 = figure(title="Lorenz attractor", x_axis_label="y", y_axis_label="z", width=300, height=300)
+p3 = figure(
+    title="Lorenz attractor", x_axis_label="y", y_axis_label="z", width=300, height=300
+)
 
 # vykreslení průběhu
 p3.scatter(y, z, size=0.5, color="darkgreen")
