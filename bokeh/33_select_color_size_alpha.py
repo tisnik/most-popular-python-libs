@@ -1,6 +1,6 @@
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting` i dalších knihoven
 from bokeh.plotting import figure, show
-from bokeh.layouts import column
+from bokeh.layouts import row
 from bokeh.models import ColorPicker, Slider
 
 
@@ -58,4 +58,4 @@ slider_size = Slider(start=0, end=10, value=1, step=0.1, title="Splatter size")
 slider_size.js_link("value", scatter.glyph, "size")
 
 # vykreslení grafu do plochy webové stránky
-show(column(p, picker, slider_alpha, slider_size))
+show(row(p, picker, slider_alpha, slider_size))
