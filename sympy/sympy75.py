@@ -11,5 +11,5 @@ sp.pprint(sp.Matrix(b))
 
 print()
 
-c = a*b
+c = a * b
 sp.pprint(sp.Matrix(c))
