@@ -18,7 +18,7 @@ y = np.linspace(-300, 300, IMAGE_HEIGHT)
 xx, yy = np.meshgrid(x, y)
 
 # výpočet vzorku, který se má zobrazit
-d = np.mod((xx*xx + yy*yy).astype(int), 255)
+d = np.mod((xx * xx + yy * yy).astype(int), 255)
 
 # plocha pro graf
 p = figure(width=IMAGE_WIDTH, height=IMAGE_HEIGHT)
