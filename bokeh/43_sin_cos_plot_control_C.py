@@ -29,7 +29,9 @@ p.line(source=source, line_width=2, color="#00a0a0")
 p.line(x, y2, legend_label="cos(x)", line_width=2, color="#a0a000")
 
 # callback zavolaný po změně souřadnic posuvníku
-on_amplitude_change = CustomJS(args=dict(source=source), code="""
+on_amplitude_change = CustomJS(
+    args=dict(source=source),
+    code="""
     const data = source.data;
     const a = cb_obj.value
     const x = data['x']
@@ -38,7 +40,8 @@ on_amplitude_change = CustomJS(args=dict(source=source), code="""
         y[i] = a*Math.sin(x[i])
     }
     source.change.emit();
-""")
+""",
+)
 
 
 # posuvník pro změnu amplitudy
