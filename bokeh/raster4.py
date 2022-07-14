@@ -24,13 +24,13 @@ palette = palette_ice.palette
 # vyplnění obrázku vzorkem
 for j in range(IMAGE_HEIGHT):
     for i in range(IMAGE_WIDTH):
-        k = i*i + j*j
+        k = i * i + j * j
         val = int(k) & 255
         # aplikace barvové palety
         view[i, j, 0] = palette[val][0]  # red
         view[i, j, 1] = palette[val][1]  # green
         view[i, j, 2] = palette[val][2]  # blue
-        view[i, j, 3] = 255              # alpha
+        view[i, j, 3] = 255  # alpha
 
 # plocha pro graf
 p = figure(width=IMAGE_WIDTH, height=IMAGE_HEIGHT, x_range=(0, 10), y_range=(0, 10))
