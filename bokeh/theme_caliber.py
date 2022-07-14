@@ -7,7 +7,7 @@ from bokeh.io import curdoc
 import numpy as np
 
 # nastavení tématu
-curdoc().theme = 'caliber'
+curdoc().theme = "caliber"
 
 # vykreslení průběhu funkce sin
 
