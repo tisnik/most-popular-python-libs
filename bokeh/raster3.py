@@ -18,7 +18,7 @@ view = image.view(dtype=np.uint8).reshape((IMAGE_HEIGHT, IMAGE_WIDTH, 4))
 # vyplnění obrázku vzorkem
 for j in range(IMAGE_HEIGHT):
     for i in range(IMAGE_WIDTH):
-        k = i*i + j*j
+        k = i * i + j * j
         val = int(k) & 255
         view[i, j, 0] = val  # red
         view[i, j, 1] = val  # green
