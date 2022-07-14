@@ -3,7 +3,7 @@ import sympy as sp
 a = sp.MatrixSymbol("A", 2, 2)
 b = sp.MatrixSymbol("B", 2, 2)
 
-c = a*b
+c = a * b
 
 sp.pprint(sp.Matrix(c))
 
