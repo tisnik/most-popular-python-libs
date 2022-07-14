@@ -7,7 +7,7 @@ from bokeh.io import curdoc
 import numpy as np
 
 # nastavení tématu
-curdoc().theme = 'dark_minimal'
+curdoc().theme = "dark_minimal"
 
 # vykreslení průběhu funkce sin
 
