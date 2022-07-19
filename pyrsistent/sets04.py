@@ -1,7 +1,7 @@
 from pyrsistent import s
 
-set1 = s(1,2,3)
-set2 = s(2,3,4)
+set1 = s(1, 2, 3)
+set2 = s(2, 3, 4)
 
 print(set1)
 print(set2)
