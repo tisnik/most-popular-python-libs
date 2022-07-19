@@ -14,7 +14,6 @@ m["two"] = 2
 print(vector1)
 print(type(vector1))
 
-m = {"jedna": 1,
-     "dva": 2}
+m = {"jedna": 1, "dva": 2}
 print(vector1)
 print(type(vector1))
