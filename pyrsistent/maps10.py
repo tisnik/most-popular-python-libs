@@ -1,6 +1,6 @@
 from pyrsistent import pmap
 
-map1 = pmap({1:"first", 2:"second", 3:"third"})
+map1 = pmap({1: "first", 2: "second", 3: "third"})
 
 list1 = list(map1)
 
