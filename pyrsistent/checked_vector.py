@@ -1,8 +1,10 @@
 from pyrsistent import CheckedPVector
 
+
 class Evens(CheckedPVector):
     __type__ = (int,)
     __invariant__ = lambda n: (n % 2 == 0, "Even")
+
 
 vector1 = Evens([2, 4, 6])
 
