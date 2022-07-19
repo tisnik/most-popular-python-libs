@@ -1,5 +1,6 @@
 from pyrsistent import PRecord, field
 
+
 class XYRecord(PRecord):
     x = field()
     y = field()
