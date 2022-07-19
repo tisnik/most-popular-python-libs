@@ -1,6 +1,6 @@
 from pyrsistent import freeze
 
-set1 = freeze({1,2,3})
+set1 = freeze({1, 2, 3})
 
 print(set1)
 print(type(set1))
