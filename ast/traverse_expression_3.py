@@ -1,5 +1,6 @@
 import ast
 
+
 class Visitor(ast.NodeVisitor):
     def __init__(self):
         self.nest_level = 1
