@@ -1,5 +1,6 @@
 import ast
 
+
 class Visitor(ast.NodeVisitor):
     def visit(self, node):
         print(node)
