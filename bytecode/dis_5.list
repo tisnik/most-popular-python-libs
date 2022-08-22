@@ -1,0 +1,37 @@
+10
+20
+10
+20
+30
+30
+
+prikaz1:
+  8           0 LOAD_FAST                0 (x)
+              2 POP_JUMP_IF_FALSE        8
+
+  9           4 LOAD_CONST               1 (10)
+              6 RETURN_VALUE
+
+ 11     >>    8 LOAD_CONST               2 (20)
+             10 RETURN_VALUE
+             12 LOAD_CONST               0 (None)
+             14 RETURN_VALUE
+
+prikaz2:
+ 14           0 LOAD_FAST                0 (x)
+              2 POP_JUMP_IF_FALSE       18
+
+ 15           4 LOAD_FAST                1 (y)
+              6 POP_JUMP_IF_FALSE       12
+
+ 16           8 LOAD_CONST               1 (10)
+             10 RETURN_VALUE
+
+ 18     >>   12 LOAD_CONST               2 (20)
+             14 RETURN_VALUE
+             16 JUMP_FORWARD             4 (to 22)
+
+ 20     >>   18 LOAD_CONST               3 (30)
+             20 RETURN_VALUE
+        >>   22 LOAD_CONST               0 (None)
+             24 RETURN_VALUE
