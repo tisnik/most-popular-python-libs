@@ -1,0 +1,65 @@
+False
+False
+True
+True
+True
+True
+
+vyraz1:
+  8           0 LOAD_FAST                0 (x)
+              2 UNARY_NOT
+              4 STORE_FAST               1 (result)
+
+  9           6 LOAD_FAST                1 (result)
+              8 RETURN_VALUE
+
+vyraz2:
+ 12           0 LOAD_FAST                0 (x)
+              2 JUMP_IF_FALSE_OR_POP     6
+              4 LOAD_FAST                1 (y)
+        >>    6 STORE_FAST               2 (result)
+
+ 13           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz3:
+ 16           0 LOAD_FAST                0 (x)
+              2 JUMP_IF_TRUE_OR_POP      6
+              4 LOAD_FAST                1 (y)
+        >>    6 STORE_FAST               2 (result)
+
+ 17           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz4:
+ 20           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_XOR
+              6 STORE_FAST               2 (result)
+
+ 21           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz5:
+ 24           0 LOAD_FAST                0 (x)
+              2 JUMP_IF_TRUE_OR_POP     10
+              4 LOAD_FAST                1 (y)
+              6 JUMP_IF_FALSE_OR_POP    10
+              8 LOAD_FAST                2 (z)
+        >>   10 STORE_FAST               3 (result)
+
+ 25          12 LOAD_FAST                3 (result)
+             14 RETURN_VALUE
+
+vyraz6:
+ 28           0 LOAD_FAST                0 (x)
+              2 POP_JUMP_IF_TRUE         8
+              4 LOAD_FAST                1 (y)
+              6 JUMP_IF_FALSE_OR_POP    14
+        >>    8 LOAD_FAST                2 (z)
+             10 JUMP_IF_TRUE_OR_POP     14
+             12 LOAD_FAST                3 (w)
+        >>   14 STORE_FAST               4 (result)
+
+ 29          16 LOAD_FAST                4 (result)
+             18 RETURN_VALUE
