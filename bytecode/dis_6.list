@@ -1,0 +1,16 @@
+0
+
+loop:
+  8     >>    0 LOAD_FAST                0 (x)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               4 (>)
+              6 POP_JUMP_IF_FALSE       18
+
+  9           8 LOAD_FAST                0 (x)
+             10 LOAD_CONST               2 (1)
+             12 BINARY_SUBTRACT
+             14 STORE_FAST               0 (x)
+             16 JUMP_ABSOLUTE            0
+
+ 10     >>   18 LOAD_FAST                0 (x)
+             20 RETURN_VALUE
