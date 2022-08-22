@@ -1,0 +1,218 @@
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+101
+103
+107
+109
+113
+127
+131
+137
+139
+149
+151
+157
+163
+167
+173
+179
+181
+191
+193
+197
+199
+211
+223
+227
+229
+233
+239
+241
+251
+257
+263
+269
+271
+277
+281
+283
+293
+307
+311
+313
+317
+331
+337
+347
+349
+353
+359
+367
+373
+379
+383
+389
+397
+401
+409
+419
+421
+431
+433
+439
+443
+449
+457
+461
+463
+467
+479
+487
+491
+499
+503
+509
+521
+523
+541
+547
+557
+563
+569
+571
+577
+587
+593
+599
+601
+607
+613
+617
+619
+631
+641
+643
+647
+653
+659
+661
+673
+677
+683
+691
+701
+709
+719
+727
+733
+739
+743
+751
+757
+761
+769
+773
+787
+797
+809
+811
+821
+823
+827
+829
+839
+853
+857
+859
+863
+877
+881
+883
+887
+907
+911
+919
+929
+937
+941
+947
+953
+967
+971
+977
+983
+991
+997
+
+primeNumbers:
+  9           0 LOAD_FAST                0 (min)
+              2 STORE_FAST               2 (i)
+
+ 10     >>    4 LOAD_FAST                2 (i)
+              6 LOAD_FAST                1 (max)
+              8 COMPARE_OP               1 (<=)
+             10 POP_JUMP_IF_FALSE       74
+
+ 11          12 LOAD_CONST               1 (2)
+             14 STORE_FAST               3 (j)
+
+ 12     >>   16 LOAD_FAST                3 (j)
+             18 LOAD_FAST                2 (i)
+             20 COMPARE_OP               0 (<)
+             22 POP_JUMP_IF_FALSE       48
+
+ 13          24 LOAD_FAST                2 (i)
+             26 LOAD_FAST                3 (j)
+             28 BINARY_MODULO
+             30 LOAD_CONST               2 (0)
+             32 COMPARE_OP               2 (==)
+             34 POP_JUMP_IF_FALSE       38
+
+ 14          36 JUMP_ABSOLUTE           48
+
+ 15     >>   38 LOAD_FAST                3 (j)
+             40 LOAD_CONST               3 (1)
+             42 BINARY_ADD
+             44 STORE_FAST               3 (j)
+             46 JUMP_ABSOLUTE           16
+
+ 16     >>   48 LOAD_FAST                3 (j)
+             50 LOAD_FAST                2 (i)
+             52 COMPARE_OP               2 (==)
+             54 POP_JUMP_IF_FALSE       64
+
+ 17          56 LOAD_GLOBAL              0 (print)
+             58 LOAD_FAST                2 (i)
+             60 CALL_FUNCTION            1
+             62 POP_TOP
+
+ 18     >>   64 LOAD_FAST                2 (i)
+             66 LOAD_CONST               3 (1)
+             68 BINARY_ADD
+             70 STORE_FAST               2 (i)
+             72 JUMP_ABSOLUTE            4
+        >>   74 LOAD_CONST               0 (None)
+             76 RETURN_VALUE
