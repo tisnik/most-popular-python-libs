@@ -1,0 +1,100 @@
+7
+1
+12
+1.3333333333333333
+1
+10
+11
+63.0
+
+vyraz1:
+  8           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_ADD
+              6 STORE_FAST               2 (result)
+
+  9           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz2:
+ 13           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_SUBTRACT
+              6 STORE_FAST               2 (result)
+
+ 14           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz3:
+ 18           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_MULTIPLY
+              6 STORE_FAST               2 (result)
+
+ 19           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz4:
+ 23           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_TRUE_DIVIDE
+              6 STORE_FAST               2 (result)
+
+ 24           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz5:
+ 28           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 BINARY_MODULO
+              6 STORE_FAST               2 (result)
+
+ 29           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz6:
+ 33           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 LOAD_FAST                2 (z)
+              6 BINARY_MULTIPLY
+              8 BINARY_ADD
+             10 STORE_FAST               3 (result)
+
+ 34          12 LOAD_FAST                3 (result)
+             14 RETURN_VALUE
+
+vyraz7:
+ 38           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 LOAD_FAST                2 (z)
+              6 BINARY_MULTIPLY
+              8 BINARY_ADD
+             10 LOAD_FAST                3 (w)
+             12 BINARY_ADD
+             14 STORE_FAST               4 (result)
+
+ 39          16 LOAD_FAST                4 (result)
+             18 RETURN_VALUE
+
+vyraz8:
+ 43           0 LOAD_CONST               1 (2)
+              2 LOAD_FAST                0 (x)
+              4 LOAD_FAST                1 (y)
+              6 BINARY_ADD
+              8 BINARY_MULTIPLY
+             10 LOAD_FAST                2 (z)
+             12 LOAD_FAST                3 (w)
+             14 BINARY_ADD
+             16 BINARY_MULTIPLY
+             18 LOAD_FAST                0 (x)
+             20 LOAD_FAST                2 (z)
+             22 BINARY_ADD
+             24 LOAD_FAST                1 (y)
+             26 LOAD_FAST                3 (w)
+             28 BINARY_ADD
+             30 BINARY_TRUE_DIVIDE
+             32 BINARY_MULTIPLY
+             34 STORE_FAST               4 (result)
+
+ 44          36 LOAD_FAST                4 (result)
+             38 RETURN_VALUE
