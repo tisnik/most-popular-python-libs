@@ -1,0 +1,60 @@
+True
+True
+False
+True
+False
+False
+
+vyraz1:
+  8           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               1 (<=)
+              6 STORE_FAST               2 (result)
+
+  9           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz2:
+ 12           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               0 (<)
+              6 STORE_FAST               2 (result)
+
+ 13           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz3:
+ 16           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               2 (==)
+              6 STORE_FAST               2 (result)
+
+ 17           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz4:
+ 20           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               3 (!=)
+              6 STORE_FAST               2 (result)
+
+ 21           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz5:
+ 24           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               5 (>=)
+              6 STORE_FAST               2 (result)
+
+ 25           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
+
+vyraz6:
+ 28           0 LOAD_FAST                0 (x)
+              2 LOAD_FAST                1 (y)
+              4 COMPARE_OP               4 (>)
+              6 STORE_FAST               2 (result)
+
+ 29           8 LOAD_FAST                2 (result)
+             10 RETURN_VALUE
