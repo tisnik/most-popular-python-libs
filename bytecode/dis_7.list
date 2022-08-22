@@ -1,0 +1,21 @@
+1024
+
+loop:
+  8     >>    0 LOAD_FAST                0 (x)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               4 (>)
+              6 POP_JUMP_IF_FALSE       26
+
+  9           8 LOAD_FAST                0 (x)
+             10 LOAD_CONST               2 (1)
+             12 BINARY_SUBTRACT
+             14 STORE_FAST               0 (x)
+
+ 10          16 LOAD_FAST                1 (y)
+             18 LOAD_CONST               3 (2)
+             20 BINARY_MULTIPLY
+             22 STORE_FAST               1 (y)
+             24 JUMP_ABSOLUTE            0
+
+ 11     >>   26 LOAD_FAST                1 (y)
+             28 RETURN_VALUE
