@@ -1,0 +1,109 @@
+
+producer
+  2           0 LOAD_GLOBAL              0 (range)
+              2 LOAD_CONST               1 (1)
+              4 LOAD_CONST               2 (10)
+              6 CALL_FUNCTION            2
+              8 GET_ITER
+        >>   10 FOR_ITER                44 (to 56)
+             12 STORE_FAST               1 (i)
+
+  3          14 LOAD_CONST               3 ('message ')
+             16 LOAD_FAST                1 (i)
+             18 FORMAT_VALUE             0
+             20 BUILD_STRING             2
+             22 STORE_FAST               2 (message)
+
+  4          24 LOAD_GLOBAL              1 (print)
+             26 LOAD_CONST               4 ('Producer: ')
+             28 LOAD_FAST                2 (message)
+             30 FORMAT_VALUE             0
+             32 BUILD_STRING             2
+             34 CALL_FUNCTION            1
+             36 POP_TOP
+
+  5          38 LOAD_FAST                0 (send_channel)
+             40 LOAD_METHOD              2 (send)
+             42 LOAD_FAST                2 (message)
+             44 CALL_METHOD              1
+             46 GET_AWAITABLE
+             48 LOAD_CONST               0 (None)
+             50 YIELD_FROM
+             52 POP_TOP
+             54 JUMP_ABSOLUTE           10
+        >>   56 LOAD_CONST               0 (None)
+             58 RETURN_VALUE
+
+consumer
+  9           0 LOAD_FAST                0 (receive_channel)
+              2 GET_AITER
+        >>    4 SETUP_FINALLY           42 (to 48)
+              6 GET_ANEXT
+              8 LOAD_CONST               0 (None)
+             10 YIELD_FROM
+             12 POP_BLOCK
+             14 STORE_FAST               1 (value)
+
+ 10          16 LOAD_GLOBAL              0 (print)
+             18 LOAD_CONST               1 ('Consumer: received')
+             20 LOAD_FAST                1 (value)
+             22 FORMAT_VALUE             2 (repr)
+             24 BUILD_STRING             2
+             26 CALL_FUNCTION            1
+             28 POP_TOP
+
+ 11          30 LOAD_GLOBAL              1 (trio)
+             32 LOAD_METHOD              2 (sleep)
+             34 LOAD_CONST               2 (1)
+             36 CALL_METHOD              1
+             38 GET_AWAITABLE
+             40 LOAD_CONST               0 (None)
+             42 YIELD_FROM
+             44 POP_TOP
+             46 JUMP_ABSOLUTE            4
+        >>   48 END_ASYNC_FOR
+             50 LOAD_CONST               0 (None)
+             52 RETURN_VALUE
+
+main
+ 15           0 LOAD_GLOBAL              0 (trio)
+              2 LOAD_METHOD              1 (open_nursery)
+              4 CALL_METHOD              0
+              6 BEFORE_ASYNC_WITH
+              8 GET_AWAITABLE
+             10 LOAD_CONST               0 (None)
+             12 YIELD_FROM
+             14 SETUP_ASYNC_WITH        44 (to 60)
+             16 STORE_FAST               0 (nursery)
+
+ 16          18 LOAD_GLOBAL              0 (trio)
+             20 LOAD_METHOD              2 (open_memory_channel)
+             22 LOAD_CONST               1 (0)
+             24 CALL_METHOD              1
+             26 UNPACK_SEQUENCE          2
+             28 STORE_FAST               1 (send_channel)
+             30 STORE_FAST               2 (receive_channel)
+
+ 17          32 LOAD_FAST                0 (nursery)
+             34 LOAD_METHOD              3 (start_soon)
+             36 LOAD_GLOBAL              4 (producer)
+             38 LOAD_FAST                1 (send_channel)
+             40 CALL_METHOD              2
+             42 POP_TOP
+
+ 18          44 LOAD_FAST                0 (nursery)
+             46 LOAD_METHOD              3 (start_soon)
+             48 LOAD_GLOBAL              5 (consumer)
+             50 LOAD_FAST                2 (receive_channel)
+             52 CALL_METHOD              2
+             54 POP_TOP
+             56 POP_BLOCK
+             58 BEGIN_FINALLY
+        >>   60 WITH_CLEANUP_START
+             62 GET_AWAITABLE
+             64 LOAD_CONST               0 (None)
+             66 YIELD_FROM
+             68 WITH_CLEANUP_FINISH
+             70 END_FINALLY
+             72 LOAD_CONST               0 (None)
+             74 RETURN_VALUE
