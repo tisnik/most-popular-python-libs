@@ -18,18 +18,18 @@
 # pro otestovani zakladnich vlastnosti bajtkodu jazyka Python
 # prekladu programove struktury typu if-then.
 #
- 
+
 def prikaz1(x):
     if x:
         return 10
     return 20
- 
+
 def prikaz2(x, y):
     if x:
         if y:
             return 10
     return 20
- 
+
 #
 # Vse je nutne otestovat.
 #
@@ -40,16 +40,16 @@ def main():
     print(prikaz2(True, False))
     print(prikaz2(False, True))
     print(prikaz2(False, False))
- 
+
 def disassemble():
     from dis import dis
- 
+
     print("\nprikaz1:")
     dis(prikaz1)
- 
+
     print("\nprikaz2:")
     dis(prikaz2)
- 
+
 main()
- 
+
 disassemble()
