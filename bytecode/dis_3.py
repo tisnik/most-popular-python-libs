@@ -19,25 +19,31 @@
 # prekladu relacnich vyrazu.
 #
 
+
 def vyraz1(x, y):
     result = x <= y
     return result
+
 
 def vyraz2(x, y):
     result = x < y
     return result
 
+
 def vyraz3(x, y):
     result = x == y
     return result
+
 
 def vyraz4(x, y):
     result = x != y
     return result
 
+
 def vyraz5(x, y):
     result = x >= y
     return result
+
 
 def vyraz6(x, y):
     result = x > y
@@ -54,6 +60,7 @@ def main():
     print(vyraz4(1, 2))
     print(vyraz5(1, 2))
     print(vyraz6(1, 2))
+
 
 def disassemble():
     from dis import dis
@@ -75,6 +82,7 @@ def disassemble():
 
     print("\nvyraz6:")
     dis(vyraz6)
+
 
 main()
 
