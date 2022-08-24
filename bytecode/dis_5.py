@@ -19,11 +19,13 @@
 # prekladu programove struktury typu if-then-else.
 #
 
+
 def prikaz1(x):
     if x:
         return 10
     else:
         return 20
+
 
 def prikaz2(x, y):
     if x:
@@ -33,6 +35,7 @@ def prikaz2(x, y):
             return 20
     else:
         return 30
+
 
 #
 # Vse je nutne otestovat.
@@ -45,6 +48,7 @@ def main():
     print(prikaz2(False, True))
     print(prikaz2(False, False))
 
+
 def disassemble():
     from dis import dis
 
@@ -53,6 +57,7 @@ def disassemble():
 
     print("\nprikaz2:")
     dis(prikaz2)
+
 
 main()
 
