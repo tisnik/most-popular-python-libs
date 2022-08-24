@@ -23,15 +23,15 @@
 
 def primeNumbers(min, max):
     i = min
-    while i <= max:  # projit vsechny hodnoty od min do max
+    while i <= max:         # projit vsechny hodnoty od min do max
         j = 2
-        while j < i:  # (lze optimalizovat a zkratit smycku!)
+        while j < i:        # (lze optimalizovat a zkratit smycku!)
             if i % j == 0:  # je mozne celociselne delit?
-                break  # - pak ovsem nejde o prvocislo
-            j = j + 1  # vyzkouset dalsiho kandidata na celociselne deleni
-        if j == i:  # pokud jsme dosli az k cislu i
-            print(i)  # nedoslo nikdy k celociselnemu deleni
-        i = i + 1  # dalsi hodnota v posloupnosti
+                break       # - pak ovsem nejde o prvocislo
+            j = j + 1       # vyzkouset dalsiho kandidata na celociselne deleni
+        if j == i:          # pokud jsme dosli az k cislu i
+            print(i)        # nedoslo nikdy k celociselnemu deleni
+        i = i + 1           # dalsi hodnota v posloupnosti
 
 
 #
