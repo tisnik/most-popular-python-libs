@@ -19,6 +19,7 @@
 # prekladu aritmetickych vyrazu.
 #
 
+
 def vyraz1(x, y):
     result = x + y
     return result
@@ -72,6 +73,7 @@ def main():
     print(vyraz7(4, 3, 2, 1))
     print(vyraz8(4, 3, 2, 1))
 
+
 def disassemble():
     from dis import dis
 
@@ -98,6 +100,7 @@ def disassemble():
 
     print("\nvyraz8:")
     dis(vyraz8)
+
 
 main()
 
