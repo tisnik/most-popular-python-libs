@@ -19,6 +19,7 @@
 # prekladu programove smycky typu while.
 #
 
+
 def loop(x, y):
     while x > 0:
         x = x - 1
@@ -32,11 +33,13 @@ def loop(x, y):
 def main():
     print(loop(10, 1))
 
+
 def disassemble():
     from dis import dis
 
     print("\nloop:")
     dis(loop)
+
 
 main()
 
