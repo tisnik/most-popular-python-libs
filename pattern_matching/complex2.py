@@ -13,7 +13,7 @@ def test_number(value):
         case (real, imag):
             print(f"Complex number {real}+i{imag}")
         case _:
-            raise ValueError("Not a complex numbe")
+            raise ValueError("Not a complex number")
 
 
 test_number((0,0))
