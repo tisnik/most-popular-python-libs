@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+    - numpy
+    - matplotlib
+</py-env>
+    </head>
+    <body>
+        <py-script>
+            from matplotlib import cm
+            import matplotlib.pyplot as plt
+            import numpy as np
+
+            fig = plt.figure()
+            ax = fig.gca(projection="3d")
+
+            delta = 0.1
+
+            x = np.arange(-10.0, 10.0, delta)
+            y = np.arange(-10.0, 10.0, delta)
+
+            X, Y = np.meshgrid(x, y)
+
+            R = np.sqrt(X * X + Y * Y)
+            Z = np.sin(R) / R
+
+            surface = ax.plot_surface(
+                X, Y, Z, rstride=2, cstride=2, cmap=cm.coolwarm, linewidth=0, antialiased=False
+            )
+
+            cset = ax.contour(X, Y, Z, zdir="z", offset=-5, cmap=cm.coolwarm)
+            cset = ax.contour(X, Y, Z, zdir="x", offset=-15, cmap=cm.coolwarm)
+            cset = ax.contour(X, Y, Z, zdir="y", offset=15, cmap=cm.coolwarm)
+
+            ax.set_xlabel("X")
+            ax.set_xlim(-15, 15)
+
+            ax.set_ylabel("Y")
+            ax.set_ylim(-15, 15)
+
+            ax.set_zlabel("Z")
+            ax.set_zlim(-5, 5)
+
+            plt
+        </py-script>
+    </body>
+</html>
