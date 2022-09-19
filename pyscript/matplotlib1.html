@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+    - numpy
+    - matplotlib
+</py-env>
+    </head>
+    <body>
+        <py-script>
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            x = np.linspace(0, 2 * np.pi, 100)
+
+            y = np.sin(x)
+
+            plt.plot(x, y)
+
+            plt.xlabel("x")
+            plt.ylabel("sin(x)")
+
+            plt
+        </py-script>
+    </body>
+</html>
