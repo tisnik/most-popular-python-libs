@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+    - numpy
+</py-env>
+    </head>
+    <body>
+        <h1>p</h1>
+        <pre id="p" style="color:#000080"></pre>
+
+        <h1>q</h1>
+        <pre id="q" style="color:#000080"></pre>
+
+        <h1>result</h1>
+        <pre id="result" style="color:#800000"></pre>
+
+        <py-script>
+            import numpy as np
+
+            p = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+            q = [[3, 2, 1], [6, 5, 4], [3, 2, 1]]
+
+            result = np.dot(p, q)
+
+            Element('p').write(np.array_str(np.array(p)))
+            Element('q').write(np.array_str(np.array(q)))
+            Element('result').write(np.array_str(result))
+        </py-script>
+    </body>
+</html>
