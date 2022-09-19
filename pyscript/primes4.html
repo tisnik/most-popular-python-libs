@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+        - paths:
+          - ./primes.py
+</py-env>
+    </head>
+    <body>
+        <div id="result" style="font-size:150%;color:#800000"></div>
+
+        <py-script>
+            from primes import *
+
+            primes = primes2(100)
+            asStrings = map(str, primes)
+            Element('result').write(", ".join(asStrings))
+        </py-script>
+    </body>
+</html>
