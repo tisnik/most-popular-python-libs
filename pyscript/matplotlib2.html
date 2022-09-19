@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+    - numpy
+    - matplotlib
+</py-env>
+    </head>
+    <body>
+        <py-script>
+            import matplotlib
+            import numpy as np
+            import matplotlib.cm as cm
+            import matplotlib.mlab as mlab
+            import matplotlib.pyplot as plt
+
+            delta = 0.1
+
+            x = np.arange(-10.0, 10.0, delta)
+            y = np.arange(-10.0, 10.0, delta)
+
+            X, Y = np.meshgrid(x, y)
+
+            R1 = np.sqrt(X * X + Y * Y)
+            R2 = np.sqrt((X - 3) * (X - 3) + (Y - 3) * (Y - 3))
+
+            Z = np.sin(R1) - np.cos(R2)
+
+            plt.grid(True)
+
+            plt.contour(X, Y, Z)
+            plt
+        </py-script>
+    </body>
+</html>
