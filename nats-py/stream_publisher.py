@@ -10,7 +10,9 @@ SUBJECT_NAME = "bar"
 
 async def main():
     print(f"Connecting to NATS at address {URL}")
-    nats_connection = await nats.connect(URL, user=NATS_USERNAME, password=NATS_PASSWORD)
+    nats_connection = await nats.connect(
+        URL, user=NATS_USERNAME, password=NATS_PASSWORD
+    )
     print("Connected...")
 
     print("Retrieving JetStream object")
@@ -26,5 +28,5 @@ async def main():
     print("Connection closed")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
