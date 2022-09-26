@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+        <style type="text/css">
+        .input-form {
+            display: grid; 
+            grid-template-columns: 16ex 10ex;
+            grid-column: 2;
+            background-color: #c0c0c0;
+            padding: 5px;
+        }
+        .button {
+            background-color: #f08080;
+        }
+        </style>
+    </head>
+<py-env>
+    - numpy
+    - matplotlib
+</py-env>
+    <body>
+        <py-script>
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from js import document
+            from js import alert
+            from pyodide import create_proxy
+     
+            def retrieve_float_from_element(name, element):
+                value = Element(element).value
+
+                try:
+                    return float(value)
+                except Exception as e:
+                    alert(f"Incorrect {name} value: {value}")
+                    raise
+
+            def plot(event):
+                try:
+                    amplitude = retrieve_float_from_element("amplitude", "amplitude")
+                    frequency = retrieve_float_from_element("frequency", "frequency")
+                    offset = retrieve_float_from_element("offset", "offset")
+
+                    print("plot begin")
+
+                    x = np.linspace(0, 2 * np.pi, 100)
+                    y1 = np.sin(x)
+                    y2 = amplitude * np.sin(x*frequency) + offset
+
+                    plt.clf()
+                    plt.plot(x, y1, x, y2, x, y1+y2)
+
+                    print("plot end")
+                    Element('plot').write(plt)
+                except Exception as e:
+                    pass
+
+            def setup():
+                    click_proxy = create_proxy(plot)
+             
+                    e = document.getElementById("plot-button")
+                    e.addEventListener("click", click_proxy)
+             
+            setup()
+        </py-script>
+
+        <div class="input-form">
+            <div>Amplitude</div>
+            <input type="text" id="amplitude" value="1" size="5" />
+            <div>Frequency</div>
+            <input type="text" id="frequency" value="2" size="5" />
+            <div>Offset</div>
+            <input type="text" id="offset" value="0" size="5" />
+            <div></div>
+            <button type="button" id="plot-button" class="button">Plot!</button>
+        </div> 
+
+        <div id="plot"></div>
+
+</html>
