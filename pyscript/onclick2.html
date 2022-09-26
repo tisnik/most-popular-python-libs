@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+    <body>
+        <py-script>
+        def calculate(event):
+            print("begin")
+
+            # original code
+            # http://www.rosettacode.org/wiki/Sieve_of_Eratosthenes#Using_array_lookup
+            def primes2(limit):
+                is_prime = [False] * 2 + [True] * (limit - 1)
+                for n in range(int(limit ** 0.5 + 1.5)):  # stop at ``sqrt(limit)``
+                    if is_prime[n]:
+                        for i in range(n * n, limit + 1, n):
+                            is_prime[i] = False
+                return [i for i, prime in enumerate(is_prime) if prime]
+
+            limit = int(Element('limit').value)
+
+            primes = primes2(limit)
+            asStrings = map(str, primes)
+            Element('result').write(", ".join(asStrings))
+
+        from js import document
+        from pyodide import create_proxy
+ 
+        def setup():
+                click_proxy = create_proxy(calculate)
+         
+                e = document.getElementById("calculate-button")
+                e.addEventListener("click", click_proxy)
+         
+        setup()
+        </py-script>
+
+        Limit: <input type="text" id="limit" value="100" size="5" />
+        <br />
+        <button class="button" type="button" class="py-button" id="calculate-button">Calculate!</button>
+        <br />
+        <div id="result" style="font-size:150%;color:#800000"><u>...result...</u></div>
+
+</html>
