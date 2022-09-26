@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<py-env>
+    - numpy
+    - matplotlib
+</py-env>
+    </head>
+    <h1>Python REPL</h1>
+
+    <py-script>
+        import numpy as np
+        import matplotlib.pyplot as plt
+
+        def plot(amplitude, frequency, offset):
+            print("plot begin")
+            x = np.linspace(0, 2 * np.pi, 100)
+            y1 = np.sin(x)
+            y2 = amplitude * np.sin(x*frequency) + offset
+
+            plt.clf()
+            plt.plot(x, y1, x, y2, x, y1+y2)
+
+            print("plot end")
+            return plt
+    </py-script>
+
+    <py-repl>
+        plot(0.6, 2, 0)
+    </py-repl>
+</html>
