@@ -11,4 +11,4 @@ try:
     with open("hello.bin", "wb") as fout:
         fout.write(bytes(encoding))
 except KsError as e:
-    print("ERROR: %s" %e)
+    print("ERROR: %s" % e)
