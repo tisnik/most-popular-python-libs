@@ -13,10 +13,10 @@
 from keystone import *
 
 CODE = """
-OUTER_LOOP:
     MOV EBX, 10
-INNER_LOOP:
+OUTER_LOOP:
     MOV EAX, 100
+INNER_LOOP:
     DEC EAX
     JNZ INNER_LOOP
     DEC EBX
