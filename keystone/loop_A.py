@@ -13,8 +13,8 @@
 from keystone import *
 
 CODE = """
-LOOP:
     MOV EAX, 100
+LOOP:
     DEC EAX
     JNZ LOOP
 """
