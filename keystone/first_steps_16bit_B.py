@@ -12,6 +12,7 @@
 
 from keystone import *
 
+# instrukce, které se mají assemblerem přeložit
 CODE = """
     MOV AX, 100
     INC AX
@@ -19,8 +20,13 @@ CODE = """
 """
 
 try:
+    # inicializace assembleru se specifikací architektury a popř. i režimu
     ks = Ks(KS_ARCH_X86, KS_MODE_16)
+
+    # vlastní překlad (assembling)
     encoding, count = ks.asm(CODE)
+
+    # tisk výsledku činnosti assembleru
     print("%s = %s (number of statements: %u)" % (CODE, encoding, count))
 except KsError as e:
     print("ERROR: %s" % e)
