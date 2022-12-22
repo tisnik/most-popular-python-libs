@@ -12,6 +12,7 @@
 
 from keystone import *
 
+# instrukce, které se mají assemblerem přeložit
 CODE = """
     MOV EBX, 10
 OUTER_LOOP:
@@ -24,8 +25,13 @@ INNER_LOOP:
 """
 
 try:
+    # inicializace assembleru se specifikací architektury a popř. i režimu
     ks = Ks(KS_ARCH_X86, KS_MODE_64)
+
+    # vlastní překlad (assembling)
     encoding, count = ks.asm(CODE)
+
+    # uložení výsledného nativního kódu do souboru
     with open("loops.bin", "wb") as fout:
         fout.write(bytes(encoding))
 except KsError as e:
