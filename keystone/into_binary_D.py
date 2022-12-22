@@ -13,14 +13,23 @@
 from keystone import *
 
 try:
+    # načtení kódu v assembleru ze souboru
     with open("att_syntax.asm", "r") as fin:
         code = fin.read()
 
+    # kontrolní výpis, jaký kód budeme překládat
     print(code)
 
+    # inicializace assembleru se specifikací architektury a popř. i režimu
     ks = Ks(KS_ARCH_X86, KS_MODE_64)
+
+    # specifikace použité syntaxe
     ks.syntax = KS_OPT_SYNTAX_ATT
+
+    # vlastní překlad (assembling)
     encoding, count = ks.asm(code)
+
+    # uložení výsledného nativního kódu do souboru
     with open("att_syntax.bin", "wb") as fout:
         fout.write(bytes(encoding))
 except KsError as e:
