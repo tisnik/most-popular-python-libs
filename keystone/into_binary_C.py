@@ -13,13 +13,20 @@
 from keystone import *
 
 try:
+    # načtení kódu v assembleru ze souboru
     with open("hello_world_2.asm", "r") as fin:
         code = fin.read()
 
+    # kontrolní výpis, jaký kód budeme překládat
     print(code)
 
+    # inicializace assembleru se specifikací architektury a popř. i režimu
     ks = Ks(KS_ARCH_X86, KS_MODE_64)
+
+    # vlastní překlad (assembling)
     encoding, count = ks.asm(code)
+
+    # uložení výsledného nativního kódu do souboru
     with open("hello_2.bin", "wb") as fout:
         fout.write(bytes(encoding))
 except KsError as e:
