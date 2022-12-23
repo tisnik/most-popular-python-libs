@@ -25,7 +25,7 @@ async def main():
     try:
         result = await curio.timeout_after(1, task1.join)
         print(result)
-    except curio.TaskTimeout as e:
+    except curio.TaskTimeout:
         print("Timeout!")
         await task1.cancel()
 
