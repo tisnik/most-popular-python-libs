@@ -14,6 +14,9 @@
 #
 
 
+import trio
+
+
 async def producer(send_channel):
     for i in range(1, 10):
         message = f"message {i}"
