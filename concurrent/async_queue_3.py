@@ -14,7 +14,6 @@
 #
 
 import asyncio
-import time
 
 
 async def task(name, queue):
