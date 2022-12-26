@@ -32,6 +32,7 @@ async def main():
     task2 = await curio.spawn(task, "2nd", 10, 1)
     task3 = await curio.spawn(task, "3rd", 10, 1)
     print("done")
+    print(task1, task2, task3)
 
 
 curio.run(main())
