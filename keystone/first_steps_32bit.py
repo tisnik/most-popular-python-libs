@@ -10,7 +10,8 @@
 #      Pavel Tisnovsky
 #
 
-from keystone import *
+# import všech symbolů použitých ve skriptu
+from keystone import Ks, KS_ARCH_X86, KS_MODE_32, KsError
 
 # instrukce, které se mají assemblerem přeložit
 CODE = """
