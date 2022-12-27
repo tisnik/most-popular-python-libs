@@ -10,7 +10,8 @@
 #      Pavel Tisnovsky
 #
 
-from keystone import *
+# import všech symbolů použitých ve skriptu
+from keystone import Ks, KS_ARCH_X86, KS_MODE_32, KsError
 
 try:
     with open("subroutines.asm", "r") as fin:
@@ -22,5 +23,6 @@ try:
     encoding, count = ks.asm(code)
     with open("subroutines.bin", "wb") as fout:
         fout.write(bytes(encoding))
+    print("Binary file written")
 except KsError as e:
     print("ERROR: %s" % e)
