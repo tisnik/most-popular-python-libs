@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from capstone import *
+from capstone import Cs, CS_ARCH_X86, CS_MODE_64
 
 
 with open("loops.bin", "rb") as fin:
