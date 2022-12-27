@@ -10,7 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from keystone import *
+# import všech symbolů použitých ve skriptu
+from keystone import Ks, KS_ARCH_X86, KS_MODE_64, KS_OPT_SYNTAX_ATT, KsError
+
 
 try:
     # načtení kódu v assembleru ze souboru
@@ -32,5 +34,6 @@ try:
     # uložení výsledného nativního kódu do souboru
     with open("att_syntax.bin", "wb") as fout:
         fout.write(bytes(encoding))
+    print("Binary file written")
 except KsError as e:
     print("ERROR: %s" % e)
