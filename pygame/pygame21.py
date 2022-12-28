@@ -19,7 +19,6 @@
 
 import pygame
 import sys
-import os
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
