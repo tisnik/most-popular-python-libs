@@ -4,7 +4,6 @@
 # Demonstrační příklady využívající knihovnu Pygame
 
 import pygame
-import sys
 
 # Příklad číslo 6: výpis seznamu všech dostupných grafických
 #                  režimů pro zadané bitové hloubky.
