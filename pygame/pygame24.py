@@ -21,7 +21,6 @@
 
 import pygame
 import sys
-import os
 import math
 
 # Nutno importovat kvůli konstantám QUIT atd.
