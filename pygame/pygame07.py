@@ -4,7 +4,6 @@
 # Demonstrační příklady využívající knihovnu Pygame
 
 import pygame
-import sys
 
 # Příklad číslo 7: výpis všech zjištěných informací o grafickém
 #                  subsystému využívaném knihovnou Pygame.
