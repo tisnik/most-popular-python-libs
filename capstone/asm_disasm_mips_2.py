@@ -51,7 +51,11 @@ try:
         dump = i.bytes.hex(" ")
 
         # výpis informací o instrukci
-        print("0x{:02x}:\t{:20s}\t{:s}\t{:s}".format(i.address, dump, i.mnemonic, i.op_str))
+        print(
+            "0x{:02x}:\t{:20s}\t{:s}\t{:s}".format(
+                i.address, dump, i.mnemonic, i.op_str
+            )
+        )
 
 except KsError as e:
     print("ERROR: %s" % e)
