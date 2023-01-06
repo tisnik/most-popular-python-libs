@@ -19,14 +19,14 @@ from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB
 
 # instrukce, které se mají přeložit assemblerem
 CODE = """
-    MOV R0, 10
+    MOV  R0, 10
 OUTER_LOOP:
-    MOV R1, 100
+    MOV  R1, 100
 INNER_LOOP:
-    SUB R1, R1, 1
-    BNE INNER_LOOP
-    SUB R0, R0, 1
-    BNE OUTER_LOOP
+    SUBS R1, R1, 1
+    BNE  INNER_LOOP
+    SUBS R0, R0, 1
+    BNE  OUTER_LOOP
 """
 
 try:
