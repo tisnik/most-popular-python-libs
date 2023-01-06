@@ -19,14 +19,14 @@ from capstone import Cs, CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN
 
 # instrukce, které se mají přeložit assemblerem
 CODE = """
-    MOV W0, 10
+    MOV  W0, 10
 OUTER_LOOP:
-    MOV W1, 100
+    MOV  W1, 100
 INNER_LOOP:
-    SUB W1, W1, 1
-    BNE INNER_LOOP
-    SUB W0, W0, 1
-    BNE OUTER_LOOP
+    SUBS W1, W1, 1
+    BNE  INNER_LOOP
+    SUBS W0, W0, 1
+    BNE  OUTER_LOOP
 """
 
 try:
