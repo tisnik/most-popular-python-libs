@@ -16,7 +16,9 @@
 import polars
 
 # přečtení zdrojových dat
-df = polars.read_csv("hall_of_fame_no_header.csv", has_header=False, new_columns=["Rok", "Vítěz"])
+df = polars.read_csv(
+    "hall_of_fame_no_header.csv", has_header=False, new_columns=["Rok", "Vítěz"]
+)
 
 # zobrazíme datový rámec
 print(df)
