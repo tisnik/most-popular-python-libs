@@ -13,4 +13,3 @@ table.add_row("HSV", "Hue Saturation Value")
 
 console = Console()
 console.print(table)
-
