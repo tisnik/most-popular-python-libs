@@ -11,5 +11,5 @@ panel3 = Panel("YUV")
 panel4 = Panel("HSL\n\nHue\nSaturation\nLightness")
 panel5 = Panel("HSV\n\nHue\nSaturation\nValue")
 
-columns = Columns([panel1, panel2, panel3, panel4, panel5]*5)
+columns = Columns([panel1, panel2, panel3, panel4, panel5] * 5)
 console.print(columns)
