@@ -6,5 +6,5 @@ def process_data():
     sleep(0.02)
 
 
-for _ in track(range(100), description='[green]Processing data'):
+for _ in track(range(100), description="[green]Processing data"):
     process_data()
