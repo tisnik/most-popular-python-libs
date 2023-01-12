@@ -14,7 +14,6 @@
 from keystone import Ks, KS_ARCH_MIPS, KS_MODE_MIPS32, KsError
 
 
-
 # instrukce, které se mají přeložit assemblerem
 CODE = """
         addiu   $sp,$sp,-8
@@ -39,8 +38,6 @@ try:
 
     # vlastní překlad (assembling)
     encoding, count = ks.asm(CODE)
-
-
 
     # uložení výsledného nativního kódu do souboru
     with open("mips.bin", "wb") as fout:
