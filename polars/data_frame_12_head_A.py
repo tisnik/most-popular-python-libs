@@ -6,5 +6,5 @@ import polars
 # přečtení zdrojových dat
 df = polars.read_csv("hall_of_fame.csv")
 
-# zobrazíme datový rámec
+# zobrazíme datový rámec, resp. jeho hlavičku
 print(df.head())
