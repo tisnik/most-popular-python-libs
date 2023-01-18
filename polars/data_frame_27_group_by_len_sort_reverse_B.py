@@ -22,7 +22,11 @@ df = polars.read_csv("hall_of_fame.csv")
 polars.Config.set_tbl_rows(100)
 
 # seskupení podle názvu jazyka
-df = df.groupby("Winner", maintain_order=True).agg([polars.col("Year").len()]).sort("Year", reverse=True)
+df = (
+    df.groupby("Winner", maintain_order=True)
+    .agg([polars.col("Year").len()])
+    .sort("Year", reverse=True)
+)
 
 # zobrazíme datový rámec
 print(df)
