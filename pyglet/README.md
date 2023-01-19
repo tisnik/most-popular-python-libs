@@ -1,0 +1,52 @@
+This directory contains demonstration examples for Pyglet multimedia library for Python.
+
+List of examples:
+
+* 01_empty_window.py
+* 02_empty_window_script.py
+* 03_on_draw_event.py
+* 04_label.py
+* 05_label_anchors.py
+* 06_opengl.py
+* 07_opengl2.py
+* 08_triangle.py
+* 09_primitives.py
+* 10_points.py
+* 11_lines.py
+* 12_triangles.py
+* 13_triangle_strip.py
+* 14_triangle_fan.py
+* 15_quads.py
+* 16_polygons.py
+* 17_3d_projection.py
+* 18_rotation.py
+* 19_perspective.py
+* 20_fills.py
+* 21_no_z_buffer.py
+* 22_z_buffer.py
+* 23_blending.py
+* 24_blending2.py
+* 25_blending_function.py
+* 26_variable_alpha.py
+* 27_pyglet_image_load.py
+* 28_pyglet_image_blit.py
+* 29_sprite.py
+* 30_sprite_rotation.py
+* 31_sprite_rotation_origin.py
+* 32_sprite_scale.py
+* 33_sprite_scale_origin.py
+* 34_sprite_move.py
+* 35_sprites_and_OpenGL.py
+* 36_textures.py
+* 37_texture_wrapping.py
+* 38_texture_mirror.py
+* 39_texture_magnification.py
+* 40_texture_smooth.py
+* 41_texture_on_3d.py
+* 42_textures_and_colors_modulate.py
+* 43_textures_and_colors_replace.py
+* 44_textures_and_colors_decal.py
+* 45_textures_and_colors_blend.py
+* 46_make_checker.py
+* 47_checker.py
+* 48_checker_mipmap.py
