@@ -22,7 +22,7 @@ df1 = polars.scan_csv("hall_of_fame.csv")
 df2 = df1.sort("Year")
 
 # seřazení podle zvoleného sloupce
-df3 = df1.sort("Year", reverse=True)
+df3 = df1.sort("Year").reverse()
 
 # seskupení podle názvu jazyka
 df4 = (
