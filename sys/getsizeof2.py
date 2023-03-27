@@ -17,6 +17,10 @@ print_sizeof(1.0)
 print_sizeof(3.1415)
 print()
 
+print_sizeof(1+2j)
+print_sizeof(1.2+3.4j)
+print()
+
 print_sizeof(True)
 print_sizeof(False)
 print_sizeof(None)
