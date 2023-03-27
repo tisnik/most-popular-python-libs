@@ -21,7 +21,7 @@ print_sizeof([1, 2])
 print_sizeof([1, 2, 3])
 print_sizeof([1, 2, 3, 4])
 print_sizeof([1, 2, 3, 4, 5])
-print_sizeof([1, 2, 3, 4, 5, 7])
+print_sizeof([1, 2, 3, 4, 5, 6])
 print()
 
 print_sizeof({})
