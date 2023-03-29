@@ -3,7 +3,7 @@ from pympler import asizeof
 
 def print_sizeof(value):
     typename = "{:8}".format(type(value).__name__)
-    print(asizeof.asizeof(value, stats=1), "\t", typename, "\t", value)
+    print(asizeof.asizeof(value, stats=1), "\n", typename, "\t", value)
 
 
 print_sizeof(())
