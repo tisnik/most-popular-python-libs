@@ -24,16 +24,16 @@ def print_sizeof(value):
 print_sizeof(0)
 print_sizeof(1)
 print_sizeof(42)
-print_sizeof(2<<30)
-print_sizeof(2<<60)
+print_sizeof(2 << 30)
+print_sizeof(2 << 60)
 print()
 
 print_sizeof(1.0)
 print_sizeof(3.1415)
 print()
 
-print_sizeof(1+2j)
-print_sizeof(1.2+3.4j)
+print_sizeof(1 + 2j)
+print_sizeof(1.2 + 3.4j)
 print()
 
 print_sizeof(True)
