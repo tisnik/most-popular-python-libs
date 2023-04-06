@@ -26,7 +26,7 @@ class C4:
         pass
 
     def foo(self, x):
-        self.x=x
+        self.x = x
 
 
 o4 = C4()
