@@ -29,15 +29,16 @@ class C2:
     def __init__(self):
         pass
 
+
 class C3:
     def __init__(self):
         pass
 
     def foo(self, x):
-        self.x=x
+        self.x = x
 
     def bar(self, y):
-        self.y=y
+        self.y = y
 
 
 o1 = C1()
