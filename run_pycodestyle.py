@@ -20,6 +20,7 @@ import pycodestyle
 
 
 def main():
+    """Run docstyle checker against all Python sources."""
     files = list(Path(".").rglob("*.py"))
 
     style = pycodestyle.StyleGuide(quiet=False, config_file="setup.cfg")
