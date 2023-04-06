@@ -15,7 +15,7 @@
 
 from guppy import hpy
 
-x="?"*100000000
+x = "?" * 100000000
 
-h=hpy()
+h = hpy()
 print(h.heap())
