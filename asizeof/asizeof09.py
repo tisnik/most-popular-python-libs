@@ -26,13 +26,13 @@ def foo():
 
 
 def bar(x, y):
-    return x+y
+    return x + y
 
 
 def baz(x=0, y=1):
     print(x)
     print(y)
-    return x+y
+    return x + y
 
 
 print_sizeof(print)
