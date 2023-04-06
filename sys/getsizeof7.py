@@ -29,5 +29,5 @@ print_sizeof([1, 2])
 print_sizeof([1, "?" * 1000000])
 print()
 
-print_sizeof({1:1, 2:2})
-print_sizeof({1:1, 2:"?" * 1000000})
+print_sizeof({1: 1, 2: 2})
+print_sizeof({1: 1, 2: "?" * 1000000})
