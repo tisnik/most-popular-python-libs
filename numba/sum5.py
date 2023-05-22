@@ -27,7 +27,6 @@ print("Let's start")
 
 z = regular_sum(x, y)
 z = sequential_sum(x, y)
-z = nogil_sum(x, y)
 z = parallel_sum(x, y)
 
 MAX = 100000
