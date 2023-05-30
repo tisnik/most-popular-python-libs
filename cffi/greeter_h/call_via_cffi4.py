@@ -7,7 +7,7 @@ ffi = FFI()
 
 def load_header(filename):
     directory = pathlib.Path().absolute()
-    header = directory / "greeter.h"
+    header = directory / filename
     with open(header) as fin:
         return fin.read()
 
