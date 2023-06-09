@@ -1,0 +1,51 @@
+  1           0 LOAD_NAME                0 (int)
+              2 LOAD_NAME                0 (int)
+              4 LOAD_NAME                0 (int)
+              6 LOAD_CONST               0 (('a', 'b', 'return'))
+              8 BUILD_CONST_KEY_MAP      3
+             10 LOAD_CONST               1 (<code object add at 0x7f413d3d25b0, file "adder3.py", line 1>)
+             12 LOAD_CONST               2 ('add')
+             14 MAKE_FUNCTION            4 (annotations)
+             16 STORE_NAME               1 (add)
+
+  4          18 LOAD_NAME                2 (print)
+             20 LOAD_NAME                1 (add)
+             22 LOAD_CONST               3 (1)
+             24 LOAD_CONST               4 (2)
+             26 CALL_FUNCTION            2
+             28 CALL_FUNCTION            1
+             30 POP_TOP
+
+  5          32 LOAD_NAME                2 (print)
+             34 LOAD_NAME                1 (add)
+             36 LOAD_CONST               3 (1)
+             38 LOAD_CONST               5 (True)
+             40 CALL_FUNCTION            2
+             42 CALL_FUNCTION            1
+             44 POP_TOP
+
+  6          46 LOAD_NAME                2 (print)
+             48 LOAD_NAME                1 (add)
+             50 LOAD_CONST               3 (1)
+             52 LOAD_CONST               6 (False)
+             54 CALL_FUNCTION            2
+             56 CALL_FUNCTION            1
+             58 POP_TOP
+             60 LOAD_CONST               7 (None)
+             62 RETURN_VALUE
+--------------------------------------------------------------------------------
+0        ('a', 'b', 'return')
+1        <code object add at 0x7f413d3d25b0, file "adder3.py", line 1>
+2        add
+3        1
+4        2
+5        True
+6        False
+7        None
+--------------------------------------------------------------------------------
+Python version: 3.8.10
+Magic code: 550d0d0a
+Timestamp: Thu Jun  8 17:13:13 2023
+Size: 104
+Hash: None
+Bitfield: 0

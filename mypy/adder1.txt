@@ -1,0 +1,17 @@
+  1           0 LOAD_CONST               0 (<code object add at 0x7f90e76385b0, file "adder1.py", line 1>)
+              2 LOAD_CONST               1 ('add')
+              4 MAKE_FUNCTION            0
+              6 STORE_NAME               0 (add)
+              8 LOAD_CONST               2 (None)
+             10 RETURN_VALUE
+--------------------------------------------------------------------------------
+0        <code object add at 0x7f90e76385b0, file "adder1.py", line 1>
+1        add
+2        None
+--------------------------------------------------------------------------------
+Python version: 3.8.10
+Magic code: 550d0d0a
+Timestamp: Thu Jun  8 15:36:13 2023
+Size: 30
+Hash: None
+Bitfield: 0
