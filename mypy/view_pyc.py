@@ -50,7 +50,12 @@ def view_pyc_file(path):
     print('-' * 80)
 
     for i, const in enumerate(code.co_consts):
-        print(i, "       "+str(const))
+        print(i, "\t"+str(const) + "\t" + str(type(const)))
+        # constant pool contains function/method bytecode, so let's try to disassemble it
+        try:
+            dis.disassemble(const)
+        except:
+            pass
 
     print('-' * 80)
     print(
