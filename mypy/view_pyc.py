@@ -1,4 +1,7 @@
+# Based on code snippets mentioned there:
 # https://stackoverflow.com/questions/11141387/given-a-python-pyc-file-is-there-a-tool-that-let-me-view-the-bytecode
+
+# Original authors:
 # https://stackoverflow.com/users/6003870/padymko
 # https://stackoverflow.com/users/5065946/powersource97
 
