@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # vim: set fileencoding=utf-8
 
-from typing import NewType, Tuple, List, Any
+from typing import NewType, Tuple, List
 
 import pygame
 import sys
