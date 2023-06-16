@@ -1,5 +1,3 @@
-from typing import Dict
-
 d = {}
 
 d["foo"] = 1
