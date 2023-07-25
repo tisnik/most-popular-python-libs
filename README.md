@@ -3,14 +3,27 @@
 
 Examples for the most popular Python libraries
 
-## List of subdirectories
+## Libraries
 
-* articles
-* ast
-* blessed
-* bokeh
-* bytecode
-* capstone
+1. [Ast](<ast>)
+1. [Blessed](<blessed>)
+1. [Bokeh](<bokeh>)
+1. [Capstone](<capstone>)
+1. [Dis](<bytecode>)
+1. [pil](<pil>)
+1. [pillow](<pillow>)
+
+## Tools
+
+## Articles
+
+1. [Pillow (1st part)](<articles/python_pil_1.htm>)
+1. [Pillow (2nd part)](<articles/python_pil_2.htm>)
+1. [Requests library (1st part)](<articles/python_requests_1.htm>)
+1. [Requests library (2nd part)](<articles/python_requests_1.htm>)
+
+## Subdirectories
+
 * concurrent
 * diagrams
 * docs
@@ -26,8 +39,6 @@ Examples for the most popular Python libraries
 * numpy
 * pandas
 * pattern_matching
-* pil
-* pillow
 * pillow_save_output
 * plotnine
 * py4j
