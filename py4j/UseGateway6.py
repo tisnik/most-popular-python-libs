@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from py4j.java_gateway import JavaGateway, GatewayParameters
+from py4j.java_gateway import JavaGateway
 
 gateway = JavaGateway()
 
