@@ -56,8 +56,8 @@ display.fill(BLACK)
 pixelArray = pygame.PixelArray(display)
 
 # Změna barev některých pixelů
-for y in xrange(HEIGHT):
-    for x in xrange(WIDTH):
+for y in range(HEIGHT):
+    for x in range(WIDTH):
         pixelArray[x][y] = (x, y, (x + y) % 256)
 
 # Pixely byly změněny, pole je možné odstranit z paměti
