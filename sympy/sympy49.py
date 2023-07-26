@@ -1,5 +1,5 @@
 from sympy import symbols, pprint, init_printing
-from sympy import Interval, maximum, S
+from sympy import Interval, maximum
 
 init_printing(use_unicode=True)
 
