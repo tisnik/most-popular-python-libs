@@ -22,7 +22,7 @@ import pygame
 import sys
 
 # Nutno importovat kvůli konstantám QUIT atd.
-from pygame.locals import *
+from pygame.locals import QUIT
 
 # Velikost okna aplikace
 WIDTH = 256
