@@ -6,10 +6,10 @@ def mul(x=1, y=1, z=1, w=1):
 
 
 def displayInfo(name, obj):
-    print(name)
-    print(obj.func)
-    print(obj.args)
-    print(obj.keywords)
+    print("name:      ", name)
+    print("function:  ", obj.func)
+    print("arguments: ", obj.args)
+    print("keywords:  ", obj.keywords)
     print()
 
 
