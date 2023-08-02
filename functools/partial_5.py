@@ -1,4 +1,4 @@
-from functools import partial, reduce
+from functools import partial
 
 
 def mul(x, y, z, w):
