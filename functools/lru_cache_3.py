@@ -8,7 +8,7 @@ def fib(n):
     return fib(n-1) + fib(n-2)
 
 
-max_n = 300
+max_n = 40
 
 for _ in range(10):
     print(fib.cache_info())
