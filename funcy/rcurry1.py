@@ -9,4 +9,4 @@ curried = curry(div)
 
 print(curried)
 print(curried(1))
-print(curried(1)(2))
+print(curried(1)(2))  # pozor na umístění závorek!
