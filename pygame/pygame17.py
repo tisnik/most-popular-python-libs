@@ -18,7 +18,6 @@
 #
 
 import sys
-import math
 import pygame
 
 # Nutno importovat kvůli konstantám QUIT atd.
