@@ -15,7 +15,6 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 from bokeh.plotting import figure, show
-from bokeh.themes import built_in_themes
 from bokeh.io import curdoc
 
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
