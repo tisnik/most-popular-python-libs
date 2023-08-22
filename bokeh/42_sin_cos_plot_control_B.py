@@ -17,7 +17,7 @@
 
 from bokeh.plotting import figure, show
 from bokeh.layouts import row
-from bokeh.models import Slider, ColumnDataSource, CustomJS
+from bokeh.models import Slider, ColumnDataSource
 
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
@@ -34,7 +34,7 @@ y1 = np.sin(x)
 y2 = np.cos(x)
 
 # zdroj dat
-source = ColumnDataSource(data=dict(x=x, y=y1))
+source = ColumnDataSource(data={"x": x, "y": y1})
 
 # plocha pro graf
 p = figure(title="sin(x) a cos(x)", x_axis_label="x", y_axis_label="sin(x) a cos(x)")
