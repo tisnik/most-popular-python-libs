@@ -34,7 +34,7 @@ y1 = np.sin(x)
 y2 = np.cos(x)
 
 # zdroj dat
-source = ColumnDataSource(data=dict(x=x, y=y1))
+source = ColumnDataSource(data={"x": x, "y": y1})
 
 # plocha pro graf
 p = figure(title="sin(x) a cos(x)", x_axis_label="x", y_axis_label="sin(x) a cos(x)")
@@ -45,7 +45,7 @@ p.line(x, y2, legend_label="cos(x)", line_width=2, color="#a0a000")
 
 # callback zavolaný po změně souřadnic posuvníku
 on_amplitude_change = CustomJS(
-    args=dict(source=source),
+    args={"source": source},
     code="""
     const data = source.data;
     const a = cb_obj.value
