@@ -15,7 +15,7 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 
-from bokeh.plotting import figure, show, save
+from bokeh.plotting import figure, show
 
 # hodnoty na x-ové a y-ové ose
 x = range(10)
