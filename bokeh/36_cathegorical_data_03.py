@@ -14,7 +14,7 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
-from bokeh.io import output_file, show
+from bokeh.io import show
 from bokeh.plotting import figure
 
 # jména na X-ové ose
