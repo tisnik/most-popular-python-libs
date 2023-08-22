@@ -14,7 +14,7 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
-from bokeh.io import output_file, show
+from bokeh.io import show
 from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource
 from bokeh.palettes import Spectral10
@@ -38,7 +38,7 @@ ratings = [12.20, 9.63, 6.12, 5.42, 2.09, 1.94, 1.85, 10.47, 11.91, 1.55]
 
 # definice zdroje dat
 source = ColumnDataSource(
-    data=dict(languages=languages, ratings=ratings, color=Spectral10)
+    data={"languages": languages, "ratings": ratings, "color": Spectral10}
 )
 
 # plocha pro graf
