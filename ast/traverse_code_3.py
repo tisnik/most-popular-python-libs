@@ -22,7 +22,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_Module(self, node):
         indent = " " * self.nest_level * 2
-        print("{}module begin:".format(indent, node.__dict__))
+        print("{}module begin:".format(indent))
         self.nest_level += 1
         self.generic_visit(node)
         self.nest_level -= 1
