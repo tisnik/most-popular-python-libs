@@ -12,3 +12,6 @@ print(filtered)
 
 filtered = lfilter("o", words)
 print(filtered)
+
+filtered = lfilter("or$", words)
+print(filtered)
