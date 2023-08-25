@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from operator import *
+from operator import add, mul, pow, lt, gt
 
 
 def get_operator(symbol):
