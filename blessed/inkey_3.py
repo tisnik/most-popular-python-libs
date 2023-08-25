@@ -25,6 +25,6 @@ with terminal.cbreak():
 
         # display key or key sequence
         if key.is_sequence:
-            print("got sequence: {0}.".format(key.name, key.code, (str(key))))
+            print("got sequence: {0} {1} {2}.".format(key.name, key.code, (str(key))))
         else:
             print(key.name, key.code, key)
