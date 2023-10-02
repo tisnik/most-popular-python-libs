@@ -3,8 +3,6 @@
 
 # Demonstrační příklady využívající knihovnu Pygame
 
-import pygame
-
 # Příklad číslo 7: výpis všech zjištěných informací o grafickém
 #                  subsystému využívaném knihovnou Pygame.
 
@@ -20,8 +18,7 @@ import pygame
 #      Pavel Tisnovsky
 #
 
-# Nutno importovat kvůli konstantám QUIT atd.
-from pygame.locals import QUIT
+import pygame
 
 # Inicializace knihovny Pygame
 pygame.init()
