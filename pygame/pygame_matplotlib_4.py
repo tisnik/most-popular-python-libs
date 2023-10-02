@@ -25,7 +25,7 @@ import subprocess
 import re
 
 # nutno importovat kvuli konstantam QUIT atd.
-from pygame.locals import *
+from pygame.locals import QUIT, KEYDOWN
 
 # DPI (umele zvolena hodnota)
 DPI = 100
