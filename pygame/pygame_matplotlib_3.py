@@ -23,7 +23,7 @@ import os
 import sys
 
 # nutno importovat kvuli konstantam QUIT atd.
-from pygame.locals import *
+from pygame.locals import QUIT, KEYDOWN
 
 # velikost okna na obrazovce (framebufferu)
 WIDTH = 640
