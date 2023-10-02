@@ -36,10 +36,10 @@ dt = 0.01
 n = 100000
 
 # gradient od 0 do 255
-l = np.linspace(0, 255, num=n)
+gradient = np.linspace(0, 255, num=n)
 
 # barvová paleta
-colors = ["#%02x%02x%02x" % (255 - int(value), 0, int(value)) for value in l]
+colors = ["#%02x%02x%02x" % (255 - int(value), 0, int(value)) for value in gradient]
 
 # prozatím prázdné pole připravené pro výpočet
 x = np.zeros((n,))
