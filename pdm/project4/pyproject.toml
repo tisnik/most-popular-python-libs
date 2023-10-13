@@ -1,0 +1,15 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Pavel", email = "pavel@nowhere.com"},
+]
+dependencies = [
+    "sympy>=1.10.1",
+    "requests==2.0.0",
+]
+requires-python = ">=3.7"
+readme = "README.md"
+license = {text = "MIT"}
+
