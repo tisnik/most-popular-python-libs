@@ -1,0 +1,16 @@
+[project]
+name = "project6"
+version = "0.1.0"
+description = "just a test project"
+authors = [
+    {name = "Pavel", email = "pavel@nowhere.com"},
+    {name = "Pavel Tisnovsky", email = "tisnik@nowhere.cz"},
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
