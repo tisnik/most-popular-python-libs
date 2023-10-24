@@ -1,0 +1,7 @@
+[tool.ruff]
+#select = ["E", "F", "W", "C", "D"]
+select = ["E", "F", "W", "C"]
+ignore = ["D211", "D213", "E402", "F821", "F811"]
+
+line-length = 100
+
