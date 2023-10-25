@@ -12,20 +12,20 @@
 #  Contributors:
 #      Pavel Tisnovsky
 
-l = []
+list1 = []
 
-list1 = [1, "foo", (1, 2, 3), l]
-print(list1)
-print(type(list1))
+list2 = [1, "foo", (1, 2, 3), list1]
+print(list2)
+print(type(list2))
 
-l.append(1)
-print(list1)
-print(type(list1))
+list1.append(1)
+print(list2)
+print(type(list2))
 
-l.append(2)
-print(list1)
-print(type(list1))
+list1.append(2)
+print(list2)
+print(type(list2))
 
-l = []
-print(list1)
-print(type(list1))
+list1 = []
+print(list2)
+print(type(list2))
