@@ -16,8 +16,6 @@
 import matplotlib
 
 matplotlib.use("Agg")  # noqa: E402
-import matplotlib.cm as cm
-import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import numpy as np
 import pygame
