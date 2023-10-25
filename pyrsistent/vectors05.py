@@ -14,20 +14,20 @@
 
 from pyrsistent import v
 
-l = []
+lst = []
 
-vector1 = v(1, "foo", (1, 2, 3), l)
+vector1 = v(1, "foo", (1, 2, 3), lst)
 print(vector1)
 print(type(vector1))
 
-l.append(1)
+lst.append(1)
 print(vector1)
 print(type(vector1))
 
-l.append(2)
+lst.append(2)
 print(vector1)
 print(type(vector1))
 
-l = []
+lst = []
 print(vector1)
 print(type(vector1))
