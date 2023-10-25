@@ -18,8 +18,8 @@ bag1 = pbag(["foo", "bar", "baz"])
 
 print(bag1)
 
-l = list(bag1)
-print(l)
+lst = list(bag1)
+print(lst)
 
 bag2 = bag1 + pbag(["baz", "alpha", "omega"])
 
