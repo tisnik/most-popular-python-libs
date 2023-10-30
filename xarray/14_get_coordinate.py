@@ -12,13 +12,13 @@ array = xr.DataArray(temperatures,
                      name="Temperature measurement",
                      dims=("x", "y", "time"),
                      coords={"x":xcoords, "y":ycoords, "time":times},
-                     attrs=dict(
-                         units = "centigrees",
-                         description ="Local temperature values measured in grid",
-                         measured_by = {"name": "ThermometerBot",
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in grid",
+                         "measured_by": {"name": "ThermometerBot",
                               "vendor": "BIY",
                               "version": (1, 0, 0)}
-                         ))
+                         })
 
 
 print(array)
