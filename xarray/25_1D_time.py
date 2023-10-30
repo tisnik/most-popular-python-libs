@@ -17,7 +17,7 @@ array = xr.DataArray(temperatures,
                      coords={"time":measured_at},
                      attrs={
                          "units": "centigrees",
-                         "description": "Local temperature values measured in grid #1",
+                         "description": "Local temperature values measured in time serie #1",
                          "measured_by": {"name": "ThermometerBot",
                               "vendor": "BIY",
                               "version": (1, 0, 0)}

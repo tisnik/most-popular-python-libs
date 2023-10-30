@@ -21,7 +21,7 @@ array1 = xr.DataArray(temperatures1,
                      coords={"time":measured_at1},
                      attrs={
                          "units": "centigrees",
-                         "description": "Local temperature values measured in grid #1",
+                         "description": "Local temperature values measured in time serie #1",
                          "measured_by": {"name": "ThermometerBot",
                               "vendor": "BIY",
                               "version": (1, 0, 0)}
@@ -33,7 +33,7 @@ array2 = xr.DataArray(temperatures2,
                      coords={"time":measured_at2},
                      attrs={
                          "units": "centigrees",
-                         "description": "Local temperature values measured in grid #2",
+                         "description": "Local temperature values measured in time serie #2",
                          "measured_by": {"name": "ThermometerBot",
                               "vendor": "BIY",
                               "version": (1, 0, 0)}
