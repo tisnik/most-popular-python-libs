@@ -46,14 +46,17 @@ array2 = xr.DataArray(temperatures2,
                           })
 
 
+print("Array #1:")
 print(array1)
 print()
 print()
 
+print("Array #2:")
 print(array2)
 print()
 print()
 
+print("Array #1 + Array #2:")
 array3 = array1 + array2
 print(array3)
 print()
