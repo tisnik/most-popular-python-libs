@@ -9,17 +9,17 @@ latitudes = [[42.25, 42.21], [42.63, 42.59]]
 array = xr.DataArray(temperatures,
                      name="Temperature measurement",
                      dims=("x", "y"),
-                     coords=dict(
-                        lon=(["x", "y"], longitudes),
-                        lat=(["x", "y"], latitudes),
-                     ),
-                     attrs=dict(
-                         units = "centigrees",
-                         description ="Local temperature values measured in grid",
-                         measured_by = {"name": "ThermometerBot",
+                     coords={
+                        "lon": (["x", "y"], longitudes),
+                        "lat": (["x", "y"], latitudes),
+                     },
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in grid",
+                         "measured_by": {"name": "ThermometerBot",
                               "vendor": "BIY",
                               "version": (1, 0, 0)}
-                         ))
+                         })
 
 
 print(array)
