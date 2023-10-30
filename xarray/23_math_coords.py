@@ -24,26 +24,26 @@ array1 = xr.DataArray(temperatures1,
                       name="Temperature measurement #1",
                       dims=("x", "y"),
                       coords={"x":xcoords1, "y":ycoords1},
-                      attrs=dict(
-                          units = "centigrees",
-                          description ="Local temperature values measured in grid #1",
-                          measured_by = {"name": "ThermometerBot",
+                      attrs={
+                          "units": "centigrees",
+                          "description": "Local temperature values measured in grid #1",
+                          "measured_by": {"name": "ThermometerBot",
                                "vendor": "BIY",
                                "version": (1, 0, 0)}
-                          ))
+                          })
 
 
 array2 = xr.DataArray(temperatures2,
                       name="Temperature measurement #2",
                       dims=("x", "y"),
                       coords={"x":xcoords2, "y":ycoords2},
-                      attrs=dict(
-                          units = "centigrees",
-                          description ="Local temperature values measured in grid #2",
-                          measured_by = {"name": "ThermometerBot",
+                      attrs={
+                          "units": "centigrees",
+                          "description": "Local temperature values measured in grid #2",
+                          "measured_by": {"name": "ThermometerBot",
                                "vendor": "BIY",
                                "version": (1, 0, 0)}
-                          ))
+                          })
 
 
 print(array1)
