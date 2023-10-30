@@ -17,3 +17,11 @@ dataset = xr.Dataset({"temperatures": (["x", "y", "time"], temperatures),
 
 
 print(dataset)
+
+print()
+print("Temperatures:")
+print(dataset["temperatures"])
+
+print()
+print("Wind:")
+print(dataset["wind"])
