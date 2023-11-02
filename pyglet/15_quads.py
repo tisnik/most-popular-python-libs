@@ -13,7 +13,11 @@
 #
 
 import pyglet
-from pyglet.gl import *
+from pyglet.gl import glClear, glLoadIdentity, glColor3f, glVertex2i, glBegin, glEnd
+from pyglet.gl import glClearColor, glPolygonMode, glEnable, glDisable
+from pyglet.gl import glPointSize, glLineWidth, glPolygonStipple, GLubyte
+from pyglet.gl import GL_POINT, GL_LINE, GL_QUADS, GL_FILL, GL_COLOR_BUFFER_BIT
+from pyglet.gl import GL_FRONT_AND_BACK, GL_POINT_SMOOTH, GL_LINE_SMOOTH, GL_POLYGON_STIPPLE
 
 window = pyglet.window.Window(width=450, height=350, caption="Pyglet+OpenGL")
 
