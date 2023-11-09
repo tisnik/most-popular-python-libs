@@ -13,7 +13,14 @@
 #
 
 import pyglet
-from pyglet.gl import *
+from pyglet.gl import glClear, glLoadIdentity, glColor4f, glVertex3f, glBegin, glEnd
+from pyglet.gl import glClearColor, glPolygonMode, glDisable, glRotatef, glDepthFunc
+from pyglet.gl import glViewport, glMatrixMode, gluLookAt, gluPerspective, glEnable
+from pyglet.gl import glClearDepth, glBlendFunc, glTranslatef, glDepthMask
+from pyglet.gl import GL_FILL, GL_COLOR_BUFFER_BIT, GL_MODELVIEW, GL_LESS, GL_DEPTH_TEST
+from pyglet.gl import GL_FRONT, GL_BACK, GL_CULL_FACE, GL_PROJECTION, GL_QUADS, GL_TRIANGLES
+from pyglet.gl import GL_DEPTH_BUFFER_BIT, GL_BLEND, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+from pyglet.gl import GL_FALSE, GL_TRUE
 from pyglet.window import key
 
 fov = 70.0  # hodnota zorneho uhlu - field of view
