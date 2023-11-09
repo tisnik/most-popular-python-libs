@@ -13,7 +13,15 @@
 #
 
 import pyglet
-from pyglet.gl import *
+from pyglet.gl import glClear, glLoadIdentity, glColor3f, glColor4f, glVertex2f, glBegin, glEnd
+from pyglet.gl import glClearColor, glPolygonMode, glDisable
+from pyglet.gl import glViewport, glMatrixMode, glEnable
+from pyglet.gl import glClearDepth, glBlendFunc
+from pyglet.gl import GL_FILL, GL_COLOR_BUFFER_BIT, GL_MODELVIEW
+from pyglet.gl import GL_FRONT, GL_BACK, GL_CULL_FACE, GL_QUADS
+from pyglet.gl import GL_BLEND, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+from pyglet.gl import GL_ONE, GL_ZERO, GL_SRC_COLOR, GL_DST_COLOR
+from pyglet.gl import GL_ONE_MINUS_SRC_COLOR, GL_ONE_MINUS_DST_COLOR
 from pyglet.window import key
 
 window = pyglet.window.Window(width=450, height=450, caption="Pyglet+OpenGL")
