@@ -13,7 +13,14 @@
 #
 
 import pyglet
-from pyglet.gl import *
+from pyglet.gl import glClear, glLoadIdentity, glVertex2i, glBegin, glEnd
+from pyglet.gl import glClearColor, glPolygonMode, glEnable, glDisable
+from pyglet.gl import glPixelStorei, glTexParameteri, glBindTexture, glViewport
+from pyglet.gl import glTexCoord2f
+from pyglet.gl import GL_COLOR_BUFFER_BIT, GL_REPEAT, GL_CULL_FACE
+from pyglet.gl import GL_QUADS, GL_FRONT, GL_BACK, GL_FILL, GL_TEXTURE_2D
+from pyglet.gl import GL_NEAREST, GL_TEXTURE_MIN_FILTER, GL_TEXTURE_MAG_FILTER
+from pyglet.gl import GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, GL_UNPACK_ALIGNMENT
 
 window = pyglet.window.Window(width=600, height=250, caption="Pyglet library")
 
