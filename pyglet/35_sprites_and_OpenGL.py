@@ -13,7 +13,11 @@
 #
 
 import pyglet
-from pyglet.gl import *
+from pyglet.gl import glClear, glLoadIdentity, glColor3f, glVertex2i, glBegin, glEnd
+from pyglet.gl import GL_POINTS, GL_LINES, GL_LINE_STRIP, GL_LINE_LOOP
+from pyglet.gl import GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_QUAD_STRIP, GL_POLYGON
+from pyglet.gl import GL_COLOR_BUFFER_BIT
+from pyglet.gl import GL_QUADS, GL_TRIANGLES
 
 window = pyglet.window.Window(width=450, height=350, caption="Pyglet+OpenGL")
 
