@@ -19,8 +19,8 @@ async def task1():
 
 
 async def task2():
-    l = []
-    return l[10]
+    lst = []
+    return lst[10]
 
 
 async def task3():
