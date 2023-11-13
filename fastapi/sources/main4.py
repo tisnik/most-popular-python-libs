@@ -40,7 +40,7 @@ async def update_operation(id: int, text: str = ""):
     try:
         storage.update(id, text)
         return {"updated": id, "new text": text}
-    except:
+    except Exception:
         raise HTTPException(status_code=404, detail="Item not found")
 
 @app.delete("/delete/{id}")
@@ -48,5 +48,5 @@ async def delete_operation(id: int):
     try:
         storage.delete(id)
         return {"deleted": id}
-    except:
+    except Exception:
         raise HTTPException(status_code=404, detail="Item not found")
