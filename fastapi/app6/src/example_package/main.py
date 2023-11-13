@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi import HTTPException
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
@@ -30,7 +29,7 @@ def connect_to_db():
 engine, session = connect_to_db()
 
 
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
