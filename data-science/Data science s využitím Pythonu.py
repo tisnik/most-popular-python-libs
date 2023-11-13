@@ -123,7 +123,7 @@
 # 
 # ---
 # 
-# ### NumPy
+# ## NumPy
 # 
 # ![numpy_arrays.png](images/numpy_logo.png)
 # 
@@ -198,7 +198,7 @@
 # 
 # ---
 # 
-# ### Xarray
+# ## Xarray
 # 
 # * n-dimensionální pole s metadaty
 #     - jméno
@@ -221,15 +221,15 @@
 # 
 # ---
 # 
-# ### Pandas
+# ## Pandas
 # 
 # ---
 # 
-# ### Polars
+# ## Polars
 # 
 # ---
 # 
-# ### Matplotlib
+# ## Matplotlib
 # 
 # ---
 # 
@@ -255,8 +255,1628 @@
 # ---
 # 
 
+# # Praktická část
+
+# ## NumPy
+
+# ### Instalace
+
+# In[2]:
+
+
+import numpy as np
+
+
+# ### Konstruktory
+
+# In[ ]:
+
+
+np.zeros((10,))
+
+
+# In[11]:
+
+
+np.zeros((3,4))
+
+
+# In[12]:
+
+
+np.zeros((3,4,5))
+
+
+# In[13]:
+
+
+x = np.zeros((10,))
+
+
+# In[14]:
+
+
+x
+
+
+# ### Specifikace typů buněk
+
+# In[6]:
+
+
+l = [10000, 20000, 30000, 40000, 50000, 60000, 70000]
+x = np.array(l, dtype='d')
+x
+
+
+# In[17]:
+
+
+ls = [1, 3.14, 0]
+y = np.array(ls)
+y
+
+
+# ### Další typy konstruktorů polí
+
+# In[25]:
+
+
+np.array(range(10, 20, 3))
+
+
+# In[26]:
+
+
+np.ones((5, 6))
+
+
+# In[27]:
+
+
+np.ones((5,6), dtype='b')
+
+
+# In[28]:
+
+
+np.ones((5,6), dtype='?')
+
+
+# In[29]:
+
+
+np.zeros((5,6), dtype='?')
+
+
+# In[31]:
+
+
+np.eye(10)
+
+
+# In[32]:
+
+
+np.eye(10, dtype='b')
+
+
+# In[33]:
+
+
+np.eye(4, 8)
+
+
+# In[34]:
+
+
+np.arange(10)
+
+
+# In[35]:
+
+
+np.array(range(10))
+
+
+# In[36]:
+
+
+np.arange(-10, 10)
+
+
+# In[38]:
+
+
+np.arange(-10, 10, 3)
+
+
+# In[39]:
+
+
+np.arange(2.5, 15, 0.7)
+
+
+# In[41]:
+
+
+range(2, 15, 1)
+
+
+# In[42]:
+
+
+np.arange(0, 360, 5)
+
+
+# In[44]:
+
+
+np.linspace(0, 10, 10)
+
+
+# In[45]:
+
+
+np.linspace(10, 1, 10)
+
+
+# In[46]:
+
+
+np.geomspace(1, 1000, 10)
+
+
+# In[49]:
+
+
+np.geomspace(1, 100000, 6)
+
+
+# In[51]:
+
+
+np.logspace(1, 10, 2)
+
+
+# In[52]:
+
+
+x = np.arange(-10, 10, 3)
+
+
+# In[53]:
+
+
+x
+
+
+# In[54]:
+
+
+np.float32(x)
+
+
+# In[57]:
+
+
+x.astype('b')
+
+
+# In[58]:
+
+
+x
+
+
+# In[59]:
+
+
+x.dtype
+
+
+# In[60]:
+
+
+x.astype('b').dtype
+
+
+# ### Počet dimenzí a tvar polí
+
+# In[61]:
+
+
+x.ndim
+
+
+# In[62]:
+
+
+x.shape
+
+
+# In[73]:
+
+
+y = np.zeros((6, 10))
+
+
+# In[74]:
+
+
+y
+
+
+# In[75]:
+
+
+y.ndim
+
+
+# In[76]:
+
+
+y.shape
+
+
+# In[78]:
+
+
+x.size
+
+
+# In[79]:
+
+
+x.itemsize
+
+
+# In[80]:
+
+
+y.size
+
+
+# In[81]:
+
+
+y.itemsize
+
+
+# ### Změna tvaru polí
+
+# In[83]:
+
+
+np.linspace(1, 100, 100).reshape(10, 10)
+
+
+# In[85]:
+
+
+np.linspace(1, 100, 100).reshape(20, 5)
+
+
+# In[87]:
+
+
+np.linspace(1, 24, 24).reshape(2, 3, 4)
+
+
+# In[9]:
+
+
+z = np.linspace(1, 24, 24).reshape(4, 3, 2)
+
+
+# In[10]:
+
+
+z.reshape(2, 12)
+
+
+# In[12]:
+
+
+z.reshape(3, 2, 4)
+
+
+# In[13]:
+
+
+a = np.arange(10000).reshape(100, 100)
+
+
+# In[95]:
+
+
+a
+
+
+# In[15]:
+
+
+x
+
+
+# In[16]:
+
+
+x[0]
+
+
+# In[17]:
+
+
+x[4]
+
+
+# In[18]:
+
+
+x[100]
+
+
+# In[100]:
+
+
+x[-1]
+
+
+# In[101]:
+
+
+x[-2]
+
+
+# In[104]:
+
+
+a = np.reshape(np.arange(12), (3, 4))
+
+
+# In[105]:
+
+
+a
+
+
+# In[106]:
+
+
+a[1]
+
+
+# In[107]:
+
+
+a[-1]
+
+
+# In[108]:
+
+
+a[1][3]
+
+
+# In[109]:
+
+
+a[1,3]
+
+
+# In[110]:
+
+
+b = np.reshape(np.arange(24), (2, 3, 4))
+
+
+# In[111]:
+
+
+b
+
+
+# In[112]:
+
+
+b[1, 0, -1]
+
+
+# In[113]:
+
+
+b[1]
+
+
+# In[115]:
+
+
+a = np.arange(12)
+
+
+# In[116]:
+
+
+a
+
+
+# In[119]:
+
+
+b = np.array([-1, 2, -9, -8, 5])
+
+
+# In[120]:
+
+
+a[b]
+
+
+# In[121]:
+
+
+c = np.arange(25).reshape(5,5)
+
+
+# In[122]:
+
+
+c
+
+
+# In[126]:
+
+
+i = np.array([[0,0], [1,1], [4,2]])
+
+
+# In[127]:
+
+
+i
+
+
+# In[128]:
+
+
+c[i]
+
+
+# In[129]:
+
+
+a
+
+
+# In[130]:
+
+
+a[3:7]
+
+
+# In[131]:
+
+
+a[3:-3]
+
+
+# In[132]:
+
+
+a[3:]
+
+
+# In[133]:
+
+
+a[:5]
+
+
+# In[134]:
+
+
+a[:]
+
+
+# In[135]:
+
+
+a[0:0]
+
+
+# In[136]:
+
+
+a[2:-2:3]
+
+
+# In[137]:
+
+
+c = np.arange(25).reshape(5,5)
+
+
+# In[138]:
+
+
+c
+
+
+# In[143]:
+
+
+c[2:4, 0:2]
+
+
+# In[144]:
+
+
+c[0:-1]
+
+
+# In[146]:
+
+
+c[0::2]
+
+
+# In[147]:
+
+
+c[0::2, 0::2]
+
+
+# In[148]:
+
+
+c = np.arange(100).reshape(10,10)
+
+
+# In[149]:
+
+
+c
+
+
+# In[150]:
+
+
+c[0::2, 0::2]
+
+
+# In[165]:
+
+
+x = np.array([1,2,3])
+
+
+# In[166]:
+
+
+y = np.array([5,6,7])
+
+
+# In[167]:
+
+
+x
+
+
+# In[168]:
+
+
+y
+
+
+# In[171]:
+
+
+x*y
+
+
+# In[172]:
+
+
+10+x
+
+
+# In[173]:
+
+
+2*x
+
+
+# In[174]:
+
+
+c = np.arange(100).reshape(10,10)
+
+
+# In[175]:
+
+
+c
+
+
+# In[176]:
+
+
+c-50
+
+
+# In[177]:
+
+
+c+c
+
+
+# In[178]:
+
+
+c
+
+
+# In[181]:
+
+
+c *= 10
+
+
+# In[182]:
+
+
+c
+
+
+# In[193]:
+
+
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11,12]])
+
+
+# In[194]:
+
+
+a1
+
+
+# In[198]:
+
+
+a2 = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+
+
+# In[199]:
+
+
+a2
+
+
+# In[200]:
+
+
+a1@a2
+
+
+# In[206]:
+
+
+import numpy.linalg as l
+
+
+# In[203]:
+
+
+m = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 1]])
+
+
+# In[204]:
+
+
+m
+
+
+# In[207]:
+
+
+l.det(m)
+
+
+# In[208]:
+
+
+l.inv(m)
+
+
+# In[209]:
+
+
+a
+
+
+# In[210]:
+
+
+a < 5
+
+
+# In[211]:
+
+
+c
+
+
+# In[212]:
+
+
+c < 5000
+
+
+# In[213]:
+
+
+a
+
+
+# In[218]:
+
+
+b = np.array([0, 1, 2, 10, 20, 30, 7, 0, 0, 11, 11, 11])
+
+
+# In[219]:
+
+
+b
+
+
+# In[220]:
+
+
+a == b
+
+
+# In[221]:
+
+
+a < b
+
+
+# In[222]:
+
+
+a
+
+
+# In[223]:
+
+
+a < 6
+
+
+# In[224]:
+
+
+a[a<6]
+
+
+# In[226]:
+
+
+a%2==0
+
+
+# In[227]:
+
+
+a[a%2==0]
+
+
+# In[228]:
+
+
+c = np.reshape(np.arange(100, 125), (5, 5))
+
+
+# In[229]:
+
+
+c
+
+
+# In[231]:
+
+
+c[c % 3 == 0]
+
+
+# In[232]:
+
+
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+
+# In[238]:
+
+
+a1.min(axis=1)
+
+
+# In[240]:
+
+
+a1.max(axis=1)
+
+
+# In[235]:
+
+
+a1.max()
+
+
+# In[241]:
+
+
+a1.sum(axis=0)
+
+
+# In[242]:
+
+
+a1.sum(axis=1)
+
+
+# In[243]:
+
+
+a1
+
+
+# In[244]:
+
+
+a1-5
+
+
+# In[245]:
+
+
+np.abs(a1-5)
+
+
+# In[246]:
+
+
+a = np.linspace(0, np.pi/2)
+
+
+# In[247]:
+
+
+a
+
+
+# In[248]:
+
+
+np.sin(a)
+
+
+# In[249]:
+
+
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+
+# In[250]:
+
+
+a1
+
+
+# In[251]:
+
+
+a = np.apply_along_axis(lambda v: v[1], 0, a1)
+
+
+# In[252]:
+
+
+a
+
+
+# In[253]:
+
+
+a = np.array([[2]])
+a
+
+
+# In[254]:
+
+
+b = np.array([10])
+
+
+# In[256]:
+
+
+l.solve(a, b)
+
+
+# In[257]:
+
+
+a = np.array([[1, 1], [1, -1]])
+
+
+# In[258]:
+
+
+b = np.array([2, 0])
+
+
+# In[259]:
+
+
+l.solve(a, b)
+
+
+# In[260]:
+
+
+# x=1, y=1
+
+
+# ## Xarray
+
+# ## Matplotlib
+
+# In[30]:
+
+
+import matplotlib.pyplot as plt
+
+
+# In[27]:
+
+
+x = np.linspace(0, 2*np.pi, 100)
+
+
+# In[21]:
+
+
+x
+
+
+# In[28]:
+
+
+y = np.sin(x)
+
+
+# In[23]:
+
+
+y
+
+
+# In[31]:
+
+
+plt.plot(x,y)
+plt.xlabel("t")
+plt.ylabel("sin(t)")
+plt.title("Sinusovka")
+
+
+# In[32]:
+
+
+plt.show()
+
+
+# In[290]:
+
+
+x = np.linspace(0, 2*np.pi, 100)
+# hodnoty na y-ové ose: první funkce
+
+y1 = np.sin(x)
+# hodnoty na y-ové ose: druhá funkce
+
+y2 = np.cos(x)
+# vykreslit průběh obou funkcí
+
+plt.plot(x, y1, x, y2)
+# popis os
+
+plt.xlabel("x")
+plt.ylabel("sin(x) a cos(x)")
+# zobrazení grafu
+
+plt.show()
+
+
+# In[33]:
+
+
+x = np.linspace(0.01, 4*np.pi, 100)
+# hodnoty na y-ové ose: první funkce
+
+y1 = np.sin(x)
+# hodnoty na y-ové ose: druhá funkce
+
+y2 = np.cos(x)
+# hodnoty na y-ové ose: třetí funkce
+
+y3 = np.sin(x)/x
+# vykreslit průběh všech tří funkcí se změnou stylu vykreslování
+
+plt.plot(x, y1, "b-", label="sin")
+plt.plot(x, y2, "r.", label="cos")
+plt.plot(x, y3, "g--", label="sinc")
+
+# přidání legendy
+plt.legend(loc="lower left")
+
+# popis os
+plt.xlabel("x")
+plt.ylabel("sin(x), cos(x) a sinc(x)")
+
+# zobrazení grafu
+plt.show()
+
+
+# In[34]:
+
+
+x = np.linspace(0, 2*np.pi, 100)
+
+# hodnoty na y-ové ose: první funkce
+y1 = np.sin(x)
+
+# hodnoty na y-ové ose: druhá funkce
+y2 = np.sin(3*x)/(x+1)
+
+# vykreslit průběh obou funkcí se změnou stylu vykreslování
+plt.fill(x, y1, "red", x, y2, "yellow", alpha=0.5)
+plt.plot(x, y2, "blue")
+
+# popis os
+plt.xlabel("x")
+plt.ylabel("sin(x) a sinc(3x)")
+
+# zobrazení grafu
+plt.show()
+
+
+# In[35]:
+
+
+x = np.linspace(0.001, 2*np.pi, 100)
+
+y1 = np.sin(5*x)
+
+y2 = np.sin(5*x)/(x+1/2)
+
+y3 = 1/(x+1/2)
+y4 = -y3
+
+plt.fill(x, y1, "yellow", alpha=0.3, label="sin x")
+plt.fill(x, y2, "r.", alpha=1.0, label="sinc 5x")
+plt.plot(x, y3, "g--", label="obalka sinc")
+plt.plot(x, y4, "g--", label="obalka sinc")
+
+plt.legend(loc="upper right")
+
+plt.xlabel("x")
+plt.ylabel("sin(x) a sinc(3x)")
+
+plt.show()
+
+
+# In[36]:
+
+
+x = np.linspace(0, 2*np.pi, 100)
+# hodnoty na y-ové ose: první funkce
+
+y1 = np.sin(x)
+# hodnoty na y-ové ose: druhá funkce
+
+y2 = np.cos(x)
+# vykreslit průběh obou funkcí se změnou stylu vykreslování
+
+plt.plot(x, y1, "b-", label="sin")
+plt.plot(x, y2, "r-", label="cos")
+# přidání legendy
+
+plt.legend(loc="lower left")
+# nastavení rozsahů na obou osách
+
+plt.axis([-1, 7, -1.5, 1.5])
+
+
+# vložit první popisek do grafu
+plt.annotate("maximální hodnota sin(x)",
+             xy=(np.pi/2, 1.0),
+             xytext=(0, 1.3),
+             arrowprops=dict(arrowstyle="->"))
+
+# vložit druhý popisek do grafu
+plt.annotate("minimální hodnota cos(x)",
+             xy=(np.pi, -1.0),
+             xytext=(2, -1.3),
+             arrowprops=dict(arrowstyle="->"))
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# popis os
+plt.xlabel("x")
+plt.ylabel("sin(x) a cos(x)")
+# zobrazení grafu
+
+plt.show()
+
+
+# In[37]:
+
+
+# úhel v polárním grafu
+theta = np.linspace(0.01, 2*np.pi, 150)
+
+# vzdálenost od středu
+radius = theta#np.log(theta)
+
+ax = plt.subplot(111, projection="polar")
+
+# vykreslit průběh funkce v polárním grafu
+ax.plot(theta, radius)
+
+# zobrazení grafu
+plt.show()
+
+
+# In[38]:
+
+
+# úhel v polárním grafu
+theta = np.linspace(0.01, 2*np.pi, 150)
+
+# první funkce: vzdálenost od středu
+radius1 = theta
+
+# druhá funkce: vzdálenost od středu
+radius2 = 2*np.abs(theta-np.pi)
+
+# třetí funkce: vzdálenost od středu
+radius3 = 2*np.log(theta)
+
+ax = plt.subplot(111, projection="polar")
+
+# vykreslit průběh první funkce v polárním grafu
+ax.plot(theta, radius1, "r.", label="f1")
+
+# vykreslit průběh druhé funkce v polárním grafu
+ax.plot(theta, radius2, "g", label="f2")
+
+# vykreslit průběh třetí funkce v polárním grafu
+ax.plot(theta, radius3, "b--", label="f3")
+
+# přidání legendy
+plt.legend(loc="lower left")
+
+# zobrazení grafu
+plt.show()
+
+
+# In[39]:
+
+
+# úhel v polárním grafu
+
+theta = np.linspace(0.01, 4*np.pi, 150)
+# první funkce: vzdálenost od středu
+
+radius1 = theta
+# druhá funkce: vzdálenost od středu
+
+radius2 = 3*np.abs(theta-2*np.pi)
+
+ax = plt.subplot(111, projection="polar")
+# vykreslit průběh první funkce v polárním grafu
+
+ax.plot(theta, radius2, "b", label="f1")
+# vykreslit průběh druhé funkce v polárním grafu
+
+ax.fill(theta, radius1, "yellow", alpha=0.3, label="f1")
+
+ax.plot(theta, radius1, "red")
+
+# přidání legendy
+
+plt.legend(loc="lower left")
+# zobrazení grafu
+
+plt.show()
+
+
+# In[40]:
+
+
+# hodnoty na x-ové ose
+
+x = np.linspace(0.2, 2*np.pi, 100)
+# hodnoty na y-ové ose
+
+y = np.sin(5*x)/x
+y2 = 1/x
+y3 = -y2
+# vykreslit průběh funkce
+
+plt.plot(x, y2, color='red',  label='obalka sinc')
+plt.plot(x, y3, color='red',  label='obalka sinc')
+plt.plot(x, y,  color='blue', label='sinc(x)', drawstyle='steps')
+# povolení zobrazení mřížky
+
+plt.grid(True)
+# popis os
+
+plt.xlabel("x")
+plt.ylabel("sinc(x)")
+# přidání legendy
+
+plt.legend(loc="lower right")
+# zobrazení grafu
+
+plt.show()
+
+
+# In[41]:
+
+
+# historické ceny ropy
+
+cena_ropy = [
+    46.68, 44.68, 46.90, 47.15, 44.59, 44.00, 44.63, 45.92, 44.15, 45.94,
+    46.05, 46.75, 46.25, 45.41, 49.20, 45.22, 42.56, 38.60, 39.31, 38.24,
+    40.45, 41.32, 40.80, 42.62, 41.87, 42.50, 42.23, 43.30, 43.08, 44.96,
+    43.87, 44.66, 45.15, 47.12, 48.52, 48.79, 47.98, 47.39, 48.14, 48.45]
+# počet prvků
+
+fig = plt.figure(figsize=(15, 12))
+
+N = len(cena_ropy)
+# indexy prvků
+
+indexes = np.arange(N)
+# šířka sloupců
+
+width = 1.00
+# sloupcový graf
+
+plt.bar(indexes, cena_ropy, width, color='yellow', edgecolor='black',
+        label='Cena ropy')
+# povolení zobrazení mřížky
+
+plt.grid(True)
+# přidání legendy
+
+plt.legend(loc="lower right")
+# zobrazení grafu
+
+plt.show()
+
+
+# In[42]:
+
+
+# první pole hodnot
+vals1 = [10, 15, 20, 12, 14, 8]
+
+# druhé pole hodnot
+vals2 = [19, 18,  6, 11,  6, 14]
+
+# počet prvků
+N = len(vals1)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 0.30
+
+# sloupcový graf se dvěma skupinami sloupců
+plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1')
+
+# posunuté sloupce
+plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
+        label='CPU#2')
+
+plt.plot(indexes, vals1)
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="upper right")
+
+# zobrazení grafu
+plt.show()
+
+
+# In[43]:
+
+
+# náhodné hodnoty
+
+y = np.random.normal(0, 0.1, 10000)
+
+plt.hist(y, bins=100, range=None, density=True)
+
+# zobrazení grafu
+plt.show()
+
+
+# In[44]:
+
+
+# musíme naimportovat ještě jeden balíček
+from matplotlib import font_manager as fm  # noqa: E402
+
+# make a square figure and axes
+fig = plt.figure(1, figsize=(6, 6), dpi=100)
+ax = fig.add_axes([0.16, 0.16, 0.68, 0.68])
+
+plt.title("Scripting languages")
+ax.title.set_fontsize(30)
+
+# popisky jednotlivých výřezů
+labels = ['Perl', 'Python', 'Ruby']
+
+# šířky jednotlivých výřezů
+fracs = [90, 150, 20]
+
+# vytvoření koláčového grafu
+ax.pie(fracs, labels=labels, autopct='%1.1f%%', shadow=False)
+
+# zobrazení grafu
+plt.show()
+
+
+# In[45]:
+
+
+# make a square figure and axes
+fig = plt.figure(1, figsize=(6, 6), dpi=100)
+ax = fig.add_axes([0.16, 0.16, 0.68, 0.68])
+
+plt.title("Scripting languages")
+ax.title.set_fontsize(30)
+
+# popisky jednotlivých výřezů
+
+labels = ['Perl', 'Python', 'Ruby']
+
+# šířky jednotlivých výřezů
+fracs = [90, 150, 70]
+
+# vytáhnutí výřezů
+explode = (0.0, 0.0, 0.15)
+
+# barvy
+colors = ('yellow', '#60ff60', 'red')
+
+# vytvoření koláčového grafu
+patches, texts, autotexts = ax.pie(fracs, explode=explode, colors=colors,
+                                   labels=labels, autopct='%1.1f%%',
+                                   shadow=True)
+# změna stylu písma
+proptease = fm.FontProperties()
+proptease.set_size('xx-large')
+plt.setp(autotexts, fontproperties=proptease)
+plt.setp(texts, fontproperties=proptease)
+
+# zobrazení grafu
+plt.show()
+
+
+# In[51]:
+
+
+# první pole hodnot a pole odchylek
+vals1 = [10, 15, 20, 12, 14, 8]
+delta1 = [1, 2, 3, 4, 5, 0]
+
+# druhé pole hodnot a pole odchylek
+vals2 = [19, 18,  6, 11,  6, 14]
+delta2 = [4, 2, 3, 2, 2, 4]
+
+# počet prvků
+N = len(vals1)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 0.30
+
+# sloupcový graf se dvěma skupinami sloupců
+plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1',
+        yerr=delta1, error_kw=dict(elinewidth=2, ecolor='red'))
+
+# posunuté sloupce
+plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
+        label='CPU#2',
+        yerr=delta2, error_kw=dict(elinewidth=2, ecolor='#606000'))
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+
+plt.show()
+
+
+# In[52]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+
+# příprava vektorů pro konstrukci mřížky
+x = np.linspace(-4, 4, 50)
+y = np.linspace(0, 8, 50)
+
+# konstrukce mřížky
+x, y = np.meshgrid(x, y)
+
+# implicitní funkce paraboly
+f = 0.5
+p = 2*f
+z = x**2 - p*p*y + 5*np.sin(y)
+
+# inicializace grafu
+fig = plt.figure()
+
+# nastavení 3D projekce
+### starý Matplotlib: ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection = '3d')
+
+# zobrazení 3D grafu formou plochy
+surface = ax.plot_surface(x, y, z, rstride=2, cstride=2, cmap=cm.coolwarm,
+                          linewidth=0, antialiased=False)
+
+# titulek grafu
+fig.suptitle('Parabola', fontsize=15)
+
+# rozměry grafu ve směru osy x
+ax.set_xlabel('X')
+ax.set_xlim(-4, 4)
+
+# rozměry grafu ve směru osy y
+ax.set_ylabel('Y')
+ax.set_ylim(0, 8)
+
+# rozměry grafu ve směru osy z
+ax.set_zlabel('Z')
+ax.set_zlim(0, 10)
+
+# uložení grafu do rastrového obrázku
+plt.savefig("parabola1.png")
+
+# zobrazení grafu
+plt.show()
+
+
+# ### Meshgrid
+
+# In[53]:
+
+
+x = np.arange(0.0, 5, 1)
+
+
+# In[54]:
+
+
+x
+
+
+# In[55]:
+
+
+y = np.arange(10.0, 15, 1)
+
+
+# In[56]:
+
+
+y
+
+
+# In[57]:
+
+
+X, Y = np.meshgrid(x, y)
+
+
+# In[58]:
+
+
+X
+
+
+# In[59]:
+
+
+Y
+
+
 # In[ ]:
 
 
 
 
+
+# In[50]:
+
+
+# import dvou dalších potřebných knihoven
+
+import matplotlib.cm as cm  # noqa: E402
+import matplotlib.mlab as mlab  # noqa: E402
+
+fig = plt.figure(1, figsize=(8, 6), dpi=100)
+
+delta = 0.1
+
+# průběh nezávislé proměnné x
+x = np.arange(-10.0, 10.0, delta)
+
+# průběh nezávislé proměnné y
+y = np.arange(-10.0, 10.0, delta)
+
+# vytvoření dvou polí se souřadnicemi [x,y]
+X, Y = np.meshgrid(x, y)
+
+# vzdálenost od bodu [0,0]
+R1 = np.sqrt(X*X+Y*Y)
+
+# vzdálenost od bodu [3,3]
+R2 = np.sqrt((X-3)*(X-3)+(Y-3)*(Y-3))
+
+# výpočet funkce, kterou použijeme při vykreslování grafu
+Z = np.sin(R1)-np.cos(R2)
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# vytvoření grafu s konturami funkce z=f(x,y)
+CS = plt.contour(X, Y, Z)
+
+# popisky “vrstevnic”
+plt.clabel(CS, inline=1, fontsize=10)
+
+CB = plt.colorbar(CS, shrink=0.7, extend='both')
+
+plt.contour(X, Y, Z)
+# zobrazení grafu
+
+plt.show()
+
+
+# ## Scipy
+
+# ## Pandas
+
+# ## Scikit-learn
