@@ -17,14 +17,14 @@ from time import sleep
 
 
 def foo_construct():
-    l = []
+    lst = []
     for i in range(10000000):
-        l.append(i)
+        lst.append(i)
         if i % 100000 == 0:
             sleep(0.05)
 
     for i in range(10000000, 0, -1):
-        del l[i-1]
+        del lst[i-1]
         if i % 100000 == 0:
             sleep(0.05)
 
