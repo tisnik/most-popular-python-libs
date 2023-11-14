@@ -1,8 +1,7 @@
 import asyncio
 import aiohttp
-import time
- 
- 
+
+
 async def download(name, queue):
     async with aiohttp.ClientSession() as session:
         while not queue.empty():
@@ -12,11 +11,11 @@ async def download(name, queue):
                 t = await response.text()
                 print(f"Task named {name} downloaded {len(t)} characters")
             print(f"Task named {name} finished")
- 
- 
+
+
 async def main():
     queue = asyncio.Queue()
- 
+
     for url in (
         "http://www.root.cz",
         "http://duckduckgo.com",
@@ -26,10 +25,10 @@ async def main():
         "https://github.com/"
     ):
         await queue.put(url)
- 
+
     await asyncio.gather(
             asyncio.create_task(download(1, queue)),
             asyncio.create_task(download(2, queue)))
- 
- 
+
+
 asyncio.run(main())
