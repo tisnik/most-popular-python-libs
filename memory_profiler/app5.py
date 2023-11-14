@@ -13,8 +13,6 @@
 #      Pavel Tisnovsky
 #
 
-from time import sleep
-
 
 @profile
 def foo_construct():
