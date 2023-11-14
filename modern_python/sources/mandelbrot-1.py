@@ -1,5 +1,5 @@
 import palette_mandmap
-from sys import argv, exit
+from sys import argv
 
 def calc_mandelbrot(width, height, maxiter, palette):
     print("P3")
