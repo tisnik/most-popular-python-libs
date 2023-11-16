@@ -1,3 +1,3 @@
 from typing import List
 
-l: List[int] = [1, True, False]
+lst: List[int] = [1, True, False]
