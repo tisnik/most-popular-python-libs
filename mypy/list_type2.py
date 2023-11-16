@@ -15,4 +15,4 @@
 
 from typing import List
 
-l: List[int] = []
+lst: List[int] = []
