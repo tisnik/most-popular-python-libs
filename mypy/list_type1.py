@@ -13,4 +13,4 @@
 #      Pavel Tisnovsky
 #
 
-l: list[int] = []
+lst: list[int] = []
