@@ -16,12 +16,12 @@
 
 @profile
 def foo_construct():
-    l = []
+    lst = []
     for i in range(1000000):
-        l.append(i)
+        lst.append(i)
 
     for i in range(1000000, 0, -1):
-        del l[i-1]
+        del lst[i-1]
 
 
 foo_construct()
