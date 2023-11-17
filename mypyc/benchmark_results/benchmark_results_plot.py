@@ -13,6 +13,7 @@ input_files = (
     "python_3_9.times",
     "python_3_10.times",
     "python_3_11.times",
+    "python_3_12.times",
     "mypyc_no_type_hints.times",
     "mypyc_with_type_hints.times",
     "numba2.times",
@@ -118,7 +119,7 @@ plt.show()
 # In[104]:
 
 
-results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11"]].plot(
+results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11", "python 3 12"]].plot(
         title="Python interpreters only")
 plt.savefig("Python interpreters only.png")
 plt.show()
