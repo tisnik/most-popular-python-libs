@@ -36,9 +36,10 @@ def read_benchmark_result(filename):
 
 def filename2description(filename):
     return filename.split(".")[0].replace("_", " ")
-    
+
 def read_all_results(input_files):
-    return {filename2description(input_file): read_benchmark_result(input_file) for input_file in input_files}
+    return {filename2description(input_file): read_benchmark_result(input_file)
+            for input_file in input_files}
 
 
 # ### Combine all results into one DataFrame
@@ -84,7 +85,8 @@ plt.show()
 # In[95]:
 
 
-results[5:10].plot(kind='bar', stacked=False, width=0.9, title="Computation with startup time influence")
+results[5:10].plot(kind='bar', stacked=False, width=0.9,
+        title="Computation with startup time influence")
 plt.savefig("Startup time and computation.png")
 plt.show()
 
@@ -116,7 +118,8 @@ plt.show()
 # In[104]:
 
 
-results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11"]].plot(title="Python interpreters only")
+results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11"]].plot(
+        title="Python interpreters only")
 plt.savefig("Python interpreters only.png")
 plt.show()
 
