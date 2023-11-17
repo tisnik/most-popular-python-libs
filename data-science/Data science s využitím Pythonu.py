@@ -492,6 +492,8 @@ range(2, 15, 1)
 np.arange(0, 360, 5)
 
 
+# ### Posloupnosti
+
 # In[44]:
 
 
@@ -551,6 +553,8 @@ x.astype('b')
 
 x
 
+
+# ### Zjištění informací o poli
 
 # In[59]:
 
@@ -670,6 +674,8 @@ z.reshape(3, 2, 4)
 a = np.arange(10000).reshape(100, 100)
 
 
+# ### Přístup k prvkům polí
+
 # In[95]:
 
 
@@ -771,6 +777,8 @@ b[1, 0, -1]
 
 b[1]
 
+
+# ### Adresování prvků obsahem jiného pole
 
 # In[115]:
 
@@ -928,6 +936,8 @@ c
 c[0::2, 0::2]
 
 
+# ### Broadcasting a operace nad celými poli
+
 # In[165]:
 
 
@@ -1036,11 +1046,15 @@ a2 = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
 a2
 
 
+# ### Operátor maticového součinu
+
 # In[200]:
 
 
 a1@a2
 
+
+# ### Modul lineární algebry
 
 # In[206]:
 
@@ -1071,6 +1085,8 @@ l.det(m)
 
 l.inv(m)
 
+
+# ### Broadcasting podmínky
 
 # In[209]:
 
@@ -1150,6 +1166,8 @@ a[a<6]
 a%2==0
 
 
+# ### Broadcasting podmínky + výběr prvků booleovským polem
+
 # In[227]:
 
 
@@ -1173,6 +1191,8 @@ c
 
 c[c % 3 == 0]
 
+
+# ### Operace prováděné nad celými osami
 
 # In[232]:
 
@@ -1314,6 +1334,202 @@ l.solve(a, b)
 
 
 # ## Xarray
+
+# In[1]:
+
+
+import numpy as np
+import xarray as xr
+
+
+# ### Vytvoření 2D pole
+
+# In[2]:
+
+
+array = xr.DataArray(np.identity(10))
+array
+
+
+# ### Pojmenování dimenzí
+
+# In[3]:
+
+
+array = xr.DataArray(np.identity(10),
+                     dims=("x", "y"))
+array
+
+
+# ### Pojmenování dimenzí, značky na osách
+
+# In[4]:
+
+
+array = xr.DataArray(np.identity(10),
+                     dims=("x", "y"),
+                     coords={"x":[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]})
+array
+
+
+# ### Uživatelské atributy
+
+# In[5]:
+
+
+temperatures = -10 + 40*np.random.rand(10, 10)
+
+xcoords = np.linspace(10, 100, 10)
+ycoords = np.linspace(-100, -10, 10)
+
+array = xr.DataArray(temperatures,
+                     name="Temperature measurement",
+                     dims=("x", "y"),
+                     coords={"x":xcoords, "y":ycoords},
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in grid",
+                         "measured_by": {"name": "ThermometerBot",
+                              "vendor": "BIY",
+                              "version": (1, 0, 0)}
+                         })
+array
+
+
+# ### Trojrozměrné pole (2D řezy v čase)
+
+# In[6]:
+
+
+temperatures = -10 + 40*np.random.rand(2, 2, 3)
+
+longitudes = [[-99.83, -99.32], [-99.79, -99.23]]
+latitudes = [[42.25, 42.21], [42.63, 42.59]]
+times = ["2023-10-01", "2023-10-02", "2023-10-03"]
+
+array = xr.DataArray(temperatures,
+                     name="Temperature measurement",
+                     dims=("x", "y", "time"),
+                     coords={
+                        "lon": (["x", "y"], longitudes),
+                        "lat": (["x", "y"], latitudes),
+                        "time": times,
+                     },
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in grid",
+                         "measured_by": {"name": "ThermometerBot",
+                              "vendor": "BIY",
+                              "version": (1, 0, 0)}
+                         })
+array
+
+
+# ### Reprezentace šachové partie (pro oddych)
+
+# In[7]:
+
+
+chessboard = np.array([" "]*64).reshape(8, 8)
+chessboard[0, 0] = "♚"
+chessboard[1, 5] = "♔"
+chessboard[2, 5] = "♙"
+chessboard[3, 4] = "♜"
+
+files = ["a", "b", "c", "d", "e", "f", "g", "h"]
+ranks = np.linspace(1, 8, 8, dtype=np.int8)
+
+array = xr.DataArray(chessboard,
+                     name="Saavedra position",
+                     dims=("files", "ranks"),
+                     coords={"files":files, "ranks":ranks})
+
+array.attrs["units"] = "chess pieces"
+array.attrs["description"] ="White to move and win",
+array.attrs["metadata"] = {"played by": "Fernando Saavedra",
+                           "winner": "white",
+                           "see also": "https://www.youtube.com/watch?v=Mg2OOsQPURs",}
+
+arrayarray.sel(files="c")
+
+
+# In[8]:
+
+
+array.sel(files="c")array.sel(ranks=6)
+
+
+# In[9]:
+
+
+array.sel(ranks=6)
+
+
+# ### Operace `groupby` a časové řady
+
+# In[14]:
+
+
+measured_at = np.arange(
+        np.datetime64("2023-01-01"),
+        np.datetime64("2024-01-01"),
+        np.timedelta64(1, "D")).astype('datetime64[ns]')
+
+temperatures = 10 + 20 * np.random.rand(365)
+
+array = xr.DataArray(temperatures,
+                     name="Temperature measurement",
+                     dims=("time",),
+                     coords={"time":measured_at},
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in time serie #1",
+                         "measured_by": {"name": "ThermometerBot",
+                              "vendor": "BIY",
+                              "version": (1, 0, 0)}
+                         })
+
+array.groupby("time.season")
+
+
+# In[15]:
+
+
+array.groupby("time.dayofweek")
+
+
+# In[17]:
+
+
+array.groupby("time.month")
+
+
+# ### Výběr nejbližší známé hodnoty (algoritmus "nearest")
+
+# In[12]:
+
+
+temperatures = np.arange(0, 300).reshape((10, 10, 3))
+
+xcoords = np.linspace(10, 100, 10)
+ycoords = np.linspace(-100, -10, 10)
+
+times = ["2023-10-01", "2023-10-02", "2023-10-03"]
+
+array = xr.DataArray(temperatures,
+                     name="Temperature measurement",
+                     dims=("x", "y", "time"),
+                     coords={"x":xcoords, "y":ycoords, "time":times},
+                     attrs={
+                         "units": "centigrees",
+                         "description": "Local temperature values measured in grid",
+                         "measured_by": {"name": "ThermometerBot",
+                              "vendor": "BIY",
+                              "version": (1, 0, 0)}
+                         })
+
+array.sel(time="2023-10-02").sel(x=51, y=-51, method="nearest")
+
 
 # ## Matplotlib
 
@@ -2069,3 +2285,83 @@ print()
 
 
 # ## Scikit-learn
+
+# ## Plotnine
+
+# ### Načtení testovacích dat
+
+# In[4]:
+
+
+from plotnine.data import economics
+
+
+# In[5]:
+
+
+economics
+
+
+# ### Základní analýza nad daty
+
+# In[6]:
+
+
+economics.describe()
+
+
+# ### Jednoduchý graf
+
+# In[7]:
+
+
+from plotnine import ggplot, aes, geom_line, labs
+
+
+# In[8]:
+
+
+ggplot(economics) + aes(x="date", y="uempmed") + geom_line() + labs(x="date", y="median duration of unemployment")
+
+
+# ### Aproximace
+
+# In[9]:
+
+
+from plotnine import geom_point, geom_smooth, xlab, ylab
+
+
+# In[10]:
+
+
+(ggplot(economics)
+        + aes(x="date", y="uempmed")
+        + geom_point()
+        + geom_smooth(color="red")
+        + xlab("date (year)")
+        + ylab("unemploynment"))
+
+
+# ### Možnosti aproximace
+
+# In[11]:
+
+
+(ggplot(economics)
+        + aes(x="date", y="uempmed")
+        + geom_point(size=0.2)
+        + geom_smooth(color="#ff0000", span=1)
+        + geom_smooth(color="#cc0044", span=0.5)
+        + geom_smooth(color="#880088", span=0.3)
+        + geom_smooth(color="#4400cc", span=0.2)
+        + geom_smooth(color="#0000ff", span=0.1)
+        + xlab("date (year)")
+        + ylab("unemploynment"))
+
+
+# In[ ]:
+
+
+
+
