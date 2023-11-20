@@ -37,9 +37,9 @@ def calc_mandelbrot(width, height, maxiter, palette):
                 zx = zx2 - zy2 + cx
                 i += 1
 
-            r = palette[i][0]
-            g = palette[i][1]
-            b = palette[i][2]
+            r = palette[i % 256][0]
+            g = palette[i % 256][1]
+            b = palette[i % 256][2]
             print("{r} {g} {b}".format(r=r, g=g, b=b))
             cx += 3.0/width
         cy += 3.0/height
