@@ -81,7 +81,12 @@ mpl.rcParams['figure.dpi'] = 150
 # In[97]:
 
 
-results[0:3].plot(kind='bar', stacked=False, width=0.9, title="Startup time")
+results[0:3].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
+            color=["#a00000", "#a0a000",
+                         "#00c000", "#00c030", "#00c060", "#00c090", "#00c0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff",
+                         "#a08000", "#c0a000", "#f0c000"])
 plt.savefig("Startup time.png")
 plt.show()
 
@@ -89,14 +94,26 @@ plt.show()
 # In[95]:
 
 
-results[-2:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation")
+results[-2:].plot(kind='bar', stacked=False, width=0.9,
+                   title="Computation w/o startup time influence",
+                   color=["#a00000", "#a0a000",
+                         "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff",
+                         "#a08000", "#c0a000", "#f0c000"])
 plt.savefig("Extensive computation.png")
 plt.show()
 
 
 # In[101]:
 
-results.plot(title="Approximation, incl. startup time")
+results.plot(title="Approximation, incl. startup time",
+            color=["#a00000", "#a0a000",
+                         "#00c000", "#00c030", "#00c060", "#00c090", "#00c0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff",
+                         "#a08000", "#c0a000", "#f0c000"],
+            style=[":", ":", "--", "--", "--", "--", "--"])
 plt.savefig("Approximation computation.png")
 plt.show()
 
