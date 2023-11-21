@@ -3,7 +3,7 @@
 
 # ### Set of input files with benchmark results to be processed
 
-# In[25]:
+# In[2]:
 
 
 input_files = (
@@ -21,7 +21,7 @@ input_files = (
     "numba4.times")
 
 
-# In[14]:
+# In[3]:
 
 
 import pandas as pd
@@ -29,7 +29,7 @@ import pandas as pd
 
 # ### Helper functions to read benchmark results
 
-# In[39]:
+# In[4]:
 
 
 def read_benchmark_result(filename):
@@ -45,7 +45,7 @@ def read_all_results(input_files):
 
 # ### Combine all results into one DataFrame
 
-# In[53]:
+# In[5]:
 
 
 r = read_all_results(input_files)
@@ -65,45 +65,62 @@ results
 
 # ### Set plot size
 
-# In[77]:
+# In[6]:
 
 
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams['figure.dpi'] = 150
+xticks=df.index
 
 
 # ### Plot results
 
-# In[97]:
+# In[12]:
 
 
-results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time")
-plt.savefig("Startup time.png")
+results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
+                  color=["#a00000", "#a0a000",
+                         "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff"])
+plt.savefig("1st.png")
 plt.show()
 
 
-# In[95]:
+# In[9]:
 
 
 results[5:10].plot(kind='bar', stacked=False, width=0.9,
-        title="Computation with startup time influence")
+                   title="Computation with startup time influence",
+                   color=["#a00000", "#a0a000",
+                         "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff"])
 plt.savefig("Startup time and computation.png")
 plt.show()
 
 
-# In[96]:
+# In[10]:
 
 
-results[10:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation")
+results[10:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation",
+                  color=["#a00000", "#a0a000",
+                         "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff"])
 plt.savefig("Extensive computation.png")
 plt.show()
 
 
-# In[101]:
+# In[43]:
 
 
-results.plot(title="Approximation, incl. startup time")
+results.plot(title="Approximation, incl. startup time",
+            color=["#a00000", "#a0a000",
+                         "#00c000", "#00c030", "#00c060", "#00c090", "#00c0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff"])
 plt.savefig("Approximation computation.png")
 plt.show()
 
@@ -111,7 +128,10 @@ plt.show()
 # In[102]:
 
 
-results[8:12].plot(title="Numba/CPython thresholds")
+results[8:12].plot(title="Numba/CPython thresholds", color=["#a00000", "#a0a000",
+                         "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
+                         "#ff0000", "#ff8000",
+                         "#0000ff", "#0060ff", "#00c0ff"])
 plt.savefig("Numba CPython thresholds.png")
 plt.show()
 
@@ -119,8 +139,9 @@ plt.show()
 # In[104]:
 
 
-results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11", "python 3 12"]].plot(
-        title="Python interpreters only")
+#results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time")
+results[11:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11", "python 3 12"]].plot(
+        kind="bar", title="Python interpreters only")
 plt.savefig("Python interpreters only.png")
 plt.show()
 
