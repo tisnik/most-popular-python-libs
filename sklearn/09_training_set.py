@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
-import matplotlib.pyplot as plt
 
 # import funkce, která vrátí obrázky pro práci
 from sklearn.datasets import load_digits
