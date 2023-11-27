@@ -6,7 +6,7 @@ from sklearn.datasets import load_digits
 # načtení obrázků, s nimiž budeme dále pracovat
 digits_data = load_digits()
 
-# vytvoření seznamu, které použijeme 
+# vytvoření seznamu, které použijeme
 images = list(zip(digits_data.target, digits_data.images))
 
 # nebudeme vyposovat tisíce údajů - postačí prvních dvacet
