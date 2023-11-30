@@ -13,7 +13,7 @@ samples = len(digits_data.images)
 print("Vzorků celkem:", samples)
 print()
 
-# vytvoření seznamu, které použijeme 
+# vytvoření seznamu, které použijeme
 images = list(zip(digits_data.target, digits_data.images))
 
 
