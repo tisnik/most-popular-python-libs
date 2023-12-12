@@ -16,5 +16,8 @@ eg = ExceptionGroup(
         ]
 )
 
-import traceback
-traceback.print_exception(eg)
+try:
+    print("Let's raise exception group")
+    raise eg
+except ExceptionGroup as ex:
+    print("Caught:", ex)

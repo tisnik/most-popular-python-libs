@@ -16,5 +16,23 @@ eg = ExceptionGroup(
         ]
 )
 
-import traceback
-traceback.print_exception(eg)
+try:
+    print("Let's raise exception group")
+    print()
+    raise eg
+except* FileNotFoundError as fnf:
+    print("FileNotFoundError")
+    print(fnf.exceptions)
+    print()
+except* ValueError as ve:
+    print("ValueError")
+    print(ve.exceptions)
+    print()
+except* ZeroDivisionError as zde:
+    print("ZeroDivisionError")
+    print(zde.exceptions)
+    print()
+except* Exception as ex:
+    print("Something else")
+    print(ex)
+    print()
