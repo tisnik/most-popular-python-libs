@@ -15,5 +15,5 @@ while True:
     if event == sg.WIN_CLOSED:
         break
 
-# po výskuku ze smyčky událostí aplikaci ukončíme
+# po výskoku ze smyčky událostí aplikaci ukončíme
 window.close()
