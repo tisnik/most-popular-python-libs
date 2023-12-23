@@ -6,14 +6,8 @@ layout = [[]]
 # vytvoření okna s ovládacími prvky
 window = sg.Window("Window #1", layout, size=(320, 240))
 
-# obsluha smyčky událostí (event loop)
-while True:
-    # přečtení události
-    event, values = window.read()
+# čekání na událost
+window.read()
 
-    # reakce na událost "uzavření okna"
-    if event == sg.WIN_CLOSED:
-        break
-
-# po výskoku ze smyčky událostí aplikaci ukončíme
+# po vzniku událostí aplikaci ukončíme
 window.close()

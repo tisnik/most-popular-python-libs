@@ -4,7 +4,7 @@ import PySimpleGUI as sg
 layout = [[sg.Text("Hello, world!")]]
 
 # vytvoření okna s ovládacími prvky
-window = sg.Window("Window #3", layout)
+window = sg.Window("Window #2", layout, size=(320, 240))
 
 # obsluha smyčky událostí (event loop)
 while True:
