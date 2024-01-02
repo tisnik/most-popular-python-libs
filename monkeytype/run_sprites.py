@@ -1,0 +1,3 @@
+import sprites
+
+sprites.main()
