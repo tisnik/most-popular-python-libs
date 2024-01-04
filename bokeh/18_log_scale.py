@@ -29,13 +29,13 @@ x = np.linspace(-5, 5, 100)
 y1 = x
 
 # hodnoty na y-ové ose
-y2 = x ** 2
+y2 = x**2
 
 # hodnoty na y-ové ose
-y3 = x ** 3
+y3 = x**3
 
 # hodnoty na y-ové ose
-y4 = 2 ** x
+y4 = 2**x
 
 # plocha pro graf
 p = figure(
