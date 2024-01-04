@@ -28,7 +28,11 @@ def draw_lines(canvas):
     """Vykreslení úseček na plátno."""
     # reference na plátno z knihovny Tk
     tkcanvas = canvas.TKCanvas
+
+    # zjistit velikost plátna
     size = canvas.get_size()
+
+    # vykreslení na plátno
     tkcanvas.create_line(0, 0, size[0]-1, size[1]-1)
     tkcanvas.create_line(0, size[1]-1, size[0]-1, 0)
 
