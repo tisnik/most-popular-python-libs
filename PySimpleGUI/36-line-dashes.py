@@ -30,6 +30,7 @@ def draw_lines(canvas):
     # reference na plátno z knihovny Tk
     tkcanvas = canvas.TKCanvas
 
+    # úsečky s nastavenými grafickými vlastnostmi
     tkcanvas.create_line(10, 10, 90, 90)
     tkcanvas.create_line(110, 10, 190, 90, fill="#8080ff")
     tkcanvas.create_line(210, 10, 290, 90, fill="#ffff80", width=8)
