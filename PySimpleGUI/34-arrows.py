@@ -36,7 +36,11 @@ layout = [
 
 def draw_lines(canvas, tkcanvas):
     """Vykreslení úseček na plátno."""
+
+    # zjistit aktuální velikost plátna
     size = canvas.get_size()
+
+    # vykreslení tvarů
     tkcanvas.create_line(0, 0, size[0]-1, size[1]-1)
     tkcanvas.create_line(0, size[1]-1, size[0]-1, 0)
 
@@ -44,7 +48,11 @@ def draw_lines(canvas, tkcanvas):
 def draw_ellipse(canvas, tkcanvas):
     """Vykreslení oválu na plátno."""
     border = 5
+
+    # zjistit aktuální velikost plátna
     size = canvas.get_size()
+
+    # vykreslení tvarů
     tkcanvas.create_oval(border, border, size[0]-border, size[1]-border)
 
 
@@ -101,7 +109,11 @@ def draw_arrows(canvas, tkcanvas):
 def draw_polyline(canvas, tkcanvas, smooth):
     """Vykreslení polyčáry na plátno."""
     border = 1
+
+    # zjistit aktuální velikost plátna
     size = canvas.get_size()
+
+    # vykreslení tvarů
     tkcanvas.create_line(
             border, size[1]-border,
             size[0]/3, border,
