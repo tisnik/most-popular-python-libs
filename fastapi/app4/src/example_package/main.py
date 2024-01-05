@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-class Storage():
+
+class Storage:
     def __init__(self):
         self._items = {}
         self._id = 0
@@ -24,19 +25,23 @@ storage = Storage()
 
 app = FastAPI()
 
+
 @app.post("/create")
 async def create_operation(text: str):
     id = storage.create(text)
     return {"created": id}
 
+
 @app.get("/")
 async def read_operation():
     return {"list": storage.read()}
+
 
 @app.put("/update/{id}")
 async def update_operation(id: int, text: str = ""):
     storage.update(id, text)
     return {"updated": id, "new text": text}
+
 
 @app.delete("/delete/{id}")
 async def delete_operation(id: int):
