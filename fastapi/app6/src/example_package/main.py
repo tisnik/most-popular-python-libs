@@ -12,7 +12,7 @@ def connect_to_db():
         password="123qwe",
         host="localhost",
         database="test1",
-        port=5432
+        port=5432,
     )
     print("url", url)
 
@@ -55,22 +55,25 @@ async def create_operation(text: str):
     session.commit()
     return {"created": record.id}
 
+
 @app.get("/")
 async def read_operation():
     record_query = session.query(Record)
     return {"list": record_query.all()}
 
+
 @app.put("/update/{id}")
 async def update_operation(id: int, text: str = ""):
-    record_query = session.query(Record).filter(Record.id==id)
+    record_query = session.query(Record).filter(Record.id == id)
     record = record_query.first()
     record.text = text
     session.add(record)
     session.commit()
 
+
 @app.delete("/delete/{id}")
 async def delete_operation(id: int):
-    record = session.query(Record).filter(Record.id==id).first()
+    record = session.query(Record).filter(Record.id == id).first()
     session.delete(record)
     session.commit()
     return {"todo deleted": record.id}
