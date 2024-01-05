@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi import HTTPException
 
-class Storage():
+
+class Storage:
     def __init__(self):
         self._items = {}
         self._id = 0
@@ -26,14 +27,17 @@ storage = Storage()
 
 app = FastAPI()
 
+
 @app.post("/create")
 async def create_operation(text: str):
     id = storage.create(text)
     return {"created": id}
 
+
 @app.get("/")
 async def read_operation():
     return {"list": storage.read()}
+
 
 @app.put("/update/{id}")
 async def update_operation(id: int, text: str = ""):
@@ -42,6 +46,7 @@ async def update_operation(id: int, text: str = ""):
         return {"updated": id, "new text": text}
     except Exception:
         raise HTTPException(status_code=404, detail="Item not found")
+
 
 @app.delete("/delete/{id}")
 async def delete_operation(id: int):
