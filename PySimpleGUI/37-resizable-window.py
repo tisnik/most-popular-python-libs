@@ -50,7 +50,7 @@ layout = [
 ]
 
 # vytvoření okna s ovládacími prvky
-window = sg.Window("Window #20", layout, size=(320, 260), resizable=True, finalize=True)
+window = sg.Window("Window #37", layout, size=(320, 260), resizable=True, finalize=True)
 window["foo"].expand(expand_x=True, expand_y=True)
 
 # přečtení jediné události
