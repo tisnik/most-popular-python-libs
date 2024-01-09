@@ -7,7 +7,7 @@ left_column = [
 
 right_column = [
     [
-        sg.Canvas(background_color='white', size=(320, 240)),
+        sg.Canvas(background_color="white", size=(320, 240)),
     ],
 ]
 
