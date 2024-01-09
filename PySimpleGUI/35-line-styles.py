@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import tkinter
 
 # kreslicí plátno
-canvas = sg.Canvas(background_color='#ccffcc', size=(400, 400))
+canvas = sg.Canvas(background_color="#ccffcc", size=(400, 400))
 
 
 # ovládací prvky, které se mají zobrazit v okně
@@ -12,9 +12,7 @@ left_column = [
 ]
 
 right_column = [
-    [
-        canvas
-    ],
+    [canvas],
 ]
 
 layout = [
@@ -38,7 +36,9 @@ def draw_lines(canvas):
 
     tkcanvas.create_line(10, 110, 90, 190, fill="red", width=12)
     tkcanvas.create_line(110, 110, 190, 190, fill="red", width=12, cap=tkinter.BUTT)
-    tkcanvas.create_line(210, 110, 290, 190, fill="red", width=12, cap=tkinter.PROJECTING)
+    tkcanvas.create_line(
+        210, 110, 290, 190, fill="red", width=12, cap=tkinter.PROJECTING
+    )
     tkcanvas.create_line(310, 110, 390, 190, fill="red", width=12, cap=tkinter.ROUND)
 
     tkcanvas.create_line(10, 110, 90, 190, fill="white")
@@ -47,9 +47,15 @@ def draw_lines(canvas):
     tkcanvas.create_line(310, 110, 390, 190, fill="white")
 
     tkcanvas.create_line(10, 210, 50, 290, 90, 210, fill="red", width=12)
-    tkcanvas.create_line(110, 210, 150, 290, 190, 210, fill="red", width=12, cap=tkinter.BUTT)
-    tkcanvas.create_line(210, 210, 250, 290, 290, 210, fill="red", width=12, cap=tkinter.PROJECTING)
-    tkcanvas.create_line(310, 210, 350, 290, 390, 210, fill="red", width=12, cap=tkinter.ROUND)
+    tkcanvas.create_line(
+        110, 210, 150, 290, 190, 210, fill="red", width=12, cap=tkinter.BUTT
+    )
+    tkcanvas.create_line(
+        210, 210, 250, 290, 290, 210, fill="red", width=12, cap=tkinter.PROJECTING
+    )
+    tkcanvas.create_line(
+        310, 210, 350, 290, 390, 210, fill="red", width=12, cap=tkinter.ROUND
+    )
 
     # pomocné úsečky
     tkcanvas.create_line(10, 210, 50, 290, 90, 210, fill="white")
@@ -58,9 +64,15 @@ def draw_lines(canvas):
     tkcanvas.create_line(310, 210, 350, 290, 390, 210, fill="white")
 
     tkcanvas.create_line(10, 310, 50, 390, 90, 310, fill="red", width=12)
-    tkcanvas.create_line(110, 310, 150, 390, 190, 310, fill="red", width=12, join=tkinter.ROUND)
-    tkcanvas.create_line(210, 310, 250, 390, 290, 310, fill="red", width=12, join=tkinter.BEVEL)
-    tkcanvas.create_line(310, 310, 350, 390, 390, 310, fill="red", width=12, join=tkinter.MITER)
+    tkcanvas.create_line(
+        110, 310, 150, 390, 190, 310, fill="red", width=12, join=tkinter.ROUND
+    )
+    tkcanvas.create_line(
+        210, 310, 250, 390, 290, 310, fill="red", width=12, join=tkinter.BEVEL
+    )
+    tkcanvas.create_line(
+        310, 310, 350, 390, 390, 310, fill="red", width=12, join=tkinter.MITER
+    )
 
     # pomocné úsečky
     tkcanvas.create_line(10, 310, 50, 390, 90, 310, fill="white")
