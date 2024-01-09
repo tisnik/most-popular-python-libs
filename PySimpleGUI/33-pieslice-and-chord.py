@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import tkinter
 
 # kreslicí plátno
-canvas = sg.Canvas(background_color='#ccffcc', size=(400, 400))
+canvas = sg.Canvas(background_color="#ccffcc", size=(400, 400))
 
 
 button_size = (10, 0)
@@ -20,9 +20,7 @@ left_column = [
 ]
 
 right_column = [
-    [
-        canvas
-    ],
+    [canvas],
 ]
 
 layout = [
@@ -40,8 +38,8 @@ def draw_lines(canvas, tkcanvas):
     size = canvas.get_size()
 
     # vykreslení tvarů
-    tkcanvas.create_line(0, 0, size[0]-1, size[1]-1)
-    tkcanvas.create_line(0, size[1]-1, size[0]-1, 0)
+    tkcanvas.create_line(0, 0, size[0] - 1, size[1] - 1)
+    tkcanvas.create_line(0, size[1] - 1, size[0] - 1, 0)
 
 
 def draw_ellipse(canvas, tkcanvas):
@@ -52,7 +50,7 @@ def draw_ellipse(canvas, tkcanvas):
     size = canvas.get_size()
 
     # vykreslení tvarů
-    tkcanvas.create_oval(border, border, size[0]-border, size[1]-border)
+    tkcanvas.create_oval(border, border, size[0] - border, size[1] - border)
 
 
 def draw_pieslices(canvas, tkcanvas):
@@ -71,14 +69,35 @@ def draw_pieslices(canvas, tkcanvas):
 def draw_chords(canvas, tkcanvas):
     """Vykreslení kruhových úsečí na plátno."""
     tkcanvas.create_arc(0, 0, 100, 100, fill="#ff8080", style=tkinter.CHORD)
-    tkcanvas.create_arc(100, 100, 200, 200, fill="#8080ff", start=45, style=tkinter.CHORD)
-    tkcanvas.create_arc(200, 0, 300, 100, fill="#80ffff", extent=180, style=tkinter.CHORD)
-    tkcanvas.create_arc(300, 100, 399, 199, fill="#ffff80", start=45, extent=270, style=tkinter.CHORD)
+    tkcanvas.create_arc(
+        100, 100, 200, 200, fill="#8080ff", start=45, style=tkinter.CHORD
+    )
+    tkcanvas.create_arc(
+        200, 0, 300, 100, fill="#80ffff", extent=180, style=tkinter.CHORD
+    )
+    tkcanvas.create_arc(
+        300, 100, 399, 199, fill="#ffff80", start=45, extent=270, style=tkinter.CHORD
+    )
 
-    tkcanvas.create_arc(0, 200, 100, 300, fill="#ff8080", start=90, extent=270, style=tkinter.CHORD)
-    tkcanvas.create_arc(100, 300, 199, 399, fill="#8080ff", start=90 + 45, extent=270, style=tkinter.CHORD)
-    tkcanvas.create_arc(200, 200, 299, 299, fill="#80ffff", start=180, extent=180, style=tkinter.CHORD)
-    tkcanvas.create_arc(300, 300, 399, 399, fill="#ffff80", start=-45, extent=90, style=tkinter.CHORD)
+    tkcanvas.create_arc(
+        0, 200, 100, 300, fill="#ff8080", start=90, extent=270, style=tkinter.CHORD
+    )
+    tkcanvas.create_arc(
+        100,
+        300,
+        199,
+        399,
+        fill="#8080ff",
+        start=90 + 45,
+        extent=270,
+        style=tkinter.CHORD,
+    )
+    tkcanvas.create_arc(
+        200, 200, 299, 299, fill="#80ffff", start=180, extent=180, style=tkinter.CHORD
+    )
+    tkcanvas.create_arc(
+        300, 300, 399, 399, fill="#ffff80", start=-45, extent=90, style=tkinter.CHORD
+    )
 
 
 def draw_polyline(canvas, tkcanvas, smooth):
@@ -90,11 +109,16 @@ def draw_polyline(canvas, tkcanvas, smooth):
 
     # vykreslení tvarů
     tkcanvas.create_line(
-            border, size[1]-border,
-            size[0]/3, border,
-            size[0]*2/3, size[1]-border,
-            size[0]-border, border,
-            smooth=smooth)
+        border,
+        size[1] - border,
+        size[0] / 3,
+        border,
+        size[0] * 2 / 3,
+        size[1] - border,
+        size[0] - border,
+        border,
+        smooth=smooth,
+    )
 
 
 def clear_canvas(tkcanvas):
