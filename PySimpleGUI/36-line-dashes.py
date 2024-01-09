@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import tkinter
 
 # kreslicí plátno
-canvas = sg.Canvas(background_color='#ccffcc', size=(400, 400))
+canvas = sg.Canvas(background_color="#ccffcc", size=(400, 400))
 
 
 # ovládací prvky, které se mají zobrazit v okně
@@ -12,9 +12,7 @@ left_column = [
 ]
 
 right_column = [
-    [
-        canvas
-    ],
+    [canvas],
 ]
 
 layout = [
@@ -49,7 +47,9 @@ def draw_lines(canvas):
     tkcanvas.create_line(10, 310, 90, 390, width=2, dash=(12, 2, 2, 2), dashoff=0)
     tkcanvas.create_line(110, 310, 190, 390, width=2, dash=(12, 2, 4, 2), dashoff=5)
     tkcanvas.create_line(210, 310, 290, 390, width=2, dash=(12, 4, 2, 4), dashoff=10)
-    tkcanvas.create_line(310, 310, 390, 390, width=2, dash=(12, 2, 2, 2, 2, 2), dashoff=-5)
+    tkcanvas.create_line(
+        310, 310, 390, 390, width=2, dash=(12, 2, 2, 2, 2, 2), dashoff=-5
+    )
 
 
 # vytvoření okna s ovládacími prvky
