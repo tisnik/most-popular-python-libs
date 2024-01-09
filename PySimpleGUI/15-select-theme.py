@@ -25,10 +25,7 @@ def main_window(theme=None):
             sg.Text("Theme"),
             sg.Combo(themes, default_value=selected_theme, readonly=True, key="theme"),
         ],
-        [
-            sg.Button("Change"),
-            sg.Cancel("Exit")
-        ],
+        [sg.Button("Change"), sg.Cancel("Exit")],
     ]
 
     sg.theme(selected_theme)
