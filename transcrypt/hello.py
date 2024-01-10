@@ -1,5 +1,6 @@
 from itertools import chain
 
+
 class SolarSystem:
     planets = [list (chain (planet, (index + 1,))) for index, planet in enumerate ((
         ('Mercury', 'hot', 2240),
