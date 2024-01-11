@@ -1,5 +1,5 @@
-from time import perf_counter
 import random
+from time import perf_counter
 
 size = 10000
 
