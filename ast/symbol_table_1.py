@@ -15,7 +15,6 @@
 
 import symtable
 
-
 t = symtable.symtable("a+b*c", "<string>", "eval")
 
 print("Symbol table:", t)
