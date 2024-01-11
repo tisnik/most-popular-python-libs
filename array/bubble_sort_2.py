@@ -1,6 +1,6 @@
-from time import perf_counter
-from array import array
 import random
+from array import array
+from time import perf_counter
 
 size = 10000
 
