@@ -15,7 +15,6 @@
 
 import symtable
 
-
 with open("sprites.py") as fin:
     code = fin.read()
     t = symtable.symtable(code, "sprites.py", "exec")
