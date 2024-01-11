@@ -12,8 +12,9 @@
 #      Pavel Tisnovsky
 #
 
-from PIL import Image
 import urllib.request
+
+from PIL import Image
 
 # URL to the test image
 url = "https://homepages.cae.wisc.edu/~ece533/images/fruits.png"
