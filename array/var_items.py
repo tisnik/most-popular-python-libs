@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
-from pympler.asizeof import asizeof
 from array import array
+
+from pympler.asizeof import asizeof
 
 # prázdné struktury
 l1 = []
