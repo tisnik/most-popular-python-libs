@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-import PySimpleGUI as sg
 import tkinter
+
+import PySimpleGUI as sg
 
 # kreslicí plátno
 canvas = sg.Canvas(background_color="#ccffcc", size=(400, 400))
