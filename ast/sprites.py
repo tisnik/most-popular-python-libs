@@ -5,11 +5,12 @@
 
 # Příklad číslo 22: použití spritů, pohyblivý sprite
 
-import pygame
 import sys
 
+import pygame
+
 # Nutno importovat kvůli konstantám QUIT atd.
-from pygame.locals import QUIT, KEYDOWN, KEYUP, K_ESCAPE
+from pygame.locals import K_ESCAPE, KEYDOWN, KEYUP, QUIT
 
 # Velikost okna aplikace
 WIDTH = 320
