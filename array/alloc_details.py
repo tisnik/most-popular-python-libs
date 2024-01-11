@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
-from sys import getsizeof
-from pympler.asizeof import asizeof
 from array import array
+from sys import getsizeof
+
+from pympler.asizeof import asizeof
 
 # prázdná struktura
 a1 = array("B")
