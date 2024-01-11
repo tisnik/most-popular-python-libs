@@ -13,6 +13,7 @@
 #
 
 from PIL import Image
+
 import blessed
 
 # initialize terminal
