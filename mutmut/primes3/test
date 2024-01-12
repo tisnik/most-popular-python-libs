@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů
+pytest > pytest.txt
+
+# zjištění pokrytí kódu testy (budou zahrnuty všechny skripty)
+pytest --cov=. > cov_all.txt
+
+# specifikace balíčku
+pytest --cov=primes > cov_primes.txt
+
+# řádky nepokryté jednotkovými testy
+pytest --cov=primes --cov-report term-missing > cov_missing.txt
+
+# export do HTML
+pytest --cov=primes --cov-report html
