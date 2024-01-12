@@ -1,0 +1,165 @@
+To apply a mutant on disk:
+    mutmut apply <id>
+
+To show a mutant:
+    mutmut show <id>
+
+
+Survived 🙁 (12)
+
+---- primes.py (12) ----
+
+# mutant 9
+--- primes.py
++++ primes.py
+@@ -14,7 +14,7 @@
+     if limit < 3:
+         return [2]
+ 
+-    lmtbf = (limit - 3) // 2
++    lmtbf = (limit - 3) // 3
+ 
+     # naplnění tabulky, která se bude prosívat
+     buf = [True] * (lmtbf + 1)
+
+# mutant 16
+--- primes.py
++++ primes.py
+@@ -20,7 +20,7 @@
+     buf = [True] * (lmtbf + 1)
+ 
+     # vlastní prosívání
+-    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
++    for i in range((int(limit * 0.5) - 3) // 2 + 1):
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+
+# mutant 19
+--- primes.py
++++ primes.py
+@@ -20,7 +20,7 @@
+     buf = [True] * (lmtbf + 1)
+ 
+     # vlastní prosívání
+-    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
++    for i in range((int(limit ** 0.5) - 4) // 2 + 1):
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+
+# mutant 21
+--- primes.py
++++ primes.py
+@@ -20,7 +20,7 @@
+     buf = [True] * (lmtbf + 1)
+ 
+     # vlastní prosívání
+-    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
++    for i in range((int(limit ** 0.5) - 3) // 3 + 1):
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+
+# mutant 22
+--- primes.py
++++ primes.py
+@@ -20,7 +20,7 @@
+     buf = [True] * (lmtbf + 1)
+ 
+     # vlastní prosívání
+-    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
++    for i in range((int(limit ** 0.5) - 3) // 2 - 1):
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+
+# mutant 23
+--- primes.py
++++ primes.py
+@@ -20,7 +20,7 @@
+     buf = [True] * (lmtbf + 1)
+ 
+     # vlastní prosívání
+-    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
++    for i in range((int(limit ** 0.5) - 3) // 2 + 2):
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+
+# mutant 24
+--- primes.py
++++ primes.py
+@@ -22,7 +22,7 @@
+     # vlastní prosívání
+     for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+         if buf[i]:
+-            p = i + i + 3
++            p = i - i + 3
+             s = p * (i + 1) + i
+             buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+ 
+
+# mutant 26
+--- primes.py
++++ primes.py
+@@ -22,7 +22,7 @@
+     # vlastní prosívání
+     for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+         if buf[i]:
+-            p = i + i + 3
++            p = i + i + 4
+             s = p * (i + 1) + i
+             buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+ 
+
+# mutant 30
+--- primes.py
++++ primes.py
+@@ -23,7 +23,7 @@
+     for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+         if buf[i]:
+             p = i + i + 3
+-            s = p * (i + 1) + i
++            s = p * (i + 2) + i
+             buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+ 
+     # vytvoření seznamu prvočísel
+
+# mutant 31
+--- primes.py
++++ primes.py
+@@ -23,7 +23,7 @@
+     for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+         if buf[i]:
+             p = i + i + 3
+-            s = p * (i + 1) + i
++            s = p * (i + 1) - i
+             buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+ 
+     # vytvoření seznamu prvočísel
+
+# mutant 33
+--- primes.py
++++ primes.py
+@@ -24,7 +24,7 @@
+         if buf[i]:
+             p = i + i + 3
+             s = p * (i + 1) + i
+-            buf[s::p] = [False] * ((lmtbf - s) // p + 1)
++            buf[s::p] = [True] * ((lmtbf - s) // p + 1)
+ 
+     # vytvoření seznamu prvočísel
+     return [2] + [i + i + 3 for i, v in enumerate(buf) if v]
+
+# mutant 42
+--- primes.py
++++ primes.py
+@@ -27,5 +27,5 @@
+             buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+ 
+     # vytvoření seznamu prvočísel
+-    return [2] + [i + i + 3 for i, v in enumerate(buf) if v]
++    return [2] + [i - i + 3 for i, v in enumerate(buf) if v]
+ 
+
