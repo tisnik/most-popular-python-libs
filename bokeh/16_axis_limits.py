@@ -15,11 +15,10 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 
-from bokeh.plotting import figure, show
-from bokeh.models import Range1d
-
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
+from bokeh.models import Range1d
+from bokeh.plotting import figure, show
 
 # vykreslení průběhu funkce sin
 
