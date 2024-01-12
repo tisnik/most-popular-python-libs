@@ -14,13 +14,12 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
-from bokeh.plotting import figure, show
+# taktéž budeme potřebovat některé funkce z knihovny `numpy`
+import numpy as np
 
 # export grafu
 from bokeh.io import export_png
-
-# taktéž budeme potřebovat některé funkce z knihovny `numpy`
-import numpy as np
+from bokeh.plotting import figure, show
 
 # vykreslení průběhu funkce sin
 
