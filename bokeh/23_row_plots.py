@@ -15,10 +15,9 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 
-from bokeh.plotting import figure, show, row
-
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
+from bokeh.plotting import figure, row, show
 
 
 # funkce pro výpočet dalšího bodu Lorenzova atraktoru
