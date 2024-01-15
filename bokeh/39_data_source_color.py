@@ -15,9 +15,9 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 from bokeh.io import show
-from bokeh.plotting import figure
 from bokeh.models import ColumnDataSource
 from bokeh.palettes import Spectral10
+from bokeh.plotting import figure
 
 # jména na X-ové ose
 languages = [
