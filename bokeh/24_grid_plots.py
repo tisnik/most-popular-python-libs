@@ -15,11 +15,10 @@
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
 
-from bokeh.plotting import figure, show
-from bokeh.layouts import grid
-
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
+from bokeh.layouts import grid
+from bokeh.plotting import figure, show
 
 
 # funkce pro výpočet dalšího bodu Lorenzova atraktoru
