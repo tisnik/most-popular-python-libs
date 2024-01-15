@@ -14,13 +14,11 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting` i dalších knihoven
-from bokeh.plotting import figure, show
-from bokeh.layouts import column
-from bokeh.models import ColorPicker
-
-
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
+from bokeh.layouts import column
+from bokeh.models import ColorPicker
+from bokeh.plotting import figure, show
 
 
 # funkce pro výpočet dalšího bodu Lorenzova atraktoru
