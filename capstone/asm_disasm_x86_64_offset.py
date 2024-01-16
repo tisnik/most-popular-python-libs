@@ -11,11 +11,9 @@
 #
 
 # import všech symbolů assembleru použitých ve skriptu
-from keystone import Ks, KS_ARCH_X86, KS_MODE_64, KsError
-
 # import všech symbolů disassembleru použitých ve skriptu
-from capstone import Cs, CS_ARCH_X86, CS_MODE_64
-
+from capstone import CS_ARCH_X86, CS_MODE_64, Cs
+from keystone import KS_ARCH_X86, KS_MODE_64, Ks, KsError
 
 # instrukce, které se mají přeložit assemblerem
 CODE = """
