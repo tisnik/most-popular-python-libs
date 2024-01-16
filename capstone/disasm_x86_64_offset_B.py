@@ -11,7 +11,7 @@
 #
 
 # import všech symbolů použitých ve skriptu
-from capstone import Cs, CS_ARCH_X86, CS_MODE_64
+from capstone import CS_ARCH_X86, CS_MODE_64, Cs
 
 # otevřít binární soubor a přečíst jeho obsah
 with open("loops_x.bin", "rb") as fin:
