@@ -14,13 +14,12 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
-from bokeh.plotting import figure, show
+# barvová paleta
+import palette_ice
 
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
-
-# barvová paleta
-import palette_ice
+from bokeh.plotting import figure, show
 
 # textura by měla být čtvercová a její šířka i výška by měla být
 # mocninou čísla 2
