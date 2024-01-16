@@ -11,11 +11,9 @@
 #
 
 # import všech symbolů assembleru použitých ve skriptu
-from keystone import Ks, KS_ARCH_ARM64, KS_MODE_LITTLE_ENDIAN, KsError
-
 # import všech symbolů disassembleru použitých ve skriptu
-from capstone import Cs, CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN
-
+from capstone import CS_ARCH_ARM64, CS_MODE_LITTLE_ENDIAN, Cs
+from keystone import KS_ARCH_ARM64, KS_MODE_LITTLE_ENDIAN, Ks, KsError
 
 # instrukce, které se mají přeložit assemblerem
 CODE = """
