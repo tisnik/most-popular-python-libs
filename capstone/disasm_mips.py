@@ -11,8 +11,7 @@
 #
 
 # import všech symbolů použitých ve skriptu
-from capstone import Cs, CS_ARCH_MIPS, CS_MODE_MIPS32
-
+from capstone import CS_ARCH_MIPS, CS_MODE_MIPS32, Cs
 
 # otevřít binární soubor a přečíst jeho obsah
 with open("mips.bin", "rb") as fin:
