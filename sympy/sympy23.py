@@ -1,4 +1,4 @@
-from sympy import symbols, sin, cos, sqrt, diff, pprint
+from sympy import cos, diff, pprint, sin, sqrt, symbols
 
 a, b, c, d, e, x, y = symbols("a,b,c,d,e,x,y")
 
