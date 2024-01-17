@@ -1,4 +1,4 @@
-from sympy import solve, symbols, pprint
+from sympy import pprint, solve, symbols
 
 a, b, c, d, e, x, y = symbols("a,b,c,d,e,x,y")
 
