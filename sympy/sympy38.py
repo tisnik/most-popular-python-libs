@@ -1,4 +1,4 @@
-from sympy import diff, symbols, pprint
+from sympy import diff, pprint, symbols
 
 x = symbols("x")
 
