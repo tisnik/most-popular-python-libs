@@ -1,4 +1,4 @@
-from sympy import integrate, symbols, pprint
+from sympy import integrate, pprint, symbols
 
 a, b, c, d, e, x, y = symbols("a,b,c,d,e,x,y")
 
