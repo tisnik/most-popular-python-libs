@@ -1,4 +1,4 @@
-from sympy import solve, solveset, symbols, pprint, init_printing
+from sympy import init_printing, pprint, solve, solveset, symbols
 
 init_printing(use_unicode=True)
 
