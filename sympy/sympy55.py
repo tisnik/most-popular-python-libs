@@ -1,4 +1,4 @@
-from sympy import symbols, limit, pprint, oo
+from sympy import limit, oo, pprint, symbols
 
 x = symbols("x")
 f = 1 / x
