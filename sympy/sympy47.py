@@ -1,4 +1,4 @@
-from sympy import singularities, symbols, pprint
+from sympy import pprint, singularities, symbols
 
 a, b, c, d, e, x = symbols("a,b,c,d,e,x")
 
