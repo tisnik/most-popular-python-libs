@@ -14,11 +14,10 @@
 #
 
 # naimportujeme vybrané funkce z knihovny `bokeh.plotting`
-from bokeh.plotting import figure, show
-from bokeh.io import curdoc
-
 # taktéž budeme potřebovat některé funkce z knihovny `numpy`
 import numpy as np
+from bokeh.io import curdoc
+from bokeh.plotting import figure, show
 
 # nastavení tématu
 curdoc().theme = "light_minimal"
