@@ -1,4 +1,4 @@
-from sympy import singularities, symbols, pprint, sin
+from sympy import pprint, sin, singularities, symbols
 
 a, b, c, d, e, x = symbols("a,b,c,d,e,x")
 
