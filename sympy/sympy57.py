@@ -1,4 +1,4 @@
-from sympy import symbols, sin, limit, pprint
+from sympy import limit, pprint, sin, symbols
 
 x = symbols("x")
 f = sin(1 / x)
