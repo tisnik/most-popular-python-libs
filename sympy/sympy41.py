@@ -1,4 +1,4 @@
-from sympy import diff, symbols, pprint
+from sympy import diff, pprint, symbols
 
 a, b, c, d, e, x, y, z, w = symbols("a, b, c, d, e, x, y, z, w")
 
