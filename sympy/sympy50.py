@@ -1,5 +1,4 @@
-from sympy import symbols, pprint, init_printing
-from sympy import Interval, is_increasing
+from sympy import Interval, init_printing, is_increasing, pprint, symbols
 
 init_printing(use_unicode=True)
 
