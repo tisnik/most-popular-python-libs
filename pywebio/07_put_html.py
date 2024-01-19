@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 html = """
 <h1>Header</h1>
 
