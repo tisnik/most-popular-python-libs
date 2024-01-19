@@ -13,10 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pywebio.output as out
-
 import time
 
+import pywebio.output as out
 
 with out.put_loading(shape="border", color="primary"):
     time.sleep(5)
