@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 code = """
 # Body Mass Index calculator
 
