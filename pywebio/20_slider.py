@@ -16,7 +16,6 @@
 import pywebio.input as inp
 import pywebio.output as out
 
-
 weight = inp.slider(label="Váha", value=75, min_value=30, max_value=150)
 
 out.put_info("Váha")
