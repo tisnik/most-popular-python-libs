@@ -15,5 +15,4 @@
 
 import pywebio.output as out
 
-
 out.put_text("Hello world!")
