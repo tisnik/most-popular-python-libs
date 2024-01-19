@@ -16,7 +16,6 @@
 import pywebio.input as inp
 import pywebio.output as out
 
-
 # Body Mass Index calculator
 
 out.put_text("Mass (kg): ")
