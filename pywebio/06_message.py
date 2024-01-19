@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 out.put_info("Info message")
 out.put_success("Success message")
 out.put_warning("Warning message")
