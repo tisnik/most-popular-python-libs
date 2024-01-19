@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 out.put_table(
     [
         ["Language", "Ratings"],
