@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 markdown = """
 Markdown rendering
 ==================
