@@ -15,7 +15,6 @@
 
 import pywebio.output as out
 
-
 for color in (
     "primary",
     "secondary",
