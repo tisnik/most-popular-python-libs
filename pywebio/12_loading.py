@@ -13,10 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pywebio.output as out
-
 import time
 
+import pywebio.output as out
 
 i = 0
 
