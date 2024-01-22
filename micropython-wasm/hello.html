@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>MicroPython on web!</title>
+    <meta charset="UTF-8">
+    <script src="pyscript.js" type="module"></script>
+</head>
+
+<body>
+    <py-config>
+    {
+        "runtime": "micropython"
+    }
+    </py-config>
+    <py-script>
+import sys
+
+for i in range(10):
+    print("Hello MicroPython")
+
+print(sys.version)
+
+</py-script>
+</body>
+</html>
