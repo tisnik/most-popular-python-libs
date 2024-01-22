@@ -16,7 +16,6 @@
 import pywebio.input as inp
 import pywebio.output as out
 
-
 # vstupní údaje
 out.put_text("Jméno")
 name = inp.input()
