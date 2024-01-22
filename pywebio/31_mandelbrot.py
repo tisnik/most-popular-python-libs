@@ -12,10 +12,10 @@
 #      Pavel Tisnovsky
 #
 
-import pywebio.output as out
-
-from PIL import Image
 import palette_blues
+from PIL import Image
+
+import pywebio.output as out
 
 # textura by mela byt ctvercova a jeji sirka i vyska by mela byt
 # mocninou cisla 2
