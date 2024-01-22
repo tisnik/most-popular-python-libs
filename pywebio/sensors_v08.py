@@ -13,13 +13,13 @@
 #      Pavel Tisnovsky
 #
 
-from pywebio import *
-from pywebio.input import *
-from pywebio.output import *
 from functools import partial
 
 from minio import Minio, ResponseError
 
+from pywebio import *
+from pywebio.input import *
+from pywebio.output import *
 
 bucket_name = "sensors"
 minio_address = "localhost:9000"
