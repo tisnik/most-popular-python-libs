@@ -16,7 +16,6 @@
 import pywebio.input as inp
 import pywebio.output as out
 
-
 # vstupní údaje
 info = inp.input_group(
     "Adresa",
