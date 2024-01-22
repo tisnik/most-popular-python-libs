@@ -13,12 +13,14 @@
 #      Pavel Tisnovsky
 #
 
-from minio import Minio, ResponseError
-import pandas as pd
 from io import StringIO
-import numpy as np
+
 import matplotlib
 import matplotlib.pyplot as plt
+from minio import Minio, ResponseError
+
+import numpy as np
+import pandas as pd
 
 matplotlib.use("agg")  # required, use a non-interactive backend
 
