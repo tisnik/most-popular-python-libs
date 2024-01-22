@@ -14,12 +14,13 @@
 #      Pavel Tisnovsky
 #
 
+from math import *
+
+import palette_blues
+from PIL import Image
+
 import pywebio.input as inp
 import pywebio.output as out
-
-from PIL import Image
-import palette_blues
-from math import *
 
 IMAGE_WIDTH = 256
 IMAGE_HEIGHT = 256
