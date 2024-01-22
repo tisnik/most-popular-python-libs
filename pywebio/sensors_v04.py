@@ -13,9 +13,11 @@
 #      Pavel Tisnovsky
 #
 
-from minio import Minio, ResponseError
-import pandas as pd
 from io import StringIO
+
+from minio import Minio, ResponseError
+
+import pandas as pd
 
 bucket_name = "sensors"
 minio_address = "localhost:9000"
