@@ -15,8 +15,8 @@
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
 
-from sklearn.cluster import KMeans
 import numpy as np
+from sklearn.cluster import KMeans
 
 # testovací data
 n_samples = 10000
