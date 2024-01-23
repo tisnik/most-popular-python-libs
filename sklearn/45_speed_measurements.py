@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 from time import perf_counter
-import matplotlib.pyplot as plt
-import numpy as np
 
+import matplotlib.pyplot as plt
+
+import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 
