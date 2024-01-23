@@ -3,10 +3,9 @@
 # Vykreslení bodů v 3D prostoru
 
 import matplotlib.pyplot as plt
+
 import numpy as np
-
 from sklearn.cluster import KMeans
-
 
 # počet oblastí, kam se budou data sdružovat
 n_components = 8
