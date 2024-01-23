@@ -24,14 +24,9 @@
 
 import matplotlib.pyplot as plt
 
-
 # Práci s n-dimenzionálními poli zajišťuje knihovna NumPy
-
 # In[6]:
-
-
 import numpy as np
-
 
 # ## Vizualizace dvourozměrných polí
 
@@ -58,7 +53,6 @@ plt.show()
 
 # import funkce, která vrátí obrázky pro práci
 from sklearn.datasets import load_digits
-
 
 # In[11]:
 
@@ -239,6 +233,7 @@ training_labels = digits_data.target[:for_training]
 
 # provést klasifikaci
 from sklearn import svm
+
 classify = svm.SVC(gamma=0.001)
 classify.fit(training_images, training_labels)
 
