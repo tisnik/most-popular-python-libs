@@ -3,9 +3,9 @@
 # Vykreslení bodů v 3D prostoru
 
 import matplotlib.pyplot as plt
+
 import numpy as np
 from sklearn.datasets import make_blobs
-
 
 # celkový počet vypočtených bodů
 n_samples = 10000
