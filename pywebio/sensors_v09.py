@@ -13,16 +13,15 @@
 #      Pavel Tisnovsky
 #
 
-from pywebio import *
-from pywebio.input import *
-from pywebio.output import *
 from functools import partial
-
 from io import StringIO
+
 from minio import Minio, ResponseError
 
 import pandas as pd
-
+from pywebio import *
+from pywebio.input import *
+from pywebio.output import *
 
 bucket_name = "sensors"
 minio_address = "localhost:9000"
