@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import requests
 import json
+
+import requests
 
 
 def set_cookie(session, name, value):
