@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from rich.console import Console
 from time import sleep
+
+from rich.console import Console
 
 console = Console()
 
