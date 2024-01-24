@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import requests
 import json
+
+import requests
 
 # adresa s testovaci REST API sluzbou
 URL = "https://httpbin.org/patch"
