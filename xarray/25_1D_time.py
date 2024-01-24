@@ -16,7 +16,6 @@
 import numpy as np
 import xarray as xr
 
-
 measured_at = np.array(
     [
         np.datetime64("2023-01-01"),
