@@ -13,19 +13,19 @@
 #      Pavel Tisnovsky
 #
 
+import io
+from functools import partial
+from io import StringIO
+
+import matplotlib
+import matplotlib.pyplot as plt
+from minio import Minio, ResponseError
+
+import numpy as np
+import pandas as pd
 from pywebio import *
 from pywebio.input import *
 from pywebio.output import *
-from functools import partial
-
-from io import StringIO
-from minio import Minio, ResponseError
-
-import io
-import pandas as pd
-import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
 
 matplotlib.use("agg")  # required, use a non-interactive backend
 
