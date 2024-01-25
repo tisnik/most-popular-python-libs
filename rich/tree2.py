@@ -10,9 +10,8 @@
 #      Pavel Tisnovsky
 #
 
-from rich.tree import Tree
 from rich import print
-
+from rich.tree import Tree
 
 tree = Tree("Barvové modely")
 tree.add("RGB").add("Red Green Blue")
