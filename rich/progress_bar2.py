@@ -12,6 +12,7 @@
 
 from rich.progress import track
 
+
 # originální kód lze nalézt na adrese:
 # http://www.rosettacode.org/wiki/Sieve_of_Eratosthenes#Using_array_lookup
 def primes2(limit):
