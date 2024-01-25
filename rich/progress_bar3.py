@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from rich.progress import Progress
 import time
+
+from rich.progress import Progress
 
 with Progress() as progress_bars:
 
