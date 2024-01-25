@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from rich.progress import track
 from time import sleep
+
+from rich.progress import track
 
 
 def process_data():
