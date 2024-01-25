@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from rich import inspect
 from queue import Queue
+
+from rich import inspect
 
 q = Queue()
 
