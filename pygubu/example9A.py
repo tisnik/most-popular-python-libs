@@ -15,8 +15,8 @@
 # Example9A.py
 
 import tkinter as tk
-from tkinter import ttk
-from tkinter import messagebox
+from tkinter import messagebox, ttk
+
 import pygubu
 
 
