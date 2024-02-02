@@ -16,9 +16,10 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou pyjq
 
-import pyjq
 import json
 from pprint import pprint
+
+import pyjq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
