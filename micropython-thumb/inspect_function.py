@@ -1,5 +1,6 @@
-import machine
 import array
+
+import machine
 
 
 def inspect(f, nbytes=16):
