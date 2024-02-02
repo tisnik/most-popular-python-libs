@@ -7,6 +7,7 @@ def loop():
 
 
 import utime
+
 t1 = utime.ticks_us()
 loop()
 t2 = utime.ticks_us()
