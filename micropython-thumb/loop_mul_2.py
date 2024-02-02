@@ -7,6 +7,7 @@ def loop_mul():
 
 
 import utime
+
 t1 = utime.ticks_us()
 loop_mul()
 t2 = utime.ticks_us()
