@@ -16,8 +16,9 @@
 #  Demonstrační příklad k článku:
 #      Zpracování dat uložených ve formátu JSON knihovnou pyjq
 
-import pyjq
 import json
+
+import pyjq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
