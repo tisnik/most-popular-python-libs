@@ -10,8 +10,8 @@
 #      Pavel Tisnovsky
 #
 
-from concurrent.futures.thread import ThreadPoolExecutor
 import time
+from concurrent.futures.thread import ThreadPoolExecutor
 
 
 def worker(threadName, delay, n):
