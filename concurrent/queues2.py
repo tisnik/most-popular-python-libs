@@ -12,10 +12,9 @@
 #      Pavel Tisnovsky
 #
 
-import time
-import threading
 import queue
-
+import threading
+import time
 
 # vytvoření fronty
 q = queue.Queue()
