@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-from concurrent.futures import ProcessPoolExecutor
 import time
+from concurrent.futures import ProcessPoolExecutor
 
 
 def worker(processName, delay, n):
