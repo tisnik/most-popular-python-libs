@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-from multiprocessing import Process
 import time
+from multiprocessing import Process
 
 
 def worker(name):
