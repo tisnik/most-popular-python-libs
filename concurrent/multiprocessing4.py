@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-from multiprocessing import Process, Queue
 import time
+from multiprocessing import Process, Queue
 
 
 def worker(name, q):
