@@ -12,7 +12,6 @@
 
 import trio
 
-
 num_producers = 5
 num_consumers = 20
 consumer_timeout = 2
