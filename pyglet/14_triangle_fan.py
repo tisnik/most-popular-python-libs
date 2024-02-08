@@ -16,9 +16,21 @@
 # Demonstrační příklady využívající knihovnu Pyglet
 
 import pyglet
-from pyglet.gl import glClear, glLoadIdentity, glColor3f, glVertex2i, glBegin, glEnd
-from pyglet.gl import glClearColor, glPolygonMode
-from pyglet.gl import GL_LINE, GL_TRIANGLE_FAN, GL_FILL, GL_COLOR_BUFFER_BIT, GL_FRONT_AND_BACK
+from pyglet.gl import (
+    GL_COLOR_BUFFER_BIT,
+    GL_FILL,
+    GL_FRONT_AND_BACK,
+    GL_LINE,
+    GL_TRIANGLE_FAN,
+    glBegin,
+    glClear,
+    glClearColor,
+    glColor3f,
+    glEnd,
+    glLoadIdentity,
+    glPolygonMode,
+    glVertex2i,
+)
 
 # vytvoření okna
 window = pyglet.window.Window(width=450, height=350, caption="Pyglet+OpenGL")
