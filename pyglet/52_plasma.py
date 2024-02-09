@@ -14,15 +14,17 @@
 
 # Vytvoreni textury typu "plasma"
 
-from PIL import Image
+import math
 from random import random
+
 import palette_blues
-import palette_greens
 import palette_gold
+import palette_greens
 import palette_ice
 import palette_mandmap
+from PIL import Image
+
 import numpy as np
-import math
 
 # textura by mela byt ctvercova a jeji sirka i vyska by mela byt
 # mocninou cisla 2
