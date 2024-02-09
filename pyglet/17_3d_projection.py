@@ -13,11 +13,30 @@
 #
 
 import pyglet
-from pyglet.gl import glClear, glLoadIdentity, glColor3f, glVertex3f, glBegin, glEnd
-from pyglet.gl import glClearColor, glPolygonMode, glDisable
-from pyglet.gl import glViewport, glMatrixMode, glOrtho, gluLookAt
-from pyglet.gl import GL_LINE, GL_COLOR_BUFFER_BIT, GL_MODELVIEW
-from pyglet.gl import GL_FRONT, GL_BACK, GL_CULL_FACE, GL_PROJECTION, GL_QUADS, GL_TRIANGLES
+from pyglet.gl import (
+    GL_BACK,
+    GL_COLOR_BUFFER_BIT,
+    GL_CULL_FACE,
+    GL_FRONT,
+    GL_LINE,
+    GL_MODELVIEW,
+    GL_PROJECTION,
+    GL_QUADS,
+    GL_TRIANGLES,
+    glBegin,
+    glClear,
+    glClearColor,
+    glColor3f,
+    glDisable,
+    glEnd,
+    glLoadIdentity,
+    glMatrixMode,
+    glOrtho,
+    glPolygonMode,
+    gluLookAt,
+    glVertex3f,
+    glViewport,
+)
 
 window = pyglet.window.Window(width=500, height=500, caption="Pyglet+OpenGL")
 
