@@ -11,9 +11,9 @@
 #
 
 from diagrams import Diagram
-from diagrams.onprem.queue import Kafka, ActiveMQ
-from diagrams.programming.language import Go, Rust
 from diagrams.aws.database import RDS
+from diagrams.onprem.queue import ActiveMQ, Kafka
+from diagrams.programming.language import Go, Rust
 
 # definice diagramu se specifikaci jeho zakladnich vlastnosti
 with Diagram("OnPrem #8", show=True, direction="TB"):
