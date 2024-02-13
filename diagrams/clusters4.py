@@ -10,11 +10,10 @@
 #      Pavel Tisnovsky
 #
 
-from diagrams import Diagram
-from diagrams import Cluster
-from diagrams.onprem.queue import Kafka, ActiveMQ
-from diagrams.programming.language import Go, Rust
+from diagrams import Cluster, Diagram
 from diagrams.aws.database import RDS
+from diagrams.onprem.queue import ActiveMQ, Kafka
+from diagrams.programming.language import Go, Rust
 
 # definice diagramu se specifikaci jeho zakladnich vlastnosti
 with Diagram("Clusters #4", show=True, direction="LR"):
