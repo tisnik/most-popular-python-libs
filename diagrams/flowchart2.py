@@ -11,9 +11,7 @@
 #
 
 from diagrams import Diagram
-from diagrams.programming.flowchart import StartEnd
-from diagrams.programming.flowchart import InputOutput
-from diagrams.programming.flowchart import Action
+from diagrams.programming.flowchart import Action, InputOutput, StartEnd
 
 # novy graf s urcenim jeho zakladnich vlastnosti
 with Diagram("Flow chart #2", show=False):
