@@ -11,7 +11,7 @@
 #
 
 from diagrams import Diagram
-from diagrams.onprem.queue import Kafka, ActiveMQ
+from diagrams.onprem.queue import ActiveMQ, Kafka
 from diagrams.programming.language import Go, Rust
 
 # definice diagramu se specifikaci jeho zakladnich vlastnosti
