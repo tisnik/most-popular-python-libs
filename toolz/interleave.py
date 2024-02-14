@@ -1,4 +1,4 @@
-from toolz.itertoolz import count, interleave, take
+from toolz.itertoolz import interleave
 
 values1 = range(1, 11)
 values2 = ["odd", "even"]*5
