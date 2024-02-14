@@ -27,4 +27,5 @@ ffi.set_source(
 ffi.compile(verbose=True)
 
 from _greeter import ffi, lib
+
 lib.greet("world".encode("utf-8"))
