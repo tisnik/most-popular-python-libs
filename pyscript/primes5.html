@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        <py-config type="toml">
+             paths = ["__init__.py", "primes.py"]
+        </py-config>
+    </head>
+    <body>
+        <div id="result" style="font-size:150%;color:#800000"></div>
+        <py-script>
+            import primes
+
+            numbers = primes.primes2(100)
+            print(numbers)
+            asStrings = map(str, numbers)
+            Element('result').write(", ".join(asStrings))
+        </py-script>
+    </body>
+</html>
