@@ -26,7 +26,7 @@
             pyscript.write('result', ", ".join(asStrings))
 
         from js import document
-        from pyodide import create_proxy
+        from pyodide.ffi import create_proxy
  
         def setup():
                 click_proxy = create_proxy(calculate)
