@@ -55,13 +55,11 @@ void render_mandelbrot(unsigned int width, unsigned int height,
                 i++;
             }
             {
-                int r = i * 2;
-                int g = i * 3;
-                int b = i * 5;
+                unsigned char * pal = (unsigned char *)palette + (unsigned char)(i * 3);
 
-                *p++ = r;
-                *p++ = g;
-                *p++ = b;
+                *p++ = *pal++;
+                *p++ = *pal++;
+                *p++ = *pal;
                 p++;
             }
             cx += (xmax - xmin) / width;
@@ -96,13 +94,11 @@ void render_julia(unsigned int width, unsigned int height,
                 i++;
             }
             {
-                int r = i * 2;
-                int g = i * 3;
-                int b = i * 5;
+                unsigned char * pal = (unsigned char *)palette + (unsigned char)(i * 3);
 
-                *p++ = r;
-                *p++ = g;
-                *p++ = b;
+                *p++ = *pal++;
+                *p++ = *pal++;
+                *p++ = *pal;
                 p++;
             }
             zx0 += (xmax - xmin) / width;
