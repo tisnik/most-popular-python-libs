@@ -1,0 +1,14 @@
+[tool.ruff]
+
+#select = ["E", "F", "W", "C", "S", "I", "TCH", "RSE", "RET", "SLF", "SLOT", "SIM", "TID", "TCH", "INT", "ARG", "PTH", "TD", "FIX", "ERA", "PD", "PGH", "PL", "TRY", "FLY", "NPY", "AIR", "PERF", "FURB", "LOG", "RUF"]
+select = ["I"]
+
+ignore = ["S101"]
+
+target-version = "py311"
+pydocstyle.convention = "google"
+line-length = 168
+
+[tool.coverage.report]
+# unit tests fails if the total coverage measurement is under this threshold value
+fail_under = 40
