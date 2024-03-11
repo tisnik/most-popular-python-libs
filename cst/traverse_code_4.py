@@ -14,6 +14,7 @@ class Visitor(CSTVisitor):
     def on_visit(self, node):
         indent = " " * self.nest_level * 2
         info = node.__class__.__name__
+        self.nest_level += 1
 
         if isinstance(node, SimpleWhitespace):
             return True
@@ -32,15 +33,14 @@ class Visitor(CSTVisitor):
 
         print(indent, info)
 
-        self.nest_level += 1
         return True
 
     def on_leave(self, node):
         self.nest_level -= 1
 
 
-constant = "1 + 2 * 3"
+expression = "1 + 2 * 3"
 
-parsed = parse_module(constant)
+parsed = parse_module(expression)
 visitor = Visitor()
 parsed.visit(visitor)
