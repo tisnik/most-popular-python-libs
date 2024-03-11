@@ -17,8 +17,8 @@ class Visitor(CSTVisitor):
         pass
 
 
-constant = "1 + 2 * 3"
+expression = "1 + 2 * 3"
 
-parsed = parse_module(constant)
+parsed = parse_module(expression)
 visitor = Visitor()
 parsed.visit(visitor)
