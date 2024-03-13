@@ -1,3 +1,15 @@
+#
+#  (C) Copyright 2024  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
 import tiktoken
 
 def compare_encodings(example_string: str) -> None:
@@ -13,6 +25,7 @@ def compare_encodings(example_string: str) -> None:
         print(f"{encoding_name}: {num_tokens} tokens")
         print(f"token integers: {tokens}")
         print(f"token bytes: {bytes}")
+
     print()
 
 
