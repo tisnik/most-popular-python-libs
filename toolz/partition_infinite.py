@@ -1,5 +1,6 @@
 from toolz.itertoolz import iterate, partition, take
 
+
 def inc(x):
     return x+1
 
