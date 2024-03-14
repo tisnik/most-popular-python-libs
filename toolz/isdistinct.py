@@ -1,4 +1,5 @@
 from random import randrange
+
 from toolz.itertoolz import isdistinct, unique
 
 values = [randrange(1, 11, 1) for _ in range(30)]
