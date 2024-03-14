@@ -1,5 +1,5 @@
-from toolz.sandbox.parallel import fold
 from toolz.itertoolz import take
+from toolz.sandbox.parallel import fold
 
 
 def one_step(p, q):
