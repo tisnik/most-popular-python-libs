@@ -1,6 +1,5 @@
 from toolz import compose
 
-
 composed = compose(len, str)
 
 print(composed)
