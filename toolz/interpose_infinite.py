@@ -1,4 +1,5 @@
-from toolz.itertoolz import iterate, interpose, take
+from toolz.itertoolz import interpose, iterate, take
+
 
 def inc(x):
     return x+1
