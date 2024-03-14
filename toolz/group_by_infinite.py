@@ -1,5 +1,6 @@
 from toolz.itertoolz import groupby, iterate, take
 
+
 def inc(x):
     return x+1
 
