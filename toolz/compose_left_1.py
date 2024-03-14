@@ -1,6 +1,5 @@
 from toolz import compose_left
 
-
 composed = compose_left(str, len)
 
 print(composed)
