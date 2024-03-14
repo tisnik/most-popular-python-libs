@@ -1,6 +1,5 @@
 from toolz.itertoolz import take
 
-
 sequence = range(1, 1000)
 
 def head(s):
