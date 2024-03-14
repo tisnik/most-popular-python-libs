@@ -1,6 +1,5 @@
 from toolz import compose
 
-
 composed = compose(
         lambda x: -x if x<0 else x,
         lambda x: x*2,
