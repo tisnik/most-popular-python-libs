@@ -1,4 +1,4 @@
-from toolz import curry, take, iterate
+from toolz import curry, iterate, take
 
 
 def inc(x):
