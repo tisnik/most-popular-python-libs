@@ -1,4 +1,4 @@
-from toolz.itertoolz import iterate, interleave, take
+from toolz.itertoolz import interleave, iterate, take
 
 
 def inc(x):
