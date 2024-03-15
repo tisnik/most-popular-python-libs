@@ -98,7 +98,7 @@ def event_loop(display, image1, image2, clock, pal, renderer, buffer):
             scale_y = (YMAX - YMIN) / image1.get_height()
 
             cx = cx_scr * scale_x + XMIN
-            cy = cy_scr * scale_x + YMIN
+            cy = cy_scr * scale_y + YMIN
 
             renderer.render_julia(
                 c_int(IMAGE_WIDTH),
