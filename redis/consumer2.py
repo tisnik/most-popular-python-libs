@@ -18,6 +18,8 @@ errors = 0
 
 while True:
     value = redis_client.get(key)
+    if value is None:
+        continue
     if value == "that's me":
         continue
     last_chars = value[-2:]
