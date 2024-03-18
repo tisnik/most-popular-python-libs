@@ -18,6 +18,8 @@ errors = 0
 
 while True:
     value = redis_client.get(key)
+    if value is None:
+        continue
     if value != expected_value:
         errors += 1
         now = time.perf_counter()
