@@ -1,7 +1,7 @@
 import multiprocessing
 import time
-import redis
 
+import redis
 
 PRODUCER_CYCLES = 100
 CONSUMER_CYCLES = 100
