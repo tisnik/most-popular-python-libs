@@ -1,6 +1,6 @@
 import time
-import redis
 
+import redis
 
 redis_client = redis.StrictRedis(
     host="localhost",
