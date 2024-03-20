@@ -1,7 +1,7 @@
 import multiprocessing
 import time
-import redis
 
+import redis
 
 PRODUCER_CYCLES = 100
 PRODUCER_SLEEP_TIME = 0.1
@@ -10,8 +10,7 @@ USER_ID = "1234"
 CONVERSATION_ID = "5678"
 
 
-from redis_cache import RedisCache
-from redis_cache import BaseMessage
+from redis_cache import BaseMessage, RedisCache
 
 
 def producer_1(cycles, user_id, conversation_id, sleep_time):
