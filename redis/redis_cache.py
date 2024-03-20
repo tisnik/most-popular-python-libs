@@ -1,9 +1,9 @@
 """Cache that uses Redis to store cached values."""
 
+import logging
 import pickle
 import threading
 from typing import Any, Optional
-import logging
 
 import redis
 from redis.backoff import ExponentialBackoff
