@@ -16,7 +16,6 @@
 from libcst import parse_module
 from libcst.tool import dump
 
-
 expression = "1  + 2"
 
 parsed = parse_module(expression)
