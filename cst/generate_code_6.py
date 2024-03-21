@@ -13,10 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTTransformer
-from libcst import SimpleWhitespace, Name
-from libcst import Multiply, Divide
 from difflib import unified_diff
+
+from libcst import CSTTransformer, Divide, Multiply, Name, SimpleWhitespace, parse_module
 
 
 class BinaryOpReplacer(CSTTransformer):
