@@ -16,7 +16,6 @@
 from libcst import parse_expression
 from libcst.tool import dump
 
-
 expression = " 6 * 7 "
 
 parsed = parse_expression(expression)
