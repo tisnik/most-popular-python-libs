@@ -13,7 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTTransformer
+from libcst import CSTTransformer, parse_module
 
 
 class Transformer(CSTTransformer):
