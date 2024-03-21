@@ -13,9 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTTransformer
-from libcst import SimpleWhitespace, Name
 from difflib import unified_diff
+
+from libcst import CSTTransformer, Name, SimpleWhitespace, parse_module
 
 
 class FunctionRenamer(CSTTransformer):
