@@ -16,7 +16,6 @@
 from libcst import parse_expression
 from libcst.tool import dump
 
-
 constant = "1_000"
 
 parsed = parse_expression(constant)
