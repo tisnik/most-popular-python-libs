@@ -13,8 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTTransformer
-from libcst import SimpleWhitespace, Name
+from libcst import CSTTransformer, Name, SimpleWhitespace, parse_module
 
 
 class Transformer(CSTTransformer):
