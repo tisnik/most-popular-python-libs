@@ -13,7 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTVisitor
+from libcst import CSTVisitor, parse_module
 from libcst.tool import dump
 
 
