@@ -16,7 +16,6 @@
 from libcst import parse_module
 from libcst.tool import dump
 
-
 expression = "True or False"
 
 parsed = parse_module(expression)
