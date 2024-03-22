@@ -16,7 +16,6 @@
 from libcst import parse_module
 from libcst.tool import dump
 
-
 module = """
 def add(x, y):
     return x + y
