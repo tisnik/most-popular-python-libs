@@ -13,9 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import parse_module, CSTVisitor
-from libcst import BinaryOperation, Integer, Add, Multiply
-from libcst import SimpleWhitespace, TrailingWhitespace, SimpleStatementLine, Newline
+from libcst import Add, BinaryOperation, CSTVisitor, Integer, Multiply, Newline, SimpleStatementLine, SimpleWhitespace, TrailingWhitespace, parse_module
 from libcst.tool import dump
 
 
