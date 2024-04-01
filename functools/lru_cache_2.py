@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from time import time
 from functools import lru_cache
+from time import time
+
 
 @lru_cache
 def fib(n):
