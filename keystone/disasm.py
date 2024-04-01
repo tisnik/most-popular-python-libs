@@ -10,8 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from capstone import Cs, CS_ARCH_X86, CS_MODE_64
-
+from capstone import CS_ARCH_X86, CS_MODE_64, Cs
 
 with open("loops.bin", "rb") as fin:
     code = fin.read()
