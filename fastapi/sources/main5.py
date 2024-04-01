@@ -1,8 +1,8 @@
-from fastapi import FastAPI
-
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 from sqlalchemy.orm import sessionmaker
+
+from fastapi import FastAPI
 
 
 def connect_to_db():
