@@ -11,7 +11,7 @@
 #
 
 # import všech symbolů použitých ve skriptu
-from keystone import Ks, KS_ARCH_X86, KS_MODE_16, KS_OPT_SYNTAX_ATT, KsError
+from keystone import KS_ARCH_X86, KS_MODE_16, KS_OPT_SYNTAX_ATT, Ks, KsError
 
 # instrukce, které se mají assemblerem přeložit
 CODE = """
