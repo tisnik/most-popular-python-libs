@@ -17,9 +17,9 @@
 # Converts structured data from EDN format into printable format.
 
 import sys
-import edn_format
 
-from edn_format import tag, TaggedElement
+import edn_format
+from edn_format import TaggedElement, tag
 
 
 @tag("user")
