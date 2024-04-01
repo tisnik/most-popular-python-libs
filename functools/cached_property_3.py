@@ -10,8 +10,8 @@
 #      Pavel Tisnovsky
 #
 
-from time import time
 from functools import cached_property, lru_cache
+from time import time
 
 
 class FibonacciNumber:
