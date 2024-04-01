@@ -1,5 +1,5 @@
-from toolz.recipes import partitionby
 from toolz.itertoolz import iterate, take
+from toolz.recipes import partitionby
 
 
 def inc(x):
