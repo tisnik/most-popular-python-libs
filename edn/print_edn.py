@@ -17,6 +17,7 @@
 # Converts structured data from EDN format into printable format.
 
 import sys
+
 import edn_format
 
 # Check if command line argument is specified (it is mandatory).
