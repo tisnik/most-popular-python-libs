@@ -12,6 +12,7 @@
 
 from time import time
 
+
 def fib(n):
     if n < 2:
         return n
