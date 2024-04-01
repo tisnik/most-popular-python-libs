@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from time import time
 from functools import cache
+from time import time
+
 
 @cache
 def fib(n):
