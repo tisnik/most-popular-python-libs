@@ -11,8 +11,7 @@
 #
 
 # import všech symbolů použitých ve skriptu
-from keystone import Ks, KS_ARCH_X86, KS_MODE_64, KsError
-
+from keystone import KS_ARCH_X86, KS_MODE_64, Ks, KsError
 
 try:
     # načtení kódu v assembleru ze souboru
