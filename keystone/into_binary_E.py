@@ -11,8 +11,7 @@
 #
 
 # import všech symbolů použitých ve skriptu
-from keystone import Ks, KS_ARCH_MIPS, KS_MODE_MIPS32, KsError
-
+from keystone import KS_ARCH_MIPS, KS_MODE_MIPS32, Ks, KsError
 
 # instrukce, které se mají přeložit assemblerem
 CODE = """
