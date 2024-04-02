@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from plotnine import ggplot, geom_point, aes, stat_smooth
+from plotnine import aes, geom_point, ggplot, stat_smooth
 from plotnine.data import mtcars
 
 g = (
