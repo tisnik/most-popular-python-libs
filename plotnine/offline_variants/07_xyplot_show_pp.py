@@ -10,9 +10,8 @@
 #      Pavel Tisnovsky
 #
 
+from plotnine import aes, geom_line, ggplot, labs
 from plotnine.data import economics
-
-from plotnine import ggplot, aes, geom_line, labs
 
 g = (
     ggplot(economics)
