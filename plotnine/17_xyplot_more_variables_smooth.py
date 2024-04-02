@@ -10,8 +10,8 @@
 #      Pavel Tisnovsky
 #
 
+from plotnine import aes, facet_grid, geom_point, ggplot, labs, stat_smooth
 from plotnine.data import mpg
-from plotnine import ggplot, aes, facet_grid, labs, geom_point, stat_smooth
 
 print(
     ggplot(mpg)
