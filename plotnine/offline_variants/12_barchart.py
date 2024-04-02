@@ -10,8 +10,8 @@
 #      Pavel Tisnovsky
 #
 
+from plotnine import aes, geom_bar, ggplot
 from plotnine.data import mpg
-from plotnine import ggplot, aes, geom_bar
 
 g = ggplot(mpg) + aes(x="class") + geom_bar()
 
