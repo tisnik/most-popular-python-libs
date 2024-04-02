@@ -10,8 +10,8 @@
 #      Pavel Tisnovsky
 #
 
+from plotnine import aes, geom_point, geom_smooth, ggplot, xlab, ylab
 from plotnine.data import economics
-from plotnine import ggplot, aes, geom_point, geom_smooth, xlab, ylab
 
 g = (
     ggplot(economics)
