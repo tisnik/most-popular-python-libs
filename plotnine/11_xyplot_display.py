@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from plotnine import ggplot, geom_point, aes, stat_smooth, facet_wrap
+from plotnine import aes, facet_wrap, geom_point, ggplot, stat_smooth
 from plotnine.data import mtcars
 
 print(
