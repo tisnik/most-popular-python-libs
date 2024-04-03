@@ -13,8 +13,8 @@
 #
 
 import gc
-import sys
 import pprint
+import sys
 
 
 def foo(ref):
