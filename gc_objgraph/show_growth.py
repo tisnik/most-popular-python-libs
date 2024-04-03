@@ -12,8 +12,9 @@
 #      Pavel Tisnovsky
 #
 
-import objgraph
 import queue
+
+import objgraph
 
 x = {}
 y = {}
