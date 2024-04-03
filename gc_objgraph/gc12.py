@@ -12,8 +12,8 @@
 #      Pavel Tisnovsky
 #
 
-import sys
 import pprint
+import sys
 
 x = {}
 y = {}
