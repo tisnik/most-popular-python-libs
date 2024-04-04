@@ -16,14 +16,16 @@
 import matplotlib
 
 matplotlib.use("Agg")  # noqa: E402
-import matplotlib.pyplot as plt
-import numpy as np
-import pygame
 import os
 import sys
 
+import matplotlib.pyplot as plt
+
+import numpy as np
+import pygame
+
 # nutno importovat kvuli konstantam QUIT atd.
-from pygame.locals import QUIT, KEYDOWN
+from pygame.locals import KEYDOWN, QUIT
 
 # velikost okna na obrazovce (framebufferu)
 WIDTH = 640
