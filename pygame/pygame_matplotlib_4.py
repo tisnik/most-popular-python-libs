@@ -16,16 +16,18 @@
 import matplotlib
 
 matplotlib.use("Agg")  # noqa: E402
+import os
+import re
+import subprocess
+import sys
+
 import matplotlib.pyplot as plt
+
 import numpy as np
 import pygame
-import os
-import sys
-import subprocess
-import re
 
 # nutno importovat kvuli konstantam QUIT atd.
-from pygame.locals import QUIT, KEYDOWN
+from pygame.locals import KEYDOWN, QUIT
 
 # DPI (umele zvolena hodnota)
 DPI = 100
