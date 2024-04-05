@@ -18,9 +18,10 @@
 
 """Ukázka dotazovacího jazyka použitého v nástroji jq."""
 
-import jq
 import json
 from pprint import pprint
+
+import jq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
