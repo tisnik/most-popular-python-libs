@@ -18,8 +18,9 @@
 
 """Zpracovnání vstupu ve formě JSONu (předparsování vstupu)."""
 
-import jq
 import json
+
+import jq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
