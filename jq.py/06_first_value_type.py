@@ -18,8 +18,9 @@
 
 """Získání typu prvního výsledku dotazu."""
 
-import jq
 import json
+
+import jq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
