@@ -18,8 +18,9 @@
 
 """Problematika speciálních znaků v DSL nástroje jq."""
 
-import jq
 import json
+
+import jq
 
 with open("openapi.json") as fin:
     content = json.load(fin)
