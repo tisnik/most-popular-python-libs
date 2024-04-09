@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pygame
 import sys
+
+import pygame
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
