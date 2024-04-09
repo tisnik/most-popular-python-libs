@@ -26,11 +26,11 @@ optional arguments:
                         directory with JSON files to check
 """
 
-from pathlib import Path
-from json import load
-from sys import exit
-from os import popen
 from argparse import ArgumentParser
+from json import load
+from os import popen
+from pathlib import Path
+from sys import exit
 
 
 def read_control_code(operation):
