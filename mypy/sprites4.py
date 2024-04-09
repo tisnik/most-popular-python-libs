@@ -13,10 +13,10 @@
 #      Pavel Tisnovsky
 #
 
-from typing import NewType, Tuple, List
+import sys
+from typing import List, NewType, Tuple
 
 import pygame
-import sys
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
