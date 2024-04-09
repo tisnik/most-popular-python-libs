@@ -1,5 +1,6 @@
 from typing import override
 
+
 class Fruit:
     def eat(self):
         pass
