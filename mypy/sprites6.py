@@ -14,10 +14,11 @@
 #
 
 from __future__ import annotations
-from typing import NewType, Tuple, List, Sequence
+
+import sys
+from typing import List, NewType, Sequence, Tuple
 
 import pygame
-import sys
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
