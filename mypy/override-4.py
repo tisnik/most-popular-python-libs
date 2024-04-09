@@ -1,5 +1,6 @@
 from typing_extensions import override
 
+
 class Fruit:
     def eat(self) -> None:
         pass
