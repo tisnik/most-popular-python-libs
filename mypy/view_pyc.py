@@ -5,14 +5,15 @@
 # https://stackoverflow.com/users/6003870/padymko
 # https://stackoverflow.com/users/5065946/powersource97
 
-import sys
-import struct
-import marshal
 import binascii
-import time
 import dis
+import marshal
 import platform
+import struct
+import sys
+import time
 import types
+
 
 def view_pyc_file(path):
     """Read and display a content of the Python`s bytecode in a pyc-file."""
