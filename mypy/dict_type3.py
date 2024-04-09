@@ -13,7 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 d:Dict[Any, Any] = {}
 
