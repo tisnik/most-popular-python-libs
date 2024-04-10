@@ -1,5 +1,5 @@
-import dis
 import asyncio
+import dis
 
 
 async def say_hello():
