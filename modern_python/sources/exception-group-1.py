@@ -6,4 +6,5 @@ eg = ExceptionGroup(
          ZeroDivisionError("Divided by zero")])
 
 import traceback
+
 traceback.print_exception(eg)
