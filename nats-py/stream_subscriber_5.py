@@ -11,6 +11,7 @@
 #
 
 import asyncio
+
 import nats
 
 URL = "192.168.1.34:44853"
