@@ -1,6 +1,7 @@
-import aiohttp
 import asyncio
 import time
+
+import aiohttp
 
 
 async def download(name, queue, results):
