@@ -11,8 +11,9 @@
 #
 
 import asyncio
-import nats
 from pprint import pprint
+
+import nats
 
 URL = "192.168.1.34:44853"
 NATS_USERNAME = "local"
