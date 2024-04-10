@@ -17,4 +17,5 @@ eg = ExceptionGroup(
 )
 
 import traceback
+
 traceback.print_exception(eg)
