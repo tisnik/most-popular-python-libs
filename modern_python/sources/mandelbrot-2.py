@@ -1,5 +1,6 @@
-import palette_mandmap
 from sys import argv
+
+import palette_mandmap
 
 from numba import jit
 
