@@ -11,6 +11,7 @@
 #
 
 import sys
+
 from pyscript import document
 
 for i in range(10):
