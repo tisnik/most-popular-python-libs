@@ -13,15 +13,16 @@
 #      Pavel Tisnovsky
 #
 
-import pygame
 import sys
+from typing import Any, List, Tuple, Union
+
+import pygame
 
 # Nutno importovat kvůli konstantám QUIT atd.
 from pygame.locals import *
 from pygame.sprite import Group
 from pygame.surface import Surface
 from pygame.time import Clock
-from typing import Any, List, Tuple, Union
 
 # Velikost okna aplikace
 WIDTH = 320
