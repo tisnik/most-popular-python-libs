@@ -29,7 +29,6 @@ input_files = (
 
 import pandas as pd
 
-
 # ### Helper functions to read benchmark results
 
 # In[39]:
@@ -71,8 +70,9 @@ results
 # In[77]:
 
 
-import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 mpl.rcParams['figure.dpi'] = 150
 
 
