@@ -3,8 +3,9 @@
 """Renderer of the classic Julia fractal."""
 
 from concurrent.futures.thread import ThreadPoolExecutor
-from PIL import Image
 from time import perf_counter
+
+from PIL import Image
 
 IMAGE_WIDTH = 1024
 IMAGE_HEIGHT = 1024
