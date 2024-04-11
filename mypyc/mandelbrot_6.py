@@ -1,7 +1,7 @@
-import palette_mandmap
 from sys import argv
-
 from typing import Tuple
+
+import palette_mandmap
 
 
 def calc_mandelbrot(width: int, height: int, maxiter: int, palette: Tuple[Tuple[int, int, int], ...]) -> None:
