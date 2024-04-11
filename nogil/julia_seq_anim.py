@@ -2,9 +2,10 @@
 
 """Renderer of the classic Julia fractal."""
 
-from PIL import Image
-from time import perf_counter
 import math
+from time import perf_counter
+
+from PIL import Image
 
 IMAGE_WIDTH = 256
 IMAGE_HEIGHT = 256
