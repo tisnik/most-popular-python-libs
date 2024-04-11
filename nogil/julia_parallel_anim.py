@@ -2,11 +2,12 @@
 
 """Renderer of the classic Julia fractal."""
 
+import math
 import sys
 from concurrent.futures.thread import ThreadPoolExecutor
-from PIL import Image
 from time import perf_counter
-import math
+
+from PIL import Image
 
 IMAGE_WIDTH = 256
 IMAGE_HEIGHT = 256
