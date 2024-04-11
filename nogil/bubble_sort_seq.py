@@ -1,5 +1,6 @@
-from time import perf_counter
 import random
+from time import perf_counter
+
 
 def bubble_sort(size):
     a = [random.randrange(0, 10000) for i in range(size)]
