@@ -26,7 +26,6 @@ input_files = (
 
 import pandas as pd
 
-
 # ### Helper functions to read benchmark results
 
 # In[4]:
@@ -68,8 +67,9 @@ results
 # In[6]:
 
 
-import matplotlib.pyplot as plt
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 mpl.rcParams['figure.dpi'] = 150
 xticks=df.index
 
