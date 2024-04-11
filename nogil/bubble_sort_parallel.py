@@ -1,6 +1,6 @@
+import random
 from concurrent.futures.thread import ThreadPoolExecutor
 from time import perf_counter
-import random
 
 
 def bubble_sort(size):
