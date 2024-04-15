@@ -1,5 +1,5 @@
-from numba import jit, prange
 import numpy as np
+from numba import jit, prange
 
 
 @jit(nopython=True, parallel=True)
