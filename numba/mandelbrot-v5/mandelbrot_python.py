@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import palette_mandmap
 from sys import argv, exit
+
+import palette_mandmap
 
 import numpy as np
 from numba import jit
