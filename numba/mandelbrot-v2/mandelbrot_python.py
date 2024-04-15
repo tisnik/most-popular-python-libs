@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import palette_mandmap
 from sys import argv, exit
+
+import palette_mandmap
 
 from numba import jit
 
