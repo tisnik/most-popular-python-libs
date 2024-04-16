@@ -14,6 +14,7 @@
 #
 
 from tabulate import tabulate
+
 import pandas
 
 # přečtení zdrojových dat
