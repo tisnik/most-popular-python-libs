@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 # přečtení zdrojových dat s jejich konverzí do datového rámce
 df = pandas.read_csv("git_log.txt", sep="|")
