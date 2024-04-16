@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import pprint
+
+import pandas
 
 # přečtení zdrojových dat
 df = pandas.read_csv("hall_of_fame.tsv", sep="\t")
