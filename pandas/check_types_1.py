@@ -15,8 +15,9 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 from voluptuous import Schema
+
+import pandas
 
 
 def print_data_frame(df):
