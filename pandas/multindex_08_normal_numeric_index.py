@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 sequence1 = range(10)
 
