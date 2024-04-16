@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 sequence2 = ("foo", "bar", "baz", "foo", "bar", "baz", "foo", "bar", "baz", "*")
 
