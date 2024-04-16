@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 # přečtení zdrojových dat s jejich konverzí do datového rámce
 df = pandas.read_csv("denni_kurz2.txt", sep="|", skiprows=0)
