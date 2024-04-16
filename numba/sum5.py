@@ -1,7 +1,7 @@
 import time
 
-from numba import jit
 import numpy as np
+from numba import jit
 
 
 def regular_sum(a, b):
