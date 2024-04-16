@@ -13,7 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-from tabulate import tabulate, _table_formats as table_styles
+from tabulate import _table_formats as table_styles
+from tabulate import tabulate
+
 import pandas
 
 # přečtení zdrojových dat
