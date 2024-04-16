@@ -16,10 +16,11 @@
 #
 
 
-import pandas
 import math
-from voluptuous import Schema
-from voluptuous import Invalid
+
+from voluptuous import Invalid, Schema
+
+import pandas
 
 
 def print_data_frame(df):
