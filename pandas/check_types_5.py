@@ -16,10 +16,9 @@
 #
 
 
+from voluptuous import Any, Invalid, Schema
+
 import pandas
-from voluptuous import Schema
-from voluptuous import Invalid
-from voluptuous import Any
 
 
 def print_data_frame(df):
