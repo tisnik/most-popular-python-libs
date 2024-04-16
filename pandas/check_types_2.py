@@ -15,9 +15,9 @@
 #      Pavel Tisnovsky
 #
 
+from voluptuous import Invalid, Schema
+
 import pandas
-from voluptuous import Schema
-from voluptuous import Invalid
 
 
 def print_data_frame(df):
