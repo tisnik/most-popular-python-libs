@@ -16,9 +16,10 @@
 """Reading CSV file that contains column with integer values (some are missing)."""
 
 
-import pandas
+from opulent_pandas import BaseValidator, Error, Required, Schema
+
 import numpy as np
-from opulent_pandas import Schema, Required, BaseValidator, Error
+import pandas
 
 
 def print_data_frame(df):
