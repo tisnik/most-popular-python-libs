@@ -12,10 +12,12 @@
 #      Pavel Tisnovsky
 #
 
-import sys
 import csv
-import numpy as np
+import sys
+
 import matplotlib.pyplot as plt
+
+import numpy as np
 
 # Check if command line argument is specified (it is mandatory).
 if len(sys.argv) < 2:
