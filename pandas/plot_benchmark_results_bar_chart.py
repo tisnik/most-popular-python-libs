@@ -13,8 +13,10 @@
 #
 
 import sys
-import pandas as pd
+
 import matplotlib.pyplot as plt
+
+import pandas as pd
 
 # Check if command line argument is specified (it is mandatory).
 if len(sys.argv) < 2:
