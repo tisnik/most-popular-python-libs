@@ -13,9 +13,10 @@
 #      Pavel Tisnovsky
 #
 
+import matplotlib.pyplot as plt
+
 import numpy as np
 import pandas
-import matplotlib.pyplot as plt
 
 # hodnoty na x-ové ose
 r = np.linspace(0, 2 * np.pi, 20)
