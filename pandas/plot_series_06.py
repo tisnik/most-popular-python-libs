@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import matplotlib.pyplot as plt
+
+import pandas
 
 # přečtení zdrojových dat
 df = pandas.read_csv("tiobe.tsv", sep="\t")
