@@ -13,8 +13,9 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 from collections import OrderedDict
+
+import pandas
 
 input_data = OrderedDict()
 
