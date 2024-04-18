@@ -15,9 +15,9 @@
 
 """Reading CSV with custom timestamps format using custom parser."""
 
-import pandas
 import datetime
 
+import pandas
 
 df = pandas.read_csv(
     "custom_timestamps.csv",
