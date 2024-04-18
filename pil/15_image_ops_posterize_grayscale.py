@@ -13,9 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from PIL import Image
-from PIL import ImageMath
-from PIL import ImageOps
+from PIL import Image, ImageMath, ImageOps
 
 filename = "Lenna.png"
 
