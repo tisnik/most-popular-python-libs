@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 # přečtení zdrojových dat
 s = pandas.Series(["cat", "dog", np.nan, "rabbit"])
