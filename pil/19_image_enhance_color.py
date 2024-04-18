@@ -13,8 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from PIL import Image
-from PIL import ImageEnhance
+from PIL import Image, ImageEnhance
 
 filename = "Lenna.png"
 
