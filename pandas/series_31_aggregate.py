@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy as np
+import pandas
 
 # přečtení zdrojových dat
 df = pandas.read_csv("tiobe.tsv", sep="\t")
