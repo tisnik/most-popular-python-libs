@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import pandas
 import numpy
+import pandas
 
 s = pandas.Series((100, 200, 300, numpy.nan, 400, 500, 600))
 print(s.dtypes)
