@@ -15,8 +15,9 @@
 
 """Reading CSV with custom timestamps format using custom parser."""
 
-import pandas
 import datetime
+
+import pandas
 
 
 def datetime_parser(raw_data):
