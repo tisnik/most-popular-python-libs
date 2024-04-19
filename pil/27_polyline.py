@@ -14,11 +14,9 @@
 #
 
 import math
-
-from PIL import Image
-from PIL import ImageDraw
-
 from itertools import chain
+
+from PIL import Image, ImageDraw
 
 try:
     # vytvoření prázdného obrázku
