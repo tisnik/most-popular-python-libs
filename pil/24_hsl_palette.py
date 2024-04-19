@@ -13,8 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from PIL import Image
-from PIL import ImageColor
+from PIL import Image, ImageColor
 
 try:
     # vytvoření prázdného obrázku
