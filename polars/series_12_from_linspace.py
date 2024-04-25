@@ -13,8 +13,8 @@
 #      Pavel Tisnovsky
 #
 
-import polars
 import numpy as np
+import polars
 
 # vytvoření datové řady
 s = polars.Series("sloupec", np.linspace(10, 11, 10))
