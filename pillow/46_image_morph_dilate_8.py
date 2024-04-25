@@ -13,10 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
-from PIL import ImageMorph
+from PIL import Image, ImageDraw, ImageFont, ImageMorph
 
 filename = "Lenna.png"
 
