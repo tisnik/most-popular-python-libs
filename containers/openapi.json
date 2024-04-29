@@ -1,0 +1,135 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": ""
+        }
+    ],
+    "info": {
+        "description": "A very simple REST API service",
+        "version": "1.0.0",
+        "title": "REST API Service",
+        "termsOfService": "",
+        "contact": {
+            "name": "Pavel Tisnovsky"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "tags": [],
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Returns valid HTTP 200 ok status when the service is ready",
+                "description": "",
+                "parameters": [],
+                "operationId": "main",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            }
+        },
+        "/client/cluster": {
+            "x-temp": {
+                "summary": "Read list of all clusters from database and return it to a client",
+                "description": "",
+                "parameters": [],
+                "operationId": "getClusters",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Read list of all clusters from database and return it to a client",
+                "description": "",
+                "parameters": [],
+                "operationId": "getClusters",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            }
+        },
+        "/client/cluster/{name}": {
+            "get": {
+                "summary": "Read cluster specified by its ID and return it to a client",
+                "description": "",
+                "parameters": [],
+                "operationId": "getClusterById",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a record with new cluster in a database. The updated list of all clusters is returned to client",
+                "description": "",
+                "parameters": [],
+                "operationId": "newCluster",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a cluster specified by its ID",
+                "description": "",
+                "parameters": [],
+                "operationId": "deleteCluster",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            }
+        },
+        "/client/cluster/search": {
+            "get": {
+                "summary": "Search for a cluster specified by its ID or name",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Cluster ID",
+                        "allowEmptyValue": true
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Cluster name",
+                        "allowEmptyValue": true
+                    }
+                ],
+                "operationId": "searchCluster",
+                "responses": {
+                    "default": {
+                        "description": "Default response"
+                    }
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Please see foo bar baz",
+        "url": "https://godoc.org/..."
+    },
+    "security": []
+}
