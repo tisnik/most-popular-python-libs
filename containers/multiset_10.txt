@@ -1,0 +1,6 @@
+{a, a, b, b, c, c, d, d}
+{c, c, d, d, e, e, f, f}
+{a, a, b, b, c, c, d, d, e, e, f, f}
+{c, c, d, d}
+{a, a, b, b}
+{b, b, a, a, f, f, e, e}
