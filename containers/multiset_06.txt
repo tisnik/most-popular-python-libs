@@ -1,0 +1,3 @@
+{foo, bar, baz, baf, xyzzy}
+{bar, baz, baz, baf, baf, baf}
+{foo, bar, bar, baz, baz, baz, baf, baf, baf, baf, xyzzy}
