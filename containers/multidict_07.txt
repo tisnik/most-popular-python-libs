@@ -1,0 +1,2 @@
+<MultiDict('1': 2, '2': 4, '4': 8, '5': 10, '7': 14, '8': 16, '10': 20)>
+<MultiDict('1': 'foobar', '2': 'foobar', '4': 'foobar', '5': 'foobar', '7': 'foobar', '8': 'foobar', '10': 'foobar', '0': 'foobar', '3': 'foobar', '6': 'foobar', '9': 'foobar')>
