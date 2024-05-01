@@ -1,0 +1,4 @@
+Counter({'baz': 2, 'bar': 1, 'foo': 0})
+Counter({'foo': 1, 'bar': 1, 'baz': 1, 'baf': 1})
+Counter({'baz': 1})
+Counter({'foo': 1, 'baf': 1})
