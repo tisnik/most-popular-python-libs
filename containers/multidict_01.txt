@@ -1,0 +1,3 @@
+<MultiDict('id': 1, 'name': 'Eda', 'surname': 'Wasserfall')>
+Eda
+<MultiDict('id': 1, 'name': 'Eda', 'surname': 'Wasserfall', 'hra': 'Svestka')>
