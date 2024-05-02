@@ -11,6 +11,7 @@
 #
 
 from time import perf_counter
+
 import tiktoken
 
 encoder = tiktoken.get_encoding("cl100k_base")
