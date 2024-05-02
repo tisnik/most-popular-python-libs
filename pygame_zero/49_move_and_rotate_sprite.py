@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from math import sin, cos, radians
+from math import cos, radians, sin
 
 WIDTH = 480
 HEIGHT = 480
