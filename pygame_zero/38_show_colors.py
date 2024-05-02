@@ -10,9 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from pygame.colordict import THECOLORS
 import random
 
+from pygame.colordict import THECOLORS
 
 WIDTH = 480
 HEIGHT = 480
