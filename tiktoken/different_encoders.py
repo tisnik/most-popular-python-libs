@@ -12,6 +12,7 @@
 
 import tiktoken
 
+
 def compare_encodings(example_string: str) -> None:
     print(f'\nExample string: "{example_string}"')
 
