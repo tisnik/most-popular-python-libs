@@ -1,8 +1,7 @@
 """Fresnel fractal generator."""
 
-from turtle import *
 from math import *
-
+from turtle import *
 
 home()
 hideturtle()
