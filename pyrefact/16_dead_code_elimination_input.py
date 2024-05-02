@@ -1,6 +1,7 @@
 import math
 import sys
 
+
 def foo(x):
     import os
     y = False
