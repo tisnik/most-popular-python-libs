@@ -1,0 +1,19 @@
+Threads: no   Rendering time: 8.222753339999997 seconds
+Threads: 1   Rendering time: 8.778915709999993 seconds
+Threads: 2   Rendering time: 5.310822309999992 seconds
+Threads: 3   Rendering time: 4.590419963999992 seconds
+Threads: 4   Rendering time: 4.4807502219999975 seconds
+Threads: 5   Rendering time: 4.451865036000001 seconds
+Threads: 6   Rendering time: 4.444435690000006 seconds
+Threads: 7   Rendering time: 4.968317553999995 seconds
+Threads: 8   Rendering time: 4.899663301999993 seconds
+Threads: 9   Rendering time: 5.163533844 seconds
+Threads: 10   Rendering time: 5.8687238370000046 seconds
+Threads: 11   Rendering time: 5.666891504999995 seconds
+Threads: 12   Rendering time: 5.517467022000005 seconds
+Threads: 13   Rendering time: 6.157193395999997 seconds
+Threads: 14   Rendering time: 5.666472390999985 seconds
+Threads: 15   Rendering time: 6.338928120999981 seconds
+Threads: 16   Rendering time: 6.475056255999988 seconds
+
+12th Gen Intel(R) Core(TM) i7-1270P
