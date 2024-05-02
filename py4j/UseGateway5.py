@@ -10,8 +10,9 @@
 #      Pavel Tisnovsky
 #
 
-from py4j.java_gateway import JavaGateway, GatewayParameters
 import pprint
+
+from py4j.java_gateway import GatewayParameters, JavaGateway
 
 gateway = JavaGateway(gateway_parameters=GatewayParameters(port=20001))
 
