@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-from kafka import KafkaProducer
-from time import sleep
 from json import dumps
+from time import sleep
+
+from kafka import KafkaProducer
+
 
 def user(name, surname, id):
     return {
