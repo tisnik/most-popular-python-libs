@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from kafka import KafkaProducer
 from time import sleep
 
+from kafka import KafkaProducer
 
 server = "localhost:9092"
 topic = "greetings"
