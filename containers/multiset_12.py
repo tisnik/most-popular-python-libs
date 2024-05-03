@@ -1,5 +1,6 @@
-from multiset import Multiset
 from collections import Counter
+
+from multiset import Multiset
 
 c = Counter()
 
