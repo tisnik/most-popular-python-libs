@@ -1,4 +1,5 @@
 from json import load
+
 from box import Box
 
 with open("openapi.json") as fin:
