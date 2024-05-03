@@ -1,5 +1,5 @@
 from pint import UnitRegistry
-from sympy import pprint, solve, Symbol
+from sympy import Symbol, pprint, solve
 
 ureg = UnitRegistry()
 
