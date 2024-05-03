@@ -1,5 +1,5 @@
-from decimal import Decimal, getcontext
 from decimal import (
+    ROUND_05UP,
     ROUND_CEILING,
     ROUND_DOWN,
     ROUND_FLOOR,
@@ -7,7 +7,8 @@ from decimal import (
     ROUND_HALF_EVEN,
     ROUND_HALF_UP,
     ROUND_UP,
-    ROUND_05UP,
+    Decimal,
+    getcontext,
 )
 
 x = Decimal(1)
