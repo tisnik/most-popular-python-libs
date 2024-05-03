@@ -1,4 +1,4 @@
-from decimal import Decimal, getcontext, Overflow
+from decimal import Decimal, Overflow, getcontext
 
 c = getcontext()
 c.traps[Overflow] = False
