@@ -1,5 +1,5 @@
-from sympy import init_printing, pprint, solve, solveset, symbols
 from pint import UnitRegistry
+from sympy import init_printing, pprint, solve, solveset, symbols
 from sympy.physics.units import meter
 
 ureg = UnitRegistry()
