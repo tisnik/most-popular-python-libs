@@ -1,6 +1,5 @@
-from sympy.physics.units import meter, second
-from sympy.physics.units import Quantity
 import sympy as sp
+from sympy.physics.units import Quantity, meter, second
 
 
 def unit(expr):
