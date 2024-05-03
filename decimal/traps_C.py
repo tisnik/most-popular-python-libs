@@ -1,4 +1,4 @@
-from decimal import Decimal, getcontext, DivisionByZero
+from decimal import Decimal, DivisionByZero, getcontext
 
 c = getcontext()
 c.traps[DivisionByZero] = False
