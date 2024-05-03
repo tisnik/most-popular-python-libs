@@ -1,4 +1,4 @@
-from sympy import pprint, solve, Symbol
+from sympy import Symbol, pprint, solve
 from sympy.physics.units import meter, second
 
 a = Symbol("a") * meter
