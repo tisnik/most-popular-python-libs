@@ -1,4 +1,4 @@
-from decimal import Decimal, getcontext, Rounded
+from decimal import Decimal, Rounded, getcontext
 
 c = getcontext()
 c.traps[Rounded] = True
