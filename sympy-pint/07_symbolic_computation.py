@@ -1,5 +1,5 @@
-from pint import UnitRegistry
 import sympy as sp
+from pint import UnitRegistry
 
 ureg = UnitRegistry()
 
