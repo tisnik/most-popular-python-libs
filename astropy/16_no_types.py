@@ -1,5 +1,6 @@
 from astropy import units as u
 
+
 def velocity(s, t):
     return s/t
 
