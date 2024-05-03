@@ -1,7 +1,6 @@
-import tarfile
-import json
 import csv
-
+import json
+import tarfile
 
 # magic file that should be stored in a tarball
 TOPLEVEL_MAGIC_FILE = "openshift_lightspeed.json"
