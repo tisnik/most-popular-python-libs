@@ -1,4 +1,3 @@
-from toolz.itertoolz import take
 from toolz.sandbox.parallel import fold
 
 
