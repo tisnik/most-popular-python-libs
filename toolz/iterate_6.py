@@ -1,4 +1,4 @@
-from toolz.itertoolz import first, iterate, take
+from toolz.itertoolz import iterate, take
 
 
 def nextval(x):
