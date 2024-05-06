@@ -1,4 +1,4 @@
-from toolz.itertoolz import groupby, iterate, take
+from toolz.itertoolz import groupby, iterate
 
 
 def inc(x):
