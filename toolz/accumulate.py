@@ -1,4 +1,4 @@
-from toolz.itertoolz import accumulate, take
+from toolz.itertoolz import accumulate
 
 
 def one_step(p, q):
