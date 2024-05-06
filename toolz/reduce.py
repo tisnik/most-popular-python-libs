@@ -1,5 +1,4 @@
 from toolz import reduce
-from toolz.itertoolz import take
 
 
 def one_step(p, q):
