@@ -1,4 +1,4 @@
-from toolz.itertoolz import iterate, partition, sliding_window, take
+from toolz.itertoolz import iterate, sliding_window, take
 
 
 def inc(x):
