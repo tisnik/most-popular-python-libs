@@ -10,7 +10,6 @@
 #      Pavel Tisnovsky
 #
 
-import tkinter
 
 import PySimpleGUI as sg
 
