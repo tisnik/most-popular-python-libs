@@ -2,7 +2,6 @@
 # vim: set fileencoding=utf-8
 
 from array import array
-from sys import getsizeof
 
 from pympler.asizeof import asizeof
 
