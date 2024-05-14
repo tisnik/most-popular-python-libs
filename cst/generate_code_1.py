@@ -14,7 +14,6 @@
 #
 
 from libcst import CSTVisitor, parse_module
-from libcst.tool import dump
 
 
 class Visitor(CSTVisitor):
