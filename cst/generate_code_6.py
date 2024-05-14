@@ -15,7 +15,7 @@
 
 from difflib import unified_diff
 
-from libcst import CSTTransformer, Divide, Multiply, Name, SimpleWhitespace, parse_module
+from libcst import CSTTransformer, Divide, Multiply, parse_module
 
 
 class BinaryOpReplacer(CSTTransformer):
