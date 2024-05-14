@@ -15,7 +15,7 @@
 
 from difflib import unified_diff
 
-from libcst import CSTTransformer, Name, SimpleWhitespace, parse_module
+from libcst import CSTTransformer, parse_module
 
 
 class Transformer(CSTTransformer):
