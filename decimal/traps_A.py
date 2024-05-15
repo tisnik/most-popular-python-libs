@@ -1,4 +1,4 @@
-from decimal import Decimal, getcontext
+from decimal import getcontext
 
 c = getcontext()
 
