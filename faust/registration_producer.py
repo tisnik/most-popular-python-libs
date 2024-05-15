@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from json import dumps
-from time import sleep
 
 from kafka import KafkaProducer
 
