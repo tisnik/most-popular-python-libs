@@ -14,7 +14,6 @@
 #
 
 from libcst import Add, BinaryOperation, CSTVisitor, Integer, Multiply, parse_module
-from libcst.tool import dump
 
 
 class Visitor(CSTVisitor):
