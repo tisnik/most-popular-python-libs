@@ -14,7 +14,7 @@
 #
 
 import sys
-from typing import List, NewType, Tuple
+from typing import List, Tuple
 
 import pygame
 
