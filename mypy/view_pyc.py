@@ -12,7 +12,6 @@ import platform
 import struct
 import sys
 import time
-import types
 
 
 def view_pyc_file(path):
