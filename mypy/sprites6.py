@@ -16,7 +16,7 @@
 from __future__ import annotations
 
 import sys
-from typing import List, NewType, Sequence, Tuple
+from typing import NewType, Sequence, Tuple
 
 import pygame
 
