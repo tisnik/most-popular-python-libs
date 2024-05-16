@@ -13,7 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-from sys import argv, exit
+from sys import argv
 
 import palette_mandmap
 
