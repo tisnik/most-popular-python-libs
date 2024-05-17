@@ -2,10 +2,6 @@
 
 # Vytvoreni textury s "kruznicovym moare" i dalsimi typy moare
 
-import palette_blues
-import palette_gold
-import palette_greens
-import palette_ice
 import palette_mandmap
 from PIL import Image
 
