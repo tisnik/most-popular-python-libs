@@ -71,6 +71,7 @@ palette = (
         (244, 244, 196), (248, 248, 208), (248, 248, 224), (248, 248, 236),
         (252, 252, 252), (248, 248, 248), (240, 240, 240), (232, 232, 232))
 
+@cython.cfunc
 def calc_mandelbrot(width: cython.int, height: cython.int, maxiter: cython.int, palette):
     zx: cython.double
     zy: cython.double
