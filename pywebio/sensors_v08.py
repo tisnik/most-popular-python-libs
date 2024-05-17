@@ -15,7 +15,7 @@
 
 from functools import partial
 
-from minio import Minio, ResponseError
+from minio import Minio
 
 from pywebio import *
 from pywebio.input import *
