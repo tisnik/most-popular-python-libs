@@ -10,7 +10,6 @@
 #      Pavel Tisnovsky
 #
 
-from random import randrange
 
 WIDTH = 480
 HEIGHT = 480
