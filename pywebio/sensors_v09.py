@@ -16,7 +16,7 @@
 from functools import partial
 from io import StringIO
 
-from minio import Minio, ResponseError
+from minio import Minio
 
 import pandas as pd
 from pywebio import *
