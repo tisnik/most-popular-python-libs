@@ -28,7 +28,7 @@ void calc_mandelbrot(unsigned int width, unsigned int height, unsigned int maxit
                 zx = zx2 - zy2 + cx;
                 i++;
             }
-            unsigned char *color = palette[i];
+            unsigned char *color = palette[i % 256];
             unsigned char r = *color++;
             unsigned char g = *color++;
             unsigned char b = *color;
