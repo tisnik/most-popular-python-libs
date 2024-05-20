@@ -19,7 +19,7 @@ from io import StringIO
 
 import matplotlib
 import matplotlib.pyplot as plt
-from minio import Minio, ResponseError
+from minio import Minio
 
 import numpy as np
 import pandas as pd
