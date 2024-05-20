@@ -2,17 +2,8 @@
 
 import logging
 import pickle
-import threading
-from typing import Any, Optional
 
 import redis
-from redis.backoff import ExponentialBackoff
-from redis.exceptions import (
-    BusyLoadingError,
-    ConnectionError,
-    RedisError,
-)
-from redis.retry import Retry
 
 
 class BaseMessage:
