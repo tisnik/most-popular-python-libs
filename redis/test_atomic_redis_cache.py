@@ -1,8 +1,6 @@
 import multiprocessing
 import time
 
-import redis
-
 PRODUCER_CYCLES = 100
 PRODUCER_SLEEP_TIME = 0.1
 
