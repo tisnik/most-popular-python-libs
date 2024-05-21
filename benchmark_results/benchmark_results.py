@@ -2,10 +2,6 @@
 # coding: utf-8
 
 # ### Set of input files with benchmark results to be processed
-
-# In[2]:
-
-
 input_files = (
     "native.times",
     "native_optim.times",
@@ -18,19 +14,13 @@ input_files = (
     "mypyc_with_type_hints.times",
     "numba2.times",
     "numba3.times",
-    "numba4.times")
-
-
-# In[3]:
+    "numba4.times",
+    "nuitka.times")
 
 
 import pandas as pd
 
 # ### Helper functions to read benchmark results
-
-# In[4]:
-
-
 def read_benchmark_result(filename):
     return pd.read_csv(filename, sep=" ", header=0, names=("size", "time", "memory"))
 
@@ -43,10 +33,6 @@ def read_all_results(input_files):
 
 
 # ### Combine all results into one DataFrame
-
-# In[5]:
-
-
 r = read_all_results(input_files)
 
 results = pd.DataFrame()
@@ -63,10 +49,6 @@ results
 
 
 # ### Set plot size
-
-# In[6]:
-
-
 import matplotlib as mpl
 
 mpl.rcParams['figure.dpi'] = 150
@@ -75,9 +57,7 @@ xticks=df.index
 
 # ### Plot results
 
-# In[12]:
-
-
+# Startup times
 results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
                   color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
@@ -85,9 +65,7 @@ results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
                          "#0000ff", "#0060ff", "#00c0ff"])
 
 
-# In[9]:
-
-
+# Computation with some startup time influence
 results[5:10].plot(kind='bar', stacked=False, width=0.9,
                    title="Computation with startup time influence", color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
@@ -97,9 +75,7 @@ plt.savefig("Startup time and computation.png")
 plt.show()
 
 
-# In[10]:
-
-
+# Just the computation, w/o startup time
 results[10:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation", color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
                          "#ff0000", "#ff8000",
@@ -108,9 +84,7 @@ plt.savefig("Extensive computation.png")
 plt.show()
 
 
-# In[43]:
-
-
+# Approximation, including startup time
 results.plot(title="Approximation, incl. startup time",
             color=["#a00000", "#a0a000",
                          "#00c000", "#00c030", "#00c060", "#00c090", "#00c0a0",
@@ -120,9 +94,7 @@ plt.savefig("Approximation computation.png")
 plt.show()
 
 
-# In[11]:
-
-
+# Numba/CPython thresholds
 results[8:12].plot(title="Numba/CPython thresholds", color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
                          "#ff0000", "#ff8000",
@@ -131,14 +103,19 @@ plt.savefig("Numba CPython thresholds.png")
 plt.show()
 
 
-# In[15]:
-
-
+# Python interpreters only
 results[:][["python 3 8", "python 3 9" , "python 3 10", "python 3 11", "python 3 12"]].plot(title="Python interpreters only")
 
 
-# In[ ]:
+
+compiled = results[11:][["native", "native optim", "mypyc no type hints", "mypyc with type hints",
+                    "nuitka"]]
+compiled.plot(
+        kind="bar", title="Compiled code only")
 
 
+compiled = results[11:][["native", "native optim", "mypyc no type hints", "mypyc with type hints",
+                    "nuitka"]]
 
+compiled.plot(title="Approximation, compiled",)
 
