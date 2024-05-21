@@ -1,5 +1,5 @@
 from sympy import Symbol, pprint, solve
-from sympy.physics.units import meter, second
+from sympy.physics.units import meter
 
 a = Symbol("a") * meter
 b = Symbol("b") * meter
