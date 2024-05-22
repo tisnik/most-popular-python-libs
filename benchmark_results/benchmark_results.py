@@ -20,6 +20,7 @@ input_files = (
 
 import pandas as pd
 
+
 # ### Helper functions to read benchmark results
 def read_benchmark_result(filename):
     return pd.read_csv(filename, sep=" ", header=0, names=("size", "time", "memory"))
