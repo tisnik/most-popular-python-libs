@@ -1,5 +1,6 @@
 import cython
 
+
 @cython.cfunc
 @cython.nogil
 def add_two_numbers(x: cython.int, y: cython.int) -> cython.int:
