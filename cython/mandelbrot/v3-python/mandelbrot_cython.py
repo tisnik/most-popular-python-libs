@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8
 
+import array
 from sys import argv
+
 import cython
 from cython.cimports.cpython import array
-import array
 from cython.cimports.libc.stdio import printf
 
 # taken from Fractint
