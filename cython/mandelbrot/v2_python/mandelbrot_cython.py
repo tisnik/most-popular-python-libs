@@ -2,6 +2,7 @@
 # vim: set fileencoding=utf-8
 
 from sys import argv
+
 import cython
 
 # taken from Fractint
