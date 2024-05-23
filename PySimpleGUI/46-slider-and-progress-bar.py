@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 
 # ovládací prvky, které se mají zobrazit v okně
 layout = [
-    [sg.Slider((0, 10), orientation='h', tick_interval=1, s=(25, 15), default_value=0, key="slider")],
+    [sg.Slider((0, 10), orientation="h", tick_interval=1, s=(25, 15), default_value=0, key="slider")],
     [sg.ProgressBar(10, orientation="h", size=(20, 20), key="progress")],
     [sg.Button("Update")],
 ]
