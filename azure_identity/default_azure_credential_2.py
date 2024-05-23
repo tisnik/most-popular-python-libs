@@ -5,7 +5,7 @@ from openai import AzureOpenAI
 
 # user needs to be logged in via "az" CLI tool
 token_credential = DefaultAzureCredential()
-token = token_credential.get_token('https://cognitiveservices.azure.com/.default')
+token = token_credential.get_token("https://cognitiveservices.azure.com/.default")
 
 client = AzureOpenAI(
     api_version="2024-02-15-preview",
