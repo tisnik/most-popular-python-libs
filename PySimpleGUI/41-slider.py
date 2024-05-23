@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 
 # ovládací prvky, které se mají zobrazit v okně
 layout = [
-    [sg.Text("Slider"), sg.Slider((0, 10), orientation='h', s=(20, 15), key="slider")],
+    [sg.Text("Slider"), sg.Slider((0, 10), orientation="h", s=(20, 15), key="slider")],
     [sg.Submit()],
 ]
 
