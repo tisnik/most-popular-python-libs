@@ -52,14 +52,14 @@ results
 # ### Set plot size
 import matplotlib as mpl
 
-mpl.rcParams['figure.dpi'] = 150
+mpl.rcParams["figure.dpi"] = 150
 xticks=df.index
 
 
 # ### Plot results
 
 # Startup times
-results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
+results[0:5].plot(kind="bar", stacked=False, width=0.9, title="Startup time",
                   color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
                          "#ff0000", "#ff8000",
@@ -67,7 +67,7 @@ results[0:5].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
 
 
 # Computation with some startup time influence
-results[5:10].plot(kind='bar', stacked=False, width=0.9,
+results[5:10].plot(kind="bar", stacked=False, width=0.9,
                    title="Computation with startup time influence", color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
                          "#ff0000", "#ff8000",
@@ -77,7 +77,7 @@ plt.show()
 
 
 # Just the computation, w/o startup time
-results[10:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation", color=["#a00000", "#a0a000",
+results[10:].plot(kind="bar", stacked=False, width=0.9, title="Extensive computation", color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
                          "#ff0000", "#ff8000",
                          "#0000ff", "#0060ff", "#00c0ff"])
