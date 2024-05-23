@@ -62,7 +62,7 @@ results
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-mpl.rcParams['figure.dpi'] = 150
+mpl.rcParams["figure.dpi"] = 150
 
 
 # ### Plot results
@@ -70,14 +70,14 @@ mpl.rcParams['figure.dpi'] = 150
 # In[97]:
 
 
-results[0:3].plot(kind='bar', stacked=False, width=0.9, title="Startup time")
+results[0:3].plot(kind="bar", stacked=False, width=0.9, title="Startup time")
 plt.savefig("Startup time.png")
 plt.show()
 
 
 # In[95]:
 
-results[-3:].plot(kind='bar', stacked=False, width=0.9, title="Extensive computation")
+results[-3:].plot(kind="bar", stacked=False, width=0.9, title="Extensive computation")
 plt.savefig("Extensive computation.png")
 plt.show()
 
