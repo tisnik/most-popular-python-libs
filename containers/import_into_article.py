@@ -9,4 +9,4 @@ for line in lines:
         print(x.strip())
     print("</pre>\n")
     a = f"https://github.com/tisnik/most-popular-python-libs/blob/master/containers/{line}"
-    print(f"<p><div class=\"rs-tip-major\">Zdroj: <a href=\"{a}\">{a}</a></div></p>\n")
+    print(f'<p><div class="rs-tip-major">Zdroj: <a href="{a}">{a}</a></div></p>\n')
