@@ -1,6 +1,6 @@
 from array import array
 
-control = array('B', [255, 255, 100, 255, 255])
+control = array("B", [255, 255, 100, 255, 255])
 
 
 @micropython.asm_thumb
