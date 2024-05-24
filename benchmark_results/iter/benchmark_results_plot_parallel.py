@@ -73,7 +73,7 @@ results
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-mpl.rcParams['figure.dpi'] = 150
+mpl.rcParams["figure.dpi"] = 150
 
 
 # ### Plot results
@@ -81,7 +81,7 @@ mpl.rcParams['figure.dpi'] = 150
 # In[97]:
 
 
-results[0:3].plot(kind='bar', stacked=False, width=0.9, title="Startup time",
+results[0:3].plot(kind="bar", stacked=False, width=0.9, title="Startup time",
             color=["#a00000", "#a0a000",
                          "#00c000", "#00c030", "#00c060", "#00c090", "#00c0a0",
                          "#ff0000", "#ff8000",
@@ -94,7 +94,7 @@ plt.show()
 # In[95]:
 
 
-results[-2:].plot(kind='bar', stacked=False, width=0.9,
+results[-2:].plot(kind="bar", stacked=False, width=0.9,
                    title="Computation w/o startup time influence",
                    color=["#a00000", "#a0a000",
                          "#00a000", "#00b030", "#00c060", "#00d090", "#00e0a0",
