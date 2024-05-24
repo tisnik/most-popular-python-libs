@@ -119,7 +119,7 @@ def calc_mandelbrot(width: cython.int, height: cython.int, maxiter: cython.int, 
         cy += 3.0/height
 
 
-apalette = cython.declare(array.array, array.array('B', []))
+apalette = cython.declare(array.array, array.array("B", []))
 
 if __name__ == "__main__":
     if len(argv) < 4:
