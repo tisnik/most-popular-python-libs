@@ -1,7 +1,7 @@
 [tool.ruff]
 #select = ["E", "F", "W", "C", "D"]
-select = ["E", "F", "W", "C"]
-ignore = ["D211", "D213", "E402"]
+lint.select = ["E", "F", "W", "C"]
+lint.ignore = ["D211", "D213", "E402"]
 
 line-length = 140
 
