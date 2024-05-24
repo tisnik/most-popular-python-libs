@@ -11,7 +11,7 @@ for input_file in input_files.input_files:
         with open(output_file, "w") as html_file:
             html_file.write("<table>\n")
             html_file.write(f"<tr><th>Rozlišení</th><th>Čas [s]</th><th>Paměť [kB]</th></tr>\n")
-            csv_reader = csv.reader(csv_file, delimiter=' ')
+            csv_reader = csv.reader(csv_file, delimiter=" ")
             for row in csv_reader:
                 html_file.write(f"<tr><td>{row[0]}&times;{row[0]}</td><td>{row[1]}</td><td>{row[2]}</td></tr>\n")
             html_file.write("</table>\n")
