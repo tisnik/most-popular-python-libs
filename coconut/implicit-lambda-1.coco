@@ -1,0 +1,7 @@
+message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+words = message.split()
+
+filtered = filter(=> len(_) > 4, words)
+
+for word in filtered:
+    print(word)
