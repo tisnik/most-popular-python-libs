@@ -1,0 +1,9 @@
+import random
+
+message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+words = message.split()
+
+filtered = filter(=> random.random() > 0.5, words)
+
+for word in filtered:
+    print(word)
