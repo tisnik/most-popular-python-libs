@@ -613,6 +613,19 @@
 # ## NumPy
 
 # ### Instalace
+# * Nejprve je nutné naimportovat všechny potřebné funkce a konstanty z balíčku `numpy`
+# 
+# #### Používají se následující varianty importu
+# 
+# * `import numpy`
+# 
+# * `import numpy as np`
+# 
+# * `from numpy import *`
+# 
+# * `from numpy import array, linspace`
+# 
+# 
 
 # In[2]:
 
@@ -620,39 +633,68 @@
 import numpy as np
 
 
-# ### Konstruktory
+# ### Konstruktory polí
+#  Postupně si popíšeme následující typy konstruktorů polí typu `ndarray`
+# 
+#  1. `numpy.array()`
+#  1. `numpy.zeros()`
+#  1. `numpy.ones()`
+#  1. `numpy.full()`
+#  1. `numpy.eye()`
+#  1. `numpy.arange()`
+#  1. `numpy.linspace()`
+#  1. `numpy.geomspace()`
+#  1. `numpy.logspace()`
+# 
 
-# In[ ]:
+# #### Příklady použití funkce `numpy.array()`
+
+# In[5]:
 
 
-np.zeros((10,))
+# Vytvoření pole ze seznamu
+np.array([1, 2, 3, 4])
+
+
+# In[7]:
+
+
+# Vytvoření pole z generátoru `range`
+np.array(range(10))
+
+
+# In[9]:
+
+
+# Vytvoření pole z generátoru `range`
+np.array(range(10))
+
+
+# In[10]:
+
+
+# Explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+np.array(range(10), order="C")
 
 
 # In[11]:
 
 
-np.zeros((3,4))
+# Explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+np.array(range(10), order="F")
 
 
 # In[12]:
 
 
-np.zeros((3,4,5))
+# Vytvoření dvourozměrné matice
+# konstrukce pole
+np.array([[1, 2, 3], [4, 5, 6]])
 
 
-# In[13]:
-
-
-x = np.zeros((10,))
-
-
-# In[14]:
-
-
-x
-
-
-# ### Specifikace typů buněk
+# #### Specifikace typů buněk
 # ```
 # ╔════════════╤══════╗
 # ║  Formát    │ Kód  ║
@@ -691,231 +733,498 @@ y = np.array(ls)
 y
 
 
-# ### Další typy konstruktorů polí
+# #### Konstruktor `numpy.zeros`
+# - Vektor nebo matice s nulovými prvky
+# - Poměrně častý požadavek v praxi
+#     - opět lze zvolit interní uspořádání prvků
+# - Volání konstruktoru numpy.zeros
+# ```
+# zeros(shape, dtype=float, order='C')
+# ```
+
+# In[14]:
+
+
+# Jednorozměrný vektor s jediným prvkem
+# konstrukce pole
+np.zeros(1)
+
+
+# In[16]:
+
+
+# Jednorozměrný vektor s deseti prvky
+np.zeros((10))
+
+
+# In[17]:
+
+
+# Matice o velikosti 3x4 prvky
+np.zeros((3,4))
+
+
+# In[18]:
+
+
+# 3D pole
+np.zeros((3,4,5))
+
+
+# In[19]:
+
+
+# Použití komplexních čísel
+np.zeros((2, 2), dtype=complex)
+
+
+# #### Konstruktor `numpy.ones`
+# - Vektor či matice s prvky nastavenými na jedničku
+# - (nejedná se o jednotkovou matici!)
+#     - viz konstruktor `numpy.eye`
+# - Volání konstruktoru numpy.ones
+# ```
+# ones(shape, dtype=None, order='C')
+# ```
+
+# In[20]:
+
+
+# Jednorozměrný vektor s deseti prvky
+np.ones(10)
+
+
+# In[21]:
+
+
+# Matice se třemi řádky a čtyřmi sloupci
+np.ones((3, 4))
+
+
+# In[22]:
+
+
+# Matice se třemi řádky a čtyřmi sloupci s explicitní specifikací typu prvků
+np.ones((3, 4), dtype=int)
+
+
+# In[23]:
+
+
+# Trojrozměrné pole s prvky typu `int`
+np.ones((3, 4, 5), dtype=int)
+
+
+# In[24]:
+
+
+# Komplexní jednotka
+# zde může být použití typu komplexní číslo možná poněkud překvapující ovšem stále platí, že 1=1+0j
+np.ones((3, 2), dtype=complex)
+
+
+# #### Konstruktor `numpy.eye`
+# - Vytvoří se jednotková matice
+# - Uvádí se její velikost
+# - Lze ovšem vytvořit i nečtvercovou matici
 
 # In[25]:
 
 
-np.array(range(10, 20, 3))
+# Matice 1x1 prvek
+np.eye(1)
 
 
 # In[26]:
 
 
-np.ones((5, 6))
+# Matice 5x5 prvků
+np.eye(5)
 
 
 # In[27]:
 
 
-np.ones((5,6), dtype='b')
+# Matice 2x10 prvků
+np.eye(2, 10)
 
+
+# #### Funkce `numpy.arange`
+#  - Array+range
+#  - Podobné jako xrange/range
+#      - ovšem návratovou hodnotou je `ndarray`
 
 # In[28]:
 
 
-np.ones((5,6), dtype='?')
+# Zavolání s jediným parametrem
+# při použití jednoho parametru má tento parametr význam hodnoty „stop“
+# vytvoří se vektor s prvky od 0 do „stop“ (kromě)
+np.arange(10)
 
 
 # In[29]:
 
 
-np.zeros((5,6), dtype='?')
+# Specifikace hodnot „start“ (včetně) a „stop“ (kromě)
+np.arange(10, 20)
+
+
+# In[30]:
+
+
+# Třetí nepovinný parametr určuje krok použitý při generování prvků vektoru
+np.arange(10, 20, 2)
 
 
 # In[31]:
 
 
-np.eye(10)
+# Krok může být samozřejmě záporný
+np.arange(20, 10, -2)
 
 
 # In[32]:
 
 
-np.eye(10, dtype='b')
+# Použití komplexních čísel
+# Nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami
+# typu `float` a `complex`
+np.arange(0, 5, 0.1)
 
 
 # In[33]:
 
 
-np.eye(4, 8)
+# Použití komplexních čísel
+np.arange(0 + 0j, 10 + 10j, 2 + 0j)
 
+
+# #### Funkce `numpy.linspace()`
+# - Při znalosti první a poslední hodnoty ve vektoru
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - počet prvků vektoru (implicitně 50 prvků)
 
 # In[34]:
 
 
-np.arange(10)
+# Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný
+# vektor má mít padesát prvků
+np.linspace(0, 1)
 
 
 # In[35]:
 
 
-np.array(range(10))
+# Explicitní určení počtu prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+# (tím, že se začíná od nuly, získáme krok 0.11111111...)
+np.linspace(0, 1, 10)
 
 
 # In[36]:
 
 
-np.arange(-10, 10)
+# Explicitní určení počtu prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít jedenáct prvků
+np.linspace(0, 1, 11)
+
+
+# In[37]:
+
+
+# Sekvence hodnot samozřejmě může i klesat
+np.linspace(1, 0, 11)
 
 
 # In[38]:
 
 
-np.arange(-10, 10, 3)
+# Použít je možné i komplexní čísla
+np.linspace(0 + 0j, 1 + 0j, 10)
 
 
 # In[39]:
 
 
-np.arange(2.5, 15, 0.7)
+# Použít je možné i komplexní čísla
+np.linspace(0 + 0j, 0 + 1j, 10)
 
+
+# In[40]:
+
+
+# Další možnost použití komplexních čísel
+np.linspace(0 + 0j, 1 + 1j, 10)
+
+
+# #### Funkce numpy.geomspace()
+# - Krok mezi prvky není lineární ale tvoří geometrickou posloupnost
+# - Při znalosti první a poslední hodnoty ve vektoru
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - počet prvků vektoru (implicitně 50 prvků)
 
 # In[41]:
 
 
-range(2, 15, 1)
+# Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný vektor má mít padesát prvků
+np.geomspace(1, 100)
 
 
 # In[42]:
 
 
-np.arange(0, 360, 5)
+# Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+np.geomspace(1, 1000, 10)
 
 
-# ### Posloupnosti
+# In[43]:
+
+
+# Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít šest prvků
+np.geomspace(1, 100000, 6)
+
+
+# #### Funkce numpy.logspace()
+# - Krok mezi prvky není lineární ale tvoří logaritmickou posloupnost
+# - Při znalosti první hodnoty, poslední hodnoty a báze
+# - Nepatrně odlišné od funkce `linspace` a `geomspace`
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - báze (implicitně 10)
+#     - krok je vypočten na základě ln(samples) / ln(base)
 
 # In[44]:
 
 
-np.linspace(0, 10, 10)
+# Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný vektor má mít padesát prvků
+np.logspace(1, 100)
 
 
 # In[45]:
 
 
-np.linspace(10, 1, 10)
+# Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+np.logspace(1, 10, 10)
 
+
+# #### Přetypování prvků v poli
+# - Dva způsoby
+#     - konverzní funkce
+#         - `numpy.float32()`
+#         - `numpy.int32()`
+#         - `numpy.complex128()`
+#         - ...
+#     - použití metody `astype`
 
 # In[46]:
 
 
-np.geomspace(1, 1000, 10)
+# Přetypování na typ `int64`
+
+# konstrukce běžného seznamu
+lst = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+np.int64(lst)
 
 
-# In[49]:
+# In[47]:
 
 
-np.geomspace(1, 100000, 6)
+# Přetypování na typ `float16`
 
+# konstrukce běžného seznamu
+lst = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+np.float16(lst)
+
+
+# In[50]:
+
+
+# Přetypování na vektor celých čísel
+
+# konstrukce pole
+np.linspace(0, 1, 10)
+
+# přetypování na vektor celých čísel (povšimněte si výsledků)
+np.int32(np.linspace(0, 1, 10))
+
+
+# #### Použití metody astype
 
 # In[51]:
 
 
-np.logspace(1, 10, 2)
+# konstrukce pole
+a = np.arange(0, 10)
+
+# konverze
+b = a.astype(np.complex64)
+
+# tisk typu a obsahu původního pole
+print(type(a))
+print(a.dtype)
+print(a)
+
+# tisk typu a obsahu zkonvertovaného pole
+print(type(b))
+print(b.dtype)
+print(b)
 
 
-# In[52]:
+# ### Zjištění počtu dimenzí a tvaru pole
+# 
+# - Atribut `ndim`
+# - Atribut `shape`
+# - Funkce `numpy.shape()`
+
+# In[55]:
 
 
-x = np.arange(-10, 10, 3)
+# Zjištění počtu dimenzí a tvaru 1D pole
+
+# jednorozměrný vektor
+a = np.array([1, 2, 3])
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
 
 
-# In[53]:
+# In[56]:
 
 
-x
+# Zjištění počtu dimenzí a tvaru 2D pole
 
+# dvourozměrné pole
+a = np.eye(5)
 
-# In[54]:
+# počet dimenzí vektoru
+print(a.ndim)
 
+# tvar vektoru
+print(a.shape)
 
-np.float32(x)
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
 
 
 # In[57]:
 
 
-x.astype('b')
+# Zjištění počtu dimenzí tvaru 3D pole
 
+# trojrozměrné pole
+a = np.ones((3, 4, 5), dtype=int)
 
-# In[58]:
+# počet dimenzí vektoru
+print(a.ndim)
 
+# tvar vektoru
+print(a.shape)
 
-x
+# typ prvků
+print(a.dtype.name)
 
+# velikost prvků v bajtech
+print(a.itemsize)
 
-# ### Zjištění informací o poli
+# velikost pole (počet prvků)
+print(a.size)
+
 
 # In[59]:
 
 
-x.dtype
+x = np.arange(10)
 
 
 # In[60]:
 
 
-x.astype('b').dtype
-
-
-# ### Počet dimenzí a tvar polí
-
-# In[61]:
-
-
 x.ndim
 
 
-# In[62]:
+# In[61]:
 
 
 x.shape
 
 
-# In[73]:
+# In[62]:
 
 
 y = np.zeros((6, 10))
 
 
-# In[74]:
+# In[63]:
 
 
 y
 
 
-# In[75]:
+# In[64]:
 
 
 y.ndim
 
 
-# In[76]:
+# In[65]:
 
 
 y.shape
 
 
-# In[78]:
+# In[66]:
 
 
 x.size
 
 
-# In[79]:
+# In[67]:
 
 
 x.itemsize
 
 
-# In[80]:
+# In[68]:
 
 
 y.size
 
 
-# In[81]:
+# In[69]:
 
 
 y.itemsize
