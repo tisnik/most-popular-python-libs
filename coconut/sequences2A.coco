@@ -1,0 +1,12 @@
+print(reduce((x, acc) => acc * x, range(1, 10)))
+
+print(list(takewhile(x => x<10, range(100))))
+
+print(list(dropwhile(x => x<10, range(100))))
+
+print(list(takewhile(x => x<10, (count()))))
+
+print(list(takewhile(x => x<10, (count(0)))))
+
+print(list(takewhile(x => x<10, (count(0,2)))))
+
