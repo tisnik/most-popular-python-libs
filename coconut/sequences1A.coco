@@ -1,0 +1,15 @@
+print(map(x => x*2, [1, 2, 3, 4]))
+print(list(map(x => x*2, [1, 2, 3, 4])))
+print(fmap(x => x*2, [1, 2, 3, 4]))
+
+print()
+
+print(map(x => x*2, (1, 2, 3, 4)))
+print(list(map(x => x*2, (1, 2, 3, 4))))
+print(fmap(x => x*2, (1, 2, 3, 4)))
+
+print()
+
+print(map(x => x*2, range(10)))
+print(list(map(x => x*2, range(10))))
+print(fmap(x => x*2, range(10)))
