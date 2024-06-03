@@ -147,16 +147,19 @@
 # 
 # ---
 # 
-# ## NumPy
+# ### Knihovna NumPy
 # 
-# * výslovnosti
+# - Výslovnosti
 #     - [nəmpᴧɪ]
 #     - [nəmpi]
-# * historie
+# - Historie
 #     - matrix package
 #     - Numeric
 #     - NumPy
-# * Kooperace s dalšími knihovnami a frameworky
+# - Podpora pro n-dimenzionální pole
+#     - + nové funkce
+#     - + nové (přetížené) operátory
+# - Kooperace s dalšími knihovnami a frameworky
 #     - SciPy
 #     - Matplotlib
 #     - OpenCV
@@ -175,9 +178,8 @@
 #     - změna tvaru pole (počet dimenzí, tvar)
 # 
 # ---
-# 
-# ### Nativní (skalární) datové typy
-# 
+# ### Skalární datové typy
+# - <https://docs.scipy.org/doc/numpy/user/basics.types.html>
 # ```
 # ╔════════════╤═══════════════════════════╤═══════════════════════════════╗
 # ║ Formát     │ Popis                     │ Rozsah                        ║
@@ -204,38 +206,143 @@
 # ╚════════════╧═══════════════════════════╧═══════════════════════════════╝
 # ```
 # 
-# ---
+# ### Kódy skalárních datových typů
+# - jednoznakové kódy je možné použít namísto jména typu
+# ```
+# ╔════════════╤══════╗
+# ║  Formát    │ Kód  ║
+# ╟────────────┼──────╢
+# ║ formát     │ kód  ║
+# ║ bool       │ '?'  ║
+# ║ int8       │ 'b'  ║
+# ║ int16      │ 'h'  ║
+# ║ int32      │ 'i'  ║
+# ║ int64      │ 'l'  ║
+# ║ uint8      │ 'B'  ║
+# ║ uint16     │ 'H'  ║
+# ║ uint32     │ 'I'  ║
+# ║ uint64     │ 'L'  ║
+# ║ float16    │ 'e'  ║
+# ║ float32    │ 'f'  ║
+# ║ float64    │ 'd'  ║
+# ║ complex64  │ 'F'  ║
+# ║ complex128 │ 'D'  ║
+# ╚════════════╧══════╝
+# ```
+# 
+# ### Datový typ single
+# ```
+# Celkový počet bitů (bytů):   32 (4)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:            8
+# Bitů pro mantisu:            23
+# ```
+# 
+# ### Datový typ double
+# ```
+# Celkový počet bitů (bytů):   64 (8)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:           11
+# Bitů pro mantisu:            52
+# ```
+# 
+# ### Datový typ float16
+# ```
+# Celkový počet bitů (bytů):   16 (2)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:            5
+# Bitů pro mantisu:            10
+# BIAS (offset exponentu):     15
+# Přesnost:                    5-6 číslic
+# Maximální hodnota:           65504
+# Minimální hodnota:          -65504
+# Nejmenší kladná nenulová hodnota:      5,960×10⁻⁸
+# Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
+# ```
 # 
 # ### N-dimenzionální pole
-# 
 # ![numpy_arrays.png](images/numpy_arrays.png)
 # 
-# ---
-# 
-# ### N-dimenzionální pole
-# 
-# * Představuje obecné n-dimenzionální pole
-# * Interní způsob uložení dat zcela odlišný od Pythonovských seznamů či n-tic
+# ### Datová struktura ndarray
+# - Představuje obecné n-dimenzionální pole
+# - Interní způsob uložení dat zcela odlišný od Pythonovských seznamů či n-tic
 #     - „pohled“ na kontinuální blok hodnot
-# * Homogenní datová struktura
+# - Homogenní datová struktura
 #     - menší flexibilita
 #     - menší paměťové nároky
 #     - vyšší výpočetní rychlost díky použití nativního kódu
 #     - obecně lepší využití cache a rychlejší přístup k prvkům
-# * Základní strukturovaný datový typ knihovny NumPy
-# 
-# ---
-# 
-# ### N-dimenzionální pole
-# 
-# * Volitelný typ prvků
-# * Volitelný počet dimenzí
+# - Základní strukturovaný datový typ knihovny NumPy
+# - Volitelný počet dimenzí
 #     - vektory
 #     - matice
 #     - pole s větším počtem dimenzí
-# * Volitelné uspořádání prvků
+# - Volitelný typ prvků
+# - Volitelné uspořádání prvků
 #     - podle zvyklostí jazyka Fortran
 #     - podle zvyklostí jazyka C
+# 
+# ### Tvar (shape) n-dimenzionálního pole
+# - Popisuje organizaci a uspořádání prvků v poli
+#     - n-tice obsahující rozměry pole v jednotlivých dimenzích
+# - Příklady tvarů
+#     - `(10,)` - vektor s deseti prvky
+#     - `(2, 3)` - dvourozměrná matice se dvěma řádky a třemi sloupci
+#     - `(2, 3, 4)` - trojrozměrné pole
+# - Tvar je možné zjistit
+#     - atribut „shape“
+#     - funkce `numpy.shape()`
+# - Tvar je možné změnit
+#     - funkce `numpy.reshape()`
+# 
+# ### Konstrukce n-dimenzionálních polí
+# - Několik typů konstruktorů
+#     - `numpy.array()`
+#     - `numpy.zeros()`
+#     - `numpy.ones()`
+#     - `numpy.full()`
+#     - `numpy.eye()`
+#     - `numpy.arange()`
+#     - `numpy.linspace()`
+#     - `numpy.geomspace()`
+#     - `numpy.logspace()`
+# - Konverzní funkce
+#     - `numpy.matrix()`
+# 
+# ### Konstruktor numpy.array
+# - parametry
+# `array(object, dtype=None, copy=True, order=None, subok=False, ndmin=0)`
+# 
+# ### Order
+# ```
+# ╔═════════╤════════════════════════════════════╗
+# ║ Hodnota │ Význam                             ║
+# ╟─────────┼────────────────────────────────────╢
+# ║ 'C'     │ prvky jsou interně uspořádány jako ║
+# ║         │ v programovacím jazyku C           ║
+# ║         │                                    ║
+# ║ 'F'     │ prvky jsou interně uspořádány jako ║
+# ║         │ v programovacím jazyku Fortran     ║
+# ║         │                                    ║
+# ║ 'A'     │ ponecháme na implementaci, který   ║
+# ║         │ způsob uspořádání interně zvolit   ║
+# ╚═════════╧════════════════════════════════════╝
+# ```
+# 
+# ### Order - rozdíl v uspořádání
+# - 2D matice tak, jak ji vidí uživatel (logická struktura)
+# ```
+# | 1 2 3 |
+# | 4 5 6 |
+# | 7 8 9 |
+# ```
+# 
+# - Uložení v operační paměti
+# ```
+# 1 2 3 4 5 6 7 8 9 - 'C'
+# 1 4 7 2 5 8 3 6 9 - 'F'
+# ```
+# 
 # 
 # ---
 # 
@@ -546,6 +653,27 @@ x
 
 
 # ### Specifikace typů buněk
+# ```
+# ╔════════════╤══════╗
+# ║  Formát    │ Kód  ║
+# ╟────────────┼──────╢
+# ║ formát     │ kód  ║
+# ║ bool       │ '?'  ║
+# ║ int8       │ 'b'  ║
+# ║ int16      │ 'h'  ║
+# ║ int32      │ 'i'  ║
+# ║ int64      │ 'l'  ║
+# ║ uint8      │ 'B'  ║
+# ║ uint16     │ 'H'  ║
+# ║ uint32     │ 'I'  ║
+# ║ uint64     │ 'L'  ║
+# ║ float16    │ 'e'  ║
+# ║ float32    │ 'f'  ║
+# ║ float64    │ 'd'  ║
+# ║ complex64  │ 'F'  ║
+# ║ complex128 │ 'D'  ║
+# ╚════════════╧══════╝
+# ```
 
 # In[6]:
 
