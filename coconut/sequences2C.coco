@@ -1,0 +1,12 @@
+reduce((x, acc) => acc *  x, range(1, 10)) |> print
+
+takewhile( => _<10, range(100)) |> list |> print
+
+dropwhile( => _<10, range(100)) |> list |> print
+
+takewhile( => _<10, (count())) |> list |> print
+
+takewhile( => _<10, (count(0))) |> list |> print
+
+takewhile( => _<10, (count(0,2))) |> list |> print
+
