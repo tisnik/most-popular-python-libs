@@ -1,0 +1,6 @@
+operator ⊕
+
+def x ⊕  y: return x % y
+
+for i in range(1, 10):
+    print(10 ⊕  i)
