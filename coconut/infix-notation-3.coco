@@ -1,0 +1,10 @@
+print("hello" `isinstance` str)
+
+factorial = n => reduce((a, b) => a*b, range(1, n+1), 1)
+
+def n `nad` k:
+    return factorial(n)/(factorial(k)*factorial(n-k))
+
+for k in range(5):
+    4 `nad` k |> print
+
