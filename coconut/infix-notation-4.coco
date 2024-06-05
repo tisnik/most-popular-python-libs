@@ -1,0 +1,8 @@
+def add(a, b):
+    return a+b
+
+def mul(x, y):
+    return x * y
+
+1 `add` 2 `mul` 3 |> print
+1 `add` (2 `mul` 3) |> print
