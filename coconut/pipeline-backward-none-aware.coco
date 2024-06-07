@@ -1,0 +1,3 @@
+print <?| None
+
+print <?| (abs <?| None)
