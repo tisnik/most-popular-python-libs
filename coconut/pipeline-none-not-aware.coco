@@ -1,0 +1,15 @@
+None |> print
+
+None |> abs |> print
+ 
+None |> ord |> abs |> hex |> print
+
+None |> sum |> print
+
+None |> reversed |> sum |> print
+
+def evens(sequence):
+    return filter(lambda x: x % 2 == 0, sequence)
+
+None |> evens |> sum |> print
+
