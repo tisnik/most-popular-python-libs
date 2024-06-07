@@ -1,0 +1,13 @@
+print(None |?> abs)
+ 
+print(None |?> ord |?> abs |?> hex)
+
+print(None |?> sum)
+
+print(None |?> reversed |?> sum)
+
+def evens(sequence):
+    return filter(lambda x: x % 2 == 0, sequence)
+
+print(None |?> evens |?> sum)
+
