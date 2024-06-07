@@ -694,7 +694,7 @@ np.array(range(10), order="F")
 np.array([[1, 2, 3], [4, 5, 6]])
 
 
-# #### Specifikace typů buněk
+# #### Specifikace typů buněk při konstrukci polí
 # ```
 # ╔════════════╤══════╗
 # ║  Formát    │ Kód  ║
@@ -849,7 +849,7 @@ np.eye(5)
 np.eye(2, 10)
 
 
-# #### Funkce `numpy.arange`
+# #### Konstruktor `numpy.arange`
 #  - Array+range
 #  - Podobné jako xrange/range
 #      - ovšem návratovou hodnotou je `ndarray`
@@ -900,7 +900,7 @@ np.arange(0, 5, 0.1)
 np.arange(0 + 0j, 10 + 10j, 2 + 0j)
 
 
-# #### Funkce `numpy.linspace()`
+# #### Konstruktor `numpy.linspace()`
 # - Při znalosti první a poslední hodnoty ve vektoru
 # - Zadává se
 #     - počáteční hodnota
@@ -961,7 +961,7 @@ np.linspace(0 + 0j, 0 + 1j, 10)
 np.linspace(0 + 0j, 1 + 1j, 10)
 
 
-# #### Funkce numpy.geomspace()
+# #### Konstruktor `numpy.geomspace()`
 # - Krok mezi prvky není lineární ale tvoří geometrickou posloupnost
 # - Při znalosti první a poslední hodnoty ve vektoru
 # - Zadává se
@@ -993,7 +993,7 @@ np.geomspace(1, 1000, 10)
 np.geomspace(1, 100000, 6)
 
 
-# #### Funkce numpy.logspace()
+# #### Konstruktor `numpy.logspace()`
 # - Krok mezi prvky není lineární ale tvoří logaritmickou posloupnost
 # - Při znalosti první hodnoty, poslední hodnoty a báze
 # - Nepatrně odlišné od funkce `linspace` a `geomspace`
@@ -1019,7 +1019,7 @@ np.logspace(1, 100)
 np.logspace(1, 10, 10)
 
 
-# #### Přetypování prvků v poli
+# ### Přetypování prvků v poli
 # - Dva způsoby
 #     - konverzní funkce
 #         - `numpy.float32()`
@@ -1064,7 +1064,7 @@ np.linspace(0, 1, 10)
 np.int32(np.linspace(0, 1, 10))
 
 
-# #### Použití metody astype
+# #### Použití metody `astype`
 
 # In[51]:
 
@@ -1230,7 +1230,49 @@ y.size
 y.itemsize
 
 
-# ### Změna tvaru polí
+# ### Tisk velkých polí
+
+# In[15]:
+
+
+# konstrukce velkého pole
+a = np.arange(10000).reshape(100, 100)
+
+# tisk velkého pole
+print(a)
+
+
+# ### Změna tvaru pole
+#  - Funkce `numpy.reshape()`
+#      - nevytváří nové pole s jiným tvarem
+#      - „pouze“ změna pohledu na pole
+#      - ⇒ nelze měnit počet prvků
+
+# In[5]:
+
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = np.array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na 3x2 prvky
+b = np.reshape(a, (3, 2))
+
+
+# In[6]:
+
+
+# tisk původní matice
+a
+
+
+# In[7]:
+
+
+# tisk nové matice
+b
+
+
+# #### Změna tvaru většího pole
 
 # In[83]:
 
@@ -1274,105 +1316,187 @@ z.reshape(3, 2, 4)
 a = np.arange(10000).reshape(100, 100)
 
 
+# #### Vliv parametru order na (zdánlivou) změnu tvaru pole
+# - Parametr „order“ použit u konstruktoru `numpy.array()`
+# - Lze použít i u `numpy.reshape()`
+#     - opět změna pohledu
+#     - nikoli reorganizace prvků v paměti
+
+# In[10]:
+
+
+# vyzkoušíme význam nepovinného parametru order
+# původní matice
+a = np.reshape(np.arange(0, 24), (6, 4))
+
+# tisk původní matice
+print(a)
+
+
+# In[11]:
+
+
+# původní matice s uspořádáním dle jazyka C
+c = np.reshape(np.arange(0, 24), (6, 4), order="C")
+
+# tisk původní matice
+print(c)
+
+
+# In[12]:
+
+
+# původní matice s uspořádáním dle Fortranu
+f = np.reshape(np.arange(0, 24), (6, 4), order="F")
+
+# tisk původní matice
+print(f)
+
+
 # ### Přístup k prvkům polí
 
-# In[95]:
-
-
-a
-
-
-# In[15]:
-
-
-x
-
+# #### Jednorozměrné pole
 
 # In[16]:
 
 
-x[0]
+# jednorozměrná pole - vektory
+a = np.arange(12)
 
 
 # In[17]:
 
 
-x[4]
+# tisk původního pole
+a
 
 
 # In[18]:
 
 
-x[100]
+# indexování prvků od nuly
+a[0]
 
 
-# In[100]:
+# In[19]:
 
 
-x[-1]
+# indexování prvků od nuly
+a[5]
 
 
-# In[101]:
+# In[20]:
 
 
-x[-2]
+# indexovat lze i od konce pole
+a[-1]
 
 
-# In[104]:
+# In[21]:
+
+
+# indexovat lze i od konce pole
+a[-5]
+
+
+# #### Dvourozměrné pole
+
+# In[22]:
+
+
+# dvourozměrná pole - matice
+a = np.reshape(np.arange(12), (3, 4))
+
+
+# In[23]:
+
+
+# tisk původního pole
+a
+
+
+# In[24]:
+
+
+# přístup k prvkům: řádek/sloupec
+a[0][2]
+
+
+# In[25]:
+
+
+# přístup k prvkům: řádek/sloupec
+a[2][0]
+
+
+# In[26]:
+
+
+a = np.arange(10000).reshape(100, 100)
+
+
+# #### Výsledkem výběru může být jiné pole
+
+# In[39]:
 
 
 a = np.reshape(np.arange(12), (3, 4))
 
 
-# In[105]:
+# In[40]:
 
 
 a
 
 
-# In[106]:
+# In[41]:
 
 
+# výběr z dvourozměrného pole může být též pole
 a[1]
 
 
-# In[107]:
+# In[42]:
 
 
+# výběr z dvourozměrného pole může být též pole
 a[-1]
 
 
-# In[108]:
+# In[43]:
 
 
+# dvojí indexace = výsledkem je prvek
 a[1][3]
 
 
-# In[109]:
+# In[44]:
 
 
+# dvojí indexace = výsledkem je prvek
 a[1,3]
 
 
-# In[110]:
+# In[45]:
 
 
+# nyní si vyzkoušíme trojrozměrná pole
 b = np.reshape(np.arange(24), (2, 3, 4))
 
 
-# In[111]:
+# In[46]:
 
 
 b
 
 
-# In[112]:
+# In[47]:
 
 
 b[1, 0, -1]
 
 
-# In[113]:
+# In[48]:
 
 
 b[1]
@@ -1380,29 +1504,88 @@ b[1]
 
 # ### Adresování prvků obsahem jiného pole
 
-# In[115]:
+# #### Kladné indexy
+
+# In[49]:
 
 
+# pole, ze kterého budeme vybírat
 a = np.arange(12)
 
 
-# In[116]:
+# In[50]:
 
 
 a
 
 
-# In[119]:
+# In[55]:
 
 
+# pole indexů
+b = np.array([1, 2, 9, 8, 5])
+
+
+# In[56]:
+
+
+# výběr celým polem
+a[b]
+
+
+# #### Záporné indexy
+
+# In[53]:
+
+
+# pole, ze kterého budeme vybírat
+a = np.arange(12)
+
+
+# In[54]:
+
+
+a
+
+
+# In[57]:
+
+
+# pole indexů
 b = np.array([-1, 2, -9, -8, 5])
 
 
-# In[120]:
+# In[58]:
 
 
+# výběr celým polem
 a[b]
 
+
+# #### Výběr prvků z 2D pole pomocí indexů uložených v jiném poli
+
+# In[59]:
+
+
+# původní 2D pole
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+
+# In[61]:
+
+
+# pro nové pole s prohozenými řádky
+b = np.array([0, 2, 1])
+
+
+# In[63]:
+
+
+# výběr celých řádků z pole
+a[b]
+
+
+# #### Výběr dvourozměrným polem
 
 # In[121]:
 
@@ -1434,53 +1617,94 @@ i
 c[i]
 
 
-# In[129]:
+# ### Slicing
+
+# In[71]:
+
+
+# původní pole
+a = np.arange(0, 12)
+
+
+# In[65]:
 
 
 a
 
 
-# In[130]:
+# In[72]:
 
 
+# řez polem
 a[3:7]
 
 
-# In[131]:
+# In[73]:
 
 
+# povoleny jsou i záporné indexy
 a[3:-3]
 
 
-# In[132]:
+# In[74]:
 
 
+# jeden z indexů lze vynechat
 a[3:]
 
 
-# In[133]:
+# In[75]:
 
 
+# jeden z intexů lze vynechat
 a[:5]
 
 
-# In[134]:
+# In[76]:
 
 
+# kopie původního pole
 a[:]
 
 
-# In[135]:
+# In[77]:
 
 
+# jedna z možností vytvoření prázdného řezu
 a[0:0]
 
 
-# In[136]:
+# #### Specifikace kroku
+
+# In[82]:
 
 
+# specifikovat je možné i krok
+a[2:-2:1]
+
+
+# In[83]:
+
+
+# specifikovat je možné i krok
+a[2:-2:2]
+
+
+# In[84]:
+
+
+# specifikovat je možné i krok
 a[2:-2:3]
 
+
+# In[85]:
+
+
+# pouze krok
+a[::2]
+
+
+# #### Řezy vícerozměrných polí
 
 # In[137]:
 
@@ -1512,9 +1736,10 @@ c[0:-1]
 c[0::2]
 
 
-# In[147]:
+# In[86]:
 
 
+# specifikace kroku - sudé sloupce, sudé řádky
 c[0::2, 0::2]
 
 
@@ -1536,260 +1761,433 @@ c
 c[0::2, 0::2]
 
 
-# ### Broadcasting a operace nad celými poli
+# ### Operátory
+# - Základní operátory jsou přetížené
+# - Prvky matice + skalár
+# - Prvky dvou matic
 
-# In[165]:
+# #### Broadcasting a operace nad celými poli
 
+# #### Přičtení hodnoty ke všem prvkům matice
 
-x = np.array([1,2,3])
+# In[88]:
 
 
-# In[166]:
+# konstrukce pole
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# provedení operace
+b = a + 100
 
-y = np.array([5,6,7])
+# tisk původního pole
+print(a)
 
+# tisk nového pole
+print(b)
 
-# In[167]:
 
+# #### Vynásobení prvků matice dvěma
 
-x
+# In[89]:
 
 
-# In[168]:
+# konstrukce pole
+a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# provedení operace
+b = a * 2
 
-y
+# tisk původního pole
+print(a)
 
+# tisk nového pole
+print(b)
 
-# In[171]:
 
+# #### Podíl prvek po prvku
 
-x*y
+# In[90]:
 
 
-# In[172]:
+# konstrukce pole
+a = np.reshape(np.arange(25), (5, 5))
 
+# provedení operace
+b = a % 2
 
-10+x
+# tisk původního pole
+print(a)
 
+# tisk nového pole
+print(b)
 
-# In[173]:
 
+# #### Operátory pro práci s celými poli
 
-2*x
+# In[91]:
 
 
-# In[174]:
+# první pole
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# druhé pole
+a2 = np.eye(3)
 
-c = np.arange(100).reshape(10,10)
+# součet prvek po prvku
+c = a1 + a2
 
+# tisk nového pole
+print(c)
 
-# In[175]:
 
+# #### Různé kombinace operátorů
 
-c
+# In[92]:
 
 
-# In[176]:
+# první pole
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# druhé pole
+a2 = np.eye(3)
 
-c-50
+# operace
+c = a1 * 10 + a2 * 20
 
+# tisk nového pole
+print(c)
 
-# In[177]:
 
+# #### Modifikace matice s využitím operátorů += atd.
 
-c+c
+# In[93]:
 
 
-# In[178]:
+# původní matice
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# tisk matice
+print(a1)
 
-c
+# provedení operace
+a1 += 100
 
+# tisk výsledku operace
+print(a1)
 
-# In[181]:
 
+# #### Násobení matic
+# - operátor `@`, nikoli `*`
+# - `*` má jiný význam
 
-c *= 10
+# In[94]:
 
 
-# In[182]:
+# původní matice
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# původní matice
+a2 = np.eye(3)
 
-c
+# - Násobení prvek po prvku
+c = a1 * a2
 
+# tisk výsledku operace
+print(c)
 
-# In[193]:
 
+# #### Maticový součin
 
-a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11,12]])
+# In[95]:
 
 
-# In[194]:
+# původní matice
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# původní matice
+a2 = np.eye(3)
 
-a1
+# maticový součin
+c = a1 @ a2
 
+# tisk výsledku operace
+print(c)
 
-# In[198]:
 
+# #### Maticový součin - nejednotková matice
 
-a2 = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+# In[97]:
 
 
-# In[199]:
+# původní matice
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
+# původní matice
+a2 = np.eye(3)
 
-a2
+# změna prvku původně jednotkové matice
+a2[1][1] = -1
 
+# tisk výsledku operace
+print(a1 @ a2)
 
-# ### Operátor maticového součinu
+# maticový součin
+c = a1 @ a2
 
-# In[200]:
-
-
-a1@a2
+# tisk výsledku operace
+print(c)
 
 
 # ### Modul lineární algebry
 
-# In[206]:
+# #### Výpočet determinantu
+
+# In[100]:
 
 
 import numpy.linalg as l
 
 
-# In[203]:
+# In[101]:
 
 
 m = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 1]])
 
 
-# In[204]:
+# In[102]:
 
 
 m
 
 
-# In[207]:
+# In[103]:
 
 
 l.det(m)
 
 
-# In[208]:
+# #### Výpočet inverzní matice
+
+# In[104]:
+
+
+m = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 1]])
+
+
+# In[105]:
 
 
 l.inv(m)
 
 
+# #### Otestování - výsledkem musí být jednotková matice
+
+# In[109]:
+
+
+# původní matice
+a = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 1]])
+
+# výpočet inverzní matice
+inverse = l.inv(a)
+
+# zpětný výpočet
+c = np.dot(a, inverse)
+
+print(c)
+
+
 # ### Broadcasting podmínky
 
-# In[209]:
+# In[110]:
 
 
+a = np.arange(1, 12)
 a
 
 
-# In[210]:
+# In[112]:
+
+
+a == 5
+
+
+# In[111]:
 
 
 a < 5
 
 
-# In[211]:
+# In[113]:
 
 
+c = np.arange(10000).reshape(100, 100)
 c
 
 
-# In[212]:
+# In[114]:
 
 
 c < 5000
 
 
-# In[213]:
+# #### Porovnání dvou polí
+
+# In[115]:
 
 
+a = np.arange(1, 12)
 a
 
 
-# In[218]:
+# In[119]:
 
 
-b = np.array([0, 1, 2, 10, 20, 30, 7, 0, 0, 11, 11, 11])
+b = np.array([0, 1, 2, 10, 20, 30, 7, 0, 0, 11, 11])
 
 
-# In[219]:
+# In[120]:
 
 
 b
 
 
-# In[220]:
+# In[121]:
 
 
 a == b
 
 
-# In[221]:
+# In[122]:
 
 
 a < b
 
 
-# In[222]:
+# In[123]:
 
 
 a
 
 
-# In[223]:
+# In[124]:
 
 
 a < 6
 
 
-# In[224]:
+# In[125]:
 
 
 a[a<6]
 
 
-# In[226]:
+# In[126]:
 
 
 a%2==0
 
 
+# #### Porovnávání a matice
+
+# In[ ]:
+
+
+# původní vektor
+a = np.arange(24)
+
+# konstrukce matice
+b = np.reshape(a, (6, 4))
+
+
+# In[129]:
+
+
+# tisk výsledku operace
+b < 10
+
+
+# In[130]:
+
+
+# tisk výsledku operace
+b % 2 == 1
+
+
 # ### Broadcasting podmínky + výběr prvků booleovským polem
+# -> filtrace
 
-# In[227]:
+# In[131]:
 
 
+a = np.arange(0, 12)
 a[a%2==0]
 
 
-# In[228]:
+# In[135]:
+
+
+a[a < 6]
+
+
+# In[132]:
 
 
 c = np.reshape(np.arange(100, 125), (5, 5))
 
 
-# In[229]:
+# In[133]:
 
 
 c
 
 
-# In[231]:
+# In[134]:
 
 
 c[c % 3 == 0]
+
+
+# #### Ovšem pozor u vícerozměrných polí
+
+# In[138]:
+
+
+# původní pole
+a = np.reshape(np.arange(100, 125), (5, 5))
+
+# filtrací zíkáme jednorozměrný vektor
+a[a % 2 == 0]
+
+
+# In[139]:
+
+
+#### Výpočet sumy, minima a maxima
+
+
+# In[141]:
+
+
+a = np.arange(0, 10)
+
+
+# In[142]:
+
+
+a.sum()
+
+
+# In[143]:
+
+
+a.min()
+
+
+# In[144]:
+
+
+a.max()
 
 
 # ### Operace prováděné nad celými osami
@@ -1810,12 +2208,6 @@ a1.min(axis=1)
 
 
 a1.max(axis=1)
-
-
-# In[235]:
-
-
-a1.max()
 
 
 # In[241]:
@@ -1842,7 +2234,15 @@ a1
 a1-5
 
 
-# In[245]:
+# #### Universální funkce a operátory
+
+# In[145]:
+
+
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+
+# In[146]:
 
 
 np.abs(a1-5)
