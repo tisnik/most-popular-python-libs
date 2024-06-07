@@ -1768,6 +1768,19 @@ c[0::2, 0::2]
 
 # #### Broadcasting a operace nad celými poli
 
+# In[5]:
+
+
+# Padesát hodnot v zadaném intervalu
+a =np.linspace(0, np.pi / 2)
+
+# Výpočet sinů těchto hodnot
+b = np.sin(a)
+
+# tisk výsledku operace
+b
+
+
 # #### Přičtení hodnoty ke všem prvkům matice
 
 # In[88]:
@@ -1880,6 +1893,8 @@ print(a1)
 # - operátor `@`, nikoli `*`
 # - `*` má jiný význam
 
+# #### Součin prvek po prvku
+
 # In[94]:
 
 
@@ -1938,11 +1953,36 @@ c = a1 @ a2
 print(c)
 
 
+# #### Funkce vyššího řádu apply_along_axis
+# - (Anonymní) funkce, které se předává řádek/sloupec/matice n-1 dimenze
+# - Opět se specifikuje osa
+
+# In[6]:
+
+
+# původní pole
+a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+
+# In[7]:
+
+
+# aplikace anonymní funkce
+np.apply_along_axis(lambda v: v[1], 0, a1)
+
+
+# In[8]:
+
+
+# aplikace anonymní funkce
+np.apply_along_axis(lambda v: v[1], 1, a1)
+
+
 # ### Modul lineární algebry
 
 # #### Výpočet determinantu
 
-# In[100]:
+# In[12]:
 
 
 import numpy.linalg as l
@@ -1995,6 +2035,92 @@ inverse = l.inv(a)
 c = np.dot(a, inverse)
 
 print(c)
+
+
+# #### Vyřešení systému lineárních rovnic
+# - Triviální příklad - jedna rovnice o jedné neznámé
+# - Rovnice 2x = 10
+# - Maticově
+#      - levá strana rovnice
+#      - pravá strana rovnice
+# 
+
+# In[13]:
+
+
+# - Řešení lze získat následovně
+# levá strana rovnice (koeficienty)
+a = np.array([[2]])
+
+# pravá strana rovnice
+b = np.array([10])
+
+# řešení
+c = l.solve(a, b)
+
+# tisk výsledku operace
+c
+
+
+# #### Vyřešení systému lineárních rovnic
+#  - Dvě rovnice o dvou neznámých
+#        x + y = 2
+#        x - y = 0
+#  - Maticově
+#      - levé strany rovnic
+#      - pravé strany rovnic
+# 
+
+# In[14]:
+
+
+# - Řešení lze získat následovně
+# matice koeficientů původních rovnic
+# [1,1] znamená 1*x + 1*y
+a = np.array([[1, 1], [1, -1]])
+
+# matice pravých stran rovnic
+b = np.array([2, 0])
+
+# výpočet
+c = l.solve(a, b)
+
+# tisk výsledku operace
+a
+
+
+# In[15]:
+
+
+# což znamená:
+# x=1
+# y=1
+
+
+# #### Poněkud složitější příklad
+# - Zadání
+# ```
+#     2x₁ + 3x₂ + 7x₃ = 47
+#     3x₁ + 8x₂ +  x₃ = 50
+#           3x₂ + 3x₃ = 27
+# ```
+
+# In[17]:
+
+
+# - Řešení
+
+# matice koeficientů původních rovnic
+a = np.array([[2, 3, 7], [3, 8, 1], [0, 3, 3]])
+
+# matice pravých stran rovnic
+b = np.array([47, 50, 27])
+
+# výpočet
+c = l.solve(a, b)
+
+# tisk výsledku operace
+c
 
 
 # ### Broadcasting podmínky
@@ -2234,104 +2360,52 @@ a1
 a1-5
 
 
-# #### Universální funkce a operátory
-
-# In[145]:
-
-
-a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-
-
-# In[146]:
-
-
-np.abs(a1-5)
-
-
-# In[246]:
-
-
-a = np.linspace(0, np.pi/2)
-
-
-# In[247]:
-
-
-a
-
-
-# In[248]:
-
-
-np.sin(a)
-
-
-# In[249]:
-
-
-a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-
-
-# In[250]:
-
-
-a1
-
-
-# In[251]:
-
-
-a = np.apply_along_axis(lambda v: v[1], 0, a1)
-
-
-# In[252]:
-
-
-a
-
-
-# In[253]:
-
-
-a = np.array([[2]])
-a
-
-
-# In[254]:
-
-
-b = np.array([10])
-
-
-# In[256]:
-
-
-l.solve(a, b)
-
-
-# In[257]:
-
-
-a = np.array([[1, 1], [1, -1]])
-
-
-# In[258]:
-
-
-b = np.array([2, 0])
-
-
-# In[259]:
-
-
-l.solve(a, b)
-
-
-# In[260]:
-
-
-# x=1, y=1
-
+# ### Další podbalíčky, které nalezneme v knihovně NumPy
+#  ```
+#  ╔════════════╤═════════════════════════════════════╗
+#  ║ Podbalíček │ Stručný popis podbalíčku            ║
+#  ╟────────────┼─────────────────────────────────────╢
+#  ║ doc        │ obsahuje dokumentaci ke knihovně i  ║
+#  ║            │ k základním konstrukcím a operacím  ║
+#  ║            │                                     ║
+#  ║ lib        │ základní knihovní funkce používané  ║
+#  ║            │ i některými dalšími podbalíčky      ║
+#  ║            │                                     ║
+#  ║ random     │ funkce pro využití generátorů       ║
+#  ║            │ pseudonáhodných číselných hodnot    ║
+#  ║            │                                     ║
+#  ║ linalg     │ funkce z oblasti lineární algebry   ║
+#  ║            │                                     ║
+#  ║ fft        │ rychlá Fourierova transformace a    ║
+#  ║            │ pomocné funkce související s FFT    ║
+#  ║            │                                     ║
+#  ║ polynomial │ funkce pro práci s polynomy         ║
+#  ║            │                                     ║
+#  ║ testing    │ nástroje pro psaní testů            ║
+#  ║            │                                     ║
+#  ║ f2py       │ (jednosměrné) rozhraní mezi jazyky  ║
+#  ║            │ Fortran a Python                    ║
+#  ║            │                                     ║
+#  ║ distutils  │ další pomocné nástroje, které přímo ║
+#  ║            │ nesouvisí s výpočty nad vektory a   ║
+#  ║            │ maticemi, ale se způsobem           ║
+#  ║            │ balíčkování modulů                  ║
+#  ╚════════════╧═════════════════════════════════════╝
+#  ```
+# 
+
+# #### Odkazy na další informační zdroje
+#  1. NumPy Home Page
+#      - <http://www.numpy.org/>
+#  1. NumPy na Wikipedii
+#      - <https://en.wikipedia.org/wiki/NumPy>
+#  1. Manuál ke knihovně NumPy
+#      - nyní pro verzi 1.26
+#      - <http://docs.scipy.org/doc/numpy/index.html>
+#  1. Release notes
+#      - nyní pro verzi 1.26
+#      - <https://numpy.org/doc/stable/release.html>
+# 
 
 # ## Xarray
 
