@@ -2634,7 +2634,7 @@ array.sel(time="2023-10-02").sel(x=51, y=-51, method="nearest")
 
 # ## Matplotlib
 
-# In[30]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
@@ -2705,17 +2705,17 @@ plt.show()
 
 
 x = np.linspace(0.01, 4*np.pi, 100)
+
 # hodnoty na y-ové ose: první funkce
-
 y1 = np.sin(x)
+
 # hodnoty na y-ové ose: druhá funkce
-
 y2 = np.cos(x)
+
 # hodnoty na y-ové ose: třetí funkce
-
 y3 = np.sin(x)/x
-# vykreslit průběh všech tří funkcí se změnou stylu vykreslování
 
+# vykreslit průběh všech tří funkcí se změnou stylu vykreslování
 plt.plot(x, y1, "b-", label="sin")
 plt.plot(x, y2, "r.", label="cos")
 plt.plot(x, y3, "g--", label="sinc")
@@ -2779,25 +2779,25 @@ plt.ylabel("sin(x) a sinc(3x)")
 plt.show()
 
 
-# In[36]:
+# In[4]:
 
 
 x = np.linspace(0, 2*np.pi, 100)
+
 # hodnoty na y-ové ose: první funkce
-
 y1 = np.sin(x)
+
 # hodnoty na y-ové ose: druhá funkce
-
 y2 = np.cos(x)
-# vykreslit průběh obou funkcí se změnou stylu vykreslování
 
+# vykreslit průběh obou funkcí se změnou stylu vykreslování
 plt.plot(x, y1, "b-", label="sin")
 plt.plot(x, y2, "r-", label="cos")
+
 # přidání legendy
-
 plt.legend(loc="lower left")
-# nastavení rozsahů na obou osách
 
+# nastavení rozsahů na obou osách
 plt.axis([-1, 7, -1.5, 1.5])
 
 
@@ -3380,7 +3380,7 @@ plt.show()
 
 # ### Načtení dat do datového rámce
 
-# In[3]:
+# In[1]:
 
 
 import pandas
@@ -3401,9 +3401,27 @@ print(df.info())
 print()
 
 
+# In[2]:
+
+
+df
+
+
+# In[3]:
+
+
+df.dtypes
+
+
+# In[5]:
+
+
+df.info()
+
+
 # ### Transformace v průběhu načítání dat
 
-# In[4]:
+# In[7]:
 
 
 import pandas
@@ -3430,6 +3448,18 @@ print(df.info())
 print()
 
 
+# In[8]:
+
+
+df
+
+
+# In[9]:
+
+
+df.describe()
+
+
 # ### Agregace výsledků
 
 # In[12]:
@@ -3443,7 +3473,7 @@ df = pandas.read_csv("tiobe.tsv", sep="\t")
 
 # specifikace indexu - má se získat ze sloupce Language
 df.set_index("Language", inplace=True)
-
+ 7.0.3 to 6.5.5 solved 
 # agregace výsledků
 results = df["Ratings"].agg([pandas.Series.min, pandas.Series.max, pandas.Series.sum, pandas.Series.mean])
 
