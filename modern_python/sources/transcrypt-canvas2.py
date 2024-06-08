@@ -1,21 +1,21 @@
-canvas = document.getElementById('canvas')
-context = canvas.getContext('2d')
+canvas = document.getElementById("canvas")
+context = canvas.getContext("2d")
 
-context.fillStyle = 'darkblue'
+context.fillStyle = "darkblue"
 context.beginPath()
 context.moveTo(75, 50)
 context.lineTo(100, 75)
 context.lineTo(100, 25)
 context.fill()
 
-context.fillStyle = 'darkred'
+context.fillStyle = "darkred"
 context.beginPath()
 context.moveTo(225, 50)
 context.lineTo(200, 75)
 context.lineTo(200, 25)
 context.fill()
 
-context.strokeStyle = 'darkgreen'
+context.strokeStyle = "darkgreen"
 context.lineWidth = 10
 context.beginPath()
 context.moveTo(75, 125)
