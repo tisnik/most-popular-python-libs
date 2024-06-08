@@ -1,0 +1,19 @@
+def swap(x=0, y=0):
+    return y, x
+
+
+def sub(x, y):
+    return x - y
+
+
+params = {
+    "x":1,
+    "y":2
+}
+params |**> swap |*> sub |> print
+
+params = {
+    "y":2,
+    "x":1
+}
+params |**> swap |*> sub |> print
