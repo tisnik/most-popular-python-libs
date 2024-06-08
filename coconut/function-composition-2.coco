@@ -1,0 +1,10 @@
+foo = hex..abs..ord
+
+"B" |> hex..abs..ord |> print
+
+"B" |> foo |> print
+
+bar = sum..reversed
+
+range(11) |> sum..reversed |> print
+range(11) |> bar |> print
