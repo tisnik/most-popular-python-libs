@@ -173,7 +173,7 @@
 #     - nové funkce
 #     - nové (přetížené) operátory
 # * mnoho typů konstruktorů
-# * broadcsting
+# * broadcasting
 # * (re)shaping
 #     - změna tvaru pole (počet dimenzí, tvar)
 # 
@@ -1817,7 +1817,7 @@ print(a)
 print(b)
 
 
-# #### Podíl prvek po prvku
+# #### Podíl modulo prvek po prvku
 
 # In[90]:
 
@@ -2064,8 +2064,8 @@ c
 
 # #### Vyřešení systému lineárních rovnic
 #  - Dvě rovnice o dvou neznámých
-#        x + y = 2
-#        x - y = 0
+#       - x + y = 2
+#       - x - y = 0
 #  - Maticově
 #      - levé strany rovnic
 #      - pravé strany rovnic
@@ -2286,11 +2286,7 @@ a = np.reshape(np.arange(100, 125), (5, 5))
 a[a % 2 == 0]
 
 
-# In[139]:
-
-
-#### Výpočet sumy, minima a maxima
-
+# ### Výpočet sumy, minima a maxima
 
 # In[141]:
 
@@ -2409,7 +2405,7 @@ a1-5
 
 # ## Xarray
 
-# In[1]:
+# In[3]:
 
 
 import numpy as np
@@ -2418,7 +2414,7 @@ import xarray as xr
 
 # ### Vytvoření 2D pole
 
-# In[2]:
+# In[4]:
 
 
 array = xr.DataArray(np.identity(10))
@@ -2427,7 +2423,7 @@ array
 
 # ### Pojmenování dimenzí
 
-# In[3]:
+# In[5]:
 
 
 array = xr.DataArray(np.identity(10),
@@ -2437,7 +2433,7 @@ array
 
 # ### Pojmenování dimenzí, značky na osách
 
-# In[4]:
+# In[6]:
 
 
 array = xr.DataArray(np.identity(10),
@@ -2448,7 +2444,7 @@ array
 
 # ### Uživatelské atributy
 
-# In[5]:
+# In[7]:
 
 
 temperatures = -10 + 40*np.random.rand(10, 10)
@@ -2472,7 +2468,7 @@ array
 
 # ### Trojrozměrné pole (2D řezy v čase)
 
-# In[6]:
+# In[8]:
 
 
 temperatures = -10 + 40*np.random.rand(2, 2, 3)
@@ -2501,7 +2497,7 @@ array
 
 # ### Reprezentace šachové partie (pro oddych)
 
-# In[7]:
+# In[11]:
 
 
 chessboard = np.array([" "]*64).reshape(8, 8)
@@ -2523,14 +2519,19 @@ array.attrs["description"] ="White to move and win",
 array.attrs["metadata"] = {"played by": "Fernando Saavedra",
                            "winner": "white",
                            "see also": "https://www.youtube.com/watch?v=Mg2OOsQPURs",}
-
-arrayarray.sel(files="c")
-
-
-# In[8]:
+array
 
 
-array.sel(files="c")array.sel(ranks=6)
+# In[12]:
+
+
+array.sel(files="c")
+
+
+# In[13]:
+
+
+array.sel(ranks=6)
 
 
 # In[9]:
@@ -2541,13 +2542,19 @@ array.sel(ranks=6)
 
 # ### Operace `groupby` a časové řady
 
-# In[14]:
+# In[15]:
 
 
 measured_at = np.arange(
         np.datetime64("2023-01-01"),
         np.datetime64("2024-01-01"),
         np.timedelta64(1, "D")).astype('datetime64[ns]')
+
+measured_at
+
+
+# In[16]:
+
 
 temperatures = 10 + 20 * np.random.rand(365)
 
@@ -2566,21 +2573,35 @@ array = xr.DataArray(temperatures,
 array.groupby("time.season")
 
 
-# In[15]:
+# In[17]:
 
 
 array.groupby("time.dayofweek")
 
 
-# In[17]:
+# In[18]:
 
 
 array.groupby("time.month")
 
 
+# In[21]:
+
+
+# teploty pro všechny dny v lednu
+array.groupby("time.month")[1]
+
+
+# In[22]:
+
+
+# teploty pro všechny pondělky
+array.groupby("time.dayofweek")[1]
+
+
 # ### Výběr nejbližší známé hodnoty (algoritmus "nearest")
 
-# In[12]:
+# In[23]:
 
 
 temperatures = np.arange(0, 300).reshape((10, 10, 3))
@@ -2601,6 +2622,12 @@ array = xr.DataArray(temperatures,
                               "vendor": "BIY",
                               "version": (1, 0, 0)}
                          })
+
+array
+
+
+# In[24]:
+
 
 array.sel(time="2023-10-02").sel(x=51, y=-51, method="nearest")
 
