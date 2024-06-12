@@ -1,6 +1,6 @@
 from typing import Generic, List, TypeVar
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class Collection(Generic[T]):
