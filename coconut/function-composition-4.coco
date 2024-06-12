@@ -1,0 +1,10 @@
+foo = hex<..abs<..ord
+
+None |> hex<..abs<..ord |> print
+
+None |> foo |> print
+
+bar = sum<..reversed
+
+None |> sum<..reversed |> print
+None |> bar |> print
