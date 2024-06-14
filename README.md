@@ -1,5 +1,6 @@
 # most-popular-python-libs
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub Pages](https://img.shields.io/badge/%20-GitHub%20Pages-informational)](https://tisnik.github.io/most-popular-python-libs/)
 
 Examples for the most popular Python libraries
 
