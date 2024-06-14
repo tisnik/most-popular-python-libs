@@ -1,6 +1,5 @@
 # Most popular Python libraries, tools, and frameworks
 
-## [PySimpleGUI](PySimpleGUI/index.md)
 ## [array](array/index.md)
 ## [asizeof](asizeof/index.md)
 ## [ast](ast/index.md)
