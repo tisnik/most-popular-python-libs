@@ -1,0 +1,14 @@
+pattern_matching_factorial.py ... pattern_matching_factorial.cpp
+pattern_matching_factorial.py:1:0: py2many.exceptions.AstNotImplementedError: sequence item 0: expected str instance, NoneType found
+pattern_matching_factorial.py ... pattern_matching_factorial.rs
+pattern_matching_factorial.py:1:0: py2many.exceptions.AstNotImplementedError: sequence item 0: expected str instance, NoneType found
+Error: ['rustfmt', '--edition=2018', 'pattern_matching_factorial.rs'] (code: 1):
+b'error: expected one of `!` or `::`, found `<eof>`\n --> /home/ptisnovs/xy/pattern_matching_factorial.rs:1:1\n  |\n1 | FAILED\n  | ^^^^^^ expected one of `!` or `::`\n\n'b''
+pattern_matching_factorial.py ... pattern_matching_factorial.jl
+pattern_matching_factorial.py:1:0: py2many.exceptions.AstNotImplementedError: sequence item 0: expected str instance, NoneType found
+Error: Could not format: pattern_matching_factorial.jl
+Due to: FileNotFoundError [Errno 2] No such file or directory: 'format.jl'
+pattern_matching_factorial.py ... pattern_matching_factorial.go
+pattern_matching_factorial.py:1:0: py2many.exceptions.AstNotImplementedError: sequence item 0: expected str instance, NoneType found
+Error: ['gofmt', '-w', 'pattern_matching_factorial.go'] (code: 2):
+b"pattern_matching_factorial.go:1:1: expected 'package', found FAILED\n"b''
