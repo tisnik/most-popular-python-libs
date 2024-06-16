@@ -17,7 +17,7 @@ import time
 def view_pyc_file(path):
     """Read and display a content of the Python`s bytecode in a pyc-file."""
 
-    with open(path, 'rb') as file:
+    with open(path, "rb") as file:
 
         magic = file.read(4)
         bit_field = None
@@ -32,22 +32,22 @@ def view_pyc_file(path):
             else:
                 timestamp = file.read(4)
                 size = file.read(4)
-                size = struct.unpack('I', size)[0]
+                size = struct.unpack("I", size)[0]
         elif sys.version_info.major == 3 and sys.version_info.minor >= 3:
             timestamp = file.read(4)
             size = file.read(4)
-            size = struct.unpack('I', size)[0]
+            size = struct.unpack("I", size)[0]
         else:
             timestamp = file.read(4)
 
         code = marshal.load(file)
 
-    magic = binascii.hexlify(magic).decode('utf-8')
-    timestamp = time.asctime(time.localtime(struct.unpack('I', timestamp)[0]))
+    magic = binascii.hexlify(magic).decode("utf-8")
+    timestamp = time.asctime(time.localtime(struct.unpack("I", timestamp)[0]))
 
     dis.disassemble(code)
 
-    print('-' * 80)
+    print("-" * 80)
 
     for i, const in enumerate(code.co_consts):
         print(i, "\t"+str(const) + "\t" + str(type(const)))
@@ -57,11 +57,11 @@ def view_pyc_file(path):
         except:
             pass
 
-    print('-' * 80)
+    print("-" * 80)
     print(
-        'Python version: {}\nMagic code: {}\nTimestamp: {}\nSize: {}\nHash: {}\nBitfield: {}'
+        "Python version: {}\nMagic code: {}\nTimestamp: {}\nSize: {}\nHash: {}\nBitfield: {}"
         .format(platform.python_version(), magic, timestamp, size, hashstr, bit_field)
     )
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     view_pyc_file(sys.argv[1])
