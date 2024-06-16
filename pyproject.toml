@@ -1,7 +1,7 @@
 [tool.ruff]
 
 #select = ["E", "F", "W", "C", "S", "I", "TCH", "RSE", "RET", "SLF", "SLOT", "SIM", "TID", "TCH", "INT", "ARG", "PTH", "TD", "FIX", "ERA", "PD", "PGH", "PL", "TRY", "FLY", "NPY", "AIR", "PERF", "FURB", "LOG", "RUF"]
-lint.select = ["I", "F401"]
+lint.select = ["I", "F401", "Q"]
 
 lint.ignore = ["S101"]
 
