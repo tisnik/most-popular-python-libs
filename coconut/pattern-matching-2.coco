@@ -1,0 +1,12 @@
+def factorial_variant_A(n):
+    match n:
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case x:
+            return x * factorial_variant_A(x-1)
+
+
+for n in range(11):
+    print("{n}!={f}".format(n=n, f=factorial_variant_A(n)))
