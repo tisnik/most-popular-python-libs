@@ -274,9 +274,9 @@ def show_predictions(predictions, from_index, filename):
     # zobrazit patnáct výsledků
     for i, (predicted_digit, image) in enumerate(predictions[from_index:from_index+15]):
         plt.subplot(3,5, i+1)
-        plt.axis('off')
+        plt.axis("off")
         # zobrazení obrázku
-        plt.imshow(image, cmap=plt.cm.gray_r, interpolation='nearest')
+        plt.imshow(image, cmap=plt.cm.gray_r, interpolation="nearest")
         # a přidání predikce - o jakou číslici se jedná
         plt.title("Predict: %i" % predicted_digit)
 
