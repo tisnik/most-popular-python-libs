@@ -1,0 +1,32 @@
+def complex_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case [0, 0]:
+            print("Zero")
+        case [int(real), 0]:
+            print(f"Real number {real}")
+        case [real, 0]:
+            print(f"Strange real number {real}, value is not integer")
+        case [0, int(imag)]:
+            print(f"Imaginary number {imag}")
+        case [0, imag]:
+            print(f"Strange imaginary number {imag}, value is not integer")
+        case [int(real), int(imag)]:
+            print(f"Complex number {real}+i{imag}")
+        case [real, imag]:
+            print(f"Strange complex number {real}+i{imag}, real and imaginary part should be integers")
+        case _:
+            raise ValueError("Not a complex number")
+
+
+complex_number([0,0])
+complex_number([1,0])
+complex_number([0,1])
+complex_number([1,1])
+
+complex_number(["x", 0])
+complex_number([0, "y"])
+complex_number(["x", "y"])
+
+complex_number("foo")
+complex_number("foo")
