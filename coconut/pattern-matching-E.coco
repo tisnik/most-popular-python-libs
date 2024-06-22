@@ -1,0 +1,15 @@
+def pair(p):
+    match p:
+        case [x,x]:
+            return "same values!"
+        case [x,y] if x>y:
+            return "1st value is greater"
+        case [x,y]:
+            return "2nd value is greater"
+    else:
+        return "other"
+
+
+pair([1, 1]) |> print
+pair([1, 2]) |> print
+pair([2, 1]) |> print
