@@ -1,0 +1,16 @@
+def say_hello(about_me):
+    match about_me:
+       case "My name is " + name + ".":
+           print(f"Hello {name}!")
+       case "His name is " + name + ".":
+           print(f"Hello {name}!")
+       case "He is named " + name + ".":
+           print(f"Hello {name}!")
+       case _:
+           print("Sorry, I don't know your name")
+
+
+say_hello("My name is Marvin.")
+say_hello("His name is Marvin.")
+say_hello("He is named Marvin.")
+say_hello("Its name is Marvin.")
