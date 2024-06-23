@@ -1,0 +1,8 @@
+addpattern def factorial(0) = 1
+addpattern def factorial(1) = 1
+addpattern def factorial(n) = n * factorial(n - 1)
+
+for n in range(11):
+    print("{n}!={f}".format(n=n, f=factorial(n)))
+
+print(factorial(-1))
