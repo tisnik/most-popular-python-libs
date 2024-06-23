@@ -1,9 +1,9 @@
 def list_type(x):
     match x:
         case [a, b]:
-            return "list, 2 items"
+            return "list, two items"
         case [a]:
-            return "list, 1 item"
+            return "list, one item"
         case []:
             return "empty list"
         case _:
