@@ -1,0 +1,15 @@
+def login(value):
+    match value:
+        case {"name": x, "surname": y}:
+            print(f"User identified by name {x} and surname {y}")
+        case {"id": x}:
+            print(f"User identified by ID {x}")
+    else:
+        print("Unable to identify user")
+
+
+login({"name": "John", "surname": "Joe"})
+login({"id": 42})
+login({"id": 42, "name": "John"})
+login({"id": 42, "name": "John", "surname": "Joe"})
+login({"foo": "bar"})
