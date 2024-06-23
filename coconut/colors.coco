@@ -1,0 +1,110 @@
+from enum import Enum
+
+
+class BasicColor(Enum):
+    """Základních osm barev."""
+    BLACK = (0, 0, 0)
+    RED = (255, 0,0)
+    GREEN = (0, 255, 0)
+    YELLOW = (255, 255, 0)
+    BLUE = (0, 0, 255)
+    MAGENTA = (255, 0, 255)
+    CYAN = (0, 255, 255)
+    WHITE = (255, 255, 255)
+
+
+data Gray(gray: int):
+    """Reprezentace odstínu šedi celočíselnou hodnotou 0..255."""
+
+
+data RGB(red: int, green: int, blue: int):
+    """Reprezentace barvy v barvovém prostoru RGB."""
+
+
+data HSV(hue: float, saturation: float, value: float):
+    """Reprezentace barvy v barvovém prostoru HSV."""
+
+
+def scale_rgb(r: int, g: int, b: int) -> RGB:
+    """Převod hodnot z rozsahu 0.0-1.0 na celočíselný rozsah 0..255."""
+    return RGB(int(255*r), int(255*g), int(255*b))
+
+
+# Převod barvy z barvového prostoru HSV do prostoru RGB
+addpattern def hsv_to_rgb(hue, 0.0, value) =  scale_rgb(value, value, value)
+
+addpattern def hsv_to_rgb(hue, saturation, value):
+    """Pomocná funkce pro výpočet hodnot RGB."""
+    if hue == 1.0:
+        hue = 0.0
+    i = int(hue*6.0)
+    f = hue*6.0 - i
+
+    w = value * (1.0 - saturation)
+    q = value * (1.0 - saturation * f)
+    t = value * (1.0 - saturation * (1.0 - f))
+
+    match i:
+        case 0:
+            return scale_rgb(value, t, w)
+        case 1:
+            return scale_rgb(q, value, w)
+        case 2:
+            return scale_rgb(w, value, t)
+        case 3:
+            return scale_rgb(w, q, value)
+        case 4:
+            return scale_rgb(t, w, value)
+        case 5:
+            return scale_rgb(value, w, q)
+
+
+def to_rgb(color) -> RGB:
+    """Převod barvy z jakékoli podporované reprezentace do prostoru RGB."""
+    match color:
+        case Gray(gray):
+            return RGB(gray, gray, gray)
+        case RGB(red, green, blue) as rgb:
+            return rgb
+        case HSV(hue, saturation, value):
+            return hsv_to_rgb(hue, saturation, value)
+        case BasicColor() as b:
+            return RGB(*b.value)
+    else:
+        return f"Invalid color {color}"
+
+
+# otestování jednotlivých možností
+
+print("Grayscale:")
+
+Gray(0) |> to_rgb |> print
+Gray(255) |> to_rgb |> print
+
+print("\nRGB:")
+
+RGB(0, 0, 0) |> to_rgb |> print
+RGB(0, 255, 0) |> to_rgb |> print
+RGB(255, 255, 255) |> to_rgb |> print
+
+print("\nHSV:")
+
+HSV(0.0, 0.0, 1.0) |> to_rgb |> print
+HSV(0.0, 0.0, 0.5) |> to_rgb |> print
+HSV(0.0, 1.0, 1.0) |> to_rgb |> print
+HSV(0.3333, 1.0, 1.0) |> to_rgb |> print
+HSV(0.6666, 1.0, 1.0) |> to_rgb |> print
+HSV(1.0, 1.0, 1.0) |> to_rgb |> print
+HSV(1.0, 0.5, 0.5) |> to_rgb |> print
+HSV(1.0, 0.0, 1.0) |> to_rgb |> print
+
+print("\nBasic colors:")
+
+BasicColor.BLACK |> to_rgb |> print
+BasicColor.RED |> to_rgb |> print
+BasicColor.GREEN |> to_rgb |> print
+BasicColor.BLUE |> to_rgb |> print
+BasicColor.YELLOW |> to_rgb |> print
+BasicColor.MAGENTA |> to_rgb |> print
+BasicColor.CYAN |> to_rgb |> print
+BasicColor.WHITE |> to_rgb |> print
