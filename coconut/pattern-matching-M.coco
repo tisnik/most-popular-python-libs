@@ -1,0 +1,15 @@
+def list_type(value):
+    match value:
+        case [1, 2, 3] + x:
+            print(f"List starting with expected head, followed by item(s) = {x}")
+    else:
+        print(f"Unexpected value {value}")
+
+
+[] |> list_type
+[1] |> list_type
+[1, 2] |> list_type
+[1, 2, 3] |> list_type
+[1, 2, 3, 4] |> list_type
+[1, 2, 3, 4, 5] |> list_type
+[2, 2, 3, 4, 5] |> list_type
