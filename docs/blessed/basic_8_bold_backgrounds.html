@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>basic_8_bold_backgrounds.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>basic_8_bold_backgrounds.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Display eight basic background colors with bold attribute.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">blessed</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>initialize terminal</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">terminal</span> <span class="o">=</span> <span class="n">blessed</span><span class="o">.</span><span class="n">Terminal</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>print bold text onto terminal using selected background colors</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_black</span><span class="si">}</span><span class="s2">black background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_red</span><span class="si">}</span><span class="s2">red background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_green</span><span class="si">}</span><span class="s2">green background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_yellow</span><span class="si">}</span><span class="s2">yellow background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_blue</span><span class="si">}</span><span class="s2">blue background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_magenta</span><span class="si">}</span><span class="s2">magenta background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_cyan</span><span class="si">}</span><span class="s2">cyan background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">bold_on_white</span><span class="si">}</span><span class="s2">white background</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
