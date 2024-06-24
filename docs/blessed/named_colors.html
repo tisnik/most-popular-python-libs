@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>named_colors.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>named_colors.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Usage of color names to change foreground color.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">blessed</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>initialize terminal</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">terminal</span> <span class="o">=</span> <span class="n">blessed</span><span class="o">.</span><span class="n">Terminal</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>force terminal to use 24bit colors if possible</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">terminal</span><span class="o">.</span><span class="n">number_of_colors</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>all color names used in this example</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">aliceblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">antiquewhite</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">antiquewhite1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">antiquewhite2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">antiquewhite3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">antiquewhite4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">qua</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">quamarine</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">quamarine1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">quamarine2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">quamarine3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">quamarine4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">zure</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">zure1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">zure2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">zure3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">zure4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eige</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">isque</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">isque1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">isque2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">isque3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">isque4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lack</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lanchedalmond</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lueviolet</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rown</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rown1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rown2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rown3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rown4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">urlywood</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">urlywood1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">urlywood2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">urlywood3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">urlywood4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">adetblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">adetblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">adetblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">adetblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">adetblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hartreuse</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hartreuse1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hartreuse2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hartreuse3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hartreuse4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hocolate</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hocolate1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hocolate2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hocolate3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hocolate4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oral</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oral1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oral2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oral3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oral4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornflowerblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornsilk</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornsilk1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornsilk2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornsilk3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ornsilk4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rimson</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yan</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yan1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yan2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yan3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yan4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkcyan</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgoldenrod</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgoldenrod1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgoldenrod2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgoldenrod3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgoldenrod4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkgrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkkhaki</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkmagenta</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkolivegreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkolivegreen1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkolivegreen2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkolivegreen3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkolivegreen4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorange</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorange1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorange2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorange3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorange4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorchid</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorchid1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorchid2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorchid3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkorchid4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkred</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arksalmon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkseagreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkseagreen1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkseagreen2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkseagreen3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkseagreen4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslateblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategray1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategray2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategray3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategray4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkslategrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkturquoise</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">arkviolet</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eeppink</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eeppink1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eeppink2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eeppink3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eeppink4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eepskyblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eepskyblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eepskyblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eepskyblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">eepskyblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">imgray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">imgrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">odgerblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">odgerblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">odgerblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">odgerblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">odgerblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">irebrick</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">irebrick1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">irebrick2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">irebrick3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">irebrick4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">loralwhite</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orestgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">uchsia</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ainsboro</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hostwhite</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">old</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">old1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">old2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">old3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">old4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldenrod</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldenrod1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldenrod2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldenrod3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldenrod4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray0</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray10</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray100</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray11</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray12</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray13</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray14</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray15</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray16</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray17</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray18</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray19</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray20</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray21</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray22</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray23</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray24</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray25</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray26</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray27</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray28</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray29</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray30</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray31</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray32</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray33</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray34</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray35</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray36</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray37</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray38</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray39</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray40</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray41</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray42</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray43</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray44</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray45</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray46</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray47</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray48</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray49</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray5</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray50</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray51</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray52</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ray53</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray54</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray55</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray56</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray57</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray58</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray59</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray6</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray60</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray61</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray62</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray63</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray64</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray65</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray66</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray67</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray68</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray69</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray7</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray70</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray71</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray72</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray73</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray74</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray75</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray76</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray77</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray78</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray79</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray8</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray80</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray81</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray82</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray83</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray84</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray85</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray86</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray87</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray88</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray89</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray9</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray90</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray91</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray92</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray93</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray94</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray95</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray96</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray97</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray98</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">gray99</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">green</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">green1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">green2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">green3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">green4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">greenyellow</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey0</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey10</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey100</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey11</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey12</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey13</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey14</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey15</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey16</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey17</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey18</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey19</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey20</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey21</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey22</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey23</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey24</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey25</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey26</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey27</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey28</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey29</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey30</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey31</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey32</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey33</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey34</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey35</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey36</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey37</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey38</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey39</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey40</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey41</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey42</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey43</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey44</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey45</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey46</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey47</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey48</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey49</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey5</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey50</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey51</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey52</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey53</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey54</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey55</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey56</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey57</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey58</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey59</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey6</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey60</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey61</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey62</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey63</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey64</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey65</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey66</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey67</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey68</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey69</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey7</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey70</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey71</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey72</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey73</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey74</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey75</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey76</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey77</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey78</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey79</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey8</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey80</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey81</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey82</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey83</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey84</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey85</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey86</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey87</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey88</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey89</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey9</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey90</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey91</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey92</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey93</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey94</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey95</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey96</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey97</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey98</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">grey99</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">honeydew</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">honeydew1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">honeydew2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">honeydew3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">honeydew4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hotpink</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hotpink1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hotpink2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hotpink3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">hotpink4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indianred</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indianred1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indianred2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indianred3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indianred4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">indigo</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ivory</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ivory1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ivory2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ivory3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">ivory4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">khaki</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">khaki1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">khaki2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">khaki3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">khaki4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavender</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavenderblush</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavenderblush1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavenderblush2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavenderblush3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lavenderblush4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lawngreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lemonchiffon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lemonchiffon1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lemonchiffon2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lemonchiffon3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lemonchiffon4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcoral</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcyan</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcyan1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcyan2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcyan3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightcyan4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrod</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrod1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrod2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrod3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrod4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgoldenrodyellow</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightgrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightpink</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightpink1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightpink2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightpink3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightpink4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsalmon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsalmon1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsalmon2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsalmon3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsalmon4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightseagreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightskyblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightskyblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightskyblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightskyblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightskyblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightslateblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightslategray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightslategrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsteelblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsteelblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsteelblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsteelblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightsteelblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightyellow</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightyellow1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightyellow2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightyellow3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lightyellow4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">lime</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">limegreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">linen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">magenta</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">magenta1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">magenta2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">magenta3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">magenta4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">maroon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">maroon1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">maroon2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">maroon3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">maroon4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumaquamarine</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumorchid</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumorchid1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumorchid2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumorchid3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumorchid4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumpurple</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumpurple1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumpurple2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumpurple3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumpurple4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumseagreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumslateblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumspringgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumturquoise</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mediumvioletred</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">midnightblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mintcream</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mistyrose</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mistyrose1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mistyrose2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mistyrose3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">mistyrose4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">moccasin</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navajowhite</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navajowhite1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navajowhite2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navajowhite3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navajowhite4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navy</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">navyblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">oldlace</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olive</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olivedrab</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olivedrab1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olivedrab2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olivedrab3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">olivedrab4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orange</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orange1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orange2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orange3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orange4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orangered</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orangered1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orangered2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orangered3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orangered4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orchid</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orchid1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orchid2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orchid3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">orchid4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegoldenrod</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegreen1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegreen2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegreen3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palegreen4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">paleturquoise</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">paleturquoise1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">paleturquoise2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">paleturquoise3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">paleturquoise4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palevioletred</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palevioletred1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palevioletred2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palevioletred3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">palevioletred4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">papayawhip</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peachpuff</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peachpuff1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peachpuff2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peachpuff3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peachpuff4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">peru</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">pink</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">pink1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">pink2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">pink3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">pink4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">plum</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">plum1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">plum2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">plum3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">plum4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">powderblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">purple</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">purple1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">purple2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">purple3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">purple4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rebeccapurple</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">red</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">red1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">red2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">red3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">red4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rosybrown</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rosybrown1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rosybrown2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rosybrown3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">rosybrown4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">royalblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">royalblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">royalblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">royalblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">royalblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">saddlebrown</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">salmon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">salmon1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">salmon2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">salmon3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">salmon4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sandybrown</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seagreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seagreen1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seagreen2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seagreen3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seagreen4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seashell</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seashell1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seashell2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seashell3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">seashell4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sienna</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sienna1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sienna2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sienna3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">sienna4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">silver</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">skyblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">skyblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">skyblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">skyblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">skyblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slateblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slateblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slateblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slateblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slateblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategray1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategray2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategray3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategray4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">slategrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">snow</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">snow1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">snow2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">snow3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">snow4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">springgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">springgreen1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">springgreen2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">springgreen3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">springgreen4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">steelblue</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">steelblue1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">steelblue2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">steelblue3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">steelblue4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tan</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tan1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tan2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tan3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tan4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">teal</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">thistle</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">thistle1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">thistle2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">thistle3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">thistle4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tomato</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tomato1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tomato2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tomato3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">tomato4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">turquoise</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">turquoise1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">turquoise2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">turquoise3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">turquoise4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violet</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violetred</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violetred1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violetred2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violetred3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">violetred4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">webgray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">webgreen</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">webgrey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">webmaroon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">webpurple</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">wheat</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">wheat1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">wheat2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">wheat3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">wheat4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">white</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">whitesmoke</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">x11gray</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">x11green</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">x11grey</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">x11maroon</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">x11purple</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellow</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellow1</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellow2</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellow3</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellow4</span><span class="p">,</span>
+    <span class="n">terminal</span><span class="o">.</span><span class="n">yellowgreen</span><span class="p">,</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>display text using all colors</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">terminal</span><span class="o">.</span><span class="n">normal</span><span class="si">}</span><span class="s2">DONE&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
