@@ -1,0 +1,14 @@
+def list_type(value):
+    match value:
+        case [1, 2, 3] + x + [7, 8, 9]:
+            print(f"Items between head and tail: {x}")
+    else:
+        print(f"Unexpected value {value}")
+
+
+[1, 2, 3, 7, 8, 9] |> list_type
+[1, 2, 3, 6, 7, 8, 9] |> list_type
+[1, 2, 3, 5, 6, 7, 8, 9] |> list_type
+[1, 2, 3, 4, 5, 6, 7, 8, 9] |> list_type
+[9, 2, 3, 4, 5, 6, 7, 8, 9] |> list_type
+[1, 2, 3, 4, 5, 6, 7, 8, 1] |> list_type
