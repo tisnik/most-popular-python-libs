@@ -1,0 +1,6 @@
+match def inc(int(x)):
+    return x + 1
+
+
+1 |> inc |> print
+"foo" |> inc |> print 

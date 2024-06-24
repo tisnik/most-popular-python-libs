@@ -1,0 +1,68 @@
+# Compiled Coconut: -----------------------------------------------------------
+
+@_coconut_mark_as_match  #1 (line in Coconut source)
+def inc(_coconut_match_first_arg=_coconut_sentinel, *_coconut_match_args, **_coconut_match_kwargs):  #1 (line in Coconut source)
+    _coconut_match_check_0 = False  #1 (line in Coconut source)
+    _coconut_FunctionMatchError = _coconut_get_function_match_error()  #1 (line in Coconut source)
+    if _coconut_match_first_arg is not _coconut_sentinel:  #1 (line in Coconut source)
+        _coconut_match_args = (_coconut_match_first_arg,) + _coconut_match_args  #1 (line in Coconut source)
+    if (_coconut.len(_coconut_match_args) <= 1) and (_coconut.sum((_coconut.len(_coconut_match_args) > 0, "x" in _coconut_match_kwargs)) == 1):  #1 (line in Coconut source)
+        _coconut_match_temp_0 = _coconut_match_args[0] if _coconut.len(_coconut_match_args) > 0 else _coconut_match_kwargs.pop("x")  #1 (line in Coconut source)
+        _coconut_match_temp_1 = _coconut.getattr(int, "_coconut_is_data", False) or _coconut.isinstance(int, _coconut.tuple) and _coconut.all(_coconut.getattr(_coconut_x, "_coconut_is_data", False) for _coconut_x in int)  # type: ignore  #1 (line in Coconut source)
+        if not _coconut_match_kwargs:  #1 (line in Coconut source)
+            _coconut_match_check_0 = True  #1 (line in Coconut source)
+    if _coconut_match_check_0:  #1 (line in Coconut source)
+        _coconut_match_check_0 = False  #1 (line in Coconut source)
+        if not _coconut_match_check_0:  #1 (line in Coconut source)
+            _coconut_match_set_name_x = _coconut_sentinel  #1 (line in Coconut source)
+            if (_coconut_match_temp_1) and (_coconut.isinstance(_coconut_match_temp_0, int)) and (_coconut.len(_coconut_match_temp_0) >= 1):  #1 (line in Coconut source)
+                _coconut_match_set_name_x = _coconut_match_temp_0[0]  #1 (line in Coconut source)
+                _coconut_match_temp_2 = _coconut.len(_coconut_match_temp_0) <= _coconut.max(1, _coconut.len(_coconut_match_temp_0.__match_args__)) and _coconut.all(i in _coconut.getattr(_coconut_match_temp_0, "_coconut_data_defaults", {}) and _coconut_match_temp_0[i] == _coconut.getattr(_coconut_match_temp_0, "_coconut_data_defaults", {})[i] for i in _coconut.range(1, _coconut.len(_coconut_match_temp_0.__match_args__))) if _coconut.hasattr(_coconut_match_temp_0, "__match_args__") else _coconut.len(_coconut_match_temp_0) == 1  # type: ignore  #1 (line in Coconut source)
+                if _coconut_match_temp_2:  #1 (line in Coconut source)
+                    _coconut_match_check_0 = True  #1 (line in Coconut source)
+            if _coconut_match_check_0:  #1 (line in Coconut source)
+                if _coconut_match_set_name_x is not _coconut_sentinel:  #1 (line in Coconut source)
+                    x = _coconut_match_set_name_x  #1 (line in Coconut source)
+
+        if not _coconut_match_check_0:  #1 (line in Coconut source)
+            if (not _coconut_match_temp_1) and (_coconut.isinstance(_coconut_match_temp_0, int)):  #1 (line in Coconut source)
+                _coconut_match_check_0 = True  #1 (line in Coconut source)
+            if _coconut_match_check_0:  #1 (line in Coconut source)
+                _coconut_match_check_0 = False  #1 (line in Coconut source)
+                if not _coconut_match_check_0:  #1 (line in Coconut source)
+                    _coconut_match_set_name_x = _coconut_sentinel  #1 (line in Coconut source)
+                    if _coconut.type(_coconut_match_temp_0) in _coconut_self_match_types:  #1 (line in Coconut source)
+                        _coconut_match_set_name_x = _coconut_match_temp_0  #1 (line in Coconut source)
+                        _coconut_match_check_0 = True  #1 (line in Coconut source)
+                    if _coconut_match_check_0:  #1 (line in Coconut source)
+                        if _coconut_match_set_name_x is not _coconut_sentinel:  #1 (line in Coconut source)
+                            x = _coconut_match_set_name_x  #1 (line in Coconut source)
+
+                if not _coconut_match_check_0:  #1 (line in Coconut source)
+                    _coconut_match_set_name_x = _coconut_sentinel  #1 (line in Coconut source)
+                    if not _coconut.type(_coconut_match_temp_0) in _coconut_self_match_types:  #1 (line in Coconut source)
+                        _coconut_match_temp_3 = _coconut.getattr(int, '__match_args__', ())  # type: _coconut.typing.Any  # type: ignore  #1 (line in Coconut source)
+                        if not _coconut.isinstance(_coconut_match_temp_3, _coconut.tuple):  #1 (line in Coconut source)
+                            raise _coconut.TypeError("int.__match_args__ must be a tuple")  #1 (line in Coconut source)
+                        if _coconut.len(_coconut_match_temp_3) < 1:  #1 (line in Coconut source)
+                            raise _coconut.TypeError("too many positional args in class match (pattern requires 1; 'int' only supports %s)" % (_coconut.len(_coconut_match_temp_3),))  #1 (line in Coconut source)
+                        _coconut_match_temp_4 = _coconut.getattr(_coconut_match_temp_0, _coconut_match_temp_3[0], _coconut_sentinel)  #1 (line in Coconut source)
+                        if _coconut_match_temp_4 is not _coconut_sentinel:  #1 (line in Coconut source)
+                            _coconut_match_set_name_x = _coconut_match_temp_4  #1 (line in Coconut source)
+                            _coconut_match_check_0 = True  #1 (line in Coconut source)
+                    if _coconut_match_check_0:  #1 (line in Coconut source)
+                        if _coconut_match_set_name_x is not _coconut_sentinel:  #1 (line in Coconut source)
+                            x = _coconut_match_set_name_x  #1 (line in Coconut source)
+
+
+
+
+    if not _coconut_match_check_0:  #1 (line in Coconut source)
+        raise _coconut_FunctionMatchError('match def inc(int(x)):', _coconut_match_args)  #1 (line in Coconut source)
+
+    return x + 1  #2 (line in Coconut source)
+
+
+
+(print)((inc)(1))  #5 (line in Coconut source)
+(print)((inc)("foo"))  #6 (line in Coconut source)
