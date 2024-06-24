@@ -1,0 +1,17 @@
+def list_type(value):
+    match value:
+        case x + [7, 8, 9]:
+            print(f"List ending with expected tail, preceded by item(s) = {x}")
+    else:
+        print(f"Unexpected value {value}")
+
+
+[8, 9] |> list_type
+[7, 8, 9] |> list_type
+[6, 7, 8, 9] |> list_type
+[5, 6, 7, 8, 9] |> list_type
+[4, 5, 6, 7, 8, 9] |> list_type
+[3, 4, 5, 6, 7, 8, 9] |> list_type
+[2, 3, 4, 5, 6, 7, 8, 9] |> list_type
+[1, 2, 3, 4, 5, 6, 7, 8, 9] |> list_type
+[1, 2, 3, 4, 5, 6, 7, 8, 1] |> list_type
