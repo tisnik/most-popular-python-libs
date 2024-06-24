@@ -1,0 +1,16 @@
+def foo(lst = []):
+    lst.append("*")
+    return lst
+
+match def bar(lst = []):
+    lst.append("*")
+    return lst
+
+
+print("foo#1", foo())
+print("foo#2", foo())
+print("foo#3", foo())
+
+print("bar#1", bar())
+print("bar#2", bar())
+print("bar#3", bar())
