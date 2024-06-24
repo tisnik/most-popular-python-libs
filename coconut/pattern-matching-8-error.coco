@@ -1,0 +1,14 @@
+def list_type(x):
+    match x:
+        case [a, b]:
+            return f"list with two items: {a} and {b}"
+        case [a]:
+            return f"list with one item: {a}"
+        case []:
+            return "empty list"
+        case _ as lst:
+            return f"list with {len(lst)} items"
+
+
+print(list_type("Hello!"))
+print(list_type(42))
