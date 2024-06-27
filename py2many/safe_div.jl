@@ -8,3 +8,4 @@ end
 end
 end
 
+print(safe_div(0, 0))
