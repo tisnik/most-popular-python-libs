@@ -16,8 +16,8 @@ from ctypes import CDLL, c_double, c_int, create_string_buffer
 from palette_mandmap import palette
 
 import pygame
-import pygame.image as image
 import pygame.locals
+from pygame import image
 
 TITLE = "Renderer"
 SCREEN_WIDTH = 600
