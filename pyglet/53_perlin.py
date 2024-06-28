@@ -32,31 +32,31 @@ IMAGE_HEIGHT = 256
 
 def compute_min_max(bitmap, width, height):
     # pro prepocet intenzit pixelu
-    min = float("inf")
-    max = float("-inf")
+    min_value = float("inf")
+    max_value = float("-inf")
 
     # ziskani statistiky o obrazku - minimalni a maximalni hodnoty
     for j in range(height):
         for i in range(width):
             z = bitmap[j][i]
-            if max < z:
-                max = z
-            if min > z:
-                min = z
-    return min, max
+            if max_value < z:
+                max_value = z
+            if min_value > z:
+                min_value = z
+    return min_value, max_value
 
 
 def convert_to_image(bitmap, image, width, height, palette):
     print("contrast adjustment")
 
-    min, max = compute_min_max(bitmap, width, height)
-    k = 255.0 / (max - min)
+    min_value, max_value = compute_min_max(bitmap, width, height)
+    k = 255.0 / (max_value - min_value)
 
     # zmena kontrastu a kopie bitmapy
     for y in range(height):
         for x in range(width):
             f = float(bitmap[y][x])
-            f -= min
+            f -= min_value
             f *= k
             i = int(f) & 255
             color = (palette[i][0], palette[i][1], palette[i][2])
