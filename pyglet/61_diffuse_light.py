@@ -43,9 +43,9 @@ materialDiffuse = [0.7, 0.7, 0.7, 0.0]  # difuzni slozka barvy materialu
 lightPosition = [10.0, 10.0, 20.0, 0.0]  # pozice svetla
 
 
-def float_array(list):
+def float_array(input_list):
     """Prevod seznamu na pole prvku typ GLfloat"""
-    return (GLfloat * len(list))(*list)
+    return (GLfloat * len(input_list))(*input_list)
 
 
 def set_material():
