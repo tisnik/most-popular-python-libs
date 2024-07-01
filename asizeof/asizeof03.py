@@ -12,6 +12,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://tisnik.github.io/most-popular-python-libs/asizeof/asizeof03.html
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/asizeof/asizeof03.html
 
 from pympler import asizeof
 
