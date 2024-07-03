@@ -9,6 +9,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/16-better-select-theme.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/16-better-select-theme.html
 
 import PySimpleGUI as sg
 
