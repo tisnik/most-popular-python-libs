@@ -14,7 +14,7 @@
 #
 #
 # link to source:
-# https://tisnik.github.io/most-popular-python-libs/asizeof/asizeof04.html
+# https://github.com/tisnik/most-popular-python-libs/blob/master/asizeof/asizeof04.py
 # 
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/asizeof/asizeof04.html
