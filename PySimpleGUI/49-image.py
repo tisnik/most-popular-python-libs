@@ -9,6 +9,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/49-image.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/49-image.html
 
 import PySimpleGUI as sg
 
