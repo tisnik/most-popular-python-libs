@@ -12,6 +12,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/08_more_styles.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/08_more_styles.html
 
 """Vytvoření sešitu s delší tabulkou, nastavení stylů vybraných buněk."""
 
