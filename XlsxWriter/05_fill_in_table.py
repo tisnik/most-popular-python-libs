@@ -12,6 +12,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/05_fill_in_table.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/05_fill_in_table.html
 
 """Vytvoření sešitu s delší tabulkou."""
 
