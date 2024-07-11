@@ -17,7 +17,7 @@ from sys import getsizeof
 
 
 def print_sizeof(value):
-    typename = "{:8}".format(type(value).__name__)
+    typename = f"{type(value).__name__:8}"
     print(getsizeof(value), "\t", typename)
 
 
