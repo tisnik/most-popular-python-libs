@@ -12,6 +12,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/30_merged_cells_addressing.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/30_merged_cells_addressing.html
 
 """Vytvoření sešitu se sloučenými buňkami."""
 
