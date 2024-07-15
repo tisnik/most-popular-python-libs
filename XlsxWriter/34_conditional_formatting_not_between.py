@@ -12,6 +12,12 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# link to source:
+# https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/34_conditional_formatting_not_between.py
+# 
+# link to source in literate programming format:
+# https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/34_conditional_formatting_not_between.html
 
 """Podmíněné formátování, hodnoty mimo zadané meze."""
 
