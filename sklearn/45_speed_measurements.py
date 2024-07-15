@@ -36,7 +36,7 @@ def run_k_means(n_samples, std):
 x = []
 y = []
 
-for i in range(0, 100):
+for i in range(100):
     std = i / 10.0
     started = perf_counter()
     run_k_means(20000, std)
