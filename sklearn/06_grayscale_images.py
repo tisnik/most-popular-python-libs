@@ -25,7 +25,7 @@ digits_data = load_digits()
 print(digits_data.data.shape)
 
 # vykreslení a uložení prvních deseti obrázků
-for i in range(0, 10):
+for i in range(10):
     plt.matshow(digits_data.images[i])
     # převod na stupně šedi
     plt.gray()
