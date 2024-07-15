@@ -26,8 +26,8 @@ WHITE = (255, 255, 255)
 
 image = Image.new("RGB", (IMAGE_WIDTH, IMAGE_HEIGHT))
 
-for y in range(0, IMAGE_HEIGHT):
-    for x in range(0, IMAGE_WIDTH):
+for y in range(IMAGE_HEIGHT):
+    for x in range(IMAGE_WIDTH):
         color = BLACK
         xs = x / SQUARE_SIZE
         ys = y / SQUARE_SIZE
