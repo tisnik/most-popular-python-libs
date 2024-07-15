@@ -30,9 +30,9 @@ def recalc_circle_pattern(image, xmin, ymin, xmax, ymax):
     print(xmin, xmax, ymin, ymax, width, height, stepx, stepy)
 
     y1 = ymin
-    for y in range(0, height):
+    for y in range(height):
         x1 = xmin
-        for x in range(0, width):
+        for x in range(width):
             x1 += stepx
             x2 = x1 * x1
             y2 = y1 * y1
