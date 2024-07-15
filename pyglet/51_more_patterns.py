@@ -30,9 +30,9 @@ def recalc_any_pattern(image, palette, xmin, ymin, xmax, ymax, function):
     stepy = (ymax - ymin) / height
 
     y1 = ymin
-    for y in range(0, height):
+    for y in range(height):
         x1 = xmin
-        for x in range(0, width):
+        for x in range(width):
             x1 += stepx
             val = function(x1, y1)
             i = int(val) & 255
