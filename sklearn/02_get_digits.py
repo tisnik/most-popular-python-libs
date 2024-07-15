@@ -25,7 +25,7 @@ print("Data:", digits_data.data.shape)
 print("Obrázky:", digits_data.images.shape)
 
 # výpis informací o obrázcích
-for i in range(0, 10):
+for i in range(10):
     print(f"Image #{i}:")
     print("Data:\n", digits_data.data[i])
     print("Image:\n", digits_data.images[i])
