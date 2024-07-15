@@ -10,8 +10,8 @@ fig, axes = plt.subplots(nrows=4, ncols=4)
 fig.set_figheight(15)
 fig.set_figwidth(15)
 
-for row in range(0, 4):
-    for column in range(0, 4):
+for row in range(4):
+    for column in range(4):
         ax = axes[row][column]
         if row == column:
             fig.delaxes(ax)
