@@ -50,7 +50,7 @@ def on_draw():
     glEnd()
 
     glDisable(GL_POINT_SMOOTH)  # zakazani antialiasingu bodu
-    for i in range(0, 10):  # vykresleni druhe rady bodu ruzne velikosti a barvy
+    for i in range(10):  # vykresleni druhe rady bodu ruzne velikosti a barvy
         step = i / 10.0
         glColor3f(
             step, 0.5, 1.0 - step
@@ -61,7 +61,7 @@ def on_draw():
         glEnd()
 
     glEnable(GL_POINT_SMOOTH)  # povoleni antialiasingu bodu
-    for i in range(0, 10):  # vykresleni treti rady bodu ruzne velikosti a barvy
+    for i in range(10):  # vykresleni treti rady bodu ruzne velikosti a barvy
         step = i / 10.0
         glColor3f(
             step, 0.5, 1.0 - step
