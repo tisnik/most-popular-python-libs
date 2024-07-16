@@ -10,9 +10,9 @@ def calc_mandelbrot(width: int, height: int, maxiter: int, palette: Tuple[Tuple[
     print("255")
 
     cy = -1.5
-    for y in range(0, height):
+    for y in range(height):
         cx = -2.0
-        for x in range(0, width):
+        for x in range(width):
             zx = 0.0
             zy = 0.0
             i = 0
