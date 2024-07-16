@@ -10,7 +10,7 @@ def fib(value):
             raise ValueError("Wrong input", wrong)
 
 
-for n in range(0, 11):
+for n in range(11):
     print(n, fib(n))
 
 fib(-1)
