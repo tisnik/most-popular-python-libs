@@ -8,7 +8,7 @@ def bubble_sort(size):
     t1 = perf_counter()
 
     for i in range(size - 1, 0, -1):
-        for j in range(0, i):
+        for j in range(i):
             if a[j] > a[j + 1]:
                 a[j], a[j + 1] = a[j + 1], a[j]
 
