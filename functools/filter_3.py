@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-data = range(0, 11)
+data = range(11)
 
 filtered = filter(lambda value : value %2 == 1, data)
 print(list(filtered))
