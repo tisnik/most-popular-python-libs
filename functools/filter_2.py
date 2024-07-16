@@ -18,7 +18,7 @@ def even(value):
     return not odd(value)
 
 
-data = range(0, 11)
+data = range(11)
 
 filtered = filter(odd, data)
 print(list(filtered))
