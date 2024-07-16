@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-data = range(0, 11)
+data = range(11)
 
 filtered = [value for value in data if value %2 == 1]
 print(filtered)
