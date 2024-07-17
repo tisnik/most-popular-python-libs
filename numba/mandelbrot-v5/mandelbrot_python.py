@@ -27,9 +27,9 @@ def calc_mandelbrot(width, height, maxiter, palette):
 
     # calc part
     cy = -1.5
-    for y in range(0, height):
+    for y in range(height):
         cx = -2.0
-        for x in range(0, width):
+        for x in range(width):
             zx = 0.0
             zy = 0.0
             i = 0
@@ -51,8 +51,8 @@ def calc_mandelbrot(width, height, maxiter, palette):
     print(width)
     print(height)
     print("255")
-    for y in range(0, height):
-        for x in range(0, width):
+    for y in range(height):
+        for x in range(width):
             i = iters[y][x]
             r = palette[i % 256][0]
             g = palette[i % 256][1]
