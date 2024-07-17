@@ -25,8 +25,8 @@ try:
     height = test_image_2.size[1]
 
     # vykreslení různobarevných pixelů
-    for y in range(0, height):
-        for x in range(0, width):
+    for y in range(height):
+        for x in range(width):
             color_rgb = (x, 0, y)
             test_image_1.putpixel((x, y), color_rgb)
             color_rgb = (x, 255, y)
