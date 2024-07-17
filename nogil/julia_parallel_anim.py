@@ -16,7 +16,7 @@ IMAGE_HEIGHT = 256
 def julia(cx, cy, zx, zy, maxiter):
     c = complex(cx, cy)
     z = complex(zx, zy)
-    for i in range(0, maxiter):
+    for i in range(maxiter):
         if abs(z) > 2:
             return i
         z = z * z + c
@@ -33,9 +33,9 @@ def recalc_fractal(filename, palette, xmin, ymin, xmax, ymax, cx, cy, maxiter=10
     stepy = (ymax - ymin) / height
 
     y1 = ymin
-    for y in range(0, height):
+    for y in range(height):
         x1 = xmin
-        for x in range(0, width):
+        for x in range(width):
             i = julia(cx, cy, x1, y1, maxiter)
             i = 3 * i % 256
             color = (palette[i][0], palette[i][1], palette[i][2])
