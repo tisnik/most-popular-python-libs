@@ -32,7 +32,7 @@ try:
 
     green = 255
     for i, r, red, blue in zip(
-        range(0, 128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)
+        range(128), range(128, 0, -1), range(255, 0, -2), range(0, 256, 2)
     ):
         a = i / 12.0
         b = i + 80.0
