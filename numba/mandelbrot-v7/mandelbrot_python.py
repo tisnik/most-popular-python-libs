@@ -46,7 +46,7 @@ def calc_mandelbrot(width, height, maxiter, palette):
     for y in prange(0, height):
         cy = -1.5 + 3.0*y/height
         cx = -2.0
-        for x in range(0, width):
+        for x in range(width):
             i = calc_pixel(maxiter, cx, cy)
             iters[y][x] = i
 
@@ -58,8 +58,8 @@ def calc_mandelbrot(width, height, maxiter, palette):
     print(width)
     print(height)
     print("255")
-    for y in range(0, height):
-        for x in range(0, width):
+    for y in range(height):
+        for x in range(width):
             i = iters[y][x]
             r = palette[i % 256][0]
             g = palette[i % 256][1]
