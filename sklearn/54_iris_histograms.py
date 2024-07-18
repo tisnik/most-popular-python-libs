@@ -10,7 +10,7 @@ fig, axes = plt.subplots(nrows=2, ncols=2)
 fig.set_figheight(15)
 fig.set_figwidth(15)
 
-for i in range(0, 4):
+for i in range(4):
     ax = axes[i//2][i%2]
     ax.hist(data[:, i], bins=50, histtype="step")
     ax.set(xlabel=iris.feature_names[i])
