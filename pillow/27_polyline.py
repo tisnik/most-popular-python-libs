@@ -36,7 +36,7 @@ try:
         return height / 2 + height * 0.4 * math.sin(angle * 2)
 
     endpoints = list(
-        chain.from_iterable((f(angle), g(angle)) for angle in range(0, 360))
+        chain.from_iterable((f(angle), g(angle)) for angle in range(360))
     )
 
     draw.line(endpoints, fill=(255, 255, 256))
