@@ -7,7 +7,7 @@ print(a)
 
 for i in range(size - 1, 0, -1):
     print(i)
-    for j in range(0, i):
+    for j in range(i):
         if a[j] > a[j + 1]:
             a[j], a[j + 1] = a[j + 1], a[j]
 
