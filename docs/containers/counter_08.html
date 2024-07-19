@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>counter_08.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>counter_08.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2024  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Počátek každodenní práce na poli formování pozice vyžaduje návrh a realizaci</span>
+<span class="s2">směru progresivního rozvoje. Na druhé straně rámec stavu a vývoje postavení</span>
+<span class="s2">vyžadují nalezení a jednoznačné upřesnění systému masové účasti. Vzájemné</span>
+<span class="s2">postavení organizačních autorit stejně jako stabilní a kvantitativní vzrůst a</span>
+<span class="s2">sféra naší aktivity napomáhá přípravě a realizaci nových návrhů. Stejně tak</span>
+<span class="s2">stálé, informačně-propagandistické zabezpečení naší práce jednoznačně</span>
+<span class="s2">předurčuje implementaci odpovídajících podmínek aktivizace. Nesmíme však</span>
+<span class="s2">zapomínat, že konzultace se širokým aktivem vyzaduje rozšiřování logistických</span>
+<span class="s2">prostředků a forem působení. Ideové úvahy nejvyššího řádu a rovněž upřesnění a</span>
+<span class="s2">rozvoj struktur přetváří strukturu vedení dalších směrů rozvoje. Tímto způsobem</span>
+<span class="s2">komplexní analýza našich možností od nás vyžaduje analýzy systému výchovy</span>
+<span class="s2">pracovníků odpovídajících aktuálním potřebám. Závažnost těchto problémů je</span>
+<span class="s2">natolik zřejmá, že nový model organizační činnosti zvyšuje potřebu aplikace</span>
+<span class="s2">modelu rozvoje. Pestré a bohaté zkušenosti jasně říkají, že další rozvoj</span>
+<span class="s2">různých forem činnosti představuje pozoruhodný experiment prověrky možnosti</span>
+<span class="s2">nasazení veškerých dostupných prostředků. Každodenní praxe nám potvrzuje, že</span>
+<span class="s2">počátek každodenní práce na poli formování pozice ve značné míře podmiňuje</span>
+<span class="s2">vytvoření tvorby nových zdrojů.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">sentences</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">total</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
