@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>asm_disasm_mips_1.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>asm_disasm_mips_1.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2022  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>import všech symbolů assembleru použitých ve skriptu
+import všech symbolů disassembleru použitých ve skriptu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">capstone</span> <span class="kn">import</span> <span class="n">CS_ARCH_MIPS</span><span class="p">,</span> <span class="n">CS_MODE_MIPS32</span><span class="p">,</span> <span class="n">Cs</span>
+<span class="kn">from</span> <span class="nn">keystone</span> <span class="kn">import</span> <span class="n">KS_ARCH_MIPS</span><span class="p">,</span> <span class="n">KS_MODE_MIPS32</span><span class="p">,</span> <span class="n">Ks</span><span class="p">,</span> <span class="n">KsError</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>instrukce, které se mají přeložit assemblerem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">CODE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        addiu   $sp,$sp,-8</span>
+<span class="s2">        sw      $fp,4($sp)</span>
+<span class="s2">        move    $fp,$sp</span>
+<span class="s2">        sw      $4,8($fp)</span>
+<span class="s2">        sw      $5,12($fp)</span>
+<span class="s2">        lw      $3,8($fp)</span>
+<span class="s2">        lw      $2,12($fp)</span>
+<span class="s2">        nop</span>
+<span class="s2">        addu    $2,$3,$2</span>
+<span class="s2">        move    $sp,$fp</span>
+<span class="s2">        lw      $fp,4($sp)</span>
+<span class="s2">        addiu   $sp,$sp,8</span>
+<span class="s2">        jr      $31</span>
+<span class="s2">        nop</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">try</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>inicializace assembleru se specifikací architektury a popř. i režimu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">ks</span> <span class="o">=</span> <span class="n">Ks</span><span class="p">(</span><span class="n">KS_ARCH_MIPS</span><span class="p">,</span> <span class="n">KS_MODE_MIPS32</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>vlastní překlad (assembling)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">encoding</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">ks</span><span class="o">.</span><span class="n">asm</span><span class="p">(</span><span class="n">CODE</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>disassembling binární sekvence kódů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">md</span> <span class="o">=</span> <span class="n">Cs</span><span class="p">(</span><span class="n">CS_ARCH_MIPS</span><span class="p">,</span> <span class="n">CS_MODE_MIPS32</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>vypsat podrobnější informace o každé instrukci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">md</span><span class="o">.</span><span class="n">disasm</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">encoding</span><span class="p">),</span> <span class="mh">0x0000</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>převod pole bajtů na řetězec s hexa hodnotami</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">dump</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>výpis informací o instrukci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;0x</span><span class="si">{:02x}</span><span class="s2">:</span><span class="se">\t</span><span class="si">{:20s}</span><span class="se">\t</span><span class="si">{:s}</span><span class="se">\t</span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">i</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">dump</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">mnemonic</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">op_str</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<span class="k">except</span> <span class="n">KsError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
