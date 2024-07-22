@@ -71,7 +71,7 @@ print("Data:", digits_data.data.shape)
 print("Obrázky:", digits_data.images.shape)
 
 # výpis informací o obrázcích
-for i in range(0, 10):
+for i in range(10):
     # počet vzorků pro trénink
     for_training = training_set_size
 
@@ -132,7 +132,7 @@ for target_name in digits_data.target_names:
 
 
 # vykreslení a uložení prvních deseti obrázků
-for i in range(0, 10):
+for i in range(10):
     plt.matshow(digits_data.images[i])
     plt.savefig(f"Image #{i}.png")
     plt.show()
@@ -165,7 +165,7 @@ plt.show()
 
 
 # vykreslení a uložení prvních deseti obrázků
-for i in range(0, 10):
+for i in range(10):
     plt.matshow(digits_data.images[i], cmap=plt.cm.gray_r)
     # převod na stupně šedi
     # plt.gray()
