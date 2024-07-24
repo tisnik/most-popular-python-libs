@@ -3,8 +3,11 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 
+# nacteni datove sady
 iris = load_iris()
 
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
 data = iris.data
 
 plt.figure(1)
@@ -22,7 +25,7 @@ plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], c="red
 plt.title("K-Means++")
 
 # uložení grafu do souboru
-plt.savefig("iris_kmeans_1.png")
+plt.savefig("57.png")
 
 # vykreslení na obrazovku
 plt.show()
