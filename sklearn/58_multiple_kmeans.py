@@ -3,10 +3,13 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 
+# nacteni datove sady
 iris = load_iris()
 
+# nacteni datove sady
 data = iris.data
 
+# mrizka s diagramy/grafy
 fig, axes = plt.subplots(nrows=2, ncols=2)
 fig.set_figheight(15)
 fig.set_figwidth(15)
@@ -34,6 +37,9 @@ draw_kmeans(1, 0, 1, 2)
 draw_kmeans(1, 1, 1, 3)
 
 plt.tight_layout()
-plt.savefig("58.png")
-plt.show()
 
+# uložení grafu do souboru
+plt.savefig("58.png")
+
+# vykreslení na obrazovku
+plt.show()
