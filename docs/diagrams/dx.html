@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>dx.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>dx.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diagrams</span> <span class="kn">import</span> <span class="n">Cluster</span><span class="p">,</span> <span class="n">Diagram</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.compute</span> <span class="kn">import</span> <span class="n">ECS</span><span class="p">,</span> <span class="n">EKS</span><span class="p">,</span> <span class="n">Lambda</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.database</span> <span class="kn">import</span> <span class="n">Redshift</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.integration</span> <span class="kn">import</span> <span class="n">SQS</span>
+<span class="kn">from</span> <span class="nn">diagrams.aws.storage</span> <span class="kn">import</span> <span class="n">S3</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>definice diagramu se specifikaci jeho zakladnich vlastnosti</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">with</span> <span class="n">Diagram</span><span class="p">(</span><span class="s2">&quot;Event Processing&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">EKS</span><span class="p">(</span><span class="s2">&quot;k8s source&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>definice clusteru</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">with</span> <span class="n">Cluster</span><span class="p">(</span><span class="s2">&quot;Event Flows&quot;</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>definice clusteru uvnitr clusteru</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">with</span> <span class="n">Cluster</span><span class="p">(</span><span class="s2">&quot;Event Workers&quot;</span><span class="p">):</span>
+            <span class="n">workers</span> <span class="o">=</span> <span class="p">[</span><span class="n">ECS</span><span class="p">(</span><span class="s2">&quot;worker1&quot;</span><span class="p">),</span> <span class="n">ECS</span><span class="p">(</span><span class="s2">&quot;worker2&quot;</span><span class="p">),</span> <span class="n">ECS</span><span class="p">(</span><span class="s2">&quot;worker3&quot;</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>definice uzlu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">queue</span> <span class="o">=</span> <span class="n">SQS</span><span class="p">(</span><span class="s2">&quot;event queue&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>definice clusteru</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">with</span> <span class="n">Cluster</span><span class="p">(</span><span class="s2">&quot;Processing&quot;</span><span class="p">):</span>
+            <span class="n">handlers</span> <span class="o">=</span> <span class="p">[</span><span class="n">Lambda</span><span class="p">(</span><span class="s2">&quot;proc1&quot;</span><span class="p">),</span> <span class="n">Lambda</span><span class="p">(</span><span class="s2">&quot;proc2&quot;</span><span class="p">),</span> <span class="n">Lambda</span><span class="p">(</span><span class="s2">&quot;proc3&quot;</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>definice uzlu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">store</span> <span class="o">=</span> <span class="n">S3</span><span class="p">(</span><span class="s2">&quot;events store&quot;</span><span class="p">)</span>
+    <span class="n">dw</span> <span class="o">=</span> <span class="n">Redshift</span><span class="p">(</span><span class="s2">&quot;analytics&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>propojeni uzlu orientovanymi hranami</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">source</span> <span class="o">&gt;&gt;</span> <span class="n">workers</span> <span class="o">&gt;&gt;</span> <span class="n">queue</span> <span class="o">&gt;&gt;</span> <span class="n">handlers</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>dalsi propojeni uzlu orientovanymi hranami</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">handlers</span> <span class="o">&gt;&gt;</span> <span class="n">store</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>dalsi propojeni uzlu orientovanymi hranami</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">handlers</span> <span class="o">&gt;&gt;</span> <span class="n">dw</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
