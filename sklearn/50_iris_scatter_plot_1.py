@@ -10,6 +10,8 @@ iris = load_iris()
 data = iris.data
 
 # vykresleni korelacniho diagramu pro dvojici vybranych atributu
+# prvni sloupec: x-ove souradnice
+# druhy sloupec: y-ove souradnice
 plt.scatter(data[:, 0], data[:, 1], c=iris.target)
 plt.title("Classes")
 
