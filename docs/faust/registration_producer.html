@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>registration_producer.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>registration_producer.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2024  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dumps</span>
+
+<span class="kn">from</span> <span class="nn">kafka</span> <span class="kn">import</span> <span class="n">KafkaProducer</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="n">surname</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">id</span>
+            <span class="p">}</span>
+
+
+<span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;localhost:9092&quot;</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="s2">&quot;registrations&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting to Kafka&quot;</span><span class="p">)</span>
+<span class="n">producer</span> <span class="o">=</span> <span class="n">KafkaProducer</span><span class="p">(</span>
+    <span class="n">bootstrap_servers</span><span class="o">=</span><span class="p">[</span><span class="n">server</span><span class="p">],</span>
+    <span class="n">value_serializer</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected to Kafka&quot;</span><span class="p">)</span>
+
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Eliška&quot;</span><span class="p">,</span> <span class="s2">&quot;Najbrtová&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Jenny&quot;</span><span class="p">,</span> <span class="s2">&quot;Suk&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Anička&quot;</span><span class="p">,</span> <span class="s2">&quot;Šafářová&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Sváťa&quot;</span><span class="p">,</span> <span class="s2">&quot;Pulec&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Blažej&quot;</span><span class="p">,</span> <span class="s2">&quot;Motyčka&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Eda&quot;</span><span class="p">,</span> <span class="s2">&quot;Wasserfall&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">user</span><span class="p">(</span><span class="s2">&quot;Přemysl&quot;</span><span class="p">,</span> <span class="s2">&quot;Hájek&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
