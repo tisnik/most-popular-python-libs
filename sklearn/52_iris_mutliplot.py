@@ -11,6 +11,8 @@ data = iris.data
 
 # vykresleni mrizky korelacnich diagramu
 fig, axes = plt.subplots(nrows=4, ncols=4)
+
+# rozmery vysledneho obrazku
 fig.set_figheight(15)
 fig.set_figwidth(15)
 
@@ -23,6 +25,8 @@ for row in range(4):
             fig.delaxes(ax)
             continue
         # pridat korelacni diagram do mrizky
+        # sloupec row: x-ove souradnice
+        # sloupec column: y-ove souradnice
         scatter = ax.scatter(data[:, row], data[:, column], c=iris.target)
         # popisky os
         ax.set(xlabel=iris.feature_names[row], ylabel=iris.feature_names[column])
