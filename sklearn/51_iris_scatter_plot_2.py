@@ -11,6 +11,9 @@ data = iris.data
 
 # vykresleni korelacniho diagramu pro dvojici vybranych atributu
 _, ax = plt.subplots()
+
+# prvni sloupec: x-ove souradnice
+# druhy sloupec: y-ove souradnice
 scatter = ax.scatter(data[:, 0], data[:, 1], c=iris.target)
 
 # popisky os
