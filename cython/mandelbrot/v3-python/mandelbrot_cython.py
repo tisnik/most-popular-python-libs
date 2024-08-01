@@ -95,9 +95,9 @@ def calc_mandelbrot(width: cython.int, height: cython.int, maxiter: cython.int, 
     printf("P3\n%d %d\n255\n", width, height)
 
     cy = -1.5
-    for y in range(0, height):
+    for y in range(height):
         cx = -2.0
-        for x in range(0, width):
+        for x in range(width):
             zx = 0.0
             zy = 0.0
             i = 0
