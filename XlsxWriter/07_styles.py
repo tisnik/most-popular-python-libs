@@ -15,7 +15,7 @@
 #
 # link to source:
 # https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/07_styles.py
-# 
+#
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/07_styles.html
 
