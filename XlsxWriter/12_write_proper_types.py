@@ -15,7 +15,7 @@
 #
 # link to source:
 # https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/12_write_proper_types.py
-# 
+#
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/12_write_proper_types.html
 
