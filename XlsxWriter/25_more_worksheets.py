@@ -15,7 +15,7 @@
 #
 # link to source:
 # https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/25_more_worksheets.py
-# 
+#
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/25_more_worksheets.html
 
