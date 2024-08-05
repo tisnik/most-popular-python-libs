@@ -15,7 +15,7 @@
 #
 # link to source:
 # https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/29_merged_cells.py
-# 
+#
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/29_merged_cells.html
 
