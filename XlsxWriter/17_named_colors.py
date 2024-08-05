@@ -15,7 +15,7 @@
 #
 # link to source:
 # https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/17_named_colors.py
-# 
+#
 # link to source in literate programming format:
 # https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/17_named_colors.html
 
