@@ -26,5 +26,5 @@ phones = [
     ("Martin",  "000-0000"),
 ]
 
-for item in join(1, names, 0, phones, left_default=(0, "Nikdo"), right_default=("Neznamy", "111-1111")): 
+for item in join(1, names, 0, phones, left_default=(0, "Nikdo"), right_default=("Neznamy", "111-1111")):
     print(item[0][0], item[0][1], item[1][0], item[1][1])
