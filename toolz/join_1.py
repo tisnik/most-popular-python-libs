@@ -24,5 +24,5 @@ phones = [
     ("Charlie", "555-9999"),
 ]
 
-for item in join(1, names, 0, phones): 
+for item in join(1, names, 0, phones):
     print(item)
