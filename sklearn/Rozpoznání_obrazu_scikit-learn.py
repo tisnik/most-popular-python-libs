@@ -181,7 +181,7 @@ for i in range(10):
 # In[18]:
 
 
-# vytvoření seznamu, které použijeme 
+# vytvoření seznamu, které použijeme
 images = list(zip(digits_data.target, digits_data.images))
 
 # vykreslení tréninkových číslic
