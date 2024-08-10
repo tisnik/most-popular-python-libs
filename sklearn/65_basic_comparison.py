@@ -13,7 +13,6 @@
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
-import numpy as np
 
 # nacteni datove sady
 iris = load_iris()
