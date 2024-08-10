@@ -11,9 +11,7 @@
 #
 
 import matplotlib.pyplot as plt
-import numpy
 
-from sklearn.cluster import KMeans
 from sklearn.cluster import SpectralClustering
 from sklearn.datasets import load_iris
 
