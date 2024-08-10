@@ -12,7 +12,6 @@
 
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
-import numpy as np
 
 # nacteni datove sady
 iris = load_iris()
