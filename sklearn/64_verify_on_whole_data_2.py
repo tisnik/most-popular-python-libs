@@ -14,7 +14,6 @@ from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
 
-import numpy as np
 
 # nacteni datove sady
 iris = load_iris()
