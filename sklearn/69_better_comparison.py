@@ -14,7 +14,6 @@ from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-import numpy as np
 
 # nacteni datove sady
 iris = load_iris()
