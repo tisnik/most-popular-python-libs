@@ -23,8 +23,9 @@ for degree in range(1, 11):
     # predikce modelu
     y_pred = pr.predict(poly_features)
 
-    1# výpis vypočtených koeficientů modelu
+    # výpis vypočtených koeficientů modelu
     print("Coefficients: \n", pr.coef_)
+    print("Intercept: \n", pr.intercept_)
 
     # vykreslení výsledku
     plt.scatter(x, y, color="black", s=1)
