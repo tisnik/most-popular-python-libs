@@ -35,6 +35,7 @@ y_pred = lr.predict(x_test.reshape(-1, 1))
 
 # výpis vypočtených koeficientů modelu
 print("Coefficients: \n", lr.coef_)
+print("Intercept: \n", lr.intercept_)
 
 # chyba predikce
 print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
