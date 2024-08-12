@@ -26,8 +26,9 @@ lr.fit(x_train.reshape(-1, 1), y_train)
 # predikce modelu
 y_pred = lr.predict(x_test.reshape(-1, 1))
 
-1# výpis vypočtených koeficientů modelu
+# výpis vypočtených koeficientů modelu
 print("Coefficients: \n", lr.coef_)
+print("Intercept: \n", lr.intercept_)
 
 # vykreslení výsledku
 plt.scatter(x_test, y_test, color="black", s=2)
