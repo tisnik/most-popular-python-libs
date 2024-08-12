@@ -17,8 +17,9 @@ lr.fit(x.reshape(-1, 1), y)
 # predikce modelu
 y_pred = lr.predict(x.reshape(-1, 1))
 
-1# výpis vypočtených koeficientů modelu
+# výpis vypočtených koeficientů modelu
 print("Coefficients: \n", lr.coef_)
+print("Intercept: \n", lr.intercept_)
 
 # vykreslení výsledku
 plt.scatter(x, y, color="black", s=2)
@@ -28,8 +29,8 @@ plt.plot(x, y_pred, color="blue", linewidth=2)
 plt.title("Linear regression")
 
 # osy
-plt.xticks(())
-plt.yticks(())
+plt.xticks()
+plt.yticks()
 
 # ulozeni diagramu do souboru
 plt.savefig("79.png")
