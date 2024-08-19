@@ -3,15 +3,18 @@ import matplotlib.pyplot as plt
 
 from sklearn import linear_model
 from sklearn.preprocessing import PolynomialFeatures
+from sklearn.metrics import mean_squared_error, r2_score
 
-VALUES = 50
+VALUES = 100
 
 x = np.linspace(0, 10, VALUES)
-y = np.linspace(-1, 1, VALUES) + 0.5*np.random.rand(VALUES)
+y1 = 0.5*np.random.rand(VALUES//2)
+y2 = 1 + 0.5*np.random.rand(VALUES//2)
+y = np.concatenate((y1, y2))
 
-for degree in range(1, 11):
+for degree in range(1, 12):
     # konstrukce modelu
-    pr = linear_model.LinearRegression()
+    pr = linear_model.LinearRegression(fit_intercept=False)
 
     poly = PolynomialFeatures(degree=degree)
 
@@ -26,6 +29,12 @@ for degree in range(1, 11):
     # výpis vypočtených koeficientů modelu
     print("Coefficients: \n", pr.coef_)
     print("Intercept: \n", pr.intercept_)
+
+    # chyba predikce
+    print("Mean squared error: %.2f" % mean_squared_error(y, y_pred))
+
+    # 1 = nejlepší predikce modelu
+    print("Coefficient of determination: %.2f" % r2_score(y, y_pred))
 
     # vykreslení výsledku
     plt.scatter(x, y, color="black", s=1)
