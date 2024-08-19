@@ -1,3 +1,15 @@
+#
+#  (C) Copyright 2024  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
 import matplotlib.pyplot as plt
 
 from sklearn import linear_model
@@ -12,8 +24,8 @@ housings = fetch_california_housing()
 # urcenych pro trenink, validaci atd.
 data = housings["data"]
 
-FIRST_DIM = 6
-SECOND_DIM = 7
+FIRST_DIM = 2
+SECOND_DIM = 3
 
 # rozdělení na trénovací a testovací data
 x_train, x_test, y_train, y_test = train_test_split(data[:, FIRST_DIM], data[:, SECOND_DIM], test_size=0.6)
