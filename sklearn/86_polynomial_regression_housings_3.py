@@ -53,7 +53,7 @@ for degree in range(1, 11):
     plt.yticks(())
 
     # ulozeni diagramu do souboru
-    plt.savefig(f"84_{degree}.png")
+    plt.savefig(f"86_{degree}.png")
 
     # zobrazeni diagramu
     plt.show()
