@@ -1,3 +1,6 @@
+# description of all rules are available on https://docs.astral.sh/ruff/rules/
+lint.select = ["F"]
+
 [project]
 name = ""
 version = ""
