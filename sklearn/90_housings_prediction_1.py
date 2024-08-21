@@ -1,3 +1,15 @@
+#
+#  (C) Copyright 2024  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
 from sklearn import linear_model
 from sklearn.datasets import fetch_california_housing
 from sklearn.metrics import mean_squared_error, r2_score
