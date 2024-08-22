@@ -9,6 +9,14 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+# Tento demonstracni priklad je pouzity v serialu o datove analyze
+# s vyuzitim programovaciho jazyka Python:
+# https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/
+#
+# Clanek, kde je tento demonstracni priklad pouzit:
+# Balíček scikit-learn: modely provádějící klasifikaci
+# https://www.root.cz/clanky/balicek-scikit-learn-modely-provadejici-klasifikaci/
+#
 
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
