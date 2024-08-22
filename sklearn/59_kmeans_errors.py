@@ -16,7 +16,7 @@
 #
 # Clanek, kde je tento demonstracni priklad pouzit:
 # Datová analýza s využitím nástroje scikit-learn: první kroky
-# https://www.root.cz/clanky/datova-analyza-s-vyuzitim-nastroje-scikit-learn-prvni-kroky/#k19
+# https://www.root.cz/clanky/datova-analyza-s-vyuzitim-nastroje-scikit-learn-prvni-kroky/
 #
 
 import matplotlib.pyplot as plt
