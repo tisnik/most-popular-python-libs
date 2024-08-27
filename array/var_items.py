@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Změna alokované paměti při postupném přidávání prvků do polí."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
