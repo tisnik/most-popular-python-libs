@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Převod celého pole na sekvenci bajtů (bytes)."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
@@ -36,6 +38,7 @@ for i in range(10):
 
 
 def print_all_items_as_hex(name, struct):
+    """Výpis obsahu pole po převodu na sekvenci bajtů."""
     print(name)
     print(struct.tobytes().hex(" "))
     print()
