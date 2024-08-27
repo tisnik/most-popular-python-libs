@@ -1,3 +1,5 @@
+"""Implementace algoritmu bublinkového řazení nad seznamem."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
