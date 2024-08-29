@@ -31,6 +31,7 @@ def run_k_means(n_samples):
 
     # clustering
     kmeans = KMeans(n_clusters=n_components, random_state=0, n_init="auto").fit(samples)
+    assert kmeans is not None
 
 
 x = []
