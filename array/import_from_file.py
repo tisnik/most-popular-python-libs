@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Import celých polí ze souboru."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
