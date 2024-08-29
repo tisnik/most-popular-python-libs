@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Vložení prvku na první index v polích různých typů."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
