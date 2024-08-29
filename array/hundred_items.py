@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Zjištění alokované paměti pro pole různých typů se 100 prvky."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
