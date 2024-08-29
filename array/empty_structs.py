@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Zjištění velikosti prázdných struktur (seznamu, polí)."""
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
