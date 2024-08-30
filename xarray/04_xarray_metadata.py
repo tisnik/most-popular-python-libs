@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Metadata objektu typu xarray.DataArray."""
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
