@@ -9,6 +9,7 @@
 * Techniky strojového učení
 * Zpracování dat
 * Použití modelů
+* Datové sady pro první seznámení s modely
 * Trénink s učitelem a bez učitele
 * Modely pro klasifikaci
 * Modely pro regresi
@@ -46,15 +47,7 @@
 
 ---
 
-## Použití modelů
-
----
-
-## Trénink s učitelem a bez učitele
-
----
-
-## Modely pro klasifikaci
+## Datové sady pro první seznámení s modely
 
 ---
 
@@ -69,6 +62,22 @@ Výstup
 ----------------------------------------------------------------------------------------------------
 ['DESCR', 'data', 'data_module', 'feature_names', 'filename', 'frame', 'target', 'target_names']
 ```
+
+@ iris_description.py
+
+@ iris_data.py
+
+---
+
+## Použití modelů
+
+---
+
+## Trénink s učitelem a bez učitele
+
+---
+
+## Modely pro klasifikaci
 
 ---
 
