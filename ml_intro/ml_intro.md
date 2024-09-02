@@ -29,6 +29,19 @@
 
 ## Vztah strojového učení a umělé inteligence
 
+### Umělá inteligence
+
+* Definice
+    - konstrukce strojů, které dokážou provádět činnosti vyžadující inteligenci, pokud by byly prováděny lidmi
+    - (Marvin Minsky, 1967)
+    - existují i alternativní definice
+* Modelování lidské mysli
+    - shora dolů (psychologie)
+    - zdola nahoru (neurověda)
+    - zprostředka (informatika)
+* Inteligentní chování může vzniknout ze spojení velkého množství jednoduchých systémů
+    - koncept neuronových sítí
+
 ---
 
 ## Vývoj umělé inteligence
