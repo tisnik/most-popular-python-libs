@@ -87,6 +87,8 @@ Výstup
 
 ## Lineární regrese a její varianty
 
+@ linear_regression_gen_data.py
+
 ---
 
 ## Křížová validace modelů
