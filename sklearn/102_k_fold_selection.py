@@ -9,6 +9,11 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# Tento demonstracni priklad je pouzity v serialu o datove analyze
+# s vyuzitim programovaciho jazyka Python:
+# https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/
+#
 
 import numpy as np
 from sklearn.model_selection import KFold
