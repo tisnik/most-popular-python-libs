@@ -11,6 +11,11 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+#
+# Tento demonstracni priklad je pouzity v serialu o datove analyze
+# s vyuzitim programovaciho jazyka Python:
+# https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/
+#
 
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 
