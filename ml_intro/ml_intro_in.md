@@ -55,6 +55,35 @@
     - (pravděpodobně) poprvé použil termín AI
     - Newel a Simon: Logic theorist
 * velké očekávání pokroku v dalších letech
+    - dařilo se částečné řešení různých problémů
+    - prakticky každý měsíc nový objev
+* cca 1965
+    - vystřízlivění
+    - existovala sice spousta vyřešených problémů, ale ty byly triviální
+    - nalezeny limity, které se nedařilo překonat
+    - první "AI zima"
+* sedmdesátá léta
+    - systémy založené na znalostech
+    - vývoj v mnoha oblastech (hledání ropy atd.)
+* začátek osmdesátých let
+    - velké investice do AI
+    - očekávání se nenaplnila
+    - potom nastává druhá "AI zima"
+* druhá polovina osmdesátých let
+    - rozvoj neuronových sítí (což nebyla novinka)
+* 1995
+    - systémy SOAR (State, Operator and Result)
+* 2000
+    - big data (v tom pokračujeme i dnes)
+    - ale prozatím žádné větší objemy
+    - "wow" efekt na úrovni AI
+* 2010
+    - deep learning
+* 2020
+    - LLM (prompt engineering, ne fine tuning)
+* současnost
+    - LLM
+    - generativní AI
 
 ---
 
@@ -142,6 +171,8 @@ Výstup
 * Což obecně není vhodné
 
 @ housings_prediction_1.py
+
+# @ housings_prediction_2.py
 
 ---
 
