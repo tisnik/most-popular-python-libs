@@ -2,9 +2,11 @@
 
 ## Obsah
 
-* Strojové učení
-* Vztah strojového učení a umělé inteligence
-* Vývoj umělé inteligence
+* Úvod
+    - Umělá inteligence
+    - Vývoj umělé inteligence
+    - Strojové učení
+    - Vztah strojového učení a umělé inteligence
 * Základní pojmy
 * Techniky strojového učení
 * Zpracování dat
@@ -23,11 +25,9 @@
 
 ---
 
-## Strojové učení
+# Úvod
 
 ---
-
-## Vztah strojového učení a umělé inteligence
 
 ### Umělá inteligence
 
@@ -45,6 +45,31 @@
 ---
 
 ## Vývoj umělé inteligence
+
+* 1943-1955
+    - první myšlenky, že něco podobného může reálně vzniknout
+    - booleovský model neuronu
+    - A. Turing: Computing Machinery and Intelligence
+* 1956
+    - McCarthy (LISP)
+    - (pravděpodobně) poprvé použil termín AI
+    - Newel a Simon: Logic theorist
+* velké očekávání pokroku v dalších letech
+
+---
+
+## Strojové učení
+
+---
+
+## Vztah strojového učení a umělé inteligence
+
+* Umělá inteligence
+    - strojové učení (machine learning)
+    - hluboké učení (deep learning)
+    - robotika
+    - neuronové sítě
+    - zpracování přirozeného jazyka (NLP)
 
 ---
 
@@ -82,6 +107,10 @@ Výstup
 
 ---
 
+### Datová sada California Housings
+
+---
+
 ## Použití modelů
 
 ---
@@ -101,6 +130,18 @@ Výstup
 ## Lineární regrese a její varianty
 
 @ linear_regression_gen_data.py
+
+---
+
+### Použití modelu lineární regrese
+
+* California housings
+
+### Trénink modelu se všemi daty
+
+* Což obecně není vhodné
+
+@ housings_prediction_1.py
 
 ---
 

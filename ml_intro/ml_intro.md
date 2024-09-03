@@ -2,9 +2,11 @@
 
 ## Obsah
 
-* Strojové učení
-* Vztah strojového učení a umělé inteligence
-* Vývoj umělé inteligence
+* Úvod
+    - Umělá inteligence
+    - Vývoj umělé inteligence
+    - Strojové učení
+    - Vztah strojového učení a umělé inteligence
 * Základní pojmy
 * Techniky strojového učení
 * Zpracování dat
@@ -23,11 +25,9 @@
 
 ---
 
-## Strojové učení
+# Úvod
 
 ---
-
-## Vztah strojového učení a umělé inteligence
 
 ### Umělá inteligence
 
@@ -45,6 +45,31 @@
 ---
 
 ## Vývoj umělé inteligence
+
+* 1943-1955
+    - první myšlenky, že něco podobného může reálně vzniknout
+    - booleovský model neuronu
+    - A. Turing: Computing Machinery and Intelligence
+* 1956
+    - McCarthy (LISP)
+    - (pravděpodobně) poprvé použil termín AI
+    - Newel a Simon: Logic theorist
+* velké očekávání pokroku v dalších letech
+
+---
+
+## Strojové učení
+
+---
+
+## Vztah strojového učení a umělé inteligence
+
+* Umělá inteligence
+    - strojové učení (machine learning)
+    - hluboké učení (deep learning)
+    - robotika
+    - neuronové sítě
+    - zpracování přirozeného jazyka (NLP)
 
 ---
 
@@ -137,6 +162,10 @@ print(data.shape)
 
 ---
 
+### Datová sada California Housings
+
+---
+
 ## Použití modelů
 
 ---
@@ -209,6 +238,58 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//linear_regression_gen_data.py)
+
+---
+
+### Použití modelu lineární regrese
+
+* California housings
+
+### Trénink modelu se všemi daty
+
+* Což obecně není vhodné
+
+```python
+from sklearn import linear_model
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import mean_squared_error, r2_score
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# trening bude proveden se VSEMI zaznamy
+# testovani taktez (prozatim)
+X = data
+y = targets
+
+# konstrukce modelu
+lr = linear_model.LinearRegression()
+
+# trénink modelu
+lr.fit(X, y)
+
+# predikce modelu
+y_pred = lr.predict(X)
+
+# výpis vypočtených koeficientů modelu
+print("Coefficients: \n", lr.coef_)
+print("Intercept: \n", lr.intercept_)
+
+# chyba predikce
+print("Mean squared error: %.2f" % mean_squared_error(y, y_pred))
+
+# 1 = nejlepší predikce modelu
+print("Coefficient of determination: %.2f" % r2_score(y, y_pred))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//housings_prediction_1.py)
 
 ---
 
