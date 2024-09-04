@@ -27,6 +27,11 @@
 
 # Úvod
 
+* Umělá inteligence
+* Vývoj umělé inteligence
+* Strojové učení
+* Vztah strojového učení a umělé inteligence
+
 ---
 
 ### Umělá inteligence
@@ -89,17 +94,37 @@
 
 ## Strojové učení
 
+* podoblast umělé inteligence
+* změna interního stavu systému při tréninku
+* několik způsobů realizace strojového učení
+* "statistické učení"
+* typicky se nejedná o plně automatizovanou činnost
+    - vyžaduje chytrá (strategická) rozhodnutí
+    - výběr modelu
+    - výběr hyperparametrů modelu
+    - rozdělení vstupních dat
+    - filtrace dat
+* nalézají se skryté vzorky a vazby v datech
+
 ---
 
 ## Vztah strojového učení a umělé inteligence
 
-* Umělá inteligence
-    - strojové učení (machine learning)
-    - hluboké učení (deep learning)
+* Umělá inteligence (AI)
+    - strojové učení (machine learning, ML)
+    - hluboké učení (deep learning, DL)
     - robotika
-    - neuronové sítě
+    - neuronové sítě (NN)
     - zpracování přirozeného jazyka (NLP)
-
+* AI > ML > NN > DL
+* Umělá inteligence
+    - objevování
+    - odvozování
+    - odůvodnění
+* Strojové učení
+    - (sofistikovaná) analýza
+    - predikce (!)
+    - rozhodování (klasifikace, regrese)
 ---
 
 ## Základní pojmy
