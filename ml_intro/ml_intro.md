@@ -133,6 +133,30 @@
 
 ## Techniky strojového učení
 
+* Supervised learning
+    - také se nazývá "predictive modeling"
+    - známe takzvané "kategorie" neboli odpovědi
+* Unsupervised learning
+    - neznáme odpovědi
+    - model musí najít struktury/vzory v datech
+    - typicky různé varianty clusteringu
+
+---
+
+### Supervised learning
+
+1. trénink na základě vstupních dat
+    - model se naučí vztahy mezi daty a očekávanou odpovědí
+2. predikce na základě jiných(!) dat
+    - problematika rozdělení dat
+
+---
+
+### Unsupervised learning
+
+1. trénink modelu na základě vstupních dat
+    - ovšem bez znalosti správných odpovědí
+
 ---
 
 ## Zpracování dat
