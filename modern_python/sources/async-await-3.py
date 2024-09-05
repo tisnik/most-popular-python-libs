@@ -1,3 +1,5 @@
+"""Zakladni pouziti konstrukce async a await."""
+
 import asyncio
 
 
