@@ -1,3 +1,5 @@
+"""Fronta pro posilani zprav asynchronne bezicim funkcim."""
+
 import asyncio
 
 
