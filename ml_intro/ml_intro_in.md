@@ -223,6 +223,8 @@ Výstup
 
 @ housings_prediction_2.py
 
+@ housings_prediction_3.py
+
 ---
 
 ## Křížová validace modelů
