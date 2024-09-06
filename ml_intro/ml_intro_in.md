@@ -125,6 +125,37 @@
     - (sofistikovaná) analýza
     - predikce (!)
     - rozhodování (klasifikace, regrese)
+
+---
+
+### Proč strojové učení?
+
+* Chceme, aby se stroj naučil řešit zadaný problém na základě vzorových řešení:
+    - řešení je příliš komplikované
+    - problém se často mění, vyvíjí
+    - lidská práce je drahá (v porovnání se strojovou)
+    - máme k dispozici tolik dat, že je není možné zpracovat "ručně"
+
+---
+
+### Typické aplikace strojového učení
+
+* Rozpoznávání vzorů
+    - věci/osoby/výrazy tváře na fotkách
+    - mluvená slova
+    - spam
+    - medicínská diagnóza
+* Rozpoznávání anomálií
+    - netypické sekvence finančních transakcí
+    - netypická data přicházející ze senzorů v atomové elektrárně
+* Předpovídání
+    - vývoj ceny akcií na burze / vývoj měnového kurzu
+    - jaké filmy bude mít daný člověk rád
+    - věk osoby na fotografii
+* Shlukování
+    - vyhledávání zpráv s podobným obsahem
+    - vyhledání skupin zákazníků s podobnými vlastnostmi
+
 ---
 
 ## Základní pojmy
@@ -149,6 +180,9 @@
     - model se naučí vztahy mezi daty a očekávanou odpovědí
 2. predikce na základě jiných(!) dat
     - problematika rozdělení dat
+3. výsledky
+    - klasifikace: koupí si A, B nebo C?
+    - regrese: vektor příznaků, numerická hodnota nebo hodnoty
 
 ---
 
@@ -156,6 +190,17 @@
 
 1. trénink modelu na základě vstupních dat
     - ovšem bez znalosti správných odpovědí
+2. shluková analýza
+3. latentní a faktorová analýza
+
+---
+
+### Další možnosti
+
+1. kombinace obou metod (bez/s učitelem)
+2. učení se zpětnou vazbou
+    - pasivní
+    - aktivní
 
 ---
 
