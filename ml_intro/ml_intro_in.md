@@ -162,7 +162,7 @@
 
 ---
 
-## Techniky strojového učení
+### Techniky strojového učení
 
 * Supervised learning
     - také se nazývá "predictive modeling"
@@ -201,6 +201,19 @@
 2. učení se zpětnou vazbou
     - pasivní
     - aktivní
+
+---
+
+### Nedoučení a přeučení
+
+* Nedoučení
+    - malá sada dat, na kterých je model trénován
+    - příliš složitý model
+    - data reprezentují pouze malý vzorek celého spektra hodnot
+* Přeučení
+    - velká vazba na trénovací data
+    - menší flexibilita práce s daty, která model nezná
+    - použití polynomu vyššího stupně, když by stačila lineární regrese
 
 ---
 
@@ -251,6 +264,15 @@ Výstup
 ---
 
 ## Lineární regrese a její varianty
+
+* Jeden z nejjednodušších a nejužitečnějších modelů
+    - interně velmi jednoduchý
+    - lze odvodit, co se model naučil
+    - typicky nedochází k přeučení
+* Typicky metoda nejmenších čtverců
+* Lze použít v libovolném počtu rozměrů
+* Lineární regrese v oblasti parametrů, nikoli vstupních hodnot
+    - polynomická regrese
 
 @ linear_regression_gen_data.py
 
