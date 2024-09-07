@@ -217,9 +217,31 @@
 
 ---
 
+### Úspěšnost modelu
+
+* Pro zcela nová (neznámá) data!
+    - ne pro trénovací množinu
+    - častá chyba
+
+---
+
+### Křížová validace (cross validation)
+
+* rozdělení dat do bloků
+    - například na 1/10
+    - 9/10 pro trénink
+    - 1/10 pro otestování
+
+---
+
 ## Zpracování dat
 
 ---
+
+## Praktická část
+
+---
+
 
 ## Datové sady pro první seznámení s modely
 
