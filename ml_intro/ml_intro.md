@@ -284,6 +284,83 @@
 
 ---
 
+### Nástroje pro datovou analýzu
+
+* Data mining
+* Data procesing a modelování
+    - klasifikace
+    - predikce
+    - výběr modelu
+    - redukce počtu dimenzí
+    - pre-processing
+    - modelování
+* Vizualizace
+
+---
+
+### Jupyter Notebook
+
+* Typický centrální prvek, v němž se odehrává vývoj
+* Lze sdílet
+* Podporuje různá jádra (kernels)
+* Podpora vizualizace přímo na ploše notebooku
+
+---
+
+### Data mining
+
+* Scrapy
+* BeautifulSoup
+
+---
+
+### Data processing a modelování
+
+* NumPy
+* SciPy
+* Xarray
+* Pandas
+* Polars
+* SciKit-learn
+
+---
+
+### Vizualizace dat
+
+* Matplotlib
+* Seaborn
+* Bokeh
+* Plotly
+* pydot
+* plotnine
+
+---
+
+### Strojové učení
+
+* PyCaret
+* H2O
+* TPOT
+* Auto-sklearn
+* Keras
+* SciKit-Learn
+* PyTorch
+* TensorFlow
+
+---
+
+### Zpracování přirozeného jazyka
+
+* NLTK
+* spaCy
+
+---
+
+### HPC
+
+* Dask
+
+---
 
 ## Datové sady pro první seznámení s modely
 
