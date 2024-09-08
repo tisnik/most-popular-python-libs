@@ -362,6 +362,71 @@
 
 ---
 
+### NumPy
+
+![numpy_arrays.png](images/numpy_logo.png)
+
+---
+
+#### Knihovna NumPy
+
+- Výslovnosti
+    - [nəmpᴧɪ]
+    - [nəmpi]
+- Historie
+    - matrix package
+    - Numeric
+    - NumPy
+- Podpora pro n-dimenzionální pole
+    - + nové funkce
+    - + nové (přetížené) operátory
+- Kooperace s dalšími knihovnami a frameworky
+    - SciPy
+    - Matplotlib
+    - OpenCV
+
+---
+
+#### NumPy
+
+* n-dimenzionální pole jako základní datový typ
+    - ideově vychází z APL
+    - nové funkce
+    - nové (přetížené) operátory
+* mnoho typů konstruktorů
+* broadcasting
+* (re)shaping
+    - změna tvaru pole (počet dimenzí, tvar)
+
+---
+#### Skalární datové typy
+- <https://docs.scipy.org/doc/numpy/user/basics.types.html>
+```
+╔════════════╤═══════════════════════════╤═══════════════════════════════╗
+║ Formát     │ Popis                     │ Rozsah                        ║
+╟────────────┼───────────────────────────┼───────────────────────────────╢
+║ bool       │ uloženo po bajtech        │  True/False                   ║
+╟────────────┼───────────────────────────┼───────────────────────────────╢
+║ int8       │ celočíselný se znaménkem  │ -128..127                     ║
+║ int16      │ celočíselný se znaménkem  │ -32768..32767                 ║
+║ int32      │ celočíselný se znaménkem  │ -2147483648..2147483647       ║
+║ int64      │ celočíselný se znaménkem  │ -9223372036854775808..        ║
+║            │                           │  9223372036854775807          ║
+╟────────────┼───────────────────────────┼───────────────────────────────╢
+║ uint8      │ celočíselný bez znaménka  │  0..255                       ║
+║ uint16     │ celočíselný bez znaménka  │  0..65535                     ║
+║ uint32     │ celočíselný bez znaménka  │  0..4294967295                ║
+║ uint64     │ celočíselný bez znaménka  │  0..18446744073709551615      ║
+╟────────────┼───────────────────────────┼───────────────────────────────╢
+║ float16    │ plovoucí řádová čárka     │  poloviční přesnost (half)    ║
+║ float32    │ plovoucí řádová čárka     │  jednoduchá přesnost (single) ║
+║ float64    │ plovoucí řádová čárka     │  dvojitá přesnost (double)    ║
+╟────────────┼───────────────────────────┼───────────────────────────────╢
+║ complex64  │ komplexní číslo (dvojice) │  2×float32                    ║
+║ complex128 │ komplexní číslo (dvojice) │  2×float64                    ║
+╚════════════╧═══════════════════════════╧═══════════════════════════════╝
+```
+
 ## Datové sady pro první seznámení s modely
 
 ---
