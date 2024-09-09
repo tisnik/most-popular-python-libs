@@ -110,6 +110,12 @@
 
 ## Vztah strojového učení a umělé inteligence
 
+![vztah.png](images/ai_ml_dl.png)
+
+---
+
+## Vztah strojového učení a umělé inteligence
+
 * Umělá inteligence (AI)
     - strojové učení (machine learning, ML)
     - hluboké učení (deep learning, DL)
@@ -160,6 +166,12 @@
 
 ## Základní pojmy
 
+* Datová sada
+    - trénovací data
+    - testovací data* Datová sada
+
+![dataset.png](images/dataset.png)
+
 ---
 
 ### Techniky strojového učení
@@ -171,6 +183,12 @@
     - neznáme odpovědi
     - model musí najít struktury/vzory v datech
     - typicky různé varianty clusteringu
+
+---
+
+### Techniky strojového učení
+
+![ml.png](images/ml.png)
 
 ---
 
@@ -204,6 +222,18 @@
 
 ---
 
+### Redukce dat
+
+![reduction.png](images/reduction.png)
+
+---
+
+### Redukce dat
+
+![reduction_supervised.png](images/reduction_supervised.png)
+
+---
+
 ### Nedoučení a přeučení
 
 * Nedoučení
@@ -214,6 +244,12 @@
     - velká vazba na trénovací data
     - menší flexibilita práce s daty, která model nezná
     - použití polynomu vyššího stupně, když by stačila lineární regrese
+
+---
+
+### Přeučení
+
+![overtrain.png](images/overtraining.png)
 
 ---
 
