@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Aplikace jednoducheho filtru."""
+
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
 #
@@ -15,7 +17,7 @@
 
 from PIL import Image, ImageFilter
 
-filename = "Lenna.png"
+FILENAME = "Lenna.png"
 
 
 def print_image_info(image):
@@ -28,7 +30,7 @@ def print_image_info(image):
 
 
 try:
-    test_image = Image.open(filename)
+    test_image = Image.open(FILENAME)
     test_image.load()
 
     print("Original:")
