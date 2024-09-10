@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Zjisteni podrobnejsich informaci o nactenem rastrovem obrazku."""
+
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
 #
@@ -15,10 +17,10 @@
 
 from PIL import Image
 
-filename = "Lenna.png"
+FILENAME = "Lenna.png"
 
 try:
-    test_image = Image.open(filename)
+    test_image = Image.open(FILENAME)
     test_image.load()
     print("Image loaded")
     print("Format:     {fmt}".format(fmt=test_image.format))
