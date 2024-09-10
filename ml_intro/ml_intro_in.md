@@ -463,6 +463,33 @@
 ╚════════════╧═══════════════════════════╧═══════════════════════════════╝
 ```
 
+---
+
+#### Kódy skalárních datových typů
+- jednoznakové kódy je možné použít namísto jména typu
+```
+╔════════════╤══════╗
+║  Formát    │ Kód  ║
+╟────────────┼──────╢
+║ formát     │ kód  ║
+║ bool       │ '?'  ║
+║ int8       │ 'b'  ║
+║ int16      │ 'h'  ║
+║ int32      │ 'i'  ║
+║ int64      │ 'l'  ║
+║ uint8      │ 'B'  ║
+║ uint16     │ 'H'  ║
+║ uint32     │ 'I'  ║
+║ uint64     │ 'L'  ║
+║ float16    │ 'e'  ║
+║ float32    │ 'f'  ║
+║ float64    │ 'd'  ║
+║ complex64  │ 'F'  ║
+║ complex128 │ 'D'  ║
+╚════════════╧══════╝
+```
+
+---
 ## Datové sady pro první seznámení s modely
 
 ---
