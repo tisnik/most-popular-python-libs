@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Aplikace ruznych filtru na rastrovy obrazek."""
+
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
 #
@@ -15,7 +17,7 @@
 
 from PIL import Image, ImageFilter
 
-filename = "Lenna.png"
+FILENAME = "Lenna.png"
 
 IMAGE_FILTERS = (
     ImageFilter.BLUR,
@@ -44,16 +46,16 @@ def apply_filter_and_save_image(image, prefix, image_filter):
     filter_name = image_filter.__name__.lower()
     print("Applying filter {filter_name}".format(filter_name=filter_name))
 
-    filename = "{prefix}{filter_name}.png".format(
+    FILENAME = "{prefix}{filter_name}.png".format(
         prefix=prefix, filter_name=filter_name
     )
 
     filtered_image = image.filter(image_filter)
-    filtered_image.save(filename)
+    filtered_image.save(FILENAME)
 
 
 try:
-    test_image = Image.open(filename)
+    test_image = Image.open(FILENAME)
     test_image.load()
 
     print("Original:")
