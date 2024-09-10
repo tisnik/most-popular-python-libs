@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Nacteni rastroveho obrazku knihovnou Pillow."""
+
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
 #
@@ -15,8 +17,8 @@
 
 from PIL import Image
 
-filename = "Lenna.png"
+FILENAME = "Lenna.png"
 
-test_image = Image.open(filename)
+test_image = Image.open(FILENAME)
 test_image.load()
 print(test_image)
