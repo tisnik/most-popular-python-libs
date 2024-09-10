@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Ulozeni nahledu na rastrovy obrazek."""
+
 #
 #  (C) Copyright 2020  Pavel Tisnovsky
 #
@@ -15,7 +17,7 @@
 
 from PIL import Image
 
-filename = "Lenna.png"
+FILENAME = "Lenna.png"
 
 thumbnail_size = 128, 128
 
@@ -30,7 +32,7 @@ def print_image_info(image):
 
 
 try:
-    test_image = Image.open(filename)
+    test_image = Image.open(FILENAME)
     test_image.load()
 
     print("Original:")
