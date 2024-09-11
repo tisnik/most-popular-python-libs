@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Ulozeni pole do souboru ve formatu CDF."""
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
