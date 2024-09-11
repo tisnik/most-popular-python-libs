@@ -10,7 +10,6 @@
 #      Pavel Tisnovsky
 #
 
-import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn import linear_model
@@ -69,7 +68,7 @@ for i in range(MEASUREMENTS):
 plt.plot(range(MEASUREMENTS), mses, range(MEASUREMENTS), r2_scores)
 
 # titulek grafu
-plt.title(f"Mode prediction")
+plt.title("Mode prediction")
 plt.legend(["MSE", "R2 score"])
 
 # osy
@@ -77,7 +76,7 @@ plt.xticks()
 plt.yticks()
 
 # ulozeni diagramu do souboru
-plt.savefig(f"93.png")
+plt.savefig("93.png")
 
 # zobrazeni diagramu
 plt.show()
