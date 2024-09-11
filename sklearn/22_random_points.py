@@ -46,7 +46,7 @@ plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], c="red
 plt.title("K-Means++")
 
 # uložení grafu do souboru
-plt.savefig(f"k_means_5.png")
+plt.savefig("k_means_5.png")
 
 # vykreslení na obrazovku
 plt.show()
