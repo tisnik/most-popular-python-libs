@@ -554,6 +554,54 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 - Tvar je možné změnit
     - funkce `numpy.reshape()`
 
+#### Konstrukce n-dimenzionálních polí
+- Několik typů konstruktorů
+    - `numpy.array()`
+    - `numpy.zeros()`
+    - `numpy.ones()`
+    - `numpy.full()`
+    - `numpy.eye()`
+    - `numpy.arange()`
+    - `numpy.linspace()`
+    - `numpy.geomspace()`
+    - `numpy.logspace()`
+- Konverzní funkce
+    - `numpy.matrix()`
+
+#### Konstruktor numpy.array
+- parametry
+`array(object, dtype=None, copy=True, order=None, subok=False, ndmin=0)`
+
+#### Order
+```
+╔═════════╤════════════════════════════════════╗
+║ Hodnota │ Význam                             ║
+╟─────────┼────────────────────────────────────╢
+║ 'C'     │ prvky jsou interně uspořádány jako ║
+║         │ v programovacím jazyku C           ║
+║         │                                    ║
+║ 'F'     │ prvky jsou interně uspořádány jako ║
+║         │ v programovacím jazyku Fortran     ║
+║         │                                    ║
+║ 'A'     │ ponecháme na implementaci, který   ║
+║         │ způsob uspořádání interně zvolit   ║
+╚═════════╧════════════════════════════════════╝
+```
+
+#### Order - rozdíl v uspořádání
+- 2D matice tak, jak ji vidí uživatel (logická struktura)
+```
+| 1 2 3 |
+| 4 5 6 |
+| 7 8 9 |
+```
+
+- Uložení v operační paměti
+```
+1 2 3 4 5 6 7 8 9 - 'C'
+1 4 7 2 5 8 3 6 9 - 'F'
+```
+
 ---
 ## Datové sady pro první seznámení s modely
 
