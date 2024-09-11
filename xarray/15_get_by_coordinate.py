@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Pouziti indexu pri indexovani n-rozmerneho pole."""
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
