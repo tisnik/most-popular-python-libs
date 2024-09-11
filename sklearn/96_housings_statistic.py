@@ -12,10 +12,7 @@
 
 import numpy as np
 
-from sklearn import linear_model
 from sklearn.datasets import fetch_california_housing
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.model_selection import train_test_split
 
 # nacteni datove sady
 housings = fetch_california_housing()
