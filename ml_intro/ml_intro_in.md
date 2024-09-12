@@ -707,6 +707,94 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ![xarray](images/xarray2.png)
 
 ---
+
+### Pandas
+
+![pandas](images/pandas.png)
+
+---
+
+### Pandas
+
+* Načtení dat z různých datových zdrojů do datových rámců
+    - CSV
+    - TSV
+    - databáze
+    - tabulkové procesory
+* Programová konstrukce datových rámců
+* Prohlížení obsahu datových rámců
+
+---
+
+### Pandas
+
+* Iterace nad daty, řazení a další podobné operace
+* Spojování, seskupování a změna tvaru dat
+* Práce s takzvanými sériemi
+    - většinou získanými z datových rámců
+* Vykreslování grafů z údajů získaných z datových rámců
+
+---
+
+#### Práce s datovými rámci
+
+* Knihovna Pandas podporuje využití různých datových zdrojů, především pak:
+  - Souborů CSV (Comma-Separated Values)
+  - Souborů TSV (Tab-Separated Values)
+  - Textových souborů s volitelným oddělovačem a formátem sloupců
+  - Tabulek z tabulkových procesorů (xls, xlsx, xlsm, xlsb, odf, ods, odt)
+  - Souborů JSON se strukturovanými daty
+  - Načítání z relačních databází s využitím SQL
+  - Načítání z Parquet souborů
+
+---
+
+#### Zpracování souborů s nestandardním formátem
+
+* https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt
+* Evidentně se jedná o tabulková a velmi dobře strukturovaná data, která by bylo vhodné umět automaticky zpracovat
+
+---
+
+#### Zpracování souborů s nestandardním formátem
+
+```
+13.11.2023 #219
+země|měna|množství|kód|kurz
+Austrálie|dolar|1|AUD|14,683
+Brazílie|real|1|BRL|4,672
+Bulharsko|lev|1|BGN|12,573
+Čína|žen-min-pi|1|CNY|3,162
+Dánsko|koruna|1|DKK|3,296
+EMU|euro|1|EUR|24,590
+Filipíny|peso|100|PHP|41,117
+Hongkong|dolar|1|HKD|2,952
+Indie|rupie|100|INR|27,682
+Indonesie|rupie|1000|IDR|1,468
+Island|koruna|100|ISK|16,040
+Izrael|nový šekel|1|ILS|5,964
+Japonsko|jen|100|JPY|15,186
+Jižní Afrika|rand|1|ZAR|1,228
+Kanada|dolar|1|CAD|16,664
+Korejská republika|won|100|KRW|1,740
+Maďarsko|forint|100|HUF|6,514
+Malajsie|ringgit|1|MYR|4,896
+Mexiko|peso|1|MXN|1,303
+MMF|ZPČ|1|XDR|30,319
+Norsko|koruna|1|NOK|2,069
+Nový Zéland|dolar|1|NZD|13,550
+Polsko|zlotý|1|PLN|5,552
+Rumunsko|leu|1|RON|4,947
+Singapur|dolar|1|SGD|16,936
+Švédsko|koruna|1|SEK|2,118
+Švýcarsko|frank|1|CHF|25,471
+Thajsko|baht|100|THB|64,040
+Turecko|lira|1|TRY|0,806
+USA|dolar|1|USD|23,050
+Velká Británie|libra|1|GBP|28,230
+```
+
+---
 ## Datové sady pro první seznámení s modely
 
 ---
