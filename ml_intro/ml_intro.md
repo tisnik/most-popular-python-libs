@@ -603,6 +603,41 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ```
 
 ---
+
+### Xarray
+
+![xarray](images/xarray1.png)
+
+---
+
+#### Xarray
+
+* n-dimensionální pole s metadaty
+    - jméno
+    - dimenze (osy)
+    - koordináty na osách
+    - uživatelské atributy
+
+---
+
+#### Přednosti použití Xarray
+
+* intuitivní práce s poli
+* založeno na metadatech, ne na kódu
+* stručnost
+* dnes de facto standardní řešení
+* méně chyb při zpracování dat
+    - operace nad nekorektními osami
+* broadcasting založený na jménu osy
+* velmi jednoduchá operace typu `groupby`
+
+---
+
+#### Množina polí
+
+![xarray](images/xarray2.png)
+
+---
 ## Datové sady pro první seznámení s modely
 
 ---
