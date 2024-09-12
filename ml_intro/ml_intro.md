@@ -1,6 +1,8 @@
 # Strojové učení
 
-## Obsah
+---
+
+## Obsah kurzu (1/3)
 
 * Úvod
     - Umělá inteligence
@@ -9,19 +11,34 @@
     - Vztah strojového učení a umělé inteligence
 * Základní pojmy
 * Techniky strojového učení
+* Používané nástroje a knihovny
+    - NumPy
+    - Xarray
+    - Pandas
+
+---
+
+## Obsah kurzu (2/3)
+
 * Zpracování dat
 * Použití modelů
-* Datové sady pro první seznámení s modely
-* Trénink s učitelem a bez učitele
-* Modely pro klasifikaci
-* Modely pro regresi
-* Lineární regrese a její varianty
-* Křížová validace modelů
-* Shluková analýza
-* Redukce dimensionality dat
-* Neuronové sítě
-* Konvoluční neuronové sítě
-* Rozpoznávání obrazu
+    - Datové sady pro první seznámení s modely
+    - Trénink s učitelem a bez učitele
+    - Modely pro klasifikaci
+    - Modely pro regresi
+    - Lineární regrese a její varianty
+    - Křížová validace modelů
+
+---
+
+## Obsah kurzu (3/3)
+
+* Pokročilejší postupy strojového učení
+    - Shluková analýza
+    - Redukce dimensionality dat
+    - Neuronové sítě
+    - Konvoluční neuronové sítě
+    - Rozpoznávání obrazu
 
 ---
 
@@ -37,8 +54,7 @@
 ### Umělá inteligence
 
 * Definice
-    - konstrukce strojů, které dokážou provádět činnosti vyžadující inteligenci, pokud by byly prováděny lidmi
-    - (Marvin Minsky, 1967)
+    - konstrukce strojů, které dokážou provádět činnosti vyžadující inteligenci, pokud by byly prováděny lidmi (Marvin Minsky, 1967)
     - existují i alternativní definice
 * Modelování lidské mysli
     - shora dolů (psychologie)
@@ -55,6 +71,11 @@
     - první myšlenky, že něco podobného může reálně vzniknout
     - booleovský model neuronu
     - A. Turing: Computing Machinery and Intelligence
+
+---
+
+## Vývoj umělé inteligence
+
 * 1956
     - McCarthy (LISP)
     - (pravděpodobně) poprvé použil termín AI
@@ -62,6 +83,11 @@
 * velké očekávání pokroku v dalších letech
     - dařilo se částečné řešení různých problémů
     - prakticky každý měsíc nový objev
+
+---
+
+## Vývoj umělé inteligence
+
 * cca 1965
     - vystřízlivění
     - existovala sice spousta vyřešených problémů, ale ty byly triviální
@@ -70,6 +96,11 @@
 * sedmdesátá léta
     - systémy založené na znalostech
     - vývoj v mnoha oblastech (hledání ropy atd.)
+
+---
+
+## Vývoj umělé inteligence
+
 * začátek osmdesátých let
     - velké investice do AI
     - očekávání se nenaplnila
@@ -78,6 +109,11 @@
     - rozvoj neuronových sítí (což nebyla novinka)
 * 1995
     - systémy SOAR (State, Operator and Result)
+
+---
+
+## Vývoj umělé inteligence
+
 * 2000
     - big data (v tom pokračujeme i dnes)
     - ale prozatím žádné větší objemy
@@ -123,6 +159,11 @@
     - neuronové sítě (NN)
     - zpracování přirozeného jazyka (NLP)
 * AI > ML > NN > DL
+
+---
+
+## Vztah strojového učení a umělé inteligence
+
 * Umělá inteligence
     - objevování
     - odvozování
@@ -154,6 +195,11 @@
 * Rozpoznávání anomálií
     - netypické sekvence finančních transakcí
     - netypická data přicházející ze senzorů v atomové elektrárně
+
+---
+
+### Typické aplikace strojového učení
+
 * Předpovídání
     - vývoj ceny akcií na burze / vývoj měnového kurzu
     - jaké filmy bude mít daný člověk rád
@@ -309,6 +355,11 @@
     - NumPy
     - SciPy
     - Matplotlib
+
+---
+
+### Typické použití Pythonu
+
 * Moderní způsoby využití Pythonu
     - AI
     - Machine Learning (Deep Learning)
@@ -416,10 +467,17 @@
 - Podpora pro n-dimenzionální pole
     - + nové funkce
     - + nové (přetížené) operátory
+
+---
+
+#### Knihovna NumPy
+
 - Kooperace s dalšími knihovnami a frameworky
     - SciPy
     - Matplotlib
     - OpenCV
+    - Xarray
+- Interně použito i ve scikit-learn
 
 ---
 
@@ -489,6 +547,8 @@
 ╚════════════╧══════╝
 ```
 
+---
+
 #### Datový typ single
 ```
 Celkový počet bitů (bytů):   32 (4)
@@ -497,6 +557,8 @@ Bitů pro exponent:            8
 Bitů pro mantisu:            23
 ```
 
+---
+
 #### Datový typ double
 ```
 Celkový počet bitů (bytů):   64 (8)
@@ -504,6 +566,8 @@ Bitů pro znaménko:            1
 Bitů pro exponent:           11
 Bitů pro mantisu:            52
 ```
+
+---
 
 #### Datový typ float16
 ```
@@ -519,8 +583,13 @@ Nejmenší kladná nenulová hodnota:      5,960×10⁻⁸
 Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ```
 
+---
+
 #### N-dimenzionální pole
+
 ![numpy_arrays.png](images/numpy_arrays.png)
+
+---
 
 #### Datová struktura ndarray
 - Představuje obecné n-dimenzionální pole
