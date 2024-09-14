@@ -878,6 +878,61 @@ print(df2.describe_optimized_plan())
 
 ---
 
+### Matplotlib
+
+![Matplotlib](images/matplotlib.png)
+
+---
+
+### Matplotlib
+
+* zaměřena explicitně na tvorbu grafů
+* právě vzájemnou kombinací obou knihoven NumPy+matplotlib lze relativně
+* snadno dosáhnout velmi pěkných výsledků plně porovnatelných s výsledky
+  vytvořenými komerčními balíky.
+
+---
+
+#### Možnosti knihovny Matplotlib
+
+* grafy funkcí typu y = f(x)
+* parametrické zadání 2D průběhu x, y = f(t)
+* grafy funkcí typu z = f(x,y)
+* parametrické zadání 3D průběhu x, y, z = f(t)
+
+---
+
+#### Zobrazení grafů
+
+* na obrazovce
+* do plochy Jupyter Notebooku
+* do rastrových obrázků
+* do vektorových kreseb
+* do PDF
+
+---
+
+### Plotnine
+
+---
+
+### Zpracování obrazů a přirozeného jazyka v Pythonu
+
+---
+
+### Strojové učení
+
+---
+
+### Užitečné odkazy
+
+* 15 Python Libraries for Data Science You Should Know
+    - https://www.dataquest.io/blog/15-python-libraries-for-data-science/
+* Top Python Libraries for Data Science in 2022
+    - https://www.datacamp.com/blog/top-python-libraries-for-data-science
+
+---
+
 ---
 ## Datové sady pro první seznámení s modely
 
