@@ -795,6 +795,90 @@ Velká Británie|libra|1|GBP|28,230
 ```
 
 ---
+
+### Polars
+
+![polars](images/polars.png)
+
+---
+
+#### Polars
+
+* Alternativa ke knihovně Pandas
+* Podporuje multithreading
+* SIMD operace (ne vždy)
+* Optimalizace dotazů
+* Líné vyhodnocování
+
+---
+
+#### Polars
+
+* Datové rámce rozsáhlejší než dostupná RAM
+* Naprogramováno v Rustu
+* Vazby s dalšími knihovnami
+    - pyarrow, NumPy, Pandas etc.
+* Rozhraní pro Python a NodeJS
+
+---
+
+#### Datové řady a datové rámce
+
+* Podobné těm v Pandas
+    - funkce a metody se stejnými jmény
+    - ovšem ne zcela kompatibilní
+
+---
+
+#### Načtení z SQL
+
+```python
+import polars
+
+connection_string = "postgresql://postgres:postgres@localhost:5432/testdb"
+
+query = """
+    SELECT org_id, cluster_id, rule_fqdn
+      FROM rule_hit
+     ORDER by org_id, cluster_id
+"""
+
+df = polars.read_sql(query, connection_string)
+
+print(df)
+print()
+```
+
+---
+
+#### Klíč k úspěchu: být líný!
+
+* FP programování
+* Architektura založená na Kafce atd.
+* Dask atd.
+* Líné datové rámce v Polars
+
+---
+
+#### Líné datové rámce
+
+```python
+import polars
+
+df = polars.read_csv("hall_of_fame.csv").lazy()
+
+df2 = df.groupby("Winner", maintain_order=True).agg([polars.col("Year").len()]). \
+      sort("Year"). \
+      reverse(). \
+      head(5)
+
+print(df2.describe_plan())
+print(df2.describe_optimized_plan())
+```
+
+---
+
+---
 ## Datové sady pro první seznámení s modely
 
 ---
