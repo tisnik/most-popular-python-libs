@@ -1,8 +1,11 @@
 # Strojové učení
 
+Pavel Tišnovský
+tisnik@centrum.cz
+
 ---
 
-## Obsah kurzu (1/3)
+## Obsah kurzu (1/4)
 
 * Úvod
     - Umělá inteligence
@@ -11,14 +14,23 @@
     - Vztah strojového učení a umělé inteligence
 * Základní pojmy
 * Techniky strojového učení
+
+---
+
+## Obsah kurzu (2/4)
 * Používané nástroje a knihovny
     - NumPy
     - Xarray
     - Pandas
+    - Polars
+    - Matplotlib
+    - Plotnine
+    - scikit-learn
+    - NLTK
 
 ---
 
-## Obsah kurzu (2/3)
+## Obsah kurzu (3/4)
 
 * Zpracování dat
 * Použití modelů
@@ -31,7 +43,7 @@
 
 ---
 
-## Obsah kurzu (3/3)
+## Obsah kurzu (4/4)
 
 * Pokročilejší postupy strojového učení
     - Shluková analýza
@@ -70,7 +82,8 @@
 * 1943-1955
     - první myšlenky, že něco podobného může reálně vzniknout
     - booleovský model neuronu
-    - A. Turing: Computing Machinery and Intelligence
+    - A. Turing
+        - Computing Machinery and Intelligence
 
 ---
 
@@ -214,7 +227,7 @@
 
 * Datová sada
     - trénovací data
-    - testovací data* Datová sada
+    - testovací data
 
 ![dataset.png](images/dataset.png)
 
@@ -321,14 +334,18 @@
 * Nástroje pro datovou analýzu
 * Transformace dat na informace
 * Jupyter Notebook
-* Knihovny používané v této oblasti: NumPy, Pandas, Polars, Seaborn, scikit-learn, Dask
-* Vizualizace dat: Matplotlib
+* Knihovny používané v této oblasti
+    - NumPy, Pandas, Polars, Seaborn, scikit-learn, Dask
+* Vizualizace dat
+    - Matplotlib
 * Zpracování obrazů a přirozeného jazyka v Pythonu
 * Navázání na strojové učení
 
 ---
 
 ## Praktická část
+
+![python.png](images/python.png)
 
 ---
 
@@ -455,7 +472,7 @@
 
 ---
 
-#### Knihovna NumPy
+### Knihovna NumPy
 
 - Výslovnosti
     - [nəmpᴧɪ]
@@ -470,7 +487,7 @@
 
 ---
 
-#### Knihovna NumPy
+### Knihovna NumPy
 
 - Kooperace s dalšími knihovnami a frameworky
     - SciPy
@@ -481,7 +498,7 @@
 
 ---
 
-#### NumPy
+### NumPy
 
 * n-dimenzionální pole jako základní datový typ
     - ideově vychází z APL
@@ -493,7 +510,7 @@
     - změna tvaru pole (počet dimenzí, tvar)
 
 ---
-#### Skalární datové typy
+### Skalární datové typy
 - <https://docs.scipy.org/doc/numpy/user/basics.types.html>
 ```
 ╔════════════╤═══════════════════════════╤═══════════════════════════════╗
@@ -523,7 +540,7 @@
 
 ---
 
-#### Kódy skalárních datových typů
+### Kódy skalárních datových typů
 - jednoznakové kódy je možné použít namísto jména typu
 ```
 ╔════════════╤══════╗
@@ -549,7 +566,7 @@
 
 ---
 
-#### Datový typ single
+### Datový typ single
 ```
 Celkový počet bitů (bytů):   32 (4)
 Bitů pro znaménko:            1
@@ -559,7 +576,7 @@ Bitů pro mantisu:            23
 
 ---
 
-#### Datový typ double
+### Datový typ double
 ```
 Celkový počet bitů (bytů):   64 (8)
 Bitů pro znaménko:            1
@@ -569,7 +586,7 @@ Bitů pro mantisu:            52
 
 ---
 
-#### Datový typ float16
+### Datový typ float16
 ```
 Celkový počet bitů (bytů):   16 (2)
 Bitů pro znaménko:            1
@@ -585,13 +602,13 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### N-dimenzionální pole
+### N-dimenzionální pole
 
 ![numpy_arrays.png](images/numpy_arrays.png)
 
 ---
 
-#### Datová struktura ndarray
+### Datová struktura ndarray
 - Představuje obecné n-dimenzionální pole
 - Interní způsob uložení dat zcela odlišný od Pythonovských seznamů či n-tic
     - „pohled“ na kontinuální blok hodnot
@@ -610,7 +627,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
     - podle zvyklostí jazyka Fortran
     - podle zvyklostí jazyka C
 
-#### Tvar (shape) n-dimenzionálního pole
+### Tvar (shape) n-dimenzionálního pole
 - Popisuje organizaci a uspořádání prvků v poli
     - n-tice obsahující rozměry pole v jednotlivých dimenzích
 - Příklady tvarů
@@ -623,7 +640,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 - Tvar je možné změnit
     - funkce `numpy.reshape()`
 
-#### Konstrukce n-dimenzionálních polí
+### Konstrukce n-dimenzionálních polí
 - Několik typů konstruktorů
     - `numpy.array()`
     - `numpy.zeros()`
@@ -637,11 +654,11 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 - Konverzní funkce
     - `numpy.matrix()`
 
-#### Konstruktor numpy.array
+### Konstruktor numpy.array
 - parametry
 `array(object, dtype=None, copy=True, order=None, subok=False, ndmin=0)`
 
-#### Order
+### Order
 ```
 ╔═════════╤════════════════════════════════════╗
 ║ Hodnota │ Význam                             ║
@@ -657,7 +674,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ╚═════════╧════════════════════════════════════╝
 ```
 
-#### Order - rozdíl v uspořádání
+### Order - rozdíl v uspořádání
 - 2D matice tak, jak ji vidí uživatel (logická struktura)
 ```
 | 1 2 3 |
@@ -679,7 +696,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### Xarray
+### Xarray
 
 * n-dimensionální pole s metadaty
     - jméno
@@ -689,7 +706,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### Přednosti použití Xarray
+### Přednosti použití Xarray
 
 * intuitivní práce s poli
 * založeno na metadatech, ne na kódu
@@ -702,7 +719,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### Množina polí
+### Množina polí
 
 ![xarray](images/xarray2.png)
 
@@ -736,7 +753,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### Práce s datovými rámci
+### Práce s datovými rámci
 
 * Knihovna Pandas podporuje využití různých datových zdrojů, především pak:
   - Souborů CSV (Comma-Separated Values)
@@ -749,14 +766,14 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 
 ---
 
-#### Zpracování souborů s nestandardním formátem
+### Zpracování souborů s nestandardním formátem
 
 * https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt
 * Evidentně se jedná o tabulková a velmi dobře strukturovaná data, která by bylo vhodné umět automaticky zpracovat
 
 ---
 
-#### Zpracování souborů s nestandardním formátem
+### Zpracování souborů s nestandardním formátem
 
 ```
 13.11.2023 #219
@@ -802,7 +819,7 @@ Velká Británie|libra|1|GBP|28,230
 
 ---
 
-#### Polars
+### Polars
 
 * Alternativa ke knihovně Pandas
 * Podporuje multithreading
@@ -812,7 +829,7 @@ Velká Británie|libra|1|GBP|28,230
 
 ---
 
-#### Polars
+### Polars
 
 * Datové rámce rozsáhlejší než dostupná RAM
 * Naprogramováno v Rustu
@@ -822,7 +839,7 @@ Velká Británie|libra|1|GBP|28,230
 
 ---
 
-#### Datové řady a datové rámce
+### Datové řady a datové rámce
 
 * Podobné těm v Pandas
     - funkce a metody se stejnými jmény
@@ -830,7 +847,7 @@ Velká Británie|libra|1|GBP|28,230
 
 ---
 
-#### Načtení z SQL
+### Načtení z SQL
 
 ```python
 import polars
@@ -851,7 +868,7 @@ print()
 
 ---
 
-#### Klíč k úspěchu: být líný!
+### Klíč k úspěchu: být líný!
 
 * FP programování
 * Architektura založená na Kafce atd.
@@ -860,7 +877,7 @@ print()
 
 ---
 
-#### Líné datové rámce
+### Líné datové rámce
 
 ```python
 import polars
@@ -893,7 +910,7 @@ print(df2.describe_optimized_plan())
 
 ---
 
-#### Možnosti knihovny Matplotlib
+### Možnosti knihovny Matplotlib
 
 * grafy funkcí typu y = f(x)
 * parametrické zadání 2D průběhu x, y = f(t)
@@ -902,7 +919,7 @@ print(df2.describe_optimized_plan())
 
 ---
 
-#### Zobrazení grafů
+### Zobrazení grafů
 
 * na obrazovce
 * do plochy Jupyter Notebooku
@@ -939,9 +956,13 @@ print(df2.describe_optimized_plan())
 
 ## NumPy
 
+![numpy_arrays.png](images/numpy_logo.png)
+
 ---
 
 ## Matplotlib
+
+![Matplotlib](images/matplotlib.png)
 
 ---
 
