@@ -933,6 +933,152 @@ print(df2.describe_optimized_plan())
 
 ---
 
+# Praktická část
+
+---
+
+## NumPy
+
+---
+
+## Matplotlib
+
+---
+
+@ matplotlib_example01.py
+
+---
+
+@ matplotlib_example01.py
+
+---
+
+@ matplotlib_example02.py
+
+---
+
+@ matplotlib_example03.py
+
+---
+
+@ matplotlib_example04.py
+
+---
+
+@ matplotlib_example05.py
+
+---
+
+@ matplotlib_example06.py
+
+---
+
+@ matplotlib_example07.py
+
+---
+
+@ matplotlib_example08.py
+
+---
+
+@ matplotlib_example09.py
+
+---
+
+@ matplotlib_example10.py
+
+---
+
+@ matplotlib_example11.py
+
+---
+
+@ matplotlib_example12.py
+
+---
+
+@ matplotlib_example13.py
+
+---
+
+@ matplotlib_example14.py
+
+---
+
+@ matplotlib_example15.py
+
+---
+
+@ matplotlib_example16.py
+
+---
+
+@ matplotlib_example17.py
+
+---
+
+@ matplotlib_example18.py
+
+---
+
+@ matplotlib_example19.py
+
+---
+
+@ matplotlib_example20.py
+
+---
+
+@ matplotlib_example21.py
+
+---
+
+@ matplotlib_example22.py
+
+---
+
+@ matplotlib_example23.py
+
+---
+
+@ matplotlib_example24.py
+
+---
+
+@ matplotlib_example25.py
+
+---
+
+@ matplotlib_example26.py
+
+---
+
+@ matplotlib_example27.py
+
+---
+
+@ matplotlib_example28.py
+
+---
+
+@ matplotlib_example29.py
+
+---
+
+@ matplotlib_example30.py
+
+---
+
+@ matplotlib_example31.py
+
+---
+
+@ matplotlib_example32.py
+
+---
+
+@ matplotlib_example33.py
+
 ---
 ## Datové sady pro první seznámení s modely
 
