@@ -343,7 +343,140 @@ tisnik@centrum.cz
 
 ---
 
-## Praktická část
+## Neuronové sítě
+
+* Propojení takzvaných neuronů
+    - Model neuronu
+    - Způsob propojení neuronů
+    - Vstupy a výstupy
+
+---
+
+### Model neuronu
+
+![neuron.png](images/neuron.png)
+
+* libovolný počet vstupů
+* typicky jeden výstup
+* váhy vstupů
+* aktivační funkce
+
+y = f(w_1x_1 + w_2x_2 + … + w_nx_n)
+
+---
+
+### Bias
+
+![bias.png](images/bias.png)
+
+y = f(w_0 + w_1x_1 + w_2x_2 + … + w_nx_n)
+
+---
+
+### Aktivační funkce
+
+* Jediná nelinearita v modelu
+* Mnoho typů aktivačních funkcí
+
+---
+
+### Aktivační funkce
+
+![akt1.png](images/akt1.png)
+
+---
+
+### Aktivační funkce
+
+![akt2.png](images/akt2.png)
+
+---
+
+### Feed-forward síť
+
+* Vstupní vrstva
+* Skryté vrstvy
+* Výstupní vrstva
+
+---
+
+### Feed-forward síť
+
+![ff.png](images/ff.png)
+
+---
+
+### Konvoluční neuronové sítě
+
+* Typicky pro rastrové obrázky
+    - mírné posunutí, zkosení atd.
+    - lze sice řešit klasickými NN
+    - ovšem je to zbytečně složité (RAM, CPU čas)
+    - příliš mnoho stejných, ale samostatně uložených vah
+    - konvoluční a subsamplingové vrstvy
+
+---
+
+### Konvoluční neuronové sítě
+
+* Typická konfigurace
+    - vstupní vrstva
+    - konvoluční vrstva #1
+    - subsamplingová vrstva #1
+    - konvoluční vrstva #2
+    - subsamplingová vrstva #2
+    - ...
+    - ...
+    - klasická skrytá vrstva
+    - výstupní vrstva
+
+---
+
+### Konvoluční vrstva
+
+* Získání lokálních informací z rastru
+* Malé oblasti, například 3x3, 5x5 pixelů
+* Každá oblast vstup do jednoho neuronu
+    - 9 resp. 25 vstupů
+* Jednotlivé oblasti se překrývají
+    - pro rastr x*y máme (x-k+1)*(y-k+1) oblastí
+    - počet neuronů odpovídá počtu pixelů
+
+---
+
+### Konvoluční vrstva
+* Obecně získáváme n rovin
+    - zdánlivě obrovská spotřeba RAM
+    - (pro rastr x*y máme (x-k+1)*(y-k+1) oblastí)
+* Ovšem váhy mezi neurony se sdílí!
+    - 26 vah pro oblast 5x5 (včetně biasu)
+
+---
+
+### Subsamplingová vrstva
+
+* Za konvolučními vrstvami
+* Nepřekrývající se oblasti
+    - dochází ke zmenšování počtu výstupů
+    - pro 2x2 oblasti na čtvrtinu
+
+---
+
+### Příklad konvoluční sítě
+
+```
+Vrstva          Vstup          Výstup
+konvoluční      32 × 32        64 × (32–5+1) × (32–5+1) = 64 × 28 × 28
+subsampling     64 × 28 × 28   64 × 28/2 × 28/2 = 64 × 14 × 14
+konvoluční      64 × 14 × 14   64 × (14–5+1) × (14–5+1) = 64 × 10 × 10
+subsampling     64 × 10 × 10   64 × 10/2 × 10/2 = 64 × 5 × 5 = 1600
+```
+
+* následovat může běžná skrytá vrstva s dejme tomu 10 výstupy
+
+---
+
+## Od teorie k praxi
 
 ![python.png](images/python.png)
 
@@ -407,7 +540,9 @@ tisnik@centrum.cz
 * Typický centrální prvek, v němž se odehrává vývoj
 * Lze sdílet
 * Podporuje různá jádra (kernels)
+    - mezi jinými i interpret Pythonu
 * Podpora vizualizace přímo na ploše notebooku
+* Varianta nazvaná JupyterLite
 
 ---
 
@@ -954,6 +1089,25 @@ print(df2.describe_optimized_plan())
 
 ---
 
+## Jupyter Notebook
+
+![jupyter.png](images/jupyter.jpg)
+
+* Lokální instalace
+* Centrální instalace se vzdáleným přístupem
+
+---
+
+## JupyterLite
+
+![jupyterlite.jpg](images/jupyterlite.png)
+
+* Jupyter Notebook v prohlížeči
+* Založeno na technologii WASM
+* https://jupyter.org/try-jupyter/lab/
+
+---
+
 ## NumPy
 
 ![numpy_arrays.png](images/numpy_logo.png)
@@ -1101,7 +1255,10 @@ print(df2.describe_optimized_plan())
 @ matplotlib_example33.py
 
 ---
+
 ## Datové sady pro první seznámení s modely
+
+* Budeme je používat společně s knihovnou scikit-learn
 
 ---
 
