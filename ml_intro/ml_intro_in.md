@@ -281,6 +281,37 @@ tisnik@centrum.cz
 
 ---
 
+### ML modely
+
+* ANN
+* Desicion trees
+* Support-vector machine
+* Regresní analýza
+* Bayesovské site
+* Genetické algoritmy
+* NN
+
+---
+
+### Jak začít?
+
+1. jaké atributy použít z dat?
+2. jaký model vybrat
+3. jak optimalizovat pro větší výkon
+4. jak vytvořit model, který bude vhodný pro pro něj neznámá data?
+5. jak odhadnout vhodnost modelu pro neznámá data?
+
+
+---
+
+### Komprimace dat
+* souvislost mezi ML a komprimací dat
+* predikce
+* tzv. optimální komprese
+    - při predikci lze použít aritmetické kódování
+
+---
+
 ### Redukce dat
 
 ![reduction.png](images/reduction.png)
@@ -1073,6 +1104,13 @@ print(df2.describe_optimized_plan())
 ---
 
 ### Strojové učení
+
+* scikit-learn
+    - stejné rozhraní pro různé ML modely
+    - dobře zvolené výchozí parametry modelu
+    - možnost doladění parametrů modelu
+    - poměrně dobra dokumentace
+        - (i když chybí různé howto...)
 
 ---
 
