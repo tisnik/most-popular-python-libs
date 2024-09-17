@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Zakladni relacni operace nad celymi poli."""
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
