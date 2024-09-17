@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Pouziti klauzule where pro vyber prvku z pole."""
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
