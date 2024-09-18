@@ -58,6 +58,77 @@ END
 
 ---
 
+### ML (předchůdce OCamlu a jazyka F#)
+
+```
+fun fib 0 = 0
+  | fib 1 = 1
+  | fib n = fib (n - 1) + fib (n - 2);
+```
+
+```
+fun length(x) = if null(x) then 0
+                else 1 + length(tl(x));
+```
+
+```
+fun length([]) = 0
+  | length(a::x) = 1 + length(x)
+```
+
+---
+
+### F#
+
+```fsharp
+let rec fib n =
+    match n with
+    | 0 -> 0
+    | 1 -> 1
+    | n -> fib(n-1) + fib(n-2)
+```
+
+---
+
+### Rust
+
+```rust
+```
+### Rust
+
+```rust
+```
+### Rust
+
+```rust
+fn main() {
+    let x:i32 = 1;
+
+    match x {
+        0 => println!("zero"),
+        1 => println!("one"),
+        2 => println!("two"),
+        3 => println!("three"),
+        _ => println!("something else"),
+    }
+}
+```
+
+```rust
+fn fib(n: u32) -> u32 {
+    match n {
+        0 | 1 => 1,
+        _ => fib(n - 1) + fib(n - 2),
+    }
+}
+
+fn main() {
+    for x in 0..10 {
+        println!("{}:{}", x, fib(x))
+    }
+}
+```
+
 ---
 
 ### Částečně flexibilní řešení
