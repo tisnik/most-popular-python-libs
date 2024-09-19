@@ -30,6 +30,10 @@ Python 3.12   klíčové slovo type + sémantika
 * Přidáno do Pythonu 3.10
 * Zdánlivě lepší varianta konstrukce `switch-case`
     - ovšem možnosti jsou mnohem větší
+* Další použití
+    - zachycení hodnot
+    - test typů
+    - podmínky v rozhodovacích větvích
 
 ---
 
@@ -140,6 +144,48 @@ fn main() {
 ---
 
 ### Ukázky pattern matchingu
+
+@ pattern-matching-fib.py
+
+@ ackermann-if.py
+
+@ ackermann-if-else.py
+
+@ pattern-matching-ackermann.py
+
+### Rozvětvení
+
+@ pattern-matching-abort-retry-fail-1.py
+
+@ pattern-matching-abort-retry-fail-2.py
+
+@ pattern-matching-abort-retry-fail-3.py
+
+### Python nehlídá, zda jsou pokryty všechny případy
+
+@ pattern-matching-abort-retry-fail-4.py
+
+### Vzory obsahující v&nbsp;každé větvi vetší množství hodnot
+
+@ pattern-matching-abort-retry-fail-5.py
+
+@ pattern-matching-abort-retry-fail-6.py
+
+### Zachycení hodnoty proměnné v&nbsp;rozhodovací větvi
+
+@ pattern-matching-abort-retry-fail-7.py
+
+@ pattern-matching-abort-retry-fail-8.py
+
+### Podmínka zapsaná v&nbsp;rozhodovacích větvích konstrukce `match`
+
+@ pattern-matching-factorial1.py
+
+@ pattern-matching-factorial2.py
+
+@ pattern-matching-factorial3.py
+
+@ pattern-matching-factorial4.py
 
 ---
 
