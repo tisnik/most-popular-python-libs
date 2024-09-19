@@ -281,6 +281,37 @@ tisnik@centrum.cz
 
 ---
 
+### ML modely
+
+* ANN
+* Desicion trees
+* Support-vector machine
+* Regresní analýza
+* Bayesovské site
+* Genetické algoritmy
+* NN
+
+---
+
+### Jak začít?
+
+1. jaké atributy použít z dat?
+2. jaký model vybrat
+3. jak optimalizovat pro větší výkon
+4. jak vytvořit model, který bude vhodný pro pro něj neznámá data?
+5. jak odhadnout vhodnost modelu pro neznámá data?
+
+
+---
+
+### Komprimace dat
+* souvislost mezi ML a komprimací dat
+* predikce
+* tzv. optimální komprese
+    - při predikci lze použít aritmetické kódování
+
+---
+
 ### Redukce dat
 
 ![reduction.png](images/reduction.png)
@@ -1066,13 +1097,66 @@ print(df2.describe_optimized_plan())
 
 ### Plotnine
 
+* Řešení podobné jazyku R
+* "A Grammar of Graphics for Python"
+
+```python
+from plotnine import ggplot, geom_point, aes, stat_smooth, facet_wrap
+from plotnine.data import mtcars
+
+(
+    ggplot(mtcars, aes("wt", "mpg", color="factor(gear)"))
+    + geom_point()
+    + stat_smooth(method="lm")
+    + facet_wrap("gear")
+)
+```
+
+---
+
+### Plotnine
+
+![plotnine1.png](images/plotnine1.png)
+
+---
+
+### Plotnine
+
+![plotnine2.png](images/plotnine2.png)
+
+---
+
+### Plotnine
+
+![plotnine3.png](images/plotnine3.png)
+
+---
+
+### Plotnine
+
+![plotnine4.png](images/plotnine4.png)
+
 ---
 
 ### Zpracování obrazů a přirozeného jazyka v Pythonu
 
+* Zpracování obrazů
+    - OpenCV-Python
+* Zpracování přirozeného jazyka
+    - NLTK
+    - TikToken
+    - Langchain
+
 ---
 
 ### Strojové učení
+
+* scikit-learn
+    - stejné rozhraní pro různé ML modely
+    - dobře zvolené výchozí parametry modelu
+    - možnost doladění parametrů modelu
+    - poměrně dobra dokumentace
+        - (i když chybí různé howto...)
 
 ---
 
@@ -1143,7 +1227,7 @@ plt.ylabel("sin(x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example01.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example01.py)
 
 ---
 
@@ -1170,7 +1254,7 @@ plt.ylabel("sin(x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example01.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example01.py)
 
 ---
 
@@ -1205,7 +1289,7 @@ plt.savefig("example02.svg")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example02.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example02.py)
 
 ---
 
@@ -1236,7 +1320,7 @@ plt.ylabel("sin(x) a cos(x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example03.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example03.py)
 
 ---
 
@@ -1277,7 +1361,7 @@ plt.ylabel("sin(x), cos(x) a sinc(x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example04.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example04.py)
 
 ---
 
@@ -1310,7 +1394,7 @@ plt.ylabel("sin(x) a sinc(3x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example05.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example05.py)
 
 ---
 
@@ -1354,7 +1438,7 @@ plt.ylabel("sin(x) a sinc(3x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example06.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example06.py)
 
 ---
 
@@ -1397,7 +1481,7 @@ plt.ylabel("sin(x) a cos(x)")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example07.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example07.py)
 
 ---
 
@@ -1457,7 +1541,7 @@ plt.annotate(
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example08.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example08.py)
 
 ---
 
@@ -1483,7 +1567,7 @@ ax.plot(theta, radius)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example09.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example09.py)
 
 ---
 
@@ -1527,7 +1611,7 @@ plt.legend(loc="lower left")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example10.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example10.py)
 
 ---
 
@@ -1564,7 +1648,7 @@ plt.legend(loc="lower left")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example11.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example11.py)
 
 ---
 
@@ -1602,7 +1686,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example12.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example12.py)
 
 ---
 
@@ -1640,7 +1724,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example13.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example13.py)
 
 ---
 
@@ -1716,7 +1800,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example14.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example14.py)
 
 ---
 
@@ -1756,7 +1840,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example15.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example15.py)
 
 ---
 
@@ -1775,7 +1859,7 @@ plt.hist(y, bins=30, range=None, density=True)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example16.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example16.py)
 
 ---
 
@@ -1804,7 +1888,7 @@ ax.pie(fracs, labels=labels, autopct="%1.1f%%", shadow=True)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example17.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example17.py)
 
 ---
 
@@ -1849,7 +1933,7 @@ plt.setp(texts, fontproperties=proptease)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example18.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example18.py)
 
 ---
 
@@ -1903,7 +1987,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example19.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example19.py)
 
 ---
 
@@ -1965,7 +2049,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example20.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example20.py)
 
 ---
 
@@ -2006,7 +2090,7 @@ plt.contour(X, Y, Z)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example21.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example21.py)
 
 ---
 
@@ -2051,7 +2135,7 @@ plt.clabel(CS, inline=1, fontsize=10)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example22.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example22.py)
 
 ---
 
@@ -2100,7 +2184,7 @@ plt.clabel(CS, inline=1, fontsize=10)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example23.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example23.py)
 
 ---
 
@@ -2137,7 +2221,7 @@ ax.plot_wireframe(X, Y, Z, rstride=7, cstride=7)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example24.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example24.py)
 
 ---
 
@@ -2177,7 +2261,7 @@ ax.plot_surface(
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example25.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example25.py)
 
 ---
 
@@ -2228,7 +2312,7 @@ fig.colorbar(surface, shrink=0.7, aspect=5)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example26.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example26.py)
 
 ---
 
@@ -2291,7 +2375,7 @@ ax.set_zlim(-5, 5)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example27.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example27.py)
 
 ---
 
@@ -2322,7 +2406,7 @@ ax.plot(x, y, z)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example28.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example28.py)
 
 ---
 
@@ -2372,7 +2456,7 @@ ax.plot(x, y, z)
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example29.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example29.py)
 
 ---
 
@@ -2414,7 +2498,7 @@ plt.legend(loc="lower right")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example30.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example30.py)
 
 ---
 
@@ -2448,7 +2532,7 @@ plt.legend(loc="upper left")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example31.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example31.py)
 
 ---
 
@@ -2486,7 +2570,7 @@ plt.legend(loc="upper left")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example32.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example32.py)
 
 ---
 
@@ -2527,7 +2611,7 @@ plt.legend(loc="upper left")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//matplotlib_example33.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//matplotlib_example33.py)
 
 ---
 
@@ -2555,7 +2639,7 @@ print("-" * 100)
 print(dir(iris))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//iris_dataset.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_dataset.py)
 
 Výstup
 
@@ -2580,7 +2664,7 @@ print("-" * 100)
 print(iris["DESCR"])
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//iris_description.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_description.py)
 
 ```python
 # modul s datovou sadou Iris
@@ -2606,7 +2690,7 @@ print("Data shape:")
 print(data.shape)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//iris_data.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_data.py)
 
 ---
 
@@ -2694,7 +2778,7 @@ plt.savefig("112.png")
 plt.show()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//linear_regression_gen_data.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//linear_regression_gen_data.py)
 
 ---
 
@@ -2746,7 +2830,7 @@ print("Mean squared error: %.2f" % mean_squared_error(y, y_pred))
 print("Coefficient of determination: %.2f" % r2_score(y, y_pred))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//housings_prediction_1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_1.py)
 
 ```python
 from sklearn import linear_model
@@ -2791,7 +2875,7 @@ print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
 print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//housings_prediction_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_2.py)
 
 ```python
 import numpy as np
@@ -2838,7 +2922,7 @@ print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
 print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro//housings_prediction_3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_3.py)
 
 ---
 

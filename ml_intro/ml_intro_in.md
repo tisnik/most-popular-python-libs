@@ -1097,9 +1097,55 @@ print(df2.describe_optimized_plan())
 
 ### Plotnine
 
+* Řešení podobné jazyku R
+* "A Grammar of Graphics for Python"
+
+```python
+from plotnine import ggplot, geom_point, aes, stat_smooth, facet_wrap
+from plotnine.data import mtcars
+
+(
+    ggplot(mtcars, aes("wt", "mpg", color="factor(gear)"))
+    + geom_point()
+    + stat_smooth(method="lm")
+    + facet_wrap("gear")
+)
+```
+
+---
+
+### Plotnine
+
+![plotnine1.png](images/plotnine1.png)
+
+---
+
+### Plotnine
+
+![plotnine2.png](images/plotnine2.png)
+
+---
+
+### Plotnine
+
+![plotnine3.png](images/plotnine3.png)
+
+---
+
+### Plotnine
+
+![plotnine4.png](images/plotnine4.png)
+
 ---
 
 ### Zpracování obrazů a přirozeného jazyka v Pythonu
+
+* Zpracování obrazů
+    - OpenCV-Python
+* Zpracování přirozeného jazyka
+    - NLTK
+    - TikToken
+    - Langchain
 
 ---
 
