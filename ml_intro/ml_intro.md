@@ -287,7 +287,7 @@ tisnik@centrum.cz
 * Desicion trees
 * Support-vector machine
 * Regresní analýza
-* Bayesovské site
+* Bayesovské sítě
 * Genetické algoritmy
 * NN
 
@@ -413,13 +413,13 @@ y = f(w_0 + w_1x_1 + w_2x_2 + … + w_nx_n)
 
 ### Aktivační funkce
 
-![akt1.png](images/akt1.png)
+![akt1.png](images/akt_1.png)
 
 ---
 
 ### Aktivační funkce
 
-![akt2.png](images/akt2.png)
+![akt2.png](images/akt_2.png)
 
 ---
 
@@ -783,6 +783,7 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ---
 
 ### Datová struktura ndarray
+
 - Představuje obecné n-dimenzionální pole
 - Interní způsob uložení dat zcela odlišný od Pythonovských seznamů či n-tic
     - „pohled“ na kontinuální blok hodnot
@@ -792,7 +793,13 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
     - vyšší výpočetní rychlost díky použití nativního kódu
     - obecně lepší využití cache a rychlejší přístup k prvkům
 - Základní strukturovaný datový typ knihovny NumPy
-- Volitelný počet dimenzí
+
+---
+
+### Datová struktura ndarray
+
+- Volitelný počet dimenzí
+- Tedy například:
     - vektory
     - matice
     - pole s větším počtem dimenzí
@@ -801,20 +808,30 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
     - podle zvyklostí jazyka Fortran
     - podle zvyklostí jazyka C
 
+---
+
 ### Tvar (shape) n-dimenzionálního pole
+
 - Popisuje organizaci a uspořádání prvků v poli
     - n-tice obsahující rozměry pole v jednotlivých dimenzích
 - Příklady tvarů
     - `(10,)` - vektor s deseti prvky
     - `(2, 3)` - dvourozměrná matice se dvěma řádky a třemi sloupci
     - `(2, 3, 4)` - trojrozměrné pole
+
+---
+
+### Tvar (shape) n-dimenzionálního pole
 - Tvar je možné zjistit
     - atribut „shape“
     - funkce `numpy.shape()`
 - Tvar je možné změnit
     - funkce `numpy.reshape()`
 
+---
+
 ### Konstrukce n-dimenzionálních polí
+
 - Několik typů konstruktorů
     - `numpy.array()`
     - `numpy.zeros()`
@@ -828,11 +845,17 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 - Konverzní funkce
     - `numpy.matrix()`
 
+---
+
 ### Konstruktor numpy.array
+
 - parametry
 `array(object, dtype=None, copy=True, order=None, subok=False, ndmin=0)`
 
+---
+
 ### Order
+
 ```
 ╔═════════╤════════════════════════════════════╗
 ║ Hodnota │ Význam                             ║
@@ -848,7 +871,10 @@ Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
 ╚═════════╧════════════════════════════════════╝
 ```
 
+---
+
 ### Order - rozdíl v uspořádání
+
 - 2D matice tak, jak ji vidí uživatel (logická struktura)
 ```
 | 1 2 3 |
@@ -1204,6 +1230,8 @@ from plotnine.data import mtcars
 
 ![numpy_arrays.png](images/numpy_logo.png)
 
+---
+
 ```python
 # Konstrukce jednorozměrného pole konstruktorem numpy.array()
 #
@@ -1220,6 +1248,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_01_array.py)
+
+---
+
 ```python
 # Konstrukce jednorozměrného pole konstruktorem numpy.array()
 #
@@ -1236,6 +1267,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_02_array_range.py)
+
+---
+
 ```python
 # Konstrukce jednorozměrného pole konstruktorem numpy.array()
 #
@@ -1253,6 +1287,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_03_array_dtype.py)
+
+---
+
 ```python
 # Konstrukce jednorozměrného pole konstruktorem numpy.array()
 #
@@ -1270,6 +1307,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_04_array_order_c.py)
+
+---
+
 ```python
 # Konstrukce jednorozměrného pole konstruktorem numpy.array()
 #
@@ -1287,6 +1327,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_05_array_order_f.py)
+
+---
+
 ```python
 # Příklady použití funkce numpy.array
 #
@@ -1303,6 +1346,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_06_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1319,6 +1365,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_07_zeros_1D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1335,6 +1384,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_08_zeros_1D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1351,6 +1403,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_09_zeros_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1367,6 +1422,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_10_zeros_3D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1383,6 +1441,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_11_zeros_specify_type.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.zeros
 #
@@ -1399,6 +1460,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_12_zeros_complex_numbers.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.ones
 #
@@ -1415,6 +1479,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_13_ones_1D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.ones
 #
@@ -1431,6 +1498,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_14_ones_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.ones
 #
@@ -1448,6 +1518,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_15_ones_specify_type.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.ones
 #
@@ -1464,6 +1537,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_16_ones_3D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.ones
 #
@@ -1480,6 +1556,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_17_ones_complex_numbers.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1496,6 +1575,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_18_eye_1D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1512,6 +1594,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_19_eye_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1528,6 +1613,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_20_eye_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1544,6 +1632,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_21_eye_2D_array_dtype.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1560,6 +1651,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_22_eye_2D_array_k_positive.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1576,6 +1670,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_23_eye_2D_array_k_negative.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.eye
 #
@@ -1592,6 +1689,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_24_eye_2D_array_k_10.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1608,6 +1708,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_25_full_1D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1624,6 +1727,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_26_full_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1640,6 +1746,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_27_full_3D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1656,6 +1765,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_28_full_dtype.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1672,6 +1784,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_29_full_inf.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.full
 #
@@ -1688,6 +1803,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_30_full_inf_complex.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1705,6 +1823,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_31_arange_10.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1721,6 +1842,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_32_arange_10_20.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1737,6 +1861,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_33_arange_positive_step.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1753,6 +1880,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_34_arange_negative_step.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1769,6 +1899,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_35_arange_floats.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1786,6 +1919,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_36_arange_complex.py)
+
+---
+
 ```python
 # Funkce numpy.arange
 #
@@ -1803,6 +1939,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_37_arange_complex.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1820,6 +1959,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_38_linspace_default_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1837,6 +1979,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_39_linspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1854,6 +1999,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_40_linspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1870,6 +2018,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_41_linspace_decrementing.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1886,6 +2037,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_42_linspace_complex_real_part.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1902,6 +2056,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_43_linspace_complex_imaginary_part.py)
+
+---
+
 ```python
 # Použití funkce numpy.linspace
 #
@@ -1918,6 +2075,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_44_linspace_complex_both_parts.py)
+
+---
+
 ```python
 # Použití funkce numpy.geomspace
 #
@@ -1935,6 +2095,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_45_geomspace_default_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.geomspace
 #
@@ -1951,6 +2114,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_46_geomspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.geomspace
 #
@@ -1967,6 +2133,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_47_geomspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.geomspace
 #
@@ -1983,6 +2152,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_48_geomspace_dtype.py)
+
+---
+
 ```python
 # Použití funkce numpy.logspace
 #
@@ -2000,6 +2172,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_49_logspace_default_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.logspace
 #
@@ -2016,6 +2191,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_50_logspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.logspace
 #
@@ -2032,6 +2210,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_51_logspace_specific_number_of_items.py)
+
+---
+
 ```python
 # Použití funkce numpy.logspace
 #
@@ -2048,6 +2229,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_52_logspace_dtype.py)
+
+---
+
 ```python
 # Přetypování
 #
@@ -2068,6 +2252,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_53_retype_int64_array.py)
+
+---
+
 ```python
 # Přetypování
 #
@@ -2088,6 +2275,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_54_retype_int64_array_wrong_input.py)
+
+---
+
 ```python
 # Přetypování
 #
@@ -2108,6 +2298,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_55_retype_float16_array.py)
+
+---
+
 ```python
 # Přetypování
 #
@@ -2132,6 +2325,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_56_retype_array_to_array.py)
+
+---
+
 ```python
 # Přetypování
 #
@@ -2158,6 +2354,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_57_astype1.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.matrix
 #
@@ -2182,6 +2381,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_58_matrix_string.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.matrix
 #
@@ -2206,6 +2408,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_59_matrix_string_2D_array.py)
+
+---
+
 ```python
 # Příklady použití konstruktoru numpy.matrix
 #
@@ -2230,6 +2435,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_60_matrix_string_2D_array_error.py)
+
+---
+
 ```python
 # Zjištění počtu dimenzí tvaru 1D pole
 
@@ -2256,6 +2464,9 @@ print(a.size)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_61_info_about_1D_array.py)
+
+---
+
 ```python
 # Zjištění počtu dimenzí tvaru 2D pole
 
@@ -2282,6 +2493,9 @@ print(a.size)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_62_info_about_2D_array.py)
+
+---
+
 ```python
 # Zjištění počtu dimenzí tvaru 3D pole
 
@@ -2308,6 +2522,9 @@ print(a.size)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_63_info_about_3D_array.py)
+
+---
+
 ```python
 # Tisk velkých polí
 
@@ -2322,6 +2539,9 @@ print(a)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_64_print_big_array.py)
+
+---
+
 ```python
 # Změna tvaru pole
 
@@ -2342,6 +2562,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_65_reshape1.py)
+
+---
+
 ```python
 # Změna tvaru pole
 # zde vlastně dostaneme původní matici
@@ -2363,6 +2586,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_66_reshape2.py)
+
+---
+
 ```python
 # Změna tvaru pole - vytvoření matice s jediným řádkem
 
@@ -2383,6 +2609,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_67_reshape3.py)
+
+---
+
 ```python
 # Změna tvaru pole - vytvoření matice s jediným sloupcem
 
@@ -2403,6 +2632,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_68_reshape4.py)
+
+---
+
 ```python
 # Výběr prvků v poli
 
@@ -2429,6 +2661,9 @@ print(a[-5])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_69_selectors_1D_array.py)
+
+---
+
 ```python
 # Výběr prvků v poli
 
@@ -2449,6 +2684,9 @@ print(a[2][0])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_70_selectors_2D_array.py)
+
+---
+
 ```python
 # Výběr prvků pomocí indexů uložených v jiném poli
 # (kladné indexy)
@@ -2470,6 +2708,9 @@ print(a[b])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_71_select_by_other_array.py)
+
+---
+
 ```python
 # Výběr prvků pomocí indexů uložených v jiném poli
 # (záporné indexy)
@@ -2491,6 +2732,9 @@ print(a[b])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_72_select_by_other_array_negative_indexes.py)
+
+---
+
 ```python
 # Výběr řádku pole
 
@@ -2517,6 +2761,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_73_select_rows.py)
+
+---
+
 ```python
 # Výběr prvků pomocí indexů uložených v jiném poli
 # dtto ale s dvourozměrným polem
@@ -2534,6 +2781,9 @@ print(a[b])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_74_select_from_2D_array.py)
+
+---
+
 ```python
 # Slicing - vynechání indexu/indexů
 
@@ -2554,6 +2804,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_75_slicing.py)
+
+---
+
 ```python
 # Slicing - vynechání indexu/indexů
 
@@ -2586,6 +2839,9 @@ print(d)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_76_slicing.py)
+
+---
+
 ```python
 # Prázdný řez polem
 
@@ -2600,6 +2856,9 @@ print(a[-4:-6])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_77_empty_slice.py)
+
+---
+
 ```python
 # Řezy a záporné indexy
 
@@ -2620,6 +2879,9 @@ print(a[:-4])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_78_slicing_negative_indexes.py)
+
+---
+
 ```python
 # Řezy vícerozměrných polí
 
@@ -2643,6 +2905,9 @@ print(a[-4:-2, -4:-2])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_79_slicing_2d_arrays.py)
+
+---
+
 ```python
 # Specifikace kroku při provádění řezů - vektory
 
@@ -2666,6 +2931,9 @@ a[::3]
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_80_slicing_specify_steps.py)
+
+---
+
 ```python
 # Specifikace kroku při provádění řezů - matice
 
@@ -2684,6 +2952,9 @@ print(a[1::2])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_81_slicing_matrix_steps.py)
+
+---
+
 ```python
 # Přičtení hodnoty ke všem prvkům matice
 
@@ -2704,6 +2975,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_82_add_item_by_scalar.py)
+
+---
+
 ```python
 # Vynásobení prvků matice dvěma
 
@@ -2724,6 +2998,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_83_mul_item_by_scalar.py)
+
+---
+
 ```python
 # Podíl prvek po prvku
 
@@ -2744,6 +3021,9 @@ print(b)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_84_div_item_by_scalar.py)
+
+---
+
 ```python
 # Operátory
 # pole op pole
@@ -2765,6 +3045,9 @@ print(c)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_85_add_item_by_item.py)
+
+---
+
 ```python
 # Modifikace matice s využitím operátorů += atd.
 
@@ -2785,6 +3068,9 @@ print(a1)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_86_operator_pluseq.py)
+
+---
+
 ```python
 # Násobení matic
 # - Operátor @, nikoli *
@@ -2806,6 +3092,9 @@ print(c)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_87_not_matrix_multiplication.py)
+
+---
+
 ```python
 # Násobení matic
 # - Maticový součin
@@ -2827,6 +3116,9 @@ print(c)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_88_matrix_multiplication.py)
+
+---
+
 ```python
 # Násobení matic
 # - Maticový součin
@@ -4310,6 +4602,10 @@ print(dir(iris))
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_dataset.py)
 
+---
+
+### Datová sada Iris
+
 Výstup
 
 ```
@@ -4317,6 +4613,10 @@ Výstup
 ----------------------------------------------------------------------------------------------------
 ['DESCR', 'data', 'data_module', 'feature_names', 'filename', 'frame', 'target', 'target_names']
 ```
+
+---
+
+### Datová sada Iris
 
 ```python
 # modul s datovou sadou Iris
@@ -4334,6 +4634,10 @@ print(iris["DESCR"])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_description.py)
+
+---
+
+### Datová sada Iris
 
 ```python
 # modul s datovou sadou Iris
@@ -4446,6 +4750,9 @@ print(iris.target_names[predictions])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_basic_classifier.py)
+
+---
+
 ```python
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression
@@ -4493,6 +4800,9 @@ print(iris.target_names[predictions])
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_different_model.py)
+
+---
+
 ```python
 import matplotlib.pyplot as plt
 
@@ -4569,6 +4879,8 @@ plt.show()
 * Lze použít v libovolném počtu rozměrů
 * Lineární regrese v oblasti parametrů, nikoli vstupních hodnot
     - polynomická regrese
+
+---
 
 ```python
 import numpy as np
@@ -4696,6 +5008,8 @@ plt.show()
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_linear_regression.py)
 
+---
+
 ### Trénink modelu se všemi daty
 
 * Což obecně není vhodné
@@ -4742,6 +5056,10 @@ print("Coefficient of determination: %.2f" % r2_score(y, y_pred))
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_1.py)
 
+---
+
+### Rozdělení přes train_test_split
+
 ```python
 from sklearn import linear_model
 from sklearn.datasets import fetch_california_housing
@@ -4786,6 +5104,10 @@ print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_2.py)
+
+---
+
+### Konfigurace způsobu rozdělení
 
 ```python
 import numpy as np
@@ -4833,6 +5155,8 @@ print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_3.py)
+
+---
 
 ### Chyby modelu
 
@@ -4915,6 +5239,8 @@ for column_to_delete in range(len(names)):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_errors_2.py)
+
+---
 
 ### Výběr (filtrace) atributů
 
@@ -5044,6 +5370,11 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_random_points.py)
+
+---
+
+## Shluková analýza
+
 ```python
 # Vykreslení bodů v 3D prostoru
 
@@ -5099,6 +5430,11 @@ plt.savefig("kmeans_spread_blobs_view_3.png")
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_kmeans_spread_3d_blobs.py)
+
+---
+
+## Shluková analýza
+
 ```python
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
@@ -5139,6 +5475,7 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_blobs_spectral_clustering.py)
+
 ---
 
 ## Neuronové sítě
@@ -5200,6 +5537,9 @@ for layer, weights in enumerate(classifier.coefs_):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_01.py)
+
+---
+
 ```python
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -5246,6 +5586,9 @@ for layer, weights in enumerate(classifier.coefs_):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_02.py)
+
+---
+
 ```python
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -5292,6 +5635,9 @@ for layer, weights in enumerate(classifier.coefs_):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_03.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
@@ -5345,6 +5691,9 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_04.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
@@ -5398,6 +5747,9 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_05.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
@@ -5453,6 +5805,9 @@ plt.show()
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_06.py)
+
+---
+
 ```python
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPRegressor
@@ -5503,6 +5858,9 @@ for layer, weights in enumerate(nn.coefs_):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_1.py)
+
+---
+
 ```python
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPRegressor
@@ -5555,6 +5913,9 @@ for layer, weights in enumerate(nn.coefs_):
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_2.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
@@ -5609,6 +5970,9 @@ plt.savefig("144.png")
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_3.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
@@ -5663,6 +6027,9 @@ plt.savefig("145.png")
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_4.py)
+
+---
+
 ```python
 
 import matplotlib.pyplot as plt
