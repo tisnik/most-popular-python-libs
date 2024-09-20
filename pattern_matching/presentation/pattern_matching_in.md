@@ -189,3 +189,47 @@ fn main() {
 
 ---
 
+### Pattern matching a n-tice a seznamy
+
+@ pattern-matching-complex1.py
+
+### Seznamy, n-tice a podmínky pro hodnoty prvků těchto kolekcí
+
+@ pattern-matching-complex2.py
+
+@ pattern-matching-complex2B.py
+
+### Zpracování příkazů či strukturovaných textových souborů s&nbsp;využitím pattern matchingu
+
+@ pattern-matching-multiword-commands-1.py
+
+### Rozdělení na jednotlivá slova
+
+@ pattern-matching-multiword-commands-2.py
+
+### Rozpoznání a zpracování proměnné části víceslovních příkazů
+
+@ pattern-matching-multiword-commands-3.py
+
+### Vnořené řídicí struktury `match`
+
+@ pattern-matching-multiword-commands-4.py
+@ pattern-matching-multiword-commands-5.py
+
+### Zachycení dopředu neznámého počtu hodnot
+
+@ pattern-matching-multiword-commands-6.py
+@ pattern-matching-multiword-commands-7.py
+
+### Strukturální pattern matching a objekty
+
+@ pattern-matching-object1.py
+@ pattern-matching-object2.py
+
+### Rozpoznání typu výjimky
+
+@ pattern-matching-exception.py
+
+### Ucelený příklad na konec: reprezentace barev různými metodami
+
+@ colors.py

@@ -607,3 +607,626 @@ except Exception as e:
 
 ---
 
+### Pattern matching a n-tice a seznamy
+
+```python
+# Strukturální pattern matching:
+# - komplexní čísla realizovaná formou dvojice hodnot
+
+def test_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case (0, 0):
+            print("Zero")
+        case (real, 0):
+            print(f"Real number {real}")
+        case (0, imag):
+            print(f"Imaginary number {imag}")
+        case (real, imag):
+            print(f"Complex number {real}+i{imag}")
+        case _:
+            raise ValueError("Not a complex number")
+
+
+test_number((0,0))
+test_number((1,0))
+test_number((0,1))
+test_number((1,1))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex1.py)
+
+### Seznamy, n-tice a podmínky pro hodnoty prvků těchto kolekcí
+
+```python
+# Strukturální pattern matching:
+# - komplexní čísla realizovaná formou dvojice hodnot
+
+def test_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case (0, 0):
+            print("Zero")
+        case (real, 0) if real>0:
+            print(f"Positive real number {real}")
+        case (real, 0):
+            print(f"Negative real number {real}")
+        case (0, imag) if imag<0:
+            print(f"Negative imaginary number {imag}")
+        case (0, imag):
+            print(f"Positive imaginary number {imag}")
+        case (real, imag):
+            print(f"Complex number {real}+i{imag}")
+        case _:
+            raise ValueError("Not a complex number")
+
+
+test_number((0,0))
+test_number((1,0))
+test_number((-1,0))
+test_number((0,1))
+test_number((0,-1))
+test_number((1,1))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex2.py)
+
+```python
+# Strukturální pattern matching:
+# - komplexní čísla realizovaná formou seznamu dvou hodnot
+
+def test_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case [0, 0]:
+            print("Zero")
+        case [real, 0] if real>0:
+            print(f"Positive real number {real}")
+        case [real, 0]:
+            print(f"Negative real number {real}")
+        case [0, imag] if imag<0:
+            print(f"Negative imaginary number {imag}")
+        case [0, imag]:
+            print(f"Positive imaginary number {imag}")
+        case [real, imag]:
+            print(f"Complex number {real}+i{imag}")
+        case _:
+            raise ValueError("Not a complex number")
+
+
+test_number([0,0])
+test_number([1,0])
+test_number([-1,0])
+test_number([0,1])
+test_number([0,-1])
+test_number([1,1])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex2B.py)
+
+### Zpracování příkazů či strukturovaných textových souborů s&nbsp;využitím pattern matchingu
+
+```python
+# Strukturální pattern matching:
+# - rozpoznání a zpracování příkazů zadaných uživatelem
+# - nejjednodušší podoba pro víceslovní příkazy
+
+def perform_command():
+    # získat příkaz od uživatele
+    response = input("> ")
+
+    match response:
+        case "quit":
+            return "Quit"
+        case "list employees":
+            return "List employees"
+        case "list departments":
+            return "List departments"
+        case "list rooms":
+            return "List rooms"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-1.py)
+
+### Rozdělení na jednotlivá slova
+
+```python
+# Strukturální pattern matching:
+# - rozpoznání a zpracování příkazů zadaných uživatelem
+# - rozdělení příkazů na jednotlivá slova
+
+def perform_command():
+    # získat příkaz od uživatele
+    response = input("> ")
+
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", "employees"]:
+            return "List employees"
+        case ["list", "departments"]:
+            return "List departments"
+        case ["list", "rooms"]:
+            return "List rooms"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-2.py)
+
+### Rozpoznání a zpracování proměnné části víceslovních příkazů
+
+```python
+# Strukturální pattern matching:
+# - rozpoznání a zpracování příkazů zadaných uživatelem
+# - zachycení a zpracování nekonstantního (proměnného) slova
+
+def perform_command():
+    # získat příkaz od uživatele
+    response = input("> ")
+
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", "employees"]:
+            return "List employees"
+        case ["list", "departments"]:
+            return "List departments"
+        case ["list", "rooms"]:
+            return "List rooms"
+        case ["info", subject]:
+            return f"Info about subject '{subject}'"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-3.py)
+
+### Vnořené řídicí struktury `match`
+
+```python
+# Strukturální pattern matching:
+# - rozpoznání a zpracování příkazů zadaných uživatelem
+# - ukázka použití vnořených řídicích struktur match.
+
+def perform_command():
+    # získat příkaz od uživatele
+    response = input("> ")
+
+    # rozvětvení na základě prvního slova
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", obj]:
+            # rozvětvení na základě druhého slova
+            match obj:
+                case "employees":
+                    return "List employees"
+                case "departments":
+                    return "List departments"
+                case "rooms":
+                    return "List rooms"
+                case _:
+                    return "Invalid object: employees, departments, or rooms expected"
+        case ["info", subject]:
+            return f"Info about subject '{subject}'"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-4.py)
+```python
+# Strukturální pattern matching:
+# - rozpoznání a zpracování příkazů zadaných uživatelem
+# - ukázka použití vnořených řídicích struktur match
+# - omezení hodnoty druhého slova v příkazu "list"
+
+def perform_command():
+    # získat příkaz od uživatele
+    response = input("> ")
+
+    # rozvětvení na základě prvního slova
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", ("employees" | "departments" | "rooms") as obj]:
+            # rozvětvení na základě druhého slova
+            match obj:
+                case "employees":
+                    return "List employees"
+                case "departments":
+                    return "List departments"
+                case "rooms":
+                    return "List rooms"
+        case ["info", subject]:
+            return f"Info about subject '{subject}'"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-5.py)
+
+### Zachycení dopředu neznámého počtu hodnot
+
+```python
+# Strukturální pattern matching:
+# - rozpoznání víceslovních příkazů
+
+
+def perform_command():
+    response = input("> ")
+
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", "employees"]:
+            return "List employees"
+        case ["list", "departments"]:
+            return "List departments"
+        case ["list", "rooms"]:
+            return "List rooms"
+        case ["info", *subjects]:
+            return f"Info about {len(subjects)} subjects '{subjects}'"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-6.py)
+```python
+# Strukturální pattern matching:
+# - rozpoznání víceslovních příkazů
+
+
+def perform_command():
+    response = input("> ")
+
+    match response.split():
+        case ["quit"]:
+            return "Quit"
+        case ["list", "employees"]:
+            return "List employees"
+        case ["list", "departments"]:
+            return "List departments"
+        case ["list", "rooms"]:
+            return "List rooms"
+        case ["info", *subjects] if len(subjects) > 0:
+            return f"Info about {len(subjects)} subjects '{subjects}'"
+        case _:
+            return "Wrong command"
+
+
+print(perform_command())
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-7.py)
+
+### Strukturální pattern matching a objekty
+
+```python
+# Strukturální pattern matching:
+# - pattern matching a objekty
+
+class Complex():
+    """Třída představující komplexní čísla."""
+
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __str__(self):
+        return f"Complex number {self.real}+i{self.imag} represented as object"
+
+
+def test_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case (0, 0):
+            print("Zero")
+        case (real, 0) if real>0:
+            print(f"Positive real number {real}")
+        case (real, 0):
+            print(f"Negative real number {real}")
+        case (0, imag) if imag<0:
+            print(f"Negative imaginary number {imag}")
+        case (0, imag):
+            print(f"Positive imaginary number {imag}")
+        case (real, imag):
+            print(f"Complex number {real}+i{imag}")
+        case Complex():
+            print(value)
+        case _:
+            raise ValueError("Not a complex number")
+
+
+test_number((0,0))
+test_number((1,0))
+test_number((-1,0))
+test_number((0,1))
+test_number((0,-1))
+test_number((1,1))
+
+test_number(Complex(0,0))
+test_number(Complex(1,0))
+test_number(Complex(-1,0))
+test_number(Complex(0,1))
+test_number(Complex(0,-1))
+test_number(Complex(1,1))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-object1.py)
+```python
+# Strukturální pattern matching:
+# - pattern matching a objekty
+
+from fractions import Fraction
+
+
+class Complex():
+    """Třída představující komplexní čísla."""
+
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    def __str__(self):
+        return f"Complex number {self.real}+i{self.imag} represented as object"
+
+
+def test_number(value):
+    """Test, o jakou variantu komplexního čísla se jedná."""
+    match value:
+        case (0, 0):
+            print("Zero")
+        case (real, 0) if real>0:
+            print(f"Positive real number {real}")
+        case (real, 0):
+            print(f"Negative real number {real}")
+        case (0, imag) if imag<0:
+            print(f"Negative imaginary number {imag}")
+        case (0, imag):
+            print(f"Positive imaginary number {imag}")
+        case (real, imag):
+            print(f"Complex number {real}+i{imag}")
+        case Complex(real=0, imag=0):
+            print("Zero complex represented as object")
+        case Complex():
+            print(value)
+        case Fraction():
+            print(f"Fraction {value}")
+        case _:
+            raise ValueError("Not a complex number")
+
+
+test_number((0,0))
+test_number((1,0))
+test_number((-1,0))
+test_number((0,1))
+test_number((0,-1))
+test_number((1,1))
+
+test_number(Complex(0,0))
+test_number(Complex(1,0))
+test_number(Complex(-1,0))
+test_number(Complex(0,1))
+test_number(Complex(0,-1))
+test_number(Complex(1,1))
+
+test_number(Fraction(0,1))
+test_number(Fraction(1,1))
+test_number(Fraction(1,2))
+test_number(Fraction(1,3))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-object2.py)
+
+### Rozpoznání typu výjimky
+
+```python
+# Strukturální pattern matching:
+# - reakce na ruzne typy vyjimek
+
+def parse_generic_llm_error(e: Exception) -> tuple[int, str, str]:
+    """Try to parse generic LLM error."""
+    match e:
+        case BadRequestError():
+            return parse_openai_error(e)
+        case ApiResponseException():
+            return parse_bam_error(e)
+        case ApiRequestFailure():
+            return parse_watsonx_error(e)
+        case _:
+            return DEFAULT_STATUS_CODE, DEFAULT_ERROR_MESSAGE, str(e)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-exception.py)
+
+### Ucelený příklad na konec: reprezentace barev různými metodami
+
+```python
+# Praktická ukázka pattern matchingu:
+# - převod barvy z různých reprezentací do barvového prostoru RGB
+
+from dataclasses import dataclass
+from enum import Enum
+
+
+class BasicColor(Enum):
+    """Základních osm barev."""
+    BLACK = (0, 0, 0)
+    RED = (255, 0,0)
+    GREEN = (0, 255, 0)
+    YELLOW = (255, 255, 0)
+    BLUE = (0, 0, 255)
+    MAGENTA = (255, 0, 255)
+    CYAN = (0, 255, 255)
+    WHITE = (255, 255, 255)
+
+
+@dataclass
+class Gray:
+    """Reprezentace odstínu šedi celočíselnou hodnotou 0..255."""
+    gray : int
+
+
+@dataclass
+class RGB:
+    """Reprezentace barvy v barvovém prostoru RGB."""
+    red : int
+    green : int
+    blue : int
+
+
+@dataclass
+class HSV:
+    """Reprezentace barvy v barvovém prostoru HSV."""
+    hue : float
+    saturation: float
+    value : float
+
+
+def scale_rgb(r, g, b):
+    """Převod hodnot z rozsahu 0.0-1.0 na celočíselný rozsah 0..255."""
+    return RGB(int(255*r), int(255*g), int(255*b))
+
+
+def hsv_to_rgb(hue, saturation, value):
+    """Převod barvy z barvového prostoru HSV do prostoru RGB."""
+    if saturation==0:
+        return scale_rgb(value, value, value)
+    else:
+        return hsv_to_rgb_(hue, saturation, value)
+
+
+def hsv_to_rgb_(hue, saturation, value):
+    """Pomocná funkce pro výpočet hodnot RGB."""
+    if hue == 1.0:
+        hue = 0.0
+    i = int(hue*6.0)
+    f = hue*6.0 - i
+
+    w = value * (1.0 - saturation)
+    q = value * (1.0 - saturation * f)
+    t = value * (1.0 - saturation * (1.0 - f))
+
+    match i:
+        case 0:
+            return scale_rgb(value, t, w)
+        case 1:
+            return scale_rgb(q, value, w)
+        case 2:
+            return scale_rgb(w, value, t)
+        case 3:
+            return scale_rgb(w, q, value)
+        case 4:
+            return scale_rgb(t, w, value)
+        case 5:
+            return scale_rgb(value, w, q)
+
+
+def to_rgb(color):
+    """Převod barvy z jakékoli podporované reprezentace do prostoru RGB."""
+    match color:
+        case Gray(gray):
+            return RGB(gray, gray, gray)
+        case RGB() as rgb:
+            return rgb
+        case HSV(hue, saturation, value):
+            return hsv_to_rgb(hue, saturation, value)
+        case BasicColor() as b:
+            return RGB(*b.value)
+        case _:
+            return f"Invalid color {color}"
+
+
+# otestování jednotlivých možností
+
+print("Grayscale:")
+
+gray_color1 = Gray(0)
+print(to_rgb(gray_color1))
+
+gray_color2 = Gray(255)
+print(to_rgb(gray_color2))
+
+print("\nRGB:")
+
+rgb_color1 = RGB(0, 0, 0)
+print(to_rgb(rgb_color1))
+
+rgb_color2 = RGB(0, 255, 0)
+print(to_rgb(rgb_color2))
+
+rgb_color3 = RGB(255, 255, 255)
+print(to_rgb(rgb_color3))
+
+print("\nHSV:")
+
+hsv_color1 = HSV(0.0, 0.0, 1.0)
+print(to_rgb(hsv_color1))
+
+hsv_color2 = HSV(0.0, 0.0, 0.5)
+print(to_rgb(hsv_color2))
+
+hsv_color3 = HSV(0.0, 1.0, 1.0)
+print(to_rgb(hsv_color3))
+
+hsv_color4 = HSV(0.3333, 1.0, 1.0)
+print(to_rgb(hsv_color4))
+
+hsv_color5 = HSV(0.6666, 1.0, 1.0)
+print(to_rgb(hsv_color5))
+
+hsv_color6 = HSV(1.0, 1.0, 1.0)
+print(to_rgb(hsv_color6))
+
+hsv_color7 = HSV(1.0, 0.5, 0.5)
+print(to_rgb(hsv_color7))
+
+print("\nBasic colors:")
+
+basic_color1 = BasicColor.BLACK
+print(to_rgb(basic_color1))
+
+basic_color2 = BasicColor.RED
+print(to_rgb(basic_color2))
+
+basic_color3 = BasicColor.GREEN
+print(to_rgb(basic_color3))
+
+basic_color4 = BasicColor.BLUE
+print(to_rgb(basic_color4))
+
+basic_color5 = BasicColor.YELLOW
+print(to_rgb(basic_color5))
+
+basic_color6 = BasicColor.MAGENTA
+print(to_rgb(basic_color6))
+
+basic_color7 = BasicColor.CYAN
+print(to_rgb(basic_color7))
+
+basic_color8 = BasicColor.WHITE
+print(to_rgb(basic_color8))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//colors.py)
