@@ -437,6 +437,14 @@ y = f(w_0 + w_1x_1 + w_2x_2 + … + w_nx_n)
 
 ---
 
+### Příliš mnoho vrstev
+
+* Model se přestane učit nebo se učí velmi pomalu
+    - vanishing gradient problem
+    - "méně je někdy více"
+
+---
+
 ### Konvoluční neuronové sítě
 
 * Typicky pro rastrové obrázky
@@ -1195,6 +1203,1657 @@ from plotnine.data import mtcars
 ## NumPy
 
 ![numpy_arrays.png](images/numpy_logo.png)
+
+```python
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# vytvoření pole se čtyřmi prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array([1, 2, 3, 4])
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_01_array.py)
+```python
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# vytvoření pole s deseti prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array(range(10))
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_02_array_range.py)
+```python
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# explicitní specifikace typu všech prvků pole
+# (interně se provádí přetypování)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array(range(10), dtype=numpy.float)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_03_array_dtype.py)
+```python
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array(range(10), order="C")
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_04_array_order_c.py)
+```python
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array(range(10), order="F")
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_05_array_order_f.py)
+```python
+# Příklady použití funkce numpy.array
+#
+# vytvoření dvourozměrné matice
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array([[1, 2, 3], [4, 5, 6]])
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_06_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# jednorozměrný vektor s jediným prvkem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros(1)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_07_zeros_1D_array.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# jednorozměrný vektor s deseti prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros(10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_08_zeros_1D_array.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# matice o velikosti 5x5 prvků, každý prvek je typu float
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros((5, 5))
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_09_zeros_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# matice o velikosti 3x3x3 prvků, každý prvek je typu float
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros((3, 3, 3))
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_10_zeros_3D_array.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# matice o velikosti 5x5 prvků, každý prvek je typu int
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros((5, 5), dtype=int)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_11_zeros_specify_type.py)
+```python
+# Příklady použití konstruktoru numpy.zeros
+#
+# použití komplexních čísel
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.zeros((3, 2), dtype=numpy.complex)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_12_zeros_complex_numbers.py)
+```python
+# Příklady použití konstruktoru numpy.ones
+#
+# jednorozměrný vektor s deseti prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.ones(10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_13_ones_1D_array.py)
+```python
+# Příklady použití konstruktoru numpy.ones
+#
+# matice se třemi řádky a čtyřmi sloupci
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.ones((3, 4))
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_14_ones_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.ones
+#
+# matice se třemi řádky a čtyřmi sloupci
+# s explicitní specifikací typu prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.ones((3, 4), dtype=int)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_15_ones_specify_type.py)
+```python
+# Příklady použití konstruktoru numpy.ones
+#
+# trojrozměrné pole s prvky typu int
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.ones((3, 4, 5), dtype=int)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_16_ones_3D_array.py)
+```python
+# Příklady použití konstruktoru numpy.ones
+#
+# použití komplexních čísel
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.ones((3, 2), dtype=numpy.complex)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_17_ones_complex_numbers.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# matice s jediným prvkem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(1)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_18_eye_1D_array.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 5x5 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(5)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_19_eye_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 2x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(2, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_20_eye_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 10x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(10, 10, dtype=numpy.float)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_21_eye_2D_array_dtype.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 10x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(10, 10, k=1)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_22_eye_2D_array_k_positive.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 10x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(10, 10, k=-1)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_23_eye_2D_array_k_negative.py)
+```python
+# Příklady použití konstruktoru numpy.eye
+#
+# jednotková matice s rozměry 10x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.eye(10, 10, k=10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_24_eye_2D_array_k_10.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 1x10 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((10), 100)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_25_full_1D_array.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 3x4 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((3, 4), 100)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_26_full_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 3x4x5 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((3, 4, 5), 100)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_27_full_3D_array.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 3x4x5 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((3, 4, 5), 100, dtype=numpy.float)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_28_full_dtype.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 3x4x5 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((3, 4, 5), numpy.inf)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_29_full_inf.py)
+```python
+# Příklady použití konstruktoru numpy.full
+#
+# matice s rozměry 3x4x5 prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.full((3, 4, 5), numpy.inf, dtype=numpy.complex)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_30_full_inf_complex.py)
+```python
+# Funkce numpy.arange
+#
+# při použití jednoho parametru má tento parametr význam hodnoty „stop“
+# vytvoří se vektor s prvky od 0 do „stop“ (kromě)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_31_arange_10.py)
+```python
+# Funkce numpy.arange
+#
+# specifikace hodnot „start“ (včetně) a „stop“ (kromě)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(10, 20)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_32_arange_10_20.py)
+```python
+# Funkce numpy.arange
+#
+# třetí nepovinný parametr určuje krok použitý při generování prvků vektoru
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(10, 20, 2)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_33_arange_positive_step.py)
+```python
+# Funkce numpy.arange
+#
+# třetí nepovinný parametr určuje krok použitý při generování prvků vektoru
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(20, 10, -2)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_34_arange_negative_step.py)
+```python
+# Funkce numpy.arange
+#
+# použít lze i hodnoty typu float
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(0, 5.5, 0.5)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_35_arange_floats.py)
+```python
+# Funkce numpy.arange
+#
+# nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami
+# typu float a complex
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(0 + 0j, 10 + 10j, 2 + 0j)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_36_arange_complex.py)
+```python
+# Funkce numpy.arange
+#
+# nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami
+# typu float a complex
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole - pozor na krok v reálné složce
+a = numpy.arange(0 + 0j, 10 + 10j, 0 + 2j)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_37_arange_complex.py)
+```python
+# Použití funkce numpy.linspace
+#
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný
+# vektor má mít padesát prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(1, 99)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_38_linspace_default_number_of_items.py)
+```python
+# Použití funkce numpy.linspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+# (tím, že se začíná od nuly, získáme krok 0.11111111...)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(0, 1, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_39_linspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.linspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít jedenáct prvků
+# (tím, že se začíná od nuly, získáme krok 0.1)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(0, 1, 11)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_40_linspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.linspace
+#
+# sekvence hodnot samozřejmě může i klesat
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(1, 0, 11)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_41_linspace_decrementing.py)
+```python
+# Použití funkce numpy.linspace
+#
+# použít je možné i komplexní čísla
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(0 + 0j, 1 + 0j, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_42_linspace_complex_real_part.py)
+```python
+# Použití funkce numpy.linspace
+#
+# použít je možné i komplexní čísla
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(0 + 0j, 0 + 1j, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_43_linspace_complex_imaginary_part.py)
+```python
+# Použití funkce numpy.linspace
+#
+# další možnost použití komplexních čísel
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.linspace(0 + 0j, 1 + 1j, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_44_linspace_complex_both_parts.py)
+```python
+# Použití funkce numpy.geomspace
+#
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný
+# vektor má mít padesát prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.geomspace(1, 100)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_45_geomspace_default_number_of_items.py)
+```python
+# Použití funkce numpy.geomspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.geomspace(1, 1000, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_46_geomspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.geomspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít šest prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.geomspace(1, 100000, 6)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_47_geomspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.geomspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít šest prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.geomspace(1, 100000, 6, dtype="I")
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_48_geomspace_dtype.py)
+```python
+# Použití funkce numpy.logspace
+#
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný
+# vektor má mít padesát prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.logspace(1, 100)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_49_logspace_default_number_of_items.py)
+```python
+# Použití funkce numpy.logspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.logspace(1, 10, 10)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_50_logspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.logspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít pět prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.logspace(1, 3, 5)
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_51_logspace_specific_number_of_items.py)
+```python
+# Použití funkce numpy.logspace
+#
+# zde explicitně specifikujeme, že výsledný vektor má mít pět prvků
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.logspace(1, 3, 5, dtype="I")
+
+# tisk obsahu pole na standardní výstup
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_52_logspace_dtype.py)
+```python
+# Přetypování
+#
+# konstrukce pole přetypováním seznamu
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# vytvoření běžného seznamu
+lst = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+a = numpy.int64(lst)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_53_retype_int64_array.py)
+```python
+# Přetypování
+#
+# konstrukce pole přetypováním seznamu
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# vytvoření běžného seznamu
+lst = [1, "foo", 3, False, None]
+
+# přetypování (konstrukce pole daného typu)
+a = numpy.int64(lst)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_54_retype_int64_array_wrong_input.py)
+```python
+# Přetypování
+#
+# konstrukce pole přetypováním seznamu
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# vytvoření běžného seznamu
+lst = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+a = numpy.float16(lst)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_55_retype_float16_array.py)
+```python
+# Přetypování
+#
+# konstrukce pole přetypováním jiného pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce zdrojového pole
+a = numpy.linspace(0, 1, 10)
+
+# přetypování na vektor celých čísel (povšimněte si výsledků)
+b = numpy.int32(a)
+
+# tisk typu a obsahu původního pole
+print(type(a))
+print(a)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(b))
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_56_retype_array_to_array.py)
+```python
+# Přetypování
+#
+# konstrukce pole přetypováním jiného pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce zdrojového pole
+a = numpy.arange(0, 10)
+
+# konverze
+b = a.astype(numpy.complex64)
+
+# tisk typu a obsahu původního pole
+print(type(a))
+print(a.dtype)
+print(a)
+
+# tisk typu a obsahu zkonvertovaného pole
+print(type(b))
+print(b.dtype)
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_57_astype1.py)
+```python
+# Příklady použití konstruktoru numpy.matrix
+#
+# matice s rozměry 1x4 prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce matice
+a = numpy.matrix("1 2 3 4")
+
+# vytvoření pole z matice
+b = numpy.array(a)
+
+# tisk obsahu matice na standardní výstup
+print(type(a))
+print(a)
+
+# tisk obsahu pole na standardní výstup
+print(type(b))
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_58_matrix_string.py)
+```python
+# Příklady použití konstruktoru numpy.matrix
+#
+# matice s rozměry 2x2 prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce matice
+a = numpy.matrix("1 2; 3 4")
+
+# vytvoření pole z matice
+b = numpy.array(a)
+
+# tisk obsahu matice na standardní výstup
+print(type(a))
+print(a)
+
+# tisk obsahu pole na standardní výstup
+print(type(b))
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_59_matrix_string_2D_array.py)
+```python
+# Příklady použití konstruktoru numpy.matrix
+#
+# matice s rozměry 2x2 prvky
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce matice
+a = numpy.matrix("1 2 3; 4 5; 6")
+
+# vytvoření pole z matice
+b = numpy.array(a)
+
+# tisk obsahu matice na standardní výstup
+print(type(a))
+print(a)
+
+# tisk obsahu pole na standardní výstup
+print(type(b))
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_60_matrix_string_2D_array_error.py)
+```python
+# Zjištění počtu dimenzí tvaru 1D pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# jednorozměrný vektor
+a = numpy.array([1, 2, 3])
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_61_info_about_1D_array.py)
+```python
+# Zjištění počtu dimenzí tvaru 2D pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# dvourozměrné pole
+a = numpy.eye(5)
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_62_info_about_2D_array.py)
+```python
+# Zjištění počtu dimenzí tvaru 3D pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# trojrozměrné pole
+a = numpy.ones((3, 4, 5), dtype=int)
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_63_info_about_3D_array.py)
+```python
+# Tisk velkých polí
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce velkého pole
+a = numpy.arange(10000).reshape(100, 100)
+
+# tisk velkého pole
+print(a)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_64_print_big_array.py)
+```python
+# Změna tvaru pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = numpy.array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na 3x2 prvky
+b = numpy.reshape(a, (3, 2))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_65_reshape1.py)
+```python
+# Změna tvaru pole
+# zde vlastně dostaneme původní matici
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = numpy.array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na 3x2 prvky
+b = numpy.reshape(a, (2, 3))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_66_reshape2.py)
+```python
+# Změna tvaru pole - vytvoření matice s jediným řádkem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = numpy.array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na jediný řádek
+b = numpy.reshape(a, (1, 6))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_67_reshape3.py)
+```python
+# Změna tvaru pole - vytvoření matice s jediným sloupcem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = numpy.array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na jediný sloupec
+b = numpy.reshape(a, (6, 1))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_68_reshape4.py)
+```python
+# Výběr prvků v poli
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# jednorozměrná pole - vektory
+a = numpy.arange(12)
+
+# tisk původního pole
+print(a)
+
+# indexování prvků od nuly
+print(a[0])
+
+# indexování prvků od nuly
+print(a[5])
+
+# indexovat lze i od konce pole
+print(a[-1])
+
+# indexovat lze i od konce pole
+print(a[-5])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_69_selectors_1D_array.py)
+```python
+# Výběr prvků v poli
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# dvourozměrná pole - matice
+a = numpy.reshape(numpy.arange(12), (3, 4))
+
+# tisk původního pole
+print(a)
+
+# přístup k prvkům: řádek/sloupec
+print(a[0][2])
+
+# přístup k prvkům: řádek/sloupec
+print(a[2][0])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_70_selectors_2D_array.py)
+```python
+# Výběr prvků pomocí indexů uložených v jiném poli
+# (kladné indexy)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# jednorozměrná pole - vektory
+a = numpy.arange(12)
+
+# tisk původního pole
+print(a)
+
+# pole indexů
+b = numpy.array([1, 2, 9, 8, 5])
+
+# výběr celým polem
+print(a[b])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_71_select_by_other_array.py)
+```python
+# Výběr prvků pomocí indexů uložených v jiném poli
+# (záporné indexy)
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# jednorozměrná pole - vektory
+a = numpy.arange(12)
+
+# tisk původního pole
+print(a)
+
+# pole indexů
+b = numpy.array([-1, -2, -9, -8, -5])
+
+# výběr celým polem
+print(a[b])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_72_select_by_other_array_negative_indexes.py)
+```python
+# Výběr řádku pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# dvourozměrné pole - matice
+a = numpy.reshape(numpy.arange(12), (3, 4))
+
+# tisk původního pole
+print(a)
+
+# první řádek pole
+b = a[0]
+print(b)
+
+# druhý řádek pole
+b = a[1]
+print(b)
+
+# poslední řádek pole
+b = a[-1]
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_73_select_rows.py)
+```python
+# Výběr prvků pomocí indexů uložených v jiném poli
+# dtto ale s dvourozměrným polem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+a = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# pro nové pole s prohozenými řádky
+b = numpy.array([0, 2, 1])
+
+# tisk pole
+print(a[b])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_74_select_from_2D_array.py)
+```python
+# Slicing - vynechání indexu/indexů
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní pole
+a = numpy.arange(12)
+
+# tisk původního pole
+print(a)
+
+# slicing
+b = a[3:7]
+
+# tisk nového pole
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_75_slicing.py)
+```python
+# Slicing - vynechání indexu/indexů
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní pole
+a = numpy.arange(12)
+
+# tisk původního pole
+print(a)
+
+# slicing
+b = a[:7]
+
+# tisk nového pole
+print(b)
+
+# slicing
+c = a[5:]
+
+# tisk nového pole
+print(c)
+
+# slicing
+d = a[:]
+
+# tisk nového pole
+print(d)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_76_slicing.py)
+```python
+# Prázdný řez polem
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(12)
+
+# provedení řezu polem
+print(a[-4:-6])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_77_empty_slice.py)
+```python
+# Řezy a záporné indexy
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(12)
+
+# provedení prvního řezu polem
+print(a[-6:-4])
+
+# provedení druhého řezu polem
+print(a[-6:])
+
+# provedení třetího řezu polem
+print(a[:-4])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_78_slicing_negative_indexes.py)
+```python
+# Řezy vícerozměrných polí
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.reshape(numpy.arange(25), (5, 5))
+
+# řez dvojrozměrným polem
+print(a[2:4, 3])
+
+# další řez dvojrozměrným polem
+print(a[2:4, 3:5])
+
+# třetí řez dvojrozměrným polem
+print(a[1:4, 1:4])
+
+# čtvrtý řez dvojrozměrným polem
+print(a[-4:-2, -4:-2])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_79_slicing_2d_arrays.py)
+```python
+# Specifikace kroku při provádění řezů - vektory
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.arange(1, 11)
+
+# první řez polem: krok=1
+print(a[1:10:1])
+
+# druhý řez polem: krok=2
+print(a[1:10:2])
+
+# třetí řez polem: krok=3
+print(a[1:10:3])
+
+# čtvrtý řez polem - pouze uvedení kroku
+a[::3]
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_80_slicing_specify_steps.py)
+```python
+# Specifikace kroku při provádění řezů - matice
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.reshape(numpy.arange(0, 25), (5, 5))
+
+# tisk původního pole
+print(a)
+
+# řez s uvedením kroku
+print(a[0:5:2])
+print(a[1::2])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_81_slicing_matrix_steps.py)
+```python
+# Přičtení hodnoty ke všem prvkům matice
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# provedení operace
+b = a + 100
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_82_add_item_by_scalar.py)
+```python
+# Vynásobení prvků matice dvěma
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# provedení operace
+b = a * 2
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_83_mul_item_by_scalar.py)
+```python
+# Podíl prvek po prvku
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# konstrukce pole
+a = numpy.reshape(numpy.arange(25), (5, 5))
+
+# provedení operace
+b = a % 2
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_84_div_item_by_scalar.py)
+```python
+# Operátory
+# pole op pole
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# první pole
+a1 = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# druhé pole
+a2 = numpy.eye(3)
+
+# součet prvek po prvku
+c = a1 + a2
+
+# tisk nového pole
+print(c)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_85_add_item_by_item.py)
+```python
+# Modifikace matice s využitím operátorů += atd.
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní matice
+a1 = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# tisk matice
+print(a1)
+
+# provedení operace
+a1 += 100
+
+# tisk výsledku operace
+print(a1)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_86_operator_pluseq.py)
+```python
+# Násobení matic
+# - Operátor @, nikoli *
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní matice
+a1 = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# původní matice
+a2 = numpy.eye(3)
+
+# - Násobení prvek po prvku
+c = a1 * a2
+
+# tisk výsledku operace
+print(c)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_87_not_matrix_multiplication.py)
+```python
+# Násobení matic
+# - Maticový součin
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní matice
+a1 = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# původní matice
+a2 = numpy.eye(3)
+
+# maticový součin
+c = a1 @ a2
+
+# tisk výsledku operace
+print(c)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_88_matrix_multiplication.py)
+```python
+# Násobení matic
+# - Maticový součin
+
+# import hlavního balíčku knihovny Numpy
+import numpy
+
+# původní matice
+a1 = numpy.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# původní matice
+a2 = numpy.eye(3)
+
+# - Změna prvku původně jednotkové matice
+a2[1][1] = -1
+
+# tisk výsledku operace
+print(a1 @ a2)
+
+# maticový součin
+c = a1 @ a2
+
+# tisk výsledku operace
+print(c)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//numpy_89_check_matrix_multiplication.py)
 
 ---
 
@@ -2615,6 +4274,16 @@ plt.show()
 
 ---
 
+## Trénink s učitelem a bez učitele
+
+* S učitelem
+    - klasifikace
+    - regrese
+* Bez učitele
+    - clustering
+
+---
+
 ## Datové sady pro první seznámení s modely
 
 * Budeme je používat společně s knihovnou scikit-learn
@@ -2696,17 +4365,193 @@ print(data.shape)
 
 ### Datová sada California Housings
 
+```python
+import numpy as np
+
+# import funkce pro nacteni datove sady, kterou pouzijeme
+from sklearn.datasets import fetch_california_housing
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+data = housings["data"]
+
+# nadpis tabulky
+print("Feature              Min         Max           Avg         Std         Var")
+
+# zakladni statisticke informace o jednotlivych atributech
+for i in range(len(housings["feature_names"])):
+    column = data[:, i]
+    feature = housings.feature_names[i]
+    print(f"{feature:12}   {column.min():10.3f}   {column.max():10.3f}   {np.mean(column):10.3f}  {np.std(column):10.3f}  {np.var(column):11.3f}")
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//california_housings.py)
+
 ---
 
-## Použití modelů
+### Umělá data pro clustering
 
----
-
-## Trénink s učitelem a bez učitele
+* Blobs atd.
+    - nabízí přímo scikit-learn
 
 ---
 
 ## Modely pro klasifikaci
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+# konstrukce klasifikatoru
+# (s hyperparametrem)
+classifier = KNeighborsClassifier(n_neighbors=1)
+
+# trening modelu (se vsemi dostupnymi daty)
+classifier.fit(X, y)
+
+# parametry jedne rostliny
+unknown = [[3, 5, 4, 2]]
+print(unknown)
+
+# predikce modelu pro jednu sadu dat
+prediction = classifier.predict(unknown)
+print(prediction)
+
+# model predikuje hodnoty 0-3, ty si prevedeme na druhy rostlin
+print(iris.target_names[prediction])
+
+print()
+
+# parametry vice rostlin
+unknown = [[3, 5, 4, 2], [5, 4, 3, 2]]
+print(unknown)
+
+# predikce modelu pro vice sad dat
+predictions = classifier.predict(unknown)
+print(predictions)
+
+# model predikuje hodnoty 0-3, ty si prevedeme na druhy rostlin
+print(iris.target_names[predictions])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_basic_classifier.py)
+```python
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+# konstrukce klasifikatoru
+# (s hyperparametrem)
+classifier = LogisticRegression(max_iter=1000)
+classifier.fit(X, y)
+
+# trening modelu (se vsemi dostupnymi daty)
+classifier.fit(X, y)
+
+# parametry jedne rostliny
+unknown = [[3, 5, 4, 2]]
+print(unknown)
+
+# predikce modelu pro jednu sadu dat
+prediction = classifier.predict(unknown)
+print(prediction)
+
+# model predikuje hodnoty 0-3, ty si prevedeme na druhy rostlin
+print(iris.target_names[prediction])
+
+print()
+
+# parametry vice rostlin
+unknown = [[3, 5, 4, 2], [5, 4, 3, 2]]
+print(unknown)
+
+# predikce modelu pro vice sad dat
+predictions = classifier.predict(unknown)
+print(predictions)
+
+# model predikuje hodnoty 0-3, ty si prevedeme na druhy rostlin
+print(iris.target_names[predictions])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_different_model.py)
+```python
+import matplotlib.pyplot as plt
+
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_score
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+feature_names = np.array(iris.feature_names)
+
+print("n", "selectors", "features")
+
+attributes = []
+final_scores = []
+
+for i in range(1, 2**len(feature_names)):
+    indexes = []
+    n = i
+    for j in range(len(feature_names)):
+        if n % 2 == 1:
+            indexes.append(j)
+        n //= 2
+    selectors = np.array(indexes, dtype=int)
+    knn_classifier = KNeighborsClassifier(n_neighbors=5)
+    selected_features = X[:, selectors]
+    scores = cross_val_score(knn_classifier, selected_features, y, cv=10, scoring='accuracy')
+    attributes.append("\n".join(feature_names[selectors]))
+    avg_score = scores.mean()
+    final_scores.append(avg_score)
+    print(i, selectors, feature_names[selectors], avg_score)
+
+fig = plt.figure()
+fig.set_figwidth(14)
+fig.set_figheight(6)
+fig.subplots_adjust(bottom=0.3)
+
+plt.bar(attributes, final_scores)
+plt.xticks(rotation=90)
+plt.xlabel("Atributy")
+plt.ylabel("Přesnost modelu")
+
+# ulozeni grafu do souboru
+plt.savefig("111.png")
+
+# vykresleni grafu na obrazovku
+plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//iris_features_selection_graphical.py)
 
 ---
 
@@ -2785,6 +4630,71 @@ plt.show()
 ### Použití modelu lineární regrese
 
 * California housings
+
+```python
+import matplotlib.pyplot as plt
+
+from sklearn import linear_model
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+FIRST_DIM = 2
+SECOND_DIM = 3
+
+# rozdělení na trénovací a testovací data
+x_train, x_test, y_train, y_test = train_test_split(data[:, FIRST_DIM], data[:, SECOND_DIM], test_size=0.6)
+
+print("Array sizes:")
+print(f"x_train: {len(x_train)}")
+print(f"y_train: {len(y_train)}")
+print(f"x_test:  {len(x_test)}")
+print(f"y_test:  {len(y_test)}")
+
+# konstrukce modelu
+lr = linear_model.LinearRegression()
+
+# trénink modelu
+lr.fit(x_train.reshape(-1, 1), y_train)
+
+# predikce modelu
+y_pred = lr.predict(x_test.reshape(-1, 1))
+
+# výpis vypočtených koeficientů modelu
+print("Coefficients: \n", lr.coef_)
+print("Intercept: \n", lr.intercept_)
+
+# chyba predikce
+print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
+
+# 1 = nejlepší predikce modelu
+print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
+
+# vykreslení výsledku
+plt.scatter(x_test, y_test, color="black", s=1)
+plt.plot(x_test, y_pred, color="blue", linewidth=3)
+
+# osy
+plt.xlabel(housings.feature_names[FIRST_DIM])
+plt.ylabel(housings.feature_names[SECOND_DIM])
+plt.xticks(())
+plt.yticks(())
+
+# ulozeni diagramu do souboru
+plt.savefig("82.png")
+
+# zobrazeni diagramu
+plt.show()
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_linear_regression.py)
 
 ### Trénink modelu se všemi daty
 
@@ -2924,29 +4834,887 @@ print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_3.py)
 
+### Chyby modelu
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn import linear_model
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# jmena promennych/atributu
+names = housings["feature_names"]
+
+print("Ignored attribute\tMSE\tr2 score")
+
+MEASUREMENTS = 200
+
+for column_to_delete in range(len(names)):
+    # X je matice, y je vektor
+    X = np.delete(data, column_to_delete, axis=1) # smazat jeden vybrany sloupec
+    y = targets
+
+    column = names[column_to_delete]
+
+    mses = []
+    r2_scores = []
+
+    for i in range(MEASUREMENTS):
+        # rozdeleni dat na treninkovou a testovaci mnozinu
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.6)
+
+        # konstrukce modelu
+        lr = linear_model.LinearRegression()
+
+        # trénink modelu
+        lr.fit(X_train, y_train)
+
+        # predikce modelu
+        y_pred = lr.predict(X_test)
+
+        # výpis vypočtených koeficientů modelu
+        #print("Coefficients: \n", lr.coef_)
+        #print("Intercept: \n", lr.intercept_)
+
+        mse = mean_squared_error(y_test, y_pred)
+        r2 = r2_score(y_test, y_pred)
+        mses.append(mse)
+        r2_scores.append(r2)
+
+        print(f"{column:16}\t{mse:0.3f}\t{r2:0.3f}")
+
+    plt.plot(range(MEASUREMENTS), mses, range(MEASUREMENTS), r2_scores)
+
+    # titulek grafu
+    plt.title(f"Mode prediction without column {column}")
+    plt.legend(["MSE", "R2 score"])
+
+    # osy
+    plt.xticks()
+    plt.yticks()
+
+    # ulozeni diagramu do souboru
+    plt.savefig(f"94_{column}.png")
+
+    # zobrazeni diagramu
+    plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_prediction_errors_2.py)
+
+### Výběr (filtrace) atributů
+
+```python
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import fetch_california_housing
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# vykresleni sady histogramu do mrizky
+fig, axes = plt.subplots(nrows=4, ncols=2)
+fig.set_figheight(15)
+fig.set_figwidth(15)
+
+# vykresleni jednotlivych histogramu do mrizky
+for i in range(8):
+    column = data[:, i]
+    feature = housings.feature_names[i]
+    ax = axes[i//2][i%2]
+    # modifikace zpusobu vypoctu a zobrazeni histogrami
+    ax.hist(column, bins=100, histtype="step")
+    ax.set(xlabel=feature)
+
+
+# zbavit se prazdneho mista okolo bunek mrizky
+plt.tight_layout()
+
+# ulozeni diagramu do souboru
+plt.savefig("95.png")
+
+# zobrazeni diagramu
+plt.show()
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_histograms.py)
+
 ---
 
 ## Křížová validace modelů
+
+```python
+import numpy as np
+from sklearn.datasets import fetch_california_housing
+from sklearn import linear_model
+from sklearn.model_selection import cross_val_score
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# X je matice (feature matrix)
+X = housings.data
+
+# y je vektor (response vector)
+y = housings.target
+
+feature_names = np.array(housings.feature_names)
+
+print("n", "selectors", "features")
+
+for i in range(1, 2**len(feature_names)):
+    indexes = []
+    n = i
+    for j in range(len(feature_names)):
+        if n % 2 == 1:
+            indexes.append(j)
+        n //= 2
+    selectors = np.array(indexes, dtype=int)
+    # konstrukce modelu
+    lr = linear_model.LinearRegression()
+    selected_features = X[:, selectors]
+    scores = -cross_val_score(lr, selected_features, y, cv=10, scoring='neg_mean_squared_error')
+    print(i, selectors, feature_names[selectors], scores.mean())
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//housings_features_selection.py)
 
 ---
 
 ## Shluková analýza
 
----
+```python
+# budeme provádět vykreslování de facto standardní knihovnou Matplotlib
+import matplotlib.pyplot as plt
 
-## Redukce dimensionality dat
+import numpy as np
+from sklearn.cluster import KMeans
 
+# testovací data
+n_samples = 10000
+
+# počet oblastí, kam se budou data sdružovat
+n_components = 6
+
+samples = np.random.rand(n_samples, 2)
+
+samples = samples[:, ::-1]
+
+plt.figure(1)
+colors = ["#4444cc", "#44bb44", "#cc4444", "#cccc44", "#44cccc", "#cc44cc"]
+
+# clustering
+kmeans = KMeans(n_clusters=6, random_state=0, n_init="auto").fit(samples)
+
+#print(kmeans.labels_)
+#print(kmeans.cluster_centers_)
+
+# vykreslení bodů s jejich přiřazením ke clusteru
+for i, color in enumerate(colors):
+    selector = kmeans.labels_ == i
+    plt.scatter(samples[selector, 0], samples[selector, 1], c=color, marker=".", s=1)
+
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], c="red", s=50)
+plt.title("K-Means++")
+
+# uložení grafu do souboru
+plt.savefig("k_means_5.png")
+
+# vykreslení na obrazovku
+plt.show()
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_random_points.py)
+```python
+# Vykreslení bodů v 3D prostoru
+
+import matplotlib.pyplot as plt
+
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
+
+# celkový počet vypočtených bodů
+n_samples = 10000
+
+# počet oblastí, kam se budou data sdružovat
+n_components = 8
+
+samples, _ = make_blobs(
+    n_samples=n_samples, n_features=3, centers=n_components,
+    cluster_std=1.80, random_state=0
+)
+
+# barvy použité pro obarvení bodů
+colors = ["#4444cc", "#44bb44", "#cc4444", "#cccc44", "#44cccc", "#cc44cc", "#cccccc", "#000000"]
+
+# příprava 3D grafu
+fig = plt.figure(figsize=(6.4, 6.4))
+ax = fig.add_subplot(projection="3d")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+
+# clustering
+kmeans = KMeans(n_clusters=n_components, random_state=0, n_init="auto").fit(samples)
+
+# vykreslit centra nalezených oblastí
+ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], kmeans.cluster_centers_[:, 2], c="red", s=50)
+
+# vykreslení bodů s jejich přiřazením ke clusteru
+for i, color in enumerate(colors):
+    selector = kmeans.labels_ == i
+    ax.scatter(samples[selector,0], samples[selector,1], samples[selector,2], marker=".", s=1)
+
+# uložení grafu do souboru
+plt.savefig("kmeans_spread_blobs_3D.png")
+
+# uložení grafu do souboru
+ax.view_init(90, -90, 0)
+plt.savefig("kmeans_spread_blobs_view_1.png")
+
+ax.view_init(0, -90, 0)
+plt.savefig("kmeans_spread_blobs_view_2.png")
+
+ax.view_init(0, 0, 0)
+plt.savefig("kmeans_spread_blobs_view_3.png")
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_kmeans_spread_3d_blobs.py)
+```python
+# budeme provádět vykreslování de facto standardní knihovnou Matplotlib
+import matplotlib.pyplot as plt
+
+from sklearn.cluster import SpectralClustering
+from sklearn.datasets import make_blobs
+
+# testovací data
+n_samples = 10000
+
+# počet oblastí, kam se budou data sdružovat
+n_components = 6
+
+samples, labels = make_blobs(
+    n_samples=n_samples, centers=n_components, cluster_std=1.50, random_state=0
+)
+
+samples = samples[:, ::-1]
+
+plt.figure(1)
+colors = ["#4444cc", "#44bb44", "#cc4444", "#cccc44", "#44cccc", "#cc44cc"]
+
+# clustering
+spectral = SpectralClustering(n_clusters=n_components, eigen_solver="arpack", affinity="nearest_neighbors", random_state=0).fit(samples)
+
+# vykreslení bodů s jejich přiřazením ke clusteru
+for i, color in enumerate(colors):
+    selector = spectral.labels_ == i
+    plt.scatter(samples[selector, 0], samples[selector, 1], c=color, marker=".", s=1)
+
+plt.title("Spectral clustering")
+
+# uložení grafu do souboru
+plt.savefig("blobs_spectral.png")
+
+# vykreslení na obrazovku
+plt.show()
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//clustering_blobs_spectral_clustering.py)
 ---
 
 ## Neuronové sítě
 
----
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
 
-## Konvoluční neuronové sítě
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
 
----
 
-## Rozpoznávání obrazu
+# nacteni datove sady
+iris = load_iris()
 
----
+# konstrukce klasifikatoru
+# (s hyperparametrem)
+classifier = MLPClassifier(max_iter=5000)
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+# rozdělení na trénovací a testovací data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# trening modelu
+classifier.fit(X_train, y_train)
+
+# očekávané výsledky
+expexted_labels = y_test
+
+# výsledky modelu (predikované výsledky)
+predicted_labels = classifier.predict(X_test)
+
+# jak je náš model úspěšný?
+total = 0
+same = 0
+
+# porovnání predikce s očekáváním
+for (expected, predicted) in zip(expexted_labels, predicted_labels):
+    if expected==predicted:
+        same+=1
+    total+=1
+
+print(f"total:    {total}")
+print(f"same:     {same}")
+print(f"accuracy: {100.0*same/total:4.1f}%")
+
+print(f"Features: {classifier.n_features_in_}")
+print(f"Layers:   {classifier.n_layers_}")
+print(f"Outputs:  {classifier.n_outputs_}")
+print("Weights:")
+
+for layer, weights in enumerate(classifier.coefs_):
+    print("\t", layer, weights.shape)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_01.py)
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+from sklearn.metrics import accuracy_score
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
+
+
+# nacteni datove sady
+iris = load_iris()
+
+# konstrukce klasifikatoru
+# (s hyperparametrem)
+classifier = MLPClassifier(max_iter=5000)
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+# rozdělení na trénovací a testovací data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# trening modelu
+classifier.fit(X_train, y_train)
+
+
+# výsledky modelu (predikované výsledky)
+y_pred = classifier.predict(X_test)
+
+# vypoctena presnost modelu
+print(accuracy_score(y_test, y_pred))
+
+print(f"Features: {classifier.n_features_in_}")
+print(f"Layers:   {classifier.n_layers_}")
+print(f"Outputs:  {classifier.n_outputs_}")
+print("Weights:")
+
+for layer, weights in enumerate(classifier.coefs_):
+    print("\t", layer, weights.shape)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_02.py)
+```python
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+from sklearn.metrics import accuracy_score
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
+
+
+# nacteni datove sady
+iris = load_iris()
+
+# konstrukce klasifikatoru
+# (s hyperparametrem)
+classifier = MLPClassifier(max_iter=5000, hidden_layer_sizes = (10, 10, 10))
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+# rozdělení na trénovací a testovací data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# trening modelu
+classifier.fit(X_train, y_train)
+
+
+# výsledky modelu (predikované výsledky)
+y_pred = classifier.predict(X_test)
+
+# vypoctena presnost modelu
+print(accuracy_score(y_test, y_pred))
+
+print(f"Features: {classifier.n_features_in_}")
+print(f"Layers:   {classifier.n_layers_}")
+print(f"Outputs:  {classifier.n_outputs_}")
+print("Weights:")
+
+for layer, weights in enumerate(classifier.coefs_):
+    print("\t", layer, weights.shape)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_03.py)
+```python
+
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import cross_val_score
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
+
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+avg_scores = []
+
+r = range(1, 20)
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for neurons in r:
+    # konstrukce klasifikatoru
+    # (s hyperparametrem)
+    classifier = MLPClassifier(max_iter=5000, hidden_layer_sizes = (neurons, neurons, neurons))
+
+    # vypocet skore
+    scores = cross_val_score(classifier, X, y, cv=10, scoring='accuracy')
+
+    avg_score = scores.mean()
+
+    # vypsani prumerneho skore do tabulky
+    print(neurons, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu neuronů ve třech vrstvách")
+plt.ylabel("Přesnost modelu")
+
+# ulozeni grafu do souboru
+plt.savefig("139.png")
+
+# vykresleni grafu na obrazovku
+plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_04.py)
+```python
+
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import cross_val_score
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
+
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+avg_scores = []
+
+r = range(1, 20)
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for neurons in r:
+    # konstrukce klasifikatoru
+    # (s hyperparametrem)
+    classifier = MLPClassifier(max_iter=5000, hidden_layer_sizes = (neurons, neurons, neurons, neurons, neurons))
+
+    # vypocet skore
+    scores = cross_val_score(classifier, X, y, cv=10, scoring='accuracy')
+
+    avg_score = scores.mean()
+
+    # vypsani prumerneho skore do tabulky
+    print(neurons, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu neuronů v pěti vrstvách")
+plt.ylabel("Přesnost modelu")
+
+# ulozeni grafu do souboru
+plt.savefig("140.png")
+
+# vykresleni grafu na obrazovku
+plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_05.py)
+```python
+
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import cross_val_score
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPClassifier
+
+
+# nacteni datove sady
+iris = load_iris()
+
+# X je matice (feature matrix)
+X = iris.data
+
+# y je vektor (response vector)
+y = iris.target
+
+avg_scores = []
+
+NEURONS = 5
+r = range(1, 40)
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for layers in r:
+    # konstrukce klasifikatoru
+    # (s hyperparametrem)
+    layer_sizes = (NEURONS, ) * layers
+    classifier = MLPClassifier(max_iter=5000, hidden_layer_sizes = layer_sizes)
+
+    # vypocet skore
+    scores = cross_val_score(classifier, X, y, cv=10, scoring='accuracy')
+
+    avg_score = scores.mean()
+
+    # vypsani prumerneho skore do tabulky
+    print(layers, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu vrstev")
+plt.ylabel("Přesnost modelu")
+
+# ulozeni grafu do souboru
+plt.savefig("141.png")
+
+# vykresleni grafu na obrazovku
+plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_classifier_06.py)
+```python
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPRegressor
+
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# X je matice, y je vektor
+X = data
+y = targets
+
+# rozdeleni dat na treninkovou a testovaci mnozinu
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
+
+# konstrukce modelu
+nn = MLPRegressor(max_iter=5000)
+
+# trénink modelu
+nn.fit(X_train, y_train)
+
+# predikce modelu
+y_pred = nn.predict(X_test)
+
+# chyba predikce
+print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
+
+# 1 = nejlepší predikce modelu
+print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
+
+print(f"Features: {nn.n_features_in_}")
+print(f"Layers:   {nn.n_layers_}")
+print(f"Outputs:  {nn.n_outputs_}")
+print("Weights:")
+
+for layer, weights in enumerate(nn.coefs_):
+    print("\t", layer, weights.shape)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_1.py)
+```python
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPRegressor
+
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# X je matice, y je vektor
+X = data
+y = targets
+
+# rozdeleni dat na treninkovou a testovaci mnozinu
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
+
+neurons = 1000
+
+# konstrukce modelu
+nn = MLPRegressor(max_iter=5000, hidden_layer_sizes = (neurons, neurons, ))
+
+# trénink modelu
+nn.fit(X_train, y_train)
+
+# predikce modelu
+y_pred = nn.predict(X_test)
+
+# chyba predikce
+print("Mean squared error: %.2f" % mean_squared_error(y_test, y_pred))
+
+# 1 = nejlepší predikce modelu
+print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
+
+print(f"Features: {nn.n_features_in_}")
+print(f"Layers:   {nn.n_layers_}")
+print(f"Outputs:  {nn.n_outputs_}")
+print("Weights:")
+
+for layer, weights in enumerate(nn.coefs_):
+    print("\t", layer, weights.shape)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_2.py)
+```python
+
+import matplotlib.pyplot as plt
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPRegressor
+
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import cross_val_score
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# X je matice, y je vektor
+X = data
+y = targets
+
+r = range(1, 12)
+avg_scores = []
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for i in r:
+    # konstrukce modelu
+    neurons = 2**i
+    nn = MLPRegressor(max_iter=5000, hidden_layer_sizes = (neurons, ))
+
+    scores = cross_val_score(nn, X, y, cv=10, scoring='r2')
+
+    # vypsani prumerneho skore do tabulky
+    avg_score = scores.mean()
+    print(neurons, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu neuronů v jedné vrstvě")
+plt.ylabel("R2")
+
+# ulozeni grafu do souboru
+plt.savefig("144.png")
+
+# vykresleni grafu na obrazovku
+#plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_3.py)
+```python
+
+import matplotlib.pyplot as plt
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPRegressor
+
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import cross_val_score
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# X je matice, y je vektor
+X = data
+y = targets
+
+r = range(1, 12)
+avg_scores = []
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for i in r:
+    # konstrukce modelu
+    neurons = 2**i
+    nn = MLPRegressor(max_iter=5000, hidden_layer_sizes = (neurons, neurons, neurons))
+
+    scores = cross_val_score(nn, X, y, cv=10, scoring='r2')
+
+    # vypsani prumerneho skore do tabulky
+    avg_score = scores.mean()
+    print(neurons, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu neuronů ve třech vrstvách")
+plt.ylabel("R2")
+
+# ulozeni grafu do souboru
+plt.savefig("145.png")
+
+# vykresleni grafu na obrazovku
+#plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_4.py)
+```python
+
+import matplotlib.pyplot as plt
+
+# model zalozeny na neuronove siti
+from sklearn.neural_network import MLPRegressor
+
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import cross_val_score
+
+# nacteni datove sady
+housings = fetch_california_housing()
+
+# precteni dat z datove sady
+# urcenych pro trenink, validaci atd.
+data = housings["data"]
+
+# ceny bloku
+targets = housings["target"]
+
+# X je matice, y je vektor
+X = data
+y = targets
+
+r = range(1, 12)
+avg_scores = []
+
+# hledani optimalniho poctu neuronu ve vrstvach
+for i in r:
+    # konstrukce modelu
+    neurons = 2**i
+    nn = MLPRegressor(max_iter=5000, hidden_layer_sizes = (neurons, neurons, neurons, neurons, neurons))
+
+    scores = cross_val_score(nn, X, y, cv=10, scoring='r2')
+
+    # vypsani prumerneho skore do tabulky
+    avg_score = scores.mean()
+    print(neurons, avg_score)
+
+    avg_scores.append(avg_score)
+
+plt.plot(r, avg_scores)
+plt.xlabel("Změna počtu neuronů v pěti vrstvách")
+plt.ylabel("R2")
+
+# ulozeni grafu do souboru
+plt.savefig("146.png")
+
+# vykresleni grafu na obrazovku
+#plt.show()
+
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples//mlp_regression_5.py)
 

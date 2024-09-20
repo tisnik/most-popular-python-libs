@@ -437,6 +437,14 @@ y = f(w_0 + w_1x_1 + w_2x_2 + … + w_nx_n)
 
 ---
 
+### Příliš mnoho vrstev
+
+* Model se přestane učit nebo se učí velmi pomalu
+    - vanishing gradient problem
+    - "méně je někdy více"
+
+---
+
 ### Konvoluční neuronové sítě
 
 * Typicky pro rastrové obrázky
@@ -1196,6 +1204,96 @@ from plotnine.data import mtcars
 
 ![numpy_arrays.png](images/numpy_logo.png)
 
+@ numpy_01_array.py
+@ numpy_02_array_range.py
+@ numpy_03_array_dtype.py
+@ numpy_04_array_order_c.py
+@ numpy_05_array_order_f.py
+@ numpy_06_2D_array.py
+@ numpy_07_zeros_1D_array.py
+@ numpy_08_zeros_1D_array.py
+@ numpy_09_zeros_2D_array.py
+@ numpy_10_zeros_3D_array.py
+@ numpy_11_zeros_specify_type.py
+@ numpy_12_zeros_complex_numbers.py
+@ numpy_13_ones_1D_array.py
+@ numpy_14_ones_2D_array.py
+@ numpy_15_ones_specify_type.py
+@ numpy_16_ones_3D_array.py
+@ numpy_17_ones_complex_numbers.py
+@ numpy_18_eye_1D_array.py
+@ numpy_19_eye_2D_array.py
+@ numpy_20_eye_2D_array.py
+@ numpy_21_eye_2D_array_dtype.py
+@ numpy_22_eye_2D_array_k_positive.py
+@ numpy_23_eye_2D_array_k_negative.py
+@ numpy_24_eye_2D_array_k_10.py
+@ numpy_25_full_1D_array.py
+@ numpy_26_full_2D_array.py
+@ numpy_27_full_3D_array.py
+@ numpy_28_full_dtype.py
+@ numpy_29_full_inf.py
+@ numpy_30_full_inf_complex.py
+@ numpy_31_arange_10.py
+@ numpy_32_arange_10_20.py
+@ numpy_33_arange_positive_step.py
+@ numpy_34_arange_negative_step.py
+@ numpy_35_arange_floats.py
+@ numpy_36_arange_complex.py
+@ numpy_37_arange_complex.py
+@ numpy_38_linspace_default_number_of_items.py
+@ numpy_39_linspace_specific_number_of_items.py
+@ numpy_40_linspace_specific_number_of_items.py
+@ numpy_41_linspace_decrementing.py
+@ numpy_42_linspace_complex_real_part.py
+@ numpy_43_linspace_complex_imaginary_part.py
+@ numpy_44_linspace_complex_both_parts.py
+@ numpy_45_geomspace_default_number_of_items.py
+@ numpy_46_geomspace_specific_number_of_items.py
+@ numpy_47_geomspace_specific_number_of_items.py
+@ numpy_48_geomspace_dtype.py
+@ numpy_49_logspace_default_number_of_items.py
+@ numpy_50_logspace_specific_number_of_items.py
+@ numpy_51_logspace_specific_number_of_items.py
+@ numpy_52_logspace_dtype.py
+@ numpy_53_retype_int64_array.py
+@ numpy_54_retype_int64_array_wrong_input.py
+@ numpy_55_retype_float16_array.py
+@ numpy_56_retype_array_to_array.py
+@ numpy_57_astype1.py
+@ numpy_58_matrix_string.py
+@ numpy_59_matrix_string_2D_array.py
+@ numpy_60_matrix_string_2D_array_error.py
+@ numpy_61_info_about_1D_array.py
+@ numpy_62_info_about_2D_array.py
+@ numpy_63_info_about_3D_array.py
+@ numpy_64_print_big_array.py
+@ numpy_65_reshape1.py
+@ numpy_66_reshape2.py
+@ numpy_67_reshape3.py
+@ numpy_68_reshape4.py
+@ numpy_69_selectors_1D_array.py
+@ numpy_70_selectors_2D_array.py
+@ numpy_71_select_by_other_array.py
+@ numpy_72_select_by_other_array_negative_indexes.py
+@ numpy_73_select_rows.py
+@ numpy_74_select_from_2D_array.py
+@ numpy_75_slicing.py
+@ numpy_76_slicing.py
+@ numpy_77_empty_slice.py
+@ numpy_78_slicing_negative_indexes.py
+@ numpy_79_slicing_2d_arrays.py
+@ numpy_80_slicing_specify_steps.py
+@ numpy_81_slicing_matrix_steps.py
+@ numpy_82_add_item_by_scalar.py
+@ numpy_83_mul_item_by_scalar.py
+@ numpy_84_div_item_by_scalar.py
+@ numpy_85_add_item_by_item.py
+@ numpy_86_operator_pluseq.py
+@ numpy_87_not_matrix_multiplication.py
+@ numpy_88_matrix_multiplication.py
+@ numpy_89_check_matrix_multiplication.py
+
 ---
 
 ## Matplotlib
@@ -1340,6 +1438,16 @@ from plotnine.data import mtcars
 
 ---
 
+## Trénink s učitelem a bez učitele
+
+* S učitelem
+    - klasifikace
+    - regrese
+* Bez učitele
+    - clustering
+
+---
+
 ## Datové sady pro první seznámení s modely
 
 * Budeme je používat společně s knihovnou scikit-learn
@@ -1366,17 +1474,22 @@ Výstup
 
 ### Datová sada California Housings
 
----
-
-## Použití modelů
+@ california_housings.py
 
 ---
 
-## Trénink s učitelem a bez učitele
+### Umělá data pro clustering
+
+* Blobs atd.
+    - nabízí přímo scikit-learn
 
 ---
 
 ## Modely pro klasifikaci
+
+@ iris_basic_classifier.py
+@ iris_different_model.py
+@ iris_features_selection_graphical.py
 
 ---
 
@@ -1403,6 +1516,8 @@ Výstup
 
 * California housings
 
+@ housings_linear_regression.py
+
 ### Trénink modelu se všemi daty
 
 * Což obecně není vhodné
@@ -1413,29 +1528,40 @@ Výstup
 
 @ housings_prediction_3.py
 
+### Chyby modelu
+
+@ housings_prediction_errors_2.py
+
+### Výběr (filtrace) atributů
+
+@ housings_histograms.py
+
 ---
 
 ## Křížová validace modelů
+
+@ housings_features_selection.py
 
 ---
 
 ## Shluková analýza
 
----
-
-## Redukce dimensionality dat
-
+@ clustering_random_points.py
+@ clustering_kmeans_spread_3d_blobs.py
+@ clustering_blobs_spectral_clustering.py
 ---
 
 ## Neuronové sítě
 
----
-
-## Konvoluční neuronové sítě
-
----
-
-## Rozpoznávání obrazu
-
----
+@ mlp_classifier_01.py
+@ mlp_classifier_02.py
+@ mlp_classifier_03.py
+@ mlp_classifier_04.py
+@ mlp_classifier_05.py
+@ mlp_classifier_06.py
+@ mlp_regression_1.py
+@ mlp_regression_2.py
+@ mlp_regression_3.py
+@ mlp_regression_4.py
+@ mlp_regression_5.py
 
