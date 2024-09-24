@@ -589,9 +589,1278 @@ print(2+3j)
     - operátory se odlišují podle použitého typu
     - zápis komplexního čísla s "j" a nikoli s "i"
     - nekompatibilita u operátoru `/` (viz další slajdy s popisem operátorů)
-## Časté problémy
+
+```python
+# int/long
+print(42)
+print(100000000000000000000000000000000000000000000000000000)
+
+# float
+print(3.1415)
+print(1.2e10)
+print(3e-3)
+print(-3e-3)
+
+# complex
+print(2 + 3j)
+print(1.5 + 2.8j)
+print(1e10 + 3e-5j)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/numbers2.py)
 
 ---
+
+### Pravdivostní hodnoty
+
+* měnitelnost
+    - neměnitelné
+* datový typ
+    - `bool`
+* hodnoty
+    - `True`
+    - `False`
+* použito především u větvení popř. u programových smyček
+* podporované operátory
+    - `and`
+    - `or`
+    - `not`
+
+---
+
+### Pravdivostní hodnoty
+
+* jsou výsledkem aplikace dalších operátorů
+    - `==`
+    - `!=`
+    - `<`
+    - `<=`
+    - `>`
+    - `>=`
+    - `is`
+    - `is not`
+    - `in`
+    - `not in`
+
+---
+
+### Řetězce (raw, Unicode)
+
+* měnitelnost
+    - neměnitelné
+* sekvence znaků
+* původně sekvence bajtů
+    - rozdíl - Unicode
+* tzv. "raw" řetězce
+
+---
+
+### Řetězce (raw, Unicode)
+
+```python
+# běžný řetězec
+print("Hello")
+
+# bytové pole
+print(b"abcdef")
+
+# podpora pro Unicode
+print(u"příliš žluťoučký kůň")
+
+# řídicí znaky
+print("abc\ndef")
+
+# 'raw' řetězce
+print(r"abc\ndef")
+
+# víceřádkový řetězec
+print("""A
+B
+C
+D
+E
+F""")
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/strings.py)
+
+---
+
+### Funkce pro práci s řetězci
+
+* `len` - vrací počet znaků řetězce
+
+---
+
+### Seznamy (pole)
+
+* základní složený datový typ Pythonu
+* měnitelnost
+    - měnitelné
+* homogenní datový typ
+    - ne
+* základní vlastnosti
+    - do seznamu je možné přidávat nové prvky
+    - prvky je možné i odstraňovat
+    - k prvkům se přistupuje pomocí celočíselného indexu
+    - záporný index - výběr prvků od konce seznamu
+    - lze získat i podseznam (tzv. výsek seznamu)
+
+---
+
+### Funkce pro práci se seznamy
+
+* `len` - vrací délku seznamu
+
+---
+
+### Metody pro práci se seznamy
+
+* `clear`
+* `append`
+* `insert`
+* `count`
+* `reverse`
+* `sort`
+
+---
+
+### Seznamy (pole) - ukázka
+
+```python
+seznam = [1, 2, 3, 4]
+
+print(seznam[0])
+print(seznam[1])
+print(seznam[-1])
+print(seznam[-2])
+
+seznam.append(5)
+seznam.append(6)
+
+seznam.insert(0, -10)
+seznam.insert(0, -100)
+
+print(seznam)
+
+del seznam[0]
+print(seznam)
+
+del seznam[-1]
+print(seznam)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list.py)
+
+---
+
+### Operace spojení seznamů
+
+```python
+seznam1 = [1, 2, 3]
+seznam2 = [4, 5, 6]
+
+seznam3 = seznam1 + seznam2
+
+print(seznam3)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_append.py)
+
+---
+
+### Operace opakování seznamu
+
+```python
+seznam1 = [1, 2, 3]
+
+seznam2 = seznam1 * 3
+print(seznam2)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_repeat.py)
+
+---
+
+### Seřazení seznamu
+
+* Dvě varianty
+    - seřazení (změna) původního seznamu
+    - vytvoření nového seřazeného seznamu
+
+```python
+seznam = [5, 4, 1, 3, 4, 100, -1]
+print(seznam)
+
+seznam.sort()
+print(seznam)
+
+seznam = [5, 4, 1, 3, 4, 100, -1]
+print(seznam)
+
+seznam2 = sorted(seznam)
+print(seznam)
+print(seznam2)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_sort.py)
+
+---
+
+### Vytvoření podseznamu
+
+
+```python
+seznam = [1, 2, 3, 4, 5, 6]
+
+print(seznam[2:4])
+
+print(seznam[0:6:2])
+
+print(seznam[4:1])
+print(seznam[4:1:-1])
+
+print(seznam[4:])
+print(seznam[:4])
+print(seznam[:])
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_sublist.py)
+
+---
+
+### Slovníky
+
+* základní složený datový typ Pythonu
+* měnitelnost
+    - měnitelné
+* základní vlastnosti
+    - dvojice klíč-hodnota
+    - není zachováno pořadí dvojic!
+    - klíč slouží pro výběr hodnoty
+    - do slovníků lze přidávat nové prvky
+    - ze slovníku lze prvek vymazat pomocí `del`
+
+---
+
+### Slovníky - ukázka
+
+```python
+d = {"id": 1,
+     "name": "Eda",
+     "surname": "Wasserfall"}
+
+print(d)
+
+print(d["name"])
+
+d["hra"] = "Svestka"
+
+print(d)
+
+del d["id"]
+
+print(d)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dict.py)
+
+---
+
+### Množiny
+
+* měnitelnost
+    - měnitelné
+* homogenní datový typ
+    - ne
+* základní vlastnosti
+    - každý prvek je unikátní
+    - prvky by neměly být měnitelné (jinak nelze zaručit unikátnost)
+    - do množiny je možné prvky přidávat
+    - prvky lze i odstraňovat
+
+---
+
+### Funkce pro práci s množinami
+
+* `len` - vrací počet prvků množiny
+
+---
+
+
+### Množiny
+
+```python
+s = {1, 2, 3, 4}
+print(s)
+
+s2 = {"hello", "world", "!", 0}
+print(s2)
+
+s3 = set()
+print(s3)
+
+s3.add(1)
+s3.add(2)
+print(s3)
+
+s3.update([3, 4, 5])
+print(s3)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets.py)
+
+---
+
+### Operace `discard` a `remove`
+
+```python
+s1 = {1,2,3,4}
+print(s1)
+
+s1.discard(2)
+print(s1)
+
+s1.discard(1000)
+print(s1)
+
+s1.remove(3)
+print(s1)
+
+s1.remove(1000)
+print(s1)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_discard_remove.py)
+
+---
+
+### Množinové operace
+
+* `x in s`
+    -test na existenci prvku v množině
+* `x not in s`
+    - opačný test
+* `s <= t`
+    - test na relaci "je podmnožinou"
+* `s >= t`
+    - test na relaci "je nadmnožinou"
+* `s | t`
+    - sjednocení množin
+* `s & t`
+    - průnik množin
+* `s - t`
+    - rozdíl množin
+* `s ^ t`
+    - symetrická diference
+
+---
+
+### Množinové operace - příklad použití
+
+```python
+s1 = {1, 2, 3, 4}
+s2 = {3, 4, 5, 6}
+
+print(s1)
+print(s2)
+
+print(s1 | s2)
+print(s1 & s2)
+print(s1 - s2)
+print(s2 - s1)
+print(s1 ^ s2)
+
+print(1 in s1)
+print(10 in s1)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_operations.py)
+
+---
+
+### Zápis množinových operací metodami
+
+* Shodný význam s příslušnými operátory
+    - (dodržení štábní kultury)
+
+```python
+s.issubset(t)
+s.issuperset(t)
+s.union(t)
+s.intersection(t)
+s.difference(t)
+s.symmetric_difference(t)
+```
+
+---
+
+### Množinové operace - příklad použití
+
+* (převzato přímo z dokumentace Pythonu)
+
+```python
+engineers = {'John', 'Jane', 'Jack', 'Janice'}
+programmers = {'Jack', 'Sam', 'Susan', 'Janice'}
+managers = {'Jane', 'Jack', 'Susan', 'Zack'}
+
+employees = engineers | programmers | managers
+engineering_management = engineers & managers
+fulltime_management = managers - engineers - programmers
+
+print(engineers)
+print(programmers)
+print(managers)
+print(employees)
+print(engineering_management)
+print(fulltime_management)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_example.py)
+
+---
+
+### N-tice
+
+* další základní složený datový typ Pythonu
+* měnitelnost
+    - neměnitelné
+* homogenní datový typ
+    - ne
+* částečně se podobají seznamům
+    - ovšem kvůli neměnitelnosti mají jiné použití
+    - paměťová efektivita
+
+---
+
+```python
+# tříprvková n-tice
+t1 = (1, 2, 3)
+
+# jednoprvková n-tice
+t2 = (4, )
+
+# pozor - není tuple!
+t3 = (5)
+
+# nehomogenní n-tice
+t4 = (4, 3.14, "string", [])
+
+# prázdná n-tice
+t5 = ()
+
+print(t1)
+print(t2)
+print(t3)
+print(t4)
+print(t5)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple.py)
+
+---
+
+### Spojení n-tic operátorem `+`
+
+```python
+x = (1, 2, 3)
+y = (3, 4, 5)
+
+print(x + y)
+print(y + x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple_join.py)
+
+
+### Test na existenci prvku v n-tici
+
+```python
+x = (1, 2, 3)
+y = (3, 4, 5)
+z = x + y
+
+print(1 in z)
+print(10 in z)
+print("foobar" in z)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple_exists.py)
+
+---
+
+### Výrazy, operátory
+
+* aritmetické operátory
+    - `+`
+    - `-`
+    - `*`
+    - `/`
+    - `//`
+    - `%`
+    - `**`
+
+---
+
+### Výrazy, operátory
+
+* porovnávání
+    - `==`
+    - `!=`
+    - `<>` (jen v Pythonu 2.x, nyní již není podporován)
+    - `>`
+    - `<`
+    - `>=`
+    - `<=`
+
+---
+
+### Výrazy, operátory
+
+* logické operátory
+    - `and`
+    - `or`
+    - `not`
+
+---
+
+### Výrazy, operátory
+
+* bitové operátory
+    - `&`
+    - `|`
+    - `^`
+    - `~`
+    - `<<`
+    - `>>`
+
+---
+
+### Výrazy, operátory
+
+* přiřazení
+    - `=`
+    - `+=`
+    - `-=`
+    - `*=`
+    - `/=`
+    - `%=`
+    - `**=`
+    - `//=`
+
+---
+
+### Výrazy, operátory
+
+* další operátory
+    - `in`
+    - `not in`
+    - `is`
+    - `is not`
+
+---
+
+### Rozhodovací konstrukce ve výrazu
+
+```python
+x = 1 if y > 10 else 0
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_if_else.py)
+
+### Výrazy, operátory: ukázky použití
+
+* Celočíselné operace
+
+```python
+x = 10
+y = 3
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x // y)
+print(x % y)
+print(x ** y)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_integers.py)
+
+* Výsledky pro Python 2.x
+
+```
+13
+7
+30
+3
+3
+1
+1000
+
+```
+
+* Výsledky pro Python 3.x
+
+```
+13
+7
+30
+3.3333333333333335
+3
+1
+1000
+```
+
+---
+
+### Výrazy, operátory: ukázky použití
+
+* Operace s typem `float/double`
+
+```python
+x = 10.0
+y = 3
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x // y)
+print(x % y)
+print(x ** y)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_floats.py)
+
+---
+
+* Výsledky pro Python 2.x
+
+```
+13.0
+7.0
+30.0
+3.33333333333
+3.0
+1.0
+1000.0
+```
+
+* Výsledky pro Python 3.x
+
+```
+13.0
+7.0
+30.0
+3.3333333333333335
+3.0
+1.0
+1000.0
+```
+
+---
+
+### Priority operátorů
+
+* Tabulka se třinácti prioritami
+    - není nutné si pamatovat, lze používat závorky
+
+```
+1       **
+2       ~ + -
+3       * / % //
+4       + -
+5       >> <<
+6       &
+7       ^ |
+8       <= < > >=
+9       <> == !=
+10      = %= /= //= -= += *= **=
+11      is   is not
+12      in   not in
+13      not or and
+```
+
+---
+
+### Celočíselné dělení
+
+* Nekompatibilita mezi Pythonem 2.x a Pythonem 3.x
+
+```python
+print '3 / 2 =', 3 / 2
+print '3 // 2 =', 3 // 2
+print '3 / 2.0 =', 3 / 2.0
+print '3 // 2.0 =', 3 // 2.0
+```
+
+* Výsledky pro Python 2:
+
+```
+3 / 2 = 1
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+```
+
+```python
+print('3 / 2 =', 3 / 2)
+print('3 // 2 =', 3 // 2)
+print('3 / 2.0 =', 3 / 2.0)
+print('3 // 2.0 =', 3 // 2.0)
+```
+
+* Výsledky pro Python 3:
+
+```
+3 / 2 = 1.5
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+```
+
+---
+
+## Řízení toku programu
+
+* Základní pojmy
+* Větvení (rozhodovací konstrukce)
+* Složitější formy větvení
+* Programové smyčky
+
+---
+
+### Základní pojmy
+
+* Řídicí struktura
+    - též strukturovaný příkaz
+    - control flow statement
+* Tři druhy struktur programu:
+    - prostá posloupnost příkazů
+    - větvení (podmíněný příkaz)
+    - cyklus (programová smyčka)
+
+---
+
+### Větvení (rozhodovací konstrukce)
+
+* Základní forma:
+
+```python
+if condition1:
+    pass
+```
+
+* Viz příklad s výpočtem BMI
+
+```python
+print("Mass (kg): ")
+mass = int(input())
+
+if mass < 0:
+    print("Invalid input")
+    sys.exit(1)
+```
+
+---
+
+### Složitější formy větvení
+
+* Tzv. plné větvení
+
+```python
+if condition1:
+    pass
+else:
+    pass
+```
+
+---
+
+### Složitější formy větvení
+
+* Nahrazuje konstrukci typu `switch-case`
+
+```python
+if condition1:
+    pass
+elif condition2:
+    pass
+elif condition3:
+    pass
+else:
+    pass
+```
+
+---
+
+### Programové smyčky
+
+* Existují tyto druhy cyklů
+    - nekonečný cyklus
+    - cyklus `while-do` – cyklus s podmínkou na začátku
+    - cyklus `do-while` – cyklus s podmínkou na konci
+    - cyklus s podmínkou uprostřed
+    - cyklus `for` - unifikované `while-do`
+    - cyklus `for-each` - průchod sekvencemi
+
+* V Pythonu
+    - cyklus `while-do` – (zahrnuje i nekonečný cyklus)
+    - cyklus `for-each` - průchod sekvencemi
+    - příkazy `break` a `continue` pro další varianty
+
+---
+
+### Programová smyčka `while`
+
+```python
+x = 1
+
+while x < 2000:
+    print(x)
+    x *= 2
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/while1.py)
+
+---
+
+### Programová smyčka `for`
+
+```python
+list = ["one", "two", "three", "four"]
+
+for item in list:
+    print(item)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for1.py)
+
+---
+
+### Typická podoba `for`
+
+* Náhrada smyčky s počitadlem známá z jiných programovacích jazyků
+
+```python
+for i in range(10):
+    print(i)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range.py)
+---
+
+* Použití kroku
+
+```python
+for i in range(4, 11, 2):
+    print(i)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range_step.py)
+
+* Počítání směrem dolů
+
+```python
+for i in range(10, 0, -1):
+    print(i)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range_step_down.py)
+---
+
+### Konstrukce `break`
+
+```python
+x = 1
+
+while True:
+    print(x)
+    if x > 1000:
+        break
+    x *= 2
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/break.py)
+
+---
+
+### Konstrukce `continue`
+
+```python
+x = 1
+
+while True:
+    if x > 1000:
+        break
+    x *= 2
+    if x < 100:
+        continue
+    print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/continue.py)
+
+---
+
+## Procedury a funkce
+
+* Základní pojmy
+* Příklady použití
+* Rekurzivní funkce
+* Definice funkcí
+* Oblast platnosti proměnných
+* Použití globálních proměnných
+
+---
+
+### Základní pojmy
+
+* Čisté funkce
+    - referenční transparentnost
+* Funkce s vedlejším efektem
+    - imperativní funkce
+* Funkce vyššího řádu
+* Anonymní funkce
+* Rekurze
+
+---
+
+### Příklady použití
+
+* Dělení programu na menší izolované celky
+    - koncept "rozděl a panuj"
+    - snadnější ladění
+    - snadnější testování
+    - zmenšení cyklomatické komplexity
+
+---
+
+### Běžná funkce
+
+```python
+def compute_bmi(mass, height):
+    height = height / 100.0
+    bmi = mass / (height * height)
+    return bmi
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function.py)
+
+---
+
+### Rekurzivní funkce
+
+```python
+def factorial(n):
+    return 1 if n <= 1 else n * factorial(n - 1)
+
+
+print(factorial(10))
+
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/recursive.py)
+
+* Varianta se smyčkou:
+
+```python
+def factorial(n):
+    """Výpočet faktoriálu ve smyčce."""
+    f = 1
+    for x in range(1, n + 1):
+        f *= x
+    return f
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial.py)
+
+---
+
+### Složitější rekurzivní funkce
+
+* Příkaz `return` může být v kódu umístěn kdekoli
+
+```python
+calls = 0
+
+def ackermann(m, n):
+    global calls
+    calls += 1
+    if m == 0:
+        return n + 1
+    elif n == 0:
+        return ackermann(m - 1, 1)
+    else:
+        return ackermann(m - 1, ackermann(m, n - 1))
+
+print(ackermann(3,4))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/ackermann.py)
+
+---
+
+### Definice funkcí
+
+* Běžné poziční parametry
+
+```python
+def fn1(arg1, arg2, arg3):
+    pass
+```
+
+* Parametry s výchozí hodnotou
+
+```python
+def fn2(arg1, arg2, arg3=True):
+    pass
+```
+
+---
+
+### Definice funkcí
+
+* Proměnný počet parametrů
+    - uloží se do n-tice
+
+```python
+def fn3(arg1, arg2, *args):
+    pass
+```
+
+* Parametry se jménem specifikovaným při volání funkce
+    - uloží se do slovníku
+
+```python
+def fn4(arg1, arg2, **kwargs):
+    pass
+```
+
+---
+
+### Oblast platnosti proměnných
+
+* Globální proměnné
+* Uvnitř funkcí
+    - čtení vs. přiřazení (zápis)
+    - klíčové slovo `global`
+    - klíčové slovo `nonlocal`
+
+```python
+x = 1
+
+def fn1():
+    pass
+
+
+def fn2():
+    x = 2
+
+
+def fn3():
+    global x
+    x = 3
+
+
+print(x)
+fn1()
+print(x)
+fn2()
+print(x)
+fn3()
+print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global.py)
+
+### Význam global/nonlocal
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_1.py)
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        nonlocal x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_2.py)
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        global x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_3.py)
+
+```python
+x = 0
+
+def fn1():
+    global x
+    x = 1
+    def fn2():
+        global x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_4.py)
+
+---
+
+## Funkcionální prvky jazyka
+
+* Lambda výrazy
+* Generátorová notace seznamu
+* Funkce vyššího řádu
+
+---
+
+### Lambda výrazy
+
+```python
+f = lambda x, y : x + y
+print(f(1,2))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/lambda.py)
+
+---
+
+### Generátorová notace seznamu
+
+* List comprehension
+
+```python
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+seznam2 = [item*2 for item in seznam]
+
+seznam3 = [item for item in seznam if item % 3 == 0]
+
+print(seznam)
+print(seznam2)
+print(seznam3)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_comprehension.py)
+
+---
+
+### Funkce vyššího řádu
+
+* Akceptují jako svůj parametr jinou funkci
+* A/nebo vrací novou funkci jako svůj výsledek
+
+* Funkce `map`
+
+```python
+x = range(10)
+
+print(x)
+
+y=map(lambda value: value*2, x)
+print(list(y))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/map.py)
+
+---
+
+### Funkce vyššího řádu
+
+* Funkce `filter`
+
+```python
+x = range(20)
+
+print(x)
+
+y = filter(lambda value: value % 3 == 0, x)
+print(list(y))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/filter.py)
+
+---
+
+### Funkce vyššího řádu
+
+* Funkce `reduce`
+    - musí být importována z balíčku `functools`
+
+```python
+from functools import reduce
+
+x = range(1, 11)
+
+print(x)
+
+y = reduce(lambda a, b: a*b, x)
+print(y)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/reduce.py)
+
+
+
+
+---
+
+## Časté problémy
 
 ```python
 # Třídní atributy jsou de facto uloženy ve slovníku
