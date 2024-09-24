@@ -44,3 +44,9 @@ print("Weights:")
 
 for layer, weights in enumerate(nn.coefs_):
     print("\t", layer, weights.shape)
+
+print("Biases:")
+
+for layer, biases in enumerate(nn.intercepts_):
+    print("\t", layer, biases.shape)
+
