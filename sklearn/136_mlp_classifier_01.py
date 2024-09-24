@@ -51,3 +51,9 @@ print("Weights:")
 
 for layer, weights in enumerate(classifier.coefs_):
     print("\t", layer, weights.shape)
+
+print("Biases:")
+
+for layer, biases in enumerate(classifier.intercepts_):
+    print("\t", layer, biases.shape)
+
