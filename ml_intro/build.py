@@ -9,7 +9,7 @@ input_file = "ml_intro_in.md"
 output_file = "ml_intro.md"
 
 source_prefix = (
-    "https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/"
+    "https://github.com/tisnik/most-popular-python-libs/blob/master/ml_intro/examples/"
 )
 
 source_directory = "examples/"
