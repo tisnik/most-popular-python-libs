@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>Rozpoznání_obrazu_scikit-learn.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>Rozpoznání_obrazu_scikit-learn.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <h1>Rozpoznání obrazu s využitím knihovny scikit-learn</h1>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <h2>Importy všech knihoven</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Vykreslování budeme provádět přes de facto standardní knihovnu Matplotlib</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>In[5]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Práci s n-dimenzionálními poli zajišťuje knihovna NumPy
+In[6]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <h2>Vizualizace dvourozměrných polí</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>In[8]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>vytvoření matice, kterou budeme vizualizovat</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>vykreslení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>uložení vizualizované matice do souboru</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;random.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>vizualizace na obrazovku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <h2>Databáze ručně zapsaných číslic</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>In[9]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>import funkce, která vrátí obrázky pro práci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>In[11]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>načtení obrázků, s nimiž budeme dále pracovat</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">digits_data</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>In[12]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>zjištění základních informací o obrázcích</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Description:&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">DESCR</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data:&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Obrázky:&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>výpis informací o obrázcích</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>počet vzorků pro trénink</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">for_training</span> <span class="o">=</span> <span class="n">training_set_size</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>obrázky (ve formě vektoru) a jejich označení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">training_images</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span>
+    <span class="n">training_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>provést klasifikaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+    <span class="n">classify</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+    <span class="n">classify</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>očekávané výsledky vs. výsledky modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">expexted_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">for_training</span><span class="p">:]</span>
+    <span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">classify</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">for_training</span><span class="p">:])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>jak je náš model úspěšný?</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">same</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">expexted_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">expected</span><span class="o">==</span><span class="n">predicted</span><span class="p">:</span>
+            <span class="n">same</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">for_training</span><span class="si">:</span><span class="s2">7</span><span class="si">}</span><span class="s2">        </span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">       </span><span class="si">{</span><span class="n">same</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">        </span><span class="si">{</span><span class="mf">100.0</span><span class="o">*</span><span class="n">same</span><span class="o">/</span><span class="n">total</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pro trénink    Odhadů    Korektních    Přesnost&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">training_size</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">samples</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">):</span>
+    <span class="n">train_and_predict</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">training_size</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Image:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>In[14]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
+      <p>další informace, které jsme získali</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature names&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feature_name</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target names&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">target_name</span> <span class="ow">in</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target_names</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">target_name</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-28'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-28'>#</a>
+      </div>
+      <h2>Vykreslení několika obrázků z databáze (falešné barvy)</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      <p>In[15]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      <p>vykreslení a uložení prvních deseti obrázků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-31'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-31'>#</a>
+      </div>
+      <h2>Vizualizace matice bez použití falešných barev</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-32'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-32'>#</a>
+      </div>
+      <p>In[16]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-33'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-33'>#</a>
+      </div>
+      <p>vytvoření matice, kterou budeme vizualizovat</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-34'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-34'>#</a>
+      </div>
+      <p>vykreslení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-35'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-35'>#</a>
+      </div>
+      <p>použití stupňů šedi</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-36'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-36'>#</a>
+      </div>
+      <p>uložení vizualizované matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;random_grayscale.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-37'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-37'>#</a>
+      </div>
+      <p>vizualizace na obrazovku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-38'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-38'>#</a>
+      </div>
+      <h2>Vykreslení obrázků z databáze bez použití falešných barev</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-39'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-39'>#</a>
+      </div>
+      <p>In[20]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-40'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-40'>#</a>
+      </div>
+      <p>vykreslení a uložení prvních deseti obrázků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-41'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-41'>#</a>
+      </div>
+      <p>převod na stupně šedi
+plt.gray()</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Grayscale image #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-42'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-42'>#</a>
+      </div>
+      <p>vykreslení na obrazovku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-43'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-43'>#</a>
+      </div>
+      <h2>Více číslic v jediném grafu</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-44'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-44'>#</a>
+      </div>
+      <p>In[18]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-45'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-45'>#</a>
+      </div>
+      <p>vytvoření seznamu, které použijeme</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">images</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-46'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-46'>#</a>
+      </div>
+      <p>vykreslení tréninkových číslic</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">[:</span><span class="mi">15</span><span class="p">]):</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">)</span> <span class="c1">#, interpolation=&#39;nearest&#39;)</span>
+	<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;číslice </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-47'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-47'>#</a>
+      </div>
+      <p>uložení a vykreslení výsledku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;training_set.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-48'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-48'>#</a>
+      </div>
+      <h2>Příprava modelu pro trénink</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-49'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-49'>#</a>
+      </div>
+      <p>In[21]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-50'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-50'>#</a>
+      </div>
+      <p>nebudeme vypisovat tisíce údajů - postačí prvních dvacet</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">shortened</span> <span class="o">=</span> <span class="n">images</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-51'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-51'>#</a>
+      </div>
+      <p>výpis dat použitých pro tvorbu modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">shortened</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">  label=</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-52'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-52'>#</a>
+      </div>
+      <h2>Sada trénovacích obrázků</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-53'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-53'>#</a>
+      </div>
+      <p>In[22]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-54'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-54'>#</a>
+      </div>
+      <p>celkový počet vzorků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vzorků celkem:&quot;</span><span class="p">,</span> <span class="n">samples</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-55'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-55'>#</a>
+      </div>
+      <p>počet vzorků pro trénink</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">for_training</span> <span class="o">=</span> <span class="n">samples</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vzorků pro trénink:&quot;</span><span class="p">,</span> <span class="n">for_training</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-56'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-56'>#</a>
+      </div>
+      <p>obrázky (ve formě vektoru) a jejich označení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">training_images</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span>
+<span class="n">training_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-57'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-57'>#</a>
+      </div>
+      <h2>Klasifikace</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-58'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-58'>#</a>
+      </div>
+      <p>In[23]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-59'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-59'>#</a>
+      </div>
+      <p>provést klasifikaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+
+<span class="n">classify</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">classify</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-60'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-60'>#</a>
+      </div>
+      <p>očekávané výsledky vs. výsledky modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">expexted_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">for_training</span><span class="p">:]</span>
+<span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">classify</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">for_training</span><span class="p">:])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-61'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-61'>#</a>
+      </div>
+      <h2>Jak je model úspěšný?</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-62'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-62'>#</a>
+      </div>
+      <p>In[26]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">same</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">expexted_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">expected</span><span class="o">==</span><span class="n">predicted</span><span class="p">:</span>
+        <span class="n">same</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">total</span><span class="o">+=</span><span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-63'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-63'>#</a>
+      </div>
+      <p>In[27]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total:&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Same:&quot;</span><span class="p">,</span> <span class="n">same</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span> <span class="mf">100.0</span><span class="o">*</span><span class="n">same</span><span class="o">/</span><span class="n">total</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-64'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-64'>#</a>
+      </div>
+      <h2>Ověřovací obrázky s jejich klasifikací</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-65'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-65'>#</a>
+      </div>
+      <p>In[29]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-66'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-66'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">show_predictions</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">from_index</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-67'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-67'>#</a>
+      </div>
+      <p>zobrazit patnáct výsledků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">predicted_digit</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="n">from_index</span><span class="p">:</span><span class="n">from_index</span><span class="o">+</span><span class="mi">15</span><span class="p">]):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-68'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-68'>#</a>
+      </div>
+      <p>zobrazení obrázku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-69'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-69'>#</a>
+      </div>
+      <p>a přidání predikce - o jakou číslici se jedná</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predict: </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">predicted_digit</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-70'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-70'>#</a>
+      </div>
+      <p>nakonec vše uložíme a zobrazíme</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-71'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-71'>#</a>
+      </div>
+      <p>získat predikce modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">predictions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">predicted_labels</span><span class="p">,</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="n">for_training</span><span class="p">:]))</span>
+
+<span class="n">show_predictions</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;predictions_1.png&quot;</span><span class="p">)</span>
+<span class="n">show_predictions</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;predictions_2.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-72'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-72'>#</a>
+      </div>
+      <h2>Vliv velikosti trénovací množiny na predikce modelu</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-73'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-73'>#</a>
+      </div>
+      <p>In[30]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-74'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-74'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">train_and_predict</span><span class="p">(</span><span class="n">training_set_size</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-75'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-75'>#</a>
+      </div>
+      <p>počet vzorků pro trénink</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">for_training</span> <span class="o">=</span> <span class="n">training_set_size</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-76'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-76'>#</a>
+      </div>
+      <p>obrázky (ve formě vektoru) a jejich označení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">training_images</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span>
+    <span class="n">training_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-77'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-77'>#</a>
+      </div>
+      <p>provést klasifikaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+    <span class="n">classify</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+    <span class="n">classify</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-78'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-78'>#</a>
+      </div>
+      <p>očekávané výsledky vs. výsledky modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">expexted_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">for_training</span><span class="p">:]</span>
+    <span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">classify</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">for_training</span><span class="p">:])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-79'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-79'>#</a>
+      </div>
+      <p>jak je náš model úspěšný?</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">same</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">expexted_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">expected</span><span class="o">==</span><span class="n">predicted</span><span class="p">:</span>
+            <span class="n">same</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">for_training</span><span class="si">:</span><span class="s2">7</span><span class="si">}</span><span class="s2">        </span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">       </span><span class="si">{</span><span class="n">same</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">        </span><span class="si">{</span><span class="mf">100.0</span><span class="o">*</span><span class="n">same</span><span class="o">/</span><span class="n">total</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pro trénink    Odhadů    Korektních    Přesnost&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">training_size</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">samples</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">):</span>
+    <span class="n">train_and_predict</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">training_size</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-80'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-80'>#</a>
+      </div>
+      <p>In[42]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-81'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-81'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">train_and_predict</span><span class="p">(</span><span class="n">training_set_size</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-82'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-82'>#</a>
+      </div>
+      <p>počet vzorků pro trénink</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">for_training</span> <span class="o">=</span> <span class="n">training_set_size</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-83'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-83'>#</a>
+      </div>
+      <p>obrázky (ve formě vektoru) a jejich označení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">training_images</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span>
+    <span class="n">training_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="n">for_training</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-84'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-84'>#</a>
+      </div>
+      <p>provést klasifikaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+    <span class="n">classify</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+    <span class="n">classify</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_images</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-85'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-85'>#</a>
+      </div>
+      <p>očekávané výsledky vs. výsledky modelu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">expexted_labels</span> <span class="o">=</span> <span class="n">digits_data</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">for_training</span><span class="p">:]</span>
+    <span class="n">predicted_labels</span> <span class="o">=</span> <span class="n">classify</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">digits_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">for_training</span><span class="p">:])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-86'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-86'>#</a>
+      </div>
+      <p>jak je náš model úspěšný?</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">same</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">expexted_labels</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">expected</span><span class="o">==</span><span class="n">predicted</span><span class="p">:</span>
+            <span class="n">same</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="k">return</span> <span class="mf">100.0</span><span class="o">*</span><span class="n">same</span><span class="o">/</span><span class="n">total</span>
+
+<span class="n">training_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">samples</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">vectorised</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">train_and_predict</span><span class="p">)</span>
+<span class="n">precisions</span> <span class="o">=</span> <span class="n">vectorised</span><span class="p">(</span><span class="n">training_sizes</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">training_sizes</span><span class="p">,</span> <span class="n">precisions</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;precisions.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-87'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-87'>#</a>
+      </div>
+      <p>In[ ]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
