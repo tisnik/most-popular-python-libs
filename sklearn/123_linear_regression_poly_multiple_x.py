@@ -47,7 +47,7 @@ print("Intercept: \n", pr.intercept_)
 
 # vykreslení výsledku do 3D grafu
 fig = plt.figure(figsize=(8, 8))
-ax = fig.add_subplot(projection='3d')
+ax = fig.add_subplot(projection="3d")
 
 # body ze vstupní datové sady
 ax.scatter(X[:, 0], X[:, 1], y, color="black", s=2)
