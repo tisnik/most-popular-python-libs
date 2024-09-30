@@ -30,7 +30,7 @@ for i in r:
     neurons = 2**i
     nn = MLPRegressor(max_iter=5000, hidden_layer_sizes = (neurons, neurons, neurons, neurons, neurons))
 
-    scores = cross_val_score(nn, X, y, cv=10, scoring='r2', n_jobs=-1)
+    scores = cross_val_score(nn, X, y, cv=10, scoring="r2", n_jobs=-1)
 
     # vypsani prumerneho skore do tabulky
     avg_score = scores.mean()
