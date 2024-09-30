@@ -27,6 +27,6 @@ for k_best in range(1, len(feature_names)+1):
 
     # konstrukce modelu pro regresi
     lr = linear_model.LinearRegression()
-    scores = cross_val_score(lr, X_new, y, cv=10, scoring='r2')
+    scores = cross_val_score(lr, X_new, y, cv=10, scoring="r2")
 
     print(k_best, X_new.shape, sel.get_feature_names_out(input_features=feature_names), scores.mean())
