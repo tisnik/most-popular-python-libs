@@ -39,7 +39,7 @@ y = iris.target
 
 
 def score(model):
-    scores = cross_val_score(model, X, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(model, X, y, cv=10, scoring="accuracy")
     return scores.mean()
 
 
