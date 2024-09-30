@@ -41,7 +41,7 @@ for k in r:
     knn = KNeighborsClassifier(n_neighbors=k)
 
     # vypocet skore
-    scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(knn, X, y, cv=10, scoring="accuracy")
 
     avg_score = scores.mean()
 
