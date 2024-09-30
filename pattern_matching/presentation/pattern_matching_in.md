@@ -13,6 +13,13 @@
 
 ## Postupné rozšiřování možností Pythonu
 
+* Sémantika
+* (Syntaxe)
+
+---
+
+## Nová syntaxe+sémantika v Pythonu 3.x
+
 ```
 Python 3.6    f-řetězce, async-IO
 Python 3.7    klíčová slova async a await
@@ -140,26 +147,45 @@ fn main() {
 * Ne všechny vzory je možné použít
     - například `"literal" + x + "literal"`
     - možná se jejich podpora objeví v další verzi Pythonu?
+    - máme příklad implementace: jazyk Coconut
 
 ---
 
 ### Ukázky pattern matchingu
 
+---
+
 @ pattern-matching-fib.py
+
+---
 
 @ ackermann-if.py
 
+---
+
 @ ackermann-if-else.py
+
+---
 
 @ pattern-matching-ackermann.py
 
+---
+
 ### Rozvětvení
+
+---
 
 @ pattern-matching-abort-retry-fail-1.py
 
+---
+
 @ pattern-matching-abort-retry-fail-2.py
 
+---
+
 @ pattern-matching-abort-retry-fail-3.py
+
+---
 
 ### Python nehlídá, zda jsou pokryty všechny případy
 
@@ -167,69 +193,151 @@ fn main() {
 
 ### Vzory obsahující v&nbsp;každé větvi vetší množství hodnot
 
+---
+
 @ pattern-matching-abort-retry-fail-5.py
+
+---
 
 @ pattern-matching-abort-retry-fail-6.py
 
+---
+
 ### Zachycení hodnoty proměnné v&nbsp;rozhodovací větvi
+
+---
 
 @ pattern-matching-abort-retry-fail-7.py
 
+---
+
 @ pattern-matching-abort-retry-fail-8.py
+
+---
 
 ### Podmínka zapsaná v&nbsp;rozhodovacích větvích konstrukce `match`
 
+* Nazývá se "guard"
+
+---
+
 @ pattern-matching-factorial1.py
+
+---
 
 @ pattern-matching-factorial2.py
 
+---
+
 @ pattern-matching-factorial3.py
+
+---
 
 @ pattern-matching-factorial4.py
 
 ---
 
+### Pattern matching a výčtový typ
+
+@ pattern-matching-pill.py
+
+---
+
 ### Pattern matching a n-tice a seznamy
+
+```
+[x, y, *rest]
+(x, y, *rest)
+(x, y, *_)
+```
+
+---
 
 @ pattern-matching-complex1.py
 
+---
+
 ### Seznamy, n-tice a podmínky pro hodnoty prvků těchto kolekcí
+
+---
 
 @ pattern-matching-complex2.py
 
+---
+
 @ pattern-matching-complex2B.py
+
+---
 
 ### Zpracování příkazů či strukturovaných textových souborů s&nbsp;využitím pattern matchingu
 
+---
+
 @ pattern-matching-multiword-commands-1.py
+
+---
 
 ### Rozdělení na jednotlivá slova
 
+---
+
 @ pattern-matching-multiword-commands-2.py
+
+---
 
 ### Rozpoznání a zpracování proměnné části víceslovních příkazů
 
+---
+
 @ pattern-matching-multiword-commands-3.py
+
+---
 
 ### Vnořené řídicí struktury `match`
 
+---
+
 @ pattern-matching-multiword-commands-4.py
+
+---
 @ pattern-matching-multiword-commands-5.py
+
+---
 
 ### Zachycení dopředu neznámého počtu hodnot
 
+---
+
 @ pattern-matching-multiword-commands-6.py
+
+---
+
 @ pattern-matching-multiword-commands-7.py
+
+---
 
 ### Strukturální pattern matching a objekty
 
+---
+
 @ pattern-matching-object1.py
+
+---
 @ pattern-matching-object2.py
+
+---
 
 ### Rozpoznání typu výjimky
 
 @ pattern-matching-exception.py
 
+---
+
 ### Ucelený příklad na konec: reprezentace barev různými metodami
 
 @ colors.py
+
+---
+
+@ exit.py
+

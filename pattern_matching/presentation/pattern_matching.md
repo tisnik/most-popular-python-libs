@@ -13,6 +13,13 @@
 
 ## Postupné rozšiřování možností Pythonu
 
+* Sémantika
+* (Syntaxe)
+
+---
+
+## Nová syntaxe+sémantika v Pythonu 3.x
+
 ```
 Python 3.6    f-řetězce, async-IO
 Python 3.7    klíčová slova async a await
@@ -140,10 +147,13 @@ fn main() {
 * Ne všechny vzory je možné použít
     - například `"literal" + x + "literal"`
     - možná se jejich podpora objeví v další verzi Pythonu?
+    - máme příklad implementace: jazyk Coconut
 
 ---
 
 ### Ukázky pattern matchingu
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -170,9 +180,9 @@ for n in range(0, 11):
 
 # test neplatného vstupu
 fib(-1)
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-fib.py)
+
+---
 
 ```python
 # Výpočet Ackermannovy funkce, založeno na konstrukci if
@@ -191,9 +201,9 @@ for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
 
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//ackermann-if.py)
+
+---
 
 ```python
 # Výpočet Ackermannovy funkce, založeno na konstrukci if-elif-else
@@ -213,9 +223,9 @@ for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
 
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//ackermann-if-else.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -237,11 +247,13 @@ for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
 
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-ackermann.py)
+
+---
 
 ### Rozvětvení
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -267,9 +279,9 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-1.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -295,9 +307,9 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-2.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -323,9 +335,9 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-3.py)
+
+---
 
 ### Python nehlídá, zda jsou pokryty všechny případy
 
@@ -351,11 +363,11 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-4.py)
 
 ### Vzory obsahující v&nbsp;každé větvi vetší množství hodnot
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -381,9 +393,9 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-5.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -410,11 +422,13 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-6.py)
+
+---
 
 ### Zachycení hodnoty proměnné v&nbsp;rozhodovací větvi
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -442,9 +456,9 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-7.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -468,11 +482,15 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-abort-retry-fail-8.py)
+
+---
 
 ### Podmínka zapsaná v&nbsp;rozhodovacích větvích konstrukce `match`
+
+* Nazývá se "guard"
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -493,9 +511,9 @@ def factorial(n):
 # tisk tabulky faktoriálů
 for i in range(0, 10):
     print(i, factorial(i))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-factorial1.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -521,9 +539,9 @@ for i in range(-1, 10):
         print(i, factorial(i))
     except Exception as e:
         print(e)
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-factorial2.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -562,9 +580,9 @@ try:
     print(factorial("hello"))
 except Exception as e:
     print(e)
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-factorial3.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -601,13 +619,40 @@ try:
     print(factorial("hello"))
 except Exception as e:
     print(e)
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-factorial4.py)
+
+---
+
+### Pattern matching a výčtový typ
+
+```python
+from enum import Enum
+
+class Color(Enum):
+    RED = 0
+    GREEN = 1
+    BLUE = 2
+
+match pill:
+    case Color.RED:
+        print("you stay in Wonderland, and I show you how deep the rabbit hole goes.")
+    case Color.BLUE:
+        print("the story ends, you wake up in your bed and believe whatever you want to believe")
+    case _:
+        print("this does not compute")
+
 
 ---
 
 ### Pattern matching a n-tice a seznamy
+
+```
+[x, y, *rest]
+(x, y, *rest)
+(x, y, *_)
+```
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -632,11 +677,13 @@ test_number((0,0))
 test_number((1,0))
 test_number((0,1))
 test_number((1,1))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex1.py)
+
+---
 
 ### Seznamy, n-tice a podmínky pro hodnoty prvků těchto kolekcí
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -667,9 +714,9 @@ test_number((-1,0))
 test_number((0,1))
 test_number((0,-1))
 test_number((1,1))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex2.py)
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -700,11 +747,13 @@ test_number([-1,0])
 test_number([0,1])
 test_number([0,-1])
 test_number([1,1])
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-complex2B.py)
+
+---
 
 ### Zpracování příkazů či strukturovaných textových souborů s&nbsp;využitím pattern matchingu
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -729,11 +778,13 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-1.py)
+
+---
 
 ### Rozdělení na jednotlivá slova
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -758,11 +809,13 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-2.py)
+
+---
 
 ### Rozpoznání a zpracování proměnné části víceslovních příkazů
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -789,11 +842,13 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-3.py)
+
+---
 
 ### Vnořené řídicí struktury `match`
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -826,9 +881,9 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-4.py)
+
+---
 ```python
 # Strukturální pattern matching:
 # - rozpoznání a zpracování příkazů zadaných uživatelem
@@ -859,11 +914,13 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-5.py)
+
+---
 
 ### Zachycení dopředu neznámého počtu hodnot
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -889,9 +946,10 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-6.py)
+
+---
+
 ```python
 # Strukturální pattern matching:
 # - rozpoznání víceslovních příkazů
@@ -916,11 +974,13 @@ def perform_command():
 
 
 print(perform_command())
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-multiword-commands-7.py)
+
+---
 
 ### Strukturální pattern matching a objekty
+
+---
 
 ```python
 # Strukturální pattern matching:
@@ -971,9 +1031,9 @@ test_number(Complex(-1,0))
 test_number(Complex(0,1))
 test_number(Complex(0,-1))
 test_number(Complex(1,1))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-object1.py)
+
+---
 ```python
 # Strukturální pattern matching:
 # - pattern matching a objekty
@@ -1035,9 +1095,9 @@ test_number(Fraction(0,1))
 test_number(Fraction(1,1))
 test_number(Fraction(1,2))
 test_number(Fraction(1,3))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-object2.py)
+
+---
 
 ### Rozpoznání typu výjimky
 
@@ -1056,9 +1116,9 @@ def parse_generic_llm_error(e: Exception) -> tuple[int, str, str]:
             return parse_watsonx_error(e)
         case _:
             return DEFAULT_STATUS_CODE, DEFAULT_ERROR_MESSAGE, str(e)
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//pattern-matching-exception.py)
+
+---
 
 ### Ucelený příklad na konec: reprezentace barev různými metodami
 
@@ -1227,6 +1287,12 @@ print(to_rgb(basic_color7))
 
 basic_color8 = BasicColor.WHITE
 print(to_rgb(basic_color8))
-```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/pattern_matching/presentation//colors.py)
+
+---
+
+```python
+def exit():
+    0/0
+
+
