@@ -31,7 +31,7 @@ y = iris.target
 
 # konstrukce klasifikatoru
 knn = KNeighborsClassifier(n_neighbors=5)
-scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+scores = cross_val_score(knn, X, y, cv=10, scoring="accuracy")
 print("Scores:")
 for i, score in enumerate(scores):
     print(i, score)
@@ -45,6 +45,6 @@ k_range = list(range(1, 31))
 k_scores = []
 for k in k_range:
     knn = KNeighborsClassifier(n_neighbors=k)
-    scores = cross_val_score(knn, X, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(knn, X, y, cv=10, scoring="accuracy")
     k_scores.append(scores.mean())
 print(k_scores)
