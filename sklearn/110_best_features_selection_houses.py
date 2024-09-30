@@ -42,7 +42,7 @@ for i in range(1, 2**len(feature_names)):
     # konstrukce modelu
     lr = linear_model.LinearRegression()
     selected_features = X[:, selectors]
-    scores = cross_val_score(lr, selected_features, y, cv=10, scoring='r2')
+    scores = cross_val_score(lr, selected_features, y, cv=10, scoring="r2")
     avg_scores = scores.mean()
     if avg_scores > best_score:
         best_score = avg_scores
