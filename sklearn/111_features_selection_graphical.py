@@ -43,7 +43,7 @@ for i in range(1, 2**len(feature_names)):
     selectors = np.array(indexes, dtype=int)
     knn_classifier = KNeighborsClassifier(n_neighbors=5)
     selected_features = X[:, selectors]
-    scores = cross_val_score(knn_classifier, selected_features, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(knn_classifier, selected_features, y, cv=10, scoring="accuracy")
     attributes.append("\n".join(feature_names[selectors]))
     avg_score = scores.mean()
     final_scores.append(avg_score)
