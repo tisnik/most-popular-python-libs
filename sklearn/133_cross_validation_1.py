@@ -29,5 +29,5 @@ for k_best in range(1, len(feature_names)+1):
     print(k_best, X_new.shape, sel.get_feature_names_out(input_features=feature_names))
     # konstrukce klasifikatoru
     knn = KNeighborsClassifier(n_neighbors=5)
-    scores = cross_val_score(knn, X_new, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(knn, X_new, y, cv=10, scoring="accuracy")
     print("Average score:", scores.mean())
