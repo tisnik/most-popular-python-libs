@@ -116,3 +116,140 @@ Ruby           Sorbet
 @ adder-1.py
 
 ---
+
+* Proč `Any`?
+
+@ adder-2.py
+
+---
+
+### Typové anotace
+
+* specifikují se za dvojtečkou
+
+@ adder-3.py
+
+* využití
+
+@ adder-4.py
+
+---
+
+### `bool` nebo `int`?
+
+* Viz specifikaci Pythonu!
+
+```
+assert True+True==2
+```
+
+---
+
+### `bool` nebo `int`?
+
+@ adder-5.py
+
+@ adder-6.py
+
+---
+
+### Výpis typových anotací
+
+* `any`
+
+```python
+def add(a, b):
+    return a+b
+
+
+print(add.__annotations__)
+```
+
+* explicitní typy
+
+```python
+def add(a:int, b:int) -> int:
+    return a+b
+
+
+print(add.__annotations__)
+```
+
+---
+
+### Typ `Union`
+
+@ adder-7.py
+
+@ adder-8.py
+
+---
+
+### Dekorátor `@overload`
+
+@ adder-9.py
+
+@ adder-A.py
+
+---
+
+### Typované n-tice
+
+* nekorektní varianta
+
+@ tuple-type-1.py
+
+@ tuple-type-1B.py
+
+* korektní varianta
+
+@ tuple-type-2.py
+
+@ tuple-type-2B.py
+
+---
+
+### Rozdílné typy prvků v n-tici
+
+@ tuple-type-3.py
+
+@ tuple-type-3B.py
+
+---
+
+### Typované seznamy
+
+@ list-type-1.py
+@ list-type-1B.py
+
+@ list-type-2.py
+@ list-type-2B.py
+
+---
+
+* bool/int
+
+@ list-type-3.py
+@ list-type-3B.py
+
+---
+
+### Seznamy a typ `Union`
+
+@ list-type-4.py
+@ list-type-4B.py
+
+---
+
+### Typované slovníky
+
+* Slovníky v Pythonu
+
+@ dict-type-1.py
+
+@ dict-type-2.py
+
+@ dict-type-3.py
+
+@ dict-type-4.py
+
