@@ -1,4 +1,4 @@
-# Pattern matching v Pythonu
+# Pattern matching v&nbsp;Pythonu
 
 ---
 
@@ -21,6 +21,7 @@
 ## Nová syntaxe+sémantika v Pythonu 3.x
 
 ```
+Python 3.5    typové informace
 Python 3.6    f-řetězce, async-IO
 Python 3.7    klíčová slova async a await
 Python 3.8    mroží operátor, poziční parametry
@@ -41,6 +42,11 @@ Python 3.12   klíčové slovo type + sémantika
     - zachycení hodnot
     - test typů
     - podmínky v rozhodovacích větvích
+    - využití strukturálních vzorů
+
+---
+
+## Nová stříbrná kulka v IT?
 
 ---
 
@@ -77,6 +83,10 @@ fun fib 0 = 0
   | fib n = fib (n - 1) + fib (n - 2);
 ```
 
+---
+
+### ML (předchůdce OCamlu a jazyka F#)
+
 ```
 fun length(x) = if null(x) then 0
                 else 1 + length(tl(x));
@@ -104,14 +114,6 @@ let rec fib n =
 ### Rust
 
 ```rust
-```
-### Rust
-
-```rust
-```
-### Rust
-
-```rust
 fn main() {
     let x:i32 = 1;
 
@@ -124,6 +126,10 @@ fn main() {
     }
 }
 ```
+
+---
+
+### Rust
 
 ```rust
 fn fib(n: u32) -> u32 {
@@ -151,11 +157,7 @@ fn main() {
 
 ---
 
-### Ukázky pattern matchingu
-
----
-
-@ pattern-matching-fib.py
+## Ukázky pattern matchingu
 
 ---
 
@@ -168,6 +170,10 @@ fn main() {
 ---
 
 @ pattern-matching-ackermann.py
+
+---
+
+@ pattern-matching-fib.py
 
 ---
 
@@ -190,6 +196,8 @@ fn main() {
 ### Python nehlídá, zda jsou pokryty všechny případy
 
 @ pattern-matching-abort-retry-fail-4.py
+
+---
 
 ### Vzory obsahující v&nbsp;každé větvi vetší množství hodnot
 
@@ -238,6 +246,10 @@ fn main() {
 ---
 
 ### Pattern matching a výčtový typ
+
+![red blue pill](images/red_blue_pill.jpg)
+
+---
 
 @ pattern-matching-pill.py
 
