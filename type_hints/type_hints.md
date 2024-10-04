@@ -111,6 +111,51 @@ Ruby           Sorbet
 
 ---
 
+### Základní základy
+
+```python
+# - specifikace typu globální proměnné
+# - přiřazení nové hodnoty do proměnné
+
+
+x: int = 42
+
+x = 10
+```
+
+```python
+# - specifikace typu globální proměnné
+# - přiřazení nové hodnoty nekompatibilního typu do proměnné
+
+
+x: int = 42
+
+x = "foo"
+```
+
+```python
+# - specifikace typu lokální proměnné
+# - přiřazení nové hodnoty kompatibilního typu do proměnné
+
+
+def funkce() -> int:
+    x: int = 42
+    return x * 2
+```
+
+```python
+# - specifikace typu lokální proměnné
+# - přiřazení nové hodnoty nekompatibilního typu do proměnné
+
+
+def funkce(param: float) -> int:
+    x: int = 1 / param
+    return x
+```
+
+
+---
+
 * Typ `Any` je přidán automaticky
 
 ```python
@@ -379,6 +424,30 @@ print(add("foo", 2))
 
 ---
 
+### Typ `Optional`
+
+```python
+# - typ Optional
+from typing import Optional
+
+x: Optional[int]
+
+x = None
+x = 42
+```
+
+```python
+# - typ Optional
+
+x: int | None
+
+x = None
+x = 42
+```
+
+
+---
+
 ### Typované n-tice
 
 * nekorektní varianta
@@ -604,3 +673,262 @@ print(d)
 ```
 
 
+---
+
+### Slovníky a typ `Union`
+
+```python
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - u hodnot je použit typ Union
+
+from typing import Dict, Union
+
+d: Dict[str, Union[int, float, str]] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d[10] = 10
+d[42] = "answer"
+
+print(d)
+```
+
+
+```python
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - u hodnot je použit typ Union
+# - úprava pro Python 3.10
+
+d: dict[str, int | float | str] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d[10] = 10
+d[42] = "answer"
+
+print(d)
+```
+
+
+```python
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - u klíčů i hodnot je použit typ Union
+
+from typing import Dict, Union
+
+d: Dict[Union[int, str], Union[int, float, str]] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d[10] = 10
+d[42] = "answer"
+
+print(d)
+```
+
+
+```python
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - u klíčů i hodnot je použit typ Union
+# - úprava pro Python 3.10
+
+d: dict[int | str, int | float | str] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d[10] = 10
+d[42] = "answer"
+
+print(d)
+```
+
+
+---
+
+### Slovníky a typ `Optional`
+
+```python
+# Typové anotace a nástroj Mypy:
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - hodnoty mohou nabývat None
+
+from typing import Dict, Optional
+
+d: Dict[str, Optional[float]] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d["baz"] = None
+
+print(d)
+```
+
+
+```python
+# Typové anotace a nástroj Mypy:
+# - definice slovníku
+# - specifikace typu klíčů i typu hodnot
+# - hodnoty mohou nabývat None
+# - úprava pro Python 3.10
+
+d: dict[str, float | None] = {}
+
+d["foo"] = 1
+d["bar"] = 3.14
+d["baz"] = None
+
+print(d)
+```
+
+
+---
+
+### Funkce bez návratové hodnoty
+
+```python
+# Typové anotace a nástroj Mypy:
+# - funkce bez návratové hodnoty s uvedením typových informací
+# - zavolání této funkce pro argumenty typu str a int
+
+
+def message(msg: str) -> None:
+    """Funkce s typovými anotacemi."""
+    print(f"Zpráva: {msg}")
+
+
+# zavolání funkce
+message("Ahoj")
+```
+
+
+---
+
+### Typy a funkce vyššího řádu
+
+* typ `callable`
+
+```python
+# - funkci printIsPositive lze předat jinou funkci
+# - parametr "condition" nemá zapsán datový typ
+
+
+def printIsPositive(x: float, condition) -> None:
+    if condition(x):
+        print("Positive")
+    else:
+        print("Negative")
+
+
+def positiveFloat(x: float) -> bool:
+    return x > 0.0
+
+
+def positiveInt(x: int) -> bool:
+    return x > 0
+
+
+printIsPositive(4, positiveFloat)
+printIsPositive(-0.5, positiveFloat)
+```
+
+```python
+# - funkci printIsPositive lze předat jinou funkci
+# - parametr "condition" má zapsán plný datový typ
+
+from typing import Callable
+
+
+def printIsPositive(x: float, condition: Callable[[float], bool]) -> None:
+    if condition(x):
+        print("Positive")
+    else:
+        print("Negative")
+
+
+def positiveFloat(x: float) -> bool:
+    return x > 0.0
+
+
+printIsPositive(4, positiveFloat)
+printIsPositive(-0.5, positiveFloat)
+```
+
+
+* problém variance
+
+```python
+# - funkci printIsPositive lze předat jinou funkci
+# - parametr "condition" má zapsán datový typ
+# - testování typu variance
+
+from typing import Callable
+
+
+def printIsPositive(x: float, condition: Callable[[float], bool]) -> None:
+    if condition(x):
+        print("Positive")
+    else:
+        print("Negative")
+
+
+def positiveFloat(x: float) -> bool:
+    return x > 0.0
+
+
+def positiveInt(x: int) -> bool:
+    return x > 0
+
+
+printIsPositive(4, positiveFloat)
+printIsPositive(-0.5, positiveFloat)
+printIsPositive(1, positiveInt)
+printIsPositive(1, positiveInt)
+```
+
+
+---
+
+### Datový typ `range`
+
+```python
+# Typové anotace a nástroj Mypy:
+# - použití datového typu range
+# - typ definován pro návratovou hodnotu funkce
+
+
+def funkce(from_val: int, to_val: int) -> range:
+    return range(from_val, to_val)
+```
+
+```python
+# Typové anotace a nástroj Mypy:
+# - použití datového typu range
+# - typ definován pro parametr funkce
+
+
+def suma(x: range) -> int:
+    return sum(x)
+
+
+print(suma(range(100)))
+```
+
+
+---
+
+### Problém s variancí
+
+* Týká se podtypů a nadřazených typů
+    - v OOP běžné
+* Čtyři možné typy variance
+    - kovariance
+    - kontravariance
+    - invariance
+    - bivariance
+
+---

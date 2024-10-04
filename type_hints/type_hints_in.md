@@ -111,6 +111,15 @@ Ruby           Sorbet
 
 ---
 
+### Základní základy
+
+@ variable-1.py
+@ variable-2.py
+@ variable-3.py
+@ variable-4.py
+
+---
+
 * Typ `Any` je přidán automaticky
 
 @ adder-1.py
@@ -193,6 +202,13 @@ print(add.__annotations__)
 
 ---
 
+### Typ `Optional`
+
+@ optional-1.py
+@ optional-2.py
+
+---
+
 ### Typované n-tice
 
 * nekorektní varianta
@@ -253,3 +269,62 @@ print(add.__annotations__)
 
 @ dict-type-4.py
 
+---
+
+### Slovníky a typ `Union`
+
+@ dict-type-5.py
+
+@ dict-type-5B.py
+
+@ dict-type-6.py
+
+@ dict-type-6B.py
+
+---
+
+### Slovníky a typ `Optional`
+
+@ dict-type-7.py
+
+@ dict-type-7B.py
+
+---
+
+### Funkce bez návratové hodnoty
+
+@ function-no-return.py
+
+---
+
+### Typy a funkce vyššího řádu
+
+* typ `callable`
+
+@ callable-1.py
+@ callable-2.py
+
+* problém variance
+
+@ callable-3.py
+
+---
+
+### Datový typ `range`
+
+@ range-type-1.py
+@ range-type-2.py
+
+---
+
+### Problém s variancí
+
+* Týká se podtypů a nadřazených typů
+    - v OOP běžné
+* Čtyři možné typy variance
+    - kovariance
+    - kontravariance
+    - invariance
+    - bivariance
+
+---
