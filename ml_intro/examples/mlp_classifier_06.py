@@ -30,7 +30,7 @@ for layers in r:
     classifier = MLPClassifier(max_iter=5000, hidden_layer_sizes = layer_sizes)
 
     # vypocet skore
-    scores = cross_val_score(classifier, X, y, cv=10, scoring='accuracy')
+    scores = cross_val_score(classifier, X, y, cv=10, scoring="accuracy")
 
     avg_score = scores.mean()
 
