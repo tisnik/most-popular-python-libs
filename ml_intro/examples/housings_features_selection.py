@@ -27,6 +27,6 @@ for i in range(1, 2**len(feature_names)):
     # konstrukce modelu
     lr = linear_model.LinearRegression()
     selected_features = X[:, selectors]
-    scores = -cross_val_score(lr, selected_features, y, cv=10, scoring='neg_mean_squared_error')
+    scores = -cross_val_score(lr, selected_features, y, cv=10, scoring="neg_mean_squared_error")
     print(i, selectors, feature_names[selectors], scores.mean())
 
