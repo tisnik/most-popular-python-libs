@@ -1,4 +1,4 @@
-# Pattern matching v&nbsp;Pythonu
+# Typové informace v Pythonu
 
 ---
 
