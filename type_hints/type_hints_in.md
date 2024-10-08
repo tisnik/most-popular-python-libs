@@ -328,3 +328,154 @@ print(add.__annotations__)
     - bivariance
 
 ---
+
+### Příklad variancí
+
+* `Jablko` je podtypem typu `Ovoce` ve všech dalších případech
+
+---
+
+### Příklad variancí
+
+* Covariance
+    - `List[Apple]` je podtypem `List[Fruit]`
+* Contravariance
+    - `List[Fruit]` je podtypem `List[Apple]`
+* Invariance
+    - `List[Fruit]` nemá žádný vztah k `List[Apple]`
+* Bivariance
+    - `List[Apple]` je podtypem `List[Fruit]`
+    - a současně (!!!):
+    - `List[Fruit]` je podtypem `List[Apple]`
+
+---
+
+### Proč se o varianci vůbec starat?
+
+* Úzce souvisí s typovým systémem
+* A s tím, jaké kontroly lze provést staticky
+
+---
+
+```java
+class Fruit {
+}
+
+class Orange extends Fruit {
+    public String toString() {
+        return "Orange";
+    }
+}
+
+class Apple extends Fruit {
+    public String toString() {
+        return "Apple";
+    }
+}
+
+public class Variance1 {
+    public static void mix(Fruit[] punnet) {
+        punnet[0] = new Orange();
+        punnet[1] = new Apple();
+    }
+
+    public static void main(String[] args) {
+        Fruit[] punnet = new Fruit[2];
+        mix(punnet);
+
+        for (Fruit Fruit:punnet) {
+            System.out.println(Fruit);
+        }
+    }
+}
+```
+
+---
+
+### Statická kontrola typů ok, pád v runtime!
+
+```java
+class Fruit {
+}
+
+class Orange extends Fruit {
+    public String toString() {
+        return "Orange";
+    }
+}
+
+class Apple extends Fruit {
+    public String toString() {
+        return "Apple";
+    }
+}
+
+public class Variance2 {
+    public static void mix(Fruit[] punnet) {
+        punnet[0] = new Orange();
+        punnet[1] = new Apple();
+    }
+
+    public static void main(String[] args) {
+        Fruit[] punnet = new Orange[2];
+        mix(punnet);
+
+        for (Fruit Fruit:punnet) {
+            System.out.println(Fruit);
+        }
+    }
+}
+```
+
+---
+
+### Míchání hrušek s jablky v1
+
+@ variance-1.py
+
+---
+
+### Míchání hrušek s jablky v2
+---
+
+@ variance-2.py
+
+---
+
+### Řešení problému variance v Pythonu
+
+@ variance-3.py
+
+---
+
+### Použití `sequence` a nikoli seznamu
+
+@ variance-4.py
+
+---
+
+### Tisk typové anotace
+
+@ variance-5.py
+
+---
+
+### Návratové typy jsou kovariantní
+
+@ variance-6.py
+
+---
+
+### Odkazy
+
+1. [PEP 484 -- Type Hints](https://www.python.org/dev/peps/pep-0484/)
+1. [What’s New In Python 3.5](https://docs.python.org/3.5/whatsnew/3.5.html)
+1. [26.1. typing — Support for type hints](https://docs.python.org/3.5/library/typing.html#module-typing)
+1. [Type Hints - Guido van Rossum - PyCon 2015 (youtube)](https://www.youtube.com/watch?v=2wDvzy6Hgxg)
+1. [Python 3.5 is on its way](https://lwn.net/Articles/650904/)
+1. [Type hints](https://lwn.net/Articles/640359/)
+
+---
+
+@ exit.py
+
