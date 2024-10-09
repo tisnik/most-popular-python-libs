@@ -1,6 +1,6 @@
-engineers = {'John', 'Jane', 'Jack', 'Janice'}
-programmers = {'Jack', 'Sam', 'Susan', 'Janice'}
-managers = {'Jane', 'Jack', 'Susan', 'Zack'}
+engineers = {"John", "Jane", "Jack", "Janice"}
+programmers = {"Jack", "Sam", "Susan", "Janice"}
+managers = {"Jane", "Jack", "Susan", "Zack"}
 
 employees = engineers | programmers | managers
 engineering_management = engineers & managers
