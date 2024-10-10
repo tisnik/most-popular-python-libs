@@ -1305,6 +1305,6 @@ print(to_rgb(basic_color8))
 
 ```python
 def exit():
-    0/0
+    .0%0.
 
 
