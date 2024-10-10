@@ -1,4 +1,4 @@
-# Typové informace v Pythonu
+# Typové informace v&nbsp;Pythonu
 
 ---
 
@@ -133,6 +133,9 @@ x: int = 42
 x = "foo"
 ```
 
+
+---
+
 ```python
 # - specifikace typu lokální proměnné
 # - přiřazení nové hodnoty kompatibilního typu do proměnné
@@ -173,7 +176,6 @@ def add(a, b):
 * Proč `Any`?
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - funkce bez uvedení typových anotací
 # - zavolání této funkce pro různé typy argumentů
 
@@ -209,10 +211,13 @@ def add(a: int, b: int) -> int:
 ```
 
 
+---
+
+### Typové anotace
+
 * využití
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - funkce s uvedením typových informací
 # - zavolání této funkce pro různé typy argumentů
 
@@ -263,6 +268,10 @@ print(add(1, True))
 print(add(1, False))
 ```
 
+
+---
+
+### `bool` nebo `int`?
 
 ```python
 # - funkce s uvedením typových informací
@@ -330,6 +339,10 @@ print(add(1.1, 2.2))
 ```
 
 
+---
+
+### Typ `Union`
+
 ```python
 # - funkce s uvedením typových informací
 # - použití zobecněného typu Union
@@ -384,6 +397,10 @@ print(add(1, "bar"))
 print(add("foo", 2))
 ```
 
+
+---
+
+### Dekorátor `@overload`
 
 ```python
 # - funkce s uvedením typových informací pro dvě varianty argumentů
@@ -472,6 +489,10 @@ p: tuple[int] = (1, 2, 3)
 ```
 
 
+---
+
+### Typované n-tice
+
 * korektní varianta
 
 ```python
@@ -519,7 +540,6 @@ p: tuple[int, float, bool, str] = (1, 3.14, True, "Hello")
 ### Typované seznamy
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice seznamu s prvky typu int
 # - kompatibilita s Mypy
 
@@ -529,7 +549,6 @@ lst: List[int] = []
 ```
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice seznamu s prvky typu int
 # - vyžaduje novější verzi Pythonu
 
@@ -537,8 +556,11 @@ lst: list[int] = []
 ```
 
 
+---
+
+### Typované seznamy
+
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice seznamu s prvky typu int
 # - inicializace prvků
 # - kompatibilita s Mypy
@@ -549,7 +571,6 @@ lst: List[int] = [1, 2, 3]
 ```
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice seznamu s prvky typu int
 # - inicializace prvků
 # - vyžaduje novější verzi Pythonu
@@ -624,6 +645,8 @@ print(d)
 ```
 
 
+---
+
 ```python
 # - definice slovníku
 # - prvky mají rozdílné typy klíčů i hodnot
@@ -638,6 +661,10 @@ d[42] = "answer"
 print(d)
 ```
 
+
+---
+
+### Typované slovníky
 
 ```python
 # - definice slovníku
@@ -695,6 +722,8 @@ print(d)
 ```
 
 
+---
+
 ```python
 # - definice slovníku
 # - specifikace typu klíčů i typu hodnot
@@ -711,6 +740,10 @@ d[42] = "answer"
 print(d)
 ```
 
+
+---
+
+### Slovníky a typ `Union`
 
 ```python
 # - definice slovníku
@@ -729,6 +762,8 @@ d[42] = "answer"
 print(d)
 ```
 
+
+---
 
 ```python
 # - definice slovníku
@@ -752,7 +787,6 @@ print(d)
 ### Slovníky a typ `Optional`
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice slovníku
 # - specifikace typu klíčů i typu hodnot
 # - hodnoty mohou nabývat None
@@ -769,8 +803,11 @@ print(d)
 ```
 
 
+---
+
+### Slovníky a typ `Optional`
+
 ```python
-# Typové anotace a nástroj Mypy:
 # - definice slovníku
 # - specifikace typu klíčů i typu hodnot
 # - hodnoty mohou nabývat None
@@ -791,7 +828,6 @@ print(d)
 ### Funkce bez návratové hodnoty
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - funkce bez návratové hodnoty s uvedením typových informací
 # - zavolání této funkce pro argumenty typu str a int
 
@@ -835,6 +871,9 @@ def positiveInt(x: int) -> bool:
 printIsPositive(4, positiveFloat)
 printIsPositive(-0.5, positiveFloat)
 ```
+
+
+---
 
 ```python
 # - funkci printIsPositive lze předat jinou funkci
@@ -896,7 +935,6 @@ printIsPositive(1, positiveInt)
 ### Datový typ `range`
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - použití datového typu range
 # - typ definován pro návratovou hodnotu funkce
 
@@ -906,7 +944,6 @@ def funkce(from_val: int, to_val: int) -> range:
 ```
 
 ```python
-# Typové anotace a nástroj Mypy:
 # - použití datového typu range
 # - typ definován pro parametr funkce
 
@@ -1324,6 +1361,17 @@ print(utrhni(Hruska))
 print(utrhni(Jablko))
 ```
 
+
+---
+
+### Odkazy
+
+1. [PEP 484 -- Type Hints](https://www.python.org/dev/peps/pep-0484/)
+1. [What’s New In Python 3.5](https://docs.python.org/3.5/whatsnew/3.5.html)
+1. [26.1. typing — Support for type hints](https://docs.python.org/3.5/library/typing.html#module-typing)
+1. [Type Hints - Guido van Rossum - PyCon 2015 (youtube)](https://www.youtube.com/watch?v=2wDvzy6Hgxg)
+1. [Python 3.5 is on its way](https://lwn.net/Articles/650904/)
+1. [Type hints](https://lwn.net/Articles/640359/)
 
 ---
 

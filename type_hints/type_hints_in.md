@@ -1,4 +1,4 @@
-# Typové informace v Pythonu
+# Typové informace v&nbsp;Pythonu
 
 ---
 
@@ -115,6 +115,9 @@ Ruby           Sorbet
 
 @ variable-1.py
 @ variable-2.py
+
+---
+
 @ variable-3.py
 @ variable-4.py
 
@@ -138,6 +141,10 @@ Ruby           Sorbet
 
 @ adder-3.py
 
+---
+
+### Typové anotace
+
 * využití
 
 @ adder-4.py
@@ -157,6 +164,10 @@ assert True+True==2
 ### `bool` nebo `int`?
 
 @ adder-5.py
+
+---
+
+### `bool` nebo `int`?
 
 @ adder-6.py
 
@@ -190,6 +201,10 @@ print(add.__annotations__)
 
 @ adder-7.py
 
+---
+
+### Typ `Union`
+
 @ adder-8.py
 
 ---
@@ -197,6 +212,10 @@ print(add.__annotations__)
 ### Dekorátor `@overload`
 
 @ adder-9.py
+
+---
+
+### Dekorátor `@overload`
 
 @ adder-A.py
 
@@ -216,6 +235,10 @@ print(add.__annotations__)
 @ tuple-type-1.py
 
 @ tuple-type-1B.py
+
+---
+
+### Typované n-tice
 
 * korektní varianta
 
@@ -237,6 +260,10 @@ print(add.__annotations__)
 
 @ list-type-1.py
 @ list-type-1B.py
+
+---
+
+### Typované seznamy
 
 @ list-type-2.py
 @ list-type-2B.py
@@ -263,7 +290,13 @@ print(add.__annotations__)
 
 @ dict-type-1.py
 
+---
+
 @ dict-type-2.py
+
+---
+
+### Typované slovníky
 
 @ dict-type-3.py
 
@@ -275,9 +308,17 @@ print(add.__annotations__)
 
 @ dict-type-5.py
 
+---
+
 @ dict-type-5B.py
 
+---
+
+### Slovníky a typ `Union`
+
 @ dict-type-6.py
+
+---
 
 @ dict-type-6B.py
 
@@ -286,6 +327,10 @@ print(add.__annotations__)
 ### Slovníky a typ `Optional`
 
 @ dict-type-7.py
+
+---
+
+### Slovníky a typ `Optional`
 
 @ dict-type-7B.py
 
@@ -302,6 +347,9 @@ print(add.__annotations__)
 * typ `callable`
 
 @ callable-1.py
+
+---
+
 @ callable-2.py
 
 * problém variance
