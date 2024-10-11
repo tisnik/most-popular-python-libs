@@ -1,4 +1,3 @@
-# Typové anotace a nástroj Mypy:
 # - použití datového typu range
 # - typ definován pro parametr funkce
 
