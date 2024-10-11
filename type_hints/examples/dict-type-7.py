@@ -1,4 +1,3 @@
-# Typové anotace a nástroj Mypy:
 # - definice slovníku
 # - specifikace typu klíčů i typu hodnot
 # - hodnoty mohou nabývat None
