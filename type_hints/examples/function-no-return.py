@@ -1,4 +1,3 @@
-# Typové anotace a nástroj Mypy:
 # - funkce bez návratové hodnoty s uvedením typových informací
 # - zavolání této funkce pro argumenty typu str a int
 
