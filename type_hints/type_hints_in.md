@@ -300,6 +300,8 @@ print(add.__annotations__)
 
 @ dict-type-3.py
 
+---
+
 @ dict-type-4.py
 
 ---
@@ -351,6 +353,10 @@ print(add.__annotations__)
 ---
 
 @ callable-2.py
+
+---
+
+### Typy a funkce vyššího řádu
 
 * problém variance
 
@@ -484,7 +490,6 @@ public class Variance2 {
 ---
 
 ### Míchání hrušek s jablky v2
----
 
 @ variance-2.py
 

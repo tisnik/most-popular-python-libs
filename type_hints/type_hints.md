@@ -683,6 +683,8 @@ print(d)
 ```
 
 
+---
+
 ```python
 # - definice slovníku
 # - specifikace typu klíčů i typu hodnot
@@ -897,6 +899,10 @@ printIsPositive(4, positiveFloat)
 printIsPositive(-0.5, positiveFloat)
 ```
 
+
+---
+
+### Typy a funkce vyššího řádu
 
 * problém variance
 
@@ -1122,7 +1128,6 @@ for ovoce in kosik:
 ---
 
 ### Míchání hrušek s jablky v2
----
 
 ```python
 # - hierarchie tříd Ovoce <- Hruska a Ovoce <- Jablko
@@ -1331,7 +1336,6 @@ from typing import Callable
 
 class Ovoce:
     """Třída, která je předkem tříd Hruska i Jablko."""
-
     pass
 
 
