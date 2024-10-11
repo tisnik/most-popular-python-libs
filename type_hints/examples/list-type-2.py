@@ -1,4 +1,3 @@
-# Typové anotace a nástroj Mypy:
 # - definice seznamu s prvky typu int
 # - inicializace prvků
 # - kompatibilita s Mypy
