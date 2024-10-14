@@ -17,6 +17,7 @@ print("Not ready reading drive A")
 
 
 def abort_retry_fail():
+    """Reakce na odpoved uzivatele."""
     response = input("Abort, Retry, Fail? ")
 
     if response in {"a", "A"}:
