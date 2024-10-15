@@ -1,3 +1,6 @@
+# Zobrazení vlivu zpětné vazby mezi dvojicí operátorů v FM (PM) syntéze
+
+# založeno na vztahu:
 # next_output = SIN( current_time + beta * previous_output )
 
 from math import sin
@@ -19,5 +22,5 @@ for i in range(VALUES):
 
 
 plt.plot(x, y)
-plt.savefig("foox.png")
+plt.savefig("feedback.png")
 plt.show()
