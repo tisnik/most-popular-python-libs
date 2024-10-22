@@ -83,6 +83,8 @@
 # * Lze sdílet
 # * Podporuje různá jádra (kernels)
 # * Podpora vizualizace přímo na ploše notebooku
+# * Lze nainstalovat i do VSCode (plugin Jupyter)
+# * Alternativní projekt: Google Colab
 # 
 # ---
 # 
@@ -1964,6 +1966,20 @@ print(c)
 a1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 
+# In[4]:
+
+
+# výpočet sumy přes jednu dimenzi
+np.apply_along_axis(sum, 0, a1)
+
+
+# In[6]:
+
+
+# výpočet sumy přes druhou dimenzi
+np.apply_along_axis(sum, 1, a1)
+
+
 # In[7]:
 
 
@@ -1976,6 +1992,25 @@ np.apply_along_axis(lambda v: v[1], 0, a1)
 
 # aplikace anonymní funkce
 np.apply_along_axis(lambda v: v[1], 1, a1)
+
+
+# In[7]:
+
+
+def reverse(v):
+    return v[::-1]
+
+
+# In[8]:
+
+
+np.apply_along_axis(reverse, 0, a1)
+
+
+# In[9]:
+
+
+np.apply_along_axis(reverse, 1, a1)
 
 
 # ### Modul lineární algebry
@@ -2310,6 +2345,12 @@ a.min()
 
 
 a.max()
+
+
+# In[11]:
+
+
+a.mean()
 
 
 # ### Operace prováděné nad celými osami
