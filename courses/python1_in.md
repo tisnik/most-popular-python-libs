@@ -1031,6 +1031,54 @@ else:
 
 ---
 
+### Pattern matching
+
+---
+
+### Konstrukce `if`
+
+@ ackermann-if.py
+
+---
+
+### Konstrukce `if-else`
+
+@ ackermann-if-else.py
+
+---
+
+### Konstrukce `match`
+
+@ pattern-matching-ackermann.py
+
+---
+
+@ pattern-matching-fib.py
+
+---
+
+### Podmínka zapsaná v&nbsp;rozhodovacích větvích konstrukce `match`
+
+* Nazývá se "guard"
+
+---
+
+@ pattern-matching-factorial1.py
+
+---
+
+@ pattern-matching-factorial2.py
+
+---
+
+@ pattern-matching-factorial3.py
+
+---
+
+@ pattern-matching-factorial4.py
+
+---
+
 ### Programové smyčky
 
 * Existují tyto druhy cyklů
@@ -1253,6 +1301,461 @@ def fn4(arg1, arg2, **kwargs):
 
 @ reduce.py
 
+---
+
+## Moduly
+
+* Přehled
+* Vyhledávání
+* Pravidla a idiomy
+* Funkce
+* Balíčky
+
+---
+
+## Vstup a výstup
+
+* Práce se soubory
+* Souborové objekty
+* Formátování výstupu
+
+---
+
+### Práce se soubory
+
+* Základní funkce
+    - `open`
+    - `close`
+    - `read`
+    - `write`
+    - `append`
+
+---
+
+### Souborové objekty
+
+* Přečtení celého souboru
+
+@ file_read_all.py
+
+* Čtení po řádcích
+
+@ file_read_line.py
+
+@ file_read_line_by_line.py
+
+
+* Přečtení všech řádků do seznamu
+
+@ file_read_all_lines.py
+
+* Zápis do souboru
+
+@ file_write.py
+
+---
+
+### Použití bloku `with`
+
+@ file_read_with.py
+
+@ file_read_line_by_line_with.py
+
+---
+
+### Formátování výstupu
+
+* Metoda `string.format()`
+
+* Příklad použiti
+
+@ string_format_1.py
+
+
+* Formátování tabulky na výstupu
+
+@ string_format_2.py
+
+@ string_format_3.py
+
+@ string_format_4.py
+
+---
+
+## Chyby a výjimky
+
+* Přehled
+* Vyvolání výjimky
+* Obsluha výjimky
+* Syntaktické chyby
+* Blok `finally`
+
+---
+
+### Důvody vedoucí k zavedení výjimek
+
+* Při běhu programu může dojít k různým chybovým (nebo jen neobvyklým)
+    - ty je zapotřebí zpracovat
+* Řešení v procedurálních jazycích
+    - návratové kódy s číslem chyby (C standard library)
+    - nastavení chybové proměnné (`errno`)
+    - nověji se jedná o makro kvůli možnosti běhu vícevláknových aplikací
+
+---
+
+### Důvody vedoucí k zavedení výjimek
+
+* Nevýhody využití návratových kódů
+    - vlastní algoritmus je doplněn o množství nových podmínek
+    - některé funkce musí vracet skutečné návratové hodnoty nepřímo - referencí
+* Nevýhody využití proměnné errno
+    - změna hodnoty proměnné při každém volání systémové funkce
+    - taktéž vede k nutnosti použití množství nových podmínek v programu
+* Výjimky
+    - oddělení vlastního algoritmu od zpracování chybových stavů
+    - standardizovaný postup
+
+---
+
+### Zachycení výjimky
+
+@ try_catch_finally.py
+
+---
+
+### Vyvolání výjimky
+
+@ raise_exception.py
+
+---
+
+### Vlastní výjimky
+
+@ custom_exception.py
+
+---
+
+### Blok `finally`
+
+* Provede se vždy
+    - typicky uvolnění prostředků atd.
+
+@ finally_block.py
+
+---
+
+## Třídy
+
+* Použitá terminologie
+* Definice třídy
+* Atributy
+* Metody
+* Objekty
+* Dědičnost
+* Speciální metody
+
+---
+
+### Použitá terminologie
+
+* Třída
+    - data+funkce+(zapouzdření)
+* Předek, potomek
+* Objekt
+    - instance třídy
+* Metoda
+* Atribut
+    - objektu
+    - třídní
+* Konstruktor
+
+---
+
+### Definice třídy
+
+@ class1.py
+
+---
+
+### Objekty
+
+@ class2.py
+
+---
+
+### Atributy
+
+* Datové položky
+* Vytvářené explicitně pro každou instanci třídy
+    - typicky v konstruktoru
+* Přístup k atributům
+    - interně přes `self`
+    - externě pomocí "tečkové notace"
+* Třídní/statický atribut
+    - deklarován přímo ve třídě
+    - sdílený všemi instancemi
+    - přístup přes `JménoTřídy.jménoAtributu`
+    - mohou být pojmenovány stejně jako atributy objektu
+
+@ class3.py
+
+---
+
+### Konstruktor
+
+* Zavolán při konstrukci objektu
+
+@ class4.py
+
+---
+
+### Metody
+
+* Funkce, které mají přístup k datovým položkám
+    - přístup přes `self`
+    - zavolání pomocí "tečkové notace"
+
+@ class5.py
+
+---
+
+### Dědičnost
+
+@ class6.py
+
+---
+
+### Speciální metody
+
+* Seznam speciálních metod
+
+```
+__init__
+__str__
+__repr__
+__hash__
+__call__
+__iter__
+__getattr__
+__getattribute__
+__setattr__
+__delattr__
+
+__eq__  x, y    x == y
+__ne__  x, y    x != y
+__lt__  x, y    x < y
+__gt__  x, y    x > y
+__le__  x, y    x <= y
+__ge__  x, y    x >= y
+```
+
+---
+
+```
+__add__         binární + operátor
+__sub__         binární - operátor
+__mul__         * operátor
+__div__         / operátor
+__floordiv__    // operátor (P2)
+__truediv__     / operátor (P3)
+__mod__         % operátor
+__pow__         ** operátor or pow(x, y, z)
+__neg__         unární - operátor
+__pos__         unární + operátor
+__abs__         absolutní hodnota
+__nonzero__     konverze na Boolean
+__invert__      ~ operátor
+__lshift__      << operátor
+__rshift__      >> operátor
+__and__         & operátor
+__or__  x, y    | operátor
+__xor__         ^ operátor
+```
+
+---
+
+```
+__iadd__        += operátor
+__isub__        -= operátor
+__imul__        *= operátor
+__idiv__        /= operátor (P2)
+__ifloordiv__   //= operátor
+__itruediv__    /= operátor (P3)
+__imod__        %= operátor
+__ipow__        **= operátor
+__ilshift__     <<= operátor
+__irshift__     >>= operátor
+__iand__        &= operátor
+__ior__         |= operátor
+__ixor__        ^= operátor
+```
+
+---
+
+* Konstrukce objektů, zavolání metod
+
+@ class7.py
+
+---
+
+### Přetížení speciální metody \_\_str\_\_
+
+@ class8.py
+
+---
+
+## Parametry zadávané na příkazovém řádku
+
+@ args.py
+
+---
+
+## Moduly
+
+* Standardní moduly
+* Další užitečné moduly
+* Způsob importu
+
+---
+
+## Standardní moduly
+
+* string
+* re
+* datetime
+* collections
+* pprint
+* math
+* random
+* decimal
+* fractions
+* itertools
+* functools
+* csv
+* os
+* io
+* time
+* subprocess
+* json
+* sys
+
+## Další užitečné moduly
+
+* requests
+* cffi
+* fastapi
+* flask
+* pil/pillow
+* numpy
+* scipy
+* matplotlib
+* scikit-learn
+
+
+## Způsob importu modulů
+
+---
+
+## Použití debuggeru
+
+```
+python -m pdb test.py
+pdb.set_trace()
+```
+
+## Post mortem debug
+
+```
+try:
+    raise Exception()
+except:
+    import pdb
+    pdb.post_mortem()
+```
+
+---
+
+## MicroPython
+
+* 2013, mikrořadič pyboard
+* Dnes dostupný na více jednodeskových mikropočítačů
+    - Micro Bit
+    - Arduino
+    - ESP32
+    - ESP8255
+    - PIC16...
+
+---
+
+## MicroPython
+
+* Typické omezení
+    - 256 kB ROM
+    - 16 kB RAM
+* Dva možné režimy činnosti
+    - interpret přímo na CPU/MCU
+    - překlad do hex/objektového kódu
+* Repositář
+    - https://github.com/micropython/micropython
+    - překlad pro každý CPU/MCU zvlášť
+
+---
+
+## Rozdíly CPython vs MicroPython
+
+* Chybí některé standardní knihovny
+* Navíc přístup k hardware
+
+```python
+from machine import Pin
+pin = Pin(0, Pin.IN)
+print(pin.value())
+```
+
+```python
+from machine import Pin
+pin = Pin(14, Pin.OUT)
+pin.value(1)
+```
+
+---
+
+## MicroPython pro MicroBit
+
+* MicroPython pro MicroBit
+    - http://microbit.org/guide/python/
+    - Online editor: http://python.microbit.org/v/1
+    - převod zdrojového kódu do Intel hex formátu
+    - upload v Intel hex formátu
+
+---
+
+## Užitečné nástroje pro Python
+
+* pydocstyle
+    - testuje, zda jsou správně zapsány komentáře
+* pycodestyle (pep8)
+    - kontroluje styl zápisu programů
+    - udržuje štábní kulturu
+
+---
+
+## Užitečné odkazy
+
+* Python Quick Reference: http://rgruet.free.fr/#QuickRef
+* Python docs: http://www.python.org/doc/
+* PEP 8: http://www.python.org/dev/peps/pep-0008/
+* pep8.py: http://pypi.python.org/pypi/pep8/
+* pylint: http://www.logilab.org/project/pylint
+* Epydoc: http://epydoc.sourceforge.net/
+* Sphinx: http://sphinx-doc.org/
+* Python in Python: http://pypy.org/
+* The key differences between Python 2.7.x and Python 3.x with examples: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+* Language differences and workarounds: http://python3porting.com/differences.html
+* Everything you did not want to know about Unicode in Python 3: http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/
+* Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
+* Dive Into Python: http://www.diveintopython.net/
+* Dive into Python 3: http://www.diveintopython3.net/
 
 
 
