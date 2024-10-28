@@ -1,13 +1,16 @@
 # Jazyk Python - základy programování
 
+---
+
 * Pavel Tišnovský
     - `kurzy.python@centrum.cz`
 * Slajdy a demonstrační příklady:
-    - `https://github.com/tisnik/python-programming-courses`
+    - `https://github.com/tisnik/most-popular-python-libs
+    - složka "courses"
 
 ---
 
-## Obsah kurzu (1/3)
+## Obsah kurzu (1/5)
 
 * Úvod
     - proč a k čemu používat Python
@@ -18,16 +21,23 @@
     - seznamy (pole)
     - n-tice
     - práce se slovníky
+
+---
+
+## Obsah kurzu (2/5)
+
 * Řízení toku programu
     - základní konstrukce
     - funkce
     - příkazy
     - větvení
     - programové smyčky
+    - složitější formy větvení
+    - pattern matching
 
 ---
 
-## Obsah kurzu (2/3)
+## Obsah kurzu (3/5)
 
 * Procedury a funkce
     – použití
@@ -40,21 +50,26 @@
     - vyhledávání
     - pravidla
     - funkce, balíčky
+
+---
+
+## Obsah kurzu (4/5)
+
 * Vstup a výstup
     – práce se soubory
     - souborové objekty
     - formátování výstupu
-
----
-
-## Obsah kurzu (3/3)
-
 * Chyby a výjimky
     – přehled
     - vyvolání výjimky
     - obsluha výjimek
     - syntaktické chyby
     - složitější použití
+
+---
+
+## Obsah kurzu (5/5)
+
 * Třídy
     – použitá terminologie
     - definování
@@ -64,6 +79,7 @@
 * Iterátory, generátory
 * Nejpoužívanější knihovny
 * Užitečné nástroje pro Python
+* Časté problémy
 
 ---
 
@@ -89,6 +105,11 @@
     - Linux
     - Apple
     - jednodeskové mikropočítače
+
+---
+
+### Základní informace o jazyku Python
+
 * Používaný pro CLI aplikace, na serverech, pro GUI atd.
 * "Batteries included"
     - rozsáhlá základní knihovna
@@ -106,6 +127,11 @@
     - kompaktnější kód
     - obecně pomalejší běh programů
     - lepší podpora tzv. introspekce
+
+---
+
+### Interpretry vs překladače
+
 * Překladač
     - Java, C, C++, C#, Fortran
     - nutnost překladu (a slinkování)
@@ -124,11 +150,17 @@
     - Numpy
     - SciPy
     - Matplotlib
+
+---
+
+### Proč a k čemu používat programovací jazyk Python
+
 * Zpracování dat
     - Pandas
 * Moderní způsoby využití Pythonu
     - AI
     - Machine Learning (Deep Learning)
+    - scikit-learn
     - Big data
 * Tzv. "glue" jazyk
 
@@ -142,10 +174,15 @@
     - s rozšířením pro Python
 * PyCharm
     - profesionální IDE
+* Jupyter Notebook
+* Thonny
+    - často používáno při výuce
 
 ---
 
 ### IDLE
+
+* Pravděpodobně máte už nainstalováno
     - https://docs.python.org/3/library/idle.html
     - vytvořeno přímo v Pythonu
     - používá `tkinter`
@@ -163,12 +200,11 @@
     - Ruby
 * Dynamicky typovaný jazyk
     - Ruby, Perl
+* Volitelné typové informace (type hints)
 * Automatická správa paměti (garbage collector)
     - obsahuje většina moderních jazyků
 * Objektově orientovaný jazyk
-    - Java
-    - C++
-    - C#
+    - Java, C++, C#
 
 ---
 
@@ -184,6 +220,10 @@
     - Psyco
     - Stackles Python
     - MicroPython
+
+---
+
+### Implementace Pythonu
 
 * Speciální implementace
     - Cython
@@ -206,6 +246,11 @@
 * Tyto dvě větve nejsou plně kompatibilní
 * Skript `2to3` pro automatický převod
     - nutno ručně zkontrolovat
+
+---
+
+### Python 2.x vs Python 3.x
+
 * Nejdůležitější rozdíly
     - `print`: příkaz vs funkce
     - celočíselné dělení (operátory / a //)
@@ -213,6 +258,12 @@
     - striktnější pravidla při porovnávání hodnot různých typů
     - `xrange()`: nyní se `range()` chová jako `xrange()`
     - argument při vyhazování výjimek musí být v závorkách
+
+---
+
+### Python 2.x vs Python 3.x
+
+* Nejdůležitější rozdíly
     - `except TypVýjimky, e:` versus `except TypVýjimky as e:`
     - generátory nemají metodu `next()`, namísto ní se používá funkce `next()`
     - `range()` vrací iterátor, ne seznam
@@ -236,6 +287,11 @@
 * Čísla
 * Pravdivostní hodnoty
 * Řetězce (raw, Unicode)
+
+---
+
+## Základy programovacího jazyka Python
+
 * Seznamy (pole)
 * Slovníky
 * Množiny
@@ -281,7 +337,11 @@ python3 bmi.py
 * `input()`
     - se zpracováním vstupu
     - v Pythonu 2 se odvozoval typ hodnoty
-    - v Pythonu 3 se vždy vrací řetězec
+ 
+---
+
+### Základní vstupně/výstupní funkce
+   - v Pythonu 3 se vždy vrací řetězec
 * `raw_input()`
     - existuje v Pythonu 2
     - vždy vrací řetězec (vs `input()`)
@@ -309,6 +369,7 @@ print("Hello")
 ---
 
 ### Funkce print
+
 * Výhody `print` jako funkce
     - lze použít v lambda výrazech
     - není nutná speciální syntaxe
@@ -317,7 +378,7 @@ print("Hello")
 
 ---
 
-### Základní struktura kódu v Pythonu
+### Struktura kódu v Pythonu
 
 ```python
 #!/usr/bin/env python
@@ -373,7 +434,7 @@ python3 bmi.py
 
 ### Rezervovaná klíčová slova Pythonu
 
-```
+```python
 False      await      else       import     pass
 None       break      except     in         raise
 True       class      finally    is         return
@@ -436,6 +497,11 @@ _
 * slovníky (dictionary, dict)
 * množiny (set)
 * n-tice (tuple)
+
+---
+
+### Datové typy
+
 * sekvence bajtů (bytes)
     - v praxi většinou není příliš důležitý
 * pole bajtů (bytearray)
@@ -450,12 +516,22 @@ _
 
 * mutability/immutability
 * význam ve funkcionálních i imperativních jazycích
+
+---
+
+### Měnitelné typy
+
 * Měnitelné typy
     - seznamy
     - slovníky
     - množiny
     - pole bajtů (bytearray)
     - objekt
+
+---
+
+### Neměnitelné typy
+
 * Neměnitelné typy
     - čísla
     - pravdivostní hodnoty
@@ -490,6 +566,11 @@ _
 
 @ numbers1.py
 
+---
+
+### Čísla
+
+
 * pozor na:
     - operátory se odlišují podle použitého typu
     - zápis komplexního čísla s "j" a nikoli s "i"
@@ -508,7 +589,7 @@ _
 * hodnoty
     - `True`
     - `False`
-* použito především u větvení popř. u programových smyček
+* použito především u větvení a programových smyček
 * podporované operátory
     - `and`
     - `or`
@@ -686,6 +767,11 @@ _
     - test na relaci "je podmnožinou"
 * `s >= t`
     - test na relaci "je nadmnožinou"
+
+---
+
+### Množinové operace
+
 * `s | t`
     - sjednocení množin
 * `s & t`
@@ -748,6 +834,7 @@ s.symmetric_difference(t)
 
 @ tuple_join.py
 
+---
 
 ### Test na existenci prvku v n-tici
 
@@ -830,11 +917,15 @@ s.symmetric_difference(t)
 
 @ expr_if_else.py
 
+---
+
 ### Výrazy, operátory: ukázky použití
 
 * Celočíselné operace
 
 @ expr_integers.py
+
+---
 
 * Výsledky pro Python 2.x
 
@@ -848,6 +939,8 @@ s.symmetric_difference(t)
 1000
 
 ```
+
+---
 
 * Výsledky pro Python 3.x
 
@@ -931,6 +1024,8 @@ print '3 / 2.0 =', 3 / 2.0
 print '3 // 2.0 =', 3 // 2.0
 ```
 
+---
+
 * Výsledky pro Python 2:
 
 ```
@@ -939,6 +1034,8 @@ print '3 // 2.0 =', 3 // 2.0
 3 / 2.0 = 1.5
 3 // 2.0 = 1.0
 ```
+
+---
 
 ```python
 print('3 / 2 =', 3 / 2)
@@ -1088,6 +1185,10 @@ else:
     - cyklus s podmínkou uprostřed
     - cyklus `for` - unifikované `while-do`
     - cyklus `for-each` - průchod sekvencemi
+
+---
+
+### Programové smyčky
 
 * V Pythonu
     - cyklus `while-do` – (zahrnuje i nekonečný cyklus)
@@ -1239,15 +1340,27 @@ def fn4(arg1, arg2, **kwargs):
     - klíčové slovo `global`
     - klíčové slovo `nonlocal`
 
+---
+
 @ global.py
+
+---
 
 ### Význam global/nonlocal
 
+---
+
 @ global_nonlocal_1.py
+
+---
 
 @ global_nonlocal_2.py
 
+---
+
 @ global_nonlocal_3.py
+
+---
 
 @ global_nonlocal_4.py
 
@@ -1338,16 +1451,25 @@ def fn4(arg1, arg2, **kwargs):
 
 @ file_read_all.py
 
+---
+
 * Čtení po řádcích
+
+---
 
 @ file_read_line.py
 
+--
+
 @ file_read_line_by_line.py
 
+---
 
 * Přečtení všech řádků do seznamu
 
 @ file_read_all_lines.py
+
+---
 
 * Zápis do souboru
 
@@ -1371,6 +1493,7 @@ def fn4(arg1, arg2, **kwargs):
 
 @ string_format_1.py
 
+---
 
 * Formátování tabulky na výstupu
 
@@ -1411,6 +1534,11 @@ def fn4(arg1, arg2, **kwargs):
 * Nevýhody využití proměnné errno
     - změna hodnoty proměnné při každém volání systémové funkce
     - taktéž vede k nutnosti použití množství nových podmínek v programu
+
+---
+
+### Důvody vedoucí k zavedení výjimek
+
 * Výjimky
     - oddělení vlastního algoritmu od zpracování chybových stavů
     - standardizovaný postup
@@ -1496,6 +1624,8 @@ def fn4(arg1, arg2, **kwargs):
     - sdílený všemi instancemi
     - přístup přes `JménoTřídy.jménoAtributu`
     - mohou být pojmenovány stejně jako atributy objektu
+
+---
 
 @ class3.py
 
@@ -1618,26 +1748,39 @@ __ixor__        ^= operátor
 
 ---
 
-## Standardní moduly
+## Standardní moduly (1/3)
 
 * string
 * re
-* datetime
-* collections
 * pprint
 * math
 * random
 * decimal
 * fractions
+
+---
+
+## Standardní moduly (2/3)
+
+* collections
 * itertools
 * functools
-* csv
+* datetime
+* time
+
+---
+
+## Standardní moduly (2/3)
+
+* subprocess
 * os
 * io
-* time
-* subprocess
-* json
 * sys
+* csv
+* json
+* pickle
+
+---
 
 ## Další užitečné moduly
 
@@ -1651,8 +1794,25 @@ __ixor__        ^= operátor
 * matplotlib
 * scikit-learn
 
+---
 
-## Způsob importu modulů
+## Způsoby importu modulů
+
+```
+import datetime
+import datetime as dt
+from datetime import date
+from datetime import *
+```
+
+---
+
+## Instalace dalších balíčků
+
+* pip
+    - výchozí nástroj, většinou již nainstalován
+* pdm
+* poetry
 
 ---
 
@@ -1737,6 +1897,101 @@ pin.value(1)
 * pycodestyle (pep8)
     - kontroluje styl zápisu programů
     - udržuje štábní kulturu
+* pylint
+    - ještě detailnější kontroly
+* Ruff
+    - dnes nejlepší nástroj pro kontrolu zdrojových kódů
+* Mypy
+    - test datových typů
+* Black
+    - formátovač zdrojových kódů
+
+---
+
+## Zvýšení výkonnosti aplikací psaných v Pythonu
+
+* AOT překladače
+* JIT překladače
+* varianty "bez GIL"
+* standardní CPython není ani AOT ani JIT
+
+---
+
+### AOT
+
+* Ahead-Of-Time compilation
+* Provedeno před spuštěním vlastní aplikace
+* Bývá velmi agresivní
+* Počáteční zdržení
+
+---
+
+### JIT
+
+* Just-In-Time compilation
+* Prováděno průběžně při běhu
+* Ne tak důrazné optimalizace jako AOT
+* Spekulativní optimalizace
+
+---
+
+### Python bez GIL
+
+* Dokáže urychlit zejména vícevláknový programový kód
+
+---
+
+## Časté problémy
+
+* V Pythonu najdeme určité problematické části jazyka
+* Je vhodné o nich vědět a vyvarovat se některých konstrukcí
+
+---
+
+@ pitfalls/classes.py
+
+---
+
+@ pitfalls/default_argument_1.py
+
+---
+
+@ pitfalls/default_argument_2.py
+
+---
+
+@ pitfalls/scoping1.py
+
+---
+
+@ pitfalls/scoping2.py
+
+---
+
+@ pitfalls/scoping3.py
+
+---
+
+@ pitfalls/scoping4.py
+
+---
+
+@ pitfalls/closures.py
+
+---
+
+@ pitfalls/floats.py
+
+Bližší informace o formátu float/double:
+[https://www.h-schmidt.net/FloatConverter/IEEE754.html](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+
+---
+
+@ pitfalls/endless_loop.py
+
+---
+
+@ pitfalls/mutating_list.py
 
 ---
 
@@ -1757,33 +2012,3 @@ pin.value(1)
 * Dive Into Python: http://www.diveintopython.net/
 * Dive into Python 3: http://www.diveintopython3.net/
 
-
-
----
-
-## Časté problémy
-
-@ pitfalls/classes.py
-
-@ pitfalls/default_argument_1.py
-
-@ pitfalls/default_argument_2.py
-
-@ pitfalls/scoping1.py
-
-@ pitfalls/scoping2.py
-
-@ pitfalls/scoping3.py
-
-@ pitfalls/scoping4.py
-
-@ pitfalls/closures.py
-
-@ pitfalls/floats.py
-
-Bližší informace o formátu float/double:
-[https://www.h-schmidt.net/FloatConverter/IEEE754.html](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
-
-@ pitfalls/endless_loop.py
-
-@ pitfalls/mutating_list.py
