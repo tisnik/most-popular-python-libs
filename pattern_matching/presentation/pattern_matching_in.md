@@ -161,13 +161,19 @@ fn main() {
 
 ---
 
+### Konstrukce `if`
+
 @ ackermann-if.py
 
 ---
 
+### Konstrukce `if-else`
+
 @ ackermann-if-else.py
 
 ---
+
+### Konstrukce `match`
 
 @ pattern-matching-ackermann.py
 
