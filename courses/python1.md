@@ -314,6 +314,27 @@ test_xrange(n)
 
 ---
 
+### Struktura zdrojového kódu
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+"""Dokumentační řetězec"""
+
+# importy
+# třídy
+# funkce
+
+if __name__ == "__main__":
+    # vstupní bod
+    pass
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/basic_structure.py)
+
+---
+
 ### Python jako skriptovací jazyk
 
 ```python
@@ -571,6 +592,54 @@ print(x)
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/variables.py)
+
+---
+
+### Funkce
+
+* Změna stavu aplikace
+* Jiné operace
+
+```python
+def compute_bmi(mass, height):
+    height = height / 100.0
+    bmi = mass / (height * height)
+    return bmi
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function.py)
+
+---
+
+### Parametry funkce a návratová hodnota
+
+```python
+def compute_bmi(mass, height):
+    """Vlastní výpočet BMI za základě hmotnosti a výšky."""
+    height = height / 100.0
+    bmi = mass / (height * height)
+    return bmi
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function_bmi.py)
+
+---
+
+### Další způsoby předávání parametrů
+
+```python
+def fn5(arg1, arg2, arg3=0, *args, **kwargs):
+    print("arg1 = ", arg1)
+    print("arg2 = ", arg2)
+    print("arg3 = ", arg3)
+    print("args = ", args)
+    print("kwargs = ", kwargs)
+
+
+fn5(1, 2, 10, 20, 30, x=10, y=20, z="ahoj")
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/args_kwargs.py)
 
 ---
 
@@ -2133,6 +2202,151 @@ print(x)
 
 ---
 
+### Příklady funkcí
+
+---
+
+### Faktoriál
+
+```python
+def factorial(n):
+    """Výpočet faktoriálu ve smyčce."""
+    f = 1
+    for x in range(1, n + 1):
+        f *= x
+    return f
+
+
+# výpočet 10!
+print(factorial(10))
+
+# tabulka s hodnotami n!
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial1.py)
+
+---
+
+### Faktoriál
+
+```python
+def factorial(n):
+    """Rekurzivní výpočet faktoriálu."""
+    return 1 if n <= 1 else n * factorial(n - 1)
+
+
+# výpočet 10!
+print(factorial(10))
+
+# tabulka s hodnotami n!
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial2.py)
+
+---
+
+### Faktoriál
+
+```python
+from functools import reduce
+
+
+def factorial(n):
+    """Výpočet faktoriálu pomocí reduce."""
+    return reduce(lambda a, b: a * b, range(1, n + 1))
+
+
+# výpočet 10!
+print(factorial(10))
+
+# tabulka s hodnotami n!
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial3.py)
+
+---
+
+### Fibonacci
+
+```python
+def fibonacci(n):
+    a, b = 1, 1
+    for i in range(n - 1):
+        a, b = b, a + b
+    return a
+
+
+for n in range(0, 21):
+    print(n, fibonacci(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_for_loop.py)
+
+---
+
+### Fibonacci
+
+```python
+def fibonacci(n):
+    if n <= 2:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+for n in range(0, 21):
+    print(n, fibonacci(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_recursion.py)
+
+---
+
+### Fibonacci
+
+```python
+def fibonacci(n):
+    a, b = 1, 1
+    i = n
+    while i > 1:
+        a, b = b, a + b
+        i -= 1
+    return a
+
+
+for n in range(0, 21):
+    print(n, fibonacci(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_while_loop.py)
+
+---
+
+### Fibonacci
+
+```python
+def fibonacci(n):
+    a, b = 1, 1
+    i = 1
+    while i < n:
+        a, b = b, a + b
+        i += 1
+    return a
+
+
+for n in range(0, 21):
+    print(n, fibonacci(n))
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_while_loop_2.py)
+
+---
+
 ## Funkcionální prvky jazyka
 
 * Lambda výrazy
@@ -2822,6 +3036,250 @@ if __name__ == "__main__":
 ```
 
 [Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/args.py)
+
+---
+
+## Další jednoduché třídy
+
+---
+
+### Dvojice hodnot
+
+```python
+#!/usr/bin/env python
+
+
+class Dvojice:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "Dvojice: {} {}".format(self.x, self.y)
+
+
+d1 = Dvojice(1, 2)
+d2 = Dvojice(3, 4)
+
+print(d1)
+print(d2)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dvojice1.py)
+
+---
+
+### Dvojice hodnot
+
+```python
+#!/usr/bin/env python
+
+
+class Dvojice:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "Dvojice: {} {}".format(self.x, self.y)
+
+    def __add__(self, other):
+        return Dvojice(self.x + other.x, self.y + other.y)
+
+
+d1 = Dvojice(10, 10)
+d2 = Dvojice(1, 2)
+
+print(d1)
+print(d2)
+
+d3 = d1 + d2
+d3 = d1.__add__(d2)
+d3 = Dvojice.__add__(d1, d2)
+
+print(d3)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dvojice2.py)
+
+---
+
+### Komplexní čísla
+
+```python
+class Complex:
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex1.py)
+
+---
+
+### Komplexní čísla
+
+```python
+class Complex:
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex2.py)
+
+---
+
+### Komplexní čísla
+
+```python
+class Complex:
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex3.py)
+
+---
+
+### Komplexní čísla
+
+```python
+class Complex:
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+    def __add__(self, other):
+        r = self._real + other._real
+        i = self._imag + other._imag
+        return Complex(r, i)
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex4.py)
+
+---
+
+### Komplexní čísla
+
+```python
+class Complex:
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+    def __add__(self, other):
+        r = self._real + other._real
+        i = self._imag + other._imag
+        return Complex(r, i)
+
+    def __iadd__(self, other):
+        self._real += other._real
+        self._imag += other._imag
+        return self
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex5.py)
 
 ---
 

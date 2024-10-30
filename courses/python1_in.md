@@ -299,6 +299,12 @@
 
 ---
 
+### Struktura zdrojového kódu
+
+@ basic_structure.py
+
+---
+
 ### Python jako skriptovací jazyk
 
 @ bmi.py
@@ -482,6 +488,27 @@ _
 ### Příklad použití proměnných
 
 @ variables.py
+
+---
+
+### Funkce
+
+* Změna stavu aplikace
+* Jiné operace
+
+@ function.py
+
+---
+
+### Parametry funkce a návratová hodnota
+
+@ function_bmi.py
+
+---
+
+### Další způsoby předávání parametrů
+
+@ args_kwargs.py
 
 ---
 
@@ -1366,6 +1393,52 @@ def fn4(arg1, arg2, **kwargs):
 
 ---
 
+### Příklady funkcí
+
+---
+
+### Faktoriál
+
+@ factorial1.py
+
+---
+
+### Faktoriál
+
+@ factorial2.py
+
+---
+
+### Faktoriál
+
+@ factorial3.py
+
+---
+
+### Fibonacci
+
+@ fibonacci_for_loop.py
+
+---
+
+### Fibonacci
+
+@ fibonacci_recursion.py
+
+---
+
+### Fibonacci
+
+@ fibonacci_while_loop.py
+
+---
+
+### Fibonacci
+
+@ fibonacci_while_loop_2.py
+
+---
+
 ## Funkcionální prvky jazyka
 
 * Lambda výrazy
@@ -1737,6 +1810,52 @@ __ixor__        ^= operátor
 ## Parametry zadávané na příkazovém řádku
 
 @ args.py
+
+---
+
+## Další jednoduché třídy
+
+---
+
+### Dvojice hodnot
+
+@ dvojice1.py
+
+---
+
+### Dvojice hodnot
+
+@ dvojice2.py
+
+---
+
+### Komplexní čísla
+
+@ complex1.py
+
+---
+
+### Komplexní čísla
+
+@ complex2.py
+
+---
+
+### Komplexní čísla
+
+@ complex3.py
+
+---
+
+### Komplexní čísla
+
+@ complex4.py
+
+---
+
+### Komplexní čísla
+
+@ complex5.py
 
 ---
 
