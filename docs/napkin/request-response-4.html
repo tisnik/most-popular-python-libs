@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>request-response-4.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>request-response-4.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">napkin</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nd">@napkin</span><span class="o">.</span><span class="n">seq_diagram</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">request_response_4</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="s2">&quot;Client&quot;</span><span class="p">)</span>
+    <span class="n">frontend</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="s1">&#39;&quot;Front end&quot;&#39;</span><span class="p">)</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="s1">&#39;&quot;Back end&quot;&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">client</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">frontend</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;login=&#39;foo&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;password=&#39;bar&#39;&quot;</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">backend</span><span class="o">.</span><span class="n">try_login</span><span class="p">(</span><span class="s2">&quot;&#39;foo&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;bar&#39;&quot;</span><span class="p">):</span>
+                <span class="n">c</span><span class="o">.</span><span class="n">ret</span><span class="p">(</span><span class="s2">&quot;login ok&quot;</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">ret</span><span class="p">(</span><span class="s2">&quot;login ok&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">c</span><span class="o">.</span><span class="n">loop</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">client</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">frontend</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;login=&#39;foo&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;password=&#39;xyzzy&#39;&quot;</span><span class="p">):</span>
+                <span class="k">with</span> <span class="n">c</span><span class="o">.</span><span class="n">loop</span><span class="p">():</span>
+                    <span class="k">with</span> <span class="n">backend</span><span class="o">.</span><span class="n">try_login</span><span class="p">(</span><span class="s2">&quot;&#39;foo&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;bar&#39;&quot;</span><span class="p">):</span>
+                        <span class="n">c</span><span class="o">.</span><span class="n">ret</span><span class="p">(</span><span class="s2">&quot;login failed&quot;</span><span class="p">)</span>
+                    <span class="n">c</span><span class="o">.</span><span class="n">ret</span><span class="p">(</span><span class="s2">&quot;login failed&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
