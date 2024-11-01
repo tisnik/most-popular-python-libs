@@ -161,6 +161,8 @@ fn main() {
 
 ---
 
+### Konstrukce `if`
+
 ```python
 # Výpočet Ackermannovy funkce, založeno na konstrukci if
 
@@ -178,9 +180,13 @@ for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
 
+```
+
 
 
 ---
+
+### Konstrukce `if-else`
 
 ```python
 # Výpočet Ackermannovy funkce, založeno na konstrukci if-elif-else
@@ -200,9 +206,13 @@ for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
 
+```
+
 
 
 ---
+
+### Konstrukce `match`
 
 ```python
 # Strukturální pattern matching:
@@ -223,6 +233,8 @@ def A(m, n):
 for m in range(4):
     for n in range(5):
         print(m, n, A(m, n))
+
+```
 
 
 
@@ -253,6 +265,8 @@ for n in range(0, 11):
 
 # test neplatného vstupu
 fib(-1)
+```
+
 
 
 ---
@@ -285,6 +299,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -313,6 +329,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -341,6 +359,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -369,6 +389,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -401,6 +423,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -430,6 +454,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -464,6 +490,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -490,6 +518,8 @@ def abort_retry_fail():
 
 
 print(abort_retry_fail())
+```
+
 
 
 ---
@@ -519,6 +549,8 @@ def factorial(n):
 # tisk tabulky faktoriálů
 for i in range(0, 10):
     print(i, factorial(i))
+```
+
 
 
 ---
@@ -547,6 +579,8 @@ for i in range(-1, 10):
         print(i, factorial(i))
     except Exception as e:
         print(e)
+```
+
 
 
 ---
@@ -588,6 +622,8 @@ try:
     print(factorial("hello"))
 except Exception as e:
     print(e)
+```
+
 
 
 ---
@@ -627,6 +663,8 @@ try:
     print(factorial("hello"))
 except Exception as e:
     print(e)
+```
+
 
 
 ---
@@ -652,6 +690,8 @@ match pill:
         print("the story ends, you wake up in your bed and believe whatever you want to believe")
     case _:
         print("this does not compute")
+```
+
 
 
 ---
@@ -689,6 +729,8 @@ test_number((0,0))
 test_number((1,0))
 test_number((0,1))
 test_number((1,1))
+```
+
 
 
 ---
@@ -726,6 +768,8 @@ test_number((-1,0))
 test_number((0,1))
 test_number((0,-1))
 test_number((1,1))
+```
+
 
 
 ---
@@ -759,6 +803,8 @@ test_number([-1,0])
 test_number([0,1])
 test_number([0,-1])
 test_number([1,1])
+```
+
 
 
 ---
@@ -790,6 +836,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -821,6 +869,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -854,6 +904,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -893,6 +945,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -926,6 +980,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -958,6 +1014,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -986,6 +1044,8 @@ def perform_command():
 
 
 print(perform_command())
+```
+
 
 
 ---
@@ -1043,6 +1103,8 @@ test_number(Complex(-1,0))
 test_number(Complex(0,1))
 test_number(Complex(0,-1))
 test_number(Complex(1,1))
+```
+
 
 
 ---
@@ -1107,6 +1169,8 @@ test_number(Fraction(0,1))
 test_number(Fraction(1,1))
 test_number(Fraction(1,2))
 test_number(Fraction(1,3))
+```
+
 
 
 ---
@@ -1128,6 +1192,8 @@ def parse_generic_llm_error(e: Exception) -> tuple[int, str, str]:
             return parse_watsonx_error(e)
         case _:
             return DEFAULT_STATUS_CODE, DEFAULT_ERROR_MESSAGE, str(e)
+```
+
 
 
 ---
@@ -1299,6 +1365,8 @@ print(to_rgb(basic_color7))
 
 basic_color8 = BasicColor.WHITE
 print(to_rgb(basic_color8))
+```
+
 
 
 ---
@@ -1306,5 +1374,7 @@ print(to_rgb(basic_color8))
 ```python
 def exit():
     .0%0.
+```
+
 
 
