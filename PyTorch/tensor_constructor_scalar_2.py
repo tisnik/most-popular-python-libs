@@ -1,6 +1,6 @@
 import torch
 
-# konstrukce tenzoru
+# konstrukce tenzoru (jednoprvkovy vektor) s jeho inicializaci
 s2 = torch.tensor([-1])
 print(s2)
 
