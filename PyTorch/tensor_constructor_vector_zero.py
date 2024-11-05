@@ -1,6 +1,7 @@
 import torch
 
-# konstrukce tenzoru
+# konstrukce tenzoru prvniho radu
+# s vynulovanim vsech prvku
 v1 = torch.Tensor(3).zero_()
 print(v1)
 
