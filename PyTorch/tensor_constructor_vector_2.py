@@ -1,6 +1,6 @@
 import torch
 
-# konstrukce tenzoru
+# konstrukce tenzoru prvniho radu (vektoru) s inicializaci prvku
 v2 = torch.Tensor([1, 2, 3])
 print(v2)
 
