@@ -29,10 +29,10 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-1'>#</a>
       </div>
-      <p>konstrukce tenzoru</p>
+      <p>skutecny skalar - tenzor nulteho radu</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">s1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="n">s1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -42,11 +42,11 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>pristup k (jedine) slozce tenzoru</p>
+      <p>konstrukce tenzoru prvniho radu (jednoprvkovy vektor)</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">s2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -55,10 +55,10 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      <p>skutecny skalar</p>
+      <p>pristup k (jedine) slozce tenzoru</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">s2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
 
 </pre></div>
