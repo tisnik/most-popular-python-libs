@@ -37,6 +37,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stride:&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">stride</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Offset:&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">storage_offset</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contiguous:&quot;</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
 
 <span class="n">m2</span> <span class="o">=</span> <span class="n">m1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -44,6 +45,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stride:&quot;</span><span class="p">,</span> <span class="n">m2</span><span class="o">.</span><span class="n">stride</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Offset:&quot;</span><span class="p">,</span> <span class="n">m2</span><span class="o">.</span><span class="n">storage_offset</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contiguous:&quot;</span><span class="p">,</span> <span class="n">m2</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
 
 <span class="n">m3</span> <span class="o">=</span> <span class="n">m1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -51,6 +53,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stride:&quot;</span><span class="p">,</span> <span class="n">m3</span><span class="o">.</span><span class="n">stride</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Offset:&quot;</span><span class="p">,</span> <span class="n">m3</span><span class="o">.</span><span class="n">storage_offset</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contiguous:&quot;</span><span class="p">,</span> <span class="n">m3</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
 
 <span class="n">m4</span> <span class="o">=</span> <span class="n">m1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -58,6 +61,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">m4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stride:&quot;</span><span class="p">,</span> <span class="n">m4</span><span class="o">.</span><span class="n">stride</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Offset:&quot;</span><span class="p">,</span> <span class="n">m4</span><span class="o">.</span><span class="n">storage_offset</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contiguous:&quot;</span><span class="p">,</span> <span class="n">m4</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
 
 </pre></div>
