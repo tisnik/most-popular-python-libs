@@ -6,6 +6,7 @@ print("v1:")
 print(v1)
 print("Stride:", v1.stride())
 print("Offset:", v1.storage_offset())
+print("Contiguous:", v1.is_contiguous())
 print()
 
 # konstrukce tenzoru - rezu
@@ -14,6 +15,7 @@ print("v2:")
 print(v2)
 print("Stride:", v2.stride())
 print("Offset:", v2.storage_offset())
+print("Contiguous:", v2.is_contiguous())
 print()
 
 # konstrukce tenzoru - rezu
@@ -22,6 +24,7 @@ print("v3:")
 print(v3)
 print("Stride:", v3.stride())
 print("Offset:", v3.storage_offset())
+print("Contiguous:", v3.is_contiguous())
 print()
 
 # konstrukce tenzoru - rezu
@@ -30,6 +33,7 @@ print("v4:")
 print(v4)
 print("Stride:", v4.stride())
 print("Offset:", v4.storage_offset())
+print("Contiguous:", v4.is_contiguous())
 print()
 
 # konstrukce tenzoru - rezu
@@ -38,5 +42,6 @@ print("v5:")
 print(v5)
 print("Stride:", v5.stride())
 print("Offset:", v5.storage_offset())
+print("Contiguous:", v5.is_contiguous())
 print()
 
