@@ -6,6 +6,7 @@ print("v1:")
 print(v1)
 print("Stride:", v1.stride())
 print("Offset:", v1.storage_offset())
+print("Contiguous:", v1.is_contiguous())
 print()
 
 # konstrukce tenzoru
@@ -14,6 +15,7 @@ print("m1:")
 print(m1)
 print("Stride:", m1.stride())
 print("Offset:", m1.storage_offset())
+print("Contiguous:", m1.is_contiguous())
 print()
 
 # 3D struktura
@@ -25,3 +27,4 @@ print("c1:")
 print(c1)
 print("Stride:", c1.stride())
 print("Offset:", c1.storage_offset())
+print("Contiguous:", c1.is_contiguous())
