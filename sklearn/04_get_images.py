@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Přečtení rastrových obrázků z datové sady s ručně nakreslenými číslicemi."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
