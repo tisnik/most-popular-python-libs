@@ -17,11 +17,19 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>import tridy realizujici vyber atributu</p>
+      <p>(C) Copyright 2024  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+<p>Tento demonstracni priklad je pouzity v serialu o datove analyze
+s vyuzitim programovaciho jazyka Python:
+https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">f_classif</span></pre></div>
+      <div class="highlight"><pre><span></span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -30,10 +38,11 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-1'>#</a>
       </div>
-      <p>import funkce pro nacteni datove sady, kterou pouzijeme</p>
+      <p>import tridy realizujici vyber atributu</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span></pre></div>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">f_classif</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -42,10 +51,10 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>nacteni datove sady</p>
+      <p>import funkce pro nacteni datove sady, kterou pouzijeme</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">housings</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span></pre></div>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -53,6 +62,18 @@
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>nacteni datove sady</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">housings</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
       </div>
       <p>precteni dat z datove sady
 urcenych pro trenink, validaci atd.</p>
@@ -62,10 +83,10 @@ urcenych pro trenink, validaci atd.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-4'>
+  <div class='section' id='section-5'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-4'>#</a>
+        <a class='octothorpe' href='#section-5'>#</a>
       </div>
       <p>jmena jednotlivych atributu</p>
     </div>
@@ -74,10 +95,10 @@ urcenych pro trenink, validaci atd.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-5'>
+  <div class='section' id='section-6'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-5'>#</a>
+        <a class='octothorpe' href='#section-6'>#</a>
       </div>
       <p>tvar puvodni datove sady (pocet zaznamu a atributu) pred vyberem</p>
     </div>
@@ -87,10 +108,10 @@ urcenych pro trenink, validaci atd.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-6'>
+  <div class='section' id='section-7'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-6'>#</a>
+        <a class='octothorpe' href='#section-7'>#</a>
       </div>
       <p>provest filtering dat</p>
     </div>
@@ -100,10 +121,10 @@ urcenych pro trenink, validaci atd.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-7'>
+  <div class='section' id='section-8'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-7'>#</a>
+        <a class='octothorpe' href='#section-8'>#</a>
       </div>
       <p>tvar upravene datove sady (pocet zaznamu a atributu)</p>
     </div>
