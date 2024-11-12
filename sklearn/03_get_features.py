@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Získání základních informací o datové sadě s ručně nakreslenými číslicemi."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
