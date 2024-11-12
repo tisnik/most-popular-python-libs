@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Vykreslení obsahu matice do grafu."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
@@ -23,7 +25,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # vytvoření matice, kterou budeme vizualizovat
-array = np.random.rand(10, 10)
+array = np.random.rand(10, 10) # noqa: NPY002
 
 # vykreslení
 plt.matshow(array)
