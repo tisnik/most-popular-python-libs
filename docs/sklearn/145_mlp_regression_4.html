@@ -17,7 +17,16 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      
+      <p>(C) Copyright 2024  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+<p>Tento demonstracni priklad je pouzity v serialu o datove analyze
+s vyuzitim programovaciho jazyka Python:
+https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span></pre></div>
@@ -115,7 +124,7 @@ urcenych pro trenink, validaci atd.</p>
       <div class="highlight"><pre>    <span class="n">neurons</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span>
     <span class="n">nn</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="p">(</span><span class="n">neurons</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">neurons</span><span class="p">))</span>
 
-    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span></pre></div>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;r2&quot;</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
