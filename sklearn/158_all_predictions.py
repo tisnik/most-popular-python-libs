@@ -18,10 +18,8 @@
 # Rozpoznání obrazu s využitím knihovny scikit-learn
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 
 # Databáze ručně zapsaných číslic
