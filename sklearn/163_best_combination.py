@@ -18,10 +18,8 @@
 # Rozpoznání obrazu s využitím knihovny scikit-learn
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import ConfusionMatrixDisplay
 
