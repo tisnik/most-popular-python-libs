@@ -18,7 +18,6 @@
 # Rozpoznání obrazu s využitím knihovny scikit-learn
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPClassifier
