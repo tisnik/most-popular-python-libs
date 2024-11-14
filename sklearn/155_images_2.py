@@ -18,7 +18,6 @@
 # Rozpoznání obrazu s využitím knihovny scikit-learn
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 from sklearn import svm
 from sklearn.model_selection import train_test_split
