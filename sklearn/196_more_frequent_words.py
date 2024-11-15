@@ -25,6 +25,7 @@ feature_names = vectorizer.get_feature_names_out()
 
 # převod na běžnou matici
 as_array = vectorized.toarray()
+print(as_array)
 
 # výpočet IDF - převrácené četnosti slov
 transformer = TfidfTransformer(smooth_idf=True, use_idf=True)
