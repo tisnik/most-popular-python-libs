@@ -4,10 +4,8 @@
 # Based on example presented in following article:
 # https://stackabuse.com/python-for-nlp-sentiment-analysis-with-scikit-learn/
 
-import numpy as np
 import pandas as pd
 import re
-import nltk
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
