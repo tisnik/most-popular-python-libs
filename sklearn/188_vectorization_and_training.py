@@ -4,16 +4,14 @@
 # Based on example presented in following article:
 # https://stackabuse.com/python-for-nlp-sentiment-analysis-with-scikit-learn/
 
-import numpy as np
 import pandas as pd
 import re
-import nltk
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 
