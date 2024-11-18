@@ -1,5 +1,6 @@
 # Vektorizace sady textů (korpusu)
 
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 
 # sada textů (korpus)
@@ -25,3 +26,13 @@ as_array = vectorized.toarray()
 
 # zobrazení výsledku v novém formátu
 print(as_array)
+print()
+
+# získat vektor z 2D pole
+flattened = as_array.flatten()
+
+# unikátní prvky a jejich frekvence
+unique, counts = np.unique(flattened, return_counts=True)
+
+print("Word count statistic:")
+print(np.asarray((unique, counts)).T)
