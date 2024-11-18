@@ -16,7 +16,7 @@ import tiktoken
 def compare_encodings(example_string: str) -> None:
     print(f'\nExample string: "{example_string}"')
 
-    for encoding_name in ["r50k_base", "p50k_base", "cl100k_base"]:
+    for encoding_name in ["o200k_base", "r50k_base", "p50k_base", "cl100k_base"]:
         encoding = tiktoken.get_encoding(encoding_name)
         tokens = encoding.encode(example_string)
         num_tokens = len(tokens)
