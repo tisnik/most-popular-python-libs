@@ -3,7 +3,6 @@
 
 """Simple preprocessor for Markdown files that handles @ character as include statement."""
 
-import os
 
 input_file = "pattern_matching_in.md"
 output_file = "pattern_matching.md"
