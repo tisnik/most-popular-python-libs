@@ -58,7 +58,7 @@ class Example11App(pygubu.TkApplication):
     def validate_input_text(self, value):
         if value.isdigit():
             return True
-        elif value is "":
+        elif value == "":
             return True
         else:
             return False
