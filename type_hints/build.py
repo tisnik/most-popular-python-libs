@@ -3,7 +3,6 @@
 
 """Simple preprocessor for Markdown files that handles @ character as include statement."""
 
-import os
 
 input_file = "type_hints_in.md"
 output_file = "type_hints.md"
