@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+"""Vizualizace obsahu matice stupni šedi."""
+
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
 #
