@@ -41,7 +41,7 @@ def test_number(value):
         case (real, imag):
             print(f"Complex number {real}+i{imag}")
         case Complex(real=0, imag=0):
-            print(f"Zero complex represented as object")
+            print("Zero complex represented as object")
         case Complex():
             print(value)
         case Fraction():
