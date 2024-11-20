@@ -1,7 +1,6 @@
 # Jména metod volaných při výstupu z uzlu daného typu
 
-"""
-leave_Add_whitespace_before
+"""leave_Add_whitespace_before
 leave_Add_whitespace_after
 leave_AddAssign_whitespace_before
 leave_AddAssign_whitespace_after
