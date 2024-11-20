@@ -1,5 +1,6 @@
 """Uložení obsahu vektoru do textového souboru se specifikací oddělovače a
-formátu jednotlivých prvků."""
+formátu jednotlivých prvků.
+"""
 
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
