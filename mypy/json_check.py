@@ -13,8 +13,7 @@
 #      Pavel Tisnovsky
 #
 
-"""
-Simple checker of all JSONs in the given directory (usually repository).
+"""Simple checker of all JSONs in the given directory (usually repository).
 
 usage: json_check.py [-h] [-v]
 
