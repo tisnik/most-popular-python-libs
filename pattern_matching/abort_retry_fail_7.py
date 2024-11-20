@@ -18,7 +18,6 @@ print("Not ready reading drive A")
 
 def abort_retry_fail():
     """Reakce na odpoved uzivatele."""
-
     match input("Abort, Retry, Fail? "):
         case "a" | "A":
             return "Abort"
