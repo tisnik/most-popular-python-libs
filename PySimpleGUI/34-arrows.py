@@ -53,7 +53,6 @@ layout = [
 
 def draw_lines(canvas, tkcanvas):
     """Vykreslení úseček na plátno."""
-
     # zjistit aktuální velikost plátna
     size = canvas.get_size()
 
