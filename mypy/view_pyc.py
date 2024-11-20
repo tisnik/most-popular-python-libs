@@ -16,7 +16,6 @@ import time
 
 def view_pyc_file(path):
     """Read and display a content of the Python`s bytecode in a pyc-file."""
-
     with open(path, "rb") as file:
 
         magic = file.read(4)
