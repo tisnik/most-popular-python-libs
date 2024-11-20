@@ -1,7 +1,6 @@
 # Jména metod volaných při vstupu do uzlu daného typu
 
-"""
-visit_Add
+"""visit_Add
 visit_Add_whitespace_before
 visit_Add_whitespace_after
 visit_AddAssign
