@@ -740,7 +740,8 @@ class map(_coconut.map):
 
 class parallel_map(map):
     """Multi-process implementation of map using concurrent.futures.
-    Requires arguments to be pickleable."""
+    Requires arguments to be pickleable.
+    """
 
     __slots__ = ()
 
@@ -979,7 +980,8 @@ class count(object):
 
 class groupsof(object):
     """groupsof(n, iterable) splits iterable into groups of size n.
-    If the length of the iterable is not divisible by n, the last group may be of size < n."""
+    If the length of the iterable is not divisible by n, the last group may be of size < n.
+    """
 
     __slots__ = ("group_size", "iter")
 
@@ -1060,7 +1062,8 @@ def recursive_iterator(func):
 
 def addpattern(base_func):
     """Decorator to add a new case to a pattern-matching function,
-    where the new case is checked last."""
+    where the new case is checked last.
+    """
 
     def pattern_adder(func):
         @_coconut_tco
@@ -1216,7 +1219,8 @@ class starmap(_coconut.itertools.starmap):
 
 def fmap(func, obj):
     """fmap(func, obj) creates a copy of obj with func applied to its contents.
-    Override by defining .__fmap__(func)."""
+    Override by defining .__fmap__(func).
+    """
     if _coconut.hasattr(obj, "__fmap__"):
         return obj.__fmap__(func)
     args = (
