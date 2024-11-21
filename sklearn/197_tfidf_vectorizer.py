@@ -1,5 +1,6 @@
 # Přímý výpočet relevance jednotlivých slov
 
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # sada textů (korpus)
@@ -24,4 +25,5 @@ print()
 as_array = vectorized.toarray()
 
 # zobrazení výsledku v novém formátu
+np.set_printoptions(precision=2)
 print(as_array)
