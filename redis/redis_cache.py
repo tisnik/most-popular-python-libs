@@ -37,7 +37,6 @@ class RedisCache:
 
         This method sets up the Redis client with custom configuration parameters.
         """
-
         # initialize Redis client
         self.redis_client = redis.StrictRedis(
             host="localhost",
