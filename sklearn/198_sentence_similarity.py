@@ -21,6 +21,10 @@ vectorized = vectorizer.fit_transform(corpus)
 print(vectorized)
 print()
 
+np.set_printoptions(precision=4)
+
+print(vectorized.toarray())
+
 # matice s převrácenými četnostmi
 pairwise_similarity = vectorized * vectorized.T
 
