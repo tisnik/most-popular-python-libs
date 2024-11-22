@@ -17,7 +17,7 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      
+      <p>Vykreslení obsahu matice do grafu.</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span></pre></div>
@@ -28,6 +28,18 @@
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
       </div>
       <p>(C) Copyright 2021  Pavel Tisnovsky</p>
 <p>All rights reserved. This program and the accompanying materials
@@ -45,10 +57,10 @@ https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-2'>
+  <div class='section' id='section-3'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-2'>#</a>
+        <a class='octothorpe' href='#section-3'>#</a>
       </div>
       <p>budeme provádět vykreslování de facto standardní knihovnou Matplotlib</p>
     </div>
@@ -59,27 +71,15 @@ https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-3'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-3'>#</a>
-      </div>
-      <p>vytvoření matice, kterou budeme vizualizovat</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
   <div class='section' id='section-4'>
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
-      <p>vykreslení</p>
+      <p>vytvoření matice, kterou budeme vizualizovat</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># noqa: NPY002</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -88,10 +88,10 @@ https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-5'>#</a>
       </div>
-      <p>uložení vizualizované matice</p>
+      <p>vykreslení</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;random.png&quot;</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -100,10 +100,10 @@ https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-6'>#</a>
       </div>
-      <p>vizualizace na obrazovku</p>
+      <p>uložení vizualizované matice</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;random.png&quot;</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -111,6 +111,18 @@ https://www.root.cz/serialy/datova-analyza-s-vyuzitim-jazyka-python/</p>
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>vizualizace na obrazovku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
       </div>
       <p>finito</p>
     </div>
