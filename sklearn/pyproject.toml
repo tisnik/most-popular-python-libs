@@ -1,9 +1,22 @@
+[tool.ruff]
+
 # description of all rules are available on https://docs.astral.sh/ruff/rules/
-lint.select = ["F"]
+lint.select = ["F401"]
+
+# we need to check 'mood' of all docstrings, this needs to be enabled explicitly
+lint.extend-select = ["D401"]
+
+lint.ignore = ["COM812", "G004", "TRY003", "EM102", "TD", "TRY300", "FIX002", "UP007", "UP009", "T201"]
+
+target-version = "py311"
+lint.pydocstyle.convention = "google"
+line-length = 100
+
+exclude = ["coconut", "pyrsistent"]
 
 [project]
 name = ""
-version = ""
+version = "1.0.0"
 description = ""
 authors = [
     {name = "", email = ""},
