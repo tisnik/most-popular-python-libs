@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPClassifier
