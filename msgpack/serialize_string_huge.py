@@ -6,5 +6,5 @@ value *= 300
 print(len(value))
 
 with open("huge_string.bin", "wb") as outfile:
- packed = msgpack.packb(value)
- outfile.write(packed)
+    packed = msgpack.packb(value)
+    outfile.write(packed)
