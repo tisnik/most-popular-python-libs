@@ -1,0 +1,5 @@
+x = bytes(b"The quick brown fox jumps over the lazy dog")
+print(x.hex())
+print(x.hex(" "))
+print(x.hex(" ", 2))
+print(x.hex(" ", 4))
