@@ -20,6 +20,7 @@ print(type(w))
 print(w)
 print()
 
+# UTF-8 s BOM, pouziva ho napriklad Notepad a dalsi divne aplikace
 q = s.encode("utf-8-sig")
 print(type(q))
 print(q)
