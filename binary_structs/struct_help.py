@@ -1,0 +1,3 @@
+import struct
+
+help(struct)
