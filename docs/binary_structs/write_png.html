@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>write_png.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>write_png.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Zápis rastrového obrázku s RGB pixely do formátu PNG.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Inspirace: https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">zlib</span>
+
+<span class="n">PNG_SIGNATURE</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x89</span><span class="s1">PNG</span><span class="se">\r\n\x1a\n</span><span class="s1">&#39;</span>
+<span class="n">FILTER_TYPE</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Konverze barev pixelů z bufferu do podoby se specifikací filtru na každém řádku.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">prepare_raw_data</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">raw_data</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>nastavit filtr + zkopirovat jeden radek (scanline)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">raw_data</span> <span class="o">+=</span> <span class="n">FILTER_TYPE</span> <span class="o">+</span> <span class="n">buffer</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span><span class="o">+</span><span class="n">width</span><span class="o">*</span><span class="mi">3</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>na dalsi radek ve zdrojovem bufferu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">offset</span> <span class="o">+=</span> <span class="n">width</span><span class="o">*</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">raw_data</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Konstrukce jednoho PNG chunku s tagem i závěrečným kontrolním kódem.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">png_chunk</span><span class="p">(</span><span class="n">png_tag</span><span class="p">,</span> <span class="n">chunk_data</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">chunk_header</span> <span class="o">=</span> <span class="n">png_tag</span> <span class="o">+</span> <span class="n">chunk_data</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!I&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk_data</span><span class="p">))</span> <span class="o">+</span>
+            <span class="n">chunk_header</span> <span class="o">+</span>
+            <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!I&quot;</span><span class="p">,</span> <span class="mh">0xFFFFFFFF</span> <span class="o">&amp;</span> <span class="n">zlib</span><span class="o">.</span><span class="n">crc32</span><span class="p">(</span><span class="n">chunk_header</span><span class="p">)))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Uložení rastrového obrázku z bufferu do PNG.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">write_png</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">raw_data</span> <span class="o">=</span> <span class="n">prepare_raw_data</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="n">PNG_SIGNATURE</span><span class="p">,</span>
+        <span class="n">png_chunk</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;IHDR&#39;</span><span class="p">,</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!2I5B&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+        <span class="n">png_chunk</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;IDAT&#39;</span><span class="p">,</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">wbits</span><span class="o">=</span><span class="mi">15</span><span class="p">)),</span>
+        <span class="n">png_chunk</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;IEND&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)])</span>
+
+
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">256</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>buffer pro rastrová data</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">pixels</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">*</span><span class="n">HEIGHT</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>vybarvení testovacího obrázku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">):</span>
+        <span class="n">pixels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xff</span>
+        <span class="n">index</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">pixels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">index</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">pixels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">index</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">write_png</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.png&quot;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+    <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
