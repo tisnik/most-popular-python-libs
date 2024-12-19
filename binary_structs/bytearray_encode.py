@@ -1,3 +1,5 @@
+"""Uložení řetězce do pole bajtů s volitelných kódováním."""
+
 s = "The quick brown fox jumps over the lazy dog"
 
 x = bytearray(s, "ascii")
