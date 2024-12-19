@@ -1,3 +1,5 @@
+"""Uložení řetězce do pole bajtů s volitelných kódováním."""
+
 s = "ěščřžýáíéů"
 
 # nelze převést na čisté ASCII
