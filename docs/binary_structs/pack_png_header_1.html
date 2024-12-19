@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>pack_png_header_1.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>pack_png_header_1.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Width:              4 bytes
+Height:             4 bytes
+Bit depth:          1 byte
+Color type:         1 byte
+Compression method: 1 byte
+Filter method:      1 byte
+Interlace method:   1 byte</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">width</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">768</span>
+<span class="n">bit_depth</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">color_type</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># RGB</span>
+<span class="n">compression_method</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># deflate</span>
+<span class="n">filter_method</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># adaptive filter</span>
+<span class="n">interlace_method</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># no interlace</span>
+
+<span class="n">bytes1</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;IHDR&quot;</span> <span class="o">+</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span>
+    <span class="s2">&quot;!IIBBBBB&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">,</span>
+    <span class="n">bit_depth</span><span class="p">,</span>
+    <span class="n">color_type</span><span class="p">,</span>
+    <span class="n">compression_method</span><span class="p">,</span>
+    <span class="n">filter_method</span><span class="p">,</span>
+    <span class="n">interlace_method</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bytes1</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
