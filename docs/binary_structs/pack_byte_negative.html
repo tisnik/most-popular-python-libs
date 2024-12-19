@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>pack_byte_negative.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>pack_byte_negative.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="n">bytes1</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bytes1</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">bytes2</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bytes2</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
