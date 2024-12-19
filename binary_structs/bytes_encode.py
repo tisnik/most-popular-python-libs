@@ -1,3 +1,5 @@
+"""Uložení řetězce do sekvence bajtů s volitelných kódováním."""
+
 s = "The quick brown fox jumps over the lazy dog"
 
 x = bytes(s, "ascii")
