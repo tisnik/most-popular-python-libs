@@ -1,4 +1,6 @@
-# https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image
+"""Zápis rastrového obrázku s RGB pixely do formátu PNG."""
+
+# Inspirace: https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image
 
 import struct
 import zlib
@@ -7,8 +9,7 @@ PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
 FILTER_TYPE = b'\x00'
 
 def prepare_raw_data(buffer, width, height):
-    """Konverze barev pixelů z bufferu do podoby se specifikací filtru na
-    každém řádku."""
+    """Konverze barev pixelů z bufferu do podoby se specifikací filtru na každém řádku."""
     raw_data = bytearray()
     offset = 0
     for _ in range(height):
