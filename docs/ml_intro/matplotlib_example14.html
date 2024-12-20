@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>matplotlib_example14.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>matplotlib_example14.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <ul>
+<li>jednoduchý sloupcový graf</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>historické ceny ropy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">cena_ropy</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">46.68</span><span class="p">,</span>
+    <span class="mf">44.68</span><span class="p">,</span>
+    <span class="mf">46.90</span><span class="p">,</span>
+    <span class="mf">47.15</span><span class="p">,</span>
+    <span class="mf">44.59</span><span class="p">,</span>
+    <span class="mf">44.00</span><span class="p">,</span>
+    <span class="mf">44.63</span><span class="p">,</span>
+    <span class="mf">45.92</span><span class="p">,</span>
+    <span class="mf">44.15</span><span class="p">,</span>
+    <span class="mf">45.94</span><span class="p">,</span>
+    <span class="mf">46.05</span><span class="p">,</span>
+    <span class="mf">46.75</span><span class="p">,</span>
+    <span class="mf">46.25</span><span class="p">,</span>
+    <span class="mf">45.41</span><span class="p">,</span>
+    <span class="mf">49.20</span><span class="p">,</span>
+    <span class="mf">45.22</span><span class="p">,</span>
+    <span class="mf">42.56</span><span class="p">,</span>
+    <span class="mf">38.60</span><span class="p">,</span>
+    <span class="mf">39.31</span><span class="p">,</span>
+    <span class="mf">38.24</span><span class="p">,</span>
+    <span class="mf">40.45</span><span class="p">,</span>
+    <span class="mf">41.32</span><span class="p">,</span>
+    <span class="mf">40.80</span><span class="p">,</span>
+    <span class="mf">42.62</span><span class="p">,</span>
+    <span class="mf">41.87</span><span class="p">,</span>
+    <span class="mf">42.50</span><span class="p">,</span>
+    <span class="mf">42.23</span><span class="p">,</span>
+    <span class="mf">43.30</span><span class="p">,</span>
+    <span class="mf">43.08</span><span class="p">,</span>
+    <span class="mf">44.96</span><span class="p">,</span>
+    <span class="mf">43.87</span><span class="p">,</span>
+    <span class="mf">44.66</span><span class="p">,</span>
+    <span class="mf">45.15</span><span class="p">,</span>
+    <span class="mf">47.12</span><span class="p">,</span>
+    <span class="mf">48.52</span><span class="p">,</span>
+    <span class="mf">48.79</span><span class="p">,</span>
+    <span class="mf">47.98</span><span class="p">,</span>
+    <span class="mf">47.39</span><span class="p">,</span>
+    <span class="mf">48.14</span><span class="p">,</span>
+    <span class="mf">48.45</span><span class="p">,</span>
+<span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>počet prvků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cena_ropy</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>indexy prvků</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>šířka sloupců</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">width</span> <span class="o">=</span> <span class="mf">1.00</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>sloupcový graf</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indexes</span><span class="p">,</span> <span class="n">cena_ropy</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cena ropy&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>povolení zobrazení mřížky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>přidání legendy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>zobrazení grafu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
