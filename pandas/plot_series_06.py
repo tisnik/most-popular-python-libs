@@ -14,7 +14,6 @@
 #
 
 import matplotlib.pyplot as plt
-
 import pandas
 
 # přečtení zdrojových dat
