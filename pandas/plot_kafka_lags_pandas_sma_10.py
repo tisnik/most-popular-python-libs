@@ -15,7 +15,6 @@
 import sys
 
 import matplotlib.pyplot as plt
-
 import pandas as pd
 
 # Check if command line argument is specified (it is mandatory).
