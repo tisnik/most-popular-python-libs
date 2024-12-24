@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>inspect_function.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>inspect_function.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">array</span>
+
+<span class="kn">import</span> <span class="nn">machine</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">inspect</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">baddr</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span><span class="p">]))</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">baddr</span><span class="p">,</span> <span class="s2">&quot;little&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;function object at: 0x</span><span class="si">%08x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">addr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of args:     </span><span class="si">%u</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">machine</span><span class="o">.</span><span class="n">mem32</span><span class="p">[</span><span class="n">addr</span> <span class="o">+</span> <span class="mi">8</span><span class="p">])</span>
+    <span class="n">code_addr</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">mem32</span><span class="p">[</span><span class="n">addr</span> <span class="o">+</span> <span class="mi">12</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;machine code at:    0x</span><span class="si">%08x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">code_addr</span><span class="p">)</span>
+    <span class="n">previous</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">mem8</span><span class="p">[</span><span class="n">code_addr</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span>
+        <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">current</span> <span class="o">==</span> <span class="mh">0xbd</span> <span class="ow">and</span> <span class="n">previous</span> <span class="o">==</span> <span class="mh">0xfe</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">previous</span> <span class="o">=</span> <span class="n">current</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;machine code size:  </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-- code --&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">machine</span><span class="o">.</span><span class="n">mem8</span><span class="p">[</span><span class="n">code_addr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">02x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">16</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">----------&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
