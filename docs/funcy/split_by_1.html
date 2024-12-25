@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>split_by_1.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>split_by_1.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2023  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">funcy</span> <span class="kn">import</span> <span class="n">split_by</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">selected</span><span class="p">,</span> <span class="n">rest</span> <span class="o">=</span> <span class="n">split_by</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">selected</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rest</span><span class="p">))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
