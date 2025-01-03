@@ -1,5 +1,6 @@
 import struct
 
+
 def size_for_format(format):
     size = struct.calcsize(format)
     print(f"{format:>6}:{size}")
