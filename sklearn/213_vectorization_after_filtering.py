@@ -19,7 +19,6 @@
 
 import pandas as pd
 import re
-from itertools import zip_longest
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import CountVectorizer
 
