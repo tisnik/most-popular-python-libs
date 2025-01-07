@@ -17,10 +17,10 @@ import io
 from functools import partial
 from io import StringIO
 
-import matplotlib
-import matplotlib.pyplot as plt
 from minio import Minio
 
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from pywebio import *
