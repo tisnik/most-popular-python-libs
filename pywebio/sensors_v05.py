@@ -15,10 +15,10 @@
 
 from io import StringIO
 
-import matplotlib
-import matplotlib.pyplot as plt
 from minio import Minio, ResponseError
 
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
