@@ -26,7 +26,16 @@
 import pyglet
 
 # druhý import s funkcemi převzatými z OpenGL
-from pyglet.gl import GL_COLOR_BUFFER_BIT, GL_TRIANGLES, glBegin, glClear, glColor3f, glEnd, glLoadIdentity, glVertex2f
+from pyglet.gl import (
+    GL_COLOR_BUFFER_BIT,
+    GL_TRIANGLES,
+    glBegin,
+    glClear,
+    glColor3f,
+    glEnd,
+    glLoadIdentity,
+    glVertex2f,
+)
 
 # vytvoření okna
 window = pyglet.window.Window(width=640, height=480, caption="Pyglet+OpenGL")
