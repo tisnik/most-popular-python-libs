@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>exception-group-4.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>exception-group-4.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="n">eg</span> <span class="o">=</span> <span class="n">ExceptionGroup</span><span class="p">(</span>
+        <span class="s2">&quot;Very serious exception&quot;</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unexpected type detected, expecting integer&quot;</span><span class="p">),</span>
+            <span class="n">ExceptionGroup</span><span class="p">(</span>
+                <span class="s2">&quot;First sub-group&quot;</span><span class="p">,</span>
+                <span class="p">[</span><span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value&quot;</span><span class="p">),</span>
+                 <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;Can not find file named foo.bar&quot;</span><span class="p">),</span>
+                 <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">&quot;Divided by zero&quot;</span><span class="p">)]</span>
+            <span class="p">),</span>
+            <span class="n">ExceptionGroup</span><span class="p">(</span>
+                <span class="s2">&quot;Second sub-group&quot;</span><span class="p">,</span>
+                <span class="p">[</span><span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unexpected type detected again, expecting integer&quot;</span><span class="p">),</span>
+                 <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">&quot;Divided by zero&quot;</span><span class="p">)]</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let&#39;s raise exception group&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="k">raise</span> <span class="n">eg</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fnf</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FileNotFoundError&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fnf</span><span class="o">.</span><span class="n">exceptions</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ValueError&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ve</span><span class="o">.</span><span class="n">exceptions</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">zde</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ZeroDivisionError&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zde</span><span class="o">.</span><span class="n">exceptions</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="k">except</span><span class="o">*</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something else&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
