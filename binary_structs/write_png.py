@@ -1,5 +1,18 @@
 """Zápis rastrového obrázku s RGB pixely do formátu PNG."""
 
+#
+#  (C) Copyright 2025  Pavel Tisnovsky
+#
+#  All rights reserved. This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Contributors:
+#      Pavel Tisnovsky
+#
+
+
 # Inspirace: https://stackoverflow.com/questions/902761/saving-a-numpy-array-as-an-image
 
 import struct
