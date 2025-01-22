@@ -1,6 +1,7 @@
 import random
 from datetime import datetime
 import strawberry
+import uuid
 
 
 @strawberry.type
@@ -27,21 +28,36 @@ class UpgradeRisksPredictors:
 class UpgradePrediction:
     recommended: bool
     last_checked_at: str
+    prediction_status: str
+    cluster_id: str
     upgrade_risks_predictors: list[UpgradeRisksPredictors]
 
 
 def generate_alerts():
+    names = ["CriticalAlert", "SecurityAlert", "InfoAlert"]
+    namespaces = ["openshift-kube-apiserver"]
+    severities = ["info", "warning", "error", "critical"]
     alerts = []
     for i in range(random.randrange(1, 5)):
-        alert = Alert(name="alert1", namespace="namespace1", severity="High")
+        alert = Alert(
+            name=random.choice(names),
+            namespace=random.choice(namespaces),
+            severity=random.choice(severities),
+        )
         alerts.append(alert)
     return alerts
 
 
 def generate_operator_conditions():
     conds = []
+    names = ["authentication", "security", "networking", "performance"]
+    conditions = ["Degraded", "Untrusted", "Security check"]
     for i in range(random.randrange(1, 5)):
-        cond = OperatorCondition(name="cond1", condition="condition1", reason="reason1")
+        cond = OperatorCondition(
+            name=random.choice(names),
+            condition=random.choice(conditions),
+            reason="AsExpected",
+        )
         conds.append(cond)
     return conds
 
@@ -58,20 +74,17 @@ def retrieve_predictions() -> list[UpgradeRisksPredictors]:
 
 def upgrade_prediction() -> UpgradePrediction:
     recommended = random.choice([True, False])
-    recommended = False
-    if recommended:
-        return UpgradePrediction(
-            recommended=recommended,
-            last_checked_at=datetime.now(),
-            upgrade_risks_predictors=[],
-        )
-    else:
-        predictions = retrieve_predictions()
-        return UpgradePrediction(
-            recommended=recommended,
-            last_checked_at=datetime.now(),
-            upgrade_risks_predictors=predictions,
-        )
+    upgrade_risks_predictors = []
+    if not recommended:
+        upgrade_risks_predictors = retrieve_predictions()
+
+    return UpgradePrediction(
+        cluster_id=uuid.uuid4(),
+        recommended=recommended,
+        last_checked_at=datetime.now(),
+        upgrade_risks_predictors=upgrade_risks_predictors,
+        prediction_status="ok",
+    )
 
 
 @strawberry.type
