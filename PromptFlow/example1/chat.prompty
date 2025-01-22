@@ -1,0 +1,22 @@
+---
+name: Minimal Chat
+model:
+  api: chat
+  configuration:
+    type: openai
+    model: gpt-3.5-turbo
+  parameters:
+    temperature: 0.2
+    max_tokens: 1024
+inputs:
+  question:
+    type: string
+sample:
+  question: "What is Prompt flow?"
+---
+
+system:
+You are a helpful assistant.
+
+user:
+{{question}}

@@ -1,0 +1,12 @@
+{
+    "function": "chat",
+    "entry": "flow:chat",
+    "code": "/home/ptisnovs/src/most-popular-python-libs/PromptFlow/example1",
+    "name": "example1",
+    "inputs": {
+        "question": {
+            "type": "string",
+            "default": "What's the capital of France?"
+        }
+    }
+}
