@@ -1,0 +1,15 @@
+[project]
+name = "llm-1"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Pavel Tisnovsky", email = "ptisnovs@redhat.com"},
+]
+dependencies = ["langchain>=0.3.15", "langchain-community>=0.3.15", "openai>=1.59.9", "gql>=3.5.0"]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
