@@ -1,0 +1,37 @@
+---
+name: Stream Chat
+description: Chat with stream enabled.
+model:
+  api: chat
+  configuration:
+    type: openai
+    model: gpt-3.5-turbo
+  parameters:
+    temperature: 0.2
+    stream: true
+
+inputs:
+  first_name:
+    type: string
+  last_name:
+    type: string
+  question:
+    type: string
+  chat_history:
+    type: list
+sample:
+  first_name: John
+  last_name: Doe
+  question: What is Prompt flow?
+  chat_history: [ { "role": "user", "content": "what's the capital of France?" }, { "role": "assistant", "content": "Paris" } ]
+---
+system:
+You are a helpful assistant.
+Here is a chat history you had with the user:
+{% for item in chat_history %}
+{{item.role}}:
+{{item.content}}
+{% endfor %}
+
+user:
+{{question}}
