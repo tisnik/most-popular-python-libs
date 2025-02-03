@@ -1,6 +1,5 @@
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
-
 from sklearn.cluster import SpectralClustering
 from sklearn.datasets import make_blobs
 
