@@ -1,7 +1,6 @@
 # Vykreslení bodů v 3D prostoru
 
 import matplotlib.pyplot as plt
-
 from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 
