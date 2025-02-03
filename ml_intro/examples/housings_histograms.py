@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import fetch_california_housing
 
 # nacteni datove sady
