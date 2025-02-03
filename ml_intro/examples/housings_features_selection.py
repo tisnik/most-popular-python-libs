@@ -1,6 +1,6 @@
 import numpy as np
-from sklearn.datasets import fetch_california_housing
 from sklearn import linear_model
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import cross_val_score
 
 # nacteni datove sady
