@@ -1,7 +1,7 @@
 # - základní polární graf
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # úhel v polárním grafu
 theta = np.linspace(0.01, 2 * np.pi, 150)
