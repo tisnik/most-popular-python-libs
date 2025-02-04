@@ -2,8 +2,8 @@
 #   do jediného grafu
 # - změna stylu vykreslování průběhů funkcí
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.linspace(0.01, 2 * np.pi, 100)
