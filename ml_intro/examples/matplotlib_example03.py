@@ -1,8 +1,8 @@
 # - vykreslení průběhů funkcí sin a cos
 #   do jediného grafu
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.linspace(0, 2 * np.pi, 100)
