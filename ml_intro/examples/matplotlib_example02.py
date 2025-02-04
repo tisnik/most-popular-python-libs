@@ -1,8 +1,8 @@
 # - vykreslení průběhu funkce sin
 # - uložení grafu do různých typů souboru
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.linspace(0, 2 * np.pi, 100)
