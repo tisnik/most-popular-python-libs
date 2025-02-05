@@ -1,7 +1,7 @@
 # - sloupcový graf se dvěma skupinami sloupců
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # první pole hodnot
 vals1 = [10, 15, 20, 12, 14, 8]
