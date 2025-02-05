@@ -1,8 +1,8 @@
 # - sloupcový graf se dvěma skupinami sloupců
 #   a se zobrazením odchylek
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # první pole hodnot a pole odchylek
 vals1 = [10, 15, 20, 12, 14, 8]
