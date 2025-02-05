@@ -1,8 +1,8 @@
 # - vykreslení průběhů několika funkcí
 # - do polárního grafu
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # úhel v polárním grafu
 theta = np.linspace(0.01, 4 * np.pi, 150)
