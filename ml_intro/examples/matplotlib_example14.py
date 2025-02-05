@@ -1,7 +1,7 @@
 # - jednoduchý sloupcový graf
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # historické ceny ropy
 cena_ropy = [
