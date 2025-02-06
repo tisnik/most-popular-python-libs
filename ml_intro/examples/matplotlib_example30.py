@@ -2,8 +2,8 @@
 # - při vykreslování se jednotlivé body spojí úsečkami
 # - použití logaritmického měřítka v ose x
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.linspace(0.2, 2 * np.pi, 100)
