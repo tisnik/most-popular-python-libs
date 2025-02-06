@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPClassifier
 
-
 # nacteni datove sady
 iris = load_iris()
 
