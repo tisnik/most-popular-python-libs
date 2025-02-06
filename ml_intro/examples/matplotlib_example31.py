@@ -1,8 +1,8 @@
 # - vykreslení průběhu exponenciální funkce
 # - při vykreslování se jednotlivé body spojí úsečkami
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.linspace(0.0, 10.0, 1000)
