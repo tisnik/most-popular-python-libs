@@ -1,10 +1,10 @@
 # - zobrazení 3D grafu funkce typu z=f(x,y)
 # - pomocná legenda - colorbar
 
-from matplotlib import cm
 import matplotlib.pyplot as plt
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import numpy as np
+from matplotlib import cm
+from matplotlib.ticker import FormatStrFormatter, LinearLocator
 
 fig = plt.figure()
 ax = fig.gca(projection="3d")
