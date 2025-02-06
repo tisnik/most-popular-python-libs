@@ -1,8 +1,8 @@
 # - zobrazení 3D grafu funkce typu z=f(x,y)
 
-from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import cm
 
 fig = plt.figure()
 ax = fig.gca(projection="3d")
