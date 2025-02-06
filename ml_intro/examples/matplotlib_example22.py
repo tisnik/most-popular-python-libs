@@ -1,9 +1,8 @@
 # - zobrazení kontur funkce typu z=f(x,y)
 # - zobrazení hodnot u jednotlivých "vrstevnic"
 
-import numpy as np
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 delta = 0.1
 
