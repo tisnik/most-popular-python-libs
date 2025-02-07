@@ -1,11 +1,10 @@
 
 import matplotlib.pyplot as plt
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import cross_val_score
 
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPRegressor
-
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import cross_val_score
 
 # nacteni datove sady
 housings = fetch_california_housing()
