@@ -1,11 +1,9 @@
 from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPClassifier
-
 
 # nacteni datove sady
 iris = load_iris()
