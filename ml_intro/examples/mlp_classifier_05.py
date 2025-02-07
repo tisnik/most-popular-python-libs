@@ -1,12 +1,10 @@
 
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import load_iris
 from sklearn.model_selection import cross_val_score
 
 # model zalozeny na neuronove siti
 from sklearn.neural_network import MLPClassifier
-
 
 # nacteni datove sady
 iris = load_iris()
