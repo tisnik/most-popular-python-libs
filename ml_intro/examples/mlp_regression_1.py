@@ -1,9 +1,8 @@
 # model zalozeny na neuronove siti
-from sklearn.neural_network import MLPRegressor
-
 from sklearn.datasets import fetch_california_housing
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPRegressor
 
 # nacteni datove sady
 housings = fetch_california_housing()
