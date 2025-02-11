@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>transcrypt-hello.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>transcrypt-hello.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">SolarSystem</span><span class="p">:</span>
+    <span class="n">planets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span> <span class="p">(</span><span class="n">chain</span> <span class="p">(</span><span class="n">planet</span><span class="p">,</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,)))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">planet</span> <span class="ow">in</span> <span class="nb">enumerate</span> <span class="p">((</span>
+        <span class="p">(</span><span class="s2">&quot;Mercury&quot;</span><span class="p">,</span> <span class="s2">&quot;hot&quot;</span><span class="p">,</span> <span class="mi">2240</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Venus&quot;</span><span class="p">,</span> <span class="s2">&quot;sulphurous&quot;</span><span class="p">,</span> <span class="mi">6052</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;fertile&quot;</span><span class="p">,</span> <span class="mi">6378</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;reddish&quot;</span><span class="p">,</span> <span class="mi">3397</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="s2">&quot;stormy&quot;</span><span class="p">,</span> <span class="mi">71492</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Saturn&quot;</span><span class="p">,</span> <span class="s2">&quot;ringed&quot;</span><span class="p">,</span> <span class="mi">60268</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Uranus&quot;</span><span class="p">,</span> <span class="s2">&quot;cold&quot;</span><span class="p">,</span> <span class="mi">25559</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Neptune&quot;</span><span class="p">,</span> <span class="s2">&quot;very cold&quot;</span><span class="p">,</span> <span class="mi">24766</span><span class="p">)</span>
+    <span class="p">))]</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is a </span><span class="si">{}</span><span class="s2"> planet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;The radius of </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2"> km&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is planet nr. </span><span class="si">{}</span><span class="s2"> counting from the sun&quot;</span>
+    <span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineIndex</span> <span class="o">=</span> <span class="mi">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">greet</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">planet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">planets</span> <span class="p">[</span><span class="nb">int</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">random</span> <span class="p">()</span> <span class="o">*</span> <span class="nb">len</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planets</span><span class="p">))]</span>
+        <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span> <span class="p">(</span><span class="s2">&quot;greet&quot;</span><span class="p">)</span> <span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;Hello </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planet</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explain</span> <span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">explain</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span> <span class="p">(</span><span class="s2">&quot;explain&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">innerHTML</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lines</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">lineIndex</span><span class="p">]</span> <span class="o">.</span><span class="n">format</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">planet</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">planet</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">lineIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lineIndex</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lineIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span>
+
+<span class="n">solarSystem</span> <span class="o">=</span> <span class="n">SolarSystem</span> <span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
