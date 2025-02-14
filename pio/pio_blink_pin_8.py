@@ -1,5 +1,6 @@
-from machine import Pin
 import rp2
+from machine import Pin
+
 
 @rp2.asm_pio(set_init=rp2.PIO.OUT_LOW)
 def blink_1hz():
