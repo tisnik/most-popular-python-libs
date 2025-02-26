@@ -1,6 +1,7 @@
+import time
+
 import rp2
 from machine import Pin
-import time
 
 
 @rp2.asm_pio(set_init=rp2.PIO.OUT_LOW)
