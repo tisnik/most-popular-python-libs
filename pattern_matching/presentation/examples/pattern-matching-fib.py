@@ -17,7 +17,7 @@ def fib(value):
 
 
 # tisk tabulky s prvky Fibonacciho posloupnosti
-for n in range(0, 11):
+for n in range(11):
     print(n, fib(n))
 
 # test neplatného vstupu
