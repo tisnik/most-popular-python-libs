@@ -26,7 +26,7 @@ def blink6():
 sm = rp2.StateMachine(0, blink6, freq=200000, set_base=Pin(25))
 sm.active(1)                   # spustit stavový stroj
 
-for duty_cycle in range(0, 32):
+for duty_cycle in range(32):
     time.sleep(0.3)
     sm.put(duty_cycle)         # prahová hodnota, která se pošle do FIFO
 
