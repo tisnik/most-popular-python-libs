@@ -5,7 +5,6 @@ from typing import Callable
 
 class Ovoce:
     """Třída, která je předkem tříd Hruska i Jablko."""
-    pass
 
 
 class Hruska(Ovoce):
