@@ -10,7 +10,6 @@ from typing import Sequence
 class Ovoce:
     """Třída, která je předkem tříd Hruska i Jablko."""
 
-    pass
 
 
 class Hruska(Ovoce):
