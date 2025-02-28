@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-
 import numpy as np
 
 # celkový počet vypočtených bodů na Lorenzově atraktoru
