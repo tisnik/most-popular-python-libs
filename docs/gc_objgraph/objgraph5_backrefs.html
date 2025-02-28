@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>objgraph5_backrefs.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>objgraph5_backrefs.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Grafické zobrazení referencí.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">objgraph</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>prázdné slovníky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">objgraph</span><span class="o">.</span><span class="n">show_backrefs</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;objgraph5A_backrefs.png&quot;</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>jedna reference</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">objgraph</span><span class="o">.</span><span class="n">show_backrefs</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;objgraph5B_backrefs.png&quot;</span><span class="p">)</span>
+
+<span class="n">y</span><span class="p">[</span><span class="s2">&quot;2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>cyklická reference</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">objgraph</span><span class="o">.</span><span class="n">show_backrefs</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;objgraph5C_backrefs.png&quot;</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">y</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">y</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">y</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">y</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>přidání dalších referencí</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">objgraph</span><span class="o">.</span><span class="n">show_backrefs</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;objgraph5D_backrefs.png&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
