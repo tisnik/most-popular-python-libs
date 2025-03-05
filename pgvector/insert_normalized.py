@@ -35,6 +35,6 @@ with connection.cursor() as cursor:
         norm = np.linalg.norm(vector)
         vector /= norm
         print(vector)
-        #cursor.execute("INSERT INTO normalized (embedding) VALUES (%s)", (vector, ))
+        cursor.execute("INSERT INTO normalized (embedding) VALUES (%s)", (vector, ))
     connection.commit()
 
