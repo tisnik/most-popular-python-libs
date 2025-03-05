@@ -30,6 +30,7 @@ query = """
 """
 
 for distance in range(0, 10):
+    print("Distance:", distance)
     with connection.cursor() as cursor:
         cursor.execute(query, ([3,3], distance))
         records = cursor.fetchall()
