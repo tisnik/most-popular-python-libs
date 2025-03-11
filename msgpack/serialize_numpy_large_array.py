@@ -1,6 +1,6 @@
-import msgpack
 import msgpack_numpy as m
 
+import msgpack
 import numpy as np
 
 m.patch()
