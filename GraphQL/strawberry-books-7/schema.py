@@ -1,7 +1,7 @@
 import typing
 from typing import Optional
-import strawberry
 
+import strawberry
 
 database = (
     ("Dune", "Frank Herbert"),
