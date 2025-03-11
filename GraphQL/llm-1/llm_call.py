@@ -1,5 +1,5 @@
 from langchain import OpenAI
-from langchain.agents import load_tools, initialize_agent, AgentType
+from langchain.agents import AgentType, initialize_agent, load_tools
 from langchain.utilities import GraphQLAPIWrapper
 
 llm = OpenAI(temperature=0)
