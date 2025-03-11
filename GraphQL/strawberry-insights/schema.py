@@ -1,7 +1,8 @@
 import random
-from datetime import datetime
-import strawberry
 import uuid
+from datetime import datetime
+
+import strawberry
 
 
 @strawberry.type
