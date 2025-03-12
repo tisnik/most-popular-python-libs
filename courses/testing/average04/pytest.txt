@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average4
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collecting ... collected 2 items
+
+test_average.py::test_average_basic PASSED                               [ 50%]
+test_average.py::test_average_empty_list FAILED                          [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_average_empty_list ____________________________
+
+    def test_average_empty_list():
+        """Otestování výpočtu průměru."""
+>       result = average([])
+
+test_average.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = []
+
+    def average(x):
+>       return sum(x)/float(len(x))
+E       ZeroDivisionError: float division by zero
+
+average.py:2: ZeroDivisionError
+=========================== short test summary info ============================
+FAILED test_average.py::test_average_empty_list - ZeroDivisionError: float di...
+========================= 1 failed, 1 passed in 0.04s ==========================
