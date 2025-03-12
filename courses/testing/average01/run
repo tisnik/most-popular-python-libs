@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# spuštění aplikace běžným způsobem
+
+python3 -B main.py
