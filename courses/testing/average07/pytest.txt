@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average7
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collecting ... collected 7 items
+
+test_average.py::test_average_basic[values0-1] PASSED                    [ 14%]
+test_average.py::test_average_basic[values1-1.5] PASSED                  [ 28%]
+test_average.py::test_average_basic[values2-0.5] PASSED                  [ 42%]
+test_average.py::test_average_basic[values3-2.0] PASSED                  [ 57%]
+test_average.py::test_average_basic[values4-0.5] FAILED                  [ 71%]
+test_average.py::test_average_empty_list_1 PASSED                        [ 85%]
+test_average.py::test_average_empty_list_2 PASSED                        [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_average_basic[values4-0.5] ________________________
+
+values = (0, 10), expected = 0.5
+
+    @pytest.mark.parametrize("values,expected", testdata)
+    def test_average_basic(values, expected):
+        """Otestování výpočtu průměru."""
+        result = average(values)
+>       assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:21: AssertionError
+=========================== short test summary info ============================
+FAILED test_average.py::test_average_basic[values4-0.5] - AssertionError: Oče...
+========================= 1 failed, 6 passed in 0.05s ==========================
