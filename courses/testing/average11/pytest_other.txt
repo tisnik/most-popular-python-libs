@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average11
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collecting ... collected 18 items / 18 deselected
+
+=============================== warnings summary ===============================
+test_average.py:23
+  /home/ptisnovs/src/python/testing-in-python/pytest/average11/test_average.py:23: PytestUnknownMarkWarning: Unknown pytest.mark.smoketest - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+    @pytest.mark.smoketest
+
+test_average.py:31
+  /home/ptisnovs/src/python/testing-in-python/pytest/average11/test_average.py:31: PytestUnknownMarkWarning: Unknown pytest.mark.smoketest - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+    @pytest.mark.smoketest
+
+test_average.py:39
+  /home/ptisnovs/src/python/testing-in-python/pytest/average11/test_average.py:39: PytestUnknownMarkWarning: Unknown pytest.mark.smoketest - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+    @pytest.mark.smoketest
+
+test_average.py:69
+  /home/ptisnovs/src/python/testing-in-python/pytest/average11/test_average.py:69: PytestUnknownMarkWarning: Unknown pytest.mark.thorough - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+    @pytest.mark.thorough
+
+test_average.py:76
+  /home/ptisnovs/src/python/testing-in-python/pytest/average11/test_average.py:76: PytestUnknownMarkWarning: Unknown pytest.mark.thorough - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+    @pytest.mark.thorough
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+====================== 18 deselected, 5 warnings in 0.02s ======================

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů
+pytest -v -k basic > pytest_basic.txt
+pytest -v -k empty > pytest_empty.txt
+pytest -v -k unknown > pytest_unknown.txt
