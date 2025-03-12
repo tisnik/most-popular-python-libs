@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů s benchmarky
+pytest > benchmark.txt
