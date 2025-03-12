@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů
+pytest -v > pytest.txt
+
+# zjištění pokrytí kódu testy (budou zahrnuty všechny skripty)
+pytest --cov=. > cov_all.txt
+
+# specifikace balíčku
+pytest --cov=average > cov_average.txt
+
+# řádky nepokryté jednotkovými testy
+pytest --cov=average --cov-report term-missing > cov_missing.txt
+
+# export do HTML
+pytest --cov=average --cov-report html
