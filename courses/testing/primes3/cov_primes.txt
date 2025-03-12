@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/primes3
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collected 2 items
+
+test_primes.py ..                                                        [100%]
+
+----------- coverage: platform linux, python 3.6.6-final-0 -----------
+Name        Stmts   Miss  Cover
+-------------------------------
+primes.py       9      0   100%
+
+
+============================== 2 passed in 0.04s ===============================
