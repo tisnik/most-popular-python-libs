@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average6
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collected 3 items
+
+test_average.py ...                                                      [100%]
+
+----------- coverage: platform linux, python 3.6.6-final-0 -----------
+Name              Stmts   Miss  Cover
+-------------------------------------
+average.py            2      0   100%
+main.py               4      4     0%
+test_average.py      14      0   100%
+-------------------------------------
+TOTAL                20      4    80%
+
+
+============================== 3 passed in 0.04s ===============================
