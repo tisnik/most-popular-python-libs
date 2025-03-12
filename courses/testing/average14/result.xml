@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="4" hostname="localhost.localdomain" name="pytest" skipped="0" tests="19" time="0.136" timestamp="2020-05-19T20:52:52.067423"><testcase classname="test_average" file="test_average.py" line="23" name="test_average_basic_1[values0-1]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="23" name="test_average_basic_1[values1-1.5]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="23" name="test_average_basic_1[values2-0.5]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="23" name="test_average_basic_1[values3-2.0]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="23" name="test_average_basic_1[values4-0.5]" time="0.003"><failure message="AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+assert 5.0 == 0.5
+  +5.0
+  -0.5">values = (0, 10), expected = 0.5
+
+    @pytest.mark.smoketest
+    @pytest.mark.parametrize(&quot;values,expected&quot;, testdata)
+    def test_average_basic_1(values, expected):
+        &quot;&quot;&quot;Otestování výpočtu průměru.&quot;&quot;&quot;
+        result = average(values)
+&gt;       assert result == expected, &quot;Očekávaná hodnota {}, vráceno {}&quot;.format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:29: AssertionError</failure></testcase><testcase classname="test_average" file="test_average.py" line="31" name="test_average_basic_2[1,1]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="31" name="test_average_basic_2[1,2]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="31" name="test_average_basic_2[0,1]" time="0.002"></testcase><testcase classname="test_average" file="test_average.py" line="31" name="test_average_basic_2[1,2,3]" time="0.002"></testcase><testcase classname="test_average" file="test_average.py" line="31" name="test_average_basic_2[0,10]" time="0.002"><failure message="AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+assert 5.0 == 0.5
+  +5.0
+  -0.5">values = (0, 10), expected = 0.5
+
+    @pytest.mark.smoketest
+    @pytest.mark.parametrize(&quot;values,expected&quot;, testdata, ids=[&quot;1,1&quot;, &quot;1,2&quot;, &quot;0,1&quot;, &quot;1,2,3&quot;, &quot;0,10&quot;])
+    def test_average_basic_2(values, expected):
+        &quot;&quot;&quot;Otestování výpočtu průměru.&quot;&quot;&quot;
+        result = average(values)
+&gt;       assert result == expected, &quot;Očekávaná hodnota {}, vráceno {}&quot;.format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:37: AssertionError</failure></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values0-1]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values1-1.5]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values2-0.5]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values3-2.0]" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values4-0.5]" time="0.001"><failure message="AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+assert 5.0 == 0.5
+  +5.0
+  -0.5">values = (0, 10), expected = 0.5
+
+    @pytest.mark.smoketest
+    @pytest.mark.parametrize(
+        &quot;values,expected&quot;,
+        [
+            pytest.param(
+                (1, 1), 1
+            ),
+            pytest.param(
+                (1, 2), 1.5
+            ),
+            pytest.param(
+                (0, 1), 0.5
+            ),
+            pytest.param(
+                (1, 2, 3), 2.0
+            ),
+            pytest.param(
+                (0, 10), 0.5
+            ),
+            pytest.param(
+                (), 0
+            ),
+        ],
+    )
+    def test_average_basic_3(values, expected):
+        &quot;&quot;&quot;Otestování výpočtu průměru.&quot;&quot;&quot;
+        result = average(values)
+&gt;       assert result == expected, &quot;Očekávaná hodnota {}, vráceno {}&quot;.format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:67: AssertionError</failure></testcase><testcase classname="test_average" file="test_average.py" line="39" name="test_average_basic_3[values5-0]" time="0.001"><failure message="ZeroDivisionError: float division by zero">values = (), expected = 0
+
+    @pytest.mark.smoketest
+    @pytest.mark.parametrize(
+        &quot;values,expected&quot;,
+        [
+            pytest.param(
+                (1, 1), 1
+            ),
+            pytest.param(
+                (1, 2), 1.5
+            ),
+            pytest.param(
+                (0, 1), 0.5
+            ),
+            pytest.param(
+                (1, 2, 3), 2.0
+            ),
+            pytest.param(
+                (0, 10), 0.5
+            ),
+            pytest.param(
+                (), 0
+            ),
+        ],
+    )
+    def test_average_basic_3(values, expected):
+        &quot;&quot;&quot;Otestování výpočtu průměru.&quot;&quot;&quot;
+&gt;       result = average(values)
+
+test_average.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+average.py:6: in average
+    return f1(x)
+average.py:11: in f1
+    return f2(x)
+average.py:16: in f2
+    return f3(x)
+average.py:21: in f3
+    return f4(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+x = ()
+
+    def f4(x):
+        &quot;&quot;&quot;Část špagetového kódu testovaného modulu.&quot;&quot;&quot;
+&gt;       return sum(x)/float(len(x))
+E       ZeroDivisionError: float division by zero
+
+average.py:26: ZeroDivisionError</failure></testcase><testcase classname="test_average" file="test_average.py" line="69" name="test_average_empty_list_1" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="76" name="test_average_empty_list_2" time="0.001"></testcase><testcase classname="test_average" file="test_average.py" line="98" name="test_average_five_values" time="0.001"></testcase></testsuite></testsuites>

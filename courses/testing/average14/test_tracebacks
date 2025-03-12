@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů
+pytest -v --showlocals > pytest_showlocals.txt
+
+pytest -v --tb=long > pytest_long_tb.txt
+
+pytest -v --tb=no > pytest_no_tb.txt

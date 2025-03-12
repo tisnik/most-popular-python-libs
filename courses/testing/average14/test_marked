@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# spuštění jednotkových testů
+pytest -v -m smoketest > pytest_smoketest.txt
+pytest -v -m thorough > pytest_thorough.txt
+pytest -v -m other > pytest_other.txt
