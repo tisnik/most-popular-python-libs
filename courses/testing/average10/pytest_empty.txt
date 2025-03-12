@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average10
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collecting ... collected 18 items / 16 deselected / 2 selected
+
+test_average.py::test_average_empty_list_1 PASSED                        [ 50%]
+test_average.py::test_average_empty_list_2 PASSED                        [100%]
+
+======================= 2 passed, 16 deselected in 0.02s =======================

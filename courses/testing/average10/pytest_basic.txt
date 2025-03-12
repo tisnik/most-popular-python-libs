@@ -1,0 +1,149 @@
+============================= test session starts ==============================
+platform linux -- Python 3.6.6, pytest-5.4.2, py-1.5.2, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+benchmark: 3.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /home/ptisnovs/src/python/testing-in-python/pytest/average10
+plugins: voluptuous-1.0.2, benchmark-3.2.3, cov-2.5.1
+collecting ... collected 18 items / 2 deselected / 16 selected
+
+test_average.py::test_average_basic_1[values0-1] PASSED                  [  6%]
+test_average.py::test_average_basic_1[values1-1.5] PASSED                [ 12%]
+test_average.py::test_average_basic_1[values2-0.5] PASSED                [ 18%]
+test_average.py::test_average_basic_1[values3-2.0] PASSED                [ 25%]
+test_average.py::test_average_basic_1[values4-0.5] FAILED                [ 31%]
+test_average.py::test_average_basic_2[1,1] PASSED                        [ 37%]
+test_average.py::test_average_basic_2[1,2] PASSED                        [ 43%]
+test_average.py::test_average_basic_2[0,1] PASSED                        [ 50%]
+test_average.py::test_average_basic_2[1,2,3] PASSED                      [ 56%]
+test_average.py::test_average_basic_2[0,10] FAILED                       [ 62%]
+test_average.py::test_average_basic_3[values0-1] PASSED                  [ 68%]
+test_average.py::test_average_basic_3[values1-1.5] PASSED                [ 75%]
+test_average.py::test_average_basic_3[values2-0.5] PASSED                [ 81%]
+test_average.py::test_average_basic_3[values3-2.0] PASSED                [ 87%]
+test_average.py::test_average_basic_3[values4-0.5] FAILED                [ 93%]
+test_average.py::test_average_basic_3[values5-0] FAILED                  [100%]
+
+=================================== FAILURES ===================================
+______________________ test_average_basic_1[values4-0.5] _______________________
+
+values = (0, 10), expected = 0.5
+
+    @pytest.mark.parametrize("values,expected", testdata)
+    def test_average_basic_1(values, expected):
+        """Otestování výpočtu průměru."""
+        result = average(values)
+>       assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:21: AssertionError
+__________________________ test_average_basic_2[0,10] __________________________
+
+values = (0, 10), expected = 0.5
+
+    @pytest.mark.parametrize("values,expected", testdata, ids=["1,1", "1,2", "0,1", "1,2,3", "0,10"])
+    def test_average_basic_2(values, expected):
+        """Otestování výpočtu průměru."""
+        result = average(values)
+>       assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:28: AssertionError
+______________________ test_average_basic_3[values4-0.5] _______________________
+
+values = (0, 10), expected = 0.5
+
+    @pytest.mark.parametrize(
+        "values,expected",
+        [
+            pytest.param(
+                (1, 1), 1
+            ),
+            pytest.param(
+                (1, 2), 1.5
+            ),
+            pytest.param(
+                (0, 1), 0.5
+            ),
+            pytest.param(
+                (1, 2, 3), 2.0
+            ),
+            pytest.param(
+                (0, 10), 0.5
+            ),
+            pytest.param(
+                (), 0
+            ),
+        ],
+    )
+    def test_average_basic_3(values, expected):
+        """Otestování výpočtu průměru."""
+        result = average(values)
+>       assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(expected, result)
+E       AssertionError: Očekávaná hodnota 0.5, vráceno 5.0
+E       assert 5.0 == 0.5
+E         +5.0
+E         -0.5
+
+test_average.py:57: AssertionError
+_______________________ test_average_basic_3[values5-0] ________________________
+
+values = (), expected = 0
+
+    @pytest.mark.parametrize(
+        "values,expected",
+        [
+            pytest.param(
+                (1, 1), 1
+            ),
+            pytest.param(
+                (1, 2), 1.5
+            ),
+            pytest.param(
+                (0, 1), 0.5
+            ),
+            pytest.param(
+                (1, 2, 3), 2.0
+            ),
+            pytest.param(
+                (0, 10), 0.5
+            ),
+            pytest.param(
+                (), 0
+            ),
+        ],
+    )
+    def test_average_basic_3(values, expected):
+        """Otestování výpočtu průměru."""
+>       result = average(values)
+
+test_average.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+average.py:5: in average
+    return f1(x)
+average.py:8: in f1
+    return f2(x)
+average.py:11: in f2
+    return f3(x)
+average.py:14: in f3
+    return f4(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = ()
+
+    def f4(x):
+>       return sum(x)/float(len(x))
+E       ZeroDivisionError: float division by zero
+
+average.py:17: ZeroDivisionError
+=========================== short test summary info ============================
+FAILED test_average.py::test_average_basic_1[values4-0.5] - AssertionError: O...
+FAILED test_average.py::test_average_basic_2[0,10] - AssertionError: Očekávan...
+FAILED test_average.py::test_average_basic_3[values4-0.5] - AssertionError: O...
+FAILED test_average.py::test_average_basic_3[values5-0] - ZeroDivisionError: ...
+================== 4 failed, 12 passed, 2 deselected in 0.09s ==================
