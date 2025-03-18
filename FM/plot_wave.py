@@ -13,10 +13,10 @@
 
 # Zobrazení průběhu audio signáku přečteného ze souborů typu WAV
 
-import matplotlib.pyplot as plt
-import numpy as np
 import wave
 
+import matplotlib.pyplot as plt
+import numpy as np
 
 with wave.open("opl2-4.wav", "rb") as f:
     buffer = f.readframes(f.getnframes())
