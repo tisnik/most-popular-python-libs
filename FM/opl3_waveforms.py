@@ -10,9 +10,10 @@
 #      Pavel Tisnovsky
 #
 
-import numpy as np
-import matplotlib.pyplot as plt
 from scipy import signal
+
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def plot(x, y, filename, title):
