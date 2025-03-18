@@ -4,8 +4,9 @@
 # next_output = SIN( current_time + beta * previous_output )
 
 from math import sin
-import numpy as np
+
 import matplotlib.pyplot as plt
+import numpy as np
 
 VALUES = 200
 
