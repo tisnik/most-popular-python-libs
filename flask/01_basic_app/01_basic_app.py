@@ -15,9 +15,10 @@
 
 """Simplest Flask-based application."""
 
+from flasgger import Swagger
+
 from flask import Flask
 
-from flasgger import Swagger
 app = Flask(__name__)
 swagger = Swagger(app)
 
