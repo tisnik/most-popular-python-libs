@@ -1,8 +1,9 @@
 # Vykresleni ruznych aktivacnich funkci knihovnou PyTorch
 
-import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
+
+import matplotlib.pyplot as plt
 
 # hodnoty na x-ové ose
 x = torch.linspace(-4, 4, 200)
