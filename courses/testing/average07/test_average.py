@@ -1,9 +1,7 @@
 """Implementace jednotkových testů."""
 
 import pytest
-
 from average import average
-
 
 testdata = [
     ((1, 1), 1),

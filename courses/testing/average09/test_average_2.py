@@ -1,7 +1,6 @@
 """Implementace jednotkových testů."""
 
 import pytest
-
 from average import average
 
 

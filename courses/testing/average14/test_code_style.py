@@ -1,8 +1,8 @@
 """Implementace jednotkových testů."""
 
 from pathlib import Path
-import pycodestyle
 
+import pycodestyle
 
 
 def test_code_style():
