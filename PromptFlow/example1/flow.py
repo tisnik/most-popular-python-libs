@@ -2,11 +2,11 @@
 # https://microsoft.github.io/promptflow/index.html
 
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
-from pathlib import Path
-from promptflow.tracing import trace
 from promptflow.core import Prompty
+from promptflow.tracing import trace
 
 BASE_DIR = Path(__file__).absolute().parent
 print(BASE_DIR)
