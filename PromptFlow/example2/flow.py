@@ -1,8 +1,8 @@
 # See also:
 # https://microsoft.github.io/promptflow/index.html
 
-from promptflow.tracing import trace
 from promptflow.core import AzureOpenAIModelConfiguration, Prompty
+from promptflow.tracing import trace
 
 
 class ChatFlow:
