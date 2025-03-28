@@ -1,4 +1,4 @@
-"""MCP klient, který přečte zvolený zdroj s parametrem a získá z něj data."""
+"""MCP klient, který zavolá nástroj."""
 
 from mcp import ClientSession, StdioServerParameters, types
 from mcp.client.stdio import stdio_client
@@ -17,13 +17,11 @@ async def run():
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            # přečtení zdroje
-            data = await session.read_resource("pozdrav://John")
-            print("Data returned:", data)
-            print("Type:", type(data))
-
-            text = data.contents[0].text
-            print("Text:", text)
+            for n in range(11):
+                # zavolání nástroje
+                data = await session.call_tool("factorial", arguments={"n": n})
+                factorial = data.content[0].text
+                print(n, factorial)
 
 
 # přímé spuštění klienta
