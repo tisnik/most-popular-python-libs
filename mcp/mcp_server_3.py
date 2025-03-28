@@ -1,5 +1,8 @@
+"""MCP server s dynamickým zdrojem a definicí nástroje (tool)."""
+
 from mcp.server.fastmcp import FastMCP
 
+# konstrukce serveru
 mcp = FastMCP("Test")
 
 
@@ -14,5 +17,5 @@ def factorial(n: int) -> int:
 
 @mcp.resource("pozdrav://{name}")
 def pozdrav(name: str) -> str:
-    """Odpoveď s osobním pozdravem."""
+    """Odpověď s osobním pozdravem."""
     return f"Hello, {name}"
