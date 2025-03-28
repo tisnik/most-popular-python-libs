@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>59_sprites_collisions_change_color.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>59_sprites_collisions_change_color.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>(C) Copyright 2020  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">480</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">480</span>
+
+<span class="n">BACKGROUND_COLOR</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">)</span>
+
+<span class="n">red_sprite</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;red.gif&quot;</span><span class="p">)</span>
+<span class="n">red_sprite</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
+<span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">blue_sprite</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;blue.gif&quot;</span><span class="p">)</span>
+<span class="n">blue_sprite</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
+<span class="n">blue_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">blue_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">yellow_sprite</span> <span class="o">=</span> <span class="n">Actor</span><span class="p">(</span><span class="s2">&quot;yellow.gif&quot;</span><span class="p">)</span>
+<span class="n">yellow_sprite</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
+<span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">draw_sprite_pos</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">sprite</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">which</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sprite</span><span class="o">.</span><span class="n">x</span><span class="p">)),</span> <span class="p">(</span><span class="n">pos_x</span> <span class="o">+</span> <span class="mi">70</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sprite</span><span class="o">.</span><span class="n">y</span><span class="p">)),</span> <span class="p">(</span><span class="n">pos_x</span> <span class="o">+</span> <span class="mi">110</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">draw_sprite_col</span><span class="p">(</span><span class="n">sprite</span><span class="p">,</span> <span class="n">other_sprites</span><span class="p">,</span> <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="n">collision</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">sprite</span><span class="o">.</span><span class="n">collidelist</span><span class="p">(</span><span class="n">other_sprites</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">screen</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
+    <span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">BACKGROUND_COLOR</span><span class="p">)</span>
+    <span class="n">red_sprite</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">blue_sprite</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="n">draw_sprite_pos</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">red_sprite</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#db0000&quot;</span><span class="p">)</span>
+    <span class="n">draw_sprite_pos</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="n">blue_sprite</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;#00a2db&quot;</span><span class="p">)</span>
+    <span class="n">draw_sprite_pos</span><span class="p">(</span><span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="n">yellow_sprite</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;#dbc500&quot;</span><span class="p">)</span>
+
+    <span class="n">draw_sprite_col</span><span class="p">(</span><span class="n">red_sprite</span><span class="p">,</span> <span class="p">(</span><span class="n">blue_sprite</span><span class="p">,</span> <span class="n">yellow_sprite</span><span class="p">),</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#db0000&quot;</span><span class="p">)</span>
+    <span class="n">draw_sprite_col</span><span class="p">(</span><span class="n">blue_sprite</span><span class="p">,</span> <span class="p">(</span><span class="n">red_sprite</span><span class="p">,</span> <span class="n">yellow_sprite</span><span class="p">),</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;#00a2db&quot;</span><span class="p">)</span>
+    <span class="n">draw_sprite_col</span><span class="p">(</span><span class="n">yellow_sprite</span><span class="p">,</span> <span class="p">(</span><span class="n">red_sprite</span><span class="p">,</span> <span class="n">blue_sprite</span><span class="p">),</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;#dbc500&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">bounce</span><span class="p">(</span><span class="n">sprite</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">left</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span>
+
+    <span class="k">if</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">right</span> <span class="o">&gt;</span> <span class="n">WIDTH</span><span class="p">:</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">WIDTH</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span>
+
+    <span class="k">if</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">top</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span>
+
+    <span class="k">if</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&gt;</span> <span class="n">HEIGHT</span><span class="p">:</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">HEIGHT</span>
+        <span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">collide</span><span class="p">(</span><span class="n">sprite1</span><span class="p">,</span> <span class="n">sprite2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">sprite1</span><span class="o">.</span><span class="n">colliderect</span><span class="p">(</span><span class="n">sprite2</span><span class="p">):</span>
+        <span class="n">sprite2</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+    <span class="n">blue_sprite</span><span class="o">.</span><span class="n">left</span> <span class="o">+=</span> <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dx</span>
+    <span class="n">blue_sprite</span><span class="o">.</span><span class="n">top</span> <span class="o">+=</span> <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dy</span>
+
+    <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">left</span> <span class="o">+=</span> <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dx</span>
+    <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">top</span> <span class="o">+=</span> <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dy</span>
+
+    <span class="n">red_sprite</span><span class="o">.</span><span class="n">left</span> <span class="o">+=</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">dx</span>
+    <span class="n">red_sprite</span><span class="o">.</span><span class="n">top</span> <span class="o">+=</span> <span class="n">red_sprite</span><span class="o">.</span><span class="n">dy</span>
+
+    <span class="n">bounce</span><span class="p">(</span><span class="n">red_sprite</span><span class="p">)</span>
+    <span class="n">collide</span><span class="p">(</span><span class="n">red_sprite</span><span class="p">,</span> <span class="n">blue_sprite</span><span class="p">)</span>
+    <span class="n">collide</span><span class="p">(</span><span class="n">red_sprite</span><span class="p">,</span> <span class="n">yellow_sprite</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">on_key_down</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mod</span><span class="p">,</span> <span class="n">unicode</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">ESCAPE</span><span class="p">:</span>
+        <span class="n">exit</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">W</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">S</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">A</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">D</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">on_key_up</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mod</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">ESCAPE</span><span class="p">:</span>
+        <span class="n">exit</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">UP</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">DOWN</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">LEFT</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">:</span>
+        <span class="n">blue_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">W</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">S</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">A</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">keys</span><span class="o">.</span><span class="n">D</span><span class="p">:</span>
+        <span class="n">yellow_sprite</span><span class="o">.</span><span class="n">dx</span> <span class="o">=</span> <span class="mi">0</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
