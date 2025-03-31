@@ -1,6 +1,6 @@
 """MCP klient, který spustí server, se kterým se komunikuje přes STDIO."""
 
-from mcp import ClientSession, StdioServerParameters, types
+from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 # parametry pro spuštění MCP serveru
