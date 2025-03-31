@@ -9,4 +9,4 @@ mcp = FastMCP("Test")
 @mcp.resource("pozdrav://")
 def pozdrav() -> str:
     """Odpověď s pozdravem."""
-    return f"Hello, dear client"
+    return "Hello, dear client"
