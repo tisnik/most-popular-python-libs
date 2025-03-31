@@ -1,8 +1,9 @@
 """Jednoduchý MCP server s jediným definovaným dynamickým zdrojem."""
 
 import os
-from mcp.server.fastmcp import FastMCP
 from datetime import datetime
+
+from mcp.server.fastmcp import FastMCP
 
 # konstrukce serveru
 mcp = FastMCP("Test")
@@ -17,4 +18,4 @@ with open(f"{pid}.txt", "w") as fout:
 @mcp.resource("pozdrav://")
 def pozdrav() -> str:
     """Odpověď s pozdravem."""
-    return f"Hello, dear client"
+    return "Hello, dear client"
