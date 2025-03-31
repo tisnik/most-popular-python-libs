@@ -18,7 +18,7 @@ def factorial(n: int) -> int:
 @mcp.resource("pozdrav://")
 def pozdrav1() -> str:
     """Odpověď s pozdravem."""
-    return f"Hello, dear client"
+    return "Hello, dear client"
 
 
 @mcp.resource("pozdrav://{name}")
