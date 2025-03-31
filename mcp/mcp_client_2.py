@@ -1,6 +1,6 @@
 """MCP klient, který spustí server, se kterým se komunikuje přes SSE."""
 
-from mcp import ClientSession, types
+from mcp import ClientSession
 from mcp.client.sse import sse_client
 
 
