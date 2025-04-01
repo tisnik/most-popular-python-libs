@@ -1,6 +1,6 @@
 """MCP klient, který přečte zvolený zdroj a získá z něj data."""
 
-from mcp import ClientSession, StdioServerParameters, types
+from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 # parametry pro spuštění MCP serveru
