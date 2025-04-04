@@ -54,20 +54,20 @@ print("bytes per pixel:      %d" % displayInfo.bytesize)
 
 print("windowed mode:        " + yesno(displayInfo.hw))
 
-print("")
+print()
 
 print("HW acceleration:      " + yesno(displayInfo.hw))
 print("HW blitting:          " + yesno(displayInfo.blit_hw))
 print("HW colorkey blitting: " + yesno(displayInfo.blit_hw_CC))
 print("HW alpha blitting:    " + yesno(displayInfo.blit_hw_A))
 
-print("")
+print()
 
 print("SW blitting:          " + yesno(displayInfo.blit_sw))
 print("SW colorkey blitting: " + yesno(displayInfo.blit_sw_CC))
 print("SW alpha blitting:    " + yesno(displayInfo.blit_sw_A))
 
-print("")
+print()
 
 print("Masks:                " + str(displayInfo.masks))
 print("Shifts:               " + str(displayInfo.shifts))
