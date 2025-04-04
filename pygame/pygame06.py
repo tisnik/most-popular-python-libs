@@ -24,7 +24,7 @@ import pygame
 pygame.init()
 
 print("Driver: " + pygame.display.get_driver())
-print("")
+print()
 
 # Budou nás zajímat grafické režimy s bitovou hloubkou
 # 8bpp (256 barev), 16bpp (hi-color), 24bpp a 32bpp (True Color)
