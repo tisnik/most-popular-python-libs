@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>data_frame_tabulate_styles.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>data_frame_tabulate_styles.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>(C) Copyright 2021  Pavel Tisnovsky</p>
+<p>All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html</p>
+<p>Contributors:
+     Pavel Tisnovsky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>přečtení zdrojových dat</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tiobe.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>specifikace indexu - má se získat ze sloupce Language</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Language&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>jména stylů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">table_styles</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;plain&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;github&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;grid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fancy_grid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pipe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orgtbl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jira&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;presto&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;psql&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rst&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mediawiki&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;moinmoin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;youtrack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;html&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;latex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;latex_raw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;latex_booktabs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;textile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tsv&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">table_style</span> <span class="ow">in</span> <span class="n">table_styles</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>oddělovač</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;* </span><span class="si">{:^36s}</span><span class="s2"> *&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_style</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>datový rámec zobrazíme s vybraným stylem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">table_style</span><span class="p">))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
