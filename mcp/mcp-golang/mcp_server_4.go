@@ -1,4 +1,4 @@
-// Jednoduchý MCP server s jediným zdrojem
+// Jednoduchý MCP server s výzvou (prompt)
 
 package main
 

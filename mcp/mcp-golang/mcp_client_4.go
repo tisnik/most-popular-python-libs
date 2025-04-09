@@ -1,3 +1,5 @@
+// MCP klient, který komunikuje přes prompt
+
 package main
 
 import (
