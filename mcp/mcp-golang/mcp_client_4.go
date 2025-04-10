@@ -11,11 +11,6 @@ import (
 	"github.com/metoro-io/mcp-golang/transport/stdio"
 )
 
-// Define type-safe arguments
-type CalculateArgs struct {
-	N int `json:"n"`
-}
-
 func main() {
 	cmd := exec.Command("go", "run", "./mcp_server_4.go")
 
