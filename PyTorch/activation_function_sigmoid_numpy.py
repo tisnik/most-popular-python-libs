@@ -1,5 +1,8 @@
-# Výpočet a vykreslení aktivační funkce sigmoid
-# Výpočet je proveden knihovnou NumPy
+# Knihovna PyTorch
+#
+# - výpočet a vykreslení aktivační funkce sigmoid
+# - výpočet je proveden knihovnou NumPy
+# - vykreslení je provedeno knihovnou Matplotlib
 
 import matplotlib.pyplot as plt
 import numpy as np
