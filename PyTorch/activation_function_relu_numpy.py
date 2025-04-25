@@ -1,5 +1,8 @@
-# Výpočet a vykreslení aktivační funkce ReLU
-# Výpočet je proveden knihovnou NumPy
+# Knihovna PyTorch
+#
+# - výpočet a vykreslení aktivační funkce ReLU
+# - výpočet je proveden knihovnou NumPy
+# - vykreslení je provedeno knihovnou Matplotlib
 
 import matplotlib.pyplot as plt
 import numpy as np
