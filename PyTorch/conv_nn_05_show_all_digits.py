@@ -1,0 +1,56 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# číslice reprezentované v masce 8x8 pixelů
+digits = (
+    (0x00, 0x3C, 0x66, 0x76, 0x6E, 0x66, 0x3C, 0x00),
+    (0x00, 0x18, 0x1C, 0x18, 0x18, 0x18, 0x7E, 0x00),
+    (0x00, 0x3C, 0x66, 0x30, 0x18, 0x0C, 0x7E, 0x00),
+    (0x00, 0x7E, 0x30, 0x18, 0x30, 0x66, 0x3C, 0x00),
+    (0x00, 0x30, 0x38, 0x3C, 0x36, 0x7E, 0x30, 0x00),
+    (0x00, 0x7E, 0x06, 0x3E, 0x60, 0x66, 0x3C, 0x00),
+    (0x00, 0x3C, 0x06, 0x3E, 0x66, 0x66, 0x3C, 0x00),
+    (0x00, 0x7E, 0x60, 0x30, 0x18, 0x0C, 0x0C, 0x00),
+    (0x00, 0x3C, 0x66, 0x3C, 0x66, 0x66, 0x3C, 0x00),
+    (0x00, 0x3C, 0x66, 0x7C, 0x60, 0x30, 0x1C, 0x00),
+)
+
+
+def digit_to_array(digits, n):
+    digit = digits[n]
+    rows = []
+    # převod jednotlivých řádků na osmici bitů
+    for scanline in digit:
+        row = []
+        # převod bitmapy představující řádek na osmici bitů
+        for _ in range(8):
+            bit = scanline & 0x01
+            row.append(float(bit))
+            scanline >>= 1
+        rows.append(row)
+    # transformace na n-dimenzionální pole
+    return np.array(rows)
+
+
+# velikost obrázku s grafem
+plt.subplots(figsize=(6.4, 6.4))
+plt.axis("off")
+
+# vykreslení číslic 1-9
+for digit in range(1, 10):
+    array = digit_to_array(digits, digit)
+    ax = plt.subplot(4, 3, digit)
+    plt.gray()
+    ax.matshow(array)
+
+# dokreslení číslice 0
+array = digit_to_array(digits, 0)
+ax = plt.subplot(4, 3, 11)
+plt.gray()
+ax.matshow(array)
+
+# uložení vizualizované matice
+plt.savefig("conv_nn_05.png")
+
+# vizualizace matice na obrazovce
+plt.show()
