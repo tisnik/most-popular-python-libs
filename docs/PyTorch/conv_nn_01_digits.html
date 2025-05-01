@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>conv_nn_01_digits.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>conv_nn_01_digits.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>číslice reprezentované v masce 8x8 pixelů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="n">digits</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x7C</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>triviální výpis</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
