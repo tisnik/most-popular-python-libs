@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>conv_nn_06_noise.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>conv_nn_06_noise.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>číslice reprezentované v masce 8x8 pixelů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">digits</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x7C</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">digit_to_array</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>převod jednotlivých řádků na osmici bitů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">scanline</span> <span class="ow">in</span> <span class="n">digit</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>převod bitmapy představující řádek na osmici bitů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+            <span class="n">bit</span> <span class="o">=</span> <span class="n">scanline</span> <span class="o">&amp;</span> <span class="mh">0x01</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">bit</span><span class="p">))</span>
+            <span class="n">scanline</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>transformace na n-dimenzionální pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">add_noise</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">level</span><span class="p">)</span> <span class="o">*</span> <span class="n">array</span> <span class="o">+</span> <span class="n">level</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>vytvoření matice, kterou budeme vizualizovat</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">array</span> <span class="o">=</span> <span class="n">digit_to_array</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span> <span class="o">=</span> <span class="n">add_noise</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>vykreslení matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">array</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>převod na stupně šedi</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>uložení vizualizované matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;conv_nn_06.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>vizualizace matice na obrazovce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
