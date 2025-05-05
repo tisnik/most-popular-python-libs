@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - výpočet trénovacích a testovacích dat pro neuronové sítě
+
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
 import torch
