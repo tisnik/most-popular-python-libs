@@ -1,5 +1,8 @@
-# Výpočet a vykreslení aktivační funkce tanh
-# Výpočet je proveden knihovnou PyTorch
+# Knihovna PyTorch
+#
+# - výpočet a vykreslení aktivační funkce tanh
+# - výpočet je proveden knihovnou PyTorch
+# - vykreslení je provedeno knihovnou Matplotlib
 
 import matplotlib.pyplot as plt
 import torch
