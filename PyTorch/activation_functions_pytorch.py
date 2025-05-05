@@ -1,5 +1,8 @@
-# Výpočet a vykreslení všech aktivačních funkcí
-# Výpočet je proveden knihovnou PyTorch
+# Knihovna PyTorch
+#
+# - výpočet a vykreslení všech aktivačních funkcí
+# - výpočet je proveden knihovnou PyTorch
+# - vykreslení je provedeno knihovnou Matplotlib
 
 import torch
 import torch.nn as nn
