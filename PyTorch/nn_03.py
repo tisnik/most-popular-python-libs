@@ -12,7 +12,7 @@ class NeuralNetwork(nn.Module):
         self.layer_1 = nn.Linear(input_dim, output_dim)
 
     def forward(self, x):
-        # propagace hodnot přes neuronvou síť
+        # propagace hodnot přes neuronovou síť
         x = nn.functional.sigmoid(self.layer_1(x))
         return x
 
