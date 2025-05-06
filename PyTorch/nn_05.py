@@ -16,7 +16,7 @@ class NeuralNetwork(nn.Module):
         self.layer_2 = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
-        # propagace hodnot přes neuronvou síť
+        # propagace hodnot přes neuronovou síť
         x = torch.nn.functional.relu(self.layer_1(x))
         x = torch.nn.functional.sigmoid(self.layer_2(x))
         return x
