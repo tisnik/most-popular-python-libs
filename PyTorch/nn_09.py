@@ -103,7 +103,8 @@ plt.subplots(figsize=(6.4, 6.4))
 
 # vizualizace
 plt.scatter(x_coords, y_coords, s=1.5, c=all_predicts, cmap=plt.cm.Set1)
-# 333test_ax.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap=plt.cm.Set1)
+
+# popisek grafu
 plt.title("Predikované výsledky")
 
 # uložení grafu do souboru
