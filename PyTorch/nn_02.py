@@ -10,7 +10,7 @@ class NeuralNetwork(nn.Module):
         self.layer_1 = nn.Linear(input_dim, output_dim)
 
     def forward(self, x):
-        # propagace hodnot přes neuronvou síť
+        # propagace hodnot přes neuronovou síť
         x = nn.functional.sigmoid(self.layer_1(x))
         return x
 
@@ -24,3 +24,10 @@ nn2 = NeuralNetwork(input_dim, output_dim)
 
 # výpis základních informací o neuronové síti
 print(nn2)
+
+# výpis informace o vrstvě neuronové sítě
+print(nn2.layer_1)
+
+# výpis informace o transformační matici a biasech
+print(nn2.layer_1.weight)
+print(nn2.layer_1.bias)
