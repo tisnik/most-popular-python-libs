@@ -1,3 +1,9 @@
+# Vykreslení průběhu signálu uloženého ve formátu WAV
+#
+# - vykreslení průběhu signálu uloženého ve formátu WAV
+# - konverze z osmibitových samplů
+# - pro vykreslení je použita knihovna Matplotlib
+
 #
 #  (C) Copyright 2024, 2025  Pavel Tisnovsky
 #
