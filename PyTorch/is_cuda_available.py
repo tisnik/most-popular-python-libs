@@ -1,4 +1,6 @@
-# Zjisteni, jestli je mozne pro vypocty pouzit platformu CUDA
+# Knihovna PyTorch
+#
+# - zjištění, jestli je možné výpočty použít pro platformu CUDA
 
 import torch
 
