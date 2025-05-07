@@ -1,3 +1,8 @@
+# Čipy OPL2 a OPL3
+#
+# - vykreslení průběhů signálů generovaných čipem OPL3
+# - pro vykreslení je použita knihovna Matplotlib
+
 #
 #  (C) Copyright 2025  Pavel Tisnovsky
 #
