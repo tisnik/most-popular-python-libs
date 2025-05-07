@@ -1,7 +1,8 @@
-# Zobrazení vlivu zpětné vazby mezi dvojicí operátorů v FM (PM) syntéze
-
-# založeno na vztahu:
-# next_output = SIN( current_time + beta * previous_output )
+# FM syntéza
+#
+# -zobrazení vlivu zpětné vazby mezi dvojicí operátorů v FM (PM) syntéze
+# -založeno na vztahu: next_output = SIN(current_time + beta * previous_output)
+# - pro vykreslení je použita knihovna Matplotlib
 
 from math import sin
 
