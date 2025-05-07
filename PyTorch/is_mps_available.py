@@ -1,4 +1,6 @@
-# Zjisteni, jestli je mozne pro vypocty pouzit platformu MPS
+# Knihovna PyTorch
+#
+# - zjištění, jestli je možné výpočty použít pro platformu MPS
 
 import torch
 
