@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>transistors_log.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>transistors_log.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Transistors counts in Intel CPUs in the first four x86 generations.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">transistors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1978</span><span class="p">,</span> <span class="mi">29000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1979</span><span class="p">,</span> <span class="mi">29000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">134000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1985</span><span class="p">,</span> <span class="mi">275000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1988</span><span class="p">,</span> <span class="mi">275000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1989</span><span class="p">,</span> <span class="mi">1200000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1991</span><span class="p">,</span> <span class="mi">1185000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">1185000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1994</span><span class="p">,</span> <span class="mi">1600000</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="n">moore_25000</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1978</span><span class="p">,</span> <span class="mi">25000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">50000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">100000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1984</span><span class="p">,</span> <span class="mi">200000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1986</span><span class="p">,</span> <span class="mi">400000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1988</span><span class="p">,</span> <span class="mi">800000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">1600000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">3200000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1994</span><span class="p">,</span> <span class="mi">6400000</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="n">moore_10000</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1978</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">20000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1982</span><span class="p">,</span> <span class="mi">40000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1984</span><span class="p">,</span> <span class="mi">80000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1986</span><span class="p">,</span> <span class="mi">160000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1988</span><span class="p">,</span> <span class="mi">320000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">640000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1992</span><span class="p">,</span> <span class="mi">1280000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">1994</span><span class="p">,</span> <span class="mi">2560000</span><span class="p">],</span>
+<span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>hodnoty na x-ové ose</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">x1</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transistors</span><span class="p">]</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">transistors</span><span class="p">]</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">moore_25000</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">moore_25000</span><span class="p">]</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">moore_10000</span><span class="p">]</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">moore_10000</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Intel CPUs&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Moore law @ 25000&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="s2">&quot;y-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Moore law @ 10000&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>přidání legendy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>povolení zobrazení mřížky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;transistors_log.png&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>zobrazení grafu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
