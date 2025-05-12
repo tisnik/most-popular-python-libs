@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - výpočet trénovacích a testovacích dat pro neuronové sítě
+
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
 
