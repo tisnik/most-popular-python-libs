@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - vykreslení bodů (a jejich skupiny) generovaných funkcí make_circles
+
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
 
