@@ -1,3 +1,8 @@
+# Knihovna PyTorch
+#
+# - vykreslení bodů generovaných funkcí make_circles
+# - zvýšený faktor náhodnosti
+
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
 
