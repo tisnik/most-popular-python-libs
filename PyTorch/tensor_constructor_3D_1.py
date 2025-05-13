@@ -1,3 +1,5 @@
+# Knihovna PyTorch
+#
 import torch
 
 # 2D struktury - matice
