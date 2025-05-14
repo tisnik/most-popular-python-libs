@@ -1,3 +1,5 @@
+# Knihovna PyTorch
+#
 import torch
 
 # skutecny skalar - tenzor nulteho radu
