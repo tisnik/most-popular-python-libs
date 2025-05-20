@@ -1,3 +1,5 @@
+# Knihovna PyTorch
+#
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
