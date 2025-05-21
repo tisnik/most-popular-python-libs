@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>conv_nn_15_train_test_data.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>conv_nn_15_train_test_data.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>konverze původních dat z NumPy do tenzorů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">Data</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">len</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>číslice reprezentované v masce 8x8 pixelů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">digits</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x76</span><span class="p">,</span> <span class="mh">0x6E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x38</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x36</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">,</span> <span class="mh">0x3E</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x7E</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x18</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x0C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+    <span class="p">(</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x3C</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x7C</span><span class="p">,</span> <span class="mh">0x60</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">,</span> <span class="mh">0x1C</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">digit_to_array</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="n">digits</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>převod jednotlivých řádků na osmici bitů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">scanline</span> <span class="ow">in</span> <span class="n">digit</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>převod bitmapy představující řádek na osmici bitů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+            <span class="n">bit</span> <span class="o">=</span> <span class="n">scanline</span> <span class="o">&amp;</span> <span class="mh">0x01</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">bit</span><span class="p">))</span>
+            <span class="n">scanline</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>transformace na n-dimenzionální pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">add_noise</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">level</span><span class="p">)</span> <span class="o">*</span> <span class="n">array</span> <span class="o">+</span> <span class="n">level</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">shift</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>horizontální posun</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>výplně těch částí, které byly orotovány na druhou stranu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">if</span> <span class="n">x_shift</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[:,</span> <span class="n">x_shift</span><span class="p">:]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">elif</span> <span class="n">x_shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[:,</span> <span class="p">:</span><span class="n">x_shift</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>vertikální posun</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>výplně těch částí, které byly orotovány na druhou stranu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">if</span> <span class="n">y_shift</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">y_shift</span><span class="p">:]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">elif</span> <span class="n">y_shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">arr</span><span class="p">[:</span><span class="n">y_shift</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">arr</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">prepare_data</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">noise_level</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x_shift_amount</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_shift_amount</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>příprava dat pro trénink a testování</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>cislice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">digit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>vstupy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">array</span> <span class="o">=</span> <span class="n">digit_to_array</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">digit</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>zasumeni</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">array</span> <span class="o">=</span> <span class="n">add_noise</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>posuny</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">x_shift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">x_shift_amount</span><span class="p">,</span> <span class="n">x_shift_amount</span><span class="p">)</span>
+        <span class="n">y_shift</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">y_shift_amount</span><span class="p">,</span> <span class="n">y_shift_amount</span><span class="p">)</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">shift</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>prevod na vektor</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">x_vector</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_vector</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>očekávané výstupy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">y_vector</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+        <span class="n">y_vector</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_vector</span><span class="p">)</span>
+
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">26</span>
+    <span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>trénovací sada</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">train_data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>testovací sada</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">test_data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span>
+
+
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">noise_level</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x_shift_amount</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">y_shift_amount</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
