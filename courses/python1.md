@@ -1,12 +1,15 @@
 # Jazyk Python - základy programování
 
+
 ---
 
 * Pavel Tišnovský
     - `kurzy.python@centrum.cz`
 * Slajdy a demonstrační příklady:
-    - `https://github.com/tisnik/most-popular-python-libs
+    - https://github.com/tisnik/most-popular-python-libs
     - složka "courses"
+
+![Python](images/python.png)
 
 ---
 
@@ -288,7 +291,7 @@ test_range(n)
 test_xrange(n)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/range.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/range.py)
 
 ---
 
@@ -331,7 +334,7 @@ if __name__ == "__main__":
     pass
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/basic_structure.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/basic_structure.py)
 
 ---
 
@@ -356,7 +359,7 @@ bmi = mass / (height * height)
 print("BMI = ", bmi)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/bmi.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/bmi.py)
 
 ---
 
@@ -489,7 +492,7 @@ if height < 0:
 print("BMI = ", compute_bmi(mass, height))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/bmi_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/bmi_2.py)
 
 ---
 
@@ -591,7 +594,7 @@ x = "něco jiného"
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/variables.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/variables.py)
 
 ---
 
@@ -607,7 +610,7 @@ def compute_bmi(mass, height):
     return bmi
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/function.py)
 
 ---
 
@@ -621,7 +624,7 @@ def compute_bmi(mass, height):
     return bmi
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function_bmi.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/function_bmi.py)
 
 ---
 
@@ -639,7 +642,7 @@ def fn5(arg1, arg2, arg3=0, *args, **kwargs):
 fn5(1, 2, 10, 20, 30, x=10, y=20, z="ahoj")
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/args_kwargs.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/args_kwargs.py)
 
 ---
 
@@ -728,7 +731,7 @@ print(3.1415)
 print(2+3j)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/numbers1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/numbers1.py)
 
 ---
 
@@ -739,6 +742,8 @@ print(2+3j)
     - operátory se odlišují podle použitého typu
     - zápis komplexního čísla s "j" a nikoli s "i"
     - nekompatibilita u operátoru `/` (viz další slajdy s popisem operátorů)
+
+---
 
 ```python
 # int/long
@@ -757,7 +762,7 @@ print(1.5 + 2.8j)
 print(1e10 + 3e-5j)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/numbers2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/numbers2.py)
 
 ---
 
@@ -771,6 +776,11 @@ print(1e10 + 3e-5j)
     - `True`
     - `False`
 * použito především u větvení a programových smyček
+
+---
+
+### Pravdivostní hodnoty
+
 * podporované operátory
     - `and`
     - `or`
@@ -832,7 +842,7 @@ E
 F""")
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/strings.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/strings.py)
 
 ---
 
@@ -849,6 +859,11 @@ F""")
     - měnitelné
 * homogenní datový typ
     - ne
+
+---
+
+### Seznamy (pole)
+
 * základní vlastnosti
     - do seznamu je možné přidávat nové prvky
     - prvky je možné i odstraňovat
@@ -900,7 +915,7 @@ del seznam[-1]
 print(seznam)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list.py)
 
 ---
 
@@ -915,7 +930,7 @@ seznam3 = seznam1 + seznam2
 print(seznam3)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_append.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list_append.py)
 
 ---
 
@@ -928,7 +943,7 @@ seznam2 = seznam1 * 3
 print(seznam2)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_repeat.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list_repeat.py)
 
 ---
 
@@ -953,7 +968,7 @@ print(seznam)
 print(seznam2)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_sort.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list_sort.py)
 
 ---
 
@@ -975,7 +990,7 @@ print(seznam[:4])
 print(seznam[:])
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_sublist.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list_sublist.py)
 
 ---
 
@@ -1013,7 +1028,7 @@ del d["id"]
 print(d)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dict.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/dict.py)
 
 ---
 
@@ -1058,7 +1073,7 @@ s3.update([3, 4, 5])
 print(s3)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/sets.py)
 
 ---
 
@@ -1081,7 +1096,7 @@ s1.remove(1000)
 print(s1)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_discard_remove.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/sets_discard_remove.py)
 
 ---
 
@@ -1130,7 +1145,7 @@ print(1 in s1)
 print(10 in s1)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_operations.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/sets_operations.py)
 
 ---
 
@@ -1171,7 +1186,7 @@ print(engineering_management)
 print(fulltime_management)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/sets_example.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/sets_example.py)
 
 ---
 
@@ -1211,7 +1226,7 @@ print(t4)
 print(t5)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/tuple.py)
 
 ---
 
@@ -1225,7 +1240,7 @@ print(x + y)
 print(y + x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple_join.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/tuple_join.py)
 
 ---
 
@@ -1241,7 +1256,7 @@ print(10 in z)
 print("foobar" in z)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/tuple_exists.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/tuple_exists.py)
 
 ---
 
@@ -1322,7 +1337,7 @@ print("foobar" in z)
 x = 1 if y > 10 else 0
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_if_else.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/expr_if_else.py)
 
 ---
 
@@ -1343,7 +1358,7 @@ print(x % y)
 print(x ** y)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_integers.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/expr_integers.py)
 
 ---
 
@@ -1393,7 +1408,7 @@ print(x % y)
 print(x ** y)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/expr_floats.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/expr_floats.py)
 
 ---
 
@@ -1450,15 +1465,14 @@ print(x ** y)
 
 * Nekompatibilita mezi Pythonem 2.x a Pythonem 3.x
 
+---
+
 ```python
 print '3 / 2 =', 3 / 2
 print '3 // 2 =', 3 // 2
 print '3 / 2.0 =', 3 / 2.0
 print '3 // 2.0 =', 3 // 2.0
 ```
-
----
-
 * Výsledky pro Python 2:
 
 ```
@@ -1586,7 +1600,7 @@ for m in range(4):
 
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/ackermann-if.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/ackermann-if.py)
 
 ---
 
@@ -1612,7 +1626,7 @@ for m in range(4):
 
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/ackermann-if-else.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/ackermann-if-else.py)
 
 ---
 
@@ -1640,7 +1654,7 @@ for m in range(4):
 
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-ackermann.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-ackermann.py)
 
 ---
 
@@ -1671,7 +1685,7 @@ for n in range(0, 11):
 fib(-1)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-fib.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-fib.py)
 
 ---
 
@@ -1702,7 +1716,7 @@ for i in range(0, 10):
     print(i, factorial(i))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-factorial1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-factorial1.py)
 
 ---
 
@@ -1732,7 +1746,7 @@ for i in range(-1, 10):
         print(e)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-factorial2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-factorial2.py)
 
 ---
 
@@ -1775,7 +1789,7 @@ except Exception as e:
     print(e)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-factorial3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-factorial3.py)
 
 ---
 
@@ -1816,7 +1830,7 @@ except Exception as e:
     print(e)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pattern-matching-factorial4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pattern-matching-factorial4.py)
 
 ---
 
@@ -1851,7 +1865,7 @@ while x < 2000:
     x *= 2
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/while1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/while1.py)
 
 ---
 
@@ -1864,7 +1878,7 @@ for item in list:
     print(item)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/for1.py)
 
 ---
 
@@ -1877,7 +1891,7 @@ for i in range(10):
     print(i)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/for_range.py)
 ---
 
 * Použití kroku
@@ -1887,7 +1901,7 @@ for i in range(4, 11, 2):
     print(i)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range_step.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/for_range_step.py)
 
 * Počítání směrem dolů
 
@@ -1896,7 +1910,7 @@ for i in range(10, 0, -1):
     print(i)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/for_range_step_down.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/for_range_step_down.py)
 ---
 
 ### Konstrukce `break`
@@ -1911,7 +1925,7 @@ while True:
     x *= 2
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/break.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/break.py)
 
 ---
 
@@ -1929,7 +1943,7 @@ while True:
     print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/continue.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/continue.py)
 
 ---
 
@@ -1975,7 +1989,7 @@ def compute_bmi(mass, height):
     return bmi
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/function.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/function.py)
 
 ---
 
@@ -1992,9 +2006,11 @@ for n in range(1, 11):
     print(n, factorial(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/recursive.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/recursive.py)
 
-* Varianta se smyčkou:
+---
+
+### Varianta se smyčkou:
 
 ```python
 def factorial(n):
@@ -2005,7 +2021,7 @@ def factorial(n):
     return f
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/factorial.py)
 
 ---
 
@@ -2029,7 +2045,7 @@ def ackermann(m, n):
 print(ackermann(3,4))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/ackermann.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/ackermann.py)
 
 ---
 
@@ -2106,7 +2122,7 @@ fn3()
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/global.py)
 
 ---
 
@@ -2131,7 +2147,7 @@ fn1()
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/global_nonlocal_1.py)
 
 ---
 
@@ -2153,7 +2169,7 @@ fn1()
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/global_nonlocal_2.py)
 
 ---
 
@@ -2175,7 +2191,7 @@ fn1()
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/global_nonlocal_3.py)
 
 ---
 
@@ -2198,7 +2214,7 @@ fn1()
 print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/global_nonlocal_4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/global_nonlocal_4.py)
 
 ---
 
@@ -2225,7 +2241,7 @@ for n in range(1, 11):
     print(n, factorial(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/factorial1.py)
 
 ---
 
@@ -2245,7 +2261,7 @@ for n in range(1, 11):
     print(n, factorial(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/factorial2.py)
 
 ---
 
@@ -2268,7 +2284,7 @@ for n in range(1, 11):
     print(n, factorial(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/factorial3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/factorial3.py)
 
 ---
 
@@ -2286,7 +2302,7 @@ for n in range(0, 21):
     print(n, fibonacci(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_for_loop.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/fibonacci_for_loop.py)
 
 ---
 
@@ -2303,7 +2319,7 @@ for n in range(0, 21):
     print(n, fibonacci(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_recursion.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/fibonacci_recursion.py)
 
 ---
 
@@ -2323,7 +2339,7 @@ for n in range(0, 21):
     print(n, fibonacci(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_while_loop.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/fibonacci_while_loop.py)
 
 ---
 
@@ -2343,7 +2359,7 @@ for n in range(0, 21):
     print(n, fibonacci(n))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/fibonacci_while_loop_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/fibonacci_while_loop_2.py)
 
 ---
 
@@ -2362,7 +2378,7 @@ f = lambda x, y : x + y
 print(f(1,2))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/lambda.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/lambda.py)
 
 ---
 
@@ -2382,7 +2398,7 @@ print(seznam2)
 print(seznam3)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/list_comprehension.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/list_comprehension.py)
 
 ---
 
@@ -2402,7 +2418,7 @@ y=map(lambda value: value*2, x)
 print(list(y))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/map.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/map.py)
 
 ---
 
@@ -2419,7 +2435,7 @@ y = filter(lambda value: value % 3 == 0, x)
 print(list(y))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/filter.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/filter.py)
 
 ---
 
@@ -2439,7 +2455,7 @@ y = reduce(lambda a, b: a*b, x)
 print(y)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/reduce.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/reduce.py)
 
 ---
 
@@ -2481,22 +2497,22 @@ fin = open("test.txt","r")
 print(fin.read())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_all.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_all.py)
 
 ---
 
-* Čtení po řádcích
-
----
+### Čtení po řádcích (1/2)
 
 ```python
 fin = open("test.txt", "r")
 print(fin.readline())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_line.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_line.py)
 
---
+---
+
+### Čtení po řádcích (2/2)
 
 ```python
 fin = open("test.txt", "r")
@@ -2505,22 +2521,22 @@ for line in fin.readlines():
     print(line)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_line_by_line.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_line_by_line.py)
 
 ---
 
-* Přečtení všech řádků do seznamu
+### Přečtení všech řádků do seznamu
 
 ```python
 fin = open("test.txt", "r")
 print(fin.readlines())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_all_lines.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_all_lines.py)
 
 ---
 
-* Zápis do souboru
+### Zápis do souboru
 
 ```python
 fout = open("hello.txt", "w")
@@ -2528,7 +2544,7 @@ fout.write("Hello World")
 fout.close()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_write.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_write.py)
 
 ---
 
@@ -2539,7 +2555,7 @@ with open("test.txt") as fin:
     print(fin.readline())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_with.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_with.py)
 
 ```python
 with open("test.txt", "r") as fin:
@@ -2547,7 +2563,7 @@ with open("test.txt", "r") as fin:
         print(line)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/file_read_line_by_line_with.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/file_read_line_by_line_with.py)
 
 ---
 
@@ -2562,11 +2578,11 @@ print("hodnota: {value:5d}".format(value=42))
 print("hodnota: {value:05d}".format(value=42))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/string_format_1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/string_format_1.py)
 
 ---
 
-* Formátování tabulky na výstupu
+### Formátování tabulky na výstupu (1/3)
 
 ```python
 for x in range(1, 11):
@@ -2574,7 +2590,11 @@ for x in range(1, 11):
     print("1/{x:2d} = {y:5.3f}".format(x=x, y=y))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/string_format_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/string_format_2.py)
+
+---
+
+### Formátování tabulky na výstupu (2/3)
 
 ```python
 for x in range(1, 11):
@@ -2582,7 +2602,11 @@ for x in range(1, 11):
     print("1/{x:02d} = {y:5.3f}".format(x=x, y=y))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/string_format_3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/string_format_3.py)
+
+---
+
+### Formátování tabulky na výstupu (3/3)
 
 ```python
 for x in range(1, 11):
@@ -2590,7 +2614,7 @@ for x in range(1, 11):
     print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/string_format_4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/string_format_4.py)
 
 ---
 
@@ -2638,16 +2662,16 @@ for x in range(1, 11):
 
 ```python
 try:
-    file = open("testfile", "w")
-    file.write("test")
+    file = open("testfile", "w")
+    file.write("test")
 except IOError:
-    print("soubor nelze otevrit pro zapis")
+    print("soubor nelze otevrit pro zapis")
 else:
-    print("zapis uspesne proveden")
-    file.close()
+    print("zapis uspesne proveden")
+    file.close()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/try_catch_finally.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/try_catch_finally.py)
 
 ---
 
@@ -2669,7 +2693,7 @@ else:
     print("Everything is OK")
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/raise_exception.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/raise_exception.py)
 
 ---
 
@@ -2696,7 +2720,7 @@ for cls in [B, C, D]:
         print("B")
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/custom_exception.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/custom_exception.py)
 
 ---
 
@@ -2709,17 +2733,17 @@ for cls in [B, C, D]:
 #!/usr/bin/python
 
 try:
-    file = open("testfile", "w")
-    file.write("test")
+    file = open("testfile", "w")
+    file.write("test")
 except IOError:
-    print("soubor nelze otevrit pro zapis")
+    print("soubor nelze otevrit pro zapis")
 else:
-    print("zapis uspesne proveden")
+    print("zapis uspesne proveden")
 finally:
-    file.close()
+    file.close()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/finally_block.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/finally_block.py)
 
 ---
 
@@ -2759,7 +2783,7 @@ class Employee:
 e = Employee()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class1.py)
 
 ---
 
@@ -2773,7 +2797,7 @@ e1 = Employee()
 e2 = Employee()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class2.py)
 
 ---
 
@@ -2806,7 +2830,7 @@ print(CLS.x)
 print(c1.x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class3.py)
 
 ---
 
@@ -2825,7 +2849,7 @@ class Employee:
 e = Employee()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class4.py)
 
 ---
 
@@ -2852,7 +2876,7 @@ e.display_employee()
 
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class5.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class5.py)
 
 ---
 
@@ -2866,7 +2890,7 @@ class B(A):
     pass
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class6.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class6.py)
 
 ---
 
@@ -2960,7 +2984,7 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class7.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class7.py)
 
 ---
 
@@ -2987,7 +3011,7 @@ print(employee1)
 print(employee2)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/class8.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/class8.py)
 
 ---
 
@@ -3035,7 +3059,7 @@ if __name__ == "__main__":
     main()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/args.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/args.py)
 
 ---
 
@@ -3065,7 +3089,7 @@ print(d1)
 print(d2)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dvojice1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/dvojice1.py)
 
 ---
 
@@ -3100,7 +3124,7 @@ d3 = Dvojice.__add__(d1, d2)
 print(d3)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/dvojice2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/dvojice2.py)
 
 ---
 
@@ -3125,7 +3149,7 @@ print(c3)
 print(c4)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/complex1.py)
 
 ---
 
@@ -3153,7 +3177,7 @@ print(c3)
 print(c4)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/complex2.py)
 
 ---
 
@@ -3188,7 +3212,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/complex3.py)
 
 ---
 
@@ -3231,7 +3255,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/complex4.py)
 
 ---
 
@@ -3279,7 +3303,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/complex5.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/complex5.py)
 
 ---
 
@@ -3433,7 +3457,7 @@ pin.value(1)
 
 ---
 
-## Užitečné nástroje pro Python
+## Užitečné nástroje pro Python (1/2)
 
 * pydocstyle
     - testuje, zda jsou správně zapsány komentáře
@@ -3442,10 +3466,17 @@ pin.value(1)
     - udržuje štábní kulturu
 * pylint
     - ještě detailnější kontroly
+
+---
+
+## Užitečné nástroje pro Python (2/2)
+
 * Ruff
     - dnes nejlepší nástroj pro kontrolu zdrojových kódů
 * Mypy
     - test datových typů
+* Pyright
+    - dtto
 * Black
     - formátovač zdrojových kódů
 
@@ -3516,7 +3547,7 @@ A.attribute = "baz"
 print(A.attribute, B.attribute, C.attribute)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/classes.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/classes.py)
 
 ---
 
@@ -3537,7 +3568,7 @@ print(foo())
 print(foo())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/default_argument_1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/default_argument_1.py)
 
 ---
 
@@ -3560,7 +3591,7 @@ print(foo())
 print(foo())
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/default_argument_2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/default_argument_2.py)
 
 ---
 
@@ -3576,7 +3607,7 @@ def foo():
 foo()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/scoping1.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/scoping1.py)
 
 ---
 
@@ -3593,7 +3624,7 @@ def foo():
 foo()
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/scoping2.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/scoping2.py)
 
 ---
 
@@ -3623,7 +3654,7 @@ bar(4)
 print(seznam)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/scoping3.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/scoping3.py)
 
 ---
 
@@ -3654,7 +3685,7 @@ bar(4)
 print(seznam)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/scoping4.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/scoping4.py)
 
 ---
 
@@ -3673,7 +3704,7 @@ y = 20
 print(adder(1))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/closures.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/closures.py)
 
 ---
 
@@ -3691,7 +3722,7 @@ print(repr(x))
 print(str(x))
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/floats.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/floats.py)
 
 Bližší informace o formátu float/double:
 [https://www.h-schmidt.net/FloatConverter/IEEE754.html](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
@@ -3706,7 +3737,7 @@ while x != 10:
     print(x)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/endless_loop.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/endless_loop.py)
 
 ---
 
@@ -3723,7 +3754,7 @@ for i in range(len(numbers)):
 print(numbers)
 ```
 
-[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples/pitfalls/mutating_list.py)
+[Zdrojový kód tohoto příkladu](https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples/pitfalls/mutating_list.py)
 
 ---
 

@@ -1,12 +1,15 @@
 # Jazyk Python - základy programování
 
+
 ---
 
 * Pavel Tišnovský
     - `kurzy.python@centrum.cz`
 * Slajdy a demonstrační příklady:
-    - `https://github.com/tisnik/most-popular-python-libs
+    - https://github.com/tisnik/most-popular-python-libs
     - složka "courses"
+
+![Python](images/python.png)
 
 ---
 
@@ -603,6 +606,8 @@ _
     - zápis komplexního čísla s "j" a nikoli s "i"
     - nekompatibilita u operátoru `/` (viz další slajdy s popisem operátorů)
 
+---
+
 @ numbers2.py
 
 ---
@@ -617,6 +622,11 @@ _
     - `True`
     - `False`
 * použito především u větvení a programových smyček
+
+---
+
+### Pravdivostní hodnoty
+
 * podporované operátory
     - `and`
     - `or`
@@ -670,6 +680,11 @@ _
     - měnitelné
 * homogenní datový typ
     - ne
+
+---
+
+### Seznamy (pole)
+
 * základní vlastnosti
     - do seznamu je možné přidávat nové prvky
     - prvky je možné i odstraňovat
@@ -1044,15 +1059,14 @@ s.symmetric_difference(t)
 
 * Nekompatibilita mezi Pythonem 2.x a Pythonem 3.x
 
+---
+
 ```python
 print '3 / 2 =', 3 / 2
 print '3 // 2 =', 3 // 2
 print '3 / 2.0 =', 3 / 2.0
 print '3 // 2.0 =', 3 // 2.0
 ```
-
----
-
 * Výsledky pro Python 2:
 
 ```
@@ -1307,7 +1321,9 @@ else:
 
 @ recursive.py
 
-* Varianta se smyčkou:
+---
+
+### Varianta se smyčkou:
 
 @ factorial.py
 
@@ -1526,25 +1542,25 @@ def fn4(arg1, arg2, **kwargs):
 
 ---
 
-* Čtení po řádcích
-
----
+### Čtení po řádcích (1/2)
 
 @ file_read_line.py
 
---
+---
+
+### Čtení po řádcích (2/2)
 
 @ file_read_line_by_line.py
 
 ---
 
-* Přečtení všech řádků do seznamu
+### Přečtení všech řádků do seznamu
 
 @ file_read_all_lines.py
 
 ---
 
-* Zápis do souboru
+### Zápis do souboru
 
 @ file_write.py
 
@@ -1568,11 +1584,19 @@ def fn4(arg1, arg2, **kwargs):
 
 ---
 
-* Formátování tabulky na výstupu
+### Formátování tabulky na výstupu (1/3)
 
 @ string_format_2.py
 
+---
+
+### Formátování tabulky na výstupu (2/3)
+
 @ string_format_3.py
+
+---
+
+### Formátování tabulky na výstupu (3/3)
 
 @ string_format_4.py
 
@@ -2009,7 +2033,7 @@ pin.value(1)
 
 ---
 
-## Užitečné nástroje pro Python
+## Užitečné nástroje pro Python (1/2)
 
 * pydocstyle
     - testuje, zda jsou správně zapsány komentáře
@@ -2018,10 +2042,17 @@ pin.value(1)
     - udržuje štábní kulturu
 * pylint
     - ještě detailnější kontroly
+
+---
+
+## Užitečné nástroje pro Python (2/2)
+
 * Ruff
     - dnes nejlepší nástroj pro kontrolu zdrojových kódů
 * Mypy
     - test datových typů
+* Pyright
+    - dtto
 * Black
     - formátovač zdrojových kódů
 
