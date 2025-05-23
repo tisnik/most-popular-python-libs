@@ -1,0 +1,5 @@
+     1                                  [bits 64]
+     2                                  
+     3 00000000 89F8                            mov eax, edi
+     4 00000002 01F0                            add eax, esi
+     5 00000004 C3                              ret
