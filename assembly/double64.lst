@@ -1,0 +1,5 @@
+     1                                  [bits 64]
+     2                                  
+     3 00000000 4889F8                          mov rax, rdi
+     4 00000003 4801C0                          add rax, rax
+     5 00000006 C3                              ret
