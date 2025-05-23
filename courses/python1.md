@@ -2618,6 +2618,14 @@ for x in range(1, 11):
 
 ---
 
+### Formátovací řetězce
+
+* Zapisují se formou `f"text{výraz}"`
+
+https://fstring.help/cheat/
+
+---
+
 ## Chyby a výjimky
 
 * Přehled

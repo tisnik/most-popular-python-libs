@@ -1602,6 +1602,14 @@ def fn4(arg1, arg2, **kwargs):
 
 ---
 
+### Formátovací řetězce
+
+* Zapisují se formou `f"text{výraz}"`
+
+https://fstring.help/cheat/
+
+---
+
 ## Chyby a výjimky
 
 * Přehled
