@@ -1,3 +1,10 @@
+# Základy použití knihovny PeachPy
+#
+# - vytvoření subrutiny vracející konstantu
+# - neoptimalizovaná varianta
+# - tisk vytvořeného strojového kódu
+
+
 # datové typy
 from peachpy import int32_t
 
