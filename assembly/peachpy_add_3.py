@@ -1,7 +1,8 @@
 # Základy použití knihovny PeachPy
 #
 # - definice subrutiny add pro součet dvou 64bitových hodnot
-# - založeno na znalosti ABI
+# - použití pojmenovaných argumentů
+# - odlišná práce s registry
 # - tisk vytvořeného strojového kódu
 # - otestování funkcionality této subrutiny
 
@@ -10,21 +11,26 @@
 from peachpy import int64_t, Argument
 
 # základní konstruktory atd.
-from peachpy.x86_64 import Function, GeneralPurposeRegister32, abi
+from peachpy.x86_64 import Function, GeneralPurposeRegister64, abi
 
 # registry
-from peachpy.x86_64 import rax, rdi, rsi
+from peachpy.x86_64 import rax, rbx, rdi, rsi
 
 # konstruktory instrukcí
-from peachpy.x86_64 import ADD, MOV, RETURN
+from peachpy.x86_64 import ADD, MOV, RETURN, LOAD
 
 x = Argument(int64_t)
 y = Argument(int64_t)
 
 # vytvoření nové subrutiny ve strojovém kódu
 with Function("Function_add", (x, y), int64_t) as asm_function:
-    MOV(rax, rdi)
-    ADD(rax, rsi)
+    reg_x = GeneralPurposeRegister64()
+    reg_y = GeneralPurposeRegister64()
+
+    LOAD.ARGUMENT(reg_x, x)
+    LOAD.ARGUMENT(reg_y, y)
+    ADD(reg_x, reg_y)
+    MOV(rax, reg_x)
     RETURN()
 
 # obalení strojového kódu tak, aby se dal volat z interpretru Pythonu
