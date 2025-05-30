@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>pattern-matching-multiword-commands-6.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>pattern-matching-multiword-commands-6.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Strukturální pattern matching:
+- rozpoznání víceslovních příkazů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">perform_command</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt; &quot;</span><span class="p">)</span>
+
+    <span class="k">match</span> <span class="n">response</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">&quot;quit&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s2">&quot;Quit&quot;</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;employees&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s2">&quot;List employees&quot;</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;departments&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s2">&quot;List departments&quot;</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;rooms&quot;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="s2">&quot;List rooms&quot;</span>
+        <span class="k">case</span> <span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">subjects</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Info about </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span><span class="si">}</span><span class="s2"> subjects &#39;</span><span class="si">{</span><span class="n">subjects</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Wrong command&quot;</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">perform_command</span><span class="p">())</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
