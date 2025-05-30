@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>pattern-matching-abort-retry-fail-8.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>pattern-matching-abort-retry-fail-8.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Strukturální pattern matching:
+- rozhodování realizované pattern matchingem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not ready reading drive A&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">abort_retry_fail</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>získání odpovědi od uživatele
+a rozhodnutí o provedené operaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">match</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Abort, Retry, Fail? &quot;</span><span class="p">):</span>
+        <span class="k">case</span> <span class="s2">&quot;a&quot;</span> <span class="o">|</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Abort&quot;</span>
+        <span class="k">case</span> <span class="s2">&quot;r&quot;</span> <span class="o">|</span> <span class="s2">&quot;R&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Retry&quot;</span>
+        <span class="k">case</span> <span class="s2">&quot;f&quot;</span> <span class="o">|</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Fail&quot;</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Wrong response </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">abort_retry_fail</span><span class="p">())</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
