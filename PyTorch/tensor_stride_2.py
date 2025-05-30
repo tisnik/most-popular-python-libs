@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - význam atributů stride a storage_offset
+
 import torch
 
 # konstrukce tenzoru
