@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
+#
+# Knihovna XLSXWriter
+#
+# - vytvoření prázdného sešitu
+# - zajištění uzavření objektu worksheet
 
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
