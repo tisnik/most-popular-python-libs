@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
+#
+# Knihovna XLSXWriter
+#
+# - vytvoření sešitu s delší tabulkou
+# - nastavení stylů řádků
 
 #
 #  (C) Copyright 2021  Pavel Tisnovsky
