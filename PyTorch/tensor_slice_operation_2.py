@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - konstrukce řezu z tenzoru druhého řádu (přes řádky a sloupce)
+
 import torch
 
 # konstrukce tenzoru
