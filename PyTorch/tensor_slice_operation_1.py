@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - konstrukce řezu z tenzoru prvního řádu
+
 import torch
 
 # konstrukce tenzoru
