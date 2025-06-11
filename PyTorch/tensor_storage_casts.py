@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - přetypování datové struktury se zdrojem dat pro tenzor
+
 import torch
 
 # konstrukce tenzoru
