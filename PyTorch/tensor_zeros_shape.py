@@ -1,3 +1,5 @@
+# Knihovna PyTorch
+#
 import torch
 
 # konstrukce tenzoru prvniho radu, vyplneni nulami
