@@ -1,3 +1,7 @@
+# Knihovna PyTorch
+#
+# - získání datové struktury se zdrojem dat pro tenzor
+
 import torch
 
 # konstrukce tenzoru druheho radu
