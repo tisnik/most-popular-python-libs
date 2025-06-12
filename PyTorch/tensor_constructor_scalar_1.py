@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - konstrukce tenzoru nultého a prvního řádu
+
 import torch
 
 # skutecny skalar - tenzor nulteho radu
