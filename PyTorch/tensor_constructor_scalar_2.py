@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - inicializace tenzoru prvního řádu s jedním prvkem
+
 import torch
 
 # konstrukce tenzoru (jednoprvkovy vektor) s jeho inicializaci
