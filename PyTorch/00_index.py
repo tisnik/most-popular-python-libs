@@ -184,16 +184,21 @@
 # tensor_constructor_matrix_zero.py:
 #
 # tensor_constructor_scalar_1.py:
+# - konstrukce tenzoru nultého a prvního řádu
 #
 # tensor_constructor_scalar_2.py:
+# - inicializace tenzoru prvního řádu s jedním prvkem
 #
 # tensor_constructor_scalar_zero.py:
 #
 # tensor_constructor_vector_1.py:
+# - konstrukce tenzoru prvního řádu (tříprvkový vektor)
 #
 # tensor_constructor_vector_2.py:
+# - konstrukce tenzoru prvního řádu s inicializací prvků
 #
 # tensor_constructor_vector_3.py:
+# - konstrukce tenzoru prvního řádu s využitím generátoru range
 #
 # tensor_constructor_vector_zero.py:
 #
@@ -291,4 +296,5 @@
 # - význam atributů stride a storage_offset
 #
 # tensor_zeros_shape.py:
-#
+# - konstrukce tenzoru
+# - vyplnění nulami
