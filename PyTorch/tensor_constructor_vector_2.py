@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - konstrukce tenzoru prvního řádu s inicializací prvků
+
 import torch
 
 # konstrukce tenzoru prvniho radu (vektoru) s inicializaci prvku
