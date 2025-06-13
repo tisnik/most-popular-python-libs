@@ -2,8 +2,9 @@
 
 from time import time
 
-from mcp import ClientSession, StdioServerParameters
+from mcp import ClientSession
 from mcp.client.sse import sse_client
+
 
 async def run():
     """Realizace klienta."""
