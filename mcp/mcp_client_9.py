@@ -2,8 +2,9 @@
 
 from time import time
 
-from mcp import ClientSession, StdioServerParameters
+from mcp import ClientSession
 from mcp.client.sse import sse_client
+
 
 async def run(i):
     """Realizace klienta."""
@@ -44,7 +45,7 @@ async def run(i):
             print()
 
 
-async def main(): 
+async def main():
     clients = [run(i) for i in range(10)]
     await asyncio.gather(*clients)
 
