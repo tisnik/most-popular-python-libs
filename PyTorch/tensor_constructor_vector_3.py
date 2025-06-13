@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - konstrukce tenzoru prvního řádu s využitím generátoru range
+
 import torch
 
 # konstrukce tenzoru prvniho radu (tenzoru)
