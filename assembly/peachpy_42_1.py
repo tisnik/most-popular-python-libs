@@ -8,10 +8,8 @@
 from peachpy import int32_t
 
 # základní konstruktory atd.
-from peachpy.x86_64 import Function, GeneralPurposeRegister32, abi
-
 # konstruktory instrukcí
-from peachpy.x86_64 import MOV, RETURN
+from peachpy.x86_64 import MOV, RETURN, Function, GeneralPurposeRegister32, abi
 
 # vytvoření nové subrutiny ve strojovém kódu
 with Function("Function_42", (), int32_t) as asm_function:
