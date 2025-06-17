@@ -7,16 +7,12 @@
 
 
 # datové typy
-from peachpy import int32_t, Argument
+from peachpy import Argument, int32_t
 
 # základní konstruktory atd.
-from peachpy.x86_64 import Function, GeneralPurposeRegister32, abi
-
 # registry
-from peachpy.x86_64 import eax
-
 # konstruktory instrukcí
-from peachpy.x86_64 import ADD, MOV, LOAD, RETURN
+from peachpy.x86_64 import ADD, LOAD, RETURN, Function, abi, eax
 
 x = Argument(int32_t)
 
