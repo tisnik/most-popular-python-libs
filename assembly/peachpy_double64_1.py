@@ -7,16 +7,12 @@
 
 
 # datové typy
-from peachpy import int64_t, Argument
+from peachpy import int64_t
 
 # základní konstruktory atd.
-from peachpy.x86_64 import Function, GeneralPurposeRegister32, abi
-
 # registry
-from peachpy.x86_64 import rax, rdi
-
 # konstruktory instrukcí
-from peachpy.x86_64 import ADD, MOV, RETURN
+from peachpy.x86_64 import ADD, MOV, RETURN, Function, abi, rax, rdi
 
 # vytvoření nové subrutiny ve strojovém kódu
 with Function("Function_double", (), int64_t) as asm_function:
