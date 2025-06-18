@@ -9,10 +9,8 @@
 
 
 # registry
-from peachpy.x86_64 import rax, rdi
-
 # konstruktory instrukcí
-from peachpy.x86_64 import ADD
+from peachpy.x86_64 import ADD, rax, rdi
 
 
 def print_instruction(instruction):
