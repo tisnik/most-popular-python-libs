@@ -8,7 +8,7 @@ input_file = "python1_in.md"
 output_file = "python1.md"
 
 source_prefix = (
-    "https://github.com/tisnik/most-popular-python-libs/blob/master/python1/examples"
+    "https://github.com/tisnik/most-popular-python-libs/blob/master/courses/examples"
 )
 
 source_directory = "examples/"
