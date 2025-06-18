@@ -13,6 +13,11 @@ Examples for the most popular Python libraries
 1. [Dis](<bytecode>)
 1. [pil](<pil>)
 1. [pillow](<pillow>)
+1. [strawberry](<GraphQL>)
+1. [PySimpleGUI](<PySimpleGUI>)
+1. [PyTorch](<PyTorch>)
+1. [XlsxWriter](<XlsxWriter>)
+1. [array](<array>)
 
 ## Tools
 
@@ -57,4 +62,3 @@ Examples for the most popular Python libraries
 * sympy
 * tablib
 * tracing
-* XlsxWriter
