@@ -2,11 +2,12 @@
 #
 # - výpočet trénovacích a testovacích dat pro neuronové sítě
 
+import torch
+from torch.utils.data import Dataset
+
+import numpy as np
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
-import torch
-import numpy as np
-from torch.utils.data import Dataset, DataLoader
 
 
 # konverze původních dat z NumPy do tenzorů
