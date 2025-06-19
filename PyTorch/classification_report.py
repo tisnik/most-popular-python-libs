@@ -1,9 +1,10 @@
-import torch
-from torch import nn
-from torch import optim
-from torch.utils.data import DataLoader
-import numpy as np
 import itertools
+
+import torch
+from torch import nn, optim
+from torch.utils.data import DataLoader
+
+import numpy as np
 from sklearn.metrics import classification_report
 
 
