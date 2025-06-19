@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>peachpy_instruction_2.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>peachpy_instruction_2.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Základy použití knihovny PeachPy</p>
+<ul>
+<li>definice instrukce ADD s různými kombinacemi registrů</li>
+<li>tisk strojového kódu této instrukce</li>
+<li>tisk instrukce ve formátu Netwide Assembleru</li>
+<li>tisk instrukce ve formátu PeachPy</li>
+<li>tisk instrukce ve formátu GNU Assembleru</li>
+<li>tisk instrukce ve formátu Go Assembleru</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>registry
+konstruktory instrukcí</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">peachpy.x86_64</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ADD</span><span class="p">,</span>
+    <span class="n">r8</span><span class="p">,</span>
+    <span class="n">r9</span><span class="p">,</span>
+    <span class="n">r10</span><span class="p">,</span>
+    <span class="n">r11</span><span class="p">,</span>
+    <span class="n">r12</span><span class="p">,</span>
+    <span class="n">r13</span><span class="p">,</span>
+    <span class="n">r14</span><span class="p">,</span>
+    <span class="n">r15</span><span class="p">,</span>
+    <span class="n">rax</span><span class="p">,</span>
+    <span class="n">rbp</span><span class="p">,</span>
+    <span class="n">rbx</span><span class="p">,</span>
+    <span class="n">rcx</span><span class="p">,</span>
+    <span class="n">rdi</span><span class="p">,</span>
+    <span class="n">rdx</span><span class="p">,</span>
+    <span class="n">rsi</span><span class="p">,</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">print_instruction</span><span class="p">(</span><span class="n">instruction</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">byte</span><span class="p">,</span> <span class="s2">&quot;02x&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">byte</span> <span class="ow">in</span> <span class="n">instruction</span><span class="o">.</span><span class="n">encode</span><span class="p">()),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">instruction</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">assembly_format</span><span class="o">=</span><span class="s2">&quot;peachpy&quot;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">instruction</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">assembly_format</span><span class="o">=</span><span class="s2">&quot;gas&quot;</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">r1</span> <span class="ow">in</span>  <span class="n">rax</span><span class="p">,</span> <span class="n">rbx</span><span class="p">,</span> <span class="n">rcx</span><span class="p">,</span> <span class="n">rdx</span><span class="p">,</span> <span class="n">rsi</span><span class="p">,</span> <span class="n">rdi</span><span class="p">,</span> <span class="n">rbp</span><span class="p">,</span> <span class="n">r8</span><span class="p">,</span> <span class="n">r9</span><span class="p">,</span> <span class="n">r10</span><span class="p">,</span> <span class="n">r11</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">r13</span><span class="p">,</span> <span class="n">r14</span><span class="p">,</span> <span class="n">r15</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">r2</span> <span class="ow">in</span>  <span class="n">rax</span><span class="p">,</span> <span class="n">rbx</span><span class="p">,</span> <span class="n">rcx</span><span class="p">,</span> <span class="n">rdx</span><span class="p">,</span> <span class="n">rsi</span><span class="p">,</span> <span class="n">rdi</span><span class="p">,</span> <span class="n">rbp</span><span class="p">,</span> <span class="n">r8</span><span class="p">,</span> <span class="n">r9</span><span class="p">,</span> <span class="n">r10</span><span class="p">,</span> <span class="n">r11</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">r13</span><span class="p">,</span> <span class="n">r14</span><span class="p">,</span> <span class="n">r15</span><span class="p">:</span>
+        <span class="n">print_instruction</span><span class="p">(</span><span class="n">ADD</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
