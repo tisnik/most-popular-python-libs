@@ -1,11 +1,12 @@
 import random
-from sklearn.model_selection import train_test_split
+
 import torch
-from torch import nn
-from torch import optim
-from torch.utils.data import Dataset, DataLoader
-import numpy as np
+from torch import nn, optim
+from torch.utils.data import DataLoader, Dataset
+
 import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split
 
 
 class NeuralNetwork(nn.Module):
