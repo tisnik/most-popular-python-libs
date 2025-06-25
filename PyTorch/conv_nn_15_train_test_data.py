@@ -1,8 +1,10 @@
 import random
-from sklearn.model_selection import train_test_split
+
 import torch
 from torch.utils.data import Dataset
+
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 
 # konverze původních dat z NumPy do tenzorů
