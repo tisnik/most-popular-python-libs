@@ -1,3 +1,10 @@
+# Kombinace programovacího jazyka Python a assembleru
+#
+# - strojový kód zapsaný do bufferu
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce bez parametrů)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
+
 import ctypes
 import mmap
 
