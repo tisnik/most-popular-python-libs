@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>show.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>show.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">ctypes</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CDLL</span><span class="p">,</span>
+    <span class="n">c_double</span><span class="p">,</span>
+    <span class="n">c_int</span><span class="p">,</span>
+    <span class="n">c_uint</span><span class="p">,</span>
+    <span class="n">create_string_buffer</span><span class="p">,</span>
+    <span class="n">Structure</span><span class="p">,</span>
+    <span class="n">pointer</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">palette_mandmap</span> <span class="kn">import</span> <span class="n">palette</span>
+
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span> <span class="nn">pygame.locals</span>
+
+<span class="n">TITLE</span> <span class="o">=</span> <span class="s2">&quot;Renderer&quot;</span>
+<span class="n">SCREEN_WIDTH</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">IMAGE_WIDTH</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">IMAGE_HEIGHT</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="n">MAXITER</span> <span class="o">=</span> <span class="mi">150</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Initialize Pygame display, drawing surface, and clocks.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">initialize_ui</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>set window title</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="n">title</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>initialize window</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">display</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">([</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">])</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">display</span><span class="p">,</span> <span class="n">clock</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">palette_to_buffer</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">create_string_buffer</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">3</span>
+    <span class="k">return</span> <span class="n">s</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">event_loop</span><span class="p">(</span><span class="n">display</span><span class="p">,</span> <span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">clock</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">locals</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">locals</span><span class="o">.</span><span class="n">KEYDOWN</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">locals</span><span class="o">.</span><span class="n">K_ESCAPE</span><span class="p">:</span>
+                    <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>all events has been processed - update scene and redraw the screen</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">image1</span><span class="p">,</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">image2</span><span class="p">,</span> <span class="p">(</span><span class="mi">60</span> <span class="o">+</span> <span class="n">image1</span><span class="o">.</span><span class="n">get_width</span><span class="p">(),</span> <span class="mi">20</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>and update the whole display</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">image_from_buffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">fmt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">fmt</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">ImageSize</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="n">c_uint</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">c_uint</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">RenderingParams</span><span class="p">(</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;maxiter&quot;</span><span class="p">,</span> <span class="n">c_uint</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;cx&quot;</span><span class="p">,</span> <span class="n">c_double</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;cy&quot;</span><span class="p">,</span> <span class="n">c_double</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="n">ImageSize</span><span class="p">(</span><span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">)</span>
+
+    <span class="n">cx</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.171119200000000013445</span>
+    <span class="n">cy</span> <span class="o">=</span> <span class="mf">0.657309400000000000000</span>
+    <span class="n">rendering_params</span> <span class="o">=</span> <span class="n">RenderingParams</span><span class="p">(</span><span class="n">MAXITER</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">)</span>
+
+    <span class="n">pal</span> <span class="o">=</span> <span class="n">palette_to_buffer</span><span class="p">(</span><span class="n">palette</span><span class="p">)</span>
+
+    <span class="n">display</span><span class="p">,</span> <span class="n">clock</span> <span class="o">=</span> <span class="n">initialize_ui</span><span class="p">(</span><span class="n">TITLE</span><span class="p">,</span> <span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>try to load dynamically linked library</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">renderer</span> <span class="o">=</span> <span class="n">CDLL</span><span class="p">(</span><span class="s2">&quot;./renderer.so&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>create buffer for raster image</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">IMAGE_WIDTH</span> <span class="o">*</span> <span class="n">IMAGE_HEIGHT</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>render Mandelbrot set into buffer</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">renderer</span><span class="o">.</span><span class="n">render_mandelbrot</span><span class="p">(</span>
+        <span class="n">pointer</span><span class="p">(</span><span class="n">image_size</span><span class="p">),</span> <span class="n">pal</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">pointer</span><span class="p">(</span><span class="n">rendering_params</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">image1</span> <span class="o">=</span> <span class="n">image_from_buffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">,</span> <span class="s2">&quot;RGBX&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>render Julia set into buffer</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">renderer</span><span class="o">.</span><span class="n">render_julia</span><span class="p">(</span><span class="n">pointer</span><span class="p">(</span><span class="n">image_size</span><span class="p">),</span> <span class="n">pal</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">pointer</span><span class="p">(</span><span class="n">rendering_params</span><span class="p">))</span>
+    <span class="n">image2</span> <span class="o">=</span> <span class="n">image_from_buffer</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">,</span> <span class="s2">&quot;RGBX&quot;</span><span class="p">)</span>
+
+    <span class="n">event_loop</span><span class="p">(</span><span class="n">display</span><span class="p">,</span> <span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">clock</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>finito</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
