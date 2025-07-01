@@ -5,7 +5,6 @@
 
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import make_circles
 
 # velikost obrázku s grafem
