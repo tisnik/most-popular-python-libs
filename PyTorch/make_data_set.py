@@ -4,7 +4,6 @@
 
 # budeme provádět vykreslování de facto standardní knihovnou Matplotlib
 import matplotlib.pyplot as plt
-
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
 
