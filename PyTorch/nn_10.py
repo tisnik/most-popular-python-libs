@@ -1,9 +1,8 @@
 import torch
-from torch import nn
-from torch import optim
-from torch.utils.data import Dataset, DataLoader
-import numpy as np
+from torch import nn, optim
+from torch.utils.data import DataLoader, Dataset
 
+import numpy as np
 
 
 class NeuralNetwork(nn.Module):
