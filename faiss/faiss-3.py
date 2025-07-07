@@ -20,18 +20,3 @@ print()
 print("Dimension(s):         ", index.d)
 print("Total values in index:", index.ntotal)
 print("Is index trained:     ", index.is_trained)
-
-# vektor, ke kteremu budeme pocitat vzdalenost
-query_vector = np.array([[3, 3]]).astype("float32")
-print(query_vector)
-
-# pocet nejblizsich bodu
-k = len(x)
-distances, indices = index.search(query_vector, k)
-
-# tisk vysledku
-print("Nearest neighbors:")
-print("neighbour  distance  index")
-print("--------------------------")
-for i in range(k):
-    print(f"{i+1:3}      {distances[0][i]:5}       {indices[0][i]:2}")

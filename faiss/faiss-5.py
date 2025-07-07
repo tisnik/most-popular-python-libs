@@ -13,7 +13,7 @@ points = np.column_stack((x,y)).astype("float32")
 print(points)
 
 # konstrukce indexu pro vyhledavani na zaklade vzdalenosti
-index = faiss.IndexFlatIP(2)
+index = faiss.IndexFlatL2(2)
 index.add(points)
 
 print()

@@ -31,7 +31,7 @@ distances, indices = index.search(query_vector, k)
 
 # tisk vysledku
 print("Nearest neighbors:")
-print("neighbour  distance  coordinates  ")
-print("----------------------------------")
+print("neighbour  distance  index")
+print("--------------------------")
 for i in range(k):
-    print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+    print(f"{i+1:3}      {distances[0][i]:5}       {indices[0][i]:2}")

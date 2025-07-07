@@ -1,4 +1,3 @@
-import faiss
 import numpy as np
 
 # x-ove souradnice bodu v rovine
@@ -11,12 +10,3 @@ y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
 # rovine
 points = np.column_stack((x,y)).astype("float32")
 print(points)
-
-# konstrukce indexu pro vyhledavani na zaklade vzdalenosti
-index = faiss.IndexFlatL2(2)
-index.add(points)
-
-print()
-print("Dimension(s):         ", index.d)
-print("Total values in index:", index.ntotal)
-print("Is index trained:     ", index.is_trained)
