@@ -1,0 +1,15 @@
+[project]
+name = "faiss-1"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Pavel Tisnovsky", email = "ptisnovs@redhat.com"},
+]
+dependencies = ["faiss-cpu>=1.11.0", "numpy>=2.3.1"]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
