@@ -1,4 +1,4 @@
-from torch import tensor, nn
+from torch import nn
 
 l = nn.Linear(2, 2)
 
