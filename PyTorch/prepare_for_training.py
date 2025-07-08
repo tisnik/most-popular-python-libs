@@ -1,8 +1,9 @@
+import torch
+from torch.utils.data import DataLoader, Dataset
+
+import numpy as np
 from sklearn.datasets import make_circles
 from sklearn.model_selection import train_test_split
-import torch
-import numpy as np
-from torch.utils.data import Dataset, DataLoader
 
 
 # konverze původních dat z NumPy do tenzorů
@@ -11,10 +12,10 @@ class Data(Dataset):
         self.X = torch.from_numpy(X.astype(np.float32))
         self.y = torch.from_numpy(y.astype(np.float32))
         self.len = self.X.shape[0]
-       
+
     def __getitem__(self, index):
         return self.X[index], self.y[index]
-   
+
     def __len__(self):
         return self.len
 
