@@ -1,3 +1,7 @@
+# Knihovna FAISS
+#
+# - konstrukce vektoru se souřadnicemi bodů v rovině
+
 # x-ove souradnice bodu v rovine
 x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
 
