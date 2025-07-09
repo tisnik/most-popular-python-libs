@@ -1,3 +1,9 @@
+# Knihovna FAISS
+#
+# - nalezení nejpodobnějších vektorů
+# - použití L2 metriky
+# - výpis indexů nejpodobnějších vektorů
+
 import faiss
 import numpy as np
 
