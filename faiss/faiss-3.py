@@ -1,3 +1,8 @@
+# Knihovna FAISS
+#
+# - konstrukce indexu knihovnou FAISS
+# - tisk základních informací o indexu
+
 import faiss
 import numpy as np
 
