@@ -1,3 +1,7 @@
+# Knihovna FAISS
+#
+# - konstrukce 2D matice se souřadnicemi bodů v rovině
+
 import numpy as np
 
 # x-ove souradnice bodu v rovine
