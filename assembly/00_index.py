@@ -1,18 +1,60 @@
+# Seznam zdrojových kódů v tomto podadresáři
+# ------------------------------------------
+#
 # asm1.py:
+# - strojový kód zapsaný do bufferu
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce bez parametrů)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm2.py:
+# - strojový kód zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce bez parametrů)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm3.py:
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce bez parametrů)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm4.py:
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce s parametrem)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm5.py:
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce s parametrem)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce s předáním příliš velké hodnoty
 #
 # asm6.py:
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce s parametrem)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm7.py:
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce se dvěma parametry)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # asm8.py:
+# - strojový kód zapsaný v hexadecimálním formátu přímo v Pythonu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce se dvěma parametry)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
 #
 # peachpy_42_1.py:
 # - vytvoření subrutiny vracející konstantu
