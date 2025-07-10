@@ -1,3 +1,9 @@
+# Knihovna FAISS
+#
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
+
 from time import time
 import faiss
 import numpy as np
