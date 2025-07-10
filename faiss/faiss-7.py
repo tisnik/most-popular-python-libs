@@ -1,3 +1,10 @@
+# Knihovna FAISS
+#
+# - nalezení nejpodobnějších vektorů
+# - použití metriky založené na skalárním součinu
+# - výpis souřadnic nejpodobnějších vektorů
+# - vektory jsou normalizovány
+
 import faiss
 import numpy as np
 
