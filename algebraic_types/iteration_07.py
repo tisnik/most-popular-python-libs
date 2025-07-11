@@ -1,5 +1,5 @@
-from math import pi
 from dataclasses import dataclass
+from math import pi
 
 
 @dataclass
