@@ -1,4 +1,3 @@
-from math import pi
 from dataclasses import dataclass
 
 
