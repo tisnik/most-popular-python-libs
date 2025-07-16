@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - tenzor třetího řádu reprezentovaný „3D maticí“ (jiná forma inicializace)
+
 import torch
 
 # 3D struktura
