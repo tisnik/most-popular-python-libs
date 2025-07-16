@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - vynulování prvků tenzoru třetího řádu
+
 import torch
 
 # konstrukce tenzoru tretiho radu
