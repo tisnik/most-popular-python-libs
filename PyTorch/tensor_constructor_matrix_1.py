@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - vytvoření a inicializace tenzoru druhého řádu, který může být reprezentován maticí
+
 import torch
 
 # konstrukce tenzoru druheho radu (matice)
