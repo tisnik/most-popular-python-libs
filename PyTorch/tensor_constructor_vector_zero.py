@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - vynulování prvků tenzoru prvního řádu
+
 import torch
 
 # konstrukce tenzoru prvniho radu
