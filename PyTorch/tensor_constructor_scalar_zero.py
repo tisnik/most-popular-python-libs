@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - vynulování prvků tenzoru nultého řádu
+
 import torch
 
 # toto je skutecny skalar
