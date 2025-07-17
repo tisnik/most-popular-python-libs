@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - vynulování prvků tenzoru druhého řádu
+
 import torch
 
 # konstrukce tenzoru druheho radu
