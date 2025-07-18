@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - použití konstruktoru ones pro tenzory různých řádů a tvarů
+
 import torch
 
 # konstrukce tenzoru, vyplneni jednickami
