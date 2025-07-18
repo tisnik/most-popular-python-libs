@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - využití konstruktoru arange
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
