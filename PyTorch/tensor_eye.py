@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - konstrukce jednotkové matice
+
 import torch
 
 # konstrukce jednotkove matice
