@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - využití konstruktoru range
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
