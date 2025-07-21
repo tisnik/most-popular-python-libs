@@ -1,3 +1,11 @@
+# Kombinace programovacího jazyka Python a assembleru
+#
+# - strojový kód přečtený z binárního souboru a zapsaný do bufferu
+# - korektní nastavení přístupových práv ke sdílené paměti
+# - konstrukce "céčkové" funkce z tohoto kódu (funkce se dvěma parametry)
+# - obalení "céčkové" funkce kódem volatelným z Pythonu
+# - otestování nové funkce
+
 import ctypes
 import mmap
 
