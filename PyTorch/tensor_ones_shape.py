@@ -1,6 +1,7 @@
 # Knihovna PyTorch
 #
 # - použití konstruktoru ones pro tenzory různých řádů a tvarů
+# - zjištění tvaru tenzoru vytvořeného konstruktorem ones
 
 import torch
 
