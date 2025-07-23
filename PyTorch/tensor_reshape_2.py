@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - změna tvaru tenzoru operací reshape
+
 import torch
 
 # konstrukce tenzoru
