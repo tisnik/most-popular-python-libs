@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - nastavení či změna typu prvků tenzoru
+
 import torch
 
 # konstrukce tenzoru nulteho radu
