@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - zjištění, jakého typu jsou prvky tenzoru
+
 import torch
 
 # konstrukce tenzoru
