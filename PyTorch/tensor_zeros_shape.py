@@ -2,6 +2,7 @@
 #
 # - konstrukce tenzoru
 # - vyplnění nulami
+# - zjištění tvaru tenzoru vytvořeného konstruktorem zeros
 
 import torch
 
