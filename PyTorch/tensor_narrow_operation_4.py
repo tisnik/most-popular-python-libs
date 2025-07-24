@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - přepis původní matice přes pohled na ni (view)
+
 import torch
 
 # konstrukce tenzoru (matice 4x4 prvky)
