@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - přepis původní matice přes pohled na ni (view)narrow, třetí ukázka
+
 import torch
 
 # konstrukce tenzoru druheho radu
