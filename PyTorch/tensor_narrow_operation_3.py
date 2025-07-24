@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - operace nad celým tenzorem typu narrow, třetí ukázka
+
 import torch
 
 # konstrukce tenzoru (matice 4x4 prvky)
