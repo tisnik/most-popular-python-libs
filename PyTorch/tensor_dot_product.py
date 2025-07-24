@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - skalární součin dvou tenzorů prvního řádu
+
 import torch
 
 # konstrukce 1D tenzoru
