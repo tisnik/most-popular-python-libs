@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - podíl dvou tenzorů prvek po prvku
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
