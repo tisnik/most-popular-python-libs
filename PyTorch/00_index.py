@@ -162,26 +162,37 @@
 # print_train_and_test_data.py:
 #
 # tensor_arange.py:
+# - využití konstruktoru arange
 #
 # tensor_broadcast_1.py:
+# - operace broadcast (součin každého prvku tenzoru se skalárem)
 #
 # tensor_broadcast_2.py:
+# - operace broadcast (součin tenzoru druhého řádu s vektorem)
 #
 # tensor_broadcast_3.py:
+# - operace broadcast (součin vektoru s tenzorem druhého řádu)
 #
 # tensor_broadcast_4.py:
+# - operace broadcast (součet tenzorů druhého a třetího řádu)
 #
 # tensor_constructor_3D_1.py:
+# - tenzor třetího řádu reprezentovaný „3D maticí“
 #
 # tensor_constructor_3D_2.py:
+# - tenzor třetího řádu reprezentovaný „3D maticí“ (jiná forma inicializace)
 #
 # tensor_constructor_3D_zero.py:
+# - vynulování prvků tenzoru třetího řádu
 #
 # tensor_constructor_matrix_1.py:
+# - vytvoření a inicializace tenzoru druhého řádu, který může být reprezentován maticí
 #
 # tensor_constructor_matrix_2.py:
+# - inicializace prvků matice
 #
 # tensor_constructor_matrix_zero.py:
+# - vynulování prvků tenzoru druhého řádu
 #
 # tensor_constructor_scalar_1.py:
 # - konstrukce tenzoru nultého a prvního řádu
@@ -190,6 +201,7 @@
 # - inicializace tenzoru prvního řádu s jedním prvkem
 #
 # tensor_constructor_scalar_zero.py:
+# - vynulování prvků tenzoru nultého řádu
 #
 # tensor_constructor_vector_1.py:
 # - konstrukce tenzoru prvního řádu (tříprvkový vektor)
@@ -201,10 +213,13 @@
 # - konstrukce tenzoru prvního řádu s využitím generátoru range
 #
 # tensor_constructor_vector_zero.py:
+# - vynulování prvků tenzoru prvního řádu
 #
 # tensor_dot_product.py:
+# - skalární součin dvou tenzorů prvního řádu
 #
 # tensor_eye.py:
+# - konstrukce jednotkové matice
 #
 # tensor_is_slice_view.py:
 #
@@ -213,52 +228,77 @@
 # tensor_narrow_operation_0_B.py:
 #
 # tensor_narrow_operation_1.py:
+# - operace nad celým tenzorem typu narrow, první ukázka
 #
 # tensor_narrow_operation_1_B.py:
+# - operace nad celým tenzorem typu narrow, první ukázka přepsaná do volání metody
 #
 # tensor_narrow_operation_2.py:
+# - operace nad celým tenzorem typu narrow, druhá ukázka
 #
 # tensor_narrow_operation_2_B.py:
+# - operace nad celým tenzorem typu narrow, druhá ukázka přepsaná do volání metody
 #
 # tensor_narrow_operation_3.py:
+# - operace nad celým tenzorem typu narrow, třetí ukázka
 #
 # tensor_narrow_operation_3_B.py:
+# - operace nad celým tenzorem typu narrow, třetí ukázka přepsaná do volání metody
 #
 # tensor_narrow_operation_4.py:
+# - přepis původní matice přes pohled na ni (view)
 #
 # tensor_narrow_operation_5.py:
+# - přepis původní matice přes pohled na ni (view)narrow, třetí ukázka
 #
 # tensor_ones_shape.py:
+# - použití konstruktoru ones pro tenzory různých řádů a tvarů
+# - zjištění tvaru tenzoru vytvořeného konstruktorem ones
 #
 # tensor_operator_add.py:
+# - součet dvou tenzorů prvek po prvku
 #
 # tensor_operator_div.py:
+# - podíl dvou tenzorů prvek po prvku
 #
 # tensor_operator_matmul.py:
+# - maticové násobení (dvou tenzorů druhého řádu)
 #
 # tensor_operator_matmul_2.py:
+# - maticové násobení (dvou tenzorů druhého řádu)
 #
 # tensor_operator_matmul_3.py:
+# - maticové násobení v případě nekompatibilních tvarů matic
 #
 # tensor_operator_matmul_4.py:
+# - maticové násobení s broadcastingem
 #
 # tensor_operator_matmul_5.py:
+# - násobení vektoru a matice
 #
 # tensor_operator_mul.py:
+# - součin dvou tenzorů prvek po prvku
 #
 # tensor_operator_sub.py:
+# - rozdíl dvou tenzorů prvek po prvku
 #
 # tensor_range.py:
+# - využití konstruktoru range
 #
 # tensor_read_dtype.py:
+# - zjištění, jakého typu jsou prvky tenzoru
 #
 # tensor_reshape.py:
+# - změna tvaru tenzoru operací reshape
 #
 # tensor_reshape_2.py:
+# - změna tvaru tenzoru operací reshape
 #
 # tensor_set_dtype.py:
+# - nastavení či změna typu prvků tenzoru
 #
 # tensor_shape.py:
+# - zjištění tvaru tenzoru
 #
 # tensor_slice_operation_1.py:
 # - konstrukce řezu z tenzoru prvního řádu
@@ -298,3 +338,5 @@
 # tensor_zeros_shape.py:
 # - konstrukce tenzoru
 # - vyplnění nulami
+# - zjištění tvaru tenzoru vytvořeného konstruktorem zeros
+#
