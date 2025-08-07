@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - operace broadcast (součet tenzorů druhého a třetího řádu)
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
