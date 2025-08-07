@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - operace broadcast (součin tenzoru druhého řádu s vektorem)
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
