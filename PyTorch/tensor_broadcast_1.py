@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - operace broadcast (součin každého prvku tenzoru se skalárem)
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
