@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - maticové násobení v případě nekompatibilních tvarů matic
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
