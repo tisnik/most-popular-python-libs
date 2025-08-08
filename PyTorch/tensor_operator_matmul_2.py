@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - maticové násobení (dvou tenzorů druhého řádu)
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
