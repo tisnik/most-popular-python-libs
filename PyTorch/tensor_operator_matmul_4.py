@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - maticové násobení s broadcastingem
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
