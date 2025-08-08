@@ -1,5 +1,7 @@
 # Knihovna PyTorch
 #
+# - násobení vektoru a matice
+
 import torch
 
 # konstrukce tenzoru, vyplneni sekvenci
