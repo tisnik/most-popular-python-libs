@@ -80,3 +80,4 @@
 # - benchmark rychlosti nalezení nejpodobnějších vektorů
 # - vizualizace výsledků formou grafu
 # - porovnání float16 a float32
+#
