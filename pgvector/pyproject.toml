@@ -1,0 +1,22 @@
+[project]
+name = "sentence-transformer"
+version = "0.1.0"
+description = "Sentence transformer demos"
+authors = [
+    {name = "Pavel Tisnovsky", email = "ptisnovs@redhat.com"},
+]
+dependencies = [
+    "datasets>=4.0.0",
+    "faiss-cpu>=1.11.0.post1",
+    "matplotlib>=3.10.5",
+    "pgvector>=0.4.1",
+    "psycopg2>=2.9.10",
+    "sentence-transformers>=5.0.0",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
