@@ -30,7 +30,7 @@ y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5, 3, 4, 5, 3, 4, 5]
 with connection.cursor() as cursor:
     for i in range(len(x)):
         vector = np.array([x[i], y[i]])
-        print(vector)
+        print(type(vector), vector)
         cursor.execute("INSERT INTO v2 (embedding) VALUES (%s)", (vector, ))
     connection.commit()
 
