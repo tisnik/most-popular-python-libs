@@ -1,6 +1,6 @@
 # Knihovna FAISS
 #
-# - nalezení nejpodobnějších vektorů
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití L2 metriky
 # - výpis souřadnic nejpodobnějších vektorů
 
@@ -13,8 +13,8 @@ x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
 # y-ove souradnice bodu v rovine
 y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
 
-# konstrukce 2D matice, v niz kazdy radek obsahuje souradnice jednoho bodu v
-# rovine
+# konstrukce 2D matice, v niz kazdy radek obsahuje souradnice jednoho bodu
+# v rovine
 points = np.column_stack((x,y)).astype("float32")
 print(points)
 
@@ -33,6 +33,8 @@ print(query_vector)
 
 # pocet nejblizsich bodu
 k = len(x)
+
+# nalezeni k nejpodobnejsich vektoru
 distances, indices = index.search(query_vector, k)
 
 # tisk vysledku
