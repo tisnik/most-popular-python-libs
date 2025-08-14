@@ -1,6 +1,8 @@
 # Knihovna FAISS
 #
-# - konstrukce 2D matice se souřadnicemi bodů v rovině
+# - konstrukce dvou vektorů se souřadnicemi bodů v rovině
+# - konstrukce 2D matice se souřadnicemi bodů v rovině z obou vektorů
+# - výpis obsahu matice
 
 import numpy as np
 
@@ -10,7 +12,9 @@ x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
 # y-ove souradnice bodu v rovine
 y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
 
-# konstrukce 2D matice, v niz kazdy radek obsahuje souradnice jednoho bodu v
-# rovine
+# konstrukce 2D matice, v niz kazdy radek obsahuje souradnice jednoho bodu
+# v rovine
 points = np.column_stack((x,y)).astype("float32")
+
+# tisk matice
 print(points)
