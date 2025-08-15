@@ -7,8 +7,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# pocet slozek vektoru
 DIMENSIONS=2
+
+# pocet vektoru
 N=1000
+
+# pocet nejpodobnejsich vektoru, ktere se maji nalezt
 K=100
 
 # náhodné vektory v rovině [0,0] - [1,1]
