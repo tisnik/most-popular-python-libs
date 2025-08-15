@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 
 
 def similarity_search(n, k):
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    # pocet slozek vektoru
     DIMENSIONS=128
 
     t1 = time()
@@ -33,6 +35,8 @@ def similarity_search(n, k):
     # pocet nejblizsich bodu
     distances, indices = index.search(query_vector, k)
     t4 = time()
+
+    # test, kolik vektoru se nalezlo
     assert len(distances) == k
     assert len(indices) == k
 
