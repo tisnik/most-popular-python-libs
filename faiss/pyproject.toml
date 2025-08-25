@@ -5,7 +5,11 @@ description = "Default template for PDM package"
 authors = [
     {name = "Pavel Tisnovsky", email = "ptisnovs@redhat.com"},
 ]
-dependencies = ["faiss-cpu>=1.11.0", "numpy>=2.3.1"]
+dependencies = [
+ "faiss-cpu>=1.11.0",
+ "matplotlib>=3.10.3",
+ "numpy>=2.3.1",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
