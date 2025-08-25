@@ -12,7 +12,8 @@ import matplotlib.pyplot as plt
 
 
 def similarity_search(n, k, float_type):
-    # pocet dimenzi
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    # pocet dimenzi vektoru
     DIMENSIONS=128
 
     # nahodne vektory
