@@ -2,33 +2,37 @@
 # ------------------------------------------
 #
 # faiss-1.py:
-# - konstrukce vektoru se souřadnicemi bodů v rovině
+# - konstrukce dvou vektorů se souřadnicemi bodů v rovině
+# - výpis obsahu obou vektorů na standardní výstup
+# - konstrukce seznamu souřadnic vytvořených z obou vektorů
 #
 # faiss-2.py:
-# - konstrukce 2D matice se souřadnicemi bodů v rovině
+# - konstrukce dvou vektorů se souřadnicemi bodů v rovině
+# - konstrukce 2D matice se souřadnicemi bodů v rovině z obou vektorů
+# - výpis obsahu matice
 #
 # faiss-3.py:
 # - konstrukce indexu knihovnou FAISS
-# - tisk základních informací o indexu
+# - tisk základních informací o vytvořeném indexu
 #
 # faiss-4.py:
-# - nalezení nejpodobnějších vektorů
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití L2 metriky
 # - výpis indexů nejpodobnějších vektorů
 #
 # faiss-5.py:
-# - nalezení nejpodobnějších vektorů
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití L2 metriky
 # - výpis souřadnic nejpodobnějších vektorů
 #
 # faiss-6.py:
-# - nalezení nejpodobnějších vektorů
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití metriky založené na skalárním součinu
 # - výpis souřadnic nejpodobnějších vektorů
 # - vektory nejsou normalizovány
 #
 # faiss-7.py:
-# - nalezení nejpodobnějších vektorů
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití metriky založené na skalárním součinu
 # - výpis souřadnic nejpodobnějších vektorů
 # - vektory jsou normalizovány
@@ -70,6 +74,8 @@
 #
 # faiss-G.py:
 # - vyhledání a vykreslení nejvíce NEpodobných vektorů
+# - vykreslení těchto vektorů
+# - složky všech vektorů jsou typu float32
 #
 # faiss-H.py:
 # - vykreslení nejpodobnějších vektorů získaných na základě jejich vzdálenosti
@@ -80,4 +86,51 @@
 # - benchmark rychlosti nalezení nejpodobnějších vektorů
 # - vizualizace výsledků formou grafu
 # - porovnání float16 a float32
+#
+# faiss-index-benchmark-1.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index FlatL2
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
+#
+# faiss-index-benchmark-2.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index FlatL2
+# - postupně se zvyšuje počet dimenzí vektorů
+# - délka vektorů zůstává konstantní
+# - vizualizace výsledků formou grafu
+#
+# faiss-index-benchmark-3.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index FlatL2
+# - výpis výsledků v tabulkové formě
+# - postupně se zvyšuje počet dimenzí vektorů
+# - délka vektorů se zmenšuje s rostoucím počtem dimenzí vektorů
+# - vizualizace výsledků formou grafu
+#
+# faiss-index-benchmark-4.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index FlatL2
+# - výpis výsledků v tabulkové formě
+# - postupně se zvyšuje počet dimenzí vektorů
+# - délka vektorů se zmenšuje s rostoucím počtem dimenzí vektorů
+# - vizualizace výsledků formou grafu (logaritmické měřítko)
+#
+# faiss-index-benchmark-5.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index IVFFlat
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
+#
+# faiss-index-benchmark-6.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index IVFFlat
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
+#
+# faiss-index-benchmark-7.py:
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - je použit index HNSWFlat
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
 #
