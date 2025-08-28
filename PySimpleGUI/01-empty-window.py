@@ -1,3 +1,7 @@
+# Knihovna PySimpleGUI
+#
+# - otevření jednoduchého okna bez dalších ovládacích prvků
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
