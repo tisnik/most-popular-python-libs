@@ -1,3 +1,10 @@
+# Knihovna PySimpleGUI
+#
+# - otevření jednoduchého okna
+# - přidání textového návěští do okna
+# - automatická změna velikosti okna
+# - realizace smyčky pro obsluhu událostí (event loop)
+
 #
 #  (C) Copyright 2024  Pavel Tisnovsky
 #
