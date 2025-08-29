@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>complex5.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>complex5.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Complex</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">imag</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_real</span> <span class="o">=</span> <span class="n">real</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imag</span> <span class="o">=</span> <span class="n">imag</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{r}</span><span class="s2"> + </span><span class="si">{i}</span><span class="s2">j&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_real</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_imag</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_real</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_real</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imag</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_imag</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_real</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_real</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_imag</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">_imag</span>
+        <span class="k">return</span> <span class="n">Complex</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_real</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">_real</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_imag</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">_imag</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">c3</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">c4</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">()</span>
+
+<span class="n">c1</span> <span class="o">+=</span> <span class="n">c3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+
+<span class="n">c5</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">==</span> <span class="n">c5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span> <span class="o">==</span> <span class="n">c5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c3</span> <span class="o">==</span> <span class="n">c5</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
