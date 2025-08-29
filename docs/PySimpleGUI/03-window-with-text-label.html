@@ -17,6 +17,23 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
+      <p>Knihovna PySimpleGUI</p>
+<ul>
+<li>otevření jednoduchého okna</li>
+<li>přidání textového návěští do okna</li>
+<li>realizace smyčky pro obsluhu událostí (event loop)</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
       <p>(C) Copyright 2024  Pavel Tisnovsky</p>
 <p>All rights reserved. This program and the accompanying materials
  are made available under the terms of the Eclipse Public License v1.0
@@ -30,19 +47,7 @@ https://github.com/tisnik/most-popular-python-libs/blob/master/PySimpleGUI/03-wi
 https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-text-label.html</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PySimpleGUI</span> <span class="k">as</span> <span class="nn">sg</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
-  <div class='section' id='section-1'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-1'>#</a>
-      </div>
-      <p>ovládací prvky, které se mají zobrazit v okně</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre><span class="n">layout</span> <span class="o">=</span> <span class="p">[[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)]]</span></pre></div>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">PySimpleGUI</span> <span class="k">as</span> <span class="nn">sg</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -51,10 +56,10 @@ https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-tex
       <div class='octowrap'>
         <a class='octothorpe' href='#section-2'>#</a>
       </div>
-      <p>vytvoření okna s ovládacími prvky</p>
+      <p>ovládací prvky, které se mají zobrazit v okně</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s2">&quot;Window #2&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">240</span><span class="p">))</span></pre></div>
+      <div class="highlight"><pre><span class="n">layout</span> <span class="o">=</span> <span class="p">[[</span><span class="n">sg</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)]]</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -63,10 +68,10 @@ https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-tex
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      <p>obsluha smyčky událostí (event loop)</p>
+      <p>vytvoření okna s ovládacími prvky</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="k">while</span> <span class="kc">True</span><span class="p">:</span></pre></div>
+      <div class="highlight"><pre><span class="n">window</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">Window</span><span class="p">(</span><span class="s2">&quot;Window #2&quot;</span><span class="p">,</span> <span class="n">layout</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">240</span><span class="p">))</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -75,10 +80,10 @@ https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-tex
       <div class='octowrap'>
         <a class='octothorpe' href='#section-4'>#</a>
       </div>
-      <p>přečtení události</p>
+      <p>obsluha smyčky událostí (event loop)</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></pre></div>
+      <div class="highlight"><pre><span class="k">while</span> <span class="kc">True</span><span class="p">:</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -86,6 +91,18 @@ https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-tex
     <div class='docs'>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>přečtení události</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">event</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
       </div>
       <p>reakce na událost &ldquo;uzavření okna&rdquo;</p>
     </div>
@@ -95,10 +112,10 @@ https://tisnik.github.io/most-popular-python-libs/PySimpleGUI/03-window-with-tex
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-6'>
+  <div class='section' id='section-7'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-6'>#</a>
+        <a class='octothorpe' href='#section-7'>#</a>
       </div>
       <p>po výskoku ze smyčky událostí aplikaci ukončíme</p>
     </div>
