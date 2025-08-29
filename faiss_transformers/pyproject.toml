@@ -6,7 +6,9 @@ authors = [
     {name = "Pavel Tisnovsky", email = "ptisnovs@redhat.com"},
 ]
 dependencies = [
+    "datasets>=4.0.0",
     "faiss-cpu>=1.11.0.post1",
+    "matplotlib>=3.10.5",
     "sentence-transformers>=5.0.0",
 ]
 requires-python = "==3.12.*"
