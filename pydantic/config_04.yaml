@@ -1,0 +1,4 @@
+name: Service configuration #1
+foo: 1
+bar: "*"
+baz: true
