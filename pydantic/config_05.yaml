@@ -1,0 +1,6 @@
+name: Service configuration #1
+service:
+  host: 127.0.0.1
+  port: 8080
+  auth_enabled: false
+  workers: 5
