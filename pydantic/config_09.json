@@ -1,0 +1,20 @@
+{
+    "name": "Service configuration",
+    "service": {
+        "host": "127.0.0.1",
+        "port": 8080,
+        "auth_enabled": false,
+        "workers": 5,
+        "database": {
+            "host": "db1.pg.com",
+            "port": 5432,
+            "db": "test",
+            "user": "tester",
+            "password": "123qwe",
+            "password_file": "password.txt",
+            "ssl_mode": "verify-ca",
+            "gss_encmode": "disable",
+            "ca_cert_path": null
+        }
+    }
+}
