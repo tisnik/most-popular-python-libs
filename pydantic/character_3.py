@@ -14,6 +14,7 @@ class User(BaseModel):
     registered: bool = False
 
     @field_validator("age")
+    @classmethod
     def check_age(cls, value):
         if value < 18:
             raise ValueError("You are too young to register")
