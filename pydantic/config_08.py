@@ -1,6 +1,10 @@
-"""Global configuration."""
-
-import os
+# Knihovna Pydantic
+#
+# - model s konfigurací obsahující pět atributů
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 
 from pyaml_env import parse_config
 
