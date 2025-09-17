@@ -1,4 +1,9 @@
-"""Global configuration."""
+# Knihovna Pydantic
+#
+# - model s konfigurací obsahující čtyři atributy
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML
 
 import yaml
 
