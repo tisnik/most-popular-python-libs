@@ -1,4 +1,7 @@
-"""Global configuration."""
+# Knihovna Pydantic
+#
+# - model s konfigurací obsahující jediný atribut
+# - funkce pro načtení konfigurace ze souboru typu YAML
 
 import yaml
 
