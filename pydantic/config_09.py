@@ -1,4 +1,12 @@
-"""Global configuration."""
+# Knihovna Pydantic
+#
+# - model s konfigurací obsahující pět atributů
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - atributy typu řetězec, které mohou nabývat jen několika hodnot
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
+
 
 import os
 
