@@ -10,22 +10,59 @@
 # character_4.py:
 #
 # config_01.py:
+# - model s konfigurací obsahující jediný atribut
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_02.py:
+# - model s konfigurací obsahující jediný atribut
+# - metoda modelu pro uložení konfigurace do souboru typu JSON
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_03.py:
+# - model s konfigurací obsahující jediný atribut
+# - metoda modelu pro uložení konfigurace do souboru typu JSON
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_04.py:
+# - model s konfigurací obsahující jediný atribut
+# - zákaz inicializace modelu s neznámými atributy
+# - metoda modelu pro uložení konfigurace do souboru typu JSON
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_05.py:
+# - model s konfigurací obsahující čtyři atributy
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_06.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML
 #
 # config_07.py:
+# - model s konfigurací obsahující pět atributů
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 #
 # config_08.py:
+# - model s konfigurací obsahující pět atributů
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 #
 # config_09.py:
+# - model s konfigurací obsahující pět atributů
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - atributy typu řetězec, které mohou nabývat jen několika hodnot
+# - zákaz inicializace modelu s neznámými atributy
+# - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 #
 # user_01.py:
 #
