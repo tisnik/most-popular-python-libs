@@ -2,6 +2,7 @@ from pydantic import BaseModel, PositiveInt
 
 
 class User(BaseModel):
+    """Model reprezentující uživatele."""
     name: str
     surname: str
     age: PositiveInt | None
