@@ -7,17 +7,15 @@
 # - funkce pro načtení konfigurace ze souboru typu YAML
 
 import yaml
-
-from typing_extensions import Self, Optional
+from typing_extensions import Optional, Self
 
 from pydantic import (
     BaseModel,
     ConfigDict,
+    FilePath,
     PositiveInt,
     model_validator,
-    FilePath,
 )
-
 
 # PostgreSQL connection constants
 # See: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE
