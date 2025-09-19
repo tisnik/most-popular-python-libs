@@ -43,9 +43,9 @@ def get_attribute_from_file(file_path: FilePath) -> Optional[str]:
 def file_check(file_path: FilePath) -> None:
     """Check that path is a readable regular file."""
     if not os.path.isfile(file_path):
-        raise InvalidConfigurationError(f"{desc} '{path}' is not a file")
+        raise InvalidConfigurationError(f"Can not read attribute: '{file_path}' is not a file")
     if not os.access(file_path, os.R_OK):
-        raise InvalidConfigurationError(f"{desc} '{path}' is not readable")
+        raise InvalidConfigurationError(f"Can not read attribute: '{file_path}' is not readable")
 
 
 class ConfigurationBase(BaseModel):
