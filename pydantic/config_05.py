@@ -6,7 +6,6 @@
 # - funkce pro načtení konfigurace ze souboru typu YAML
 
 import yaml
-
 from typing_extensions import Self
 
 from pydantic import (
