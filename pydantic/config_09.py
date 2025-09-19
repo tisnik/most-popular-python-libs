@@ -11,17 +11,15 @@
 import os
 
 from pyaml_env import parse_config
-
-from typing_extensions import Self, Optional, Literal
+from typing_extensions import Literal, Optional, Self
 
 from pydantic import (
     BaseModel,
     ConfigDict,
+    FilePath,
     PositiveInt,
     model_validator,
-    FilePath,
 )
-
 
 # PostgreSQL connection constants
 # See: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE
