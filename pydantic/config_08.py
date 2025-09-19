@@ -6,18 +6,18 @@
 # - zákaz inicializace modelu s neznámými atributy
 # - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 
-from pyaml_env import parse_config
+import os
 
-from typing_extensions import Self, Optional
+from pyaml_env import parse_config
+from typing_extensions import Optional, Self
 
 from pydantic import (
     BaseModel,
     ConfigDict,
+    FilePath,
     PositiveInt,
     model_validator,
-    FilePath,
 )
-
 
 # PostgreSQL connection constants
 # See: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SSLMODE
@@ -39,9 +39,9 @@ def get_attribute_from_file(file_path: FilePath) -> Optional[str]:
 def file_check(file_path: FilePath) -> None:
     """Check that path is a readable regular file."""
     if not os.path.isfile(file_path):
-        raise InvalidConfigurationError(f"{desc} '{path}' is not a file")
+        raise InvalidConfigurationError(f"Can not read attribute: '{file_path}' is not a file")
     if not os.access(file_path, os.R_OK):
-        raise InvalidConfigurationError(f"{desc} '{path}' is not readable")
+        raise InvalidConfigurationError(f"Can not read attribute: '{file_path}' is not readable")
 
 
 class ConfigurationBase(BaseModel):
