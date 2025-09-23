@@ -17,11 +17,16 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Global configuration.</p>
+      <p>Knihovna Pydantic</p>
+<ul>
+<li>model s konfigurací obsahující čtyři atributy</li>
+<li>kontrola obsahu atributů po inicializaci modelu</li>
+<li>zákaz inicializace modelu s neznámými atributy</li>
+<li>funkce pro načtení konfigurace ze souboru typu YAML</li>
+</ul>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
-
 <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Self</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="p">(</span>
