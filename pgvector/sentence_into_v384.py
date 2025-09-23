@@ -14,10 +14,9 @@
 #
 
 import psycopg2
-
-import numpy as np
-from pgvector.psycopg2 import register_vector
 from sentence_transformers import SentenceTransformer
+
+from pgvector.psycopg2 import register_vector
 
 model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
 
