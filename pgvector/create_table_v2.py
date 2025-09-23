@@ -15,8 +15,6 @@
 
 import psycopg2
 
-from pgvector.psycopg2 import register_vector
-
 connection = psycopg2.connect(
     host="", port=5432, user="tester", password="123qwe", dbname="test"
 )
@@ -38,8 +36,8 @@ LIST_TABLES_QUERY = """
 """
 
 with connection.cursor() as cursor:
-    print(CREATE_TABLE_STATEMENT);
-    cursor.execute(CREATE_TABLE_STATEMENT);
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
     connection.commit()
 
     print(LIST_TABLES_QUERY)
