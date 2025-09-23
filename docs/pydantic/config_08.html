@@ -17,21 +17,27 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>Global configuration.</p>
+      <p>Knihovna Pydantic</p>
+<ul>
+<li>model s konfigurací obsahující pět atributů</li>
+<li>jeden z atributů je tvořen dalším modelem</li>
+<li>kontrola obsahu atributů po inicializaci modelu</li>
+<li>zákaz inicializace modelu s neznámými atributy</li>
+<li>funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí</li>
+</ul>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">pyaml_env</span> <span class="kn">import</span> <span class="n">parse_config</span>
-
-<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Self</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Self</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">BaseModel</span><span class="p">,</span>
     <span class="n">ConfigDict</span><span class="p">,</span>
+    <span class="n">FilePath</span><span class="p">,</span>
     <span class="n">PositiveInt</span><span class="p">,</span>
     <span class="n">model_validator</span><span class="p">,</span>
-    <span class="n">FilePath</span><span class="p">,</span>
 <span class="p">)</span></pre></div>
     </div>
   </div>
@@ -131,9 +137,9 @@ See: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-SS
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">InvalidConfigurationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; is not a file&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidConfigurationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can not read attribute: &#39;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&#39; is not a file&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">InvalidConfigurationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="s2"> &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; is not readable&quot;</span><span class="p">)</span></pre></div>
+        <span class="k">raise</span> <span class="n">InvalidConfigurationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can not read attribute: &#39;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&#39; is not readable&quot;</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
