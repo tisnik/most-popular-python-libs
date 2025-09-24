@@ -14,7 +14,6 @@ print(BASE_DIR)
 @trace
 def chat(question: str = "What's the capital of France?") -> str:
     """Flow entry function."""
-
     if "OPENAI_API_KEY" not in os.environ and "AZURE_OPENAI_API_KEY" not in os.environ:
         # load environment variables from .env file
         load_dotenv()
