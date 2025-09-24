@@ -13,7 +13,18 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import Add, BinaryOperation, CSTVisitor, Integer, Multiply, Newline, SimpleStatementLine, SimpleWhitespace, TrailingWhitespace, parse_module
+from libcst import (
+    Add,
+    BinaryOperation,
+    CSTVisitor,
+    Integer,
+    Multiply,
+    Newline,
+    SimpleStatementLine,
+    SimpleWhitespace,
+    TrailingWhitespace,
+    parse_module,
+)
 
 
 class Visitor(CSTVisitor):
