@@ -13,7 +13,15 @@
 #      Pavel Tisnovsky
 #
 
-from libcst import Add, BinaryOperation, CSTVisitor, Integer, Multiply, SimpleWhitespace, parse_module
+from libcst import (
+    Add,
+    BinaryOperation,
+    CSTVisitor,
+    Integer,
+    Multiply,
+    SimpleWhitespace,
+    parse_module,
+)
 
 
 class Visitor(CSTVisitor):
