@@ -18,7 +18,6 @@ class ChatFlow:
         chat_history: list = None,
     ) -> str:
         """Flow entry function."""
-
         chat_history = chat_history or []
 
         prompty = Prompty.load(
