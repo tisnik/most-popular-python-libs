@@ -1,11 +1,8 @@
-import sys
 from ctypes import (
     CDLL,
-    c_int,
-    c_uint,
     Structure,
+    c_uint,
     pointer,
-    POINTER,
 )
 
 
