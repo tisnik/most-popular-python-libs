@@ -1,0 +1,34 @@
+version: '2'
+image_name: simplest-llama-stack-configuration
+container_image: null
+
+distribution_spec:
+  local:
+    services:
+      - inference
+      - telemetry
+
+apis:
+  - inference
+  - telemetry
+
+providers:
+  inference:
+    - provider_id: openai
+      provider_type: remote::openai
+      config:
+        api_key: ${env.OPENAI_API_KEY}
+  telemetry:
+    - provider_id: meta-reference
+      provider_type: inline::meta-reference
+      config:
+        sinks: ['console']
+
+models:
+  - model_id: gpt-4-turbo
+    provider_id: openai
+    model_type: llm
+    provider_model_id: gpt-4-turbo
+
+server:
+  port: 8321

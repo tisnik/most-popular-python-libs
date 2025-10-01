@@ -1,0 +1,80 @@
+{
+  "id": "chatcmpl-CJPFSGyinwPahGe7s2y2FWtI9fqAZ",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The capital of France is Paris.",
+        "tool_calls": null,
+        "refusal": null,
+        "annotations": [],
+        "audio": null,
+        "function_call": null
+      },
+      "logprobs": null
+    }
+  ],
+  "created": 1758741322,
+  "model": "gpt-4-turbo-2024-04-09",
+  "object": "chat.completion",
+  "service_tier": "default",
+  "system_fingerprint": "fp_de235176ee",
+  "usage": {
+    "completion_tokens": 7,
+    "prompt_tokens": 14,
+    "total_tokens": 21,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 0,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0
+    }
+  },
+  "metrics": [
+    {
+      "trace_id": "494b4862ce1339456957d19b46224579",
+      "span_id": "664de9d2c854e534",
+      "timestamp": "2025-09-24T19:15:23.602894Z",
+      "attributes": {
+        "model_id": "openai/gpt-4-turbo",
+        "provider_id": "openai"
+      },
+      "type": "metric",
+      "metric": "prompt_tokens",
+      "value": 14,
+      "unit": "tokens"
+    },
+    {
+      "trace_id": "494b4862ce1339456957d19b46224579",
+      "span_id": "664de9d2c854e534",
+      "timestamp": "2025-09-24T19:15:23.602943Z",
+      "attributes": {
+        "model_id": "openai/gpt-4-turbo",
+        "provider_id": "openai"
+      },
+      "type": "metric",
+      "metric": "completion_tokens",
+      "value": 7,
+      "unit": "tokens"
+    },
+    {
+      "trace_id": "494b4862ce1339456957d19b46224579",
+      "span_id": "664de9d2c854e534",
+      "timestamp": "2025-09-24T19:15:23.602961Z",
+      "attributes": {
+        "model_id": "openai/gpt-4-turbo",
+        "provider_id": "openai"
+      },
+      "type": "metric",
+      "metric": "total_tokens",
+      "value": 21,
+      "unit": "tokens"
+    }
+  ]
+}
