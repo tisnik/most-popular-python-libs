@@ -389,7 +389,7 @@ class MatchError(Exception):
 
 
 class _coconut_tail_call(object):
-    __slots__ = ("func", "args", "kwargs")
+    __slots__ = ("args", "func", "kwargs")
 
     def __init__(self, func, *args, **kwargs):
         self.func, self.args, self.kwargs = func, args, kwargs
@@ -1089,7 +1089,7 @@ def prepattern(base_func):
 
 
 class _coconut_partial(object):
-    __slots__ = ("func", "_argdict", "_arglen", "_stargs", "keywords")
+    __slots__ = ("_argdict", "_arglen", "_stargs", "func", "keywords")
     if hasattr(_coconut.functools.partial, "__doc__"):
         __doc__ = _coconut.functools.partial.__doc__
 
