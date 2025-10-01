@@ -1,4 +1,5 @@
 from setuptools import setup
+
 from mypyc.build import mypycify
 
 setup(name='mypyc_output',
