@@ -9,14 +9,14 @@ class Employee(Person):
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self._salary = None
-    
+
     def set_salary(self, salary):
         if salary <= 0:
             raise ValueError("improper salary")
         if salary > 100000:
             raise ValueError("improper salary: too much")
         self._salary = salary
-    
+
     def get_salary(self):
         return self._salary
 
@@ -33,7 +33,7 @@ class Contractor(Employee):
         super().__init__(name, surname)
         self._from_date = from_date
         self._to_date = to_date
- 
+
     def display(self):
         print(f"Contractor {self._name} {self._surname} with salary {self._salary} CZK")
 
@@ -47,7 +47,7 @@ class Intern(Employee):
         self._from_date = from_date
         self._to_date = to_date
         self._age = age
- 
+
     def display(self):
         print(f"Intern {self._name} {self._surname} with salary {self._salary} CZK")
 
