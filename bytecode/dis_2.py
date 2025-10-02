@@ -41,7 +41,7 @@ def vyraz4(x, y):
 
 
 def vyraz5(x, y, z):
-    result = x or y and z
+    result = x or (y and z)
     return result
 
 
