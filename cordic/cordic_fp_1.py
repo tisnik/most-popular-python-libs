@@ -1,6 +1,5 @@
-import numpy as np
-
 import matplotlib.pyplot as plt
+import numpy as np
 
 data_10_iter=[
         [ 0,0.0011726802,1.0000761814,0.0011726802,0.0000761814,100.000,0.008],
