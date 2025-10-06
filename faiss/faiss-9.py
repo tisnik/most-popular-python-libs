@@ -2,10 +2,8 @@
 #
 # - vizualizace koncových bodů vektorů v rovině
 
-import numpy as np
-
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 # pocet slozek vektoru
 DIMENSIONS=2
