@@ -6,7 +6,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.ones((3, 2), dtype=numpy.complex)
+a = numpy.ones((3, 2), dtype=complex)
 
 # tisk obsahu pole na standardní výstup
 print(a)
