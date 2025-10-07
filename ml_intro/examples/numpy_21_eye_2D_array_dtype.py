@@ -6,7 +6,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.eye(10, 10, dtype=numpy.float)
+a = numpy.eye(10, 10, dtype=float)
 
 # tisk obsahu pole na standardní výstup
 print(a)
