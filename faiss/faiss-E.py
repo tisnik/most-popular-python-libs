@@ -5,10 +5,8 @@
 # - vykreslení všech vektorů formou orientovaných šipek
 
 import faiss
-import numpy as np
-
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 # pocet slozek vektoru
 DIMENSIONS=2
