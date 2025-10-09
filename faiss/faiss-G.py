@@ -5,10 +5,8 @@
 # - složky všech vektorů jsou typu float32
 
 import faiss
-import numpy as np
-
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 # pocet slozek vektoru
 DIMENSIONS=2
