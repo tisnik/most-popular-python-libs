@@ -8,10 +8,10 @@
 # - vizualizace výsledků formou grafu (logaritmické měřítko)
 
 from time import time
-import faiss
-import numpy as np
 
+import faiss
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def similarity_search(dimensions, n, k):
