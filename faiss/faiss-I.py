@@ -5,10 +5,10 @@
 # - porovnání float16 a float32
 
 from time import time
-import faiss
-import numpy as np
 
+import faiss
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def similarity_search(n, k, float_type):
@@ -65,7 +65,7 @@ plt.legend(loc="upper left")
 # povolení zobrazení mřížky
 plt.grid(True)
 
-plt.savefig(f"faiss_benchmark_3.png")
+plt.savefig("faiss_benchmark_3.png")
 
 # zobrazení grafu
 plt.show()
