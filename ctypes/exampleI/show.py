@@ -1,14 +1,13 @@
 import sys
 from ctypes import (
     CDLL,
-    c_double,
-    c_int,
-    c_uint,
-    c_char,
-    create_string_buffer,
-    Structure,
-    pointer,
     POINTER,
+    Structure,
+    c_char,
+    c_double,
+    c_uint,
+    create_string_buffer,
+    pointer,
 )
 
 from palette_mandmap import palette
