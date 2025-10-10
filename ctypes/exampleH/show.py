@@ -1,12 +1,11 @@
 import sys
 from ctypes import (
     CDLL,
-    c_double,
-    c_int,
-    c_uint,
-    c_char_p,
-    create_string_buffer,
     Structure,
+    c_char_p,
+    c_double,
+    c_uint,
+    create_string_buffer,
     pointer,
 )
 
