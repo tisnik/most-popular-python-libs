@@ -13,12 +13,13 @@ def worker(name, q):
     while True:
         # čtení příkazů z fronty
         cmd = q.get()
-        q.task_done()
         print(f"Thread '{name}' received command '{cmd}'")
         if cmd == "quit":
             print(f"Thread '{name}' is about to quit")
+            q.task_done()
             return
         time.sleep(1)
+        q.task_done()
 
 
 if __name__ == "__main__":
