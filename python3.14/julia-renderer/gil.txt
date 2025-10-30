@@ -1,0 +1,18 @@
+Threads: no   Rendering time: 9.26075068900002 seconds
+Threads: 1   Rendering time: 9.232911546999958 seconds
+Threads: 2   Rendering time: 8.697968773999946 seconds
+Threads: 3   Rendering time: 8.780939368000077 seconds
+Threads: 4   Rendering time: 8.757358973999999 seconds
+Threads: 5   Rendering time: 8.968072770999925 seconds
+Threads: 6   Rendering time: 9.031249245000026 seconds
+Threads: 7   Rendering time: 9.194169141999964 seconds
+Threads: 8   Rendering time: 9.253845249000051 seconds
+Threads: 9   Rendering time: 9.439028205 seconds
+Threads: 10   Rendering time: 9.730016430999967 seconds
+Threads: 11   Rendering time: 9.830254810999918 seconds
+Threads: 12   Rendering time: 9.628374089999966 seconds
+Threads: 13   Rendering time: 9.723840595999945 seconds
+Threads: 14   Rendering time: 9.796107125000049 seconds
+Threads: 15   Rendering time: 9.895810613000094 seconds
+Threads: 16   Rendering time: 9.817675302999987 seconds
+
