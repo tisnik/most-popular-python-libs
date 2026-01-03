@@ -1,0 +1,116 @@
+{
+  "$defs": {
+    "DatabaseConfiguration": {
+      "additionalProperties": false,
+      "description": "Database configuration.",
+      "properties": {
+        "host": {
+          "default": "localhost",
+          "title": "Host",
+          "type": "string"
+        },
+        "port": {
+          "default": 5432,
+          "exclusiveMinimum": 0,
+          "title": "Port",
+          "type": "integer"
+        },
+        "db": {
+          "title": "Db",
+          "type": "string"
+        },
+        "user": {
+          "title": "User",
+          "type": "string"
+        },
+        "password": {
+          "title": "Password",
+          "type": "string"
+        },
+        "ssl_mode": {
+          "default": "prefer",
+          "title": "Ssl Mode",
+          "type": "string"
+        },
+        "gss_encmode": {
+          "default": "prefer",
+          "title": "Gss Encmode",
+          "type": "string"
+        },
+        "ca_cert_path": {
+          "anyOf": [
+            {
+              "format": "file-path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ca Cert Path"
+        }
+      },
+      "required": [
+        "db",
+        "user",
+        "password"
+      ],
+      "title": "DatabaseConfiguration",
+      "type": "object"
+    },
+    "ServiceConfiguration": {
+      "additionalProperties": false,
+      "description": "Service configuration.",
+      "properties": {
+        "host": {
+          "default": "localhost",
+          "title": "Host",
+          "type": "string"
+        },
+        "port": {
+          "default": 8080,
+          "exclusiveMinimum": 0,
+          "title": "Port",
+          "type": "integer"
+        },
+        "auth_enabled": {
+          "default": false,
+          "title": "Auth Enabled",
+          "type": "boolean"
+        },
+        "workers": {
+          "default": 1,
+          "exclusiveMinimum": 0,
+          "title": "Workers",
+          "type": "integer"
+        },
+        "database": {
+          "$ref": "#/$defs/DatabaseConfiguration"
+        }
+      },
+      "required": [
+        "database"
+      ],
+      "title": "ServiceConfiguration",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Global configuration.",
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "service": {
+      "$ref": "#/$defs/ServiceConfiguration"
+    }
+  },
+  "required": [
+    "name",
+    "service"
+  ],
+  "title": "Configuration",
+  "type": "object"
+}
