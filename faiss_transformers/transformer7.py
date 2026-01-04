@@ -1,4 +1,5 @@
 from sentence_transformers import SentenceTransformer
+
 import faiss
 
 model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
