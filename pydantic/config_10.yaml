@@ -1,0 +1,11 @@
+name: Service configuration #1
+service:
+  host: 127.0.0.1
+  port: 8080
+  auth_enabled: false
+  workers: 5
+  database:
+    host: db1.pg.com
+    db: test
+    user: test
+    password: 123qwe
