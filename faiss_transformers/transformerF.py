@@ -1,10 +1,11 @@
-from sentence_transformers import SentenceTransformer
-import faiss
-from datasets import load_dataset
 from time import time
-import numpy as np
 
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+import faiss
 import matplotlib.pyplot as plt
+import numpy as np
 
 MODEL_NAME = "paraphrase-MiniLM-L6-v2"
 DATASET_ID = "polygraf-ai/human-sentences-1M-sample-v2"
