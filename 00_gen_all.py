@@ -1,6 +1,9 @@
 import os
 
 directories = "FM", "PyTorch", "assembly", "faiss"
+directories = "pygame_zero",
+directories = "PySimpleGUI", 
+directories = "pydantic", 
 
 for directory in directories:
     cwd = os.getcwd()
