@@ -64,6 +64,62 @@
 # - zákaz inicializace modelu s neznámými atributy
 # - funkce pro načtení konfigurace ze souboru typu YAML s expanzí proměnných prostředí
 #
+# config_10.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+#
+# config_10_.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+#
+# config_11.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - export schématu modelu
+#
+# config_12.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - úprava schématu do podoby OpenAPI
+# - export schématu modelu
+#
+# config_13.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - úprava schématu do podoby OpenAPI
+# - řešení atributu exclusiveMinimum
+# - export schématu modelu
+#
+# config_14.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - úprava schématu do podoby OpenAPI
+# - řešení atributu exclusiveMinimum
+# - řešení volitelné hodnoty
+# - export schématu modelu
+#
+# config_15.py:
+# - model s konfigurací obsahující čtyři atributy
+# - jeden z atributů je tvořen dalším modelem
+# - kontrola obsahu atributů po inicializaci modelu
+# - zákaz inicializace modelu s neznámými atributy
+# - úprava schématu do podoby OpenAPI
+# - řešení atributu exclusiveMinimum
+# - řešení volitelné hodnoty
+# - export schématu modelu
+#
 # user_01.py:
 #
 # user_02.py:
