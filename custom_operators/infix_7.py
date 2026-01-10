@@ -69,6 +69,7 @@ print("-" * 20)
 print("gcd:")
 
 import math
+
 gcd=Infix(lambda x,y: math.gcd(x, y))
 print(12 <<gcd>> 8)
 
@@ -76,5 +77,6 @@ print(12 <<gcd>> 8)
 print("div:")
 
 import operator
+
 div=Infix(operator.floordiv)
 print(10 <<div>> (4 <<div>> 2))
