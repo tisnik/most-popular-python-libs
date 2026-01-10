@@ -1,0 +1,11 @@
+[project]
+name = "langchain-framework"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain>=0.1.0",
+    "langchain-openai>=0.0.6",
+    "openai>=1.109.1",
+]
