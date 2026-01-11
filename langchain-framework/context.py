@@ -15,4 +15,4 @@ chatbot = ConversationChain(llm=llm, memory=memory)
 
 print(chatbot.invoke("Hi, I'm Pavel and I live in Czechia."))
 print(chatbot.invoke("What's my name?"))
-print(chatbot.invoke("Where I live"))
+print(chatbot.invoke("Where I live?"))
