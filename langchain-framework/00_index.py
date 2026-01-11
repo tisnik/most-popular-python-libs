@@ -1,6 +1,12 @@
 # Seznam zdrojových kódů v tomto podadresáři
 # ------------------------------------------
 #
+# chain.py:
+# - jednoduchý řetězec vytvořený operátorem |
+# - nastavení parametrů jazykového modelu
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
+#
 # context.py:
 # - práce s pamětí, ve které je uložena konverzace
 # - poslání fakta do jazykového modelu
