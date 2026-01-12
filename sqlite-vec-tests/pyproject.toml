@@ -1,0 +1,11 @@
+[project]
+name = "test-sqlite-vec"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "sqlite-utils>=3.39",
+    "sqlite-vec>=0.1.6",
+]
+
