@@ -7,9 +7,9 @@ lint.select = ["D", "E", "F", "W", "C", "S", "I", "G", "TCH", "SLOT", "RUF", "C9
 #lint.extend-select = ["D401"]
 
 lint.ignore = ["COM812", "G004", "TRY003", "EM102", "TD", "TRY300", "FIX002", "UP007", "UP009", "T201", "F405"]
+lint.pydocstyle.convention = "google"
 
 target-version = "py311"
-lint.pydocstyle.convention = "google"
 line-length = 100
 
 exclude = ["coconut", "pyrsistent"]
@@ -49,7 +49,7 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project]
-name = "Most popular Python libs"
+name = "Most_popular_Python_libs"
 version = "0.1.0"
 description = "Examples for the most popular Python libraries"
 authors = []
@@ -68,3 +68,8 @@ security-check = "pdm run make security-check"
 
 [tool.setuptools]
 packages = ["ols"]
+
+[tool.uv.workspace]
+members = [
+    "python3.14",
+]
