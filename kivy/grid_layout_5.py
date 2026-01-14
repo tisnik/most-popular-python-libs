@@ -1,3 +1,9 @@
+# Knihovna Kivy
+#
+# - GUI aplikace s jediným dialogem
+# - načtení definice dialogu popsaného v jazyku Kv
+# - dialog je postaven na kontejneru typu GridLayout
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
