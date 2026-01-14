@@ -1,3 +1,10 @@
+# Knihovna Kivy
+#
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího BoxLayout
+# - uvnitř kontejneru BoxLayout jsou umístěny další kontejnery stejného typu
+# - tlačítka jsou vložena až do těchto vnitřních kontejnerů
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
