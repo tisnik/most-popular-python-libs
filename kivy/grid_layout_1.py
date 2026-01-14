@@ -1,3 +1,10 @@
+# Knihovna Kivy
+#
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího GridLayout
+# - použita je mřížka se třemi sloupci
+# - dialog obsahuje devět tlačítek se stejnými vlastnostmi
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.gridlayout import GridLayout
