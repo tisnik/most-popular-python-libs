@@ -55,6 +55,38 @@
 # - tisk typu dokumentu a metadat
 # - tisk obsahu objektu představujícího dokument
 #
+# text_loader_3.py:
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - tisk typu dokumentu a metadat
+# - tisk obsahu objektu představujícího dokument
+#
+# text_splitter_1.py:
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+#
+# text_splitter_2.py:
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+#
+# text_splitter_3.py:
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+# - nastavení velikosti jednotlivých částí
+#
+# text_splitter_4.py:
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+# - nastavení velikosti jednotlivých částí a velikosti překryvu
+#
 # tokens1.py:
 # - zjištění počtu tokenů pro zadaný řetězec
 #
