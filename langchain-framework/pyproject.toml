@@ -5,7 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "langchain>=0.1.0",
+    "bs4>=0.0.2",
+    "langchain>=1.2.3",
+    "langchain-community>=0.4.1",
+    "langchain-core>=1.2.7",
     "langchain-openai>=0.0.6",
+    "langchain-text-splitters>=1.1.0",
     "openai>=1.109.1",
+    "pypdf>=6.6.0",
 ]
