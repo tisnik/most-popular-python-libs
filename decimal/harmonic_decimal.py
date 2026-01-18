@@ -6,7 +6,7 @@ h2 = Decimal(0.0)
 one = Decimal(1.0)
 
 while True:
-        h2 = h1 + one / n;
+        h2 = h1 + one / n
 
         if n % 1000000 == 0:
             print(n, h1, h2, h2 - h1)
