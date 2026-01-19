@@ -6,7 +6,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.full((3, 4, 5), numpy.inf, dtype=numpy.complex)
+a = numpy.full((3, 4, 5), numpy.inf, dtype=complex)
 
 # tisk obsahu pole na standardní výstup
 print(a)
