@@ -1,5 +1,4 @@
 from llama_stack.distribution.library_client import LlamaStackAsLibraryClient
-from llama_stack_client import LlamaStackClient
 
 client = LlamaStackAsLibraryClient("run.yaml")
 client.initialize()
