@@ -1,3 +1,10 @@
+# Knihovna Kivy
+#
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího StackLayout
+# - StackLayout využívá výchozí orientaci
+# - dialog obsahuje devět tlačítek se specifikací šířky i výšky
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.stacklayout import StackLayout
