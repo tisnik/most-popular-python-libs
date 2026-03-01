@@ -1,6 +1,26 @@
 # Seznam zdrojových kódů v tomto podadresáři
 # ------------------------------------------
 #
+# anchor_layout_1.py:
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího AnchorLayout
+# - dialog obsahuje jediné tlačítko, které je vycentrované
+#
+# anchor_layout_2.py:
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího AnchorLayout
+# - dialog obsahuje jediné tlačítko, které je horizontálně vycentrované
+#
+# anchor_layout_3.py:
+# - GUI aplikace s jediným dialogem
+# - definice dialogu využívajícího AnchorLayout
+# - dialog obsahuje jediné tlačítko, které je umístěno v rohu
+#
+# anchor_layout_4.py:
+# - GUI aplikace s jediným dialogem
+# - načtení definice dialogu popsaného v jazyku Kv
+# - dialog je postaven na kontejneru typu AnchorLayout
+#
 # box_layout_1.py:
 #
 # box_layout_2.py:
