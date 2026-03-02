@@ -1,3 +1,10 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - zjednodušování konstantních výrazů
+# - tisk výsledků standardní funkcí print
+
+
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
