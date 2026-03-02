@@ -1,3 +1,9 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - čitelný výpis výrazů funkcí sympy.pprint
+
+
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
