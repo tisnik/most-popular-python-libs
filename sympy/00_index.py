@@ -2,12 +2,18 @@
 # ------------------------------------------
 #
 # sympy01.py:
+# - zjednodušování konstantního výrazu s odmocninou
+# - tisk výsledků standardní funkcí print
 #
 # sympy02.py:
+# - zjednodušování konstantních výrazů
+# - tisk výsledků standardní funkcí print
 #
 # sympy03.py:
+# - čitelný výpis výrazů funkcí sympy.pprint
 #
 # sympy04.py:
+# - čitelný výpis výrazů funkcí sympy.pprint
 #
 # sympy05.py:
 #
