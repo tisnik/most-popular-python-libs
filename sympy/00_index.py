@@ -16,12 +16,18 @@
 # - čitelný výpis výrazů funkcí sympy.pprint
 #
 # sympy05.py:
+# - deklarace a "terminálový" výpis jednoduchého výrazu
 #
 # sympy06.py:
+# - deklarace a "matematický" výpis jednoduchého výrazu
 #
 # sympy07.py:
+# - výraz s větším množstvím proměnných (zlomek)
+# - "terminálový" tisk výrazu
 #
 # sympy08.py:
+# - výraz s větším množstvím proměnných (zlomek)
+# - "matematický" tisk výrazu
 #
 # sympy09.py:
 #
