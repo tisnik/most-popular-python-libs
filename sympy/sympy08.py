@@ -1,3 +1,8 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - výraz s větším množstvím proměnných (zlomek)
+# - "matematický" tisk výrazu
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
