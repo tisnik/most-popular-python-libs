@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - deklarace a "terminálový" výpis jednoduchého výrazu
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
