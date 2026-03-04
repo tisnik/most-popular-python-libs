@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - zjednodušení výrazu se třemi proměnnými a se zlomky
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
