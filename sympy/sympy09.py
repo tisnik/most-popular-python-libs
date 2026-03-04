@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - zjednodušení výrazu s jedinou proměnnou
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
