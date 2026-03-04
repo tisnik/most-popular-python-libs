@@ -30,12 +30,16 @@
 # - "matematický" tisk výrazu
 #
 # sympy09.py:
+# - zjednodušení výrazu s jedinou proměnnou
 #
 # sympy10.py:
+# - zjednodušení výrazu se třemi proměnnými a se zlomky
 #
 # sympy11.py:
+# - pokus o použití nedefinované proměnné
 #
 # sympy12.py:
+# - výraz x^2-y^2
 #
 # sympy13.py:
 #
