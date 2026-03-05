@@ -42,12 +42,16 @@
 # - výraz x^2-y^2
 #
 # sympy13.py:
+# - složitější výraz s několika členy
 #
 # sympy14.py:
+# - faktorizace výrazu x^2-y^2
 #
 # sympy15.py:
+# - faktorizace výrazu x^2-2x+1
 #
 # sympy16.py:
+# - expanze výrazu (x-y)(x+y)
 #
 # sympy17.py:
 #
