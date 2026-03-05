@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - složitější výraz s několika členy
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
