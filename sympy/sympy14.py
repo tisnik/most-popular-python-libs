@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - faktorizace výrazu x^2-y^2
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
