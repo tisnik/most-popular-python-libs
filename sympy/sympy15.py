@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - faktorizace výrazu x^2-2x+1
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
