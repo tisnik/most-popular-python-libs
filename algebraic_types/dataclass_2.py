@@ -1,3 +1,9 @@
+# Algebraické datové typy v Pythonu
+#
+# - definice datové třídy
+# - konstrukce instance této třídy
+# - použití nekorektního parametru předaného do konstruktoru
+
 from dataclasses import dataclass
 
 
