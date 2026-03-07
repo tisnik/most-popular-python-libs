@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - expanze (roznásobení závorek) složitějšího výrazu se třemi proměnnými
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
