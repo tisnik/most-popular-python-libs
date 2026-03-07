@@ -54,12 +54,16 @@
 # - expanze výrazu (x-y)(x+y)
 #
 # sympy17.py:
+# - expanze (roznásobení závorek) složitějšího výrazu se dvěma proměnnými
 #
 # sympy18.py:
+# - expanze (roznásobení závorek) složitějšího výrazu se třemi proměnnými
 #
 # sympy19.py:
+# - řešení kvadratické rovnice
 #
 # sympy20.py:
+# - řešení kvadratické rovnice, odlišná forma výstupu
 #
 # sympy21.py:
 #
