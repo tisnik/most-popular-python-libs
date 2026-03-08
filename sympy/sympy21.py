@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - řešení kvadratické rovnice se dvěma neznámými
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
