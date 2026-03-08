@@ -66,12 +66,16 @@
 # - řešení kvadratické rovnice, odlišná forma výstupu
 #
 # sympy21.py:
+# - řešení kvadratické rovnice se dvěma neznámými
 #
 # sympy22.py:
+# - výpočet derivace polynomu
 #
 # sympy23.py:
+# - výpočet derivace složitějšího výrazu
 #
 # sympy24.py:
+# - výpočet integrace polynomu
 #
 # sympy25.py:
 #
