@@ -78,12 +78,16 @@
 # - výpočet integrace polynomu
 #
 # sympy25.py:
+# - výpočet integrace složitějšího polynomu
 #
 # sympy26.py:
+# - symboly vs. proměnné
 #
 # sympy27.py:
+# - reálné kořeny kvadratické rovnice
 #
 # sympy28.py:
+# - komplexní kořeny kvadratické rovnice
 #
 # sympy29.py:
 #
