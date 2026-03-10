@@ -1,0 +1,3 @@
+import scipy
+
+help(scipy)
