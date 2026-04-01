@@ -90,12 +90,16 @@
 # - komplexní kořeny kvadratické rovnice
 #
 # sympy29.py:
+# - hledání kořenů kubické rovnice
 #
 # sympy30.py:
+# - kořeny polynomů vyšších stupňů
 #
 # sympy31.py:
+# - průchod nulovými body periodické funkce
 #
 # sympy32.py:
+# - vyhledání všech možných řešení
 #
 # sympy33.py:
 #
