@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - hledání kořenů kubické rovnice
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
