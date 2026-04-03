@@ -302,6 +302,92 @@
 #
 # ## Neuronové sítě
 #
+# * Propojení takzvaných neuronů
+#     - Model neuronu
+#     - Způsob propojení neuronů
+#     - Vstupy a výstupy
+# 
+# ---
+# 
+# ### Model neuronu
+# 
+# ![neuron.png](images/neuron.png)
+# 
+# * libovolný počet vstupů
+# * typicky jeden výstup
+# * váhy vstupů
+# * aktivační funkce
+# 
+# y = f(w1x1 + w2x2 + … + wnxn)
+# 
+# ---
+# 
+# ### Bias
+# 
+# ![bias.png](images/bias.png)
+# 
+# y = f(w0 + w1x1 + w2x2 + … + wnxn)
+# 
+# ---
+# 
+# ### Aktivační funkce
+# 
+# * Jediná nelinearita v modelu
+# * Mnoho typů aktivačních funkcí
+# 
+# ---
+# 
+# ### Aktivační funkce
+# 
+# ![akt1.png](images/akt_1.png)
+# 
+# ---
+# 
+# ### Aktivační funkce
+# 
+# ![akt2.png](images/akt_2.png)
+# 
+# ---
+# 
+# ### Feed-forward síť
+# 
+# * Vstupní vrstva
+# * Skryté vrstvy
+# * Výstupní vrstva
+# 
+# ---
+# 
+# ### Feed-forward síť
+# 
+# ![ff.png](images/ff.png)
+# 
+# ---
+# 
+# ### Příliš mnoho vrstev
+# 
+# * Model se přestane učit nebo se učí velmi pomalu
+#     - vanishing gradient problem
+#     - "méně je někdy více"
+# 
+# ---
+# 
+# ### Konvoluční neuronové sítě
+# 
+# * Typicky pro rastrové obrázky
+#     - mírné posunutí, zkosení atd.
+#     - lze sice řešit klasickými NN
+#     - ovšem je to zbytečně složité (RAM, CPU čas)
+#     - příliš mnoho stejných, ale samostatně uložených vah
+#     - konvoluční a subsamplingové vrstvy
+# 
+# ---
+# 
+# ### Konvoluční neuronové sítě
+# 
+# * Typická konfigurace
+#     - vstupní vrstva
+#     - konvoluční vrstva #1
+#     - subsamplingová vrstva #1
 # ---
 #
 # # Generativní AI
@@ -428,6 +514,300 @@ for model in models:
 #     - může být i lokální souborový systém
 #
 # ---
+# 
+# ### Komunikace s Llama Stackem
+# 
+# * CLI
+# * REST API
+# * Jako běžná knihovna (Python atd.)
+# * Llama Stack klient
+#     - podporuje REST API
+#     - podporuje i běh formou knihovny (async)
+# 
+# ---
+# 
+# ### Llama Stack klient
+# 
+# * Python
+# * Swift
+# * Kotlin
+# * Node.js
+# 
+# ---
+# 
+# ### Llama Stack jako knihovna
+# 
+# ![LS1](images/llama_stack_as_library.png)
+# 
+# ---
+# 
+# ### Llama Stack jako samostatná služba
+# 
+# ![LS1](images/llama_stack_as_service.png)
+# 
+# ---
+# 
+# ### Běh v kontejneru
+# 
+# ![LS1](images/llama_stack_in_container.png)
+# 
+# ---
+# 
+# ### Příklad služby postavené na Llama Stacku
+# 
+# * REST API postavené nad API Llama Stacku
+# * Obě možnosti spuštění Llama Stacku
+# * Implementace formou asynchronního kódu (Python)
+# 
+# ---
+# 
+# ![LS1](images/llama_stack_arch.png)
+# 
+# ---
+# 
+# ### Llama Stack klient
+# 
+# * Využijeme klienta pro Python
+# 
+# ```bash
+# uv init
+# uv add llama-stack-client
+# ```
+# 
+# ---
+# 
+# ### Llama Stack běží jako samostatná služba
+# 
+
+# Získání seznamu všech dostupných modelů
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+
+for model in models:
+    print(model)
+
+# ---
+# 
+# ### Llama Stack je použit jako běžná knihovna
+# 
+
+# Získání seznamu všech dostupných modelů
+
+from llama_stack.distribution.library_client import LlamaStackAsLibraryClient
+
+client = LlamaStackAsLibraryClient("run.yaml")
+client.initialize()
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+
+for model in models:
+    print(model)
+
+# ---
+
+# Komunikace s LLM
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+response = client.chat.completions.create(
+    model=model_id,
+    messages=[{"role": "user", "content": "What is the capital of France?"}]
+)
+
+print(response.to_json())
+
+# ---
+#
+# ### Vývoj Llama Stacku
+#
+# * Změny v API
+# * Plány na ukončení podpory starších API
+#     - deprecation
+# * Náhrada agent API za OpenAI API
+# * Stabilizace ve verzi 0.3.0 ???
+#
+# ---
+
+# Využití novějšího API
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+response = client.chat.completions.create(
+    model=model_id,
+    messages=[{"role": "user", "content": "What is the capital of France?"}]
+)
+
+print(response.to_json())
+
+# ---
+# 
+# ### Získávání informací z poskytnutých dokumentů
+# 
+# * RAG
+# * Ovšem i další vstupy
+#     - sémantické vyhledávání
+#     - fulltext vyhledávání
+#     - hybridní vyhledávání
+# 
+# ---
+# 
+
+# Prvotní zpracování dokumentů
+
+import uuid
+from pathlib import Path
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+print(f"Using Llama Stack version {client._version}")
+
+vector_store_name= f"vec_{str(uuid.uuid4())[0:8]}"
+print(f"Vector store name: {vector_store_name}")
+
+vector_store = client.vector_stores.create(name=vector_store_name)
+vector_store_id = vector_store.id
+
+print(f"Vector store ID: {vector_store_id}")
+
+#
+# ---
+#
+
+# Prvotní zpracování dokumentů
+
+path=Path("cesta_k_souboru.md")
+print(f"File path: {path}")
+
+file_create_response = client.files.create(file=path, purpose="assistants")
+print(f"File create response: {file_create_response}")
+
+file_ingest_response = client.vector_stores.files.create(
+    vector_store_id=vector_store_id,
+    file_id=file_create_response.id,
+)
+print(f"File ingest response: {file_ingest_response}")
+
+#
+# ---
+#
+
+# Získání odpovědi z dokumentu
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+MODEL_ID="openai/gpt-4-turbo"
+
+def print_rag_response(response):
+    print(f"ID: {response.id}")
+    print(f"Status: {response.status}")
+    print(f"Model: {response.model}")
+    print(f"Created at: {response.created_at}")
+    print(f"Output items: {len(response.output)}")
+
+    for i, output_item in enumerate(response.output):
+        if len(response.output) > 1:
+            print(f"\n--- Output Item {i+1} ---")
+        print(f"Output type: {output_item.type}")
+
+        if output_item.type in ("text", "message"):
+            print(f"Response content: {output_item.content[0].text}")
+        elif output_item.type == "file_search_call":
+            print(f"  Tool Call ID: {output_item.id}")
+            print(f"  Tool Status: {output_item.status}")
+            print(f"  Queries: {', '.join(output_item.queries)}")
+            print(f"  Results: {output_item.results if output_item.results else 'None'}")
+        else:
+            print(f"Response content: {output_item.content}")
+
+
+response = client.responses.create(
+    model=MODEL_ID,
+    input="zadaný dotaz",
+    tools=[
+        {
+            "type": "file_search",
+            "vector_store_ids": [vector_store_id],
+        }
+    ]
+)
+
+print_rag_response(response)
+
+# ---
+# 
+# ### Ukázka 1/2
+# 
+# * Dokument:
+#     - `README.TXT` ze hry Supaplex
+# * Relevantní část z dokumentu:
+# 
+# ```plaintext
+# [a round rock] - ZONK
+#        This is another very common obstacle (and usually a very
+#        unpleasant one) a Zonk tends to fall down whenever possible
+#        (i.e. there is a void underneath). Be careful, when a Zonk
+#        falls on you (Murphy) you will explode (read: die). Murphy can
+#        push Zonks to the side (not up and down) if nothing is blocking
+#        the Zonk (i.e. there is a void on the other side). Murphy can
+#        only push one Zonk at a time, so watch out when dropping Zonks
+#        next to each other! With some good timing, you can also drop
+#        Zonks on Electrons (see below) or Snik-snaks (see below) which
+#        will explode (and not bother you again). Zonks have the nasty
+#        habit of falling SIDEWAYS off Ram-Chips (see below) and other
+#        Zonks if possible (i.e. there is a void to the side), on all
+#        other objects the Zonks will lie steady.
+# ```
+# 
+# ---
+# 
+# ### Ukázka 2/2
+# * Dotaz:
+# ```plaintext
+# What is Zonk?
+# ```
+# * Odpověď:
+# ```plaintext
+# "ZONK" refers to an element in the videogame Supaplex. In the
+# game, a Zonk is depicted as a round rock, and it is a common and typically
+# unpleasant obstacle. Zonks tend to fall downwards whenever possible, for
+# instance, if there is a void directly underneath them. Players must be cautious
+# as a Zonk falling on the character (Murphy) results in an explosion and
+# game-over for the player. Murphy can push Zonks laterally (but not vertically)
+# if there is space for them to move, but can only push one Zonk at a time. Good
+# timing is needed to use Zonks strategically, such as dropping them on top of
+# enemies (like Snik-snaks) to eliminate them through explosions.
+# ```
+# 
+# ---
 #
 # ### Současná situace okolo Llama Stacku
 #
@@ -438,4 +818,41 @@ for model in models:
 # * Výsledkem je nestabilita celé platformy
 # * Pokud vyvíjíte stabilní projekt, je Llama Stack riziko
 #
+# ---
+# 
+# ![Langchain logo](images/langchain.png)
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Framework pro GenAI a Python
+# * Chatboti
+# * RAG
+# * Paměť konverzací
+# * Shrnutí konverzací
+# * Generování syntetických dat
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Jednoduché úkoly je možné řešit jednoduše
+# * Mnohdy pouze několikařádkové skripty
+# 
+# ---
+#
+
+# Získání odpovědi z LLM
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.invoke("Say Hi")
+print(response)
+
+# 
+# ---
+#
+
 
