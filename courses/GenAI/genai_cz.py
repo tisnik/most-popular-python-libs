@@ -32,7 +32,11 @@
 # 
 # ---
 #
-# # Úvod
+# # Teoretická část
+#
+# ---
+#
+# ## Úvod
 # 
 # * Umělá inteligence
 # * Vývoj umělé inteligence
@@ -416,7 +420,12 @@
 # * příkladem může být knihovna OpenAI
 # * a do určité míry taktéž LiteLLM
 
-# Výpis všech dostupných modelů
+# 
+# ---
+# 
+# ### Výpis všech dostupných modelů
+# - používá se přímo balíček openai
+# - klíč se získává z proměnné prostředí
 
 from openai import OpenAI
 import os
@@ -565,6 +574,19 @@ for model in models:
 # 
 # ---
 # 
+# # Praktická část
+#
+# - Volání LLM
+# - Langchain
+# - Tokenizace textu
+# - Tvorba embedded modelů
+# - Vyhledávání založené na podobnosti vektorů
+# - PgVector
+# - FAISS
+# - Evaluace
+#
+# ---
+#
 # ### Llama Stack klient
 # 
 # * Využijeme klienta pro Python
@@ -575,6 +597,8 @@ for model in models:
 # ```
 # 
 # ---
+#
+
 # 
 # ### Llama Stack běží jako samostatná služba
 # 
@@ -612,8 +636,8 @@ for model in models:
     print(model)
 
 # ---
-
-# Komunikace s LLM
+#
+# ### Komunikace s LLM
 
 from llama_stack_client import LlamaStackClient
 
@@ -645,7 +669,7 @@ print(response.to_json())
 #
 # ---
 
-# Využití novějšího API
+# ### Využití novějšího API
 
 from llama_stack_client import LlamaStackClient
 
@@ -839,11 +863,16 @@ print_rag_response(response)
 # 
 # * Jednoduché úkoly je možné řešit jednoduše
 # * Mnohdy pouze několikařádkové skripty
+# * Operátor | pro tvorbu "kolon"
+# * Napojení na RAG
 # 
 # ---
 #
 
-# Získání odpovědi z LLM
+# ### Získání odpovědi z LLM
+# - inicializace rozhraní k modelu poskytovaného přes OpenAI
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
 
 from langchain_openai import ChatOpenAI
 
@@ -851,8 +880,398 @@ llm = ChatOpenAI(model_name="gpt-4o-mini")
 response = llm.invoke("Say Hi")
 print(response)
 
-# 
+
+#
 # ---
 #
 
+# ### Objekt typu `response`
+# - inicializace rozhraní k modelu poskytovaného přes OpenAI
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi v naformátované podobě
 
+from pprint import pprint
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.invoke("Say Hi")
+pprint(response)
+
+#
+# ---
+#
+
+# ### Nastavení "teploty"
+# - inicializace rozhraní k modelu poskytovaného přes OpenAI
+# - nastavení parametrů jazykového modelu
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
+response = llm.invoke("Say Hi")
+print(response)
+
+#
+# ---
+#
+
+# ### Koncept šablon
+# - konstrukce jednoduchého řetězce
+# - předání parametru do výzvy
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate.from_template("How to say 'hi' in {language} language?")
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+chain = LLMChain(prompt=prompt, llm=llm)
+
+response = chain.invoke("Czech")
+print(response)
+
+#
+# ---
+#
+
+# ### Řetězce (kolony)
+# - jednoduchý řetězec
+# - nastavení parametrů jazykového modelu
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["language"],
+    template="How to say 'hi' in {language} language?",
+)
+
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+chain = LLMChain(prompt=prompt, llm=llm)
+
+response = chain.invoke("Czech")
+print(response)
+
+#
+# ---
+#
+
+# ### Řetězce (kolony)
+# - jednoduchý řetězec vytvořený operátorem |
+# - nastavení parametrů jazykového modelu
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+prompt = PromptTemplate.from_template("How to say 'hi' in {language} language?")
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+
+chain = prompt | llm | StrOutputParser()
+
+response = chain.invoke({"language": "Czech"})
+print(response)
+
+
+#
+# ---
+#
+
+# ### Paměť konverzace
+# - práce s pamětí, ve které je uložena konverzace
+# - poslání fakta do jazykového modelu
+# - získání dvou odpovědí, které závisí na faktech v konverzaci
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+
+memory = ConversationBufferMemory()
+chatbot = ConversationChain(llm=llm, memory=memory)
+
+print(chatbot.invoke("Hi, I'm Pavel and I live in Czechia."))
+print(chatbot.invoke("What's my name?"))
+print(chatbot.invoke("Where I live?"))
+
+#
+# ---
+#
+
+# ### Základy práce s tokeny
+# - zjištění počtu tokenů pro zadaný řetězec
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+print(llm.get_num_tokens("What is firefox?"))
+
+#
+# ---
+#
+
+# ### Základy práce s tokeny
+# - inicializace rozhraní k modelu poskytovaného přes OpenAI
+# - poslání dotazu do jazykového modelu
+# - tisk celé struktury odpovědi (nikoli pouze textu)
+
+from langchain_openai import ChatOpenAI
+from langchain_core.messages.human import HumanMessage
+
+import pprint
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.generate([[HumanMessage("Say Hi")]])
+pprint.pprint(response.llm_output)
+
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - tisk obsahu objektu představujícího dokument
+
+from langchain_community.document_loaders import TextLoader
+
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+
+text_documents= loader.load()
+
+print(f"Number of documents: {len(text_documents)}")
+
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print(text_document)
+
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - tisk typu dokumentu a metadat
+# - tisk obsahu objektu představujícího dokument
+
+from langchain_community.document_loaders import TextLoader
+
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+
+text_documents= loader.load()
+
+print(f"Number of documents: {len(text_documents)}")
+
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - tisk typu dokumentu a metadat
+# - tisk obsahu objektu představujícího dokument
+
+from langchain_community.document_loaders import TextLoader
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+
+text_documents= loader.load()
+
+print(f"Number of documents: {len(text_documents)}")
+
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
+
+# - inicializace objektu pro načítání dokumentů ve formátu PDF
+# - načtení a zpracování jednoho dokumentu ve formátu PDF
+# - tisk typu dokumentu a metadat
+# - tisk obsahu objektu představujícího dokument
+
+from langchain_community.document_loaders import PyPDFLoader
+
+DOCUMENT_PATH = "documents/EPL-2.0.pdf"
+
+loader = PyPDFLoader(DOCUMENT_PATH)
+print(loader)
+
+pdf_documents= loader.load()
+
+print(f"Number of documents: {len(pdf_documents)}")
+
+for pdf_document in pdf_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", pdf_document.type)
+    print("Metadata:", pdf_document.metadata)
+    print()
+    print(pdf_document.page_content)
+
+# - inicializace objektu pro načítání obsahu HTML stránek
+# - načtení a zpracování jedné HTML stránky
+# - tisk typu dokumentu a metadat
+# - tisk obsahu objektu představujícího dokument
+
+from langchain_community.document_loaders import WebBaseLoader
+
+DOCUMENT_URL = "https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html"
+
+loader = WebBaseLoader(DOCUMENT_URL)
+print(loader)
+
+text_documents= loader.load()
+
+print(f"Number of documents: {len(text_documents)}")
+
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
+
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+
+text_documents= loader.load()
+
+text_splitter= RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks=text_splitter.split_documents(text_documents)
+
+for chunk in chunks:
+    print(chunk.page_content)
+    print("-"*50)
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+# - nastavení velikosti jednotlivých částí
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=50)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+# - inicializace objektu pro načítání textových dokumentů
+# - načtení a zpracování jednoho textového dokumentu
+# - rozdělení dokumentu do menších částí
+# - tisk všech částí dokumentu
+# - nastavení velikosti jednotlivých částí a velikosti překryvu
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=100)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+#
+# ---
+#
+# # Vektorové databáze
+#
+#
+# ---
+#
+# ## Embedding
+#
+# ---
+#
+# ### Faiss
+# 
+# * Facebook AI Similarity Search
+# * Open source
+# * Podpora indexů
+# 
