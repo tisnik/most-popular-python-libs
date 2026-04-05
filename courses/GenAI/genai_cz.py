@@ -1275,3 +1275,453 @@ for chunk in splitted:
 # * Open source
 # * Podpora indexů
 # 
+
+#
+# ---
+#
+# - konstrukce dvou vektorů se souřadnicemi bodů v rovině
+# - výpis obsahu obou vektorů na standardní výstup
+# - konstrukce seznamu souřadnic vytvořených z obou vektorů
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+print(x)
+print(y)
+
+print(list(zip(x, y)))
+#
+# ---
+#
+# - konstrukce dvou vektorů se souřadnicemi bodů v rovině
+# - konstrukce 2D matice se souřadnicemi bodů v rovině z obou vektorů
+# - výpis obsahu matice
+
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+
+print(points)
+#
+# ---
+#
+# - konstrukce indexu knihovnou FAISS
+# - tisk základních informací o vytvořeném indexu
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+#
+# ---
+#
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# - použití L2 metriky
+# - výpis indexů nejpodobnějších vektorů
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  index")
+print("--------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {indices[0][i]:2}")
+#
+# ---
+#
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# - použití L2 metriky
+# - výpis souřadnic nejpodobnějších vektorů
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+#
+# ---
+#
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# - použití metriky založené na skalárním součinu
+# - výpis souřadnic nejpodobnějších vektorů
+# - vektory nejsou normalizovány
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatIP(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+#
+# ---
+#
+# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# - použití metriky založené na skalárním součinu
+# - výpis souřadnic nejpodobnějších vektorů
+# - vektory jsou normalizovány
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+for i in range(len(points)):
+   vector = points[i]
+   normalized = np.linalg.norm(vector)
+   vector /= normalized
+   points[i] = vector
+
+print()
+print("Normalized:")
+print(points)
+
+index = faiss.IndexFlatIP(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+normalized = np.linalg.norm(query_vector)
+query_vector /= normalized
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:+7.4f}     {points[indices[0][i]]}")
+#
+# ---
+#
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - výpis výsledků v tabulkové formě
+# - vizualizace výsledků formou grafu
+
+from time import time
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def similarity_search(n, k):
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    DIMENSIONS=128
+
+    t1 = time()
+
+    data = np.random.rand(n, 128).astype('float32')
+
+    t2 = time()
+
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(data)
+
+    t3 = time()
+
+    query_vector = np.random.rand(1, DIMENSIONS).astype("float32")
+
+    distances, indices = index.search(query_vector, k)
+    t4 = time()
+
+    assert len(distances) == k
+    assert len(indices) == k
+
+    return n, t2-t1, t3-t2, t4-t3
+
+
+ns = []
+ts_rand = []
+ts_index = []
+ts_search = []
+
+for n in np.linspace(1000000, 10000000, 10):
+    print(n)
+    n, t_rand, t_index, t_search = similarity_search(int(n), 1)
+    ns.append(n)
+    ts_rand.append(t_rand)
+    ts_index.append(t_index)
+    ts_search.append(t_search)
+
+
+plt.plot(ns, ts_rand, "r-", label="numpy.random.rand")
+plt.plot(ns, ts_index, "b-", label="index creation")
+plt.plot(ns, ts_search, "m-", label="similarity search")
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss_benchmark_2.png")
+
+plt.show()
+#
+# ---
+#
+# - vizualizace koncových bodů vektorů v rovině
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-9.png")
+
+plt.show()
+#
+# ---
+#
+# - vykreslení nejpodobnějších vektorů získaných na základě L2 metriky
+# - vektory nejsou normalizovány
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float32")
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-A.png")
+
+plt.show()
+#
+# ---
+#
+# - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
+# - vektory nejsou normalizovány
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float32")
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-B.png")
+
+plt.show()
+
+#
+# ---
+#
+# - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
+# - vektory jsou normalizovány
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   normalized = np.linalg.norm(vector)
+   vector /= normalized
+   vectors[i] = vector
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]])
+normalized = np.linalg.norm(query_vector)
+query_vector /= normalized
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-C.png")
+
+plt.show()
