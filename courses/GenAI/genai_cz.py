@@ -1725,3 +1725,457 @@ plt.grid(True)
 plt.savefig("faiss-C.png")
 
 plt.show()
+#
+# ---
+#
+# - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
+# - vektory jsou normalizovány
+# - vykresleny jsou ovšem původní vektory
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]])
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-D.png")
+
+plt.show()
+#
+# ---
+#
+# - vyhledání a vykreslení nejvíce NEpodobných vektorů
+# - vykreslení těchto vektorů
+# - složky všech vektorů jsou typu float32
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]])
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(-normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-G.png")
+
+plt.show()
+
+#
+# ---
+#
+# - vykreslení nejpodobnějších vektorů získaných na základě jejich vzdálenosti
+# - vykresleny jsou původní vektory
+# - složky všech vektorů jsou typu float16
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float16")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float16")
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-H.png")
+
+plt.show()
+#
+# ---
+#
+# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# - vizualizace výsledků formou grafu
+# - porovnání float16 a float32
+
+from time import time
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def similarity_search(n, k, float_type):
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    DIMENSIONS=128
+
+    data = np.random.rand(n, 128).astype(float_type)
+
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(data)
+
+    t1 = time()
+
+    query_vector = np.random.rand(1, DIMENSIONS).astype(float_type)
+
+    distances, indices = index.search(query_vector, k)
+    t2 = time()
+
+    return n, t2-t1
+
+
+def benchmark(from_n, to_n, steps, float_type):
+    ns = []
+    ts_search = []
+
+    for n in np.linspace(from_n, to_n, steps):
+        print(n)
+        n, t_search = similarity_search(int(n), 1, float_type)
+        ns.append(n)
+        ts_search.append(t_search)
+
+    return ns, ts_search
+
+
+from_n = 1000000
+to_n = 10000000
+steps = 10
+
+ns, float16_times = benchmark(from_n, to_n, steps, "float16")
+_, float32_times = benchmark(from_n, to_n, steps, "float32")
+
+plt.plot(ns, float16_times, "r-", label="float16")
+plt.plot(ns, float32_times, "b-", label="float32")
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss_benchmark_3.png")
+
+plt.show()
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("all-mpnet-base-v2")
+
+print(model)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("Seznam/small-e-czech")
+
+print(model)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+print(f"Data type: {type(embeddings)}")
+
+print(embeddings)
+
+np.info(embeddings)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+print(embeddings)
+similarities = model.similarity(embeddings, embeddings)
+print(similarities)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("The quick brown fox jumps over the lazy dog", 3)
+find_similar_sentences("quick brown fox jumps over lazy dog", 3)
+find_similar_sentences("The quick brown fox jumps over the angry dog", 3)
+find_similar_sentences("The quick brown cat jumps over the lazy dog", 3)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("The rain in Spain falls mainly on the plain", 3)
+find_similar_sentences("The rain in Czechia falls mainly on the plain", 3)
+find_similar_sentences("rainy weather in Spain, especially on plains", 3)
+
+#
+# ---
+#
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "How old are you?",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("What is your age?", 3)
