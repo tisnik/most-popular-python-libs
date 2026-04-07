@@ -1557,8 +1557,11 @@ plt.grid(True)
 plt.savefig("faiss_benchmark_2.png")
 
 plt.show()
+
 #
 # ---
+#
+# ### Vizualizace vektorů v rovině
 #
 # - vizualizace koncových bodů vektorů v rovině
 
@@ -1584,8 +1587,11 @@ plt.grid(True)
 plt.savefig("faiss-9.png")
 
 plt.show()
+
 #
 # ---
+#
+# ### Vizualizace nejpodobnějších vektorů v rovině
 #
 # - vykreslení nejpodobnějších vektorů získaných na základě L2 metriky
 # - vektory nejsou normalizovány
@@ -1631,6 +1637,8 @@ plt.show()
 #
 # ---
 #
+# ### Vizualizace nejpodobnějších vektorů v rovině
+#
 # - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
 # - vektory nejsou normalizovány
 
@@ -1675,6 +1683,8 @@ plt.show()
 
 #
 # ---
+#
+# ### Vizualizace nejpodobnějších vektorů v rovině
 #
 # - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
 # - vektory jsou normalizovány
@@ -1725,8 +1735,11 @@ plt.grid(True)
 plt.savefig("faiss-C.png")
 
 plt.show()
+
 #
 # ---
+#
+# ### Vizualizace nejpodobnějších vektorů v rovině
 #
 # - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
 # - vektory jsou normalizovány
@@ -1779,8 +1792,11 @@ plt.grid(True)
 plt.savefig("faiss-D.png")
 
 plt.show()
+
 #
 # ---
+#
+# ### Vizualizace vektorů v rovině
 #
 # - vyhledání a vykreslení nejvíce NEpodobných vektorů
 # - vykreslení těchto vektorů
@@ -1836,6 +1852,8 @@ plt.show()
 
 #
 # ---
+#
+# ### Vizualizace nejpodobnějších vektorů v rovině
 #
 # - vykreslení nejpodobnějších vektorů získaných na základě jejich vzdálenosti
 # - vykresleny jsou původní vektory
@@ -1955,6 +1973,9 @@ plt.show()
 #
 # ---
 #
+# ### Inicializace embedding modelu
+#
+# - zadaný model se poměrně často používá v praxi
 
 from sentence_transformers import SentenceTransformer
 
@@ -1965,6 +1986,9 @@ print(model)
 #
 # ---
 #
+# ### Inicializace embedding modelu
+#
+# - je použit odlišný model, než v předchozím příkladu
 
 from sentence_transformers import SentenceTransformer
 
@@ -1975,6 +1999,9 @@ print(model)
 #
 # ---
 #
+# ### Existují i české modely
+#
+# - používají se naprosto stejným způsobem, jako modely anglické
 
 from sentence_transformers import SentenceTransformer
 
@@ -1985,6 +2012,9 @@ print(model)
 #
 # ---
 #
+# ### Vektorizace vět zapsaných v angličtině
+#
+# - výsledné vektory pochopitelně závisí na použitém modelu
 
 from sentence_transformers import SentenceTransformer
 
@@ -2013,6 +2043,10 @@ np.info(embeddings)
 #
 # ---
 #
+# ### Zjištění míry podobnosti zapsaných vět
+#
+# - poněkud umělý příklad, který ale ukazuje možnosti
+#   embedded modelů
 
 from sentence_transformers import SentenceTransformer
 
@@ -2039,6 +2073,12 @@ print(similarities)
 #
 # ---
 #
+# ### Vyhledávání ve vektorizovaném textu
+#
+# - podobnostní vyhledávání
+# - použití indexu FlatL2
+# - ke každé vstupní větě se vrátí tři nejpodobnější věty
+#   z vektorové databáze
 
 from sentence_transformers import SentenceTransformer
 
@@ -2088,6 +2128,10 @@ find_similar_sentences("The quick brown cat jumps over the lazy dog", 3)
 #
 # ---
 #
+# ### Sémantické vyhledávání
+#
+# - povšimněte si, že vyhledávané věty se podobají
+#   větám z databáze "jen" sémanticky, ne textově
 
 from sentence_transformers import SentenceTransformer
 
@@ -2136,6 +2180,11 @@ find_similar_sentences("rainy weather in Spain, especially on plains", 3)
 #
 # ---
 #
+# ### Sémantické vyhledávání
+#
+# - extrémní případ: vyhledávaná věta se textově zcela odlišuje od
+#   všech vět v databázi
+# - ovšem je zde sémantická shoda
 
 from sentence_transformers import SentenceTransformer
 
@@ -2179,3 +2228,300 @@ def find_similar_sentences(query_sentence, k):
 
 
 find_similar_sentences("What is your age?", 3)
+
+#
+# ---
+#
+# ### Sémantické vyhledávání
+#
+# - další ukázky sémantického vyhledávání
+# - vyhledávání na základě jediného slova
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "How old are you?",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("Shakespeare", 3)
+find_similar_sentences("animal", 3)
+find_similar_sentences("geometry", 3)
+find_similar_sentences("weather", 3)
+
+#
+# ---
+#
+# ### Sémantické vyhledávání v již vytvořeném modelu
+#
+# - nyní provedeme vyhledávání nikoli v naší malé databázi
+# - ale v celé trénovací sadě
+
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+print(model)
+
+dataset = load_dataset("sentence-transformers/wikipedia-en-sentences", split="train")
+print(dataset)
+
+sentences = [sentence for sentence in dataset["sentence"][0:1000]]
+print(f"{len(sentences)} sentences created")
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+DIMENSIONS = embeddings.shape[1]
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("city", 3)
+find_similar_sentences("animal", 3)
+find_similar_sentences("geometry", 3)
+find_similar_sentences("weather", 3)
+find_similar_sentences("game", 3)
+find_similar_sentences("school", 3)
+
+#
+# ---
+#
+# ### Strukturovaná podoba příkladu pro využití embedded modelu
+#
+# - opět založeno na datové sadě s příklady anglických textů
+#
+
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+MODEL_NAME = "paraphrase-MiniLM-L6-v2"
+DATASET_ID = "sentence-transformers/wikipedia-en-sentences"
+
+
+def initialize_model(model_name):
+    print("Model initialization started")
+    model = SentenceTransformer(model_name)
+    print(model)
+    print("Model initialization finished")
+    return model
+
+
+def load_dataset_by_id(dataset_id):
+    print("Loading dataset started")
+    dataset = load_dataset(dataset_id, split="train")
+    print("Loading dataset finished")
+    return dataset
+
+
+def build_sentences(dataset, from_, to_):
+    print("Building sentences")
+    sentences = [sentence for sentence in dataset["sentence"][from_:to_]]
+    print(f"{len(sentences)} sentences created")
+    return sentences
+
+
+def create_embeddings(model, sentences):
+    print("Embedding started")
+    embeddings = model.encode(sentences)
+    print(f"Embeddings shape: {embeddings.shape}")
+    print("Embedding finished")
+    return embeddings
+
+
+def create_faiss_index(embeddings):
+    print("FAISS index construction started")
+    DIMENSIONS = embeddings.shape[1]
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(embeddings)
+    print(f"Index: {index.ntotal}")
+    print("FAISS index construction finished")
+    return index
+
+
+def find_similar_sentences(model, index, query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+model = initialize_model(MODEL_NAME)
+dataset = load_dataset_by_id(DATASET_ID)
+sentences = build_sentences(dataset, 0, 1000)
+embeddings = create_embeddings(model, sentences)
+index = create_faiss_index(embeddings)
+
+find_similar_sentences(model, index, "city", 3)
+find_similar_sentences(model, index, "animal", 3)
+find_similar_sentences(model, index, "geometry", 3)
+find_similar_sentences(model, index, "weather", 3)
+find_similar_sentences(model, index, "game", 3)
+find_similar_sentences(model, index, "school", 3)
+
+#
+# ---
+#
+# # Realizace celého řetězce
+#
+# - nyní již známe všechny části řetězce
+# - jak volat LLM
+# - jak se vektorizuje text
+# - jak se zpracovávají dokumenty (chunking) před vektorizací
+# - jak se provádí sémantické vyhledávání
+# - zbývá maličkost: vlastní implementace
+#
+
+# ---
+#
+# ### Konfigurace projektu
+#
+# ```toml
+# [project]
+# name = "docs"
+# version = "0.1.0"
+# description = "Add your description here"
+# readme = "README.md"
+# requires-python = ">=3.13"
+# dependencies = [
+#     "bs4>=0.0.2",
+#     "datasets>=4.8.4",
+#     "faiss-cpu>=1.13.2",
+#     "langchain>=1.2.13",
+#     "langchain-classic>=1.0.3",
+#     "langchain-community>=0.4.1",
+#     "langchain-openai>=1.1.12",
+#     "matplotlib>=3.10.8",
+#     "sentence-transformers>=5.3.0",
+# ]
+# ```
+
+# ---
+#
+# ### Implementace řetězce s RAGem
+#
+# - od otázky k odpovědi, včetně RAGu
+# - provedení série kroků
+#     1. načtení vstupního textového dokumentu
+#     2. chunking
+#     3. konstrukce embedded modelu
+#     4. ukázka, která část textu se vrátí na položenou otázku
+#     5. příprava řetězce pro LLM
+#     6. zavolání LLM se zpracováním RAGu
+#     7. zobrazení odpovědi
+
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_community.chat_models import ChatOpenAI
+from langchain_classic.chains import create_retrieval_chain
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+
+# načtení vstupního textového dokumentu
+
+DOCUMENT_PATH = "README.TXT"
+
+loader = TextLoader(DOCUMENT_PATH)
+text_document=loader.load()
+
+# chunking
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+documents = text_splitter.split_documents(text_document)
+
+# konstrukce embedded modelu
+
+embeddings = OpenAIEmbeddings()
+
+vectorstore = FAISS.from_documents(documents, embeddings)
+
+# ukázka, která část textu se vrátí na položenou otázku
+
+query = "What is Zonk?"
+result = vectorstore.similarity_search(query)
+
+print("Similarity search:")
+print(result[0].page_content)
+print()
+
+# příprava řetězce pro LLM
+
+prompt = ChatPromptTemplate.from_template(
+     "You are an expert assistant. Answer the following question based only on the provided context:" + \
+     "<context>" + \
+     "{context}" + \
+     "</context>" + \
+     "Question: {input}"
+)
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+retriever = vectorstore.as_retriever()
+
+document_chain = prompt | llm
+chain = create_retrieval_chain(retriever, document_chain)
+
+# zavolání LLM se zpracováním RAGu
+
+response = chain.invoke({
+    "input": "What is Zonk?",
+})
+
+# zobrazení odpovědi
+
+print("And the answer is:")
+print(response["answer"])
+
