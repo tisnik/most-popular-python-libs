@@ -20,15 +20,17 @@
 #     - Framework Llama Stack
 #     - Langchain pro tvorbu aplikací využívajících GenAI
 #     - RAG (Retrieval-augmented generation)
+#     - Evaluace
 # * Praktická část
 #     - Volání LLM
 #     - Langchain
 #     - Tokenizace textu
 #     - Tvorba embedded modelů
 #     - Vyhledávání založené na podobnosti vektorů
-#     - PgVector
 #     - FAISS
-#     - Evaluace
+#     - SentenceTransformer
+#     - PgVector
+#     - Závěrečný projekt
 # 
 # ---
 #
@@ -573,8 +575,61 @@ for model in models:
 # ![LS1](images/llama_stack_arch.png)
 # 
 # ---
+#
+# ![Langchain logo](images/langchain.png)
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Framework pro GenAI a Python
+# * Chatboti
+# * RAG
+# * Paměť konverzací
+# * Shrnutí konverzací
+# * Generování syntetických dat
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Jednoduché úkoly je možné řešit jednoduše
+# * Mnohdy pouze několikařádkové skripty
+# * Operátor | pro tvorbu "kolon"
+# * Napojení na RAG
+# 
+#
+# ---
+#
+# ## Evaluace
+#
+# ### Proč provádět evaluaci?
+#
+# * Celková výkonnost
+# * Uživatelská zkušenost
+# * Detekce zkreslení odpovědí
+# * Dodržování etických a právních předpisů
+#
+# ### Přednosti
+#
+# * Zlepšení odpovědí (detekce halucinací atd.)
+# * Ladění modelu řízené daty
+# * Benchmarky: porovnání modelů
+# * Zlepšení spolehlivosti v průběhu času
+#
+# ### Lightspeed evaluation framework
+#
+# * Podpora více LLM
+# * Ragas, DeepEval + vlastní implementace
+# * Evaluace celé konverzace
+# * Podpora nástrojů (tools) a agentů
+# * Závěrečná statistická analýza
+#
+# ---
 # 
 # # Praktická část
+#
+# ![Work](images/work.jpg)
 #
 # - Volání LLM
 # - Langchain
@@ -702,7 +757,11 @@ print(response.to_json())
 # ---
 # 
 
-# Prvotní zpracování dokumentů
+# ### Prvotní zpracování dokumentů
+
+# * připojení k Llama Stacku
+# * vytvoření nové vektorové databáze
+# * inicializace vektorové databáze
 
 import uuid
 from pathlib import Path
@@ -719,12 +778,7 @@ vector_store_id = vector_store.id
 
 print(f"Vector store ID: {vector_store_id}")
 
-#
-# ---
-#
-
-# Prvotní zpracování dokumentů
-
+# * nyní již můžeme do databáze přidat obsah textového souboru nebo jiného dokumentu
 path=Path("cesta_k_souboru.md")
 print(f"File path: {path}")
 
@@ -737,11 +791,8 @@ file_ingest_response = client.vector_stores.files.create(
 )
 print(f"File ingest response: {file_ingest_response}")
 
-#
-# ---
-#
-
-# Získání odpovědi z dokumentu
+# * textový dokument je v této chvíli již zpracován
+# * získání odpovědi z dokumentu
 
 models = client.models.list()
 model_id = models[0].identifier
@@ -749,6 +800,8 @@ model_id = models[0].identifier
 print(f"Using model {model_id}")
 
 MODEL_ID="openai/gpt-4-turbo"
+
+# pomocná funkce pro tisk celé odpovědi
 
 def print_rag_response(response):
     print(f"ID: {response.id}")
@@ -772,6 +825,7 @@ def print_rag_response(response):
         else:
             print(f"Response content: {output_item.content}")
 
+# získání odpovědi s využitím vektorové databáze
 
 response = client.responses.create(
     model=MODEL_ID,
@@ -843,31 +897,15 @@ print_rag_response(response)
 # * Pokud vyvíjíte stabilní projekt, je Llama Stack riziko
 #
 # ---
-# 
+#
 # ![Langchain logo](images/langchain.png)
 # 
+# * začneme jednoduchými příklady, které postupně rozšíříme
+# * poslední příklad bude odpovídat příkladu z Llama Stacku
+#    - odpovědi
+#    - RAG
+
 # ---
-# 
-# ### Langchain
-# 
-# * Framework pro GenAI a Python
-# * Chatboti
-# * RAG
-# * Paměť konverzací
-# * Shrnutí konverzací
-# * Generování syntetických dat
-# 
-# ---
-# 
-# ### Langchain
-# 
-# * Jednoduché úkoly je možné řešit jednoduše
-# * Mnohdy pouze několikařádkové skripty
-# * Operátor | pro tvorbu "kolon"
-# * Napojení na RAG
-# 
-# ---
-#
 
 # ### Získání odpovědi z LLM
 # - inicializace rozhraní k modelu poskytovaného přes OpenAI
@@ -1025,6 +1063,7 @@ print(llm.get_num_tokens("What is firefox?"))
 #
 
 # ### Základy práce s tokeny
+#
 # - inicializace rozhraní k modelu poskytovaného přes OpenAI
 # - poslání dotazu do jazykového modelu
 # - tisk celé struktury odpovědi (nikoli pouze textu)
@@ -1038,7 +1077,12 @@ llm = ChatOpenAI(model_name="gpt-4o-mini")
 response = llm.generate([[HumanMessage("Say Hi")]])
 pprint.pprint(response.llm_output)
 
+#
+# ---
+#
 
+# ### Zpracování dokumentů - loader textových dokumentů
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - tisk obsahu objektu představujícího dokument
@@ -1061,6 +1105,11 @@ for text_document in text_documents:
     print(text_document)
 
 
+#
+# ---
+#
+# ### Zpracování dokumentů - výpis metadat o zpracovaném dokumentu
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - tisk typu dokumentu a metadat
@@ -1086,6 +1135,11 @@ for text_document in text_documents:
     print()
     print(text_document.page_content)
 
+#
+# ---
+#
+# ### Zpracování dokumentů - výpis metadat odlišného dokumentu
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - tisk typu dokumentu a metadat
@@ -1111,6 +1165,11 @@ for text_document in text_documents:
     print()
     print(text_document.page_content)
 
+#
+# ---
+#
+# ### Zpracování dokumentů - loader PDF dokumentů
+#
 # - inicializace objektu pro načítání dokumentů ve formátu PDF
 # - načtení a zpracování jednoho dokumentu ve formátu PDF
 # - tisk typu dokumentu a metadat
@@ -1136,6 +1195,11 @@ for pdf_document in pdf_documents:
     print()
     print(pdf_document.page_content)
 
+#
+# ---
+#
+# ### Zpracování dokumentů - loader HTML stránek
+#
 # - inicializace objektu pro načítání obsahu HTML stránek
 # - načtení a zpracování jedné HTML stránky
 # - tisk typu dokumentu a metadat
@@ -1162,6 +1226,11 @@ for text_document in text_documents:
     print(text_document.page_content)
 
 
+#
+# ---
+#
+# ### Zpracování dokumentů - chunking
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - rozdělení dokumentu do menších částí
@@ -1185,6 +1254,11 @@ for chunk in chunks:
     print(chunk.page_content)
     print("-"*50)
 
+#
+# ---
+#
+# ### Zpracování dokumentů - výsledek chunkingu
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - rozdělení dokumentu do menších částí
@@ -1209,6 +1283,11 @@ for chunk in splitted:
     print("-"*50)
 
 
+#
+# ---
+#
+# ### Zpracování dokumentů - výsledek chunkingu
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - rozdělení dokumentu do menších částí
@@ -1233,6 +1312,11 @@ for chunk in splitted:
     print(chunk.page_content)
     print("-"*50)
 
+#
+# ---
+#
+# ### Zpracování dokumentů - větší překryv jednotlivých částí
+#
 # - inicializace objektu pro načítání textových dokumentů
 # - načtení a zpracování jednoho textového dokumentu
 # - rozdělení dokumentu do menších částí
@@ -1262,10 +1346,72 @@ for chunk in splitted:
 #
 # # Vektorové databáze
 #
+#    - specializované databáze
+#    - optimalizovány na efektivní ukládání vektorů
+#    - optimalizovány na efektivní vyhledávání vektorů
+#    - ne na základě shody, ale podobnosti
+#    - různé definice podobnosti
 #
+#
+# ## Vzdálenost vektorů
+#    - Eukleidovská vzdálenost
+#    - kosinus úhlu mezi vektory
+#    - skalární součin pro normalizované vektory
+#    - Manhattanská vzdálenost
+#
+# * Využití vektorových databází
+#     - NLP
+#     - rozpoznání obrázků a hlasů
+#     - detekce anomálií
+#     - LLM
+# 
+# * Existující vektorové databáze
+#     - Aerospike
+#     - AllegroGraph
+#     - Apache Cassandra
+#     - Azure Cosmos DB
+#     - Chroma
+#     - ClickHouse
+#     - Couchbase
+#     - CrateDB
+#     - DataStax
+#     - Elasticsearch
+#     - HAKES
+#     - HDF5 Query Indexing
+#     - JaguarDB
+#     - LanceDB
+#     - Lantern
+#     - LlamaIndex
+#     - MariaDB
+#     - Marqo
+#     - Meilisearch
+#     - Milvus
+#     - MongoDB Atlas
+#     - Neo4j
+#     - ObjectBox
+#     - OpenSearch
+#     - Oracle Database
+#     - Pinecone
+#     - Pixeltable (Incremental Embedding)
+#     - Postgres with pgvector
+#     - Qdrant
+#     - Redis Stack
+#     - Snowflake
+#     - SurrealDB
+#     - Typesense
+#     - Vespa
+#     - Weaviate
 # ---
 #
 # ## Embedding
+#
+# * Vnoření slov
+#     - Převedení slov na vektory
+#     - Slova s podobnými vlastnostmi se nachází blízko sebe
+#     - word2vec Tomáš Mikolov
+# * Vnoření vět
+#     - dtto, ale pro celé věty nebo části textu
+#     - to je i důvod, proč jsme prováděli chunking
 #
 # ---
 #
@@ -1274,10 +1420,39 @@ for chunk in splitted:
 # * Facebook AI Similarity Search
 # * Open source
 # * Podpora indexů
-# 
+# * Algoritmy pro vyhledávání vektorů
+# * Algoritmy pro clustering
+#
+# ---
+#
+# ```
+#                                │ y
+#                                │
+#                                │
+#                                │
+#                                │                [5,5]
+#              o       o         │          o   o   o
+#                                │          o   o   o
+#                  o             │          o   o   o
+#               [-4,3]           │        [3,3]   [5,3]
+#                                │
+# ─────────────────────────────[0,0]──────────────────────────────
+#                                │                               x
+#                                │              o
+#                                │
+#                                │          o       o
+#                                │                [5,-5]
+#                                │
+#                                │
+#                                │
+#                                │
+# ```
+#
 
 #
 # ---
+#
+# ### První seznámení s vektory
 #
 # - konstrukce dvou vektorů se souřadnicemi bodů v rovině
 # - výpis obsahu obou vektorů na standardní výstup
@@ -1291,8 +1466,11 @@ print(x)
 print(y)
 
 print(list(zip(x, y)))
+
 #
 # ---
+#
+# ### Vektory v knihovně NumPy
 #
 # - konstrukce dvou vektorů se souřadnicemi bodů v rovině
 # - konstrukce 2D matice se souřadnicemi bodů v rovině z obou vektorů
@@ -1307,8 +1485,11 @@ y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
 points = np.column_stack((x,y)).astype("float32")
 
 print(points)
+
 #
 # ---
+#
+# ### Konstrukce indexu
 #
 # - konstrukce indexu knihovnou FAISS
 # - tisk základních informací o vytvořeném indexu
@@ -1330,8 +1511,11 @@ print()
 print("Dimension(s):         ", index.d)
 print("Total values in index:", index.ntotal)
 print("Is index trained:     ", index.is_trained)
+
 #
 # ---
+#
+# ### Nalezení vektorů na základě podobnosti
 #
 # - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití L2 metriky
@@ -1367,8 +1551,34 @@ print("neighbour  distance  index")
 print("--------------------------")
 for i in range(k):
     print(f"{i+1:3}      {distances[0][i]:5}       {indices[0][i]:2}")
+
+#
+# ```
+# Nearest neighbors:
+# neighbour  distance  index
+# --------------------------
+#   1        0.0        6
+#   2        1.0        7
+#   3        1.0        9
+#   4        2.0       10
+#   5        4.0        8
+#   6        4.0       12
+#   7        5.0       11
+#   8        5.0       13
+#   9        8.0       14
+#  10       37.0        4
+#  11       40.0        2
+#  12       49.0        1
+#  13       64.0        3
+#  14       68.0        0
+#  15       68.0        5
+# ```
+#
+
 #
 # ---
+#
+# ### Nalezení vektorů na základě podobnosti
 #
 # - nalezení nejpodobnějších vektorů knihovnou FAISS
 # - použití L2 metriky
@@ -1404,10 +1614,78 @@ print("neighbour  distance  coordinates  ")
 print("----------------------------------")
 for i in range(k):
     print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+
+# ```
+# Nearest neighbors:
+# neighbour  distance  coordinates
+# ----------------------------------
+#   1        0.0       [3. 3.]
+#   2        1.0       [3. 4.]
+#   3        1.0       [4. 3.]
+#   4        2.0       [4. 4.]
+#   5        4.0       [3. 5.]
+#   6        4.0       [5. 3.]
+#   7        5.0       [4. 5.]
+#   8        5.0       [5. 4.]
+#   9        8.0       [5. 5.]
+#  10       37.0       [ 4. -3.]
+#  11       40.0       [-3.  5.]
+#  12       49.0       [-4.  3.]
+#  13       64.0       [ 3. -5.]
+#  14       68.0       [-5.  5.]
+#  15       68.0       [ 5. -5.]
+# ```
+
+# ---
+
+# ### Nejbližší tři body k bodu [-4, 4]
+
+query_vector = np.array([[-4, 4]]).astype("float32")
+print(query_vector)
+
+k = 3
+distances, indices = index.search(query_vector, k)
+
+#
+# ```
+# Nearest neighbors:
+# neighbour  distance  coordinates  
+# ----------------------------------
+#   1        1.0       [-4.  3.]
+#   2        2.0       [-5.  5.]
+#   3        2.0       [-3.  5.]
+# ```
+#
+# ### Vizualizace výsledků
+#
+# ```
+#                                │ y
+#                                │
+#                                │
+#                                │
+#                                │
+#              o       o         │          x   x   x
+#                  *             │          x   x   x
+#                  o             │          x   x   x
+#                                │
+#                                │
+# ─────────────────────────────[0,0]──────────────────────────────
+#                                │                               x
+#                                │
+#                                │              x
+#                                │
+#                                │          x       x
+#                                │
+#                                │
+#                                │
+#                                │
+# ```
+
 #
 # ---
 #
-# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# ### Nalezení nejpodobnějších vektorů knihovnou FAISS
+#
 # - použití metriky založené na skalárním součinu
 # - výpis souřadnic nejpodobnějších vektorů
 # - vektory nejsou normalizovány
@@ -1442,10 +1720,12 @@ print("neighbour  distance  coordinates  ")
 print("----------------------------------")
 for i in range(k):
     print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+
 #
 # ---
 #
-# - nalezení nejpodobnějších vektorů knihovnou FAISS
+# ### Nalezení nejpodobnějších vektorů knihovnou FAISS
+#
 # - použití metriky založené na skalárním součinu
 # - výpis souřadnic nejpodobnějších vektorů
 # - vektory jsou normalizovány
@@ -1492,8 +1772,11 @@ print("neighbour  distance  coordinates  ")
 print("----------------------------------")
 for i in range(k):
     print(f"{i+1:3}      {distances[0][i]:+7.4f}     {points[indices[0][i]]}")
+
 #
 # ---
+#
+# ### Benchmark
 #
 # - benchmark rychlosti nalezení nejpodobnějších vektorů
 # - výpis výsledků v tabulkové formě
@@ -1906,10 +2189,12 @@ plt.grid(True)
 plt.savefig("faiss-H.png")
 
 plt.show()
+
 #
 # ---
 #
-# - benchmark rychlosti nalezení nejpodobnějších vektorů
+# ### Benchmark rychlosti nalezení nejpodobnějších vektorů
+#
 # - vizualizace výsledků formou grafu
 # - porovnání float16 a float32
 
@@ -1971,6 +2256,161 @@ plt.savefig("faiss_benchmark_3.png")
 plt.show()
 
 #
+# ---
+#
+# # PgVector
+#
+
+# ---
+#
+# ### Konstrukce tabulky s dvouprvkovými vektory
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v2 (
+        id bigserial PRIMARY KEY,
+        embedding vector(2) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Konstrukce tabulky s delšími vektory
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v384 (
+        id bigserial PRIMARY KEY,
+        embedding vector(384) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Konstrukce tabulky s původními texty
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v384b (
+        id bigserial PRIMARY KEY,
+        embedding vector(384) NOT NULL,
+        sentence TEXT NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Naplnění tabulky
+
+import psycopg2
+
+import numpy as np
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3, 4, 4, 4, 5, 5, 5]
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5, 3, 4, 5, 3, 4, 5]
+
+with connection.cursor() as cursor:
+    for i in range(len(x)):
+        vector = np.array([x[i], y[i]])
+        print(type(vector), vector)
+        cursor.execute("INSERT INTO v2 (embedding) VALUES (%s)", (vector, ))
+    connection.commit()
+
+
+#
+# ---
+#
+# # SentenceTransformer
+#
+
 # ---
 #
 # ### Inicializace embedding modelu
