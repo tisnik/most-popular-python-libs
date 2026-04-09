@@ -2260,6 +2260,24 @@ plt.show()
 #
 # # PgVector
 #
+# * Rozšíření databáze PostgreSQL
+# * Nový typ "vektor"
+# * Podpora pro různé typy prvků vektorů
+# * Nové operátory (vzdálenosti vektorů)
+#     - různé metriky
+
+# ```
+# 
+# Operátor  Stručný popis
+# -------------------------
+# <->   Eukleidovská vzdálenost
+# <#>   skalární součin
+# <=>   1 – kosinus úhlu mezi vektory
+# <+>   Manhattanská metrika
+# <~>   Hammingova vzdálenost
+# <%>   Jaccardův index
+# 
+# ```
 
 # ---
 #
@@ -2404,6 +2422,225 @@ with connection.cursor() as cursor:
         cursor.execute("INSERT INTO v2 (embedding) VALUES (%s)", (vector, ))
     connection.commit()
 
+
+#
+# ---
+#
+# ### Výběr na základě vzdálenosti
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding FROM v2 ORDER BY embedding <-> %s::vector LIMIT 5", ([3,3], ))
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0])
+
+#
+# ---
+#
+# ### Výběr na základě vzdálenosti
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+query = """
+    SELECT embedding
+      FROM v2
+     WHERE embedding <-> %s::vector < %s
+"""
+
+for distance in range(0, 10):
+    print("Distance:", distance)
+    with connection.cursor() as cursor:
+        cursor.execute(query, ([3,3], distance))
+        records = cursor.fetchall()
+        for record in records:
+            print(record[0])
+    print("-"*50)
+
+#
+# ---
+#
+# ### Další operátory
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+
+def list_by_distance(title, query):
+    print(title)
+    print("-" * 70)
+    with connection.cursor() as cursor:
+        cursor.execute(query, ([3,3], ))
+        records = cursor.fetchall()
+        for record in records:
+            print(record[0], record[1])
+    print()
+
+
+query_l2_distance = """
+        SELECT embedding, embedding <-> %s::vector as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+query_cosine_distance = """
+        SELECT embedding, embedding <=> %s::vector as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+query_inner_product_distance = """
+        SELECT embedding, (embedding <#> %s::vector) * -1 as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+list_by_distance("L2", query_l2_distance)
+list_by_distance("cosine", query_cosine_distance)
+list_by_distance("inner product", query_inner_product_distance)
+
+#
+# ---
+#
+# ### Tabulka s binárními vektory
+#
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS b1 (
+        id bigserial PRIMARY KEY,
+        embedding bit (4) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Zápis dat do tabulky s binárními vektory
+#
+
+import psycopg2
+
+import numpy as np
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+vectors = [
+        "0000",
+        "1111",
+        "1100",
+        "0011",
+        ]
+
+with connection.cursor() as cursor:
+    for vector in vectors:
+        cursor.execute("INSERT INTO b1 (embedding) VALUES (%s)", (vector, ))
+    connection.commit()
+
+
+#
+# ---
+#
+# ### Výběrové operátory pro tabulku s binárními vektory
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding FROM b1 ORDER BY embedding <~> %s::bit(4) LIMIT 5", ("0100", ))
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0])
+
+#
+# ---
+#
+# ### Výběrové operátory pro tabulku s binárními vektory
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding, embedding <~> '0000' AS distance FROM b1 ORDER BY distance")
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0], record[1])
 
 #
 # ---
@@ -2854,6 +3091,100 @@ find_similar_sentences(model, index, "school", 3)
 #
 # ---
 #
+# ### PGVector a Sentence transformers
+#
+# * zápis vektorizovaných vět do tabulky
+
+import psycopg2
+from sentence_transformers import SentenceTransformer
+
+from pgvector.psycopg2 import register_vector
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "How old are you?",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+for vector in embeddings:
+    print(type(vector), vector.shape)
+    with connection.cursor() as cursor:
+        cursor.execute("INSERT INTO v384 (embedding) VALUES (%s)", (vector, ))
+
+connection.commit()
+
+#
+# ---
+#
+# ### Vyhledávání na základě podobnosti
+
+import psycopg2
+from sentence_transformers import SentenceTransformer
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+register_vector(connection)
+
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+print(model)
+
+
+def find_similar_sentences(connection, query_sentence, k):
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+
+    vector = model.encode(query_sentence)
+
+    with connection.cursor() as cursor:
+        query = """
+            SELECT id, embedding
+              FROM v384
+             ORDER BY embedding <-> %s::vector
+             LIMIT %s
+        """
+        cursor.execute(query, (vector, k))
+        records = cursor.fetchall()
+        for record in records:
+            print(record[0])
+    print("-"*40)
+
+
+find_similar_sentences(connection, "The quick brown fox jumps over the lazy dog", 3)
+find_similar_sentences(connection, "quick brown fox jumps over lazy dog", 3)
+find_similar_sentences(connection, "The quick brown fox jumps over the angry dog", 3)
+find_similar_sentences(connection, "The quick brown cat jumps over the lazy dog", 3)
+find_similar_sentences(connection, "What is your age?", 3)
+find_similar_sentences(connection, "Shakespeare", 3)
+find_similar_sentences(connection, "animal", 3)
+find_similar_sentences(connection, "geometry", 3)
+find_similar_sentences(connection, "weather", 3)
+
+#
+# ---
+#
 # # Realizace celého řetězce
 #
 # - nyní již známe všechny části řetězce
@@ -2901,6 +3232,8 @@ find_similar_sentences(model, index, "school", 3)
 #     5. příprava řetězce pro LLM
 #     6. zavolání LLM se zpracováním RAGu
 #     7. zobrazení odpovědi
+#
+# Poznámka: použijeme FAISS, ale stejně tak by bylo možné využít PgVector
 
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -2964,4 +3297,132 @@ response = chain.invoke({
 
 print("And the answer is:")
 print(response["answer"])
+
+#
+#
+# ---
+#
+# ## Další možnosti rozšiřování projektu
+#
+# * MCP (Model Context Protocol)
+# * Agenti
+# * Guardrails
+# * Odlišné technologie pro RAG
+#    - hybridní vyhledávání
+#    - Milvus atd.
+# * ...co dalšího bude objeveno
+#
+
+#
+# ---
+#
+# ## Příloha: MCP klient
+
+from time import time
+
+from mcp import ClientSession
+from mcp.client.sse import sse_client
+
+
+async def run(i):
+    """Realizace klienta."""
+    async with sse_client(url="http://localhost:8000/sse") as (read, write):
+        async with ClientSession(read, write) as session:
+            t1 = time()
+            print(f"Client #{i} initialization")
+            print()
+
+            await session.initialize()
+
+            # přečtení zdroje bez selektoru
+            data = await session.read_resource("pozdrav://")
+            print("Data returned:", data)
+            print("Type:", type(data))
+            text = data.contents[0].text
+            print("Text:", text)
+            print()
+
+            # přečtení zdroje se selektorem
+            data = await session.read_resource("pozdrav://Pavel")
+            print("Data returned:", data)
+            print("Type:", type(data))
+
+            text = data.contents[0].text
+            print("Text:", text)
+            print()
+
+            # zavolání nástroje
+            data = await session.call_tool("factorial", arguments={"n": 10})
+            factorial = data.content[0].text
+            print("10!=", factorial)
+            print()
+
+            t2 = time()
+            difftime = t2 - t1
+            print(f"Client has finished in {difftime} seconds")
+            print()
+
+
+async def main():
+    clients = [run(i) for i in range(10)]
+    await asyncio.gather(*clients)
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    asyncio.run(main())
+
+#
+# ---
+#
+# ## MCP server
+
+from time import sleep
+
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("Test")
+
+SLEEP_AMOUNT=0.5
+
+
+@mcp.tool()
+def factorial(n: int) -> int:
+    """Výpočet faktoriálu ve smyčce."""
+    print("Factorial computation started")
+    f = 1
+    for x in range(1, n + 1):
+        f *= x
+    sleep(SLEEP_AMOUNT)
+    print("Factorial computation finished")
+    return f
+
+
+@mcp.resource("pozdrav://")
+def pozdrav1() -> str:
+    """Odpověď s pozdravem."""
+    print("Resource preparation started")
+    sleep(SLEEP_AMOUNT)
+    print("Resource preparation finished")
+    return "Hello, dear client!"
+
+
+@mcp.resource("pozdrav://{name}")
+def pozdrav2(name: str) -> str:
+    """Odpověď s osobním pozdravem."""
+    print("Resource preparation started")
+    sleep(SLEEP_AMOUNT)
+    print("Resource preparation finished")
+    return f"Hello, {name}!"
+
+
+if __name__ == "__main__":
+    mcp.run(transport="sse")
+
+#
+# ---
+#
+# # Děkuji za pozornost
+#
 
