@@ -5,10 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def func(x, a, b):
-    return a * x + b
-
-
 # hodnoty na x-ové ose
 x = np.arange(0, 50)
 
