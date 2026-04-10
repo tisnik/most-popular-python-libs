@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = "==3.11.*"
 dependencies = [
     "matplotlib>=3.10.8",
+    "pooch>=1.9.0",
     "scipy>=1.17.1",
 ]
