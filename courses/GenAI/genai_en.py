@@ -100,7 +100,466 @@
 
 
 
+# ---
+#
+# # PgVector
+#
+# * PostgreSQL database extension
+# * New data type "vector"
+# * Support multiple vector item types
+# * New operators (vector distances)
+#     - different metrics
 
+# ```
+# 
+# Operator  Description
+# -------------------------
+# <->   Eucleidan distance
+# <#>   dot product (scalar product)
+# <=>   cosine between two vectors
+# <+>   Manhattan metric
+# <~>   Hammingon metric
+# <%>   Jaccard index
+# 
+# ```
+
+# ---
+#
+# ### Table construction containing vector columnt
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v2 (
+        id bigserial PRIMARY KEY,
+        embedding vector(2) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Table construction - larger vectors
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v384 (
+        id bigserial PRIMARY KEY,
+        embedding vector(384) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Table construction containing original texts
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS v384b (
+        id bigserial PRIMARY KEY,
+        embedding vector(384) NOT NULL,
+        sentence TEXT NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Fill-in table containing vector column
+
+import psycopg2
+
+import numpy as np
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3, 4, 4, 4, 5, 5, 5]
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5, 3, 4, 5, 3, 4, 5]
+
+with connection.cursor() as cursor:
+    for i in range(len(x)):
+        vector = np.array([x[i], y[i]])
+        print(type(vector), vector)
+        cursor.execute("INSERT INTO v2 (embedding) VALUES (%s)", (vector, ))
+    connection.commit()
+
+
+#
+# ---
+#
+# ### Vector selection based on vector distance
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding FROM v2 ORDER BY embedding <-> %s::vector LIMIT 5", ([3,3], ))
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0])
+
+#
+# ---
+#
+# ### Vector selection based on vector distance
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+query = """
+    SELECT embedding
+      FROM v2
+     WHERE embedding <-> %s::vector < %s
+"""
+
+for distance in range(0, 10):
+    print("Distance:", distance)
+    with connection.cursor() as cursor:
+        cursor.execute(query, ([3,3], distance))
+        records = cursor.fetchall()
+        for record in records:
+            print(record[0])
+    print("-"*50)
+
+#
+# ---
+#
+# ### Other operators available
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="", port=5432, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+
+def list_by_distance(title, query):
+    print(title)
+    print("-" * 70)
+    with connection.cursor() as cursor:
+        cursor.execute(query, ([3,3], ))
+        records = cursor.fetchall()
+        for record in records:
+            print(record[0], record[1])
+    print()
+
+
+query_l2_distance = """
+        SELECT embedding, embedding <-> %s::vector as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+query_cosine_distance = """
+        SELECT embedding, embedding <=> %s::vector as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+query_inner_product_distance = """
+        SELECT embedding, (embedding <#> %s::vector) * -1 as distance
+          FROM v2
+         ORDER BY distance
+    """
+
+
+list_by_distance("L2", query_l2_distance)
+list_by_distance("cosine", query_cosine_distance)
+list_by_distance("inner product", query_inner_product_distance)
+
+#
+# ---
+#
+# ### Table containing binary vectors
+#
+
+import psycopg2
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+print(connection)
+
+CREATE_TABLE_STATEMENT = """
+    CREATE TABLE IF NOT EXISTS b1 (
+        id bigserial PRIMARY KEY,
+        embedding bit (4) NOT NULL
+    );
+"""
+
+LIST_TABLES_QUERY = """
+    SELECT table_schema,table_name
+      FROM information_schema.tables
+     WHERE table_schema='public'
+     ORDER BY table_schema,table_name;
+"""
+
+with connection.cursor() as cursor:
+    print(CREATE_TABLE_STATEMENT)
+    cursor.execute(CREATE_TABLE_STATEMENT)
+    connection.commit()
+
+    print(LIST_TABLES_QUERY)
+    cursor.execute(LIST_TABLES_QUERY)
+    tables = cursor.fetchall()
+
+    for table in tables:
+        print(table)
+
+#
+# ---
+#
+# ### Inserting data into table with binary vectors
+#
+
+import psycopg2
+
+import numpy as np
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+vectors = [
+        "0000",
+        "1111",
+        "1100",
+        "0011",
+        ]
+
+with connection.cursor() as cursor:
+    for vector in vectors:
+        cursor.execute("INSERT INTO b1 (embedding) VALUES (%s)", (vector, ))
+    connection.commit()
+
+
+#
+# ---
+#
+# ### Vector distance operators and table containing binary vectors
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding FROM b1 ORDER BY embedding <~> %s::bit(4) LIMIT 5", ("0100", ))
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0])
+
+#
+# ---
+#
+# ### Vector distance operators and table containing binary vectors
+#
+
+import psycopg2
+
+from pgvector.psycopg2 import register_vector
+
+connection = psycopg2.connect(
+    host="localhost", port=54321, user="tester", password="123qwe", dbname="test"
+)
+
+register_vector(connection)
+
+with connection.cursor() as cursor:
+    cursor.execute("SELECT embedding, embedding <~> '0000' AS distance FROM b1 ORDER BY distance")
+    records = cursor.fetchall()
+    for record in records:
+        print(record[0], record[1])
+
+#
+# ---
+#
+# # SentenceTransformer
+#
+
+# ---
+#
+# ### Embedding model initialization
+#
+# - commonly used model
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+#
+# ---
+#
+# ### Embedding model initialization
+#
+# - different model is used
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("all-mpnet-base-v2")
+
+print(model)
+
+#
+# ---
+#
+# ### It is possible to use models for different languages
+#
+# - can be used in the same style as English models
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("Seznam/small-e-czech")
+
+print(model)
+
+#
+# ---
+#
+# ### Sentence vectorization
+#
+# - output vectors are based on model used
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+print(f"Data type: {type(embeddings)}")
+
+print(embeddings)
+
+np.info(embeddings)
 
 #
 # ---
