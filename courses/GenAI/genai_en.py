@@ -38,8 +38,16 @@
 #
 # ---
 #
-# ### Artifical intelligence
+# ## Introduction
 #
+# * Artifical intelligence
+# * Evolution of artifical intelligence
+# * Machine learning
+# * The relationship between machine learning and artificial intelligence
+#
+# ---
+#
+# ### Artifical intelligence
 # 
 # * Definition
 #     - construction of machines that can perform activities requiring intelligence if performed by humans (Marvin Minsky, 1967)
@@ -97,9 +105,654 @@
 # 
 # ---
 # 
+# ## Machine learning
+# 
+# * subset of artifical intelligence
+# * changing system internal state during training
+# * several variants how to implement machine learning
+# * "statistical learning"
+# * usually it is not fully automated
+#     - needs smart (strategic) decisions
+#     - model selection
+#     - model hyperparameters tuning
+#     - input data split
+#     - data filtration
+# * system tries to find patterns and links in data
+# 
+# ---
+# 
+# ## The relationship between machine learning and artificial intelligence
+# 
+# ![vztah.png](images/ai_ml_dl.png)
+# 
+# * Artifical intelligence (AI)
+#     - machine learning (ML)
+#     - deep learning (DL)
+#     - robotics
+#     - neural networks (NN)
+#     - native language processing (NLP)
+# * AI > ML > NN > DL
+# 
+# * Artifical intelligence
+#     - discovery
+#     - derivation
+#     - justification
+# * Machine learning
+#     - (sophisticated) analysis
+#     - prediction (!)
+#     - decision making (classification or regression)
+# 
+# ---
+# 
+# ### Why machine learning?
+#
+# * We require the machine to learn how to solve given problem
+#     - solution is too complicated
+#     - problem is evolving/changing over time
+#     - human labor is expensive
+#     - too much data to be processed by humans
+#
+# ---
+#
+# ### Typical applications of machine learning
+#
+# * Pattern recognition
+#     - objects, persons, face recognition
+#     - spoken words
+#     - spam
+#     - diagnosis in medicine
+# * Anomaly recognition
+#     - atypical financial transactions
+#     - atypical data from sensors (nuclear plant)
+# * Forecasting
+#     - stock exchange prices
+#     - which movies/videos will be watched by given person
+#     - age of person on photo
+# * Clustering
+#     - messages with similar content
+#     - group of customers with similar behaviour/preference
+#
+# ---
+#
+# ## Basic concepts
+#
+# * Data set
+#      - training data
+#      - test or evaluation data
+# 
+# ![dataset.png](images/dataset.png)
+# 
+# ---
+# 
+# ### Techniques used in machine learning
+#
+# * Supervised learning
+#    - also called "predictive modeling"
+#    - we know "categories" (answers)
+# * Unsupervised learning
+#    - we don't know answers
+#    - model must find structures/patterns in data
+#    - typically based on clustering algorithms
+# 
+# ![ml.png](images/ml.png)
+# 
+# ---
+# 
+# ### Supervised learning
+#
+# 1. Training based on input data
+#     - model have to learn relationships between inputs and outputs
+# 2. Predictions based on different(!) data set
+#     - data must be split!
+# 3. Results
+#     - classification: will he buy A, B, or C?
+#     - regression: numeric value or values
+#
+# ---
+#
+# ### Unsupervised learning
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# # Generative AI
+#
+# ![LS](images/lsc.jpg)
+#
+# ---
+#
+# ## Frameworks for GenAI
+# * langchain
+# * langgraph
+# * autogen
+# * metaGPT
+# * phidata
+# * CrewAI
+# * pydanticAI
+# * controlflow
+# * langflow
+# * LiteLLM (???)
+# * Llama Stack
+# 
+# ---
+# 
+# ## Do we really need sophisticated frameworks?
+#
+# * some operations can be done without framework, just by using library
+# * for example OpenAI library
+# * also possible to use LiteLLM
+
+# 
+# ---
+# 
+# ### List of all models available
+# - it is based on OpenAI package
+# - key is read from environment variable
+
+from openai import OpenAI
+import os
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+models = client.models.list()
+
+for model in models:
+    print(model.id)
+
+# ---
+# 
+# ## Do we really need sophisticated frameworks?
+#
+# * Quota handling
+# * Conversation memory
+# * Context memory
+# * Guardrails
+# * RAG
+# * BYOK
+# * MCP
+# * Agents
+# * A2A
+# 
+# ---
+# 
+# ## Llama Stack
+# 
+# ![Llama Stack logo](images/llama_stack_logo.png)
+# 
+# ---
+#
+# ## What is Llama Stack?
+#
+# * Framework for making AI-based applications
+#     - chat bots
+#     - generative AI (GenAI)
+#     - training and evaluation
+# * Real framework independent on programming language
+#     - system of providers
+#     - RAG, quota handling, guardrails, metrics etc.
+# 
+# ---
+# 
+# ### Simplest Llama Stack usage
+# 
+# * LLM call
+# * LLM response handling
+# * "chatbot v.0.0.1"
+# 
+# ---
+# 
+# ### Real requirements, it's larger list
+# 
+# * RAG
+# * Conversation history
+# * Conversation forking
+# * Facts about user
+# * MCP calls
+# * Quotas
+# * Query validation, response redaction
+# * Multiple LLMs calls, response evaluation
+# 
+# ---
+# 
+# ### API and providers
+# 
+# * Fully configurable
+# * It is possible to get a list of available APIs
+# * It is possible to get a list of available providers
+# * Warning: providers have its own dependencies
+# 
+# ---
+# 
+# ![Providers](images/llama_stack_providers.png)
+# 
+# ### Providers
+#
+# * Agents
+#     - interaction with agents
+# * Inference
+#     - interface to LLM models and embedding models
+# * VectorIO
+#     - historically interface to vector databases
+#     - now it supports full text search too
+# * Safety
+#     - query validation, response redaction
+# * Telemetry
+#     - telemetry
+#     - OpenTelemetry etc.
+# * Eval
+#     - evaluation of LLM responses
+# * DatasetIO
+#     - reads and writes to data sets on file system
+#     - it can be a local file system if needed
+#
+# ---
+# 
+# ### Communication with Llama Stack
+# 
+# * CLI
+# * REST API
+# * As a regular library (Python etc.)
+# * Llama Stack client
+#     - supports REST API
+#     - supports LS as a library (async code)
+#
+# ---
+# 
+# ### Llama Stack client
+# 
+# * Python
+# * Swift
+# * Kotlin
+# * Node.js
+#
+# ---
+# 
+# ### Llama Stack as a library
+# 
+# ![LS1](images/llama_stack_as_library.png)
+# 
+# ---
+# 
+# ### Llama Stack as separate service
+# 
+# ![LS1](images/llama_stack_as_service.png)
+# 
+# ---
+# 
+# ### Llama Stack in a container
+# 
+# ![LS1](images/llama_stack_in_container.png)
+# 
+# ---
+#
+# ### An example of service based on Llama Stack
+#
+# * REST API based on top of Llama Stack API
+# * Supports LS in library and service mode
+# * Implemented as asynchronous code (Python)
+# 
+# ---
+# 
+# ![LS1](images/llama_stack_arch.png)
+# 
+# ---
+#
+# ![Langchain logo](images/langchain.png)
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Framework for GenAI and Python
+# * Chatbots
+# * RAG
+# * Conversation memory
+# * Conversation summarization
+# * Synthetic data generation
+# 
+# ---
+# 
+# ### Langchain
+# 
+# * Simple tasks can be implement by simple code
+# * In some cases just few lines of cide
+# * Pipe operator | to create pipeline
+# * Supports RAG
+# 
+#
+# ---
+#
+# ## Evaluation
+#
+# ### Why evaluation?
+#
+# * Measure performance
+# * Ensure good user experience
+# * Detect bias & harm
+# * Comply with ethical & legal standards
+#
+# ### Benefits of Evaluation
+#
+# * Improvement:
+#     - Pinpoints weaknesses (e.g., hallucinations)
+#     - Enables data-driven model tuning
+# * Benchmarking:
+#     - Compare models (GPT, Gemini, Granite, etc.)
+#     - Ensures reliability over time
+#
+# ### Lightspeed evaluation framework
+#
+# * Multi-Framework LLM as a Judge
+#      - Ragas, DeepEval and custom implementations
+# * Turn & Conversation-Level
+#       - Individual queries and multi-turn conversations
+# * Tools/Agents Support
+# * LLM Providers
+#       - OpenAI, Watsonx, Gemini, vLLM and others
+# * Setup/Cleanup Scripts
+# * Statistical Analysis
+#
+# ---
+# 
+# # Practical part
+#
+# ![Work](images/work.jpg)
+#
+# - LLM call
+# - Langchain
+# - Text tokenization
+# - Embedding
+# - Vector similarity search
+# - PgVector
+# - FAISS
+# - Evalation
+#
+# ---
+# 
+# ### Llama Stack client
+# 
+# * Client library for Python
+# 
+# ```bash
+# uv init
+# uv add llama-stack-client
+# ```
+# 
+# ---
+#
+
+# 
+# ### Llama Stack as separate service
+# 
+
+# List of all available models
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+
+for model in models:
+    print(model)
+
+# ---
+# 
+# ### Llama Stack as a library
+# 
+
+# List of all available models
+
+from llama_stack.distribution.library_client import LlamaStackAsLibraryClient
+
+client = LlamaStackAsLibraryClient("run.yaml")
+client.initialize()
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+
+for model in models:
+    print(model)
+
+# ---
+#
+# ### Communication with LLM
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+response = client.chat.completions.create(
+    model=model_id,
+    messages=[{"role": "user", "content": "What is the capital of France?"}]
+)
+
+print(response.to_json())
+
+# ---
+#
+# ### Llama Stack evolution
+#
+# * API changes
+# * Some API might be dropped
+#     - deprecation
+# * Agent API replaced by OpenAI API
+# * Might be stabilized in version 0.7.0 ???
+#
+# ---
+
+# ### Newer API usage
+
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+
+print(f"Using Llama Stack version {client._version}")
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+response = client.chat.completions.create(
+    model=model_id,
+    messages=[{"role": "user", "content": "What is the capital of France?"}]
+)
+
+print(response.to_json())
+
+
+#
 # ---
 #
 # # PgVector
