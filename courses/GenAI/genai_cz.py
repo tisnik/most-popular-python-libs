@@ -418,6 +418,7 @@
 # ---
 # 
 # ## Potřebujeme sofistikované frameworky?
+#
 # * některé základní operace je možné provést i jen s využitím "pouhých" knihoven
 # * příkladem může být knihovna OpenAI
 # * a do určité míry taktéž LiteLLM
@@ -511,7 +512,7 @@ for model in models:
 # * Inference
 #     - rozhraní k&nbsp;LLM modelům i k embedding modelům
 # * VectorIO
-#     - původně rozhraní kvektorovým databázím (hledání podobných vektorů)
+#     - původně rozhraní k vektorovým databázím (hledání podobných vektorů)
 #     - nyní i fulltext hledání
 # * Safety
 #     - detekce dotazů s nevhodným či nepovoleným obsahem apod.
@@ -612,18 +613,24 @@ for model in models:
 #
 # ### Přednosti
 #
-# * Zlepšení odpovědí (detekce halucinací atd.)
+# * Zlepšení odpovědí
+#     - detekce halucinací atd.
 # * Ladění modelu řízené daty
-# * Benchmarky: porovnání modelů
+# * Benchmarky
+#     - porovnání modelů (GPT, Gemini, Granite, etc.)
 # * Zlepšení spolehlivosti v průběhu času
 #
 # ### Lightspeed evaluation framework
 #
 # * Podpora více LLM
-# * Ragas, DeepEval + vlastní implementace
+#     - Ragas, DeepEval + vlastní implementace
 # * Evaluace celé konverzace
 # * Podpora nástrojů (tools) a agentů
 # * Závěrečná statistická analýza
+# * LLM provideři
+#       - OpenAI, Watsonx, Gemini, vLLM and others
+# * Skripty pro setup a cleanup
+# * Statistická analýza
 #
 # ---
 # 
@@ -720,7 +727,7 @@ print(response.to_json())
 # * Plány na ukončení podpory starších API
 #     - deprecation
 # * Náhrada agent API za OpenAI API
-# * Stabilizace ve verzi 0.3.0 ???
+# * Stabilizace ve verzi 0.7.0 ???
 #
 # ---
 
