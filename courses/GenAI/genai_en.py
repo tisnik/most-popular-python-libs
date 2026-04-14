@@ -211,8 +211,11 @@
 # ---
 #
 # ### Unsupervised learning
-
-
+#
+# 1. Training based on input data
+#    - but the model does not know answers
+# 2. Clustering
+# 3. Latent and factor analysis is possible too
 
 
 
@@ -751,10 +754,748 @@ response = client.chat.completions.create(
 
 print(response.to_json())
 
+# ---
+# 
+# ### Retrieving information from documents
+# 
+# * RAG
+# * And other inputs
+#     - semantic search
+#     - fulltext search
+#     - hybrid search
+# 
+# ---
+# 
+
+# ### Processing documents
+
+# * connection to Llama Stack
+# * vector store construction
+# * vector store initialization
+
+import uuid
+from pathlib import Path
+from llama_stack_client import LlamaStackClient
+
+client = LlamaStackClient(base_url="http://localhost:8321")
+print(f"Using Llama Stack version {client._version}")
+
+vector_store_name= f"vec_{str(uuid.uuid4())[0:8]}"
+print(f"Vector store name: {vector_store_name}")
+
+vector_store = client.vector_stores.create(name=vector_store_name)
+vector_store_id = vector_store.id
+
+print(f"Vector store ID: {vector_store_id}")
+
+# * add a new document into vector store
+path=Path("cesta_k_souboru.md")
+print(f"File path: {path}")
+
+file_create_response = client.files.create(file=path, purpose="assistants")
+print(f"File create response: {file_create_response}")
+
+file_ingest_response = client.vector_stores.files.create(
+    vector_store_id=vector_store_id,
+    file_id=file_create_response.id,
+)
+print(f"File ingest response: {file_ingest_response}")
+
+# * now the document has been processed
+# * retrieve output/answer from the document
+
+models = client.models.list()
+model_id = models[0].identifier
+
+print(f"Using model {model_id}")
+
+MODEL_ID="openai/gpt-4-turbo"
+
+# helper function
+
+def print_rag_response(response):
+    print(f"ID: {response.id}")
+    print(f"Status: {response.status}")
+    print(f"Model: {response.model}")
+    print(f"Created at: {response.created_at}")
+    print(f"Output items: {len(response.output)}")
+
+    for i, output_item in enumerate(response.output):
+        if len(response.output) > 1:
+            print(f"\n--- Output Item {i+1} ---")
+        print(f"Output type: {output_item.type}")
+
+        if output_item.type in ("text", "message"):
+            print(f"Response content: {output_item.content[0].text}")
+        elif output_item.type == "file_search_call":
+            print(f"  Tool Call ID: {output_item.id}")
+            print(f"  Tool Status: {output_item.status}")
+            print(f"  Queries: {', '.join(output_item.queries)}")
+            print(f"  Results: {output_item.results if output_item.results else 'None'}")
+        else:
+            print(f"Response content: {output_item.content}")
+
+# retrieve response from vector database
+
+response = client.responses.create(
+    model=MODEL_ID,
+    input="some question",
+    tools=[
+        {
+            "type": "file_search",
+            "vector_store_ids": [vector_store_id],
+        }
+    ]
+)
+
+print_rag_response(response)
+
+# ---
+# 
+# ### Example 1/2
+# 
+# * Document:
+#     - `README.TXT` from the Supaplex game
+# * Relevant part from this document:
+# 
+# ```plaintext
+# [a round rock] - ZONK
+#        This is another very common obstacle (and usually a very
+#        unpleasant one) a Zonk tends to fall down whenever possible
+#        (i.e. there is a void underneath). Be careful, when a Zonk
+#        falls on you (Murphy) you will explode (read: die). Murphy can
+#        push Zonks to the side (not up and down) if nothing is blocking
+#        the Zonk (i.e. there is a void on the other side). Murphy can
+#        only push one Zonk at a time, so watch out when dropping Zonks
+#        next to each other! With some good timing, you can also drop
+#        Zonks on Electrons (see below) or Snik-snaks (see below) which
+#        will explode (and not bother you again). Zonks have the nasty
+#        habit of falling SIDEWAYS off Ram-Chips (see below) and other
+#        Zonks if possible (i.e. there is a void to the side), on all
+#        other objects the Zonks will lie steady.
+# ```
+# 
+# ---
+# 
+# ### Example 2/2
+# * Query:
+# ```plaintext
+# What is Zonk?
+# ```
+# * Response:
+# ```plaintext
+# "ZONK" refers to an element in the videogame Supaplex. In the
+# game, a Zonk is depicted as a round rock, and it is a common and typically
+# unpleasant obstacle. Zonks tend to fall downwards whenever possible, for
+# instance, if there is a void directly underneath them. Players must be cautious
+# as a Zonk falling on the character (Murphy) results in an explosion and
+# game-over for the player. Murphy can push Zonks laterally (but not vertically)
+# if there is space for them to move, but can only push one Zonk at a time. Good
+# timing is needed to use Zonks strategically, such as dropping them on top of
+# enemies (like Snik-snaks) to eliminate them through explosions.
+# ```
+# 
+# ---
+#
+# ### Current situation about Llama Stack
+#
+# * Meta -> vLLM
+# * Compatibility with responses API (OpenAI)
+# * Agentic flow support (preliminary)
+# * Some functions are being removed(!)
+# * The platform as a whole is unstable
+# * Usage of Llama Stack is at risk!
+#
+# ---
+#
+# ![Langchain logo](images/langchain.png)
+#
+# * we'll start with very simple examples
+# * later examples
+#    - LLM calls
+#    - RAG
+#
+# ---
+
+# ### Retrieving response from LLM
+# - OpenAI interface initialization
+# - question is sent to LLM
+# - response is printed
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.invoke("Say Hi")
+print(response)
+
 
 #
 # ---
 #
+
+# ### Object of type `response`
+# - OpenAI interface initialization
+# - question is sent to LLM
+# - response is printed (formatted)
+
+from pprint import pprint
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.invoke("Say Hi")
+pprint(response)
+
+#
+# ---
+#
+
+# ### Temperature settings
+# - OpenAI interface initialization
+# - Model parameters are fine tuned (temperature in this case)
+# - question is sent to LLM
+# - response is printed (formatted)
+
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7)
+response = llm.invoke("Say Hi")
+print(response)
+
+#
+# ---
+#
+
+# ### Templates
+# - prompt as a template
+# - parameters is put into the template
+# - question is sent to LLM
+# - response is printed
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate.from_template("How to say 'hi' in {language} language?")
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+chain = LLMChain(prompt=prompt, llm=llm)
+
+response = chain.invoke("Czech")
+print(response)
+
+#
+# ---
+#
+
+# ### Colon (pipe)
+# - prompt as a template
+# - parameters is put into the template
+# - question is sent to LLM
+# - response is printed
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["language"],
+    template="How to say 'hi' in {language} language?",
+)
+
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+chain = LLMChain(prompt=prompt, llm=llm)
+
+response = chain.invoke("Czech")
+print(response)
+
+#
+# ---
+#
+
+# ### Řetězce (kolony)
+# - prompt as a template
+# - parameters is put into the template
+# - question is sent to LLM
+# - response is printed
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
+prompt = PromptTemplate.from_template("How to say 'hi' in {language} language?")
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+
+chain = prompt | llm | StrOutputParser()
+
+response = chain.invoke({"language": "Czech"})
+print(response)
+
+
+#
+# ---
+#
+
+# ### Conversation memory
+# - memory with conversation
+# - facts are sent to the LLM
+# - response depends on facts
+
+from langchain_openai import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+
+memory = ConversationBufferMemory()
+chatbot = ConversationChain(llm=llm, memory=memory)
+
+print(chatbot.invoke("Hi, I'm Pavel and I live in Czechia."))
+print(chatbot.invoke("What's my name?"))
+print(chatbot.invoke("Where I live?"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ---
+#
+# ### Faiss
+# 
+# * Facebook AI Similarity Search
+# * Open source
+# * Support indexes
+# * Vector search algorithms
+# * Clustering algorithms
+#
+# ---
+#
+# ```
+#                                │ y
+#                                │
+#                                │
+#                                │
+#                                │                [5,5]
+#              o       o         │          o   o   o
+#                                │          o   o   o
+#                  o             │          o   o   o
+#               [-4,3]           │        [3,3]   [5,3]
+#                                │
+# ─────────────────────────────[0,0]──────────────────────────────
+#                                │                               x
+#                                │              o
+#                                │
+#                                │          o       o
+#                                │                [5,-5]
+#                                │
+#                                │
+#                                │
+#                                │
+# ```
+#
+
+#
+# ---
+#
+# ### How to define vectors? (simple way)
+#
+# - two vectors containing coordinates on plane
+# - both vectors are printed
+# - one vector with coordinates are constructed
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+print(x)
+print(y)
+
+print(list(zip(x, y)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # # PgVector
 #
 # * PostgreSQL database extension
