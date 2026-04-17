@@ -216,188 +216,186 @@
 #    - but the model does not know answers
 # 2. Clustering
 # 3. Latent and factor analysis is possible too
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#
+# ---
+#
+# ### Other variants
+#
+# 1. Combination of both methods presented above
+# 2. Learning with feedback
+#     - passive
+#     - active
+#
+# ---
+#
+# ### Machine learning models
+# 
+# * ANN
+# * Desicion trees
+# * Support-vector machine
+# * Regression analysis
+# * Bayession networks
+# * Genetics algorithms
+# * Neural networks
+# 
+# ---
+#
+# ### Where to start?
+#
+# 1. Which attributes to use from the data?
+# 2. Which model to choose?
+# 3. How to optimize for better performance?
+# 4. How to create a model that will be suitable for data unknown to it?
+# 5. How to estimate a model's suitability for unknown data?
+# 
+# ---
+#
+# ### Data reduction
+# * the relationship between ML and data compression
+# * prediction
+# * so‑called optimal compression
+#     - for prediction, arithmetic coding can be used
+#
+# ---
+# 
+# ### Data reduction
+# 
+# ![reduction.png](images/reduction.png)
+# 
+# ---
+# 
+# ### Data reduction (supervised)
+# 
+# ![reduction_supervised.png](images/reduction_supervised.png)
+# 
+# ---
+#
+# ### Underfitting and Overfitting
+# 
+# * Underfitting
+#     - small training dataset
+#     - model too simple
+#     - data represent only a small sample of the full value range
+# * Overfitting
+#     - strong dependence on training data
+#     - reduced ability to work with unseen data
+#     - using a higher-degree polynomial when a linear one would suffice
+# 
+# ---
+# 
+# ### Overfiting
+# 
+# ![overtrain.png](images/overtraining.png)
+# 
+# ---
+#
+# ### Model performance
+#
+# * For completely new (unseen) data!
+#     - not for the training set
+#     - common mistake
+#
+# ---
+#
+# ### Cross-validation
+#
+# * split the data into folds
+#     - for example into 1/10
+#     - 9/10 for training
+#     - 1/10 for testing
+# 
+# ---
+#
+# ## Neural networks
+#
+# * Connection of so-called neurons
+#     - Neuron model
+#     - Neuron connections
+#     - Inputs and outputs
+#
+# ---
+#
+# ### Neuron model
+# 
+# ![neuron.png](images/neuron.png)
+# 
+# * any number of inputs
+# * typically only one output
+# * weighted inputs
+# * activation function
+# 
+# y = f(w1x1 + w2x2 + … + wnxn)
+# 
+# ---
+# 
+# ### Bias
+# 
+# ![bias.png](images/bias.png)
+# 
+# y = f(w0 + w1x1 + w2x2 + … + wnxn)
+# 
+# ---
+# 
+# ### Activation function
+# 
+# * The only non-linearity in the whole model
+# * Many activation functions can be used
+# 
+# ---
+# 
+# ### Activation function
+# 
+# ![akt1.png](images/akt_1.png)
+# 
+# ---
+# 
+# ### Activation function
+# 
+# ![akt2.png](images/akt_2.png)
+# 
+# ---
+# 
+# ### Feed-forward network
+# 
+# * Input layer
+# * Hidden layers
+# * Output layer
+# 
+# ---
+# 
+# ### Feed-forward síť
+# 
+# ![ff.png](images/ff.png)
+# 
+# ---
+# 
+# ### Too many layers
+# 
+# * Model stops training or trains very slowly
+#     - vanishing gradient problem
+#     - "Less is sometimes more"
+# 
+# ---
+# 
+# ### Convolutional neural networks
+# 
+# * Used to analyse raster images
+#     - offsets, skews, rotations etc.
+#     - possible to solve using classic NN
+#     - but it is too complicated (RAM, CPU, time)
+#     - the same weights stored for many neurons on the same place
+#     - convolutional and subsampling layers
+# 
+# ---
+# 
+# ### Convolutional neural networks
+# 
+# * Typical configuration
+#     - input layer
+#     - convolutional layer
+#     - subsampling layer
+#
+# ---
 #
 # # Generative AI
 #
@@ -1056,373 +1054,373 @@ print(chatbot.invoke("Hi, I'm Pavel and I live in Czechia."))
 print(chatbot.invoke("What's my name?"))
 print(chatbot.invoke("Where I live?"))
 
+#
+# ---
+#
 
+# ### Token handling
+# - figuring out number of tokens to represent a string
 
+from langchain_openai import ChatOpenAI
 
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+print(llm.get_num_tokens("What is firefox?"))
 
+#
+# ---
+#
 
+# ### Token handling
+#
+# - OpenAI LLM connection initialization
+# - send request to LLM
+# - print the whole returned structure
 
+from langchain_openai import ChatOpenAI
+from langchain_core.messages.human import HumanMessage
 
+import pprint
 
+llm = ChatOpenAI(model_name="gpt-4o-mini")
+response = llm.generate([[HumanMessage("Say Hi")]])
+pprint.pprint(response.llm_output)
 
+#
+# ---
+#
 
+# ### Documents handling - text documents loader
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - print the returned document structure
 
+from langchain_community.document_loaders import TextLoader
 
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
 
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
 
+text_documents= loader.load()
 
+print(f"Number of documents: {len(text_documents)}")
 
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print(text_document)
+
+
+#
+# ---
+#
+# ### Document loading - printing metadata about processed document
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - print document type + document metadata
+# - print the returned document structure
 
+from langchain_community.document_loaders import TextLoader
 
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
 
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
 
+text_documents= loader.load()
 
+print(f"Number of documents: {len(text_documents)}")
 
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
 
+#
+# ---
+#
+# ### Document loading - printing metadata about processed document
+#
+# - object initialization for loading text document
+# - one PDF document loading and processing
+# - print document type + document metadata
+# - print the returned document structure
 
+from langchain_community.document_loaders import TextLoader
 
+DOCUMENT_PATH = "documents/assemblery.txt"
 
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
 
+text_documents= loader.load()
 
+print(f"Number of documents: {len(text_documents)}")
 
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
 
+#
+# ---
+#
+# ### Documents handling - PDF documents loader
+#
+# - object initialization for loading PDF document
+# - one text document loading and processing
+# - print processed document metadata
+# - print the returned document structure
 
+from langchain_community.document_loaders import PyPDFLoader
 
+DOCUMENT_PATH = "documents/EPL-2.0.pdf"
 
+loader = PyPDFLoader(DOCUMENT_PATH)
+print(loader)
 
+pdf_documents= loader.load()
 
+print(f"Number of documents: {len(pdf_documents)}")
 
+for pdf_document in pdf_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", pdf_document.type)
+    print("Metadata:", pdf_document.metadata)
+    print()
+    print(pdf_document.page_content)
 
+#
+# ---
+#
+# ### Documents handling - HTML pages loader
+#
+# - object initialization for loading HTML page or pages
+# - one HTML page document loading and processing
+# - print processed document metadata
+# - print the returned document structure
 
+from langchain_community.document_loaders import WebBaseLoader
 
+DOCUMENT_URL = "https://www.eclipse.org/org/documents/epl-2.0/EPL-2.0.html"
 
+loader = WebBaseLoader(DOCUMENT_URL)
+print(loader)
 
+text_documents= loader.load()
 
+print(f"Number of documents: {len(text_documents)}")
 
+for text_document in text_documents:
+    print()
+    print("-"*80)
+    print()
+    print("Type:", text_document.type)
+    print("Metadata:", text_document.metadata)
+    print()
+    print(text_document.page_content)
 
 
+#
+# ---
+#
+# ### Document processing - chunking
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - text chunking
+# - print all chunks
 
 
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+DOCUMENT_PATH = "documents/EPL-2.0.txt"
 
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
 
+text_documents= loader.load()
 
+text_splitter= RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks=text_splitter.split_documents(text_documents)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for chunk in chunks:
+    print(chunk.page_content)
+    print("-"*50)
+
+#
+# ---
+#
+# ### Document processing - chunking
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - text chunking
+# - print all chunks
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+
+#
+# ---
+#
+# ### Document processing - chunking results
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - text chunking
+# - print all chunks
+# - setting chung sizes
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=50)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+#
+# ---
+#
+# ### Document processing - overlapping chunks
+#
+# - object initialization for loading text document
+# - one text document loading and processing
+# - text chunking
+# - print all chunks
+# - setting chung sizes and overlap amount
+
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+DOCUMENT_PATH = "documents/assemblery.txt"
+
+loader = TextLoader(DOCUMENT_PATH)
+print(loader)
+print()
+
+text_documents= loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=100)
+splitted=text_splitter.split_documents(text_documents)
+
+for chunk in splitted:
+    print(chunk.page_content)
+    print("-"*50)
+
+#
+# ---
+#
+# # Vector databases
+#
+#    - specialized databases
+#    - optimized for effective vector store
+#    - optimized for effective vector search
+#    - vector similarity search
+#    - different metrics
+#
+#
+# ## Vector distance
+#    - Eukleidan metric
+#    - cosine distance
+#    - scalar product/dot product
+#    - Manhattan metric
+#
+# * Vector database applications
+#     - NLP
+#     - image and voice recongition
+#     - anomaly detection
+#     - LLM
+# 
+# * Existing vector databases
+#     - Aerospike
+#     - AllegroGraph
+#     - Apache Cassandra
+#     - Azure Cosmos DB
+#     - Chroma
+#     - ClickHouse
+#     - Couchbase
+#     - CrateDB
+#     - DataStax
+#     - Elasticsearch
+#     - HAKES
+#     - HDF5 Query Indexing
+#     - JaguarDB
+#     - LanceDB
+#     - Lantern
+#     - LlamaIndex
+#     - MariaDB
+#     - Marqo
+#     - Meilisearch
+#     - Milvus
+#     - MongoDB Atlas
+#     - Neo4j
+#     - ObjectBox
+#     - OpenSearch
+#     - Oracle Database
+#     - Pinecone
+#     - Pixeltable (Incremental Embedding)
+#     - Postgres with pgvector
+#     - Qdrant
+#     - Redis Stack
+#     - Snowflake
+#     - SurrealDB
+#     - Typesense
+#     - Vespa
+#     - Weaviate
+# ---
+#
+# ## Embedding
+#
+# * Word embedding
+#     - word -> vector
+#     - similar words have small distacne
+#     - word2vec Tomáš Mikolov
+# * Sentence embedding
+#     - the same, but for whole chunks
+#     - this is why chunking is important
+#
 # ---
 #
 # ### Faiss
