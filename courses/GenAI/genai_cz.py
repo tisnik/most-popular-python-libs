@@ -382,7 +382,7 @@
 # * Typicky pro rastrové obrázky
 #     - mírné posunutí, zkosení atd.
 #     - lze sice řešit klasickými NN
-#     - ovšem je to zbytečně složité (RAM, CPU čas)
+#     - ovšem je to zbytečně složité (RAM, CPU, čas)
 #     - příliš mnoho stejných, ale samostatně uložených vah
 #     - konvoluční a subsamplingové vrstvy
 # 
@@ -394,6 +394,7 @@
 #     - vstupní vrstva
 #     - konvoluční vrstva #1
 #     - subsamplingová vrstva #1
+#
 # ---
 #
 # # Generativní AI
@@ -1924,6 +1925,7 @@ plt.grid(True)
 plt.savefig("faiss-A.png")
 
 plt.show()
+
 #
 # ---
 #
