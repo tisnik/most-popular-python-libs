@@ -432,7 +432,7 @@ tisnik@centrum.cz</p>
 <li>Typicky pro rastrové obrázky<ul>
 <li>mírné posunutí, zkosení atd.</li>
 <li>lze sice řešit klasickými NN</li>
-<li>ovšem je to zbytečně složité (RAM, CPU čas)</li>
+<li>ovšem je to zbytečně složité (RAM, CPU, čas)</li>
 <li>příliš mnoho stejných, ale samostatně uložených vah</li>
 <li>konvoluční a subsamplingové vrstvy</li>
 </ul>
@@ -579,7 +579,7 @@ tisnik@centrum.cz</p>
 </ul>
 </li>
 <li>VectorIO<ul>
-<li>původně rozhraní kvektorovým databázím (hledání podobných vektorů)</li>
+<li>původně rozhraní k vektorovým databázím (hledání podobných vektorů)</li>
 <li>nyní i fulltext hledání</li>
 </ul>
 </li>
@@ -671,18 +671,32 @@ tisnik@centrum.cz</p>
 </ul>
 <h3>Přednosti</h3>
 <ul>
-<li>Zlepšení odpovědí (detekce halucinací atd.)</li>
+<li>Zlepšení odpovědí<ul>
+<li>detekce halucinací atd.</li>
+</ul>
+</li>
 <li>Ladění modelu řízené daty</li>
-<li>Benchmarky: porovnání modelů</li>
+<li>Benchmarky<ul>
+<li>porovnání modelů (GPT, Gemini, Granite, etc.)</li>
+</ul>
+</li>
 <li>Zlepšení spolehlivosti v průběhu času</li>
 </ul>
 <h3>Lightspeed evaluation framework</h3>
 <ul>
-<li>Podpora více LLM</li>
+<li>Podpora více LLM<ul>
 <li>Ragas, DeepEval + vlastní implementace</li>
+</ul>
+</li>
 <li>Evaluace celé konverzace</li>
 <li>Podpora nástrojů (tools) a agentů</li>
 <li>Závěrečná statistická analýza</li>
+<li>LLM provideři<ul>
+<li>OpenAI, Watsonx, Gemini, vLLM and others</li>
+</ul>
+</li>
+<li>Skripty pro setup a cleanup</li>
+<li>Statistická analýza</li>
 </ul>
 <hr />
 <h1>Praktická část</h1>
@@ -823,7 +837,7 @@ uv add llama-stack-client
 </ul>
 </li>
 <li>Náhrada agent API za OpenAI API</li>
-<li>Stabilizace ve verzi 0.3.0 ???</li>
+<li>Stabilizace ve verzi 0.7.0 ???</li>
 </ul>
 <hr />
     </div>
