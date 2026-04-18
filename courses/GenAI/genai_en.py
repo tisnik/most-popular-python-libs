@@ -1475,6 +1475,457 @@ print(y)
 
 print(list(zip(x, y)))
 
+#
+# ---
+#
+# ### Vectors in NumPy library
+#
+# - two list with coordinates
+# - 2D matrix is constructed
+# - matrix is printed
+
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+
+print(points)
+
+#
+# ---
+#
+# ### Index construction
+#
+# - index construction using FAISS
+# - basic info about index is printed
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+#
+# ---
+#
+# ### Vector similarity search
+#
+# - based on FAISS
+# - L2 metrics
+# - list of most similar vectors
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  index")
+print("--------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {indices[0][i]:2}")
+
+#
+# ```
+# Nearest neighbors:
+# neighbour  distance  index
+# --------------------------
+#   1        0.0        6
+#   2        1.0        7
+#   3        1.0        9
+#   4        2.0       10
+#   5        4.0        8
+#   6        4.0       12
+#   7        5.0       11
+#   8        5.0       13
+#   9        8.0       14
+#  10       37.0        4
+#  11       40.0        2
+#  12       49.0        1
+#  13       64.0        3
+#  14       68.0        0
+#  15       68.0        5
+# ```
+#
+
+#
+# ---
+#
+# ### Vector similarity search
+#
+# - based on FAISS
+# - L2 metrics
+# - list of most similar vectors
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatL2(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+
+# ```
+# Nearest neighbors:
+# neighbour  distance  coordinates
+# ----------------------------------
+#   1        0.0       [3. 3.]
+#   2        1.0       [3. 4.]
+#   3        1.0       [4. 3.]
+#   4        2.0       [4. 4.]
+#   5        4.0       [3. 5.]
+#   6        4.0       [5. 3.]
+#   7        5.0       [4. 5.]
+#   8        5.0       [5. 4.]
+#   9        8.0       [5. 5.]
+#  10       37.0       [ 4. -3.]
+#  11       40.0       [-3.  5.]
+#  12       49.0       [-4.  3.]
+#  13       64.0       [ 3. -5.]
+#  14       68.0       [-5.  5.]
+#  15       68.0       [ 5. -5.]
+# ```
+
+# ---
+
+# ### Three points that are closest to [-4, 4]
+
+query_vector = np.array([[-4, 4]]).astype("float32")
+print(query_vector)
+
+k = 3
+distances, indices = index.search(query_vector, k)
+
+#
+# ```
+# Nearest neighbors:
+# neighbour  distance  coordinates  
+# ----------------------------------
+#   1        1.0       [-4.  3.]
+#   2        2.0       [-5.  5.]
+#   3        2.0       [-3.  5.]
+# ```
+#
+# ### Results visualization
+#
+# ```
+#                                │ y
+#                                │
+#                                │
+#                                │
+#                                │
+#              o       o         │          x   x   x
+#                  *             │          x   x   x
+#                  o             │          x   x   x
+#                                │
+#                                │
+# ─────────────────────────────[0,0]──────────────────────────────
+#                                │                               x
+#                                │
+#                                │              x
+#                                │
+#                                │          x       x
+#                                │
+#                                │
+#                                │
+#                                │
+# ```
+
+#
+# ---
+#
+# ### Vector similarity based on FAISS
+#
+# - scalar product metric
+# - prints most similar vectors
+# - vectors are not normalized
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+index = faiss.IndexFlatIP(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:5}       {points[indices[0][i]]}")
+
+#
+# ---
+#
+# ### Vector similarity based on FAISS
+#
+# - scalar product metric
+# - prints most similar vectors
+# - vectors are normalized
+
+import faiss
+import numpy as np
+
+x = [-5, -4, -3,    3,  4,  5,   3, 3, 3,  4, 4, 4,  5, 5, 5]
+
+y = [ 5,  3,  5,   -5, -3, -5,   3, 4, 5,  3, 4, 5,  3, 4, 5]
+
+points = np.column_stack((x,y)).astype("float32")
+print(points)
+
+for i in range(len(points)):
+   vector = points[i]
+   normalized = np.linalg.norm(vector)
+   vector /= normalized
+   points[i] = vector
+
+print()
+print("Normalized:")
+print(points)
+
+index = faiss.IndexFlatIP(2)
+index.add(points)
+
+print()
+print("Dimension(s):         ", index.d)
+print("Total values in index:", index.ntotal)
+print("Is index trained:     ", index.is_trained)
+
+query_vector = np.array([[3, 3]]).astype("float32")
+normalized = np.linalg.norm(query_vector)
+query_vector /= normalized
+print(query_vector)
+
+k = len(x)
+
+distances, indices = index.search(query_vector, k)
+
+print("Nearest neighbors:")
+print("neighbour  distance  coordinates  ")
+print("----------------------------------")
+for i in range(k):
+    print(f"{i+1:3}      {distances[0][i]:+7.4f}     {points[indices[0][i]]}")
+
+#
+# ---
+#
+# ### Benchmark
+#
+# - vector similarity search benchmark
+# - results as table
+# - visualization as a graph
+
+from time import time
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def similarity_search(n, k):
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    DIMENSIONS=128
+
+    t1 = time()
+
+    data = np.random.rand(n, 128).astype('float32')
+
+    t2 = time()
+
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(data)
+
+    t3 = time()
+
+    query_vector = np.random.rand(1, DIMENSIONS).astype("float32")
+
+    distances, indices = index.search(query_vector, k)
+    t4 = time()
+
+    assert len(distances) == k
+    assert len(indices) == k
+
+    return n, t2-t1, t3-t2, t4-t3
+
+
+ns = []
+ts_rand = []
+ts_index = []
+ts_search = []
+
+for n in np.linspace(1000000, 10000000, 10):
+    print(n)
+    n, t_rand, t_index, t_search = similarity_search(int(n), 1)
+    ns.append(n)
+    ts_rand.append(t_rand)
+    ts_index.append(t_index)
+    ts_search.append(t_search)
+
+
+plt.plot(ns, ts_rand, "r-", label="numpy.random.rand")
+plt.plot(ns, ts_index, "b-", label="index creation")
+plt.plot(ns, ts_search, "m-", label="similarity search")
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss_benchmark_2.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - vector endpoints are visualized
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-9.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - L2 metric
+# - vectors are not normalized
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float32")
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-A.png")
+
+plt.show()
+
 
 
 
