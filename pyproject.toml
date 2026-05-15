@@ -72,4 +72,7 @@ packages = ["ols"]
 [tool.uv.workspace]
 members = [
     "python3.14",
+    "scipy-lib/scipy-lib",
+    "scipy-lib",
+    "final",
 ]
