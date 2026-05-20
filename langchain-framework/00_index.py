@@ -20,6 +20,11 @@
 # - poslání dotazu do jazykového modelu
 # - tisk odpovědi
 #
+# openai_query_2.py:
+# - inicializace rozhraní k modelu poskytovaného přes OpenAI
+# - poslání dotazu do jazykového modelu
+# - tisk odpovědi v naformátované podobě
+#
 # pdf_loader.py:
 # - inicializace objektu pro načítání dokumentů ve formátu PDF
 # - načtení a zpracování jednoho dokumentu ve formátu PDF
