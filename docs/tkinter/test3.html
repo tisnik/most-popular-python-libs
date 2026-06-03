@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>test3.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>test3.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>  
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>  
+ 
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>  
+<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Manually Styled Native App&quot;</span><span class="p">)</span>  
+<span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Step 1: Set system font (e.g., Ubuntu 10pt)  </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">system_font</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Ubuntu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  
+<span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">system_font</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Step 2: Set system colors (example for Ubuntu/Yaru)  </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">bg_color</span> <span class="o">=</span> <span class="s2">&quot;#f5f5f5&quot;</span>  <span class="c1"># Window background  </span>
+<span class="n">text_color</span> <span class="o">=</span> <span class="s2">&quot;#2e3440&quot;</span>  <span class="c1"># Text color  </span>
+<span class="n">accent_color</span> <span class="o">=</span> <span class="s2">&quot;#7cafc2&quot;</span>  <span class="c1"># Button accent  </span>
+ 
+<span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="n">bg_color</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="n">text_color</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Step 3: Style specific widgets  </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;TButton&quot;</span><span class="p">,</span>  
+                <span class="n">padding</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>  
+                <span class="n">background</span><span class="o">=</span><span class="n">accent_color</span><span class="p">,</span>  
+                <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>  
+                <span class="n">relief</span><span class="o">=</span><span class="s2">&quot;flat&quot;</span><span class="p">,</span>  
+                <span class="n">borderwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+ 
+<span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;TLabel&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>  
+<span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;TEntry&quot;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">relief</span><span class="o">=</span><span class="s2">&quot;solid&quot;</span><span class="p">,</span> <span class="n">borderwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Add widgets to test  </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Manually Styled!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  
+<span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Custom Button&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  
+<span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  
+ 
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
