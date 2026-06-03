@@ -1926,25 +1926,347 @@ plt.savefig("faiss-A.png")
 
 plt.show()
 
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - metric based on scalar product
+# - vectors are not normalized
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float32")
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-B.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - metric based on scalar product
+# - vectors are normalized
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   normalized = np.linalg.norm(vector)
+   vector /= normalized
+   vectors[i] = vector
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(vectors)
+
+query_vector = np.array([[0.5, 0.5]])
+normalized = np.linalg.norm(query_vector)
+query_vector /= normalized
+
+distances, indices = index.search(query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-C.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - metric based on scalar product
+# - vectors are normalized
+# - original vectors are plotted
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]])
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-D.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - most different vectors are visualized
+# - vectors are normalized
+# - vector items are float32
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float32")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatIP(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]])
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(-normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-G.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Vector visualization on plane
+#
+# - vector similarity search
+# - original vectors are displayed
+# - vector items are float16
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
+
+DIMENSIONS=2
+
+N=1000
+
+K=100
+
+vectors = np.random.rand(N, DIMENSIONS).astype("float16")
+
+normalized = np.matrix.copy(vectors)
+
+for i in range(len(vectors)):
+   vector = vectors[i]
+   norm = np.linalg.norm(vector)
+   normalized[i] = vector / norm
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(normalized)
+
+query_vector = np.array([[0.5, 0.5]]).astype("float16")
+norm = np.linalg.norm(query_vector)
+normalized_query_vector = query_vector / norm
+
+distances, indices = index.search(normalized_query_vector, K)
+
+plt.figure(figsize=(8, 8), dpi=80)
+
+plt.plot(vectors[:,0], vectors[:,1], "+k", label="original vectors", markersize=5)
+
+xs = vectors[:,0][indices][0]
+ys = vectors[:,1][indices][0]
+plt.plot(xs, ys, "+r", label="nearest vectors", markersize=5)
+
+x = query_vector[0][0]
+y = query_vector[0][1]
+plt.plot(x, y, "ob", label="query vector", markersize=10)
+
+plt.legend(loc="upper left")
+
+plt.grid(True)
+
+plt.savefig("faiss-H.png")
+
+plt.show()
+
+#
+# ---
+#
+# ### Benchmark: vector similarity search speed
+#
+# - visualization as a graph
+# - comparison: float16 vs float32
+
+from time import time
+
+import faiss
+import matplotlib.pyplot as plt
+import numpy as np
 
 
+def similarity_search(n, k, float_type):
+    """Nalezeni k nejblizsich vektoru v mnozine n vektoru."""
+    DIMENSIONS=128
+
+    data = np.random.rand(n, 128).astype(float_type)
+
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(data)
+
+    t1 = time()
+
+    query_vector = np.random.rand(1, DIMENSIONS).astype(float_type)
+
+    distances, indices = index.search(query_vector, k)
+    t2 = time()
+
+    return n, t2-t1
 
 
+def benchmark(from_n, to_n, steps, float_type):
+    ns = []
+    ts_search = []
+
+    for n in np.linspace(from_n, to_n, steps):
+        print(n)
+        n, t_search = similarity_search(int(n), 1, float_type)
+        ns.append(n)
+        ts_search.append(t_search)
+
+    return ns, ts_search
 
 
+from_n = 1000000
+to_n = 10000000
+steps = 10
 
+ns, float16_times = benchmark(from_n, to_n, steps, "float16")
+_, float32_times = benchmark(from_n, to_n, steps, "float32")
 
+plt.plot(ns, float16_times, "r-", label="float16")
+plt.plot(ns, float32_times, "b-", label="float32")
 
+plt.legend(loc="upper left")
 
+plt.grid(True)
 
+plt.savefig("faiss_benchmark_3.png")
 
+plt.show()
 
-
-
-
-
-
-
+#
+# ---
+#
 # # PgVector
 #
 # * PostgreSQL database extension
@@ -2407,9 +2729,119 @@ np.info(embeddings)
 #
 # ---
 #
+# ### Sentence similarity score
+#
+# - elementary features of all embedded models
+# - can be used for words end sentence embeddings
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+print(embeddings)
+similarities = model.similarity(embeddings, embeddings)
+print(similarities)
+
+#
+# ---
+#
+# ### Searching in vectorized document
+#
+# - similarity search
+# - FlatL2 index
+# - for each sentence, 3 most similar sentences are found
+#   in vector database
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("The quick brown fox jumps over the lazy dog", 3)
+find_similar_sentences("quick brown fox jumps over lazy dog", 3)
+find_similar_sentences("The quick brown fox jumps over the angry dog", 3)
+find_similar_sentences("The quick brown cat jumps over the lazy dog", 3)
+
+#
+# ---
+#
+# ### Semantic search
+#
+# - words are very different
+# - but semantic is very similar
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "The goat ran down the hill"
+]
+
+#
+# ---
+#
 # ### PGVector and Sentence transformers
 #
-# * zápis vektorizovaných vět do tabulky
+# * vectorised sentences are written into the table
 
 import psycopg2
 from sentence_transformers import SentenceTransformer
