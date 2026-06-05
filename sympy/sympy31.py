@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - průchod nulovými body periodické funkce
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
