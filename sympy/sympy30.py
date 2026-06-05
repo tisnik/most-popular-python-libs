@@ -1,3 +1,7 @@
+# SymPy: knihovna pro symbolické výpočty zapsané přímo v Pythonu
+#
+# - kořeny polynomů vyšších stupňů
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
