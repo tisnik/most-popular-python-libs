@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>ifs.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>ifs.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Použito v článku:</p>
+<p>Křivky v přírodě i v počítačové grafice – svět spirál
+https://www.root.cz/clanky/krivky-v-prirode-i-v-pocitacove-grafice-svet-spiral/</p>
+<p>Součást seriálu:</p>
+<p>Křivky nejen v počítačové grafice
+https://www.root.cz/serialy/krivky-nejen-v-pocitacove-grafice/</p>
+<p>IFS systémy.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>rozměry obrázku s fraktálem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">IMAGE_WIDTH</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">IMAGE_HEIGHT</span> <span class="o">=</span> <span class="mi">512</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>transformace a jejich pravděpodobnosti</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">IFS_SYSTEMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;binary&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.563477</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.000003</span><span class="p">,</span> <span class="mf">0.333333</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">2.436544</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.000003</span><span class="p">,</span> <span class="mf">0.333333</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.000000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">4.873085</span><span class="p">,</span> <span class="mf">7.563492</span><span class="p">,</span> <span class="mf">0.333333</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;coral&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.307692</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.531469</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.461538</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.293706</span><span class="p">,</span> <span class="mf">5.401953</span><span class="p">,</span> <span class="mf">8.655175</span><span class="p">,</span> <span class="mf">0.400000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.307692</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.076923</span><span class="p">,</span> <span class="mf">0.153846</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.447552</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.295248</span><span class="p">,</span> <span class="mf">4.152990</span><span class="p">,</span> <span class="mf">0.150000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.545455</span><span class="p">,</span> <span class="mf">0.692308</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.195804</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.893637</span><span class="p">,</span> <span class="mf">7.269794</span><span class="p">,</span> <span class="mf">0.450000</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;crystal&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.696970</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.481061</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.393939</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.662879</span><span class="p">,</span> <span class="mf">2.147003</span><span class="p">,</span> <span class="mf">10.310288</span><span class="p">,</span> <span class="mf">0.747826</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.090909</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.443182</span><span class="p">,</span> <span class="mf">0.515152</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.094697</span><span class="p">,</span> <span class="mf">4.286558</span><span class="p">,</span> <span class="mf">2.925762</span><span class="p">,</span> <span class="mf">0.252174</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;dragon&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.824074</span><span class="p">,</span> <span class="mf">0.281482</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.212346</span><span class="p">,</span> <span class="mf">0.864198</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.882290</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.110607</span><span class="p">,</span> <span class="mf">0.787473</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.088272</span><span class="p">,</span> <span class="mf">0.520988</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.463889</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.377778</span><span class="p">,</span> <span class="mf">0.785360</span><span class="p">,</span> <span class="mf">8.095795</span><span class="p">,</span> <span class="mf">0.212527</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;dragon2&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.824074</span><span class="p">,</span> <span class="mf">0.281481</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.212346</span><span class="p">,</span> <span class="mf">0.864197</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.772710</span><span class="p">,</span> <span class="mf">0.137795</span><span class="p">,</span> <span class="mf">0.771268</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mf">0.138580</span><span class="p">,</span> <span class="mf">0.283951</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.670062</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.279012</span><span class="p">,</span> <span class="mf">2.930991</span><span class="p">,</span> <span class="mf">7.338924</span><span class="p">,</span> <span class="mf">0.228732</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;feather&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.870370</span><span class="p">,</span> <span class="mf">0.074074</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.115741</span><span class="p">,</span> <span class="mf">0.851852</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.278016</span><span class="p">,</span> <span class="mf">0.070331</span><span class="p">,</span> <span class="mf">0.798030</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mf">0.162037</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.407407</span><span class="p">,</span> <span class="mf">0.495370</span><span class="p">,</span> <span class="mf">0.074074</span><span class="p">,</span> <span class="mf">6.835726</span><span class="p">,</span> <span class="mf">5.799174</span><span class="p">,</span> <span class="mf">0.201970</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;fern&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.850000</span><span class="p">,</span> <span class="mf">0.040000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.040000</span><span class="p">,</span> <span class="mf">0.850000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">1.600000</span><span class="p">,</span> <span class="mf">0.850000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.200000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.260000</span><span class="p">,</span> <span class="mf">0.230000</span><span class="p">,</span> <span class="mf">0.220000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">1.600000</span><span class="p">,</span> <span class="mf">0.070000</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mf">0.150000</span><span class="p">,</span> <span class="mf">0.280000</span><span class="p">,</span> <span class="mf">0.260000</span><span class="p">,</span> <span class="mf">0.240000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.440000</span><span class="p">,</span> <span class="mf">0.070000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.160000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.010000</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;koch&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.307692</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.294118</span><span class="p">,</span> <span class="mf">4.119164</span><span class="p">,</span> <span class="mf">1.604278</span><span class="p">,</span> <span class="mf">0.151515</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.192308</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.205882</span><span class="p">,</span> <span class="mf">0.653846</span><span class="p">,</span> <span class="mf">0.088235</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.688840</span><span class="p">,</span> <span class="mf">5.978916</span><span class="p">,</span> <span class="mf">0.253788</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.192308</span><span class="p">,</span> <span class="mf">0.205882</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.653846</span><span class="p">,</span> <span class="mf">0.088235</span><span class="p">,</span> <span class="mf">0.668580</span><span class="p">,</span> <span class="mf">5.962514</span><span class="p">,</span> <span class="mf">0.253788</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.307692</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.294118</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.136530</span><span class="p">,</span> <span class="mf">1.604278</span><span class="p">,</span> <span class="mf">0.151515</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.384615</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.294118</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.007718</span><span class="p">,</span> <span class="mf">2.941176</span><span class="p">,</span> <span class="mf">1.000000</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;spiral&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.787879</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.424242</span><span class="p">,</span> <span class="mf">0.242424</span><span class="p">,</span> <span class="mf">0.859848</span><span class="p">,</span> <span class="mf">1.758647</span><span class="p">,</span> <span class="mf">1.408065</span><span class="p">,</span> <span class="mf">0.895652</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mf">0.121212</span><span class="p">,</span> <span class="mf">0.257576</span><span class="p">,</span> <span class="mf">0.151515</span><span class="p">,</span> <span class="mf">0.053030</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.721654</span><span class="p">,</span> <span class="mf">1.377236</span><span class="p">,</span> <span class="mf">0.052174</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.181818</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.136364</span><span class="p">,</span> <span class="mf">0.090909</span><span class="p">,</span> <span class="mf">0.181818</span><span class="p">,</span> <span class="mf">6.086107</span><span class="p">,</span> <span class="mf">1.568035</span><span class="p">,</span> <span class="mf">0.052174</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;tree&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.050000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.420000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.200000</span><span class="p">,</span> <span class="mf">0.400000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.420000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.420000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.200000</span><span class="p">,</span> <span class="mf">0.400000</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.100000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.100000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.200000</span><span class="p">,</span> <span class="mf">0.150000</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;triangle&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="p">(</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.333333</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.333333</span><span class="p">),</span>
+        <span class="p">(</span><span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.500000</span><span class="p">,</span> <span class="mf">0.000000</span><span class="p">,</span> <span class="mf">0.860000</span><span class="p">,</span> <span class="mf">0.333334</span><span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">generate_ifs</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span> <span class="n">startiter</span><span class="p">,</span> <span class="n">ifs</span><span class="p">):</span>
+    <span class="n">delitel</span> <span class="o">=</span> <span class="mf">12.0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>obdélník opsaný IFS</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">xmin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">7.0</span>
+    <span class="n">xmax</span> <span class="o">=</span> <span class="mf">10.0</span>
+    <span class="n">ymin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>libovolné počáteční souřadnice v rovině</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">x1</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">maxiter</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>pp leží v rozsahu 0.0 - 1.0</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">pp</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>na základě náhodného čísla najít transformaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">suma</span> <span class="o">&lt;=</span> <span class="n">pp</span><span class="p">:</span>
+            <span class="n">suma</span> <span class="o">+=</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>aplikovat vybranou transformaci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">x2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">y1</span> <span class="o">*</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">ifs</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">x2</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">y2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>pokud byl překročen počet startovních iterací</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">startiter</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>vypočítat a zobrazit bod</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">*</span> <span class="n">width</span> <span class="o">/</span> <span class="n">delitel</span>
+            <span class="n">y2</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">)</span> <span class="o">*</span> <span class="n">height</span> <span class="o">/</span> <span class="n">delitel</span>
+
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">IMAGE_WIDTH</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">IMAGE_HEIGHT</span><span class="p">:</span>
+                <span class="n">image</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mh">0xFFFFFF</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>vykreslit všechny IFS</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">transformations</span> <span class="ow">in</span> <span class="n">IFS_SYSTEMS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>inicializace prázdného obrázku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>vykreslení IFS</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">generate_ifs</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">transformations</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>uložení obrázku do souboru</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
