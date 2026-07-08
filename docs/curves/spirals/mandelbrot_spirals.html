@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>mandelbrot_spirals.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>mandelbrot_spirals.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Použito v článku:</p>
+<p>Křivky v přírodě i v počítačové grafice – svět spirál (dokončení)
+https://www.root.cz/clanky/krivky-v-prirode-i-v-pocitacove-grafice-svet-spiral-dokonceni/</p>
+<p>Součást seriálu:</p>
+<p>Křivky nejen v počítačové grafice
+https://www.root.cz/serialy/krivky-nejen-v-pocitacove-grafice/</p>
+<p>Vykreslení spirál v Mandelbrotově množině.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">palette_mandmap</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">IMAGE_WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">IMAGE_HEIGHT</span> <span class="o">=</span> <span class="mi">600</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Výpočet, kolik iterací je nutné pro opuštění jednotkového kruhu.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">mandelbrot</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">c</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">*</span> <span class="n">z</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="mi">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Přepočet celého fraktálu.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">recalc_fractal</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># rozměry obrázku</span>
+    <span class="n">stepx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span><span class="p">)</span> <span class="o">/</span> <span class="n">width</span>
+    <span class="n">stepy</span> <span class="o">=</span> <span class="p">(</span><span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span><span class="p">)</span> <span class="o">/</span> <span class="n">height</span>
+
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">ymin</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">xmin</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">mandelbrot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">256</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">color</span><span class="p">)</span>
+            <span class="n">x1</span> <span class="o">+=</span> <span class="n">stepx</span>
+        <span class="n">y1</span> <span class="o">+=</span> <span class="n">stepy</span>
+
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="n">IMAGE_HEIGHT</span><span class="p">))</span>
+
+<span class="n">recalc_fractal</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">palette_mandmap</span><span class="o">.</span><span class="n">palette</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.769824999999999998320</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.109270000000000000000</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.766247499999999998426</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.106570000000000000000</span><span class="p">,</span>
+    <span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;spiral_1.png&quot;</span><span class="p">)</span>
+
+<span class="n">recalc_fractal</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">palette_mandmap</span><span class="o">.</span><span class="n">palette</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.171119200000000013445</span><span class="p">,</span>
+    <span class="mf">0.657309400000000000000</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.169318975000000013445</span><span class="p">,</span>
+    <span class="mf">0.658660750000000000000</span><span class="p">,</span>
+    <span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;spiral_2.png&quot;</span><span class="p">)</span>
+
+<span class="n">recalc_fractal</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">palette_mandmap</span><span class="o">.</span><span class="n">palette</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.207190825000000012496</span><span class="p">,</span>
+    <span class="mf">0.676656624999999999983</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.206107925000000012496</span><span class="p">,</span>
+    <span class="mf">0.677468799999999999983</span><span class="p">,</span>
+    <span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;spiral_3.png&quot;</span><span class="p">)</span>
+
+<span class="n">recalc_fractal</span><span class="p">(</span>
+    <span class="n">image</span><span class="p">,</span>
+    <span class="n">palette_mandmap</span><span class="o">.</span><span class="n">palette</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.540623850000000003876</span><span class="p">,</span>
+    <span class="mf">0.523798050000000000019</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.532306600000000003876</span><span class="p">,</span>
+    <span class="mf">0.530031950000000000019</span><span class="p">,</span>
+    <span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;spiral_4.png&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
