@@ -7,7 +7,7 @@ from pprint import pprint
 milvus_client = MilvusClient(uri="./hf_milvus_demo.db")
 
 # jméno databáze
-COLLECTION_NAME = "milvus_db_4"
+COLLECTION_NAME = "milvus_db_5"
 
 # počet dimenzí uložených vektorů
 EMDEDDING_DIM = 2
