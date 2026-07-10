@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>lsystem_snowflake_1.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>lsystem_snowflake_1.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Jednoduchý L-systém: sněhová vločka Helge von Kocha.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Použito v článku:</p>
+<p>Patologické křivky a jiná matematická monstra
+https://www.root.cz/clanky/patologicke-krivky-a-jina-matematicka-monstra/</p>
+<p>Součást seriálu:</p>
+<p>Křivky nejen v počítačové grafice
+https://www.root.cz/serialy/krivky-nejen-v-pocitacove-grafice/</p>
+<p>Zdrojový kód tohoto skriptu ve stylu literate programming
+https://tisnik.github.io/presentations/appendix/lit_sources/monsters/lsystem_snowflake_1.html</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="o">*</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>krok želvy pro příkazy &ldquo;F&rdquo; a &ldquo;B&rdquo;</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">step</span> <span class="o">=</span> <span class="mi">300</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>úhel otočení želvy pro příkazy &ldquo;+&rdquo; a &ldquo;-&ldquo;</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">angle</span> <span class="o">=</span> <span class="mi">60</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>startovní symbol</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">axiom</span> <span class="o">=</span> <span class="s2">&quot;F&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>přepisovací pravidla</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">rewrite_rules</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">rewrite_rules</span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;F+F--F+F&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>počet aplikací přepisovacích pravidel</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">iterations</span> <span class="o">=</span> <span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>počáteční pozice želvy</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">start_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">440</span>
+<span class="n">start_y</span> <span class="o">=</span> <span class="mi">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Aplikace přepisovacího pravidla.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">apply_rule</span><span class="p">(</span><span class="n">rules</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">rule</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">rules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">rule</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">output</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Výpočet řídicího řetězce.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">produce_control_string</span><span class="p">(</span><span class="n">axiom</span><span class="p">,</span> <span class="n">rewrite_rules</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">s</span> <span class="o">=</span> <span class="n">axiom</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">+=</span> <span class="n">apply_rule</span><span class="p">(</span><span class="n">rewrite_rules</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">s</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>Vykreslení L-systému na obrazovku s využitím želví grafiky.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">draw_l_system</span><span class="p">(</span><span class="n">control_string</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>styl vykreslování</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">penup</span><span class="p">()</span>
+    <span class="n">setpos</span><span class="p">(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">)</span>
+    <span class="n">pendown</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>projít všemi příkazy z řídicího řetězce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">control_string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+            <span class="n">forward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span>
+            <span class="n">backward</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+            <span class="n">left</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="n">right</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>dokončení vykreslení a čekání na zavření okna</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">done</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>výpočet řídicího řetězce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">control_string</span> <span class="o">=</span> <span class="n">produce_control_string</span><span class="p">(</span><span class="n">axiom</span><span class="p">,</span> <span class="n">rewrite_rules</span><span class="p">,</span> <span class="n">iterations</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">control_string</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>vykreslení L-systému</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">draw_l_system</span><span class="p">(</span><span class="n">control_string</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
