@@ -1,0 +1,7 @@
+from typing import Final
+
+x: Final[int] = 42
+print(x)
+
+x += 1
+print(x)
