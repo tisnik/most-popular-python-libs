@@ -2836,6 +2836,267 @@ sentences = [
     "The goat ran down the hill"
 ]
 
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("The rain in Spain falls mainly on the plain", 3)
+find_similar_sentences("The rain in Czechia falls mainly on the plain", 3)
+find_similar_sentences("rainy weather in Spain, especially on plains", 3)
+
+#
+# ---
+#
+# ### Semantic search
+#
+# - extreme example: the input sentence is totally different
+#   from sentences in database
+# - but semantically it is very close
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "How old are you?",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("What is your age?", 3)
+
+#
+# ---
+#
+# ### Semantic search
+#
+# - more examples
+# - searching by one word
+
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+
+print(model)
+
+sentences = [
+    "The rain in Spain falls mainly on the plain",
+    "The tesselated polygon is a special type of polygon",
+    "The quick brown fox jumps over the lazy dog",
+    "To be or not to be, that is the question",
+    "It is a truth universally acknowledged...",
+    "How old are you?",
+    "The goat ran down the hill"
+]
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+similarities = model.similarity(embeddings, embeddings)
+
+DIMENSIONS = embeddings.shape[1]
+
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("Shakespeare", 3)
+find_similar_sentences("animal", 3)
+find_similar_sentences("geometry", 3)
+find_similar_sentences("weather", 3)
+
+#
+# ---
+#
+# ### Semantic search in a model
+#
+# - the whole model is used
+# - index is very needed
+
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+model = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+print(model)
+
+dataset = load_dataset("sentence-transformers/wikipedia-en-sentences", split="train")
+print(dataset)
+
+sentences = [sentence for sentence in dataset["sentence"][0:1000]]
+print(f"{len(sentences)} sentences created")
+
+embeddings = model.encode(sentences)
+print(f"Embeddings shape: {embeddings.shape}")
+
+DIMENSIONS = embeddings.shape[1]
+index = faiss.IndexFlatL2(DIMENSIONS)
+index.add(embeddings)
+print(f"Index: {index.ntotal}")
+
+
+def find_similar_sentences(query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+find_similar_sentences("city", 3)
+find_similar_sentences("animal", 3)
+find_similar_sentences("geometry", 3)
+find_similar_sentences("weather", 3)
+find_similar_sentences("game", 3)
+find_similar_sentences("school", 3)
+
+#
+# ---
+#
+# ### Refactored example based on embedded model
+#
+# - english sententes are used as vectorised database
+#
+
+from datasets import load_dataset
+from sentence_transformers import SentenceTransformer
+
+import faiss
+
+MODEL_NAME = "paraphrase-MiniLM-L6-v2"
+DATASET_ID = "sentence-transformers/wikipedia-en-sentences"
+
+
+def initialize_model(model_name):
+    print("Model initialization started")
+    model = SentenceTransformer(model_name)
+    print(model)
+    print("Model initialization finished")
+    return model
+
+
+def load_dataset_by_id(dataset_id):
+    print("Loading dataset started")
+    dataset = load_dataset(dataset_id, split="train")
+    print("Loading dataset finished")
+    return dataset
+
+
+def build_sentences(dataset, from_, to_):
+    print("Building sentences")
+    sentences = [sentence for sentence in dataset["sentence"][from_:to_]]
+    print(f"{len(sentences)} sentences created")
+    return sentences
+
+
+def create_embeddings(model, sentences):
+    print("Embedding started")
+    embeddings = model.encode(sentences)
+    print(f"Embeddings shape: {embeddings.shape}")
+    print("Embedding finished")
+    return embeddings
+
+
+def create_faiss_index(embeddings):
+    print("FAISS index construction started")
+    DIMENSIONS = embeddings.shape[1]
+    index = faiss.IndexFlatL2(DIMENSIONS)
+    index.add(embeddings)
+    print(f"Index: {index.ntotal}")
+    print("FAISS index construction finished")
+    return index
+
+
+def find_similar_sentences(model, index, query_sentence, k):
+    query_embedding = model.encode([query_sentence])
+    distances, indices = index.search(query_embedding, k)
+    print("-"*40)
+    print(f"Query: {query_sentence}")
+    print(f"Most {k} similar sentences:")
+    for i, idx in enumerate(indices[0]):
+        print(f"{i + 1}: {sentences[idx]} (Distance: {distances[0][i]})")
+
+
+model = initialize_model(MODEL_NAME)
+dataset = load_dataset_by_id(DATASET_ID)
+sentences = build_sentences(dataset, 0, 1000)
+embeddings = create_embeddings(model, sentences)
+index = create_faiss_index(embeddings)
+
+find_similar_sentences(model, index, "city", 3)
+find_similar_sentences(model, index, "animal", 3)
+find_similar_sentences(model, index, "geometry", 3)
+find_similar_sentences(model, index, "weather", 3)
+find_similar_sentences(model, index, "game", 3)
+find_similar_sentences(model, index, "school", 3)
+
 #
 # ---
 #
