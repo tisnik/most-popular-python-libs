@@ -3,8 +3,9 @@
 # - vykreslení nejpodobnějších vektorů získaných na základě skalárního součinu
 # - vektory jsou normalizovány
 
-import faiss
 import matplotlib.pyplot as plt
+
+import faiss
 import numpy as np
 
 # pocet slozek vektoru
