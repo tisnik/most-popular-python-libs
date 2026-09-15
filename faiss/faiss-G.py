@@ -4,8 +4,9 @@
 # - vykreslení těchto vektorů
 # - složky všech vektorů jsou typu float32
 
-import faiss
 import matplotlib.pyplot as plt
+
+import faiss
 import numpy as np
 
 # pocet slozek vektoru
