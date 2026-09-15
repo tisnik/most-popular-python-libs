@@ -4,8 +4,9 @@
 # - vektory jsou normalizovány
 # - vykreslení všech vektorů po normalizaci formou orientovaných šipek
 
-import faiss
 import matplotlib.pyplot as plt
+
+import faiss
 import numpy as np
 
 # pocet slozek vektoru
