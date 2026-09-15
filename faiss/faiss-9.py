@@ -3,6 +3,7 @@
 # - vizualizace koncových bodů vektorů v rovině
 
 import matplotlib.pyplot as plt
+
 import numpy as np
 
 # pocet slozek vektoru
