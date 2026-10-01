@@ -7,8 +7,9 @@
 
 from time import time
 
-import faiss
 import matplotlib.pyplot as plt
+
+import faiss
 import numpy as np
 
 
