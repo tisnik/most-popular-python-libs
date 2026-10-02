@@ -29,8 +29,7 @@ class Connectable(Protocol):
 def connection(
     f: Callable[Concatenate[S, P], R],
 ) -> Callable[..., R]:
-    """
-    Ensure a connectable object is connected before invoking the wrapped method.
+    """Ensure a connectable object is connected before invoking the wrapped method.
 
     The returned wrapper calls `connectable.connected()` and, if that returns
     `False`, calls `connectable.connect()` prior to delegating to the original
@@ -56,8 +55,7 @@ def connection(
     """
 
     def wrapper(self: S, *args: P.args, **kwargs: P.kwargs) -> R:
-        """
-        Ensure the provided connectable is connected, then call the wrapped with the same arguments.
+        """Ensure the provided connectable is connected, then call the wrapped with the same arguments.
 
         Parameters:
         ----------
