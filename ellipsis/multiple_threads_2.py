@@ -8,9 +8,9 @@ WAIT_FOR_KEY = True
 SLEEP_AMOUNT = 1
 
 
+import time
 from queue import Queue
 from threading import Thread
-import time
 
 
 def worker(name, q):
