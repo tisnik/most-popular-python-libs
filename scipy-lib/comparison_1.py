@@ -1,10 +1,7 @@
-from scipy.interpolate import CubicSpline
-from scipy.interpolate import make_smoothing_spline
+import matplotlib.pyplot as plt
+from scipy.interpolate import CubicSpline, make_smoothing_spline
 
 import numpy as np
-
-import matplotlib.pyplot as plt
-
 
 # hodnoty na x-ové ose
 x = np.arange(0, 10)
