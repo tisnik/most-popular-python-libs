@@ -1,9 +1,7 @@
+import matplotlib.pyplot as plt
 from scipy.interpolate import CubicSpline
 
 import numpy as np
-
-import matplotlib.pyplot as plt
-
 
 # hodnoty na x-ové ose
 x = np.arange(0, 10)
