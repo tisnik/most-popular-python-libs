@@ -1,10 +1,8 @@
-import numpy as np
-
 import matplotlib.pyplot as plt
-
-from scipy.signal import convolve
 import scipy.datasets as datasets
+from scipy.signal import convolve
 
+import numpy as np
 
 # načtení matice
 ascent = datasets.ascent()
