@@ -1,5 +1,5 @@
-import scipy.datasets as datasets
 import matplotlib.pyplot as plt
+import scipy.datasets as datasets
 
 # načtení signálu
 ekg = datasets.electrocardiogram()
