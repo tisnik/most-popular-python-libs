@@ -1,5 +1,6 @@
-import numpy as np
 import scipy.datasets as datasets
+
+import numpy as np
 
 # načtení signálu
 ekg = datasets.electrocardiogram()
