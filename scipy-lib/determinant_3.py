@@ -1,5 +1,6 @@
-import numpy as np
 from scipy import linalg
+
+import numpy as np
 
 m = np.array([[1, -3], [2, -6]])
 print(m)
