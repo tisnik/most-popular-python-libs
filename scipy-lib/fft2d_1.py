@@ -1,8 +1,7 @@
-import numpy as np
-
 import scipy.datasets as datasets
 from scipy import fftpack
 
+import numpy as np
 
 # načtení matice
 ascent = datasets.ascent()
