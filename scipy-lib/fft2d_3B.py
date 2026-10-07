@@ -1,11 +1,9 @@
-import numpy as np
-
+import matplotlib.pyplot as plt
 import scipy.datasets as datasets
 from scipy import fftpack
 from scipy.fft import fftshift
 
-import matplotlib.pyplot as plt
-
+import numpy as np
 
 # načtení matice
 ascent = datasets.ascent()
