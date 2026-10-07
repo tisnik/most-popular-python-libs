@@ -1,11 +1,8 @@
-import numpy as np
-
-import scipy.datasets as datasets
-from scipy.fft import dst
 
 import matplotlib.pyplot as plt
+import scipy.datasets as datasets
 from matplotlib.colors import LogNorm
-
+from scipy.fft import dst
 
 # načtení matice
 ascent = datasets.ascent()
