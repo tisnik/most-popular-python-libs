@@ -1,7 +1,7 @@
-import numpy as np
-
-import scipy.datasets as datasets
 import matplotlib.pyplot as plt
+import scipy.datasets as datasets
+
+import numpy as np
 
 # načtení matice
 ascent = datasets.ascent()
