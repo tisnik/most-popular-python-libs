@@ -1,7 +1,7 @@
+import matplotlib.pyplot as plt
 from scipy.fft import fft, fftshift
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 # signál
 t = np.cos(np.linspace(0, 2.0*np.pi, 100))
