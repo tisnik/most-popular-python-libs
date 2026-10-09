@@ -1,7 +1,6 @@
-import numpy as np
-
 from scipy import ndimage
 
+import numpy as np
 
 input_matrix = np.array([
     [5, 5, 5, 5, 5, 5],
