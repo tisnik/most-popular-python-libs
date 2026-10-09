@@ -1,9 +1,6 @@
-import numpy as np
-
-from scipy import fftpack
-from scipy import ndimage
 
 import matplotlib.pyplot as plt
+from scipy import ndimage
 
 original = plt.imread("moonlanding.png").astype(float)
 
