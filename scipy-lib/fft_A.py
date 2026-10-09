@@ -1,8 +1,7 @@
-import scipy.signal as signal
-from scipy.fft import fft, fftshift
+import matplotlib.pyplot as plt
+from scipy.fft import fft
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 # signal
 t = np.zeros(50) + np.ones(50) + np.zeros(50)
