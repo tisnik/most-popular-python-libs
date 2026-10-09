@@ -1,8 +1,8 @@
+import matplotlib.pyplot as plt
 import scipy.signal as signal
 from scipy.fft import fft, fftshift
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 # filtr
 win = signal.windows.hann(50)
