@@ -1,8 +1,7 @@
+import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
 import numpy as np
-
-import matplotlib.pyplot as plt
 
 # hodnoty na x-ové ose
 x = np.arange(0, 50)
