@@ -1,10 +1,7 @@
-import numpy as np
-
-import scipy.datasets as datasets
-from scipy import ndimage
 
 import matplotlib.pyplot as plt
-
+import scipy.datasets as datasets
+from scipy import ndimage
 
 # načtení matice
 ascent = datasets.ascent()
