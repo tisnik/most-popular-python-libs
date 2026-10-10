@@ -1,5 +1,6 @@
-import numpy as np
 from scipy import linalg
+
+import numpy as np
 
 m = np.zeros((5, 5))
 print(m)
