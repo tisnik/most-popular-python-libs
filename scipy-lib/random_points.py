@@ -1,6 +1,6 @@
-import numpy as np
-
 import matplotlib.pyplot as plt
+
+import numpy as np
 
 # hodnoty na x-ové ose
 x = np.arange(0, 50)
