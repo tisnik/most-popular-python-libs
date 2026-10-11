@@ -1,5 +1,6 @@
-import numpy as np
 from scipy import linalg
+
+import numpy as np
 
 m1 = np.array([[-3, 5, 7], [2, 6, 4], [0, 2, 8]])
 print("Matrix M1")
