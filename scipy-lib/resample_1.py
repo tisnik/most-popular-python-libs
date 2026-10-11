@@ -1,8 +1,6 @@
-import numpy as np
+import matplotlib.pyplot as plt
 import scipy.datasets as datasets
 import scipy.signal as signal
-
-import matplotlib.pyplot as plt
 
 # načtení signálu
 ekg = datasets.electrocardiogram()
