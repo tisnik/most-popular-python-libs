@@ -4,10 +4,11 @@
 #     2x₁ + 3x₂ + 7x₃ = 47
 #     3x₁ + 8x₂ +  x₃ = 50
 #           3x₂ + 3x₃ = 27
-# 
+#
+
+from scipy import linalg
 
 import numpy as np
-from scipy import linalg
 
 # levá strana rovnice (koeficienty)
 # matice koeficientů původních rovnic
