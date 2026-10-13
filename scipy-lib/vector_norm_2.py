@@ -1,5 +1,6 @@
-import numpy as np
 from scipy import linalg
+
+import numpy as np
 
 v = np.array([0, 1, 2, 3, 0])
 print("Vector:", v)
