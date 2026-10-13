@@ -4,10 +4,11 @@
 # - Maticově
 #      - levá strana rovnice
 #      - pravá strana rovnice
-# 
+#
+
+from scipy import linalg
 
 import numpy as np
-from scipy import linalg
 
 # levá strana rovnice (koeficienty)
 a = np.array([[2]])
