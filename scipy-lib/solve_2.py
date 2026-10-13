@@ -5,10 +5,11 @@
 #  - Maticově
 #      - levé strany rovnic
 #      - pravé strany rovnic
-# 
+#
+
+from scipy import linalg
 
 import numpy as np
-from scipy import linalg
 
 # levá strana rovnice (koeficienty)
 # matice koeficientů původních rovnic
