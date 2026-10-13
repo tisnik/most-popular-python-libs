@@ -1,6 +1,5 @@
-import scipy.signal as signal
-
 import matplotlib.pyplot as plt
+import scipy.signal as signal
 
 # filtr
 win = signal.windows.lanczos(50)
