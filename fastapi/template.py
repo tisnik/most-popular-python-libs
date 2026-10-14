@@ -14,7 +14,7 @@ source_directory = "sources/"
 
 with open(input_file, "r") as fin:
     with open(output_file, "w") as fout:
-        for line in fin.readlines():
+        for line in fin:
             # handle @ character at the beginning of line as include statement
             if line[0:2] == "@ ":
                 # retrieve file name of file to be included
