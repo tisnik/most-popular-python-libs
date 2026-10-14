@@ -1,5 +1,6 @@
-from ttkthemes import ThemedTk
 from tkinter import ttk
+
+from ttkthemes import ThemedTk
 
 # Create a themed window with Yaru theme
 root = ThemedTk(theme="arc")
