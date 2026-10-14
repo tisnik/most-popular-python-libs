@@ -1,0 +1,12 @@
+[project]
+name = "word2vec"
+version = "0.1.0"
+description = "Word2vec examples"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gensim",
+    "nltk>=3.10.3",
+    "pyenchant>=3.3.0",
+    "scikit-learn>=1.9.1",
+]
