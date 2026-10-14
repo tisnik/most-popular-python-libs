@@ -1,10 +1,10 @@
 from time import time
 
+import matplotlib.pyplot as plt
 from datasets import load_dataset
 from sentence_transformers import SentenceTransformer
 
 import faiss
-import matplotlib.pyplot as plt
 import numpy as np
 
 MODEL_NAME = "paraphrase-MiniLM-L6-v2"
