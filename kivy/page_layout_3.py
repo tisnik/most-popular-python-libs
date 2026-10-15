@@ -8,7 +8,6 @@
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.pagelayout import PageLayout
-from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
