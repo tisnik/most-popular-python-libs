@@ -1,4 +1,4 @@
-from mpmath import workdps, mp, mpf, sqrt
+from mpmath import mp, mpf, sqrt
 
 x = mpf("-2.00")
 
