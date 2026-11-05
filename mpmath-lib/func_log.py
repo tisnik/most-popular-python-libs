@@ -1,4 +1,4 @@
-from mpmath import mpf, ln, log10
+from mpmath import ln, log10
 
 x = 100
 
