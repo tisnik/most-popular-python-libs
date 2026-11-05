@@ -2,7 +2,6 @@
 
 import numpy as np
 from pymilvus import MilvusClient
-from pprint import pprint
 
 # inicializace klienta pro připojení k vektorové databázi
 milvus_client = MilvusClient(uri="./hf_milvus_demo.db")
