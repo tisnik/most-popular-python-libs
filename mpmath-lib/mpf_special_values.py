@@ -1,4 +1,4 @@
-from mpmath import workdps, mpf, log, sin
+from mpmath import mpf, log, sin
 
 x = mpf("0.00")
 y = mpf("0.00")
