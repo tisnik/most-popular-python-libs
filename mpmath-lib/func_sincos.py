@@ -1,4 +1,4 @@
-from mpmath import mpf, sin, cos, pi
+from mpmath import sin, cos, pi
 
 x = pi / 4
 
