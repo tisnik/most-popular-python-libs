@@ -5,7 +5,6 @@
 # - kontrola obsahu atributů po inicializaci modelu
 # - zákaz inicializace modelu s neznámými atributy
 
-import json
 from typing_extensions import Optional, Self
 
 from pydantic import (
