@@ -15,7 +15,6 @@
 
 import psycopg2
 
-import numpy as np
 from pgvector.psycopg2 import register_vector
 
 connection = psycopg2.connect(
