@@ -8,7 +8,6 @@ model = downloader.load('word2vec-google-news-300')
 print(f"Loaded {len(model)} word vectors, each {model.vector_size}d")
 
 from itertools import combinations
-import numpy as np
 
 words = model.index_to_key
 
