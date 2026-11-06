@@ -4,6 +4,8 @@ directories = "FM", "PyTorch", "assembly", "faiss"
 directories = "pygame_zero",
 directories = "PySimpleGUI", 
 directories = "pydantic", 
+directories = "FM", "langchain-framework", "sympy"
+#directories = "kivy", 
 
 for directory in directories:
     cwd = os.getcwd()
