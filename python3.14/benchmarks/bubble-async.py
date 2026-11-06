@@ -8,7 +8,7 @@ WAIT_FOR_KEY = False
 
 
 import random
-from asyncio import Queue, sleep, run, gather, create_task
+from asyncio import Queue, run, gather, create_task
 import time
 
 
