@@ -6,7 +6,6 @@
 # - tisk odpovědi
 
 from langchain_openai import ChatOpenAI
-from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
