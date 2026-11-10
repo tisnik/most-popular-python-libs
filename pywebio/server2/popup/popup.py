@@ -35,11 +35,13 @@ def check_postal_code(value):
         return "Neplatné PSČ - příliš malá hodnota"
     elif value > 99999:
         return "Neplatné PSČ - příliš velká hodnota"
+    return None
 
 
 def check_city(name):
     if name not in cities:
         return "Neznámé město"
+    return None
 
 
 def main():
