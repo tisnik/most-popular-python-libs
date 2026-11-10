@@ -121,6 +121,7 @@ def get_framebuffer_resolution(framebuffer_device):
             print(line)
             parsed = re.match(r"geometry (\d+) (\d+)", line)
             return (int(parsed.group(1)), int(parsed.group(2)))
+    return None
 
 
 # Ukonceni aplikace
