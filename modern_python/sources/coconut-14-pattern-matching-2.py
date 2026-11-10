@@ -18,6 +18,7 @@ def type(x):
             _coconut_match_check = True
         if _coconut_match_check:
             return "empty list"
+    return None
 
 def say_hello(s):
     _coconut_match_to = s
@@ -27,6 +28,7 @@ def say_hello(s):
         _coconut_match_check = True
     if _coconut_match_check:
         return "Hi " + name
+    return None
 
 def pair(p):
     _coconut_match_to = p
@@ -54,6 +56,7 @@ def pair(p):
             return "2nd value is greater"
     if not _coconut_match_check:
         return "other"
+    return None
 
 def get_name(s):
     _coconut_match_to = s
@@ -63,4 +66,5 @@ def get_name(s):
         _coconut_match_check = True
     if _coconut_match_check:
         return name
+    return None
 
