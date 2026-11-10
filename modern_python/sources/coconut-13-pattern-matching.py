@@ -1285,6 +1285,7 @@ def factorial_variant_A(n):
             return x * factorial_variant_A(x - 1)
     if not _coconut_match_check:
         raise TypeError("expecting integer >= 0")
+    return None
 
 
 for n in range(11):
@@ -1314,6 +1315,7 @@ def factorial_variant_B(n):
             return x * factorial_variant_B(x - 1)
     if not _coconut_match_check:
         raise TypeError("expecting integer >= 0")
+    return None
 
 
 for n in range(11):
@@ -1345,6 +1347,7 @@ def factorial_variant_C(n):
             return x * factorial_variant_C(x - 1)
     if not _coconut_match_check:
         raise TypeError("expecting integer >= 0")
+    return None
 
 
 for n in range(11):
@@ -1372,6 +1375,7 @@ def factorial_variant_D(n):
             return n * factorial_variant_D(n - 1)
     if not _coconut_match_check:
         raise TypeError("expecting integer >= 0")
+    return None
 
 
 for n in range(11):
