@@ -25,6 +25,7 @@ def area(shape):
         return shape.width * shape.height
     elif isinstance(shape, Circle):
         return pi * shape.radius**2
+    return None
 
 
 square_shape = Square(10)
