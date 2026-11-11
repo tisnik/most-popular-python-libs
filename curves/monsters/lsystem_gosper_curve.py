@@ -53,7 +53,7 @@ def apply_rule(rules, c):
 def produce_control_string(axiom, rewrite_rules, n):
     """Výpočet řídicího řetězce."""
     s = axiom
-    for i in range(n):
+    for _i in range(n):
         tmp = ""
         for c in s:
             tmp += apply_rule(rewrite_rules, c)
