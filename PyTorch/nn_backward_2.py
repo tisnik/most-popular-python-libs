@@ -82,7 +82,7 @@ optimizer = optim.SGD(nn1.parameters(), lr=learning_rate)
 xs = np.linspace(0.0, 1.0, 201)
 np.random.shuffle(xs)
 
-for epoch in range(20):
+for _epoch in range(20):
     for x in xs:
         X = torch.tensor([float(x)])
         y = torch.tensor([float(x)])
