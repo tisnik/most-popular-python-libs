@@ -82,7 +82,7 @@ optimizer = optim.SGD(nn1.parameters(), lr=learning_rate)
 X = torch.tensor([1.0])
 y = torch.tensor([1.0])
 
-for i in range(4):
+for _i in range(4):
     loss = train(nn1, optimizer, loss_fn, X, y)
     print(loss, end="   ")
 
