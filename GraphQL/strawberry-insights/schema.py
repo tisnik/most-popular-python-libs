@@ -39,7 +39,7 @@ def generate_alerts():
     namespaces = ["openshift-kube-apiserver"]
     severities = ["info", "warning", "error", "critical"]
     alerts = []
-    for i in range(random.randrange(1, 5)):
+    for _i in range(random.randrange(1, 5)):
         alert = Alert(
             name=random.choice(names),
             namespace=random.choice(namespaces),
@@ -53,7 +53,7 @@ def generate_operator_conditions():
     conds = []
     names = ["authentication", "security", "networking", "performance"]
     conditions = ["Degraded", "Untrusted", "Security check"]
-    for i in range(random.randrange(1, 5)):
+    for _i in range(random.randrange(1, 5)):
         cond = OperatorCondition(
             name=random.choice(names),
             condition=random.choice(conditions),
@@ -65,7 +65,7 @@ def generate_operator_conditions():
 
 def retrieve_predictions() -> list[UpgradeRisksPredictors]:
     predictions = []
-    for i in range(random.randrange(1, 5)):
+    for _i in range(random.randrange(1, 5)):
         prediction = UpgradeRisksPredictors(
             alerts=generate_alerts(), operator_conditions=generate_operator_conditions()
         )
