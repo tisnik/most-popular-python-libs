@@ -22,7 +22,7 @@ x = "*foo*"
 sleep(2)
 
 y = ""
-for i in range(200000):
+for _i in range(200000):
     y += x
 
 print(len(y))
