@@ -19,7 +19,7 @@ def foo_construct():
     x = "*foo*"
 
     y = ""
-    for i in range(200000):
+    for _i in range(200000):
         y += x
 
     print(len(y))
