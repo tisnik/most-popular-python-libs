@@ -22,7 +22,7 @@ def foo_construct():
     sleep(2)
 
     y = ""
-    for i in range(20000000):
+    for _i in range(20000000):
         y += x
 
     print(len(y))
