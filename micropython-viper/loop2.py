@@ -13,8 +13,8 @@
 @micropython.native
 def loop():
     x = 0
-    for i in range(1000):
-        for j in range(1000):
+    for _i in range(1000):
+        for _j in range(1000):
             x+=1
     print(x)
 
