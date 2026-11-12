@@ -21,7 +21,7 @@ def worker(r):
     x = "*foo*"
 
     y = ""
-    for i in range(r):
+    for _i in range(r):
         y += x
 
     print(len(y))
