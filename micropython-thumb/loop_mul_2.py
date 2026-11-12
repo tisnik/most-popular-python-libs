@@ -1,7 +1,7 @@
 def loop_mul():
     x = 10
-    for i in range(100):
-        for j in range(100):
+    for _i in range(100):
+        for _j in range(100):
             x*=1
     return x
 
