@@ -32,7 +32,7 @@ kmeans = KMeans(n_clusters=n_components, random_state=0, n_init="auto").fit(samp
 ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], kmeans.cluster_centers_[:, 2], c="red", s=50)
 
 # vykreslení bodů s jejich přiřazením ke clusteru
-for i, color in enumerate(colors):
+for i, _color in enumerate(colors):
     selector = kmeans.labels_ == i
     ax.scatter(samples[selector,0], samples[selector,1], samples[selector,2], marker=".", s=1)
 
