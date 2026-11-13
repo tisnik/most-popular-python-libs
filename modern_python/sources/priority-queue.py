@@ -3,7 +3,7 @@ import random
 
 q = queue.PriorityQueue(40)
 
-for item in range(30):
+for _item in range(30):
     print("Size", q.qsize())
     print("Empty?", q.empty())
     print("Full?", q.full())
