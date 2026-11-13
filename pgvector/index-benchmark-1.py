@@ -59,7 +59,7 @@ def fill_in_vector_table(connection, dimensions, vector_count):
     t1 = time()
     with connection.cursor() as cursor:
         # prozatím budeme tabulku naplňovat po jednotlivých záznamech
-        for i in range(vector_count):
+        for _i in range(vector_count):
             # náhodný vektor
             vector = np.random.rand(dimensions).astype("float32")
             cursor.execute("INSERT INTO v3 (embedding) VALUES (%s)", (vector,))
