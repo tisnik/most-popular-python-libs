@@ -32,7 +32,7 @@ for column_to_delete in range(len(names)):
     mses = []
     r2_scores = []
 
-    for i in range(MEASUREMENTS):
+    for _i in range(MEASUREMENTS):
         # rozdeleni dat na treninkovou a testovaci mnozinu
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.6)
 
