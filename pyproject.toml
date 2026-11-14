@@ -1,7 +1,7 @@
 [tool.ruff]
 
 # description of all rules are available on https://docs.astral.sh/ruff/rules/
-lint.select = ["RET503"]
+lint.select = ["B007"]
 
 # we need to check 'mood' of all docstrings, this needs to be enabled explicitly
 #lint.extend-select = ["D401"]
@@ -9,7 +9,7 @@ lint.select = ["RET503"]
 lint.ignore = ["COM812", "G004", "TRY003", "EM102", "TD", "TRY300", "FIX002", "UP007", "UP009", "T201", "F405"]
 lint.pydocstyle.convention = "google"
 
-target-version = "py311"
+target-version = "py315"
 line-length = 100
 
 exclude = ["coconut", "pyrsistent"]
