@@ -67,7 +67,7 @@ print(f"Embeddings shape: {embeddings.shape}")
 for sentence, vector in zip(sentences, embeddings):
     print(type(vector), vector.shape)
     ascii_vector = ""
-    for i, byte in enumerate(vector):
+    for _i, byte in enumerate(vector):
         ascii_vector += format(byte, "08b")
     print(ascii_vector)
     with connection.cursor() as cursor:
