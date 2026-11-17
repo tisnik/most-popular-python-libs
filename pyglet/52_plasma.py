@@ -38,7 +38,7 @@ def random_gauss():
     """
     N = 50
     sum = 0.0
-    for i in range(N):
+    for _i in range(N):
         sum += random()
     return sum / N
 
