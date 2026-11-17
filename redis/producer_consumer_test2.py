@@ -30,7 +30,7 @@ def producer(cycles, key, sleep_time):
         decode_responses=True,
     )
 
-    for i in range(cycles):
+    for _i in range(cycles):
         v = "^"
         redis_client.set(key, v)
         v = "^$"
@@ -49,7 +49,7 @@ def consumer(cycles, key, sleep_time, result_queue):
     expected_value = "^$"
     errors = 0
 
-    for i in range(cycles):
+    for _i in range(cycles):
         value = redis_client.get(key)
         if value != expected_value:
             errors += 1
