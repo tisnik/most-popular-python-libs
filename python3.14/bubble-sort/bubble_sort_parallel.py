@@ -21,7 +21,7 @@ def bubble_sort(size):
 t1 = perf_counter()
 
 with ThreadPoolExecutor(max_workers=8) as executor:
-    for i in range(100):
+    for _i in range(100):
         executor.submit(bubble_sort, 5000)
 
 t2 = perf_counter()
