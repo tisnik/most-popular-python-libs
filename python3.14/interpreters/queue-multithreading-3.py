@@ -58,7 +58,7 @@ if __name__ == "__main__":
         p.join()
 
     # příkaz pro ukončení vláken
-    for i in range(3):
+    for _i in range(3):
         q.put("quit")
 
     print("Waiting for other threads")
