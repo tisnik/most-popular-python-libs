@@ -32,7 +32,7 @@ def producer_1(cycles, key, sleep_time):
 
     error_count = 0
 
-    for i in range(cycles):
+    for _i in range(cycles):
         pipeline = redis_client.pipeline(transaction=True)
         error_count = 0
         v = redis_client.get(key) or ""
@@ -52,7 +52,7 @@ def producer_2(cycles, key, sleep_time):
         decode_responses=True,
     )
 
-    for i in range(cycles):
+    for _i in range(cycles):
         redis_client.set(key, "that's me")
         time.sleep(sleep_time)
 
@@ -68,7 +68,7 @@ def consumer(cycles, key, sleep_time, result_queue):
     expected_value = "^$"
     errors = 0
 
-    for i in range(cycles):
+    for _i in range(cycles):
         value = redis_client.get(key)
         if value == "that's me":
             continue
