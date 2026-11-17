@@ -1,6 +1,6 @@
 l = []
 
-for i in range(1001):
+for _i in range(1001):
     m = []
     for j in range(1001):
         m.append(j)
