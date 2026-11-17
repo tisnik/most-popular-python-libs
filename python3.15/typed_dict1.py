@@ -1,0 +1,16 @@
+from typing import TypedDict
+
+
+class User(TypedDict):
+    id: int
+    name: str
+    surname: str
+
+
+u1: User = {
+        "id": 42,
+        "name": "John",
+        "surname": "Doe",
+        }
+
+print(type(u1))
