@@ -23,9 +23,9 @@
 </ul>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+      <div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span></pre></div>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -73,7 +73,7 @@
       <p>náhodné vektory v rovině [0,0] - [1,1]</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">DIMENSIONS</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">DIMENSIONS</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -97,7 +97,7 @@
       <p>vykreslení všech náhodně vygenerovaných bodů</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vectors</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;+k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original vectors&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vectors</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"+k"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"original vectors"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -109,7 +109,7 @@
       <p>přidání legendy</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -133,7 +133,7 @@
       <p>vykreslení grafu do souboru</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;faiss-9.png&quot;</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"faiss-9.png"</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
