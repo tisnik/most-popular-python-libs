@@ -21,7 +21,7 @@ start_time = perf_counter()
 tokens = encoder.encode("The quick brown fox jumps over the lazy dog.")
 
 characters_count = 0
-for i in range(100000):
+for _i in range(100000):
     text = encoder.decode(tokens)
     characters_count += len(text)
 
