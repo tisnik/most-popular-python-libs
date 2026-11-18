@@ -26,8 +26,8 @@
 </ul>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">faiss</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
+      <div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">faiss</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -64,7 +64,7 @@
 v rovine</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -94,7 +94,7 @@ v rovine</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normalized:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Normalized:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -111,9 +111,9 @@ v rovine</p>
 <span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimension(s):         &quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total values in index:&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">ntotal</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is index trained:     &quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">is_trained</span><span class="p">)</span></pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dimension(s):         "</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total values in index:"</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">ntotal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Is index trained:     "</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">is_trained</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -125,7 +125,7 @@ v rovine</p>
       <p>vektor, ke kteremu budeme pocitat vzdalenost</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">query_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="n">query_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
 <span class="n">normalized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">query_vector</span><span class="p">)</span>
 <span class="n">query_vector</span> <span class="o">/=</span> <span class="n">normalized</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">query_vector</span><span class="p">)</span></pre></div>
@@ -164,11 +164,11 @@ v rovine</p>
       <p>tisk vysledku</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nearest neighbors:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;neighbour  distance  coordinates  &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------&quot;</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="nb">print</span><span class="p">(</span><span class="s2">"Nearest neighbors:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"neighbour  distance  coordinates  "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"----------------------------------"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2">      </span><span class="si">{</span><span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">+7.4f</span><span class="si">}</span><span class="s2">     </span><span class="si">{</span><span class="n">points</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2">      </span><span class="si">{</span><span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">+7.4f</span><span class="si">}</span><span class="s2">     </span><span class="si">{</span><span class="n">points</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 </pre></div>
     </div>
