@@ -35,7 +35,7 @@ def producer_1(cycles, user_id, conversation_id, sleep_time):
 def producer_2(cycles, user_id, conversation_id, sleep_time):
     redis_cache = RedisCache()
 
-    for i in range(cycles):
+    for _i in range(cycles):
         message = [BaseMessage("second producer")]
         redis_cache.insert_or_append(user_id, conversation_id, message)
         time.sleep(sleep_time)
