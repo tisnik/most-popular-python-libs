@@ -24,8 +24,8 @@
 </ul>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">faiss</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span></pre></div>
+      <div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">faiss</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -62,7 +62,7 @@
 v rovine</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+      <div class="highlight"><pre><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></pre></div>
     </div>
   </div>
@@ -89,9 +89,9 @@ v rovine</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dimension(s):         &quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total values in index:&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">ntotal</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is index trained:     &quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">is_trained</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dimension(s):         "</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total values in index:"</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">ntotal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Is index trained:     "</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">is_trained</span><span class="p">)</span>
 
 </pre></div>
     </div>
