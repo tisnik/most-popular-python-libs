@@ -33,6 +33,6 @@ print("Delka dat:", headers.get("content-length"))
 length = int(headers.get("content-length"))
 
 # precteni tela bajt po bajtu
-for i in range(length):
+for _i in range(length):
     byte = response.raw.read(1)
     print(hex(byte[0]))
