@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>create_table_2.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>create_table_2.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Knihovna SQLite s rozšířením SQLite-vec</p>
+<ul>
+<li>připojení k databázi uložené v souboru</li>
+<li>databáze je v případě potřeby vytvořena</li>
+<li>načtení rozšíření SQLite-vec</li>
+<li>vytvoření virtuální tabulky s jedním sloupcem</li>
+<li>využití kontext manažeru</li>
+<li>nepoužívá se kurzor (zkrácený zápis)</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite_vec</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>připojení k databázi uložené v souboru
+v případě potřeby je databáze vytvořena</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"v1.db"</span><span class="p">)</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>načtení rozšíření SQLite-vec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">db</span><span class="o">.</span><span class="n">enable_load_extension</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sqlite_vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">enable_load_extension</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">TABLE_STATEMENT</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">        CREATE virtual TABLE v1 USING vec0(</span>
+<span class="s2">            embedding float[2]</span>
+<span class="s2">        );</span>
+<span class="s2">    """</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>vytvoření virtuální tabulky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">TABLE_STATEMENT</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
