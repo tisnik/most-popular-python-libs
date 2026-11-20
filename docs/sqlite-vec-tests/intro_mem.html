@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>intro_mem.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>intro_mem.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Knihovna SQLite s rozšířením SQLite-vec</p>
+<ul>
+<li>připojení k databázi uložené v paměti</li>
+<li>databáze je (nutně) vždy vytvořena</li>
+<li>načtení rozšíření SQLite-vec</li>
+<li>tisk verze rozšíření SQLite-vec</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlite_vec</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>připojení k databázi uložené v paměti
+databáze je vždy vytvořena</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">db</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>načtení rozšíření SQLite-vec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">enable_load_extension</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sqlite_vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">enable_load_extension</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>tisk verze rozšíření SQLite-vec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">vec_version</span><span class="p">,</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select vec_version()"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"vec_version=</span><span class="si">{</span><span class="n">vec_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
